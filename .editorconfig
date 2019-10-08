@@ -1,0 +1,16 @@
+# editorconfig.org
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.json]
+indent_size = 4
+
+# Matches the exact files either package.json or .travis.yml
+[{package.json, package-lock.json, .travis.yml, lerna.json, yarn.lock}]
+indent_size = 2
