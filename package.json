@@ -2,12 +2,16 @@
   "name": "corporate-components",
   "version": "1.0.0",
   "description": "Component library for main Wellcome corporate site",
-  "main": "dist/index.js",
+  "main": "dist/esm/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
     "build:clean": "rm -rf dist esm",
     "build": "rollup -c",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "jest",
+    "test:ci": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -28,7 +32,13 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.9.0",
+    "markdown-loader-jest": "^0.1.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.10.2",
     "rollup": "^1.23.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
