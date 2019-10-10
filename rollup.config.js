@@ -1,9 +1,12 @@
+import fs from 'fs';
 // node-resolve will resolve all the node dependencies
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
+import sass from 'rollup-plugin-sass';
+import scssVariable from 'rollup-plugin-sass-variables'
 
 export default {
   input: 'src/components/index.js',
@@ -13,7 +16,8 @@ export default {
   },
   // All the used libs need to be here
   external: [
-    'react'
+    'react',
+    'react-dom'
   ],
   plugins: [
     resolve(),
@@ -42,5 +46,33 @@ export default {
       limit: Infinity,
     }),
     json(),
+    sass({
+      // insert: true,
+
+      // Default behaviour disable output
+      // output: false,
+
+      // Write all styles to the bundle destination where .js is replaced by .css
+      // output: true,
+
+      // Filename to write all styles
+      output: 'dist/styles.css',
+
+      // Callback that will be called ongenerate with two arguments:
+      // - styles: the concatenated styles in order of imported
+      // - styleNodes: an array of style objects:
+      //  [
+      //    { id: './style1.scss', content: 'body { color: red };' },
+      //    { id: './style2.scss', content: 'body { color: green };' }
+      //  ]
+      // output(styles, styleNodes) {
+      //   fs.writeFileSync('dist/styles.css', styles);
+      // }
+
+      options: {
+        outputStyle: 'compressed'
+      },
+    }),
+    scssVariable(),
   ]
 }
