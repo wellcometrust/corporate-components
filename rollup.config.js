@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 // node-resolve will resolve all the node dependencies
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
@@ -6,7 +7,12 @@ import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import sass from 'rollup-plugin-sass';
-import scssVariable from 'rollup-plugin-sass-variables'
+
+const globals = {
+  'react': 'React',
+  'react-dom': 'ReactDOM',
+  'styled-components': 'styled',
+};
 
 export default {
   input: 'src/components/index.js',
@@ -15,10 +21,7 @@ export default {
     format: 'esm'
   },
   // All the used libs need to be here
-  external: [
-    'react',
-    'react-dom'
-  ],
+  external: Object.keys(globals),
   plugins: [
     resolve(),
     babel({
@@ -47,7 +50,7 @@ export default {
     }),
     json(),
     sass({
-      // insert: true,
+      insert: false,
 
       // Default behaviour disable output
       // output: false,
@@ -73,6 +76,6 @@ export default {
         outputStyle: 'compressed'
       },
     }),
-    scssVariable(),
+
   ]
 }
