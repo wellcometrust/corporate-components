@@ -11,7 +11,8 @@
     "test": "jest",
     "test:ci": "jest --runInBand",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "storybook": "start-storybook -c ./config/storybook -p 6006"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,14 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-a11y": "^5.1.8",
+    "@storybook/addon-actions": "^5.1.8",
+    "@storybook/addon-knobs": "^5.1.8",
+    "@storybook/addon-storyshots": "^5.1.8",
+    "@storybook/addon-viewport": "^5.1.8",
+    "@storybook/addons": "^5.1.8",
+    "@storybook/react": "^5.1.8",
+    "babel-loader": "^8.0.6",
     "babel-plugin-require-context-hook": "^1.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -44,6 +53,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-url": "^2.2.4"
+    "rollup-plugin-url": "^2.2.4",
+    "storybook-readme": "^5.0.8"
   }
 }
