@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, contains } from 'enzyme';
+import { shallow } from 'enzyme';
 import AComp from './AComp';
 
 describe('<AComp />', () => {
