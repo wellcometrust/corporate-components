@@ -23,7 +23,7 @@ addDecorator(addReadme);
 addParameters({
   options: {
     theme: {
-      brandTitle: 'Wellcome Corporate Storybook'
+      brandTitle: 'Wellcome Design System'
     },
     panelPosition: 'right',
     sortStoriesByKind: true
