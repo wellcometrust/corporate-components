@@ -1,9 +1,18 @@
+import fs from 'fs';
+
 // node-resolve will resolve all the node dependencies
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
+import sass from 'rollup-plugin-sass';
+
+const globals = {
+  'react': 'React',
+  'react-dom': 'ReactDOM',
+  'styled-components': 'styled',
+};
 
 export default {
   input: 'src/components/index.js',
@@ -12,9 +21,7 @@ export default {
     format: 'esm'
   },
   // All the used libs need to be here
-  external: [
-    'react'
-  ],
+  external: Object.keys(globals),
   plugins: [
     resolve(),
     babel({
@@ -42,5 +49,13 @@ export default {
       limit: Infinity,
     }),
     json(),
+    sass({
+      insert: false,
+      output: 'dist/styles.css',
+      options: {
+        outputStyle: 'compressed'
+      },
+    }),
+
   ]
 }

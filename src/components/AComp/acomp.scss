@@ -1,0 +1,18 @@
+@import '../../styles/colours';
+
+.acomp {
+  background: $blue60;
+  color: #555;
+}
+
+.acomp__title {
+  color: black;
+}
+
+.acomp__content {
+  border: 1px solid #66f;
+
+  &::before {
+    content: "";
+  }
+}
