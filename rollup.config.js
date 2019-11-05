@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 // node-resolve will resolve all the node dependencies
 import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
