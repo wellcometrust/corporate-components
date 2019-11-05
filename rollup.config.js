@@ -11,7 +11,6 @@ import sass from 'rollup-plugin-sass';
 const globals = {
   'react': 'React',
   'react-dom': 'ReactDOM',
-  'styled-components': 'styled',
 };
 
 export default {
