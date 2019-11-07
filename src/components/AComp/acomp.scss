@@ -1,8 +1,13 @@
 @import '../../styles/colours';
 
 .acomp {
+  align-items: center;
   background: $blue60;
   color: #555;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 .acomp__title {

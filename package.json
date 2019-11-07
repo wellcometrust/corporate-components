@@ -8,6 +8,10 @@
   "files": [
     "dist"
   ],
+  "browserslist": [
+    "defaults",
+    "IE >= 11"
+  ],
   "scripts": {
     "build:clean": "rm -rf dist esm",
     "build": "rollup -c",
@@ -44,14 +48,17 @@
     "@storybook/addon-viewport": "^5.1.8",
     "@storybook/addons": "^5.1.8",
     "@storybook/react": "^5.1.8",
+    "autoprefixer": "^9.7.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-require-context-hook": "^1.0.0",
+    "browserslist": "^4.7.2",
     "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.9.0",
     "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.13.0",
+    "postcss": "^7.0.21",
     "react": "^16.8.6",
     "react-dom": "^16.10.2",
     "rollup": "^1.23.1",
