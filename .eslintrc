@@ -8,10 +8,13 @@
   },
   "extends": [
     "airbnb",
+    "prettier",
+    "prettier/react",
     "plugin:import/warnings",
     "plugin:promise/recommended",
   ],
   "plugins": [
+    "prettier",
     "import",
     "promise"
   ],
@@ -34,6 +37,7 @@
     "react/prop-types": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "import/no-extraneous-dependencies": 0,
+    "prettier/prettier": "error",
     "no-unused-vars": 1,
     "jsx-a11y/label-has-associated-control": [ 2, {
       "labelComponents": ["SearchLabel"],
