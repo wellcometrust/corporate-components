@@ -1,9 +1,8 @@
-@import '../../styles/colours';
-
 .acomp {
   align-items: center;
   background: $blue60;
-  color: #555;
+  font-size: rem($base-font-size);
+  color: red;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -11,11 +10,11 @@
 }
 
 .acomp__title {
-  color: black;
+  color: white;
 }
 
 .acomp__content {
-  border: 1px solid #66f;
+  border: 1px solid black;
 
   &::before {
     content: "";

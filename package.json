@@ -2,8 +2,8 @@
   "name": "corporate-components",
   "version": "1.0.0",
   "description": "Component library for main Wellcome corporate site",
-  "main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "style": "dist/styles.css",
   "files": [
     "dist"
@@ -15,6 +15,7 @@
   "scripts": {
     "build:clean": "rm -rf dist esm",
     "build": "rollup -c",
+    "develop": "rollup -c -w",
     "lint": "npm run lint:js",
     "lint:js": "eslint --fix ./src && echo 'JS linting complete'",
     "prepare": "npm run build",
@@ -69,7 +70,6 @@
     "jest": "^24.9.0",
     "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.13.0",
-    "postcss": "^7.0.21",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "rollup": "^1.23.1",
@@ -77,8 +77,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-sass-variables": "^0.1.1",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-url": "^2.2.4",
     "sass-loader": "^8.0.0",
     "storybook-readme": "^5.0.8",
