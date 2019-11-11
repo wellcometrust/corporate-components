@@ -66,10 +66,13 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.16.0",
+    "husky": "^3.0.9",
     "jest": "^24.9.0",
     "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.21",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.18.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "rollup": "^1.23.1",
@@ -84,5 +87,16 @@
     "storybook-readme": "^5.0.8",
     "style-loader": "^1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && jest --onlyChanged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:js",
+      "git add"
+    ]
+  }
 }
