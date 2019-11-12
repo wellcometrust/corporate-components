@@ -1,0 +1,81 @@
+// ==========================================================================
+// UTILITIES / WIDTHS
+// ==========================================================================
+
+/**
+ * This fairly complex looking mixin will generate our entire project’s grid
+ * system classes in one go. You shouldn’t need to know the full ins-and-outs of
+ * what is going on below; all you really need to know is that we end up with a
+ * suite of classes like:
+ *
+ * .u-width-1/2         -- 50% width
+ * .u-width-3/4@md  -- 75% width on medium-and-up screens
+ * .u-push-2/3          -- Push an item over to the right by 66.666%
+ * .u-pull-1/2@lg    -- Pull an item back to the left by 50%
+ *
+ * There can be (m)any permutations of the above: experiment!
+ *
+ * If you would like to know more, the mixin is relatively well commented.
+ *
+ * - - -
+ *
+ * To create a non-responsive 12 column grid system, simply call:
+ *
+ *   @include widths(12);
+ *
+ * To create a 3 and 4 column grid system on medium sized screens:
+ *
+ *   @media screen and (min-width: 720px) {
+ *     @include widths(3 4, \@md);
+ *   }
+ *
+ * To create a 1, 2, 3 and 4 column grid system on large sized screens:
+ *
+ *   @media screen and (min-width: 1024px) {
+ *     @include widths(1 2 3 4, \@lg);
+ *   }
+ *
+ * Basically, we just call the mixin again but inside of a breakpoint of our
+ * choosing, and with the additional responsive suffix (e.g. `\@lg`).
+ *
+ * Width utilities will override any matching property declarations.
+ *
+ */
+
+@mixin widths($widths-columns, $widths-breakpoint: null) {
+
+  // Loop through the number of columns for each denominator of our fractions.
+  @each $widths-denominator in $widths-columns {
+
+    // Begin creating a numerator for our fraction up until we hit the
+    // denominator.
+    @for $widths-numerator from 1 through $widths-denominator {
+
+      // Build a class in the format `.u-width-3/4[@<breakpoint>]`.
+      .u-width-#{$widths-numerator}\/#{$widths-denominator}#{$widths-breakpoint} {
+        width: ($widths-numerator / $widths-denominator) * 100% !important;
+      }
+    }
+  }
+}
+
+/**
+ * Build the grids
+ * Create all of our classes for any/all breakpoints (e.g. `.u-width-1/2`).
+ */
+
+@include widths(1 2 3 6 9 12);
+
+/**
+ * Create classes that take effect only at specific breakpoints
+ * (e.g. `.u-1/3@md`).
+ *
+ * Here we’re just looping through our Sass MQ array and generating classes
+ * to suit each of the breakpoints we find.
+ */
+
+@each $alias, $bp in $breakpoints {
+  @include mq($from: $bp) {
+    @include widths(1 2 3 4 5 6, \@#{$alias});
+  }
+}

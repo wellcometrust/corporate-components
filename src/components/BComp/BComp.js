@@ -1,9 +1,9 @@
 import React from 'react';
 
 export const BComp = ({ children }) => (
-  <div className="bcomp">
-    <h2 className="bcomp__title">Test Component</h2>
-    <div className="bcomp__content">{children}</div>
+  <div className="c-bcomp">
+    <h2 className="c-bcomp__title">Test Component</h2>
+    <div className="c-bcomp__content">{children}</div>
   </div>
 );
 

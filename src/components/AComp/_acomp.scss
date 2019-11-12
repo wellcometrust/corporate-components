@@ -1,4 +1,4 @@
-.acomp {
+.c-acomp {
   align-items: center;
   background: $blue60;
   font-size: rem($base-font-size);
@@ -9,14 +9,14 @@
   z-index: 1;
 }
 
-.acomp__title {
-  color: white;
-}
-
-.acomp__content {
-  border: 1px solid black;
-
-  &::before {
-    content: "";
+  .c-acomp__title {
+    color: white;
   }
-}
+
+  .c-acomp__content {
+    border: 1px solid black;
+
+    &::before {
+      content: "";
+    }
+  }

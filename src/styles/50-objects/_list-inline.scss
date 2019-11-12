@@ -1,0 +1,13 @@
+// ----------------------------------
+// UI Objects - List Inline
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.o-list-inline {
+  @include cleanlist;
+
+  > li {
+    display: inline-block;
+  }
+}
