@@ -15,7 +15,7 @@ const globals = {
 export default {
   input: 'src/components/index.js',
   output: {
-    file: 'dist/index.js',
+    file: 'dist/esm/index.js',
     format: 'esm'
   },
   // All the used libs need to be here
@@ -48,7 +48,7 @@ export default {
     }),
     json(),
     postcss({
-      extract: true,
+      extract: 'dist/style.css',
       minimize: true,
       plugins: [autoprefixer()]
     })
