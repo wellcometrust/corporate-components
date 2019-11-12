@@ -4,9 +4,8 @@ import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
-import sass from 'rollup-plugin-sass';
 import autoprefixer from 'autoprefixer';
-import postcss from 'postcss';
+import postcss from 'rollup-plugin-postcss';
 
 const globals = {
   'react': 'React',
@@ -48,16 +47,10 @@ export default {
       limit: Infinity,
     }),
     json(),
-    sass({
-      insert: false,
-      output: 'dist/styles.css',
-      options: {
-        outputStyle: 'compressed'
-      },
-      processor: css => postcss([autoprefixer])
-        .process(css)
-        .then(result => result.css)
-    }),
-
-  ]
+    postcss({
+      extract: 'dist/style.css',
+      minimize: true,
+      plugins: [autoprefixer()]
+    })
+  ],
 }

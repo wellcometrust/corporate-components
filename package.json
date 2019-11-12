@@ -15,6 +15,7 @@
   "scripts": {
     "build:clean": "rm -rf dist esm",
     "build": "rollup -c",
+    "develop": "rollup -c -w",
     "lint": "npm run lint:js",
     "lint:js": "eslint --fix ./src && echo 'JS linting complete'",
     "prepare": "npm run build",
@@ -80,8 +81,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-sass-variables": "^0.1.1",
+    "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-url": "^2.2.4",
     "sass-loader": "^8.0.0",
     "storybook-readme": "^5.0.8",
