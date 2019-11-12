@@ -7,11 +7,7 @@ import AComp from './AComp';
 const ACompExample = ({ children }) => {
   const compText = text('compText', 'Hello, world!');
 
-  return (
-    <AComp>
-      {compText}
-    </AComp>
-  );
+  return <AComp>{compText}</AComp>;
 };
 
 const stories = storiesOf('Components|AComp', module);
