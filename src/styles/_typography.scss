@@ -1,0 +1,72 @@
+// ----------------------------------
+// Typography
+// https://zpl.io/aRGJN8v
+// ----------------------------------
+
+:root {
+  // font family
+  --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-secondary: 'Wellcome-Bold';
+
+  // body font size (16px browser default)
+  --text-base-size: 1em;
+
+  // type scale formula / TODO: needs revising
+  --text-scale-ratio: 1.2;
+  --text-xs: calc((1em / var(--text-scale-ratio)) / var(--text-scale-ratio));
+  --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+  --text-md: calc(
+    var(--text-sm) * var(--text-scale-ratio) * var(--text-scale-ratio)
+  );
+  --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
+  --text-xxxl: calc(var(--text-xxl) * var(--text-scale-ratio));
+
+  // line height
+  --body-line-height: 1.7;
+  --heading-line-height: 1.5;
+
+  // letter spacing
+  --body-letter-spacing: 0.25px;
+  --heading-letter-spacing: -0.5px;
+}
+
+// body vars
+body {
+  color: var(--colour-grey-90);
+  font-family: var(--font-primary);
+  font-size: var(--text-base-size, 1em);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
+}
+
+// heading sizes
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--heading-line-height);
+}
+
+h1,
+.text--xxl {
+  font-size: var(--text-xxl);
+  line-height: var(--heading-line-height);
+}
+
+h2,
+.text--xl {
+  font-size: var(--text-xl);
+  line-height: var(--heading-line-height);
+}
+
+h3,
+.text--lg {
+  font-size: var(--text-lg);
+}
+
+h4,
+.text--md {
+  font-size: var(--text-md);
+}
