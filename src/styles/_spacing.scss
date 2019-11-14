@@ -4,7 +4,7 @@
 // ----------------------------------
 
 :root {
-  --space-unit: 1em;
+  --space-unit: 1rem;
 
   // --space-xs: 4px
   // --space-sm: 6px
@@ -37,3 +37,8 @@
     --space-xl: calc(4 * var(--space-unit));
   }
 }
+
+// USAGE
+// .component {
+//   margin: var(--space-md);
+// }

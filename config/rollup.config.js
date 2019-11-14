@@ -6,8 +6,8 @@ import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
-import postcssCustomProperties from 'postcss-custom-properties';
-import postcssCalc from 'postcss-calc';
+// import postcssCalc from 'postcss-calc';
+import cssvariables from 'postcss-css-variables';
 
 const extensions = [
   '.js',
@@ -62,7 +62,7 @@ export default {
     postcss({
       extract: 'dist/styles.css',
       minimize: true,
-      plugins: [autoprefixer(), postcssCustomProperties(), postcssCalc()]
+      plugins: [autoprefixer(), cssvariables()]
     })
   ]
 };
