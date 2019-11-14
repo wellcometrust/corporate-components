@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ACompProps {
+type ACompProps = {
   children?: any
 }
 

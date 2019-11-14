@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-interface BCompProps {
+type BCompProps = {
   children?: any
 }
 
