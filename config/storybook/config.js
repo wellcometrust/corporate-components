@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { addReadme } from 'storybook-readme';
 
 function loadStories() {
-  const req = require.context('../../src', true, /\.stories\.js$/);
+  const req = require.context('../../src', true, /\.stories\.(js|ts)x?$/);
 
   req.keys().forEach(filename => req(filename));
 }

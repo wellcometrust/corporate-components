@@ -7,6 +7,19 @@ module.exports = async ({ config, mode }) => {
   // 'PRODUCTION' is used when building the static version of storybook.
 
   // Make whatever fine-grained changes you need
+
+  // TypeScript
+  config.resolve.extensions.push('.ts', '.tsx', '.js', '.json', '.css');
+  config.module.rules.push({
+    test: /\.(js|ts)x?$/,
+    exclude: /node_modules/,
+    use: [
+      require.resolve('babel-loader'),
+      require.resolve('react-docgen-typescript-loader'),
+    ],
+  });
+
+  // CSS
   config.module.rules.push({
     test: /\.scss$/,
     use: ['style-loader', 'css-loader', 'sass-loader'],
