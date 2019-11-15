@@ -9,8 +9,7 @@
     "dist"
   ],
   "browserslist": [
-    "defaults",
-    "IE >= 11"
+    "defaults"
   ],
   "scripts": {
     "build:clean": "rm -rf dist",
@@ -81,6 +80,7 @@
     "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.21",
+    "postcss-calc": "^7.0.1",
     "postcss-css-variables": "^0.13.0",
     "prettier": "^1.18.2",
     "react": "^16.10.2",

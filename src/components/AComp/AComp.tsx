@@ -6,7 +6,12 @@ type ACompProps = {
 
 export const AComp = ({ children }: ACompProps) => (
   <div className="acomp">
-    <h2 className="acomp__title">Test Component</h2>
+    <h1>Heading: Super</h1>
+    <h2>Heading: Hero</h2>
+    <h3>Heading: Display</h3>
+    <h4>Heading: Large</h4>
+    <h5>Heading: Regular</h5>
+    <h6>Heading: Small</h6>
     <div className="acomp__content">{children}</div>
   </div>
 );
