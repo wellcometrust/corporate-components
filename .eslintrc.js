@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es6: true,
+    es2020: true,
     jest: true
   },
   extends: [
@@ -13,17 +13,18 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:promise/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint'
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 2020,
     project: 'tsconfig.json',
     sourceType: 'module',
   },
   plugins: [
     'prettier',
     'import',
-    'promise'
+    'promise',
   ],
   globals: {
     document: true,
@@ -40,18 +41,16 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     'import/no-extraneous-dependencies': 0,
     'prettier/prettier': 'error',
-    'no-unused-vars': 1,
     'jsx-a11y/label-has-associated-control': [ 2, {
       labelComponents: ['SearchLabel'],
       controlComponents: ['SearchInput'],
       depth: 3,
     }],
-    'jsx-a11y/label-has-for': 0, // rule was deprecated
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/camelcase': ['warn', { properties: 'never' }],
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/no-unused-vars': [
-      'error',
+      'warn',
       {
         vars: 'all',
         args: 'after-used',

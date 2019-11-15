@@ -1,8 +1,8 @@
 import React from 'react';
 
 type BCompProps = {
-  children?: any
-}
+  children?: any;
+};
 
 export const BComp = ({ children }: BCompProps) => (
   <div className="bcomp">

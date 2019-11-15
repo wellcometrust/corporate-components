@@ -4,7 +4,7 @@ import { boolean, text, select } from '@storybook/addon-knobs';
 
 import AComp from './AComp';
 
-const ACompExample = ({ children }) => {
+const ACompExample = () => {
   const compText = text('compText', 'Hello, world!');
 
   return <AComp>{compText}</AComp>;
