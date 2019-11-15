@@ -1,21 +1,17 @@
 .acomp {
   align-items: center;
-  // background: $blue60;
-  // font-size: rem($base-font-size);
-  color: red;
+  background: var(--colour-grey-80);
+  color: var(--colour-grey-05);
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   justify-content: space-between;
+  margin: var(--space-md);
   padding: var(--space-xl);
   z-index: 1;
 }
 
-.acomp__title {
-  color: white;
-}
-
 .acomp__content {
-  border: 1px solid black;
+  border: 1px solid var(--colour-grey-90);
 
   &::before {
     content: '';
