@@ -9,12 +9,7 @@ import postcss from 'rollup-plugin-postcss';
 import cssvariables from 'postcss-css-variables';
 import calc from 'postcss-calc';
 
-const extensions = [
-  '.js',
-  '.jsx',
-  '.ts',
-  '.tsx'
-];
+const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 const globals = {
   react: 'React',
@@ -31,7 +26,7 @@ export default {
   external: Object.keys(globals),
   plugins: [
     resolve({
-      extensions,
+      extensions
     }),
     babel({
       exclude: 'node_modules/**',
