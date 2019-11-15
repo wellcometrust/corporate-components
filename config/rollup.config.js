@@ -7,13 +7,20 @@ import url from 'rollup-plugin-url';
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
 
+const extensions = [
+  '.js',
+  '.jsx',
+  '.ts',
+  '.tsx'
+];
+
 const globals = {
   'react': 'React',
   'react-dom': 'ReactDOM',
 };
 
 export default {
-  input: 'src/components/index.js',
+  input: 'src/components/index.ts',
   output: {
     file: 'dist/esm/index.js',
     format: 'esm'
@@ -21,9 +28,12 @@ export default {
   // All the used libs need to be here
   external: Object.keys(globals),
   plugins: [
-    resolve(),
+    resolve({
+      extensions,
+    }),
     babel({
       exclude: 'node_modules/**',
+      extensions,
       runtimeHelpers: true
     }),
     commonjs({
