@@ -11,7 +11,8 @@ const extensions = [
   '.js',
   '.jsx',
   '.ts',
-  '.tsx'
+  '.tsx',
+  '.md'
 ];
 
 const globals = {

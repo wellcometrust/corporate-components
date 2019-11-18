@@ -1,7 +1,7 @@
 import React from 'react';
 
 type BCompProps = {
-  children?: any;
+  children?: React.ReactNode;
 };
 
 export const BComp = ({ children }: BCompProps) => (

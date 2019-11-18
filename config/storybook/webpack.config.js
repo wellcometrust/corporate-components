@@ -9,7 +9,7 @@ module.exports = async ({ config, mode }) => {
   // Make whatever fine-grained changes you need
 
   // TypeScript
-  config.resolve.extensions.push('.ts', '.tsx', '.js', '.json', '.css');
+  config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.md');
   config.module.rules.push({
     test: /\.(js|ts)x?$/,
     exclude: /node_modules/,
