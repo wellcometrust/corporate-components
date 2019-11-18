@@ -8,13 +8,13 @@ module.exports = {
   },
   extends: [
     'airbnb',
-    'prettier',
-    'prettier/react',
+    'plugin:@typescript-eslint/recommended',
     'plugin:import/warnings',
     'plugin:promise/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react',
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -32,14 +32,15 @@ module.exports = {
     process: true
   },
   rules: {
+    'react/destructuring-assignment': 0,
     'react/forbid-prop-types': 0,
     'react/jsx-filename-extension': 0,
-    'react/destructuring-assignment': 0,
     'react/no-unused-prop-types': 0,
-    'react/react-in-jsx-scope': 0,
     'react/prop-types': 0,
+    'react/react-in-jsx-scope': 0,
+    'react/jsx-props-no-spreading': 0,
     'jsx-a11y/anchor-is-valid': 0,
-    'import/no-extraneous-dependencies': 0,
+    'import/no-extraneous-dependencies': ["error", {"devDependencies": true}],
     'prettier/prettier': 'error',
     'jsx-a11y/label-has-associated-control': [ 2, {
       labelComponents: ['SearchLabel'],
