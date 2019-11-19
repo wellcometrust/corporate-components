@@ -1,0 +1,17 @@
+@import '../../styles/settings/__manifest';
+@import '../../styles/tools/__manifest';
+
+.bcomp {
+  @include clearfix;
+
+  background: $grey20;
+  color: $cyan20;
+}
+
+.bcomp__title {
+  color: black;
+}
+
+.bcomp__content {
+  border: 1px solid #66f;
+}

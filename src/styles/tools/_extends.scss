@@ -1,8 +1,9 @@
 // ----------------------------------
-// UI
+// UI Tools - Extends
 // Design System 1.0 Alpha
 // 2019-11-19
 // ----------------------------------
 
-@import '../components/AComp/__style';
-@import '../components/BComp/__style';
+%mb-0 {
+  margin-bottom: 0;
+}

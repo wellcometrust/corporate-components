@@ -1,4 +1,10 @@
+@import '../../styles/settings/__manifest';
+@import '../../styles/tools/__manifest';
+
 .acomp {
+  @include clearfix;
+  @extend %mb-0;
+
   align-items: center;
   background: $blue60;
   font-size: rem($base-font-size);

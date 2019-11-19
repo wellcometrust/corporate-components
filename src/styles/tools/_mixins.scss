@@ -1,8 +1,13 @@
 // ----------------------------------
-// UI
+// UI Tools - Mixins
 // Design System 1.0 Alpha
 // 2019-11-19
 // ----------------------------------
 
-@import '../components/AComp/__style';
-@import '../components/BComp/__style';
+@mixin clearfix {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
