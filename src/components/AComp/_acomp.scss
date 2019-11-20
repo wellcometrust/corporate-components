@@ -1,4 +1,6 @@
-.c-acomp {
+@import './src/assets/styles/base';
+
+.acomp {
   align-items: center;
   background: $blue60;
   font-size: rem($base-font-size);
@@ -9,11 +11,11 @@
   z-index: 1;
 }
 
-  .c-acomp__title {
+  .acomp__title {
     color: white;
   }
 
-  .c-acomp__content {
+  .acomp__content {
     border: 1px solid black;
 
     &::before {

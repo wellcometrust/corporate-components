@@ -1,5 +1,7 @@
 // ----------------------------------
-// UI Tools [Mixins]
+// UI Tools
+// Mixins
+// ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
@@ -23,24 +25,5 @@
   &:hover,
   &:focus {
     @content;
-  }
-}
-
-/**
- * Override default <ul> list style
- *
- * Usage:
- *
- * .c-list {
- *   @include cleanlist;
- * }
- *
- */
-@mixin cleanlist {
-  margin-bottom: 0;
-  margin-left: 0;
-
-  > li {
-    list-style: none;
   }
 }

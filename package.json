@@ -80,7 +80,6 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-url": "^2.2.4",
     "sass-loader": "^8.0.0",
-    "sass-mq": "^5.0.1",
     "storybook-readme": "^5.0.8",
     "style-loader": "^1.0.0"
   },

@@ -1,12 +1,14 @@
-.c-bcomp {
+@import './src/assets/styles/base';
+
+.bcomp {
   background: $grey20;
   color: #555;
 }
 
-  .c-bcomp__title {
+  .bcomp__title {
     color: black;
   }
 
-  .c-bcomp__content {
+  .bcomp__content {
     border: 1px solid #66f;
   }
