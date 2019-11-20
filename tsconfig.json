@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "rootDir": "./src",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "strict": false,
+        "target": "esnext",
+        "declaration": true /* Generates corresponding '.d.ts' file. */,
+        "outDir": "dist" /* Redirect output structure to the directory. */,
+        "typeRoots": [
+            "node_modules/@types",
+            "./typings.d.ts",
+        ],
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "resolveJsonModule": true
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
