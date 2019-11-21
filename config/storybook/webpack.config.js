@@ -10,6 +10,14 @@ module.exports = async ({ config, mode }) => {
 
   // TypeScript
   config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.md');
+
+  // configure storybook to use absolute paths
+  config.resolve.modules = [
+    ...(config.resolve.modules || []),
+    path.resolve('./src/'),
+    path.resolve('./src/components'),
+  ];
+
   config.module.rules.push({
     test: /\.(js|ts)x?$/,
     exclude: /node_modules/,
@@ -25,6 +33,7 @@ module.exports = async ({ config, mode }) => {
     use: ['style-loader', 'css-loader', 'sass-loader'],
     include: path.resolve(__dirname, '../../'),
   });
+
 
   // Return the altered config
   return config;

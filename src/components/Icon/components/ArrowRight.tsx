@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgArrowNarrow = props => (
+import { IconSVGProps } from '../Icon';
+
+const ArrowRight = (props: IconSVGProps) => (
   <svg viewBox="0 0 10 16" {...props}>
     <path
       fill="currentColor"
@@ -10,4 +12,4 @@ const SvgArrowNarrow = props => (
   </svg>
 );
 
-export default SvgArrowNarrow;
+export default ArrowRight;

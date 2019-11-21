@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgExternalLink = props => (
+import { IconSVGProps } from '../Icon';
+
+const SvgExternalLink = (props: IconSVGProps) => (
   <svg viewBox="0 0 18 18" {...props}>
     <g fill="currentColor" fillRule="evenodd">
       <path d="M13.5 16.25h-12v-12h7v-1.5H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-7.5h-1.5v7z" />

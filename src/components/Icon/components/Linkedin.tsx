@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgLinkedin = props => (
+import { IconSVGProps } from '../Icon';
+
+const SvgLinkedin = (props: IconSVGProps) => (
   <svg viewBox="0 0 28 28" {...props}>
     <g fill="none" fillRule="evenodd">
       <path
