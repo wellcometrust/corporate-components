@@ -9,7 +9,7 @@ storiesOf('Components|Icon', module).add(
   () => (
     <div>
       <p>Chevron</p>
-      <Icon name="arrowNarrow" />
+      <Icon name="arrowRight" />
       <p>Close (cross in circle)</p>
       <Icon name="circleCross" />
       <p>Close</p>

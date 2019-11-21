@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgCross = props => (
+import { IconSVGType } from '../Icon';
+
+const SvgCross = (props: IconSVGType) => (
   <svg viewBox="0 0 19 18" {...props}>
     <g fill="currentColor" fillRule="evenodd">
       <path d="M17.632.161l.707.707-16.97 16.97-.708-.706z" />

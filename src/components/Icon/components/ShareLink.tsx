@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgShareLink = props => (
+import { IconSVGType } from '../Icon';
+
+const SvgShareLink = (props: IconSVGType) => (
   <svg viewBox="0 0 44 44" {...props}>
     <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
       <path

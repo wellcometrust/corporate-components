@@ -16,7 +16,7 @@
   "scripts": {
     "build:clean": "rm -rf dist",
     "build": "npm run build:clean && rollup -c ./config/rollup.config.js",
-    "develop": "rollup -c ./config/rollup.config.js -w",
+    "dev": "npm run build -- -w",
     "lint": "npm run lint:js",
     "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",
     "prepare": "npm run build",

@@ -1,30 +1,33 @@
 import React from 'react';
 
-// import iconTypes from './iconTypes';
-import CircleCross from './components/CircleCross';
+import iconMapping from './iconMapping';
 
-type IconProps = {
+type IconType = {
   className?: string;
   height?: string;
   name: string;
   width?: string;
 };
 
+export type IconSVGType = {
+  role?: string;
+  title?: string;
+};
+
 export const Icon = ({
   className,
   name,
-  width = '1rem',
-  height = '1rem'
-}: IconProps) => {
-  // TODO: #5662 fix type checking
-  // const IconElement: React.SFC = iconTypes[name];
+  height = '1rem',
+  width = '1rem'
+}: IconType) => {
+  const isIcon = iconMapping.has(name);
+  const IconElement = iconMapping.get(name);
 
-  return (
+  return isIcon ? (
     <div className={className} style={{ height, width }} aria-hidden="true">
-      {/* <IconElement /> */}
-      <CircleCross />
+      <IconElement />
     </div>
-  );
+  ) : null;
 };
 
 export default Icon;

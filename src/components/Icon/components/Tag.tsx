@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgTag = props => (
+import { IconSVGType } from '../Icon';
+
+const SvgTag = (props: IconSVGType) => (
   <svg viewBox="0 0 14 14" {...props}>
     <path
       fill="currentColor"

@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgFacebook = props => (
+import { IconSVGType } from '../Icon';
+
+const SvgFacebook = (props: IconSVGType) => (
   <svg viewBox="0 0 28 28" {...props}>
     <g fill="none" fillRule="evenodd">
       <path
