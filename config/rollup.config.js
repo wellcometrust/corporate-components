@@ -31,6 +31,13 @@ export default {
   plugins: [
     resolve({
       extensions,
+      customResolveOptions: {
+        // Allows us to import modules absolutely from these directories
+        moduleDirectory: [
+          './src',
+          './src/components'
+        ]
+      }
     }),
     babel({
       exclude: 'node_modules/**',
