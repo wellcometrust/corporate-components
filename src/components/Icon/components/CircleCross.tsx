@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { IconSVGType } from '../Icon';
+import { IconSVGProps } from '../Icon';
 
-const SvgCircleCross = (props: IconSVGType) => (
+const SvgCircleCross = (props: IconSVGProps) => (
   <svg viewBox="0 0 18 18" {...props}>
     <g fill="none" fillRule="evenodd">
       <path fill="currentColor" d="M9 0a9 9 0 0 1 9 9 9 9 0 1 1-9-9z" />

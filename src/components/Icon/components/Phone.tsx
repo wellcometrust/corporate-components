@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { IconSVGType } from '../Icon';
+import { IconSVGProps } from '../Icon';
 
-const SvgPhone = (props: IconSVGType) => (
+const SvgPhone = (props: IconSVGProps) => (
   <svg viewBox="0 0 21 22" {...props}>
     <path
       fill="currentColor"

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { IconSVGType } from '../Icon';
+import { IconSVGProps } from '../Icon';
 
-const ArrowRight = (props: IconSVGType) => (
+const ArrowRight = (props: IconSVGProps) => (
   <svg viewBox="0 0 10 16" {...props}>
     <path
       fill="currentColor"

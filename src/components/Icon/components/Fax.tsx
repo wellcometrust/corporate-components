@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { IconSVGType } from '../Icon';
+import { IconSVGProps } from '../Icon';
 
-const SvgFax = (props: IconSVGType) => (
+const SvgFax = (props: IconSVGProps) => (
   <svg viewBox="0 0 21 23" {...props}>
     <g fill="none" fillRule="evenodd">
       <path
