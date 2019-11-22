@@ -13,7 +13,7 @@ const ButtonExample = () => {
     'icon',
     [
       '',
-      'arrowNarrow',
+      'arrowRight',
       'circleCross',
       'close',
       'download',

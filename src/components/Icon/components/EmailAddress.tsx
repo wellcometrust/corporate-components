@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgEmailAddress = props => (
+import { IconSVGProps } from '../Icon';
+
+const SvgEmailAddress = (props: IconSVGProps) => (
   <svg viewBox="0 0 21 21" {...props}>
     <path
       fill="currentColor"

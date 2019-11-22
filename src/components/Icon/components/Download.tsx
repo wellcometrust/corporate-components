@@ -1,6 +1,8 @@
 import React from 'react';
 
-const SvgDownload = props => (
+import { IconSVGProps } from '../Icon';
+
+const SvgDownload = (props: IconSVGProps) => (
   <svg viewBox="0 0 21 16" {...props}>
     <g fill="currentColor" fillRule="evenodd">
       <path d="M19.5 7.75v6.75h-18V7.75H0V15a1 1 0 0 0 1 1h19a1 1 0 0 0 1-1V7.75h-1.5z" />
