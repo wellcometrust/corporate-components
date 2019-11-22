@@ -104,7 +104,7 @@
   "dependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && jest --onlyChanged"
+      "pre-commit": "npm run type-check && lint-staged && jest --onlyChanged"
     }
   },
   "lint-staged": {
