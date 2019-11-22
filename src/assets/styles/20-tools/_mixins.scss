@@ -1,0 +1,29 @@
+// ----------------------------------
+// UI Tools
+// Mixins
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Combine :hover and :focus styles.
+ *
+ * Usage:
+ *
+ * .c-component {
+ *   color: blue;
+ *
+ *   @include hocus {
+ *     color: black;
+ *   }
+ * }
+ *
+ */
+
+@mixin hocus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
