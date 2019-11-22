@@ -9,7 +9,7 @@ module.exports = async ({ config, mode }) => {
   // Make whatever fine-grained changes you need
 
   // TypeScript
-  config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.md');
+  config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx', '.json', '.css');
 
   // configure storybook to use absolute paths
   config.resolve.modules = [
