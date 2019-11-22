@@ -9,6 +9,11 @@ type IconProps = {
   width?: string;
 };
 
+export type IconSVGProps = {
+  role?: string;
+  title?: string;
+};
+
 export const Icon = ({
   className,
   name,
