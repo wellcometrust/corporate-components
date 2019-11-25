@@ -1,0 +1,44 @@
+// ----------------------------------
+// Spacing
+// https://zpl.io/bJWJNgW
+// ----------------------------------
+
+:root {
+  --space-unit: 1rem;
+
+  // --space-xs: 4px
+  // --space-sm: 6px
+  // --space-md: 8px
+  // --space-lg: 16px
+  // --space-xl: 32px
+  --space-xs: calc(0.25 * var(--space-unit));
+  --space-sm: calc(0.375 * var(--space-unit));
+  --space-md: calc(0.5 * var(--space-unit));
+  --space-lg: calc(1 * var(--space-unit));
+  --space-xl: calc(2 * var(--space-unit));
+
+  // --space-sm: 8px
+  // --space-md: 12px
+  // --space-lg: 24px
+  // --space-xl: 48px
+  @include breakpoint(sm) {
+    --space-sm: calc(0.5 * var(--space-unit));
+    --space-md: calc(0.75 * var(--space-unit));
+    --space-lg: calc(1.5 * var(--space-unit));
+    --space-xl: calc(3 * var(--space-unit));
+  }
+
+  // --space-md: 16px
+  // --space-lg: 32px
+  // --space-xl: 64px
+  @include breakpoint(md) {
+    --space-md: calc(1 * var(--space-unit));
+    --space-lg: calc(2 * var(--space-unit));
+    --space-xl: calc(4 * var(--space-unit));
+  }
+}
+
+// USAGE
+// .component {
+//   margin: var(--space-md);
+// }

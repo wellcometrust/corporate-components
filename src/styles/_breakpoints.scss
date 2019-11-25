@@ -1,0 +1,20 @@
+// ----------------------------------
+// Breakpoints
+// sm: 768px
+// md: 1024px
+// lg: 1200px
+// xl: 1344px
+// ----------------------------------
+
+$breakpoints: (
+  sm: 48rem,
+  md: 64rem,
+  lg: 75rem,
+  xl: 84rem
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+    @content;
+  }
+}
