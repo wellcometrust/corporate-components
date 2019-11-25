@@ -67,7 +67,7 @@ export default {
     }),
     json(),
     postcss({
-      extract: 'dist/styles.css',
+      extract: 'dist/style.css',
       minimize: false,
       plugins: [
         autoprefixer(),
