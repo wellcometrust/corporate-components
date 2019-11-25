@@ -1,0 +1,115 @@
+// ----------------------------------
+// UI Settings
+// Typography
+// https://zpl.io/aRGJN8v
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+:root {
+  // font family
+  --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-secondary: 'Wellcome-Bold';
+
+  // body font size (1rem = 16px browser default)
+  --text-base-size: 1rem;
+
+  // --text-xs: 14px
+  // --text-sm: 15px
+  // --text-md: 16px
+  // --text-lg: 22px
+  // --text-xl: 24px
+  // --text-xxl: 28px
+  --text-xs: calc(0.88 * var(--text-base-size));
+  --text-sm: calc(0.94 * var(--text-base-size));
+  --text-md: calc(1 * var(--text-base-size));
+  --text-lg: calc(1.38 * var(--text-base-size));
+  --text-xl: calc(1.5 * var(--text-base-size));
+  --text-xxl: calc(1.75 * var(--text-base-size));
+
+  // line height
+  --body-line-height: 1.7;
+  --heading-line-height: 1.5;
+
+  // letter spacing
+  --body-letter-spacing: 0.25px;
+  --heading-letter-spacing: -0.5px;
+}
+
+:root {
+  @include breakpoint(sm) {
+    // --text-md: 18px
+    // --text-xl: 28px
+    // --text-xxl: 32px
+    --text-md: calc(1.13 * var(--text-base-size));
+    --text-xl: calc(1.75 * var(--text-base-size));
+    --text-xxl: calc(2 * var(--text-base-size));
+  }
+}
+
+:root {
+  @include breakpoint(md) {
+    // --text-sm: 16px
+    // --text-md: 20px
+    // --text-lg: 24px
+    // --text-xl: 32px
+    // --text-xxl: 40px
+    --text-sm: calc(1 * var(--text-base-size));
+    --text-md: calc(1.25 * var(--text-base-size));
+    --text-lg: calc(1.5 * var(--text-base-size));
+    --text-xl: calc(2 * var(--text-base-size));
+    --text-xxl: calc(2.5 * var(--text-base-size));
+  }
+}
+
+// body vars
+body {
+  color: var(--colour-grey-90);
+  font-family: var(--font-primary);
+  font-size: var(--text-base-size);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
+}
+
+// heading sizes
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: var(--heading-line-height);
+}
+
+h1,
+.text--xxl {
+  font-size: var(--text-xxl);
+}
+
+h2,
+.text--xl {
+  font-size: var(--text-xl);
+}
+
+h3,
+.text--lg {
+  font-size: var(--text-lg);
+}
+
+h4,
+.text--md {
+  font-size: var(--text-md);
+}
+
+h5,
+.text--sm {
+  font-size: var(--text-sm);
+}
+
+h6,
+.text--xs {
+  font-size: var(--text-xs);
+}
