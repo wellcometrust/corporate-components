@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 
 import Icon from 'Icon/Icon';
 
@@ -8,7 +9,7 @@ type ButtonProps = {
   disabled?: boolean;
   href?: string | null;
   icon?: string;
-  iconPlacement?: '' | 'left' | 'right';
+  iconPlacementSwitch?: boolean;
   tabIndex?: string;
   type?: string;
 };
@@ -19,26 +20,27 @@ export const Button = ({
   disabled,
   href,
   icon,
-  iconPlacement,
+  iconPlacementSwitch,
   tabIndex,
   type
 }: ButtonProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Element: any = href ? 'a' : 'button';
+  const classNames = cx('btn', { [`${className}`]: className });
 
   return (
     <Element
-      className={className}
+      className={classNames}
       disabled={disabled}
       href={href}
       tabIndex={tabIndex}
       type={!href ? type : null}
     >
-      {icon && (iconPlacement === 'left' || iconPlacement === '') && (
+      {icon && !iconPlacementSwitch && (
         <Icon name={icon} className="btn__icon btn__icon--left" />
       )}
       <span className="btn__text">{children}</span>
-      {icon && iconPlacement === 'right' && (
+      {icon && iconPlacementSwitch && (
         <Icon name={icon} className="btn__icon btn__icon--right" />
       )}
     </Element>

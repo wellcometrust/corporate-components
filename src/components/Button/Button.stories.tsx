@@ -32,14 +32,14 @@ const ButtonExample = () => {
     ],
     ''
   );
-  const iconPlacement = select('iconPlacement', ['left', 'right'], '');
+  const iconPlacementSwitch = boolean('iconPlacementSwitch', false);
 
   return (
     <Button
       disabled={disabled}
       href={href}
       icon={icon}
-      iconPlacement={iconPlacement}
+      iconPlacementSwitch={iconPlacementSwitch}
     >
       {buttonText}
     </Button>
