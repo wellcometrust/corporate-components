@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { addReadme } from 'storybook-readme';
 
 // import SASS styles globally
-import '!style-loader!css-loader!sass-loader!./scss-loader.scss';
+import '!style-loader!css-loader!sass-loader!./storybook-app.scss';
 
 function loadStories() {
   const req = require.context('../../src', true, /\.stories\.(js|ts)x?$/);
