@@ -24,8 +24,9 @@
  * }
  *
  */
+
 @function rem($size) {
-  $remSize: $size / 16;
+  $remSize: $size / $text-base-pixels;
 
   @return #{$remSize}rem;
 }
