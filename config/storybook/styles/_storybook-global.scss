@@ -1,0 +1,41 @@
+// body vars
+body {
+  color: var(--colour-grey-90);
+  font-family: var(--font-primary);
+  font-size: var(--text-base-size);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %heading-base;
+}
+
+h1 {
+  @extend %text-xxl;
+}
+
+h2 {
+  @extend %text-xl;
+}
+
+h3 {
+  @extend %text-lg;
+}
+
+h4 {
+  @extend %text-md;
+}
+
+h5 {
+  @extend %text-sm;
+}
+
+h6 {
+  @extend %text-xs;
+}

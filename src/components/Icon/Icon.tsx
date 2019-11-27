@@ -1,6 +1,12 @@
 import React from 'react';
+import cx from 'classnames';
 
 import iconMapping from './iconMapping';
+
+export type IconSVGProps = {
+  role?: string;
+  title?: string;
+};
 
 type IconProps = {
   className?: string;
@@ -9,22 +15,13 @@ type IconProps = {
   width?: string;
 };
 
-export type IconSVGProps = {
-  role?: string;
-  title?: string;
-};
-
-export const Icon = ({
-  className,
-  name,
-  height = '1rem',
-  width = '1rem'
-}: IconProps) => {
+export const Icon = ({ className, height, name, width }: IconProps) => {
   const isIcon = iconMapping.has(name);
   const IconElement = iconMapping.get(name);
+  const classNames = cx('icon', { [`${className}`]: className });
 
   return isIcon ? (
-    <div className={className} style={{ height, width }} aria-hidden="true">
+    <div className={classNames} style={{ height, width }} aria-hidden="true">
       <IconElement />
     </div>
   ) : null;

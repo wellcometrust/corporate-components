@@ -1,1 +1,16 @@
+.icon {
+  display: flex;
+  height: 1rem;
+  justify-content: center;
+  width: 1rem;
 
+  &[aria-hidden='true'] {
+    display: flex;
+  }
+
+  svg {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+  }
+}

@@ -6,6 +6,38 @@
 // 2019-11-11
 // ----------------------------------
 
+// headings / text sizes
+%heading-base {
+  font-family: var(--font-secondary);
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: var(--heading-line-height);
+}
+
+%text-xxl {
+  font-size: var(--text-xxl);
+}
+
+%text-xl {
+  font-size: var(--text-xl);
+}
+
+%text-lg {
+  font-size: var(--text-lg);
+}
+
+%text-md {
+  font-size: var(--text-md);
+}
+
+%text-sm {
+  font-size: var(--text-sm);
+}
+
+%text-xs {
+  font-size: var(--text-xs);
+}
+
+
 // Margins
 %margin-xs {
   margin: var(--space-xs);
