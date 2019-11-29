@@ -17,7 +17,7 @@ const extensions = [
 ];
 
 const globals = {
-  'react': 'React',
+  react: 'React',
   'react-dom': 'ReactDOM'
 };
 
