@@ -23,11 +23,12 @@ const globals = {
 
 export default {
   input: 'src/components/index.ts',
+  // TODO: investigate outputting in esm AND cjs formats (cjs needed for jest)
   output: {
     file: 'dist/esm/index.js',
-    format: 'esm'
+    format: 'cjs'
   },
-  // All the used libs need to be here
+  // All the used libs need to be here so they are not included in the build
   external: Object.keys(globals),
   plugins: [
     resolve({
