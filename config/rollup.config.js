@@ -18,18 +18,16 @@ const extensions = [
 
 const globals = {
   react: 'React',
-  'react-dom': 'ReactDOM'
+  'react-dom': 'ReactDOM',
 };
 
 export default {
+  external: Object.keys(globals),
   input: 'src/components/index.ts',
-  // TODO: investigate outputting in esm AND cjs formats (cjs needed for jest)
   output: {
-    file: 'dist/esm/index.js',
+    file: 'dist/index.js',
     format: 'cjs'
   },
-  // All the used libs need to be here so they are not included in the build
-  external: Object.keys(globals),
   plugins: [
     resolve({
       extensions,
