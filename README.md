@@ -4,7 +4,7 @@
 
 - [Usage](#usage)
   - [Install package from NPM](#install-package-from-npm)
-  - [Link to package for local development](#link-to-package-for-local-development)
+  - [Link to component library package for local development](#link-to-component-library-package-for-local-development)
   - [Import desired component into your project](#import-desired-component-into-your-project)
   - [Import styles](#import-styles)
 - [Development](#development)
@@ -14,12 +14,12 @@
 
 ### Install package from NPM
 
-TODO: setup package location
+(TODO: setup package location)
 ```bash
 npm i <package-name>
 ```
 
-### Link to package for local development
+### Link to component library package for local development
 
 In your corporate-components project root run
 
@@ -35,7 +35,23 @@ npm link corporate-components
 
 Please note that the project must first be built in order to use the compiled distributable files.
 
+**`npm link` commands will need to be rerun after any npm install operation.** 
+
 [Read more about npm link](https://docs.npmjs.com/cli/link)
+
+
+#### React Hooks errors?
+
+This issue is caused by the very nature of the symlinks which npm uses to create the links. Effectively React is flagging up a possible duplicate instance of React.
+
+To get round this you will need to link to the app instance of React by running the following command from the library root (assuming the library and app are in the same folder).
+
+```bash
+npm link ../corporate-react/node_modules/react
+``` 
+
+- [Read more about invalid React Hook call warning](https://reactjs.org/warnings/invalid-hook-call-warning.html)
+- [Read more about Hooks + multiple instances of React on github](https://github.com/facebook/react/issues/13991)
 
 
 ### Import desired component into your project
