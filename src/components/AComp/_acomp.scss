@@ -10,14 +10,14 @@
   z-index: 1;
 }
 
-  .acomp__title {
-    color: white;
-  }
+.acomp__title {
+  color: #fff;
+}
 
-  .acomp__content {
-    border: 1px solid black;
+.acomp__content {
+  border: 1px solid #000;
 
-    &::before {
-      content: "";
-    }
+  &:before {
+    content: '';
   }
+}
