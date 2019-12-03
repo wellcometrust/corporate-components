@@ -4,7 +4,6 @@
   "description": "Component library for main Wellcome corporate site",
   "main": "dist/index.js",
   "style": "dist/styles.css",
-  "types": "dist/index.d.ts",
   "files": [
     "package.json",
     "dist"
