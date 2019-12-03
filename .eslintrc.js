@@ -25,7 +25,6 @@ module.exports = {
     'prettier',
     'import',
     'promise',
-    'react-hooks',
   ],
   globals: {
     document: true,
@@ -40,8 +39,6 @@ module.exports = {
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
     'jsx-a11y/anchor-is-valid': 0,
     'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
     'prettier/prettier': 'error',
