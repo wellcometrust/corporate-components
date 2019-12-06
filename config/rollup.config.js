@@ -17,18 +17,17 @@ const extensions = [
 ];
 
 const globals = {
-  'react': 'React',
-  'react-dom': 'ReactDOM'
+  react: 'React',
+  'react-dom': 'ReactDOM',
 };
 
 export default {
+  external: Object.keys(globals),
   input: 'src/components/index.ts',
   output: {
-    file: 'dist/esm/index.js',
-    format: 'esm'
+    file: 'dist/index.js',
+    format: 'cjs'
   },
-  // All the used libs need to be here
-  external: Object.keys(globals),
   plugins: [
     resolve({
       extensions,

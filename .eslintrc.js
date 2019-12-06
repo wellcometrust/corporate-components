@@ -40,7 +40,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
     'jsx-a11y/anchor-is-valid': 0,
-    'import/no-extraneous-dependencies': ["error", {"devDependencies": true}],
+    'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
     'prettier/prettier': 'error',
     'jsx-a11y/label-has-associated-control': [ 2, {
       labelComponents: ['SearchLabel'],
@@ -62,11 +62,11 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
   },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "moduleDirectory": ["node_modules", "./src", "./src/components"]
+  'settings': {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js', '.jsx', '.ts', '.tsx'],
+        'moduleDirectory': ['node_modules', './src', './src/components']
       }
     }
   },

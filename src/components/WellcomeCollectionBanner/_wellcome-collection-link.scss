@@ -1,0 +1,64 @@
+$wc-text: #292929;
+$wc-yellow: #ffce3c;
+$wc-banner-height: 40px;
+
+
+.wc-banner {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  transition: height 0.4s ease;
+
+  &.is-active {
+    height: $wc-banner-height;
+  }
+}
+
+.wc-banner__container {
+  //@include rem(font-size, $meta-font-size);
+  align-items: center;
+  bottom: 0;
+  background: $wc-yellow;
+  display: flex;
+  height: $wc-banner-height;
+  justify-content: space-between;
+  left: 0;
+  //line-height: $body-line-height-s;
+  padding: 5px 20px;
+  position: absolute;
+  right: 0;
+}
+
+.wc-banner__link {
+  color: $wc-text;
+  font-family: var(--font-secondary);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wc-banner__link.wc-banner__link:active,
+.wc-banner__link.wc-banner__link:focus,
+.wc-banner__link.wc-banner__link:hover {
+  color: $wc-text;
+  text-decoration: none;
+}
+
+.wc-banner__btn-close {
+  align-items: center;
+  color: $wc-text;
+  display: flex;
+  padding: 8px;
+  position: relative;
+
+  &:after {
+    //@extend %icon--cross--black;
+    background-position: center;
+    background-repeat: no-repeat;
+    content: '';
+    display: block;
+    height: 14px;
+    margin-left: 8px;
+    transform: rotate(45deg);
+    width: 14px;
+  }
+}

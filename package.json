@@ -2,11 +2,10 @@
   "name": "corporate-components",
   "version": "1.0.0",
   "description": "Component library for main Wellcome corporate site",
-  "main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
   "style": "dist/styles.css",
-  "types": "dist/index.d.ts",
   "files": [
+    "package.json",
     "dist"
   ],
   "browserslist": [
@@ -42,6 +41,10 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react-cookie": "^4.0.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
@@ -69,7 +72,6 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-require-context-hook": "^1.0.0",
     "browserslist": "^4.7.2",
-    "classnames": "^2.2.6",
     "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -81,6 +83,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "lint-staged": "^9.4.3",
@@ -107,7 +110,6 @@
     "stylelint-config-sass-guidelines": "^6.2.0",
     "typescript": "^3.7.2"
   },
-  "dependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "npm run type-check && lint-staged && jest --onlyChanged"

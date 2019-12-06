@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent as ReactMouseEvent, MouseEventHandler } from 'react';
 import cx from 'classnames';
 
 import Icon from 'Icon/Icon';
@@ -10,6 +10,7 @@ type ButtonProps = {
   href?: string | null;
   icon?: string;
   iconPlacementSwitch?: boolean;
+  onClick?: MouseEventHandler;
   tabIndex?: string;
   type?: string;
 };
@@ -21,6 +22,7 @@ export const Button = ({
   href,
   icon,
   iconPlacementSwitch,
+  onClick,
   tabIndex,
   type
 }: ButtonProps) => {
@@ -33,6 +35,11 @@ export const Button = ({
       className={classNames}
       disabled={disabled}
       href={href}
+      onClick={(e: ReactMouseEvent) => {
+        if (onClick && !disabled) {
+          onClick(e);
+        }
+      }}
       tabIndex={tabIndex}
       type={!href ? type : null}
     >
