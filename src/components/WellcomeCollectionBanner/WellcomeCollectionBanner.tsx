@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import cx from 'classnames';
 import { CookiesProvider, useCookies } from 'react-cookie';
 
 import Button from 'Button/Button';
 import Icon from 'Icon/Icon';
 
+const isBrowser = () => typeof window !== 'undefined';
+
 export const WellcomeCollectionLink = () => {
   const IS_WELLCOME_COLLECTION_LINK_SEEN = 'isWellcomeCollectionLinkSeen';
   const [cookies, setCookie] = useCookies([IS_WELLCOME_COLLECTION_LINK_SEEN]);
+  const [isClient, setIsClient] = useState(false);
 
   const handleItemClick = () => {
     setCookie(IS_WELLCOME_COLLECTION_LINK_SEEN, 'true', {
@@ -15,20 +19,30 @@ export const WellcomeCollectionLink = () => {
     });
   };
 
-  const checkCookies = () =>
+  const canShowCookieNotice = () =>
     // cookies.cookieSeen === 'true' && // this live site cookie indicates user has consented to cookies
-    cookies[IS_WELLCOME_COLLECTION_LINK_SEEN] !== 'true';
+    isClient && cookies[IS_WELLCOME_COLLECTION_LINK_SEEN] !== 'true';
 
-  const wcBannerClassName = checkCookies()
-    ? 'wc-banner is-active'
-    : 'wc-banner';
+  const bannerClassName = cx('wc-banner', {
+    'is-active': canShowCookieNotice()
+  });
+
+  useEffect(() => {
+    setIsClient(true);
+
+    return () => {};
+  }, []);
 
   return (
-    <div className={wcBannerClassName}>
+    <div className={bannerClassName}>
       <div className="wc-banner__container">
-        <a href="https://wellcomecollection.org" className="wc-banner__link">
+        <a
+          href="https://wellcomecollection.org/?utm_source=wellcome&utm_medium=referral&utm_campaign=.ac.uk&utm_content=trusthomepage-text-banner"
+          className="wc-banner__link"
+        >
           Looking for Wellcome Collection?
         </a>
+
         <button
           className="wc-banner__btn-close"
           onClick={handleItemClick}
