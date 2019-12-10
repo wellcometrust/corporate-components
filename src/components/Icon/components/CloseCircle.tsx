@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IconSVGProps } from '../Icon';
 
-const SvgCircleCross = (props: IconSVGProps) => (
+const CloseCircle = (props: IconSVGProps) => (
   <svg viewBox="0 0 18 18" {...props}>
     <g fill="none" fillRule="evenodd">
       <path
@@ -13,4 +13,4 @@ const SvgCircleCross = (props: IconSVGProps) => (
   </svg>
 );
 
-export default SvgCircleCross;
+export default CloseCircle;

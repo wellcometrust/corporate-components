@@ -17,7 +17,7 @@
     "dev": "npm run build -- -w",
     "lint": "npm run lint:js",
     "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",
-    "lint:style": "stylelint '**/*.scss' && echo 'Style linting complete'",
+    "lint:style": "stylelint --fix '**/*.scss' && echo 'Style linting complete'",
     "prepare": "npm run build",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
     "test": "jest",

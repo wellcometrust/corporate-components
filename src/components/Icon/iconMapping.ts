@@ -1,6 +1,8 @@
-import arrowRight from './components/ArrowRight';
-import circleCross from './components/CircleCross';
+import arrow from './components/Arrow';
+import chevron from './components/Chevron';
 import close from './components/Close';
+import closeBold from './components/CloseBold';
+import closeCircle from './components/CloseCircle';
 import download from './components/Download';
 import emailAddress from './components/EmailAddress';
 import externalLink from './components/ExternalLink';
@@ -17,9 +19,11 @@ import youTube from './components/YouTube';
 
 // Map is used here instead of an object to ensure there is no type mismatch thrown by TypeScript
 export default new Map([
-  ['arrowRight', arrowRight],
-  ['circleCross', circleCross],
+  ['arrow', arrow],
+  ['chevron', chevron],
   ['close', close],
+  ['closeBold', closeBold],
+  ['closeCircle', closeCircle],
   ['download', download],
   ['emailAddress', emailAddress],
   ['externalLink', externalLink],
