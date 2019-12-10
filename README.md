@@ -3,7 +3,8 @@
 ## Table of contents
 
 - [Usage](#usage)
-  - [Install package from NPM](#install-package-from-npm)
+  - ~[Install package from NPM](#install-package-from-npm)~
+  - [Clone this repo](#pull-this-repo)
   - [Link to component library package for local development](#link-to-component-library-package-for-local-development)
   - [Import desired component into your project](#import-desired-component-into-your-project)
   - [Import styles](#import-styles)
@@ -12,12 +13,16 @@
 
 ## Usage
 
-### Install package from NPM
-
+### ~Install package from NPM~
+(skip this step, as we haven't set the package up in npm yet)
 (TODO: setup package location)
 ```bash
 npm i <package-name>
 ```
+
+### Clone this repo
+
+`git clone git@github.com:wellcometrust/corporate-components.git`
 
 ### Link to component library package for local development
 
@@ -27,7 +32,13 @@ In your corporate-components project root run
 npm link
 ```
 
-To use in your project run
+Permissions issue?
+
+```bash
+sudo npm link
+```
+
+To use in your project* run
 
 ```bash
 npm link corporate-components
@@ -35,7 +46,9 @@ npm link corporate-components
 
 Please note that the project must first be built in order to use the compiled distributable files.
 
-**`npm link` commands will need to be rerun after any npm install operation.** 
+_\* If you need to set up a new project, we recommend using [create-react-app](https://github.com/facebook/create-react-app) to get started quickly._
+
+**`npm link` commands will need to be rerun after any npm install operation.**
 
 [Read more about npm link](https://docs.npmjs.com/cli/link)
 
@@ -48,7 +61,7 @@ To get round this you will need to link to the app instance of React by running 
 
 ```bash
 npm link ../corporate-react/node_modules/react
-``` 
+```
 
 - [Read more about invalid React Hook call warning](https://reactjs.org/warnings/invalid-hook-call-warning.html)
 - [Read more about Hooks + multiple instances of React on github](https://github.com/facebook/react/issues/13991)
@@ -61,7 +74,7 @@ import { AComp } from 'corporate-components';
 ```
 
 ### Import styles
- 
+
 ```js
 import 'corporate-components/dist/styles.css';
 ```
