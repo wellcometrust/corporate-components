@@ -13,9 +13,11 @@ const ButtonExample = () => {
     'icon',
     [
       '',
-      'arrowRight',
-      'circleCross',
+      'arrow',
+      'chevron',
       'close',
+      'closeBold',
+      'closeCircle',
       'download',
       'emailAddress',
       'externalLink',

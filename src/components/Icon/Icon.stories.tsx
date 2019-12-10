@@ -8,12 +8,16 @@ storiesOf('Components|Icon', module).add(
   'Icons',
   () => (
     <div>
+      <p>Arrow</p>
+      <Icon name="arrow" />
       <p>Chevron</p>
-      <Icon name="arrowRight" />
-      <p>Close (cross in circle)</p>
-      <Icon name="circleCross" />
+      <Icon name="chevron" />
       <p>Close</p>
       <Icon name="close" />
+      <p>Close bold</p>
+      <Icon name="closeBold" />
+      <p>Close (cross in circle)</p>
+      <Icon name="closeCircle" />
       <p>Download</p>
       <Icon name="download" />
       <p>Email</p>

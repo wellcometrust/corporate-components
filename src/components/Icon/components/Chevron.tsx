@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IconSVGProps } from '../Icon';
 
-const ArrowRight = (props: IconSVGProps) => (
+const Chevron = (props: IconSVGProps) => (
   <svg viewBox="0 0 10 16" {...props}>
     <path
       fill="currentColor"
@@ -12,4 +12,4 @@ const ArrowRight = (props: IconSVGProps) => (
   </svg>
 );
 
-export default ArrowRight;
+export default Chevron;
