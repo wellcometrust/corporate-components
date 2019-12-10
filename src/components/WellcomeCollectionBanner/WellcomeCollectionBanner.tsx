@@ -2,10 +2,18 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { CookiesProvider, useCookies } from 'react-cookie';
 
-import Button from 'Button/Button';
 import Icon from 'Icon/Icon';
 
-const isBrowser = () => typeof window !== 'undefined';
+/**
+ * List of page paths on which the banner will appear
+ *
+ * @const {string[]}
+ */
+const bannerPaths = [
+  '/how-we-work',
+  '/about-us/contact-us',
+  '/about-us/history-wellcome'
+];
 
 export const WellcomeCollectionLink = () => {
   const IS_WELLCOME_COLLECTION_LINK_SEEN = 'isWellcomeCollectionLinkSeen';
@@ -20,12 +28,16 @@ export const WellcomeCollectionLink = () => {
   };
 
   const canShowCookieNotice = () =>
+    isClient &&
     // cookies.cookieSeen === 'true' && // this live site cookie indicates user has consented to cookies
-    isClient && cookies[IS_WELLCOME_COLLECTION_LINK_SEEN] !== 'true';
+    cookies[IS_WELLCOME_COLLECTION_LINK_SEEN] !== 'true' &&
+    bannerPaths.includes(window.location.pathname);
 
   const bannerClassName = cx('wc-banner', {
     'is-active': canShowCookieNotice()
   });
+
+  const bannerTabIndex = canShowCookieNotice() ? 0 : -1;
 
   useEffect(() => {
     setIsClient(true);
@@ -39,17 +51,20 @@ export const WellcomeCollectionLink = () => {
         <a
           href="https://wellcomecollection.org/?utm_source=wellcome&utm_medium=referral&utm_campaign=.ac.uk&utm_content=trusthomepage-text-banner"
           className="wc-banner__link"
+          tabIndex={bannerTabIndex}
         >
           Looking for Wellcome Collection?
+          <Icon name="arrow" />
         </a>
 
         <button
           className="wc-banner__btn-close"
           onClick={handleItemClick}
           type="button"
+          tabIndex={bannerTabIndex}
         >
           Close
-          <Icon name="close" height="14px" width="14px" />
+          <Icon name="closeBold" />
         </button>
       </div>
     </div>
