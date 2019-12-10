@@ -28,8 +28,8 @@ $wc-banner-height: 40px;
   right: 0;
 
   @include breakpoint(sm) {
-    &::before {
-      content: "";
+    &:before {
+      content: '';
       display: block;
       flex: 0 0 auto;
       width: 5rem;
