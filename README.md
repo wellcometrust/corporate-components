@@ -8,7 +8,12 @@
   3. [Setup consumer project](#setup-a-consumer-project)
   4. [Import desired component into your project](#import-desired-component-into-your-project)
   5. [Import styles](#import-styles)
+- [Issues](#issues)
+  - [React Hooks errors?](#react-hooks-errors)
+  - [Permissions](#permissions-with-npm-link)
 - [Development](#development)
+  - [Develop](#develop)
+  - [Build](#build)
   - [Run Storybook](#run-storybook)
 
 ## Usage
