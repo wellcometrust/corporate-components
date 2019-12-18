@@ -1,6 +1,7 @@
 $wc-text: #292929;
 $wc-yellow: #ffce3c;
-$wc-banner-height: 40px;
+$wc-banner-height-bp-xs: rem(60);
+$wc-banner-height-bp-sm: rem(40);
 
 .wc-banner {
   height: 0;
@@ -9,7 +10,11 @@ $wc-banner-height: 40px;
   transition: height 0.4s ease;
 
   &.is-active {
-    height: $wc-banner-height;
+    height: $wc-banner-height-bp-xs;
+
+    @include breakpoint(xs) {
+      height: $wc-banner-height-bp-sm;
+    }
   }
 }
 
@@ -18,14 +23,18 @@ $wc-banner-height: 40px;
   bottom: 0;
   background: $wc-yellow;
   display: flex;
-  height: $wc-banner-height;
+  height: $wc-banner-height-bp-xs;
   justify-content: space-between;
   left: 0;
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   line-height: var(--heading-line-height);
   padding: 5px 20px;
   position: absolute;
   right: 0;
+
+  @include breakpoint(xs) {
+    height: $wc-banner-height-bp-sm;
+  }
 
   @include breakpoint(sm) {
     &:before {
@@ -61,7 +70,6 @@ $wc-banner-height: 40px;
   align-items: center;
   color: $wc-text;
   display: flex;
-  font-size: var(--text-xs);
   padding: calc(0.5 * var(--space-unit));
   position: relative;
 
