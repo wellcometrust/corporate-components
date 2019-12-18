@@ -51,11 +51,16 @@ $wc-banner-height-bp-sm: rem(40);
   color: $wc-text;
   display: flex;
   font-family: var(--font-secondary);
+  max-width: 65%;
 
   .icon {
     height: calc(0.75 * var(--space-unit));
-    margin-left: var(--space-unit);
+    margin-left: calc(var(--space-unit) / 2);
     width: calc(0.75 * var(--space-unit));
+
+    @include breakpoint(xs) {
+      margin-left: var(--space-unit);
+    }
   }
 }
 
