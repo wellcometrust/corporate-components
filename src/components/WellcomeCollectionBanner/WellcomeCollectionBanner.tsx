@@ -50,7 +50,7 @@ export const WellcomeCollectionLink = () => {
       <div className="wc-banner__container">
         <a
           href="https://wellcomecollection.org/?utm_source=wellcome&utm_medium=referral&utm_campaign=.ac.uk&utm_content=trusthomepage-text-banner"
-          className="wc-banner__link"
+          className="wc-banner__link no-external-marker"
           tabIndex={bannerTabIndex}
         >
           Looking for Wellcome Collection?
