@@ -51,7 +51,7 @@ $wc-banner-height-bp-sm: rem(40);
   color: $wc-text;
   display: flex;
   font-family: var(--font-secondary);
-  max-width: 65%;
+  max-width: 66%;
 
   .icon {
     height: calc(0.75 * var(--space-unit));
@@ -74,6 +74,7 @@ $wc-banner-height-bp-sm: rem(40);
 .wc-banner__btn-close {
   align-items: center;
   color: $wc-text;
+  cursor: pointer;
   display: flex;
   padding: calc(0.5 * var(--space-unit));
   position: relative;

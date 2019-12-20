@@ -5,6 +5,13 @@
   justify-content: center;
   width: 1rem;
 
+  // TODO - move to nav__link styles once NavItem Styled Components are converted to SCSS
+  @include breakpoint(md) {
+    .nav__link & {
+      display: none;
+    }
+  }
+
   &[aria-hidden='true'] {
     display: flex;
   }
