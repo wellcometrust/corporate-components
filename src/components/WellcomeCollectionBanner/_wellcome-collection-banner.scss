@@ -74,6 +74,7 @@ $wc-banner-height-bp-sm: rem(40);
 .wc-banner__btn-close {
   align-items: center;
   color: $wc-text;
+  cursor: pointer;
   display: flex;
   padding: calc(0.5 * var(--space-unit));
   position: relative;

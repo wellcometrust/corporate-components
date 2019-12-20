@@ -10,6 +10,7 @@ import Icon from 'Icon/Icon';
  * @const {string[]}
  */
 const bannerPaths = [
+  '/',
   '/how-we-work',
   '/about-us/contact-us',
   '/about-us/history-wellcome'
