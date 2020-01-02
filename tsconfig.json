@@ -4,7 +4,13 @@
         "rootDir": "./src",
         "baseUrl": "./src",
         "paths": {
-            "*": ["components/*", "/"],
+            "*": [
+                "/",
+                "components/*",
+            ],
+            "utils/*": [
+                "utils/*"
+            ],
         },
         "moduleResolution": "node",
         "noImplicitAny": true,
