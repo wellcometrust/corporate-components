@@ -35,7 +35,7 @@ export default {
         // Allows us to import modules absolutely from these directories
         moduleDirectory: [
           './src',
-          './src/components'
+          './src/components',
         ]
       }
     }),
