@@ -8,7 +8,7 @@ type RouterLinkWrapperProps = {
   href: string;
   RouterLink?: React.ReactType;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  otherProps: any;
+  otherProps?: any;
 };
 
 export const RouterLinkWrapper = ({
@@ -23,7 +23,7 @@ export const RouterLinkWrapper = ({
     const ChildComponentType = child.type;
 
     return (
-      <ChildComponentType href={href}>
+      <ChildComponentType {...child.props}>
         {child.props.children}
       </ChildComponentType>
     );

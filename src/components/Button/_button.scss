@@ -1,21 +1,34 @@
-.btn {
+%btn-base {
   align-items: center;
-  background: var(--colour-blue-60);
   border: 0;
+  cursor: pointer;
+  display: flex;
+  font-size: var(--text-sm);
+  line-height: 1;
+  letter-spacing: rem(0.4);
+  text-decoration: none;
+
+  @include breakpoint(sm) {
+    padding: 0 calc(4 * var(--space-unit));
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn {
+  @extend %btn-base;
+  background: var(--colour-blue-60);
   border-radius: 2px;
   color: var(--colour-white);
-  cursor: pointer;
   display: inline-flex;
   font-family: var(--font-primary);
-  font-size: var(--text-sm);
   height: calc(5.5 * var(--space-unit));
   justify-content: center;
-  letter-spacing: rem(0.4);
-  line-height: 1;
   min-height: calc(5.5 * var(--space-unit));
   min-width: calc(5.5 * var(--space-unit));
   padding: 0 calc(4 * var(--space-unit));
-  text-decoration: none;
   transition: background ease 0.4s;
 
   &:hover {
@@ -43,4 +56,25 @@
 .btn__icon--right {
   margin-left: var(--space-unit);
   margin-right: calc(-2 * var(--space-unit));
+}
+
+.btn--back {
+  @extend %btn-base;
+  color: var(--colour-blue-80);
+  height: calc(8 * var(--space-unit));
+  justify-content: flex-start;
+  min-height: calc(8 * var(--space-unit));
+  padding: 0 calc(2 * var(--space-unit));
+  width: 100%;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: calc(0.5 * var(--space-unit));
+    transform: rotate(180deg);
+  }
 }
