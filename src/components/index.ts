@@ -1,6 +1,7 @@
 import 'assets/styles/app.scss';
 
 // standard components
+export { ActiveLink } from 'Nav/ActiveLink';
 export { Button } from 'Button/Button';
 export { Icon } from 'Icon/Icon';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
