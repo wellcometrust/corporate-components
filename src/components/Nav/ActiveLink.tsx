@@ -22,7 +22,7 @@ type ActiveLinkProps = {
   href: string;
   activeClassName: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  otherProps: any;
+  otherProps?: any;
 };
 
 export const ActiveLink = ({

@@ -28,7 +28,7 @@ $wc-banner-height-bp-sm: rem(40);
   left: 0;
   font-size: var(--text-xs);
   line-height: var(--heading-line-height);
-  padding: 5px 20px;
+  padding: rem(5) rem(20);
   position: absolute;
   right: 0;
 
@@ -54,12 +54,12 @@ $wc-banner-height-bp-sm: rem(40);
   max-width: 66%;
 
   .icon {
-    height: calc(0.75 * var(--space-unit));
-    margin-left: calc(var(--space-unit) / 2);
-    width: calc(0.75 * var(--space-unit));
+    height: calc(1.5 * var(--space-unit));
+    margin-left: var(--space-unit);
+    width: calc(1.5 * var(--space-unit));
 
     @include breakpoint(xs) {
-      margin-left: var(--space-unit);
+      margin-left: calc(2 * var(--space-unit));
     }
   }
 }
@@ -76,12 +76,12 @@ $wc-banner-height-bp-sm: rem(40);
   color: $wc-text;
   cursor: pointer;
   display: flex;
-  padding: calc(0.5 * var(--space-unit));
+  padding: var(--space-unit);
   position: relative;
 
   .icon {
-    height: calc(0.75 * var(--space-unit));
-    margin-left: calc(0.5 * var(--space-unit));
-    width: calc(0.75 * var(--space-unit));
+    height: calc(1.5 * var(--space-unit));
+    margin-left: var(--space-unit);
+    width: calc(1.5 * var(--space-unit));
   }
 }
