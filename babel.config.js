@@ -7,7 +7,12 @@ module.exports = function (api) {
     "@babel/preset-typescript"
   ];
 
+  const plugins = [
+    '@babel/plugin-proposal-optional-chaining'
+  ];
+
   return {
+    plugins,
     presets,
   }
 };
