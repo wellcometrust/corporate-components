@@ -7,14 +7,14 @@
   cursor: pointer;
   display: inline-flex;
   font-family: var(--font-primary);
-  font-size: var(--space-unit);
-  height: calc(2.75 * var(--space-unit));
+  font-size: var(--text-sm);
+  height: calc(5.5 * var(--space-unit));
   justify-content: center;
   letter-spacing: rem(0.4);
   line-height: 1;
-  min-height: calc(2.75 * var(--space-unit));
-  min-width: calc(2.75 * var(--space-unit));
-  padding: 0 calc(2 * var(--space-unit));
+  min-height: calc(5.5 * var(--space-unit));
+  min-width: calc(5.5 * var(--space-unit));
+  padding: 0 calc(4 * var(--space-unit));
   text-decoration: none;
   transition: background ease 0.4s;
 
@@ -36,11 +36,11 @@
 }
 
 .btn__icon--left {
-  margin-left: calc(-1 * var(--space-unit));
-  margin-right: calc(var(--space-unit) / 2);
+  margin-left: calc(-2 * var(--space-unit));
+  margin-right: var(--space-unit);
 }
 
 .btn__icon--right {
-  margin-left: calc(var(--space-unit) / 2);
-  margin-right: calc(-1 * var(--space-unit));
+  margin-left: var(--space-unit);
+  margin-right: calc(-2 * var(--space-unit));
 }
