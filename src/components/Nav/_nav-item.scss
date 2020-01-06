@@ -1,4 +1,5 @@
-// TODO refactor to reduce nesting
+// TODO: #5862 refactor to reduce nesting and avoid repeated selectors
+
 // stylelint-disable max-nesting-depth
 .nav__item {
   &.nav__item {
