@@ -39,35 +39,6 @@
     calc(2 * var(--space-unit));
   text-decoration: none;
 
-  @include breakpoint(sm) {
-    padding-left: calc(4 * var(--space-unit));
-    padding-right: calc(4 * var(--space-unit));
-  }
-
-  @include breakpoint(md) {
-    color: var(--colour-white);
-    padding: calc(2 * var(--space-unit));
-
-    &:active,
-    &:focus,
-    &:hover,
-    &.active {
-      color: var(--colour-white);
-    }
-
-    .nav__link-text:before {
-      background-color: var(--colour-white);
-    }
-
-    .icon {
-      display: none;
-    }
-
-    &.active + .nav-secondary {
-      display: block;
-    }
-  }
-
   &:focus,
   &:hover {
     text-decoration: none;
@@ -112,6 +83,35 @@
       align-items: stretch;
     }
   }
+
+  @include breakpoint(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
+
+  @include breakpoint(md) {
+    color: var(--colour-white);
+    padding: calc(2 * var(--space-unit));
+
+    &:active,
+    &:focus,
+    &:hover,
+    &.active {
+      color: var(--colour-white);
+    }
+
+    .nav__link-text:before {
+      background-color: var(--colour-white);
+    }
+
+    .icon {
+      display: none;
+    }
+
+    &.active + .nav-secondary {
+      display: block;
+    }
+  }
 }
 
 .nav__pane {
@@ -119,33 +119,6 @@
   left: 0;
   position: absolute;
   z-index: 1;
-
-  // TODO update breakpoint mixin to include max-width
-  @media screen and (max-width: calc(map-get($breakpoints, md) - 1px)) {
-    border-top: 1px solid var(--colour-grey-05);
-    bottom: 0;
-    right: 0;
-    top: calc(8 * var(--space-unit));
-    transform: translate3d(100%, 0, 0);
-    transition:
-      transform ease 0.4s,
-      0s visibility ease 0.4s;
-    visibility: hidden;
-    z-index: 3;
-
-    .is-active {
-      top: 0;
-      z-index: 4;
-    }
-
-    &.is-active {
-      transform: translate3d(0, 0, 0);
-      transition:
-        transform ease 0.4s,
-        visibility ease 0.4s;
-      visibility: visible;
-    }
-  }
 
   @include breakpoint(md) {
     box-shadow:
@@ -176,6 +149,33 @@
       margin: 0 auto;
       max-width: $max-width;
       padding: 0 0 0 calc(13.5 * var(--space-unit));
+    }
+  }
+
+  // TODO update breakpoint mixin to include max-width
+  @media screen and (max-width: calc(map-get($breakpoints, md) - 1px)) {
+    border-top: 1px solid var(--colour-grey-05);
+    bottom: 0;
+    right: 0;
+    top: calc(8 * var(--space-unit));
+    transform: translate3d(100%, 0, 0);
+    transition:
+      transform ease 0.4s,
+      0s visibility ease 0.4s;
+    visibility: hidden;
+    z-index: 3;
+
+    .is-active {
+      top: 0;
+      z-index: 4;
+    }
+
+    &.is-active {
+      transform: translate3d(0, 0, 0);
+      transition:
+        transform ease 0.4s,
+        visibility ease 0.4s;
+      visibility: visible;
     }
   }
 }
