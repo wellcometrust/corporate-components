@@ -5,6 +5,7 @@ export { ActiveLink } from 'Nav/ActiveLink';
 export { Button } from 'Button/Button';
 export { Icon } from 'Icon/Icon';
 export { NavItem } from 'Nav/NavItem';
+export { NavLinks } from 'Nav/NavLinks';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 
