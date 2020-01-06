@@ -1,0 +1,93 @@
+[
+    {
+        "id": "a",
+        "url": "/funding",
+        "text": "Funding",
+        "navLinks": [
+            {
+                "id": "a-0",
+                "url": "/funding/schemes",
+                "text": "Find a scheme"
+            },
+            {
+                "id": "a-1",
+                "url": "/funding/guidance",
+                "text": "Guidance"
+            },
+            {
+                "id": "a-2",
+                "url": "/funding/research-careers",
+                "text": "Develop your research career"
+            },
+            {
+                "id": "a-3",
+                "url": "/funding/people-and-projects",
+                "text": "Funded people and projects"
+            }
+        ]
+    },
+    {
+        "id": "b",
+        "url": "/key-issues",
+        "text": "Key issues"
+    },
+    {
+        "id": "c",
+        "url": "/how-we-work",
+        "text": "How we work"
+    },
+    {
+        "id": "d",
+        "url": "/about-us",
+        "text": "About us",
+        "navLinks": [
+            {
+                "id": "c-0",
+                "url": "/jobs",
+                "text": "Jobs"
+            },
+            {
+                "id": "c-1",
+                "url": "/about-us/history-wellcome",
+                "text": "History"
+            },
+            {
+                "id": "c-2",
+                "url": "/about-us/investments",
+                "text": "Investments"
+            },
+            {
+                "id": "c-3",
+                "url": "/about-us/governance",
+                "text": "Governance"
+            },
+            {
+                "id": "c-4",
+                "url": "/about-us/teams",
+                "text": "Teams"
+            },
+            {
+                "id": "c-5",
+                "url": "/about-us/contact-us",
+                "text": "Contact us"
+            }
+        ]
+    },
+    {
+        "id": "e",
+        "url": "/news",
+        "text": "News",
+        "navLinks": [
+            {
+                "id": "d-0",
+                "url": "/news/all",
+                "text": "All news and views"
+            },
+            {
+                "id": "d-1",
+                "url": "/media-office",
+                "text": "Media office"
+            }
+        ]
+    }
+]

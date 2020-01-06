@@ -8,6 +8,9 @@
                 "/",
                 "components/*",
             ],
+            "data/*": [
+                "data/*"
+            ],
             "utils/*": [
                 "utils/*"
             ],
