@@ -1,0 +1,65 @@
+.btn--nav-toggle {
+  align-items: center;
+  cursor: pointer;
+  color: var(--colour-white);
+  display: flex;
+  font-size: calc(0.94 * var(--text-base-size));
+  letter-spacing: rem(0.4);
+  margin-left: auto;
+  pointer-events: all;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--colour-white);
+    text-decoration: none;
+  }
+
+  &[disabled] {
+    display: none;
+  }
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
+
+.icon-menu {
+  display: inline-block;
+  height: calc(2 * var(--space-unit));
+  margin: 0 calc(3 * var(--space-unit)) 0 calc(1.5 * var(--space-unit));
+  position: relative;
+  width: calc(2 * var(--space-unit));
+
+  @include breakpoint(sm) {
+    margin-right: 0;
+  }
+}
+
+%menu-icon-line {
+  background-color: var(--colour-white);
+  height: calc(0.25 * var(--space-unit));
+  position: absolute;
+  width: calc(2 * var(--space-unit));
+}
+
+.icon-menu__detail {
+  @extend %menu-icon-line;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:before,
+  &:after {
+    @extend %menu-icon-line;
+    content: '';
+    display: block;
+  }
+
+  &:before {
+    top: calc(-0.75 * var(--space-unit));
+  }
+
+  &:after {
+    bottom: calc(-0.75 * var(--space-unit));
+  }
+}
