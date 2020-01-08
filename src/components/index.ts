@@ -4,6 +4,7 @@ import 'assets/styles/app.scss';
 export { ActiveLink } from 'Nav/ActiveLink';
 export { Button } from 'Button/Button';
 export { Hamburger } from 'Hamburger/Hamburger';
+export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
 export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
