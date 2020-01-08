@@ -13,9 +13,9 @@ type LogoProps = {
 };
 
 export const Logo = ({
-  title = '',
-  fill = '#fff',
-  className = '',
+  title,
+  fill,
+  className,
   data: { viewBox, fillRule, path },
   ...otherProps
 }: LogoProps) => {
