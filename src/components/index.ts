@@ -7,14 +7,14 @@ export { Icon } from 'Icon/Icon';
 export { NavItem } from 'Nav/NavItem';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
+export { SearchPane } from 'SearchPane/SearchPane';
 
 // context components
 export { NavContext, NavContextProvider } from 'NavContext/NavContext';
 export {
-  SearchContext,
-  SearchContextProvider
-} from 'SearchContext/SearchContext';
-
+  SearchPaneContext,
+  SearchPaneContextProvider
+} from 'SearchPane/Context/SearchPaneContext';
 export {
   ViewportContext,
   ViewportContextProvider

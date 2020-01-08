@@ -58,3 +58,17 @@
 %margin-xl {
   margin: var(--space-xl);
 }
+
+
+// Buttons
+%btn-nav {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: var(--text-sm);
+  height: 64px;
+  justify-content: flex-start;
+  letter-spacing: 0.025rem;
+  min-height: 64px;
+  padding: 0 calc(var(--space-unit) * 4);
+}
