@@ -1,6 +1,5 @@
 // TODO: #5862 refactor to reduce nesting and avoid repeated selectors
 
-// stylelint-disable max-nesting-depth
 .nav__item {
   list-style: none;
 
@@ -9,10 +8,10 @@
     margin: 0;
     padding: 0;
     position: static;
+  }
 
-    &:before {
-      content: none;
-    }
+  &.nav__item:before {
+    content: none;
   }
 
   // TODO: update breakpoint mixin to allow max-width which also removes a pixel
@@ -26,6 +25,9 @@
     display: none;
   }
 }
+
+
+// NavLink
 
 .nav__link {
   align-items: center;
@@ -173,7 +175,7 @@
       background-color: var(--colour-blue-80);
     }
 
-    ul {
+    .nav__list {
       margin: 0 auto;
       max-width: $max-width;
       padding: 0 0 0 calc(13.5 * var(--space-unit));

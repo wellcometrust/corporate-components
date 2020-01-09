@@ -1,6 +1,5 @@
-// TODO - refactor to reduce nesting and tidy up
+// TODO: #5878 - refactor to reduce nesting and tidy up
 
-// stylelint-disable max-nesting-depth
 %btn-nav-base {
   @extend %btn-base;
   height: calc(8 * var(--space-unit));
@@ -95,19 +94,6 @@
   min-height: calc(8 * var(--space-unit));
 }
 
-.btn--nav-close {
-  @extend %btn-nav-base;
-  color: var(--colour-grey-60);
-
-  .icon {
-    margin-right: calc(1.5 * var(--space-unit));
-  }
-
-  @include breakpoint(md) {
-    display: none;
-  }
-}
-
 .nav__overlay {
   @media screen and (max-width: 1023px) {
     background: rgba(255, 255, 255, 0.6);
@@ -129,12 +115,6 @@
   }
 }
 
-.nav__toggle:focus + .keyboard-nav {
-  max-width: 100px;
-  opacity: 1;
-  visibility: visible;
-}
-
 .nav__toggle {
   align-items: stretch;
   color: var(--colour-white);
@@ -153,5 +133,95 @@
 
   @include breakpoint(md) {
     display: none;
+  }
+}
+
+.nav__toggle:focus + .keyboard-nav {
+  max-width: 100px;
+  opacity: 1;
+  visibility: visible;
+}
+
+
+// Nav buttons
+
+.nav__btn--back {
+  @extend %btn-nav-base;
+  color: var(--colour-blue-80);
+  width: 100%;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  .icon {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: calc(0.5 * var(--space-unit));
+    transform: rotate(180deg);
+  }
+}
+
+.nav__btn--close {
+  @extend %btn-nav-base;
+  color: var(--colour-grey-60);
+
+  .icon {
+    margin-right: calc(1.5 * var(--space-unit));
+  }
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
+
+.nav__btn--search-mobile {
+  @extend %btn-nav-base;
+  color: var(--colour-grey-60);
+
+  &:hover {
+    color: var(--colour-grey-60);
+  }
+
+  .icon {
+    margin-left: calc(1.5 * var(--space-unit));
+  }
+
+  @include breakpoint(md) {
+    color: var(--colour-white);
+    margin-right: calc(-4 * var(--space-unit));
+
+    &:hover {
+      color: var(--colour-white);
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0;
+  }
+
+  &.keyboard-nav {
+    color: var(--colour-white);
+    height: auto;
+    min-height: 0;
+    margin-right: calc(2 * var(--space-unit));
+    max-width: 0;
+    opacity: 0;
+    padding-left: 0;
+    padding-right: 0;
+    pointer-events: none;
+    transition: max-width ease 0.4s, opacity ease 0.4s;
+    visibility: hidden;
+
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+
+  &.keyboard-nav:focus {
+    max-width: 100px;
+    opacity: 1;
+    transition: max-width ease 0.4s, opacity ease 0.4s;
+    visibility: visible;
   }
 }

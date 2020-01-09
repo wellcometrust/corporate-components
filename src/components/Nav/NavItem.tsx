@@ -56,7 +56,11 @@ export const NavItem = ({
       </Link>
       {children && (
         <div className={childClasses}>
-          <button type="button" onClick={handleItemClick} className="btn--back">
+          <button
+            type="button"
+            onClick={handleItemClick}
+            className="nav__btn--back"
+          >
             <Icon name="chevron" />
             Back to menu
           </button>
