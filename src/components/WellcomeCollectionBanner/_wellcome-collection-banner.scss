@@ -12,7 +12,7 @@ $wc-banner-height-bp-sm: rem(40);
   &.is-active {
     height: $wc-banner-height-bp-xs;
 
-    @include mq(xs) {
+    @include breakpoint(xs) {
       height: $wc-banner-height-bp-sm;
     }
   }
@@ -32,11 +32,11 @@ $wc-banner-height-bp-sm: rem(40);
   position: absolute;
   right: 0;
 
-  @include mq(xs) {
+  @include breakpoint(xs) {
     height: $wc-banner-height-bp-sm;
   }
 
-  @include mq(sm) {
+  @include breakpoint(sm) {
     &:before {
       content: '';
       display: block;
@@ -58,7 +58,7 @@ $wc-banner-height-bp-sm: rem(40);
     margin-left: var(--space-unit);
     width: calc(1.5 * var(--space-unit));
 
-    @include mq(xs) {
+    @include breakpoint(xs) {
       margin-left: calc(2 * var(--space-unit));
     }
   }
