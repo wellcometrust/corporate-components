@@ -38,7 +38,7 @@
 }
 
 :root {
-  @include mq(sm) {
+  @include breakpoint(sm) {
     // --text-md: 18px
     // --text-xl: 28px
     // --text-xxl: 32px
@@ -49,7 +49,7 @@
 }
 
 :root {
-  @include mq(md) {
+  @include breakpoint(md) {
     // --text-sm: 16px
     // --text-md: 20px
     // --text-lg: 24px

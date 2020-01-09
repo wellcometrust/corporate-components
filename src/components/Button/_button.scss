@@ -8,7 +8,7 @@
   letter-spacing: rem(0.4);
   text-decoration: none;
 
-  @include mq(sm) {
+  @include breakpoint(sm) {
     padding: 0 calc(4 * var(--space-unit));
   }
 
@@ -67,7 +67,7 @@
   padding: 0 calc(2 * var(--space-unit));
   width: 100%;
 
-  @include mq(md) {
+  @include breakpoint(md) {
     display: none;
   }
 

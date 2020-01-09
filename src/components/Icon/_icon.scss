@@ -6,7 +6,7 @@
   width: 1rem;
 
   // TODO - move to nav__link styles once NavItem Styled Components are converted to SCSS
-  @include mq(md) {
+  @include breakpoint(md) {
     .nav__link & {
       display: none;
     }

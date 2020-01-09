@@ -16,7 +16,7 @@
   }
 
   // TODO: update breakpoint mixin to allow max-width which also removes a pixel
-  @media screen and (max-width: calc(map-get($mq-breakpoints, md) - 1px)) {
+  @media screen and (max-width: calc(map-get($breakpoints, md) - 1px)) {
     border-bottom: 1px solid var(--colour-grey-05);
 
     .nav-secondary &.first {
@@ -39,12 +39,12 @@
     calc(2 * var(--space-unit));
   text-decoration: none;
 
-  @include mq(sm) {
+  @include breakpoint(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
   }
 
-  @include mq(md) {
+  @include breakpoint(md) {
     color: var(--colour-white);
     padding: calc(2 * var(--space-unit));
 
@@ -108,7 +108,7 @@
   }
 
   .nav-secondary & {
-    @include mq(md) {
+    @include breakpoint(md) {
       align-items: stretch;
     }
   }
@@ -121,7 +121,7 @@
   z-index: 1;
 
   // TODO update breakpoint mixin to include max-width
-  @media screen and (max-width: calc(map-get($mq-breakpoints, md) - 1px)) {
+  @media screen and (max-width: calc(map-get($breakpoints, md) - 1px)) {
     border-top: 1px solid var(--colour-grey-05);
     bottom: 0;
     right: 0;
@@ -147,7 +147,7 @@
     }
   }
 
-  @media screen and (min-width: map-get($mq-breakpoints, md)) {
+  @media screen and (min-width: map-get($breakpoints, md)) {
     box-shadow:
       0 calc(0.5 * var(--space-unit)) calc(1.5 * var(--space-unit))
       0 rgba(0, 0, 0, 0.1);
