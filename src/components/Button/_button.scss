@@ -1,16 +1,14 @@
 %btn-base {
   align-items: center;
+  background: transparent;
   border: 0;
   cursor: pointer;
   display: flex;
-  font-size: var(--text-sm);
+  font-size: calc(0.94 * var(--text-base-size));
   line-height: 1;
   letter-spacing: rem(0.4);
+  padding: 0;
   text-decoration: none;
-
-  @include breakpoint(sm) {
-    padding: 0 calc(4 * var(--space-unit));
-  }
 
   &:hover {
     text-decoration: none;
@@ -59,12 +57,8 @@
 }
 
 .btn--back {
-  @extend %btn-base;
+  @extend %btn-nav-base;
   color: var(--colour-blue-80);
-  height: calc(8 * var(--space-unit));
-  justify-content: flex-start;
-  min-height: calc(8 * var(--space-unit));
-  padding: 0 calc(2 * var(--space-unit));
   width: 100%;
 
   @include breakpoint(md) {
@@ -76,5 +70,56 @@
     justify-content: flex-end;
     margin-right: calc(0.5 * var(--space-unit));
     transform: rotate(180deg);
+  }
+}
+
+.btn--search-mobile {
+  @extend %btn-nav-base;
+  color: var(--colour-grey-60);
+
+  &:hover {
+    color: var(--colour-grey-60);
+  }
+
+  .icon {
+    margin-left: calc(1.5 * var(--space-unit));
+  }
+
+  @include breakpoint(md) {
+    color: var(--colour-white);
+    margin-right: calc(-4 * var(--space-unit));
+
+    &:hover {
+      color: var(--colour-white);
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0;
+  }
+
+  &.keyboard-nav {
+    color: var(--colour-white);
+    height: auto;
+    min-height: 0;
+    margin-right: calc(2 * var(--space-unit));
+    max-width: 0;
+    opacity: 0;
+    padding-left: 0;
+    padding-right: 0;
+    pointer-events: none;
+    transition: max-width ease 0.4s, opacity ease 0.4s;
+    visibility: hidden;
+
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+
+  &.keyboard-nav:focus {
+    max-width: 100px;
+    opacity: 1;
+    transition: max-width ease 0.4s, opacity ease 0.4s;
+    visibility: visible;
   }
 }
