@@ -1,10 +1,8 @@
 // ----------------------------------
 // UI Settings
-// Global
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
-$text-base-pixels: 16;
-$max-width: map-get($breakpoints, lg);
+@import 'a11y';
