@@ -92,8 +92,8 @@ export const Header = ({ banner }: HeaderProps) => {
               aria-controls="search-pane"
               className={
                 isSearchActive
-                  ? 'btn--search-mobile keyboard-nav is-disabled'
-                  : 'btn--search-mobile keyboard-nav'
+                  ? 'nav__btn--search-mobile keyboard-nav is-disabled'
+                  : 'nav__btn--search-mobile keyboard-nav'
               }
               href="/search?search=&op=Search"
               onClick={toggleSearch}
@@ -108,19 +108,19 @@ export const Header = ({ banner }: HeaderProps) => {
             >
               <div className="nav__mobile-header">
                 <button
-                  className="btn--nav-close"
+                  className="nav__btn--close"
                   type="button"
                   onClick={() => openNav(false)}
                 >
                   <Icon name="close" />
-                  Close<span className="visually-hidden"> menu</span>
+                  Close<span className="u-visually-hidden"> menu</span>
                 </button>
                 <a
                   aria-controls="search-pane"
                   className={
                     isSearchActive
-                      ? 'btn--search-mobile is-disabled'
-                      : 'btn--search-mobile'
+                      ? 'nav__btn--search-mobile is-disabled'
+                      : 'nav__btn--search-mobile'
                   }
                   href="/search"
                   onClick={toggleSearch}
