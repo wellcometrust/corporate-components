@@ -77,7 +77,7 @@ export const Header = ({ banner }: HeaderProps) => {
               </Link>
             </div>
             {!isNavActive && (
-              <a href="#footer-nav" className="hamburger-wrap">
+              <a href="#footer-nav" className="nav__toggle">
                 <Hamburger
                   ariaControls="main-nav"
                   ariaExpanded={isNavActive}
@@ -89,7 +89,11 @@ export const Header = ({ banner }: HeaderProps) => {
             )}
             <a
               aria-controls="search-pane"
-              className=""
+              className={
+                isSearchActive
+                  ? 'btn--search-mobile keyboard-nav is-disabled'
+                  : 'btn--search-mobile keyboard-nav'
+              }
               href="/search?search=&op=Search"
               onClick={toggleSearch}
               role="button"
@@ -110,17 +114,19 @@ export const Header = ({ banner }: HeaderProps) => {
                   <Icon name="close" />
                   Close <span className="visually-hidden">menu</span>
                 </button>
-                {/* <SearchButton
+                <a
                   aria-controls="search-pane"
-                  as="a"
-                  className={isSearchActive ? 'is-disabled' : ''}
+                  className={
+                    isSearchActive
+                      ? 'btn--search-mobile is-disabled'
+                      : 'btn--search-mobile'
+                  }
                   href="/search"
                   onClick={toggleSearch}
-                  role="button"
                 >
                   Search
                   <Icon name="search" />
-                </SearchButton> */}
+                </a>
               </div>
               <nav>
                 <NavLinks data={navLinkData} level={1} />

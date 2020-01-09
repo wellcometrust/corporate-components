@@ -1,0 +1,157 @@
+// TODO - refactor to reduce nesting and tidy up
+
+// stylelint-disable max-nesting-depth
+%btn-nav-base {
+  @extend %btn-base;
+  height: calc(8 * var(--space-unit));
+  justify-content: flex-start;
+  min-height: calc(8 * var(--space-unit));
+  padding: 0 calc(2 * var(--space-unit));
+  transition: opacity ease 0.4s;
+}
+
+.header {
+  background: var(--colour-blue-80);
+  box-shadow: calc(0.5 * var(--space-unit)) 0 calc(1.5 * var(--space-unit))
+    rgba(0, 0, 0, 0.1);
+  font-size: var(--text-sm);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 200;
+
+  @include breakpoint(sm) {
+    transition: height 0.3s ease-in-out, transform ease 0.4s;
+  }
+}
+
+.header__container {
+  display: flex;
+  height: 100%;
+  height: calc(5.5 * var(--space-unit));
+  max-width: $max-width$max-width;
+  transition: height 0.3s ease-in-out;
+
+  @include breakpoint(sm) {
+    height: calc(10 * var(--space-unit));
+    margin: 0 5%;
+
+    .sticky & {
+      height: calc(8.5 * var(--space-unit));
+    }
+  }
+
+  @include breakpoint(md) {
+    align-items: center;
+  }
+
+  /* global maxWidth + 5% margin on left and right */
+  @media (min-width: $max-width * 1.1) {
+    margin: 0 auto;
+  }
+}
+
+.nav__mobile {
+  @media screen and (max-width: 1023px) {
+    background: var(--colour-white);
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.4s,
+      0s visibility 0.4s;
+    visibility: hidden;
+    width: 80vw;
+    z-index: 4;
+
+    &.is-active {
+      box-shadow:
+        calc(0.5 * var(--space-unit)) 0 calc(1.5 * var(--space-unit))
+        rgba(0, 0, 0, 0.1);
+      transform: translate3d(0, 0, 0);
+      transition:
+        transform 0.4s,
+        visibility 0.4s;
+      visibility: visible;
+    }
+  }
+
+  @include breakpoint(md) {
+    align-items: center;
+    display: flex;
+    flex: auto;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-between;
+  }
+}
+
+.nav__mobile-header {
+  display: flex;
+  justify-content: space-between;
+  min-height: calc(8 * var(--space-unit));
+}
+
+.btn--nav-close {
+  @extend %btn-nav-base;
+  color: var(--colour-grey-60);
+
+  .icon {
+    margin-right: calc(1.5 * var(--space-unit));
+  }
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
+
+.nav__overlay {
+  @media screen and (max-width: 1023px) {
+    background: rgba(255, 255, 255, 0.6);
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: opacity 0.4s ease, visibility 0s ease 0.4s;
+    visibility: hidden;
+    z-index: 3;
+  }
+
+  &.is-active {
+    opacity: 1;
+    transition: opacity 0.4s ease, visibility 0s ease 0s;
+    visibility: visible;
+  }
+}
+
+.nav__toggle:focus + .keyboard-nav {
+  max-width: 100px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__toggle {
+  align-items: stretch;
+  color: var(--colour-white);
+  cursor: default;
+  display: flex;
+  margin-left: auto;
+  text-decoration: none;
+
+  .js & {
+    pointer-events: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
