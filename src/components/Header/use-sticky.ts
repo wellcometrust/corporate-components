@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import throttle from 'lodash.throttle';
 
+interface ReactRefProps {
+  current: HTMLElement;
+}
+
 /**
  * Returns a ref and a stateful value bound to the ref
  *
  * @returns [Any, Boolean]
  */
-export function useSticky() {
-  const stickyRef = useRef(null);
+export function useSticky(stickyRef: ReactRefProps) {
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -37,9 +40,9 @@ export function useSticky() {
     return () => {
       document.removeEventListener('scroll', throttled);
     };
-  }, [stickyRef, sticky]);
+  }, [sticky]);
 
-  return [stickyRef, sticky];
+  return [sticky];
 }
 
 export default useSticky;

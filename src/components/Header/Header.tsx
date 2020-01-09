@@ -30,7 +30,8 @@ type HeaderProps = {
 };
 
 export const Header = ({ banner }: HeaderProps) => {
-  const [headerRef, sticky] = useSticky();
+  const headerRef = useRef(null);
+  const [sticky] = useSticky(headerRef);
   const logoRef = useRef(null);
 
   const { isNavActive, openNav } = useContext(NavContext);
@@ -62,7 +63,7 @@ export const Header = ({ banner }: HeaderProps) => {
   };
 
   return (
-    <header className={sticky ? 'header sticky' : 'header'}>
+    <header ref={headerRef} className={sticky ? 'header sticky' : 'header'}>
       <>
         {banner}
         <div className="header__container">
