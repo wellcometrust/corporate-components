@@ -10,6 +10,7 @@ export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
+export { Logo } from 'Logo/Logo';
 
 // context components
 export { NavContext, NavContextProvider } from 'NavContext/NavContext';
