@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     border-top: 0;
     display: flex;
   }

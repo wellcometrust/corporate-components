@@ -20,7 +20,7 @@
   top: 0;
   z-index: 200;
 
-  @include breakpoint(sm) {
+  @include mq(sm) {
     transition: height 0.3s ease-in-out, transform ease 0.4s;
   }
 }
@@ -32,7 +32,7 @@
   max-width: $max-width$max-width;
   transition: height 0.3s ease-in-out;
 
-  @include breakpoint(sm) {
+  @include mq(sm) {
     height: calc(10 * var(--space-unit));
     margin: 0 5%;
 
@@ -41,7 +41,7 @@
     }
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     align-items: center;
   }
 
@@ -52,7 +52,7 @@
 }
 
 .nav {
-  @media screen and (max-width: 1023px) {
+  @include mq($until: md) {
     background: var(--colour-white);
     bottom: 0;
     overflow-x: hidden;
@@ -79,7 +79,7 @@
     }
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     align-items: center;
     display: flex;
     flex: auto;
@@ -95,7 +95,7 @@
 }
 
 .nav__overlay {
-  @media screen and (max-width: 1023px) {
+  @include mq($until: md) {
     background: rgba(255, 255, 255, 0.6);
     bottom: 0;
     left: 0;
@@ -131,7 +131,7 @@
     text-decoration: none;
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     display: none;
   }
 }
@@ -150,7 +150,7 @@
   color: var(--colour-blue-80);
   width: 100%;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     display: none;
   }
 
@@ -170,7 +170,7 @@
     margin-right: calc(1.5 * var(--space-unit));
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     display: none;
   }
 }
@@ -187,7 +187,7 @@
     margin-left: calc(1.5 * var(--space-unit));
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     color: var(--colour-white);
     margin-right: calc(-4 * var(--space-unit));
 
@@ -213,7 +213,7 @@
     transition: max-width ease 0.4s, opacity ease 0.4s;
     visibility: hidden;
 
-    @include breakpoint(md) {
+    @include mq(md) {
       display: none;
     }
   }
