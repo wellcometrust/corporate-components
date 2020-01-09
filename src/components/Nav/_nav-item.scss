@@ -2,6 +2,9 @@
 
 // stylelint-disable max-nesting-depth
 .nav__item {
+  list-style: none;
+
+  //duplication of class name for higher specificity
   &.nav__item {
     margin: 0;
     padding: 0;
@@ -12,22 +15,21 @@
     }
   }
 
-  .first {
-    display: none;
-  }
-
   // TODO: update breakpoint mixin to allow max-width which also removes a pixel
   @media screen and (max-width: 1023px) {
     border-bottom: 1px solid var(--colour-grey-05);
+  }
+}
 
-    .nav-secondary &.first {
-      display: block;
-    }
+.nav-secondary .nav__item.first {
+  @include breakpoint(md) {
+    display: none;
   }
 }
 
 .nav__link {
   align-items: center;
+  color: var(--colour-blue-80);
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -159,7 +161,6 @@
 
     .nav__link {
       color: var(--colour-blue-80);
-      min-height: calc(4 * var(--space-unit));
       padding: 0 calc(2 * var(--space-unit));
     }
 

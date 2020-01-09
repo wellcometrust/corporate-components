@@ -1,16 +1,14 @@
 %btn-base {
   align-items: center;
+  background: transparent;
   border: 0;
   cursor: pointer;
   display: flex;
-  font-size: var(--text-sm);
+  font-size: calc(0.94 * var(--text-base-size));
   line-height: 1;
   letter-spacing: rem(0.4);
+  padding: 0;
   text-decoration: none;
-
-  @include breakpoint(sm) {
-    padding: 0 calc(4 * var(--space-unit));
-  }
 
   &:hover {
     text-decoration: none;

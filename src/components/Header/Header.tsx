@@ -102,7 +102,7 @@ export const Header = ({ banner }: HeaderProps) => {
               <Icon name="search" />
             </a>
             <div
-              className={isNavActive ? 'nav__mobile is-active' : 'nav__mobile'}
+              className={isNavActive ? 'nav is-active' : 'nav'}
               id="main-nav"
             >
               <div className="nav__mobile-header">
@@ -112,7 +112,7 @@ export const Header = ({ banner }: HeaderProps) => {
                   onClick={() => openNav(false)}
                 >
                   <Icon name="close" />
-                  Close <span className="visually-hidden">menu</span>
+                  Close<span className="visually-hidden"> menu</span>
                 </button>
                 <a
                   aria-controls="search-pane"

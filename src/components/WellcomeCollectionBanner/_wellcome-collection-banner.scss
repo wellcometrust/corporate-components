@@ -19,6 +19,7 @@ $wc-banner-height-bp-sm: rem(40);
 }
 
 .wc-banner__container {
+  @extend %text-xs;
   align-items: center;
   bottom: 0;
   background: $wc-yellow;
@@ -26,7 +27,6 @@ $wc-banner-height-bp-sm: rem(40);
   height: $wc-banner-height-bp-xs;
   justify-content: space-between;
   left: 0;
-  font-size: var(--text-xs);
   line-height: var(--heading-line-height);
   padding: rem(5) rem(20);
   position: absolute;

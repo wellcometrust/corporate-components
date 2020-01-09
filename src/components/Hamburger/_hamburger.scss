@@ -1,17 +1,11 @@
 .btn--nav-toggle {
-  align-items: center;
-  cursor: pointer;
+  @extend %btn-base;
   color: var(--colour-white);
-  display: flex;
-  font-size: calc(0.94 * var(--text-base-size));
-  letter-spacing: rem(0.4);
   margin-left: auto;
   pointer-events: all;
-  text-decoration: none;
 
   &:hover {
     color: var(--colour-white);
-    text-decoration: none;
   }
 
   &[disabled] {

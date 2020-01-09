@@ -11,10 +11,10 @@
 }
 
 .header {
+  @extend %text-sm;
   background: var(--colour-blue-80);
   box-shadow: calc(0.5 * var(--space-unit)) 0 calc(1.5 * var(--space-unit))
     rgba(0, 0, 0, 0.1);
-  font-size: var(--text-sm);
   left: 0;
   position: fixed;
   right: 0;
@@ -52,7 +52,7 @@
   }
 }
 
-.nav__mobile {
+.nav {
   @media screen and (max-width: 1023px) {
     background: var(--colour-white);
     bottom: 0;

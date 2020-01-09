@@ -8,3 +8,7 @@
 
 $text-base-pixels: 16;
 $max-width: map-get($breakpoints, lg);
+
+.visually-hidden {
+  @extend %visually-hidden;
+}
