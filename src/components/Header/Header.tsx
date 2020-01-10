@@ -15,15 +15,15 @@ import SearchContext from 'SearchContext/SearchContext';
 
 import Hamburger from 'Hamburger/Hamburger';
 import Icon from 'Icon/Icon';
-// import Logo from 'Logo/Logo';
+import Logo from 'Logo/Logo';
 import NavLinks from 'Nav/NavLinks';
 import NavItem from 'Nav/NavItem';
 // import SearchForm from 'SearchForm/SearchForm';
 import { RouterLinkWrapper as Link } from 'RouterLinkWrapper/RouterLinkWrapper';
 
 import navLinkData from 'data/default-site-links.json';
+import logoData from 'Logo/constants';
 import { useSticky } from './use-sticky';
-// import logoData from '../Logo/constants';
 
 type HeaderProps = {
   banner?: React.ReactNode;
@@ -71,9 +71,9 @@ export const Header = ({ banner }: HeaderProps) => {
             <div className="logo-container">
               <Link href="/">
                 <a ref={logoRef} className="brand-link">
-                  {/* <Logo data={logoData.medium} title="Wellcome" />
+                  <Logo data={logoData.medium} title="Wellcome" />
                   <Logo data={logoData.small} className={logoSmallClass} />
-                  <Logo data={logoData.large} className={logoLargeClass} /> */}
+                  <Logo data={logoData.large} className={logoLargeClass} />
                 </a>
               </Link>
             </div>

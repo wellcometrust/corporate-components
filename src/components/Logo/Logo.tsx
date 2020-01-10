@@ -2,24 +2,26 @@ import React from 'react';
 import cx from 'classnames';
 
 type LogoProps = {
-  title?: string;
-  fill?: string;
   className?: string;
-  data?: {
+  data: {
     viewBox?: string;
-    fillRule?: 'nonzero' | 'evenodd' | 'inherit';
+    // TODO: update fillRule type def to replace 'any'
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    fillRule?: any;
     path?: string;
   };
+  fill?: string;
+  title?: string;
 };
 
 export const Logo = ({
-  title,
-  fill,
   className,
   data: { viewBox, fillRule, path },
+  fill,
+  title,
   ...otherProps
 }: LogoProps) => {
-  const classNames = cx('btn', { [`${className}`]: className });
+  const classNames = cx('logo', { [`${className}`]: className });
 
   return (
     <svg
@@ -30,7 +32,7 @@ export const Logo = ({
       preserveAspectRatio="xMinYMid"
       {...otherProps}
     >
-      {title ? <title id="logo-title">{title}</title> : ''}
+      {title && <title id="logo-title">{title}</title>}
       <path d={path} fill={fill} fillRule={fillRule} />
     </svg>
   );
