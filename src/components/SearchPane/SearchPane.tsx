@@ -41,7 +41,6 @@ export const SearchPane = () => {
         disabled={!isSearchActive}
         onClick={closeAll}
         styled={false}
-        type="button"
       >
         <span className="u-visually-hidden">Hide Search</span>
       </Button>
