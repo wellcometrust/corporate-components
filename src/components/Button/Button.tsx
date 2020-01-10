@@ -46,7 +46,7 @@ export const Button = ({
         }
       }}
       tabIndex={tabIndex}
-      type={!href ? type : null}
+      type={!href ? type : 'button'}
     >
       {icon && !iconPlacementSwitch && (
         <Icon name={icon} className="btn__icon btn__icon--left" />

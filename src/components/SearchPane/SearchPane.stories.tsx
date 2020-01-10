@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import Button from 'Button';
+
 import SearchPane from './SearchPane';
 import SearchPaneContext, {
   SearchPaneContextProvider
@@ -12,9 +14,9 @@ const SearchPaneExample = () => (
       {({ isSearchActive, toggleSearch }) => (
         <>
           {!isSearchActive && (
-            <button onClick={() => toggleSearch(true)} type="button">
+            <Button onClick={() => toggleSearch(true)} styled={false}>
               Show search pane
-            </button>
+            </Button>
           )}
           <SearchPane />
         </>
