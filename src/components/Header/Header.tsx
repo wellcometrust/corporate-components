@@ -11,13 +11,13 @@ import classnames from 'classnames';
 // import { useInView } from 'react-intersection-observer';
 
 import NavContext from 'NavContext/NavContext';
-import SearchContext from 'SearchPane/Context/SearchPaneContext';
+import SearchPaneContext from 'SearchPane/Context/SearchPaneContext';
 
 import Hamburger from 'Hamburger/Hamburger';
 import Icon from 'Icon/Icon';
 import Logo from 'Logo/Logo';
 import NavLinks from 'Nav/NavLinks';
-// import SearchPane from 'SearchPane/SearchPane';
+import SearchPane from 'SearchPane/SearchPane';
 import { RouterLinkWrapper as Link } from 'RouterLinkWrapper/RouterLinkWrapper';
 
 import navLinkData from 'data/default-site-links.json';
@@ -34,7 +34,7 @@ export const Header = ({ banner }: HeaderProps) => {
   const logoRef = useRef(null);
 
   const { isNavActive, toggleNav } = useContext(NavContext);
-  const { isSearchActive, toggleSearch } = useContext(SearchContext);
+  const { isSearchActive, toggleSearch } = useContext(SearchPaneContext);
 
   // TODO: find a better way to handle logo switch
   // isMobile returns initial state first which results in 'double rendering'
@@ -132,7 +132,7 @@ export const Header = ({ banner }: HeaderProps) => {
                 <NavLinks data={navLinkData} level={1} />
               </nav>
             </div>
-            {/* <SearchPane /> */}
+            <SearchPane />
             <div
               aria-label="Close search and menu"
               className={
