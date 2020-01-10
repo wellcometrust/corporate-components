@@ -1,14 +1,5 @@
 // TODO: #5878 - refactor to reduce nesting and tidy up
 
-%btn-nav-base {
-  @extend %btn-base;
-  height: calc(8 * var(--space-unit));
-  justify-content: flex-start;
-  min-height: calc(8 * var(--space-unit));
-  padding: 0 calc(2 * var(--space-unit));
-  transition: opacity ease 0.4s;
-}
-
 .header {
   @extend %text-sm;
   background: var(--colour-blue-80);
@@ -18,10 +9,10 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 200;
+  z-index: var(--z-header);
 
   @include mq(sm) {
-    transition: height 0.3s ease-in-out, transform ease 0.4s;
+    transition: height 0.3s ease-in-out, transform ease var(--transition-duration);
   }
 }
 
@@ -61,11 +52,11 @@
     right: 0;
     top: 0;
     transform: translate3d(100%, 0, 0);
-    transition: transform 0.4s,
-      0s visibility 0.4s;
+    transition: transform var(--transition-duration),
+      0s visibility var(--transition-duration);
     visibility: hidden;
     width: 80vw;
-    z-index: 4;
+    z-index: var(--z-high);
 
     &.is-active {
       box-shadow:
@@ -73,8 +64,8 @@
         rgba(0, 0, 0, 0.1);
       transform: translate3d(0, 0, 0);
       transition:
-        transform 0.4s,
-        visibility 0.4s;
+        transform var(--transition-duration),
+        visibility var(--transition-duration);
       visibility: visible;
     }
   }
@@ -103,14 +94,14 @@
     position: fixed;
     right: 0;
     top: 0;
-    transition: opacity 0.4s ease, visibility 0s ease 0.4s;
+    transition: opacity var(--transition-duration) ease, visibility 0s ease var(--transition-duration);
     visibility: hidden;
-    z-index: 3;
+    z-index: var(--z-medium);
   }
 
   &.is-active {
     opacity: 1;
-    transition: opacity 0.4s ease, visibility 0s ease 0s;
+    transition: opacity var(--transition-duration) ease, visibility 0s ease 0s;
     visibility: visible;
   }
 }
@@ -210,7 +201,7 @@
     padding-left: 0;
     padding-right: 0;
     pointer-events: none;
-    transition: max-width ease 0.4s, opacity ease 0.4s;
+    transition: max-width ease var(--transition-duration), opacity ease var(--transition-duration);
     visibility: hidden;
 
     @include mq(md) {
@@ -221,7 +212,7 @@
   &.keyboard-nav:focus {
     max-width: 100px;
     opacity: 1;
-    transition: max-width ease 0.4s, opacity ease 0.4s;
+    transition: max-width ease var(--transition-duration), opacity ease var(--transition-duration);
     visibility: visible;
   }
 }

@@ -3,7 +3,7 @@
   max-width: calc(18.25 * var(--space-unit));
   position: relative;
   width: 100%;
-  z-index: 2;
+  z-index: var(--z-low);
 }
 
 .logo {

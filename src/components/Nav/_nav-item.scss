@@ -122,7 +122,7 @@
   background: var(--colour-white);
   left: 0;
   position: absolute;
-  z-index: 1;
+  z-index: var(--z-low);
 
   @include mq($until: md) {
     border-top: 1px solid var(--colour-grey-05);
@@ -134,11 +134,11 @@
       transform ease 0.4s,
       0s visibility ease 0.4s;
     visibility: hidden;
-    z-index: 3;
+    z-index: var(--z-medium);
 
     .is-active {
       top: 0;
-      z-index: 4;
+      z-index: var(--z-high);
     }
 
     &.is-active {
