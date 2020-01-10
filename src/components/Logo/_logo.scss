@@ -27,16 +27,14 @@
   height: 100%;
 }
 
-@include mq($until: xs) {
-  .logo--large {
+.logo--small {
+  @include mq(sm) {
     display: none;
   }
 }
 
-@include mq(sm) {
-  max-width: calc(10 * var(--space-unit));
-
-  .logo--small {
+.logo--large {
+  @include mq($until: sm) {
     display: none;
   }
 }
