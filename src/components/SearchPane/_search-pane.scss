@@ -10,20 +10,6 @@
 
 $transition-duration: 0.4s;
 
-// Extends
-
-%btn-nav-base {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  font-size: var(--text-sm);
-  height: 64px;
-  justify-content: flex-start;
-  letter-spacing: 0.025rem;
-  min-height: 64px;
-  padding: 0 calc(var(--space-unit) * 4);
-}
-
 // Styles
 
 .search-pane {
@@ -37,7 +23,7 @@ $transition-duration: 0.4s;
   transition: transform ease $transition-duration;
   z-index: 4;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     bottom: initial;
     position: absolute;
     transform: translate3d(0, -100%, 0);
@@ -46,7 +32,7 @@ $transition-duration: 0.4s;
   &.is-active {
     transform: translate3d(0, 0, 0);
 
-    @include breakpoint(md) {
+    @include mq(md) {
       transform: none;
     }
   }
@@ -65,12 +51,12 @@ $transition-duration: 0.4s;
   width: 100%;
   z-index: 1;
 
-  @include breakpoint(sm) {
+  @include mq(sm) {
     padding-left: var(--space-xl);
     padding-right: var(--space-xl);
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     min-height: 64px;
     padding: 0;
   }
@@ -85,7 +71,7 @@ $transition-duration: 0.4s;
   max-width: 1344px;
   width: 100%;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     align-items: center;
     display: flex;
   }
@@ -97,20 +83,20 @@ $transition-duration: 0.4s;
   right: 0;
   top: 0;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     margin-left: var(--space-xl);
     position: static;
   }
 }
 
 .search-pane__back {
-  @extend %btn-nav-base;
+  @extend %btn-nav;
 
   border-top: 1px solid var(--colour-grey-05);
   color: var(--colour-blue-80);
   width: 100%;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     display: none;
   }
 }
@@ -123,7 +109,7 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__close {
-  @extend %btn-nav-base;
+  @extend %btn-nav;
 
   color: var(--colour-grey-60);
 }
@@ -148,7 +134,7 @@ $transition-duration: 0.4s;
   padding: var(--space-md) var(--space-lg);
   width: 100%;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     background: var(--colour-white);
   }
 }
@@ -156,32 +142,32 @@ $transition-duration: 0.4s;
 .search-pane__form-submit {
   transition: opacity ease $transition-duration;
 
-  @media screen and (max-width: (map-get($breakpoints, md))) {
+  @include mq($until: md) {
     padding: 0;
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     color: var(--colour-white);
     margin-right: var(--space-lg);
   }
 }
 
-// .search-pane__form-submit .btn__text {
-//   @media screen and (max-width: (map-get($breakpoints, md))) {
-//     @include visually-hidden;
-//   }
-// }
+.search-pane__form-submit .btn__text {
+  @include mq($until: md) {
+    @include visually-hidden;
+  }
+}
 
 .search-pane__form-submit .btn__icon {
   margin-left: 0;
 
-  @include breakpoint(md) {
+  @include mq(md) {
     margin-left: 1rem;
   }
 }
 
 .search-pane__overlay {
-  @include breakpoint(md) {
+  @include mq(md) {
     background: rgba(var(--colour-white), 0.9);
     content: '';
     height: 100vh;
@@ -199,7 +185,7 @@ $transition-duration: 0.4s;
   }
 
   &.is-active {
-    @include breakpoint(md) {
+    @include mq(md) {
       opacity: 1;
       transition:
         opacity $transition-duration ease,

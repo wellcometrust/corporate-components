@@ -19,6 +19,9 @@
 // More detailed components such as buttons, alerts etc.
 @import '30-components/__manifest';
 
+// Utility and helper classes
+@import '40-utilities/__manifest';
+
 /**
  * Whilst we initially adopted a fully-fledged version of the ITCSS
  * framework, we decided to strip back to a slimmed down version which
