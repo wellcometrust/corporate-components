@@ -25,7 +25,7 @@ export const Button = ({
   iconPlacementSwitch,
   onClick,
   tabIndex,
-  type,
+  type = 'button',
   styled = true
 }: ButtonProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,7 +46,7 @@ export const Button = ({
         }
       }}
       tabIndex={tabIndex}
-      type={!href ? type : 'button'}
+      type={!href ? type : null}
     >
       {icon && !iconPlacementSwitch && (
         <Icon name={icon} className="btn__icon btn__icon--left" />
