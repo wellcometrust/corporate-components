@@ -1,45 +1,24 @@
 // ----------------------------------
 // UI Tools
-// Mixins
+// Extends
+// a11y
 // ----------------------------------
 // Design System 1.0 Alpha
-// 2019-11-11
+// 2019-01-10
 // ----------------------------------
-
-/**
- * Combine :hover and :focus styles.
- *
- * Usage:
- *
- * .component {
- *   color: blue;
- *
- *   @include hocus {
- *     color: black;
- *   }
- * }
- *
- */
-
-@mixin hocus {
-  &:hover,
-  &:focus {
-    @content;
-  }
-}
 
 /**
  * Hide content visually (for screen-readers)
  *
  * Usage:
  *
- * .component {
- *   @include visually-hidden;
+ * .selector {
+ *   @extend %visually-hidden;
  * }
  *
  */
 
-@mixin visually-hidden {
+%visually-hidden {
   clip: rect(0 0 0 0);
   clip: rect(0, 0, 0, 0);
   height: 1px;

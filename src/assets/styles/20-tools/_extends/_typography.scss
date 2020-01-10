@@ -3,10 +3,9 @@
 // Extends
 // ----------------------------------
 // Design System 1.0 Alpha
-// 2019-11-11
+// 2019-01-10
 // ----------------------------------
 
-// headings / text sizes
 %heading-base {
   font-family: var(--font-secondary);
   letter-spacing: var(--heading-letter-spacing);
@@ -35,38 +34,4 @@
 
 %text-xs {
   font-size: var(--text-xs);
-}
-
-
-// Margins
-%margin-xs {
-  margin: var(--space-xs);
-}
-
-%margin-sm {
-  margin: var(--space-sm);
-}
-
-%margin-md {
-  margin: var(--space-md);
-}
-
-%margin-lg {
-  margin: var(--space-lg);
-}
-
-%margin-xl {
-  margin: var(--space-xl);
-}
-
-// Accessibility
-%visually-hidden {
-  clip: rect(0 0 0 0);
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
 }

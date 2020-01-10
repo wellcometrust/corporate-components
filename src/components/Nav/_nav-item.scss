@@ -175,7 +175,7 @@
 
     .nav__list {
       margin: 0 auto;
-      max-width: $max-width;
+      max-width: var(--container-width);
       padding: 0 0 0 calc(13.5 * var(--space-unit));
     }
   }

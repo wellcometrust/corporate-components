@@ -1,0 +1,31 @@
+// ----------------------------------
+// UI Tools
+// Extends
+// Forms
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-01-10
+// ----------------------------------
+
+/**
+ * Set some base (reset) styles on an <input> or <textarea>.
+ *
+ * Usage:
+ *
+ * .an-input-selector {
+ *   @extend %text-input-base;
+ * }
+ *
+ */
+
+%text-input-base {
+  border: 0;
+  border-radius: rem(calc(0.25 * var(--space-unit)));
+  color: var(--colour-black);
+  letter-spacing: rem(0.4);
+  width: 100%;
+
+  &::placeholder {
+    color: var(--text-colour);
+  }
+}

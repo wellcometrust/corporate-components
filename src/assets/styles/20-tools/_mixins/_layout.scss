@@ -1,0 +1,59 @@
+// ----------------------------------
+// UI Tools
+// Mixins
+// Layout
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-01-10
+// ----------------------------------
+
+/**
+ * Vertically or horizontally align content.
+ *
+ * Usage:
+ *
+ * .selector {
+ *   @include middle;
+ * }
+ *
+ * .selector {
+ *   @include middle(x, relative);
+ * }
+ *
+ * .selector {
+ *   @include middle($position: relative);
+ * }
+ *
+ * .selector {
+ *   @include middle(x);
+ * }
+ *
+ */
+
+@mixin middle($axis: both, $position: absolute) {
+  @if $axis != x and $axis != y and $axis != both {
+    @error 'Property #{$axis} must be either x, y or both.';
+  }
+
+  @if $position != absolute and $position != relative {
+    @error 'Property #{$position} must be either x, y or both.';
+  }
+
+  position: $position;
+
+  @if $axis == y {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @else if $axis == x {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
