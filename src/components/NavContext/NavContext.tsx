@@ -2,12 +2,12 @@ import React, { createContext, useState } from 'react';
 
 const defaultState = {
   isNavActive: false,
-  openNav: () => {}
+  toggleNav: () => {}
 };
 
 type NavContextProps = {
   isNavActive: boolean;
-  openNav: (bool: boolean) => void;
+  toggleNav: (bool: boolean) => void;
 };
 
 type ProviderProps = {
@@ -19,7 +19,7 @@ export const NavContext = createContext<NavContextProps>(defaultState);
 export const NavContextProvider = ({ children }: ProviderProps) => {
   const [state, setState] = useState<NavContextProps>({
     isNavActive: false,
-    openNav: bool =>
+    toggleNav: bool =>
       setState(prevState => ({ ...prevState, isNavActive: bool }))
   });
 

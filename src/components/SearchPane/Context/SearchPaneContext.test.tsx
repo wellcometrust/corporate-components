@@ -2,16 +2,18 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import 'test/mocks/match-media.mock';
-import SearchContext, { SearchContextProvider } from './SearchContext';
+import SearchPaneContext, {
+  SearchPaneContextProvider
+} from './SearchPaneContext';
 
-describe('<SearchContextProvider />', () => {
+describe('<SearchPaneContextProvider />', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let output: any;
 
   beforeEach(() => {
     output = mount(
-      <SearchContextProvider>
-        <SearchContext.Consumer>
+      <SearchPaneContextProvider>
+        <SearchPaneContext.Consumer>
           {({ isSearchActive }) => (
             <>
               <div className="test-isSearchActive">
@@ -19,8 +21,8 @@ describe('<SearchContextProvider />', () => {
               </div>
             </>
           )}
-        </SearchContext.Consumer>
-      </SearchContextProvider>
+        </SearchPaneContext.Consumer>
+      </SearchPaneContextProvider>
     );
   });
 

@@ -25,7 +25,7 @@
   // --space-md: 12px
   // --space-lg: 24px
   // --space-xl: 48px
-  @include breakpoint(sm) {
+  @include mq(sm) {
     --space-sm: calc(1 * var(--space-unit));
     --space-md: calc(1.5 * var(--space-unit));
     --space-lg: calc(3 * var(--space-unit));
@@ -35,7 +35,7 @@
   // --space-md: 16px
   // --space-lg: 32px
   // --space-xl: 64px
-  @include breakpoint(md) {
+  @include mq(md) {
     --space-md: calc(2 * var(--space-unit));
     --space-lg: calc(4 * var(--space-unit));
     --space-xl: calc(8 * var(--space-unit));

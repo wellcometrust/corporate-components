@@ -27,18 +27,20 @@
   height: 100%;
 }
 
-@media screen and (max-width: 767px) {
+@include mq($until: xs) {
   .logo--large {
     display: none;
   }
 }
 
-@include breakpoint(sm) {
+@include mq(sm) {
+  max-width: calc(10 * var(--space-unit));
+
   .logo--small {
     display: none;
   }
 }
 
-@include breakpoint(md) {
+@include mq(md) {
   max-width: calc(3.5 * var(--space-unit));
 }

@@ -13,6 +13,7 @@ type ButtonProps = {
   onClick?: MouseEventHandler;
   tabIndex?: string;
   type?: string;
+  styled?: boolean;
 };
 
 export const Button = ({
@@ -24,11 +25,15 @@ export const Button = ({
   iconPlacementSwitch,
   onClick,
   tabIndex,
-  type
+  type = 'button',
+  styled = true
 }: ButtonProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Element: any = href ? 'a' : 'button';
-  const classNames = cx('btn', { [`${className}`]: className });
+  const classNames = cx({
+    btn: styled,
+    [`${className}`]: className
+  });
 
   return (
     <Element

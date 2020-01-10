@@ -1,10 +1,17 @@
 // ----------------------------------
 // UI Settings
-// Global
+// MQ
 // ----------------------------------
 // Design System 1.0 Alpha
-// 2019-11-11
+// 2020-01-06
 // ----------------------------------
 
-$text-base-pixels: 16;
-$max-width: map-get($mq-breakpoints, lg);
+$mq-breakpoints: (
+  xs: 512px,
+  sm: 768px,
+  md: 1024px,
+  lg: 1200px,
+  xl: 1344px
+) !default;
+
+@import '~sass-mq';
