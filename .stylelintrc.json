@@ -17,6 +17,7 @@
             ]
         ],
         "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
-        "selector-pseudo-element-colon-notation": "single"
+        "selector-pseudo-element-colon-notation": "single",
+        "scss/percent-placeholder-pattern": null
     }
 }

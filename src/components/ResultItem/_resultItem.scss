@@ -1,0 +1,84 @@
+@mixin font-size-with-line-height($fontSize, $lineHeightPx) {
+  line-height: $lineHeightPx / $fontSize;
+  //@todo refactor and replace rem.
+  // @include rem(font-size, $fontSize);
+}
+
+@mixin listings-results {
+  @include mq(md) {
+    .view-content,
+    .listings__results {
+      border-bottom: 1px solid --colour-grey-60;
+      //@todo refactor and replace rem.
+      // @include rem(
+      //   padding-bottom,
+      //   ($grid-typo-spacing-xs + $grid-typo-spacing-xxxs)
+      // );
+    }
+  }
+}
+
+%link__colour--secondary {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: --colour-blue-60;
+    text-decoration: underline;
+  }
+}
+
+%link--secondary {
+  @extend %link__colour--secondary;
+}
+
+.listings__result-title,
+%listings__result-title {
+  //@todo refactor and replace rem.
+  // @include rem(margin-top, $grid-typo-spacing-xxxs);
+  // @include rem(margin-bottom, $grid-typo-spacing-xxxs);
+
+  a {
+    @extend %link--secondary;
+  }
+}
+
+.listings__result-meta {
+  @include font-size-with-line-height(--text-xs, --text-lg);
+  //@todo refactor and replace rem.
+  // @include rem(margin-bottom, $grid-typo-spacing-xxxs);
+}
+
+.listings__results,
+%listings__results {
+  padding-top: 200px;
+  animation: fadeIn 1.5s;
+}
+
+.listings__result {
+  border-top: 1px solid --colour-grey-60;
+  text-align: left;
+  //@todo refactor and replace rem.
+  // @include rem(padding, $grid-typo-spacing-s 0);
+
+  p + p {
+    margin-top: 0;
+  }
+}
+
+.listings__result-text {
+  margin-bottom: 0;
+}
+
+.results {
+  @include listings-results;
+  @extend %listings__results;
+
+  .listings__result-title {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+

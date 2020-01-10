@@ -11,7 +11,7 @@ export { NavLinks } from 'Nav/NavLinks';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 export { Logo } from 'Logo/Logo';
-export { ResultList } from 'ResultList/ResultList';
+export { ResultItem } from 'ResultItem/ResultItem';
 export { SearchPane } from 'SearchPane/SearchPane';
 
 // context components
