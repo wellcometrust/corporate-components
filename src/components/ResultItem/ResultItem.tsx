@@ -2,10 +2,10 @@ import React from 'react';
 
 type ResultItemProps = {
   className?: string;
-  meta?: string;
-  title: string;
   href: string;
+  meta?: string;
   text?: string;
+  title: string;
 };
 
 export const ResultItem = ({ meta, title, href, text }: ResultItemProps) => (
