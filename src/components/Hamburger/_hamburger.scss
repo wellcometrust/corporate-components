@@ -12,7 +12,7 @@
     display: none;
   }
 
-  @include breakpoint(md) {
+  @include mq(md) {
     display: none;
   }
 }
@@ -24,7 +24,7 @@
   position: relative;
   width: calc(2 * var(--space-unit));
 
-  @include breakpoint(sm) {
+  @include mq(sm) {
     margin-right: 0;
   }
 }
