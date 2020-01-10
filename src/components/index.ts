@@ -12,14 +12,14 @@ export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 export { Logo } from 'Logo/Logo';
 export { ResultList } from 'ResultList/ResultList';
+export { SearchPane } from 'SearchPane/SearchPane';
 
 // context components
 export { NavContext, NavContextProvider } from 'NavContext/NavContext';
 export {
-  SearchContext,
-  SearchContextProvider
-} from 'SearchContext/SearchContext';
-
+  SearchPaneContext,
+  SearchPaneContextProvider
+} from 'SearchPane/Context/SearchPaneContext';
 export {
   ViewportContext,
   ViewportContextProvider
