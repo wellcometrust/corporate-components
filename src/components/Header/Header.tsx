@@ -11,7 +11,7 @@ import classnames from 'classnames';
 // import { useInView } from 'react-intersection-observer';
 
 import NavContext from 'NavContext/NavContext';
-import SearchContext from 'SearchContext/SearchContext';
+import SearchContext from 'SearchPane/Context/SearchPaneContext';
 
 import Hamburger from 'Hamburger/Hamburger';
 import Icon from 'Icon/Icon';
@@ -34,8 +34,8 @@ export const Header = ({ banner }: HeaderProps) => {
   const [sticky] = useSticky(headerRef);
   const logoRef = useRef(null);
 
-  const { isNavActive, openNav } = useContext(NavContext);
-  const { isSearchActive, openSearch } = useContext(SearchContext);
+  const { isNavActive, toggleNav } = useContext(NavContext);
+  const { isSearchActive, toggleSearch } = useContext(SearchContext);
 
   // TODO: find a better way to handle logo switch
   // isMobile returns initial state first which results in 'double rendering'
@@ -43,9 +43,9 @@ export const Header = ({ banner }: HeaderProps) => {
 
   const logoLargeClass = classnames('logo--large', { transparent: sticky });
 
-  const toggleSearch = (e: ReactMouseEvent) => {
+  const openSearch = (e: ReactMouseEvent) => {
     e.preventDefault();
-    openSearch(true);
+    toggleSearch(true);
   };
 
   useEffect(() => {
@@ -56,10 +56,10 @@ export const Header = ({ banner }: HeaderProps) => {
     return () => {};
   });
 
-  const toggleNav = (e: ReactMouseEvent) => {
+  const openNav = (e: ReactMouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
-    openNav(true);
+    toggleNav(true);
   };
 
   return (
@@ -82,7 +82,7 @@ export const Header = ({ banner }: HeaderProps) => {
                 <Hamburger
                   ariaControls="main-nav"
                   ariaExpanded={isNavActive}
-                  onClick={toggleNav}
+                  onClick={openNav}
                   role="button"
                   tabIndex={-1}
                 />
@@ -96,7 +96,7 @@ export const Header = ({ banner }: HeaderProps) => {
                   : 'nav__btn--search-mobile keyboard-nav'
               }
               href="/search?search=&op=Search"
-              onClick={toggleSearch}
+              onClick={openSearch}
               role="button"
             >
               Search
@@ -110,7 +110,7 @@ export const Header = ({ banner }: HeaderProps) => {
                 <button
                   className="nav__btn--close"
                   type="button"
-                  onClick={() => openNav(false)}
+                  onClick={() => toggleNav(false)}
                 >
                   <Icon name="close" />
                   Close<span className="u-visually-hidden"> menu</span>
@@ -123,7 +123,7 @@ export const Header = ({ banner }: HeaderProps) => {
                       : 'nav__btn--search-mobile'
                   }
                   href="/search"
-                  onClick={toggleSearch}
+                  onClick={openSearch}
                 >
                   Search
                   <Icon name="search" />
@@ -139,8 +139,8 @@ export const Header = ({ banner }: HeaderProps) => {
               className={
                 isNavActive ? 'nav__overlay is-active' : 'nav__overlay'
               }
-              onClick={() => openNav(false)}
-              onKeyDown={() => openNav(false)}
+              onClick={() => toggleNav(false)}
+              onKeyDown={() => toggleNav(false)}
               role="button"
               tabIndex={0}
             />
