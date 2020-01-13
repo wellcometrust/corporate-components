@@ -1,6 +1,6 @@
 {
   "name": "@wellcome/corporate-components",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Component library for main Wellcome corporate site",
   "main": "dist/index.js",
   "style": "dist/styles.css",
