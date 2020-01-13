@@ -9,14 +9,16 @@ type ResultItemProps = {
 };
 
 export const ResultItem = ({ meta, title, href, text }: ResultItemProps) => (
-  <div className="listings__result">
-    <div className="listings__result-meta">
-      <span className="listings__result__meta__type">{meta}</span>
+  <div className="result-item">
+    <div className="result-item__meta">
+      <span className="result-item__meta-type">{meta}</span>
     </div>
-    <h4 className="listings__result-title">
-      <a href={href}>{title}</a>
+    <h4 className="result-item__title">
+      <a href={href} className="result-item__link">
+        {title}
+      </a>
     </h4>
-    <p className="listings__resulttext">{text}</p>
+    <p className="result-item__text">{text}</p>
   </div>
 );
 
