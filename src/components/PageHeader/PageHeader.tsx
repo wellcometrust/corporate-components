@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 type PageHeaderProps = {
   title: string;
@@ -13,8 +14,12 @@ export const PageHeader = ({
   standfirst,
   meta
 }: PageHeaderProps) => {
+  const cssClasses = classnames('title-banner', {
+    [`${className}`]: className
+  });
+
   return (
-    <div className="title-banner" {...className}>
+    <div className={cssClasses}>
       <div className="title-banner__container">
         <div className="grid">
           <div className="grid__cell grid__cell--1-of-1">
