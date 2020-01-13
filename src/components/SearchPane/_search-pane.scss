@@ -91,7 +91,7 @@ $transition-duration: 0.4s;
 
 .search-pane__btn-back {
   @extend %btn-nav-base;
-  border-top: 1px solid var(--colour-grey-05);
+  border-top: 1px solid var(--colour-concrete-05);
   color: var(--colour-blue-80);
   width: 100%;
 
@@ -109,7 +109,7 @@ $transition-duration: 0.4s;
 
 .search-pane__btn-close {
   @extend %btn-nav-base;
-  color: var(--colour-grey-60);
+  color: var(--colour-concrete-60);
 }
 
 .search-pane__btn-close .icon {
@@ -128,7 +128,7 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__form-input {
-  background: var(--colour-grey-05);
+  background: var(--colour-concrete-05);
   padding: var(--space-md) var(--space-lg);
   width: 100%;
 

@@ -155,7 +155,7 @@
 
 .nav__btn--close {
   @extend %btn-nav-base;
-  color: var(--colour-grey-60);
+  color: var(--colour-concrete-60);
 
   .icon {
     margin-right: calc(1.5 * var(--space-unit));
@@ -168,10 +168,10 @@
 
 .nav__btn--search-mobile {
   @extend %btn-nav-base;
-  color: var(--colour-grey-60);
+  color: var(--colour-concrete-60);
 
   &:hover {
-    color: var(--colour-grey-60);
+    color: var(--colour-concrete-60);
   }
 
   .icon {
