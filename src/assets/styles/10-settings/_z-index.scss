@@ -1,10 +1,15 @@
 // ----------------------------------
 // UI Settings
-// Global
+// Z-Index
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
-$text-base-pixels: 16;
-$max-width: map-get($mq-breakpoints, lg);
+:root {
+  --z-low: 1;
+  --z-medium: 5;
+  --z-high: 10;
+  --z-header: 200;
+  --z-modal: 500;
+}

@@ -21,7 +21,7 @@ $transition-duration: 0.4s;
   top: 0;
   transform: translate3d(100%, 0, 0);
   transition: transform ease $transition-duration;
-  z-index: 4;
+  z-index: var(--z-medium);
 
   @include mq(md) {
     bottom: initial;
@@ -49,7 +49,7 @@ $transition-duration: 0.4s;
   position: relative;
   transition: transform ease $transition-duration;
   width: 100%;
-  z-index: 1;
+  z-index: var(--z-low);
 
   @include mq(sm) {
     padding-left: var(--space-xl);
