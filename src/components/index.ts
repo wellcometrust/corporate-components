@@ -11,9 +11,9 @@ export { NavLinks } from 'Nav/NavLinks';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 export { Logo } from 'Logo/Logo';
+export { PageHeader } from 'PageHeader/PageHeader';
 export { ResultItem } from 'ResultItem/ResultItem';
 export { SearchPane } from 'SearchPane/SearchPane';
-export { PageHeader } from 'PageHeader/PageHeader';
 
 // context components
 export { NavContext, NavContextProvider } from 'NavContext/NavContext';
