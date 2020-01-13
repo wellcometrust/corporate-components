@@ -194,9 +194,9 @@
   &.keyboard-nav {
     color: var(--colour-white);
     height: auto;
-    min-height: 0;
     margin-right: calc(2 * var(--space-unit));
     max-width: 0;
+    min-height: 0;
     opacity: 0;
     padding-left: 0;
     padding-right: 0;
