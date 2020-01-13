@@ -45,11 +45,16 @@ $transition-duration: 0.4s;
   display: flex;
   height: 100%;
   justify-content: stretch;
-  padding: calc(var(--space-unit) * 4);
+  padding: calc(var(--space-unit) * 2);
   position: relative;
   transition: transform ease $transition-duration;
   width: 100%;
   z-index: var(--z-low);
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
 
   @include mq(md) {
     min-height: 64px;
@@ -88,9 +93,14 @@ $transition-duration: 0.4s;
   @extend %btn-nav-base;
   border-top: 1px solid var(--colour-concrete-05);
   color: var(--colour-blue-80);
-  padding-left: calc(4 * var(--space-unit));
-  padding-right: calc(4 * var(--space-unit));
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
   width: 100%;
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
 
   @include mq(md) {
     display: none;
@@ -107,8 +117,13 @@ $transition-duration: 0.4s;
 .search-pane__btn-close {
   @extend %btn-nav-base;
   color: var(--colour-concrete-60);
-  padding-left: calc(4 * var(--space-unit));
-  padding-right: calc(4 * var(--space-unit));
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
 }
 
 .search-pane__btn-close .icon {
