@@ -13,6 +13,7 @@ export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeColle
 export { Logo } from 'Logo/Logo';
 export { ResultItem } from 'ResultItem/ResultItem';
 export { SearchPane } from 'SearchPane/SearchPane';
+export { Section } from 'Section/Section';
 
 // context components
 export { NavContext, NavContextProvider } from 'NavContext/NavContext';

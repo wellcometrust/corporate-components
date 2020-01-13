@@ -6,11 +6,15 @@
 // 2019-11-11
 // ----------------------------------
 
+// Font Sets
+
 %heading-base {
   font-family: var(--font-secondary);
   letter-spacing: var(--heading-letter-spacing);
   line-height: var(--heading-line-height);
 }
+
+// Font Sizes
 
 %text-xxl {
   font-size: var(--text-xxl);
@@ -34,4 +38,14 @@
 
 %text-xs {
   font-size: var(--text-xs);
+}
+
+// Alignment
+
+%text-center {
+  text-align: center;
+}
+
+%text-right {
+  text-align: right;
 }

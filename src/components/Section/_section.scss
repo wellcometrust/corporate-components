@@ -1,0 +1,15 @@
+// ----------------------------------
+// UI Components
+// Section
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.section--has-bg-color {
+  background-color: var(--colour-blue-05);
+}
+
+.section--central {
+  @extend %text-center;
+}
