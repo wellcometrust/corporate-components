@@ -1,0 +1,61 @@
+.title-banner__container {
+  // padding: rem(var(--text-base-size-px) * 2) 0;
+  padding: rem(32) 0;
+  text-align: center;
+
+  @include mq(sm) {
+    padding: rem(48) 0;
+  }
+
+  @include mq(md) {
+    padding: rem(64) 0;
+  }
+
+  .horizontal-columns__center & {
+    padding-top: rem(16);
+  }
+}
+
+// default white background
+.title-banner--transparent {
+  background: transparent;
+}
+
+// light blue background
+.title-banner--blue {
+  .title-banner__container {
+    background: var(--colour-blue-05);
+  }
+
+  .title-banner__standfirst {
+    padding-top: rem(16);
+
+    @include mq(sm) {
+      padding-top: rem(24);
+    }
+
+    @include mq(md) {
+      padding-top: rem(32);
+    }
+  }
+}
+
+.title-banner__title {
+  // @todo commenting out for now. mixin need to be pulled in.
+  // @include headingDivider((var(--text-base-size-px) / 4), ($grid-spacing-unit * 2.5));
+  padding: 0 0 rem(16);
+  margin: 0;
+}
+
+.title-banner__standfirst {
+  padding-bottom: rem(32);
+  text-align: center;
+
+  @include mq(sm) {
+    padding-bottom: rem(32);
+  }
+
+  @include mq(md) {
+    padding-bottom: rem(64);
+  }
+}
