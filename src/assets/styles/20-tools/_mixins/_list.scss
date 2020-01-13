@@ -1,0 +1,28 @@
+// ----------------------------------
+// UI Tools
+// Mixins
+// List
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Override default <ul> list style
+ *
+ * Usage:
+ *
+ * .list-selector {
+ *   @include list-clean;
+ * }
+ *
+ */
+
+@mixin list-clean {
+  margin-bottom: 0;
+  margin-left: 0;
+
+  > li {
+    list-style: none;
+  }
+}

@@ -1,0 +1,70 @@
+// ----------------------------------
+// UI Tools
+// Mixins
+// Pseudo
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Default properties for pseudo-elements (:after, :before)
+ *
+ * Usage:
+ *
+ * .selector {
+ *   @include pseudo(inline, absolute, '☺');
+ * }
+ *
+ * .selector {
+ *   @include pseudo($position: relative);
+ * }
+ *
+ * .selector {
+ *   @include pseudo($content: '☺', $display: inline);
+ * }
+ *
+ */
+
+@mixin pseudo($display: block, $position: absolute, $content: '') {
+  $displays: block, inline-block, inline;
+  $positions: relative, absolute, static;
+
+  @each $value in $displays {
+    @if $display != $value {
+      @error 'Property #{$display} is not valid';
+    }
+  }
+
+  @each $value in $positions {
+    @if $position != $value {
+      @error 'Property #{$position} is not valid';
+    }
+  }
+
+  content: $content;
+  display: $display;
+  position: $position;
+}
+
+/**
+ * Combine :hover and :focus styles.
+ *
+ * Usage:
+ *
+ * .selector {
+ *   color: blue;
+ *
+ *   @include hocus {
+ *     color: black;
+ *   }
+ * }
+ *
+ */
+
+@mixin hocus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}

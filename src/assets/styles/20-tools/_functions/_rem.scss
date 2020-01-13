@@ -1,6 +1,7 @@
 // ----------------------------------
 // UI Tools
 // Functions
+// REM
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
@@ -26,7 +27,7 @@
  */
 
 @function rem($size) {
-  $rems: $size / $text-base-pixels;
+  $rems: calc(#{$size} / var(--text-base-size-px));
 
   @return #{$rems}rem;
 }

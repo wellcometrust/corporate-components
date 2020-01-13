@@ -7,33 +7,11 @@
 // ----------------------------------
 
 /**
- * Combine :hover and :focus styles.
- *
- * Usage:
- *
- * .component {
- *   color: blue;
- *
- *   @include hocus {
- *     color: black;
- *   }
- * }
- *
- */
-
-@mixin hocus {
-  &:hover,
-  &:focus {
-    @content;
-  }
-}
-
-/**
  * Hide content visually (for screen-readers)
  *
  * Usage:
  *
- * .component {
+ * .selector {
  *   @include visually-hidden;
  * }
  *
