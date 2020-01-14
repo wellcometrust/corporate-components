@@ -7,7 +7,7 @@
 // ----------------------------------
 
 .section--has-bg-color {
-  @extend %bg-colour-blue-05;
+  background-color: var(--colour-blue-05);
 }
 
 .section--central {
