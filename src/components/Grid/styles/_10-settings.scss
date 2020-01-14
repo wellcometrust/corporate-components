@@ -14,11 +14,11 @@
 }
 
 // 8px spacing unit based on (16px / 2)
-$grid-spacing-unit: 8px;
+$grid-space-unit: 8px;
 
 // Gutter
-$grid-gutter-xs: $grid-spacing-unit * 1.5;
-$grid-gutter-sm: $grid-spacing-unit * 2.5;
-$grid-gutter-md: $grid-spacing-unit * 5;
+$grid-gutter-xs: $grid-space-unit * 1.5;
+$grid-gutter-sm: $grid-space-unit * 2.5;
+$grid-gutter-md: $grid-space-unit * 5;
 $grid-gutter-lg: $grid-gutter-md;
-$grid-gutter-xl: $grid-spacing-unit * 6;
+$grid-gutter-xl: $grid-space-unit * 6;
