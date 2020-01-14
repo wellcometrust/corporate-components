@@ -30,10 +30,8 @@ $transition-duration: 0.4s;
   }
 
   &.is-active {
-    transform: translate3d(0, 0, 0);
-
-    @include mq(md) {
-      transform: none;
+    @include mq($until: md) {
+      transform: translate3d(0, 0, 0);
     }
   }
 }

@@ -37,7 +37,7 @@
   }
 
   /* global maxWidth + 5% margin on left and right */
-  @media (min-width: calc(1.1 * var(--container-width))) {
+  @include mq(1.1 * map-get($mq-breakpoints, xl)) {
     margin: 0 auto;
   }
 }
@@ -140,6 +140,11 @@
   @extend %btn-nav-base;
   color: var(--colour-blue-80);
   width: 100%;
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
 
   @include mq(md) {
     display: none;

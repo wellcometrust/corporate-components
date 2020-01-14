@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import cx from 'classnames';
 
 import Button from 'Button/Button';
@@ -9,9 +9,36 @@ import SearchContext from 'SearchPane/Context/SearchPaneContext';
 import SearchPaneForm from './Form/SearchPaneForm';
 import SearchPaneControls from './Controls/SearchPaneControls';
 
+const CSS_CLASSES = {
+  IS_SEARCH_ACTIVE: 'is-search-active'
+};
+
+const addBodyClass = (className: string) => {
+  if (typeof window !== 'undefined' && document.body) {
+    document.body.classList.add(className);
+  }
+};
+
+const removeBodyClass = (className: string) => {
+  if (typeof window !== 'undefined' && document.body) {
+    document.body.classList.remove(className);
+  }
+};
+
 export const SearchPane = () => {
   const { toggleNav } = useContext(NavContext);
   const { isSearchActive, toggleSearch } = useContext(SearchContext);
+
+  useEffect(() => {
+    if (isSearchActive) {
+      addBodyClass(CSS_CLASSES.IS_SEARCH_ACTIVE);
+    } else {
+      removeBodyClass(CSS_CLASSES.IS_SEARCH_ACTIVE);
+    }
+
+    // TODO add return value for unmount
+    return () => removeBodyClass(CSS_CLASSES.IS_SEARCH_ACTIVE);
+  });
 
   const closeAll = () => {
     toggleNav(false);
@@ -27,6 +54,10 @@ export const SearchPane = () => {
     })
   };
 
+  // TODO: #5916 - add accessibility features from corporate-react
+  // * focus search input on opening search
+  // * press esc key to close search
+  // * ensure search form is unreachable when closed
   return (
     <div className={classNames.parent}>
       <div className="search-pane__content">

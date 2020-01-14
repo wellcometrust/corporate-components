@@ -7,5 +7,5 @@
 // ----------------------------------
 
 :root {
-  --container-width: #{map-get($mq-breakpoints, lg)};
+  --container-width: #{map-get($mq-breakpoints, xl)};
 }
