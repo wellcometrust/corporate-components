@@ -3,21 +3,20 @@ import cx from 'classnames';
 
 type SectionProps = {
   children: React.ReactNode;
-  bgColor?: boolean;
   className?: string;
+  hasAlternateStyle?: boolean;
   type?: 'div' | 'section';
 };
 
 export const Section = ({
-  bgColor,
   children,
   className,
+  hasAlternateStyle,
   type = 'section'
 }: SectionProps) => {
   const Element = type;
   const classNames = cx('section', {
-    [`${className}`]: className,
-    [`section--has-bg-color`]: bgColor
+    [`section--alternate`]: hasAlternateStyle
   });
 
   return <Element className={classNames}>{children}</Element>;

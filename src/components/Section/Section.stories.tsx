@@ -11,10 +11,10 @@ const SectionExample = () => {
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et optio eaque quas explicabo nulla asperiores eum placeat quo nam sequi provident possimus quos, adipisci doloremque nihil minus ab nobis illo.'
   );
   const type = select('type', ['div', 'section'], 'section');
-  const bgColor = boolean('bgColor', false);
+  const hasAlternateStyle = boolean('hasAlternateStyle', false);
 
   return (
-    <Section type={type} bgColor={bgColor}>
+    <Section type={type} hasAlternateStyle={hasAlternateStyle}>
       <p>{sectionText}</p>
     </Section>
   );
