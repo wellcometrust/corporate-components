@@ -3,6 +3,21 @@
         "stylelint-config-sass-guidelines"
     ],
     "rules": {
+        "max-nesting-depth": [
+            1,
+            {
+                "ignoreAtRules": [
+                    "each",
+                    "media",
+                    "supports",
+                    "include"
+                ],
+                "ignore": [
+                    "blockless-at-rules"
+                ]
+            }
+
+        ],
         "scss/at-import-no-partial-leading-underscore": null,
         "scss/at-mixin-argumentless-call-parentheses": "never",
         "order/properties-alphabetical-order": null,
