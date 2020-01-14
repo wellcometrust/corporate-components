@@ -21,8 +21,8 @@ $wc-banner-height-bp-sm: rem(40);
 .wc-banner__container {
   @extend %text-xs;
   align-items: center;
-  bottom: 0;
   background: $wc-yellow;
+  bottom: 0;
   display: flex;
   height: $wc-banner-height-bp-xs;
   justify-content: space-between;
