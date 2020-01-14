@@ -21,7 +21,7 @@ $transition-duration: 0.4s;
   top: 0;
   transform: translate3d(100%, 0, 0);
   transition: transform ease $transition-duration;
-  z-index: var(--z-medium);
+  z-index: var(--z-high);
 
   @include mq(md) {
     bottom: initial;
@@ -45,15 +45,15 @@ $transition-duration: 0.4s;
   display: flex;
   height: 100%;
   justify-content: stretch;
-  padding: var(--space-lg);
+  padding: calc(var(--space-unit) * 2);
   position: relative;
   transition: transform ease $transition-duration;
   width: 100%;
   z-index: var(--z-low);
 
   @include mq(sm) {
-    padding-left: var(--space-xl);
-    padding-right: var(--space-xl);
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
   }
 
   @include mq(md) {
@@ -91,9 +91,16 @@ $transition-duration: 0.4s;
 
 .search-pane__btn-back {
   @extend %btn-nav-base;
-  border-top: 1px solid var(--colour-grey-05);
+  border-top: 1px solid var(--colour-concrete-05);
   color: var(--colour-blue-80);
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
   width: 100%;
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
 
   @include mq(md) {
     display: none;
@@ -109,7 +116,14 @@ $transition-duration: 0.4s;
 
 .search-pane__btn-close {
   @extend %btn-nav-base;
-  color: var(--colour-grey-60);
+  color: var(--colour-concrete-60);
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
 }
 
 .search-pane__btn-close .icon {
@@ -128,7 +142,7 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__form-input {
-  background: var(--colour-grey-05);
+  background: var(--colour-concrete-05);
   padding: var(--space-md) var(--space-lg);
   width: 100%;
 
@@ -166,7 +180,7 @@ $transition-duration: 0.4s;
 
 .search-pane__overlay {
   @include mq(md) {
-    background: rgba(var(--colour-white), 0.9);
+    background: rgba(255, 255, 255, 0.9);
     content: '';
     height: 100vh;
     left: 0;

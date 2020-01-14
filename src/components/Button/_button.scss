@@ -23,18 +23,16 @@
   }
 
   &[disabled] {
-    background: var(--colour-grey-20);
-    color: var(--colour-grey-50);
+    background: var(--colour-concrete-20);
+    color: var(--colour-concrete-50);
     cursor: not-allowed;
   }
 }
 
 .btn__icon--left {
-  margin-left: calc(-2 * var(--space-unit));
   margin-right: var(--space-unit);
 }
 
 .btn__icon--right {
   margin-left: var(--space-unit);
-  margin-right: calc(-2 * var(--space-unit));
 }
