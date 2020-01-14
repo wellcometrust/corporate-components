@@ -43,3 +43,17 @@ h5 {
 h6 {
   @extend %text-xs;
 }
+
+// stylelint-disable selector-max-id
+.is-search-active .header,
+.is-search-active .image-lead,
+.is-search-active .pride-strip,
+.is-search-active .banner,
+.is-search-active .main,
+.is-search-active #main,
+.is-search-active .footer {
+  // TODO: figure out why we can't use @include mq(md) here
+  @media screen and (min-width: 1024px) {
+    transform: translate3d(0, 64px, 0);
+  }
+}
