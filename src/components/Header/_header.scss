@@ -141,6 +141,11 @@
   color: var(--colour-blue-80);
   width: 100%;
 
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
+
   @include mq(md) {
     display: none;
   }
