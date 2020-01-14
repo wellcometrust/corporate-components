@@ -37,7 +37,7 @@
   }
 
   /* global maxWidth + 5% margin on left and right */
-  @media (min-width: calc(1.1 * var(--container-width))) {
+  @include mq(1.1 * map-get($mq-breakpoints, xl)) {
     margin: 0 auto;
   }
 }
