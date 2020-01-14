@@ -12,7 +12,6 @@ export const GridCell = ({
   columnIndex,
   columnCount = 3
 }: GridCellProps) => {
-  // Set classnames based on column
   const classNames = cx('grid__cell', {
     [`grid__cell--${columnIndex}-of-${columnCount}`]: columnIndex && columnCount
   });
