@@ -3,17 +3,17 @@ import cx from 'classnames';
 
 type GridCellProps = {
   children: React.ReactNode;
-  columnIndex: 1 | 2 | 3;
+  column: 1 | 2 | 3;
   columnCount: 1 | 2 | 3;
 };
 
 export const GridCell = ({
   children,
-  columnIndex,
+  column,
   columnCount = 3
 }: GridCellProps) => {
   const classNames = cx('grid__cell', {
-    [`grid__cell--${columnIndex}-of-${columnCount}`]: columnIndex && columnCount
+    [`grid__cell--${column}-of-${columnCount}`]: column && columnCount
   });
 
   return <div className={classNames}>{children}</div>;
