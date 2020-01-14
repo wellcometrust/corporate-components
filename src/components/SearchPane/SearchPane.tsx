@@ -54,6 +54,10 @@ export const SearchPane = () => {
     })
   };
 
+  // TODO: #5916 - add accessibility features from corporate-react
+  // * focus search input on opening search
+  // * press esc key to close search
+  // * ensure search form is unreachable when closed
   return (
     <div className={classNames.parent}>
       <div className="search-pane__content">
