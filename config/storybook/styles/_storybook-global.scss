@@ -52,8 +52,7 @@ h6 {
 .is-search-active .main,
 .is-search-active #main,
 .is-search-active .footer {
-  // TODO: figure out why we can't use @include mq(md) here
-  @media screen and (min-width: 1024px) {
+  @include mq(md) {
     transform: translate3d(0, 64px, 0);
   }
 }
