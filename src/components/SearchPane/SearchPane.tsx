@@ -10,7 +10,7 @@ import SearchPaneForm from './Form/SearchPaneForm';
 import SearchPaneControls from './Controls/SearchPaneControls';
 
 const CSS_CLASSES = {
-  IS_SEARCH_ACTIVE: 'search-open'
+  IS_SEARCH_ACTIVE: 'is-search-active'
 };
 
 const addBodyClass = (className: string) => {
