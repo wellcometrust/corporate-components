@@ -1,0 +1,53 @@
+// ----------------------------------
+// UI Components
+// Search Form
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.search-form {
+  border: 1px solid var(--colour-concrete-10);
+  margin-bottom: rem(30);
+  position: relative;
+}
+
+.search-form__input {
+  @extend %text-input-base;
+  font-size: inherit;
+  height: rem(54);
+  padding-left: rem(25);
+  padding-right: rem(25);
+  transition: background-color ease var(--transition-duration);
+
+  &:focus {
+    background-color: var(--colour-concrete-05);
+  }
+}
+
+.search-form__btn-submit {
+  background-color: var(--colour-blue-50);
+  // TODO: #5925 add button-reset styles as a Sass util
+  border: 0;
+  height: 100%;
+  opacity: 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  right: 0;
+  transition: opacity ease calc(0.5 * var(--transition-duration));
+  width: rem(35);
+
+  @include hocus {
+    opacity: 1;
+  }
+}
+
+.search-form__btn-submit .icon {
+  color: var(--colour-white);
+  height: 24px;
+  // TODO: add %margin-auto placeholder
+  margin-left: auto;
+  margin-right: auto;
+  width: 24px;
+}
