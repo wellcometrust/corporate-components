@@ -56,3 +56,13 @@ h6 {
     transform: translate3d(0, 64px, 0);
   }
 }
+
+// Grid
+.st-grid-cell-visualiser {
+  align-items: center;
+  background-color: var(--colour-concrete-20);
+  border: 1px solid;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+}
