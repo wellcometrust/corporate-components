@@ -16,7 +16,6 @@ export const Section = ({
 }: SectionProps) => {
   const Element = type;
   const classNames = cx('section', {
-    [`${className}`]: className,
     [`section--alternate`]: hasAlternateStyle
   });
 
