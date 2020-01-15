@@ -19,8 +19,11 @@
 // More detailed components such as buttons, alerts etc.
 @import '30-components/__manifest';
 
+// Objects e/g grid or media object
+@import '40-objects/__manifest';
+
 // Utility and helper classes
-@import '40-utilities/__manifest';
+@import '50-utilities/__manifest';
 
 /**
  * Whilst we initially adopted a fully-fledged version of the ITCSS

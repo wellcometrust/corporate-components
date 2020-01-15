@@ -8,12 +8,9 @@
   left: 0;
   position: fixed;
   right: 0;
+  text-align: left;
   top: 0;
   z-index: var(--z-header);
-
-  @include mq(sm) {
-    transition: height 0.3s ease-in-out, transform ease var(--transition-duration);
-  }
 }
 
 .header__container {

@@ -37,9 +37,11 @@ export const Hamburger = ({
     >
       <span>{label}</span>
 
-      <div className="icon-menu">
-        <span className="icon-menu__detail" />
-      </div>
+      <span className="icon-menu" aria-hidden="true">
+        <span className="icon-menu__detail">
+          <span className="u-visually-hidden">Menu icon</span>
+        </span>
+      </span>
     </button>
   );
 };

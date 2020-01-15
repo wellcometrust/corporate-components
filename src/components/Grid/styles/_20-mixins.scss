@@ -12,9 +12,9 @@
  */
 
 @mixin grid-container {
-  max-width: rem(var(--grid-max-width));
   margin-left: 5%;
   margin-right: 5%;
+  max-width: rem(var(--grid-max-width));
 
   @include mq(xxl) {
     margin-left: auto;

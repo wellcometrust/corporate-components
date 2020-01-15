@@ -32,7 +32,7 @@ export const WellcomeCollectionLink = () => {
     isClient &&
     // cookies.cookieSeen === 'true' && // this live site cookie indicates user has consented to cookies
     cookies[IS_WELLCOME_COLLECTION_LINK_SEEN] !== 'true' &&
-    bannerPaths.includes(window.location.pathname);
+    bannerPaths.indexOf(window.location.pathname) > -1;
 
   const bannerClassName = cx('wc-banner', {
     'is-active': canShowCookieNotice()

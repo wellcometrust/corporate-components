@@ -41,10 +41,10 @@
 }
 
 .title-banner__title {
+  margin: 0;
   // @todo commenting out for now. mixin need to be pulled in.
   // @include headingDivider((var(--text-base-size-px) / 4), ($grid-spacing-unit * 2.5));
   padding: 0 0 rem(16);
-  margin: 0;
 }
 
 .title-banner__standfirst {
