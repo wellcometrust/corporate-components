@@ -1,12 +1,8 @@
 // ----------------------------------
 // UI Settings
-// Sizes
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
-:root {
-  --container-width: #{map-get($mq-breakpoints, xl)};
-  --search-height-wide: calc(8 * --var(--space-unit));
-}
+@import 'app';

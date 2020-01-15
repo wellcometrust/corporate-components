@@ -62,7 +62,10 @@ export const Header = ({ banner }: HeaderProps) => {
   };
 
   return (
-    <header ref={headerRef} className={sticky ? 'header sticky' : 'header'}>
+    <header
+      ref={headerRef}
+      className={sticky ? 'header o-app sticky' : 'header o-app'}
+    >
       <>
         {banner}
         <div className="header__container">
@@ -134,7 +137,6 @@ export const Header = ({ banner }: HeaderProps) => {
             </div>
             <SearchPane />
             <div
-              aria-label="Close search and menu"
               className={
                 isNavActive ? 'nav__overlay is-active' : 'nav__overlay'
               }
@@ -142,7 +144,9 @@ export const Header = ({ banner }: HeaderProps) => {
               onKeyDown={() => toggleNav(false)}
               role="button"
               tabIndex={0}
-            />
+            >
+              <span className="u-visually-hidden">Close search and menu</span>
+            </div>
           </>
         </div>
       </>

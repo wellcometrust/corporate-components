@@ -21,9 +21,9 @@ export const Icon = ({ className, height, name, width }: IconProps) => {
   const classNames = cx('icon', { [`${className}`]: className });
 
   return isIcon ? (
-    <div className={classNames} style={{ height, width }} aria-hidden="true">
+    <span className={classNames} style={{ height, width }} aria-hidden="true">
       <IconElement />
-    </div>
+    </span>
   ) : null;
 };
 

@@ -24,7 +24,7 @@ $transition-duration: 0.4s;
   z-index: var(--z-high);
 
   @include mq(md) {
-    bottom: initial;
+    bottom: auto;
     position: absolute;
     transform: translate3d(0, -100%, 0);
   }
@@ -55,7 +55,7 @@ $transition-duration: 0.4s;
   }
 
   @include mq(md) {
-    min-height: 64px;
+    min-height: var(--search-height-wide);
     padding: 0;
   }
 
@@ -65,13 +65,18 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__container {
-  margin: 0 auto;
-  max-width: 1344px;
+  max-width: map-get($mq-breakpoints, xl);
   width: 100%;
 
   @include mq(md) {
     align-items: center;
     display: flex;
+    margin: 0 5%;
+  }
+
+  /* global maxWidth + 5% margin on left and right */
+  @include mq(1.1 * map-get($mq-breakpoints, xl)) {
+    margin: 0 auto;
   }
 }
 
@@ -82,7 +87,7 @@ $transition-duration: 0.4s;
   top: 0;
 
   @include mq(md) {
-    margin-left: var(--space-xl);
+    margin-left: calc(-4 * var(--space-unit));
     position: static;
   }
 }
@@ -140,7 +145,9 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__form-input {
+  @extend %text-input-base;
   background: var(--colour-concrete-05);
+  font-size: calc(0.94 * var(--text-base-size));
   padding: var(--space-md) var(--space-lg);
   width: 100%;
 
@@ -158,7 +165,6 @@ $transition-duration: 0.4s;
 
   @include mq(md) {
     color: var(--colour-white);
-    margin-right: var(--space-lg);
   }
 }
 

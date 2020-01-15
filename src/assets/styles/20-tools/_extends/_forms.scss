@@ -20,7 +20,8 @@
 
 %text-input-base {
   border: 0;
-  border-radius: rem(calc(0.25 * var(--space-unit)));
+  border-radius: calc(0.25 * var(--space-unit));
+  box-sizing: border-box;
   color: var(--colour-black);
   letter-spacing: rem(0.4);
   width: 100%;

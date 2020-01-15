@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Grid, { GridCell } from './Grid';
+import Grid from './Grid';
 
 describe('<Grid />', () => {
   const output = shallow(<Grid>The Grid Component</Grid>);
