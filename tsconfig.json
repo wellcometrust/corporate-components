@@ -29,7 +29,6 @@
         "sourceMap": true,
         "noEmitOnError": true,
         "resolveJsonModule": true,
-        "allowJs": true
     },
     "include": [
         "./"

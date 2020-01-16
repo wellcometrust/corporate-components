@@ -1,17 +1,8 @@
 import React from 'react';
-import App from './App';
+import SolrQueryFetchApp from './SolrQueryFetchApp';
 
-type SolrReactProps = {
-  name: String;
-  surname: String;
-};
-
-export const SearchQueryFetch = ({
-  name,
-  surname
-}: SolrReactProps) => {
-  // @ts-ignore
- return <App />
+export const SearchQueryFetch = () => {
+ return <SolrQueryFetchApp />
 };
 
 export default SearchQueryFetch;

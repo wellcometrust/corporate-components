@@ -1,6 +1,8 @@
 import React from 'react';
+import SearchForm from '../SearchForm/SearchForm'
 
 class SolrConnectorDemo extends React.Component {
+  // @ts-ignore
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -12,13 +14,16 @@ class SolrConnectorDemo extends React.Component {
     }
   }
 
+  // @ts-ignore
   onSubmit(event) {
-  // onLoad(event) {
     event.preventDefault();
     let searchParams = {
-      solrSearchUrl: this.state.solrSearchUrl,
+      solrSearchUrl: "http://drupalvm.corporate:8983/solr/d7/select",
+      // @ts-ignore
       query: this.state.query,
+      // @ts-ignore
       filter: [this.state.filter],
+      // @ts-ignore
       fetchFields: this.state.fetchFields.split(" "),
       offset: 0,
       limit: 10,
@@ -41,32 +46,23 @@ class SolrConnectorDemo extends React.Component {
         "hl.fragsize": 500
       }
     };
+    // @ts-ignore
     this.props.doSearch(searchParams);
   }
 
   render() {
-    return <div>
+    return <div>   
+      {/* <SearchForm 
+        className="inputForm" 
+        onSubmit={(e) =>  this.onSubmit(e)} 
+        handleInputChange={this.state.query}
+        searchQuery={this.state.query}
+      />   */}
       <form className="inputForm" onSubmit={(e) =>  this.onSubmit(e)}>
-      {/* <form className="inputForm" onSubmit={this.onSubmit.bind(this)}> */}
-        <h4>searchParams: TOGO</h4>
-        <p>
-          solrSearchUrl: {" "}
-          <input type="text" value={this.state.solrSearchUrl}
-                 onChange={e => {this.setState({ solrSearchUrl: e.target.value })}} />
-        </p>
         <p>
           query: {" "}
           <input type="text" value={this.state.query}
                  onChange={e => {this.setState({ query: e.target.value })}} />
-          {" "}
-          filter: {" "}
-          <input type="text" value={this.state.filter}
-                 onChange={e => {this.setState({ filter: e.target.value })}} />
-        </p>
-        <p>
-          fetchFields: {" "}
-          <input type="text" value={this.state.fetchFields}
-                 onChange={e => {this.setState({ fetchFields: e.target.value })}} />
         </p>
         <p>
           <button type="submit">Search</button>

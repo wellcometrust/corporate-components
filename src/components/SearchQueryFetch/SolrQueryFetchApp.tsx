@@ -1,10 +1,10 @@
 import React from 'react';
 // @ts-ignore
 import SolrConnector from 'react-solr-connector';
-import SolrConnectorDemo from '../SolrConnectorDemo';
+import SolrConnectorDemo from './SolrQueryFetchConnector';
 
 class App extends React.Component {
-  // // @ts-ignore
+  // @ts-ignore
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ class App extends React.Component {
 
   render() {
     return(
-      // @ts-ignore
+    // @ts-ignore
     <SolrConnector searchParams={this.state.searchParams}>
       <SolrConnectorDemo doSearch={this.doSearch.bind(this)}/>
     </SolrConnector>
