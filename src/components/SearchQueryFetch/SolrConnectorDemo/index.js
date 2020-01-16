@@ -46,7 +46,7 @@ class SolrConnectorDemo extends React.Component {
 
   render() {
     return <div>
-      <form className="inputForm" onSubmit={() =>  this.onSubmit()}>
+      <form className="inputForm" onSubmit={(e) =>  this.onSubmit(e)}>
       {/* <form className="inputForm" onSubmit={this.onSubmit.bind(this)}> */}
         <h4>searchParams: TOGO</h4>
         <p>
