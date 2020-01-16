@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
+import Grid, { GridCell } from 'Grid';
+
 type PageHeaderProps = {
   title: string;
   className?: string;
@@ -21,18 +23,18 @@ export const PageHeader = ({
   return (
     <div className={classNames}>
       <div className="title-banner__container">
-        <div className="grid">
-          <div className="grid__cell grid__cell--1-of-1">
+        <Grid>
+          <GridCell column={1} columnCount={1}>
             {meta}
             <h1 className="title-banner__title">{title}</h1>
-          </div>
-        </div>
+          </GridCell>
+        </Grid>
       </div>
-      <div className="grid">
-        <div className="grid__cell grid__cell--1-of-1 title-banner__standfirst">
-          {standfirst}
-        </div>
-      </div>
+      <Grid>
+        <GridCell column={1} columnCount={1}>
+          <div className="title-banner__standfirst">{standfirst}</div>
+        </GridCell>
+      </Grid>
     </div>
   );
 };
