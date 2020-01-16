@@ -9,7 +9,7 @@ type SearchFormProps = {
   action?: string;
   children?: React.ReactNode;
   className?: string;
-  handleChange?: () => void;
+  handleInputChange?: () => void;
   handleSubmit?: () => void;
   hideLabelText?: boolean;
   inputClassName?: string;
@@ -25,7 +25,7 @@ export const SearchForm = ({
   action = '/search',
   children,
   className,
-  handleChange,
+  handleInputChange,
   handleSubmit,
   hideLabelText = true,
   inputClassName,
@@ -51,7 +51,7 @@ export const SearchForm = ({
   // Gather props for Input component
   const inputProps = {
     className: inputClassName,
-    handleChange,
+    handleChange: handleInputChange,
     searchQuery
   };
 
