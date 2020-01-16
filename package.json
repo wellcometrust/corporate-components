@@ -1,7 +1,7 @@
 {
   "name": "@wellcome/corporate-components",
   "version": "0.0.0",
-  "description": "Component library for main Wellcome corporate site",
+  "description": "Component library for main Wellcome Trust corporate site",
   "main": "dist/index.js",
   "style": "dist/styles.css",
   "files": [
@@ -18,7 +18,7 @@
     "lint": "npm run lint:style && npm run lint:js",
     "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",
     "lint:style": "stylelint --fix '**/*.scss' && echo 'Style linting complete'",
-    "prepare": "npm run build",
+    "prepublishOnly": "npm run type-check & npm run lint && npm run test && npm run build",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
     "test": "jest",
     "test:ci": "jest --runInBand",

@@ -3,14 +3,12 @@ import cx from 'classnames';
 
 type SectionProps = {
   children: React.ReactNode;
-  className?: string;
   hasAlternateStyle?: boolean;
   type?: 'div' | 'section';
 };
 
 export const Section = ({
   children,
-  className,
   hasAlternateStyle,
   type = 'section'
 }: SectionProps) => {
