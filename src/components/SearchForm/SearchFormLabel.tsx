@@ -4,8 +4,8 @@ import cx from 'classnames';
 type SearchFormLabelProps = {
   children: React.ReactNode;
   className: string;
-  textClassName: string;
   hideText: boolean;
+  textClassName: string;
 };
 
 export const SearchFormLabel = ({

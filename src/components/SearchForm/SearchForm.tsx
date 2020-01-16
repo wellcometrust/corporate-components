@@ -9,32 +9,32 @@ type SearchFormProps = {
   action?: string;
   children?: React.ReactNode;
   className?: string;
-  hasSubmitButton: boolean;
-  hideLabelText?: boolean;
   handleChange?: () => void;
-  handleSubmit: () => void;
+  handleSubmit?: () => void;
+  hideLabelText?: boolean;
   inputClassName?: string;
   labelClassName?: string;
   labelTextClassName?: string;
   method?: 'GET' | 'POST';
   searchQuery?: string;
   submitButtonClassName?: string;
+  submitButtonHasStyle?: boolean;
 };
 
 export const SearchForm = ({
   action = '/search',
   children,
   className,
-  hasSubmitButton = true,
-  handleSubmit,
   handleChange,
+  handleSubmit,
   hideLabelText = true,
   inputClassName,
   labelClassName,
   labelTextClassName,
   method = 'GET',
   searchQuery,
-  submitButtonClassName
+  submitButtonClassName,
+  submitButtonHasStyle = false
 }: SearchFormProps) => {
   const classNames = cx({
     'search-form': !className,
@@ -43,21 +43,22 @@ export const SearchForm = ({
 
   // Gather props for Label component
   const labelProps = {
-    hideText: hideLabelText,
     className: labelClassName,
+    hideText: hideLabelText,
     textClassName: labelTextClassName
   };
 
   // Gather props for Input component
   const inputProps = {
-    handleChange,
     className: inputClassName,
+    handleChange,
     searchQuery
   };
 
   // Gather props for SubmitButton component
   const submitButtonProps = {
-    className: submitButtonClassName
+    className: submitButtonClassName,
+    styled: submitButtonHasStyle
   };
 
   return (
@@ -72,7 +73,7 @@ export const SearchForm = ({
         <SearchFormInput {...inputProps} />
       </SearchFormLabel>
       {children}
-      {hasSubmitButton && <SearchFormSubmitButton {...submitButtonProps} />}
+      <SearchFormSubmitButton {...submitButtonProps} />
     </form>
   );
 };

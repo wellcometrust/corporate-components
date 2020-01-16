@@ -5,10 +5,12 @@ import Button from 'Button/Button';
 
 type SearchFormSubmitButtonProps = {
   className?: string;
+  styled?: boolean;
 };
 
 export const SearchFormSubmitButton = ({
-  className
+  className,
+  styled
 }: SearchFormSubmitButtonProps) => {
   const classNames = cx({
     'search-form__btn-submit': !className,
@@ -16,7 +18,7 @@ export const SearchFormSubmitButton = ({
   });
 
   return (
-    <Button styled={false} className={classNames} icon="search">
+    <Button className={classNames} icon="search" styled={styled}>
       <span className="u-visually-hidden">Submit</span>
     </Button>
   );
