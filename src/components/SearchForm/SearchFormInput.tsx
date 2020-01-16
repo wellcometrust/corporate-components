@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 type SearchFormInputProps = {
   className?: string;
-  handleChange?: () => void;
+  handleChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   searchQuery?: string;
 };
 
