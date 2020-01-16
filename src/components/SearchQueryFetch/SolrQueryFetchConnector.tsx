@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm'
-
 class SolrConnectorDemo extends React.Component {
   // @ts-ignore
   constructor(props) {
@@ -8,12 +7,11 @@ class SolrConnectorDemo extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       solrSearchUrl: "http://drupalvm.corporate:8983/solr/d7/select",
-      query: "memory",
+      query: "",
       filter: "",
       fetchFields: ""
     }
   }
-
   // @ts-ignore
   onSubmit(event) {
     event.preventDefault();
@@ -49,25 +47,16 @@ class SolrConnectorDemo extends React.Component {
     // @ts-ignore
     this.props.doSearch(searchParams);
   }
-
   render() {
-    return <div>   
-      {/* <SearchForm 
-        className="inputForm" 
-        onSubmit={(e) =>  this.onSubmit(e)} 
-        handleInputChange={this.state.query}
+    return <div>
+      <SearchForm
+        className="inputForm"
+        handleSubmit={(e) => this.onSubmit(e)}
+        handleInputChange={(e) => this.setState({
+          query: e.target.value
+        })}
         searchQuery={this.state.query}
-      />   */}
-      <form className="inputForm" onSubmit={(e) =>  this.onSubmit(e)}>
-        <p>
-          query: {" "}
-          <input type="text" value={this.state.query}
-                 onChange={e => {this.setState({ query: e.target.value })}} />
-        </p>
-        <p>
-          <button type="submit">Search</button>
-        </p>
-      </form>
+      />
       <div className="jsonOutput">
         <pre>
           this.props.solrConnector: {"\n\n"}
@@ -77,5 +66,4 @@ class SolrConnectorDemo extends React.Component {
     </div>;
   }
 }
-
 export default SolrConnectorDemo;
