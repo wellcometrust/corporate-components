@@ -10,7 +10,7 @@ type SearchFormProps = {
   children?: React.ReactNode;
   className?: string;
   handleInputChange?: () => void;
-  handleSubmit?: () => void;
+  handleSubmit?: (e:any) => void;
   hideLabelText?: boolean;
   inputClassName?: string;
   labelClassName?: string;

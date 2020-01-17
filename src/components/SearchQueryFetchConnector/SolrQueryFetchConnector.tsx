@@ -1,5 +1,6 @@
 import React from 'react';
-import SearchForm from '../SearchForm/SearchForm'
+import SearchForm from '../SearchForm/SearchForm';
+
 class SolrConnectorDemo extends React.Component {
   // @ts-ignore
   constructor(props) {
@@ -12,6 +13,7 @@ class SolrConnectorDemo extends React.Component {
       fetchFields: ""
     }
   }
+
   // @ts-ignore
   onSubmit(event) {
     event.preventDefault();
@@ -47,23 +49,28 @@ class SolrConnectorDemo extends React.Component {
     // @ts-ignore
     this.props.doSearch(searchParams);
   }
+  
   render() {
-    return <div>
-      <SearchForm
-        className="inputForm"
-        handleSubmit={(e) => this.onSubmit(e)}
-        handleInputChange={(e) => this.setState({
-          query: e.target.value
-        })}
-        searchQuery={this.state.query}
-      />
-      <div className="jsonOutput">
-        <pre>
-          this.props.solrConnector: {"\n\n"}
-          { JSON.stringify(this.props.solrConnector, null, 2) }
-        </pre>
+    return (
+      <div>
+        <SearchForm
+          className="inputForm"
+          handleSubmit={(e) => this.onSubmit(e)}
+          // @todo fix typescript error. #5943 
+          handleInputChange={(e) => this.setState({
+            query: e.target.value
+          })}
+          // @todo fix typescript error. #5943 
+          searchQuery={this.state.query}
+        />
+        <div className="jsonOutput">
+          <pre>
+            this.props.solrConnector: {"\n\n"}
+            { JSON.stringify(this.props.solrConnector, null, 2) }
+          </pre>
+        </div>
       </div>
-    </div>;
+    );
   }
 }
 export default SolrConnectorDemo;
