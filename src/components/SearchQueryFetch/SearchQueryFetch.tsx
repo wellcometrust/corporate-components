@@ -1,3 +1,5 @@
+//@todo document this component
+
 import React from 'react';
 import SolrQueryFetchApp from './SolrQueryFetchApp';
 
