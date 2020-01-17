@@ -1,6 +1,6 @@
 {
   "name": "@wellcometrust/corporate-components",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Component library for main Wellcome Trust corporate site",
   "main": "dist/index.js",
   "style": "dist/styles.css",
@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "lodash.throttle": "^4.1.1",
     "react-cookie": "^4.0.3",
     "react-solr-connector": "^1.1.1"
   },
@@ -91,7 +92,6 @@
     "husky": "^3.1.0",
     "jest": "^24.9.0",
     "lint-staged": "^9.5.0",
-    "lodash.throttle": "^4.1.1",
     "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.26",
