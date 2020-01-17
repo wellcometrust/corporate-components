@@ -26,15 +26,13 @@
 }
 
 .search-form__btn-submit {
+  @extend %btn-base;
   background-color: var(--colour-blue-50);
-  // TODO: #5925 add button-reset styles as a Sass util
-  border: 0;
   height: 100%;
   opacity: 0;
-  padding-left: 0;
-  padding-right: 0;
   position: absolute;
   right: 0;
+  top: 0;
   transition: opacity ease calc(0.5 * var(--transition-duration));
   width: rem(35);
 
