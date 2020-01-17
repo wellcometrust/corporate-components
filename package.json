@@ -1,5 +1,5 @@
 {
-  "name": "@wellcome/corporate-components",
+  "name": "@wellcometrust/corporate-components",
   "version": "0.0.0",
   "description": "Component library for main Wellcome Trust corporate site",
   "main": "dist/index.js",
