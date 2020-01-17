@@ -1,9 +1,9 @@
 import React from 'react';
 // @ts-ignore
 import SolrConnector from 'react-solr-connector';
-import SolrConnectorDemo from './SolrQueryFetchConnector';
+import SearchQueryFetchConnector from './SearchQueryFetchConnector';
 
-class SolrQueryFetch extends React.Component {
+export class SearchQueryFetch extends React.Component {
   // @ts-ignore
   constructor(props) {
     super(props);
@@ -22,14 +22,10 @@ class SolrQueryFetch extends React.Component {
       // @todo fix typescript error. #5943 
       // @ts-ignore
       <SolrConnector searchParams={this.state.searchParams}>
-        <SolrConnectorDemo doSearch={this.doSearch.bind(this)}/>
+        <SearchQueryFetchConnector doSearch={this.doSearch.bind(this)}/>
       </SolrConnector>
     );
   }
 }
-
-export const SearchQueryFetch = () => {
-  return <SolrQueryFetch />
-};
  
 export default SearchQueryFetch;

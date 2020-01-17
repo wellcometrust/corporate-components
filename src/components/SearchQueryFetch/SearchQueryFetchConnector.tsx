@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchForm from '../SearchForm/SearchForm';
+import SearchForm from 'SearchForm';
 
-class SolrConnectorDemo extends React.Component {
+class SearchQueryFetchConnector extends React.Component {
   // @ts-ignore
   constructor(props) {
     super(props);
@@ -73,4 +73,4 @@ class SolrConnectorDemo extends React.Component {
     );
   }
 }
-export default SolrConnectorDemo;
+export default SearchQueryFetchConnector;
