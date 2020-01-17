@@ -8,16 +8,16 @@
 
 .search-form {
   border: 1px solid var(--colour-concrete-10);
-  margin-bottom: rem(30);
+  margin-bottom: calc(3.75 * var(--space-unit));
   position: relative;
 }
 
 .search-form__input {
   @extend %text-input-base;
   font-size: inherit;
-  height: rem(54);
-  padding-left: rem(25);
-  padding-right: rem(25);
+  height: calc(6.75 * var(--space-unit));
+  padding-left: calc(3.125 * var(--space-unit));
+  padding-right: calc(3.125 * var(--space-unit));
   transition: background-color ease var(--transition-duration);
 
   &:focus {
@@ -34,7 +34,7 @@
   right: 0;
   top: 0;
   transition: opacity ease calc(0.5 * var(--transition-duration));
-  width: rem(35);
+  width: calc(4.375 * var(--space-unit));
 
   @include hocus {
     opacity: 1;
@@ -43,9 +43,9 @@
 
 .search-form__btn-submit .icon {
   color: var(--colour-white);
-  height: 24px;
+  height: 72.5%;
   // TODO: add %margin-auto placeholder
   margin-left: auto;
   margin-right: auto;
-  width: 24px;
+  width: 72.5%;
 }

@@ -1,13 +1,13 @@
 .result-item {
   border-top: 1px solid var(--colour-concrete-10);
-  padding-bottom: rem(25);
-  padding-top: rem(25);
+  padding-bottom: var(--space-lg);
+  padding-top: var(--space-lg);
   text-align: left;
 }
 
 .result-item__title {
-  margin-bottom: rem(5);
-  margin-top: rem(5);
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
 }
 
 .result-item__link {
@@ -25,7 +25,7 @@
 .result-item__meta {
   font-size: var(--text-xs);
   line-height: 1.57143;
-  margin-bottom: rem(5);
+  margin-bottom: var(--space-xs);
 }
 
 .result-item__text {
