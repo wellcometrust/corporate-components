@@ -1,11 +1,7 @@
 .title-banner__container {
-  padding-left: var(--space-xl);
-  padding-right: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  padding-top: var(--space-xl);
   text-align: center;
-
-  .horizontal-columns__center & {
-    padding-top: calc(2 * var(--space-unit));
-  }
 }
 
 // default white background
@@ -28,14 +24,10 @@
   margin: 0;
   // @todo commenting out for now. mixin need to be pulled in.
   // @include headingDivider((var(--text-base-size-px) / 4), ($grid-spacing-unit * 2.5));
-  padding-bottom: calc(2 * var(--space-unit));
+  padding-bottom: var(--space-md);
 }
 
 .title-banner__standfirst {
   padding-bottom: var(--space-xl);
   text-align: center;
-
-  @include mq($from: sm, $until: md) {
-    padding-bottom: calc(2 * var(--space-unit));
-  }
 }
