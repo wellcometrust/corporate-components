@@ -1,18 +1,10 @@
 .title-banner__container {
-  // padding: rem(var(--text-base-size-px) * 2) 0;
-  padding: rem(32) 0;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
   text-align: center;
 
-  @include mq(sm) {
-    padding: rem(48) 0;
-  }
-
-  @include mq(md) {
-    padding: rem(64) 0;
-  }
-
   .horizontal-columns__center & {
-    padding-top: rem(16);
+    padding-top: calc(2 * var(--space-unit));
   }
 }
 
@@ -28,15 +20,7 @@
   }
 
   .title-banner__standfirst {
-    padding-top: rem(16);
-
-    @include mq(sm) {
-      padding-top: rem(24);
-    }
-
-    @include mq(md) {
-      padding-top: rem(32);
-    }
+    padding-top: var(--space-lg);
   }
 }
 
@@ -44,18 +28,14 @@
   margin: 0;
   // @todo commenting out for now. mixin need to be pulled in.
   // @include headingDivider((var(--text-base-size-px) / 4), ($grid-spacing-unit * 2.5));
-  padding: 0 0 rem(16);
+  padding-bottom: calc(2 * var(--space-unit));
 }
 
 .title-banner__standfirst {
-  padding-bottom: rem(32);
+  padding-bottom: var(--space-xl);
   text-align: center;
 
-  @include mq(sm) {
-    padding-bottom: rem(32);
-  }
-
-  @include mq(md) {
-    padding-bottom: rem(64);
+  @include mq($from: sm, $until: md) {
+    padding-bottom: calc(2 * var(--space-unit));
   }
 }
