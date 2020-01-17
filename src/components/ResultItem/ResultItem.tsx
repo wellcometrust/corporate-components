@@ -23,9 +23,20 @@ export const ResultItem = ({
   <div className="result-item">
     <div className="result-item__meta">
       <span className="result-item__meta-type">{type}</span>
-      <span className="result-item__meta-type--date">{date}</span>
+      <span className="result-item__meta-type--date">
+        {new Intl.DateTimeFormat('en-GB', {
+          year: 'numeric',
+          month: 'long',
+          day: '2-digit'
+        }).format(date)}
+      </span>
       <span className="result-item__meta-type--last-updated">
-        Update {lastUpdated}
+        Update
+        {new Intl.DateTimeFormat('en-GB', {
+          year: 'numeric',
+          month: 'long',
+          day: '2-digit'
+        }).format(lastUpdated)}
       </span>
     </div>
     <h4 className="result-item__title">
