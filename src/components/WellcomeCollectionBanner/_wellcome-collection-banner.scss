@@ -15,12 +15,7 @@
   transition: height 0.4s ease;
 
   &.is-active {
-    --wc-banner-height: calc(7.5 * var(--space-unit));
     height: var(--wc-banner-height);
-
-    @include mq(xs) {
-      --wc-banner-height: calc(5 * var(--space-unit));
-    }
   }
 }
 
