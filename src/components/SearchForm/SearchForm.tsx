@@ -13,6 +13,7 @@ type SearchFormProps = {
   handleSubmit?: (event: React.FormEvent<HTMLFormElement>) => {};
   hideLabelText?: boolean;
   inputClassName?: string;
+  inputId: string;
   labelClassName?: string;
   labelTextClassName?: string;
   method?: 'GET' | 'POST';
@@ -29,6 +30,7 @@ export const SearchForm = ({
   handleSubmit,
   hideLabelText = true,
   inputClassName,
+  inputId,
   labelClassName,
   labelTextClassName,
   method = 'GET',
@@ -45,6 +47,7 @@ export const SearchForm = ({
   const labelProps = {
     className: labelClassName,
     hideText: hideLabelText,
+    htmlFor: inputId,
     textClassName: labelTextClassName
   };
 
@@ -52,6 +55,7 @@ export const SearchForm = ({
   const inputProps = {
     className: inputClassName,
     handleChange: handleInputChange,
+    id: inputId,
     searchQuery
   };
 

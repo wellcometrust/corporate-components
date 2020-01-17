@@ -5,6 +5,7 @@ type SearchFormLabelProps = {
   children: React.ReactNode;
   className: string;
   hideText: boolean;
+  htmlFor: string;
   textClassName: string;
 };
 
@@ -12,6 +13,7 @@ export const SearchFormLabel = ({
   children,
   className,
   hideText,
+  htmlFor,
   textClassName
 }: SearchFormLabelProps) => {
   const classNames = {
@@ -27,7 +29,7 @@ export const SearchFormLabel = ({
   };
 
   return (
-    <label className={classNames.label} htmlFor="search">
+    <label className={classNames.label} htmlFor={htmlFor}>
       <span className={classNames.text}>Search</span>
       {children}
     </label>
