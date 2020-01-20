@@ -14,6 +14,7 @@ export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeColle
 export { Logo } from 'Logo/Logo';
 export { PageHeader } from 'PageHeader/PageHeader';
 export { ResultItem } from 'ResultItem/ResultItem';
+export { ResultsList } from 'ResultsList/ResultsList';
 export { SearchForm } from 'SearchForm/SearchForm';
 export { SearchPane } from 'SearchPane/SearchPane';
 export { SearchQueryFetch } from 'SearchQueryFetch/SearchQueryFetch';

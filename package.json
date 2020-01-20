@@ -45,6 +45,7 @@
     "classnames": "^2.2.6",
     "lodash.throttle": "^4.1.1",
     "react-cookie": "^4.0.3",
+    "react-paginate": "^6.3.2",
     "react-solr-connector": "^1.1.1"
   },
   "devDependencies": {
@@ -68,6 +69,7 @@
     "@types/node": "^12.12.22",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
+    "@types/react-paginate": "^6.2.1",
     "@types/storybook__react": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
