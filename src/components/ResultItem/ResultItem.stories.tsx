@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, date } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 
 import ResultItem from './ResultItem';
 

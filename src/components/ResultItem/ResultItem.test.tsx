@@ -1,6 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ResultItem from './ResultItem';
+// import React from 'react';
+// import { shallow } from 'enzyme';
+// import ResultItem from './ResultItem';
 
 describe('<ResultItem />', () => {
   // @todo need to write test, below code passes the test but fails commit.
