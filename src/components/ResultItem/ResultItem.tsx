@@ -2,8 +2,8 @@ import React from 'react';
 
 type meta = {
   type?: string;
-  date?: Date;
-  lastUpdated?: Date;
+  date?: string;
+  lastUpdated?: string;
 };
 
 type ResultItemProps = {
@@ -23,20 +23,9 @@ export const ResultItem = ({
   <div className="result-item">
     <div className="result-item__meta">
       <span className="result-item__meta-type">{type}</span>
-      <span className="result-item__meta-type--date">
-        {new Intl.DateTimeFormat('en-GB', {
-          year: 'numeric',
-          month: 'long',
-          day: '2-digit'
-        }).format(date)}
-      </span>
-      <span className="result-item__meta-type--last-updated">
-        Update
-        {new Intl.DateTimeFormat('en-GB', {
-          year: 'numeric',
-          month: 'long',
-          day: '2-digit'
-        }).format(lastUpdated)}
+      <span className="result-item__meta-date">{date}</span>
+      <span className="result-item__meta-lastupdated">
+        Updated {lastUpdated}
       </span>
     </div>
     <h4 className="result-item__title">
