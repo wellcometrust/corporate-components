@@ -6,13 +6,13 @@ type meta = {
   lastUpdated?: string;
 };
 
-export interface ResultItemProps {
+export type ResultItemProps = {
   className?: string;
   href: string;
   meta?: meta;
   text?: string;
   title: string;
-}
+};
 
 export const ResultItem = ({
   meta: { type, date, lastUpdated },
