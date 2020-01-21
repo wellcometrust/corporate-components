@@ -1,40 +1,70 @@
 import React from 'react';
 
-type meta = {
+type ResultItemMetaProps = {
   type?: string;
   date?: string;
   lastUpdated?: string;
 };
 
+type ResultItemFileMetaProps = {
+  type: string;
+  size: string;
+};
+
 export type ResultItemProps = {
   className?: string;
   href: string;
-  meta?: meta;
+  meta?: ResultItemMetaProps;
+  fileMeta?: ResultItemFileMetaProps;
   text?: string;
   title: string;
+  type?: 'file' | null;
 };
 
 export const ResultItem = ({
-  meta: { type, date, lastUpdated },
+  fileMeta,
+  meta,
   title,
   href,
-  text
+  text,
+  type
 }: ResultItemProps) => (
-  <div className="result-item">
-    <div className="result-item__meta">
-      <span className="result-item__meta-type">{type}</span>
-      <span className="result-item__meta-date">{date}</span>
-      <span className="result-item__meta-lastupdated">
-        Updated {lastUpdated}
-      </span>
-    </div>
+  <article className="result-item">
+    {meta && (
+      <div className="result-item__meta">
+        <span className="result-item__meta-type">{meta.type}</span>
+        <span className="result-item__meta-date">&nbsp;{meta.date}</span>
+        {meta.lastUpdated && (
+          <span className="result-item__meta-last-updated">
+            Updated {meta.lastUpdated}
+          </span>
+        )}
+      </div>
+    )}
     <h3 className="result-item__title">
-      <a href={href} className="result-item__link">
-        {title}
-      </a>
+      {type === 'file' ? (
+        `${title}`
+      ) : (
+        <a href={href} className="result-item__link">
+          {title}
+        </a>
+      )}
     </h3>
+    {type === 'file' && (
+      <div className="result-item__file-meta">
+        <a href={href} className="result-item__file-meta-download">
+          Download
+        </a>
+        <span className="result-item__file-meta-size">
+          &nbsp;
+          {fileMeta.type}
+          &nbsp;
+          {fileMeta.size}
+        </span>
+      </div>
+    )}
     <p className="result-item__text">{text}</p>
-  </div>
+  </article>
 );
 
 export default ResultItem;
