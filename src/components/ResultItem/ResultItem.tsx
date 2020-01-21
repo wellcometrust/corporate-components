@@ -6,7 +6,7 @@ type meta = {
   lastUpdated?: string;
 };
 
-type ResultItemProps = {
+export type ResultItemProps = {
   className?: string;
   href: string;
   meta?: meta;
@@ -28,11 +28,11 @@ export const ResultItem = ({
         Updated {lastUpdated}
       </span>
     </div>
-    <h4 className="result-item__title">
+    <h3 className="result-item__title">
       <a href={href} className="result-item__link">
         {title}
       </a>
-    </h4>
+    </h3>
     <p className="result-item__text">{text}</p>
   </div>
 );
