@@ -6,9 +6,9 @@ export const Footer = () => (
       <h3 className="footer__mission-statement">
         Wellcome exists to improve health by helping great ideas to thrive
       </h3>
-      {/* @todo add FooterNav component */}
-      {/* @todo get FooterSocial component */}
-      {/* @todo add FooterLinks component */}
+      {/* @todo: #5988 add FooterNav component */}
+      {/* @todo: #5989 get FooterSocial component */}
+      {/* @todo: #5990 add FooterLinks component */}
     </div>
   </footer>
 );
