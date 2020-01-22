@@ -12,7 +12,6 @@ type ResultItemFileMetaProps = {
 };
 
 export type ResultItemProps = {
-  className?: string;
   fileMeta?: ResultItemFileMetaProps;
   href: string;
   meta?: ResultItemMetaProps;
