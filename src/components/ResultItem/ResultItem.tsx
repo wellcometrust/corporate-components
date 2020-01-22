@@ -22,8 +22,8 @@ export type ResultItemProps = {
 };
 
 export const ResultItem = ({
-  href,
   fileMeta,
+  href,
   meta,
   text,
   title,
