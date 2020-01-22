@@ -7,7 +7,6 @@ type meta = {
 };
 
 export type ResultItemProps = {
-  className?: string;
   href: string;
   meta?: meta;
   text?: string;
