@@ -8,8 +8,6 @@ type FooterLinksItemProps = {
   socialLinks?: [];
 };
 export const Footer = ({ links, socialLinks }: FooterLinksItemProps) => {
-  console.log(links);
-  console.log(socialLinks);
   return (
     <footer className="footer">
       <div className="footer__container">
