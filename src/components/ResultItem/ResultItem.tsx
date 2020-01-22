@@ -1,9 +1,9 @@
 import React from 'react';
 
 type ResultItemMetaProps = {
-  type?: string;
   date?: string;
   lastUpdated?: string;
+  type?: string;
 };
 
 type ResultItemFileMetaProps = {
@@ -13,20 +13,20 @@ type ResultItemFileMetaProps = {
 
 export type ResultItemProps = {
   className?: string;
+  fileMeta?: ResultItemFileMetaProps;
   href: string;
   meta?: ResultItemMetaProps;
-  fileMeta?: ResultItemFileMetaProps;
   text?: string;
   title: string;
   type?: 'file' | null;
 };
 
 export const ResultItem = ({
+  href,
   fileMeta,
   meta,
-  title,
-  href,
   text,
+  title,
   type
 }: ResultItemProps) => (
   <article className="result-item">
