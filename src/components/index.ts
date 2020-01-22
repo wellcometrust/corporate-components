@@ -7,6 +7,7 @@ export { Grid, GridCell } from 'Grid/Grid';
 export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
+export { Footer } from 'Footer/Footer';
 export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
