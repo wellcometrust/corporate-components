@@ -1,12 +1,15 @@
 import React from 'react';
 
+import FooterSocial from './FooterSocial/FooterSocial';
 import FooterLinks from './FooterLinks/FooterLinks';
 
 type FooterLinksItemProps = {
   links?: [];
+  socialLinks?: [];
 };
-
-export const Footer = ({ links }: FooterLinksItemProps) => {
+export const Footer = ({ links, socialLinks }: FooterLinksItemProps) => {
+  console.log(links);
+  console.log(socialLinks);
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -14,7 +17,7 @@ export const Footer = ({ links }: FooterLinksItemProps) => {
           Wellcome exists to improve health by helping great ideas to thrive
         </h3>
         {/* @todo add FooterNav component */}
-        {/* @todo get FooterSocial component */}
+        <FooterSocial socialLinks={socialLinks} />
         <FooterLinks links={links} />
       </div>
     </footer>
