@@ -17,7 +17,7 @@ type SearchFormProps = {
   labelClassName?: string;
   labelTextClassName?: string;
   method?: 'GET' | 'POST';
-  searchQuery?: string;
+  inputValue?: string;
   submitButtonClassName?: string;
   submitButtonHasStyle?: boolean;
 };
@@ -31,10 +31,10 @@ export const SearchForm = ({
   hideLabelText = true,
   inputClassName,
   inputId,
+  inputValue,
   labelClassName,
   labelTextClassName,
   method = 'GET',
-  searchQuery,
   submitButtonClassName,
   submitButtonHasStyle = false
 }: SearchFormProps) => {
@@ -56,7 +56,7 @@ export const SearchForm = ({
     className: inputClassName,
     handleChange: handleInputChange,
     id: inputId,
-    searchQuery
+    value: inputValue
   };
 
   // Gather props for SubmitButton component
