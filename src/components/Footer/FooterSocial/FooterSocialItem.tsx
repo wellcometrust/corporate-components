@@ -1,5 +1,4 @@
 import React from 'react';
-import cx from 'classnames';
 
 type FooterSocialItemProps = {
   text: string;
@@ -9,8 +8,8 @@ type FooterSocialItemProps = {
 export const FooterSocialItem = ({ text, url }: FooterSocialItemProps) => {
   return (
     <a href={url} rel="noopener noreferrer" target="_blank">
-      <span className="visuallyhidden">Wellcome on {text}</span>
-      <span className="assistive-text"> (opens in a new tab)</span>
+      <span className="u-visually-hidden">Wellcome on {text}</span>
+      <span> (opens in a new tab)</span>
     </a>
   );
 };
