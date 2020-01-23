@@ -6,7 +6,7 @@ import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
 
 type NewsletterFormProps = {
-  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => {};
+  handleSubmit?: (event: React.FormEvent<HTMLFormElement>) => {};
 };
 
 export const NewsletterForm = ({ handleSubmit }: NewsletterFormProps) => (
