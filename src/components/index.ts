@@ -3,6 +3,7 @@ import 'assets/styles/app.scss';
 // standard components
 export { ActiveLink } from 'Nav/ActiveLink';
 export { Button } from 'Button/Button';
+export { Footer } from 'Footer/Footer';
 export { Grid, GridCell } from 'Grid/Grid';
 export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';
