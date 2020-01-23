@@ -15,7 +15,7 @@ export const Footer = ({ links, socialLinks }: FooterProps) => (
         Wellcome exists to improve health by helping great ideas to thrive
       </h3>
       {/* @todo: #5988 add FooterNav component */}
-      <FooterSocial socialLinks={socialLinks} />
+      <FooterSocial links={socialLinks} />
       <FooterLinks links={links} />
     </div>
   </footer>

@@ -3,14 +3,14 @@ import React from 'react';
 import FooterSocialItem from './FooterSocialItem';
 
 type FooterSocialProps = {
-  socialLinks: [];
+  links: [];
 };
 
-export const FooterSocial = ({ socialLinks }: FooterSocialProps) => {
+export const FooterSocial = ({ links }: FooterSocialProps) => {
   return (
     <div className="footer-social">
-      {socialLinks.map(({ text, className, href }) => (
-        <FooterSocialItem text={text} className={className} url={href} />
+      {links.map(({ text, href }) => (
+        <FooterSocialItem text={text} url={href} />
       ))}
     </div>
   );
