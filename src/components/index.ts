@@ -9,6 +9,7 @@ export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
 export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
+export { NewsletterForm } from 'NewsletterForm/NewsletterForm';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 export { Logo } from 'Logo/Logo';

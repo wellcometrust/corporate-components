@@ -1,6 +1,7 @@
 .btn {
   @extend %btn-base;
   background: var(--colour-blue-60);
+  border-color: var(--colour-blue-60);
   border-radius: 2px;
   color: var(--colour-white);
   display: inline-flex;
