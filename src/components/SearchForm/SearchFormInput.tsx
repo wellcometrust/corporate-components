@@ -5,14 +5,14 @@ type SearchFormInputProps = {
   className?: string;
   handleChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   id: string;
-  searchQuery?: string;
+  value?: string;
 };
 
 export const SearchFormInput = ({
   className,
   handleChange,
   id,
-  searchQuery
+  value
 }: SearchFormInputProps) => {
   const classNames = cx({
     'search-form__input': !className,
@@ -26,7 +26,7 @@ export const SearchFormInput = ({
       type="search"
       placeholder="Search wellcome.ac.uk"
       onChange={handleChange}
-      value={searchQuery}
+      value={value}
       id={id}
     />
   );
