@@ -20,7 +20,7 @@ export type ResultItemProps = {
   type?: 'file' | null;
 };
 
-export const ResultItem = ({
+export const ResultsItem = ({
   fileMeta,
   href,
   meta,
@@ -66,4 +66,4 @@ export const ResultItem = ({
   </article>
 );
 
-export default ResultItem;
+export default ResultsItem;

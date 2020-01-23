@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
 
-import ResultItem from './ResultItem';
+import ResultsItem from './ResultsItem';
 
 const ResultItemExample = () => {
   const metaGroupID = 'Meta';
@@ -31,7 +31,7 @@ const ResultItemExample = () => {
   };
 
   return (
-    <ResultItem
+    <ResultsItem
       href={href}
       fileMeta={fileMeta}
       meta={meta}
