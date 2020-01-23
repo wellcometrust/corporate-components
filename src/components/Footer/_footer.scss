@@ -1,0 +1,193 @@
+//@todo this is not fully complete and it need bit of refactoring as well.
+@mixin animated-underline($color: var(--colour-white)) {
+  display: inline-block;
+  position: relative;
+
+  &:before {
+    background-color: $color;
+    bottom: 0;
+    content: '';
+    height: var(--space-md) / 8;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    width: 100%;
+  }
+
+  &:hover:before {
+    transform: scaleX(1);
+    visibility: visible;
+  }
+}
+
+footer {
+  background: var(--colour-blue-80);
+  color: var(--colour-white);
+  display: flex;
+}
+
+.footer__mission-statement {
+  font-family: var(--font-secondary);
+  margin: 0;
+  padding: var(--space-xl) 0;
+  text-align: center;
+
+  @include mq(md) {
+    font-size: var(--text-md);
+  }
+
+  @include mq(sm) {
+    padding: calc(6 * var(--space-md));
+  }
+
+  @include mq(md) {
+    padding: calc(8 * var(--space-md));
+  }
+}
+
+.grid-container,
+%grid-container {
+  max-width: 1344px;
+  margin-left: 5%;
+  margin-right: 5%;
+
+
+  @include mq(xxl) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.footer__container {
+  @extend %grid-container;
+}
+
+.footer-nav__list {
+  font-size: var(--text-sm);
+  line-height: var(--heading-line-height);
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav__list--grid {
+  @include mq(sm) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+
+    > .footer-nav__item {
+      margin: 0 10px;
+      width: calc(25% - #{10px});
+
+      &:last-child {
+        flex: 1;
+      }
+    }
+  }
+
+  @include mq(md) {
+    margin: 0 -20px;
+
+    > .footer-nav__item {
+      margin: 0 20px;
+      width: calc(25% - #{40px});
+    }
+  }
+}
+
+.footer-nav__item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &:before {
+    content: none;
+  }
+}
+
+%footer-nav__link {
+  color: var(--colour-white);
+  display: block;
+  text-decoration: none;
+
+  &.active,
+  &:active,
+  &:focus,
+  &:hover {
+    color: inherit;
+  }
+}
+
+.footer-nav__link {
+  @extend %footer-nav__link;
+  margin: var(--space-xs) 0;
+
+  .has-children > & {
+    margin: 0 0 var(--space-xs);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--colour-white);
+    font-weight: bold;
+    transition: opacity 0.3s, border-color 0.3s;
+
+    &:hover {
+      border-color: rgba(var(--colour-white), 0.3);
+      opacity: 0.6;
+    }
+  }
+
+  .footer-nav-submenu & {
+    @include animated-underline;
+  }
+}
+
+.footer-nav-submenu {
+  margin-bottom: var(--space-lg);
+
+  @include mq(md) {
+    margin-bottom: var(--space-xl);
+  }
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-xl) 0;
+  transform: translateX(var(-(--space-md)));
+
+  @include mq(sm) {
+    margin: calc(6 * var(--space-md)) 0;
+  }
+
+  @include mq(md) {
+    margin: calc(8 * var(--space-md)) 0;
+  }
+}
+
+.footer-links {
+  border-top: 1px solid rgba(var(--colour-white), 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+}
+
+.footer-links__item {
+  font-size: var(--text-sm);
+  margin: 0 var(--space-md);
+  @include animated-underline;
+  @extend %footer-nav__link;
+
+  &:after {
+    content: '|';
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    right: var(-(--space-md));
+  }
+
+  &:last-child:after {
+    content: none;
+  }
+}
