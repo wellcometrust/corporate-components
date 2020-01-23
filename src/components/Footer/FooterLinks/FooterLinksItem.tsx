@@ -1,6 +1,6 @@
 import React from 'react';
 
-type FooterLinksProps = {
+type FooterLinksItemProps = {
   rel?: string;
   role?: string;
   tabIndex?: number;
@@ -16,7 +16,7 @@ export const FooterLinksItem = ({
   target,
   text,
   url
-}: FooterLinksProps) => {
+}: FooterLinksItemProps) => {
   return (
     <a href={url} rel={rel} role={role} tabIndex={tabIndex} target={target}>
       {text}
