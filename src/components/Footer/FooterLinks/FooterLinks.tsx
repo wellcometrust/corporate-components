@@ -9,9 +9,8 @@ type FooterProps = {
 export const FooterLinks = ({ links }: FooterProps) => {
   return (
     <div className="footer-links">
-      {links.map(({ className, text, href, target, rel, role, tabIndex }) => (
+      {links.map(({ text, href, target, rel, role, tabIndex }) => (
         <FooterLinksItem
-          className={className}
           text={text}
           url={href}
           target={target}
