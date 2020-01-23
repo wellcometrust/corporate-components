@@ -1,6 +1,12 @@
 import React from 'react';
 
-export const Footer = () => (
+import FooterLinks from './FooterLinks/FooterLinks';
+
+type FooterProps = {
+  links?: [];
+};
+
+export const Footer = ({ links }: FooterProps) => (
   <footer className="footer">
     <div className="footer__container">
       <h3 className="footer__mission-statement">
@@ -8,7 +14,7 @@ export const Footer = () => (
       </h3>
       {/* @todo: #5988 add FooterNav component */}
       {/* @todo: #5989 get FooterSocial component */}
-      {/* @todo: #5990 add FooterLinks component */}
+      <FooterLinks links={links} />
     </div>
   </footer>
 );
