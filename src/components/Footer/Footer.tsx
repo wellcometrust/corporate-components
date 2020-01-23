@@ -2,11 +2,11 @@ import React from 'react';
 
 import FooterLinks from './FooterLinks/FooterLinks';
 
-type FooterLinksItemProps = {
+type FooterProps = {
   links?: [];
 };
 
-export const Footer = ({ links }: FooterLinksItemProps) => (
+export const Footer = ({ links }: FooterProps) => (
   <footer className="footer">
     <div className="footer__container">
       <h3 className="footer__mission-statement">

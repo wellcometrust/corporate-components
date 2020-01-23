@@ -2,11 +2,11 @@ import React from 'react';
 
 import FooterLinksItem from './FooterLinksItem';
 
-type FooterProps = {
+type FooterLinksProps = {
   links: [];
 };
 
-export const FooterLinks = ({ links }: FooterProps) => {
+export const FooterLinks = ({ links }: FooterLinksProps) => {
   return (
     <div className="footer-links">
       {links.map(({ text, href, target, rel, role, tabIndex }) => (
