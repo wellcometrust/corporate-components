@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-type FooterLinksItemProps = {
+type FooterLinksProps = {
   className?: string;
   rel?: string;
   role?: string;
@@ -19,7 +19,7 @@ export const FooterLinksItem = ({
   target,
   text,
   url
-}: FooterLinksItemProps) => {
+}: FooterLinksProps) => {
   const classNames = cx('footer-links__item', { [`${className}`]: className });
   return (
     <a
