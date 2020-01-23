@@ -18,7 +18,14 @@ export const FooterLinksItem = ({
   url
 }: FooterLinksItemProps) => {
   return (
-    <a href={url} rel={rel} role={role} tabIndex={tabIndex} target={target}>
+    <a
+      className="footer-links__item"
+      href={url}
+      rel={rel}
+      role={role}
+      tabIndex={tabIndex}
+      target={target}
+    >
       {text}
     </a>
   );

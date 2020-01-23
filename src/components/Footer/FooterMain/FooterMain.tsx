@@ -3,13 +3,13 @@ import React from 'react';
 import FooterMainNav from './FooterMainNav';
 
 type FooterMainProps = {
-  mainLinks: [];
+  links: [];
 };
 
-export const FooterMain = ({ mainLinks }: FooterMainProps) => {
+export const FooterMain = ({ links }: FooterMainProps) => {
   return (
     <>
-      {mainLinks.map(({ text, href, navLinks }) => (
+      {links.map(({ text, href, navLinks }) => (
         <li className="has-children footer-nav__item">
           <a href={href} className="footer-nav__link">
             {text}

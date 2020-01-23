@@ -19,7 +19,7 @@ export const Footer = ({ links, mainLinks, socialLinks }: FooterProps) => {
         </h3>
         <nav id="footer-nav" className="footer-nav">
           <ul className="footer-nav__list footer-nav__list--grid">
-            <FooterMain mainLinks={mainLinks} />
+            <FooterMain links={mainLinks} />
           </ul>
         </nav>
 
