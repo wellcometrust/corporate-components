@@ -7,7 +7,7 @@
 // ----------------------------------
 
 .search-form {
-  border: 1px solid var(--colour-concrete-10);
+  border: 1px solid var(--colour-grey-10);
   margin-bottom: calc(3.75 * var(--space-unit));
   position: relative;
 }
@@ -21,7 +21,7 @@
   transition: background-color ease var(--transition-duration);
 
   &:focus {
-    background-color: var(--colour-concrete-05);
+    background-color: var(--colour-grey-05);
   }
 }
 

@@ -23,8 +23,8 @@
   }
 
   &[disabled] {
-    background: var(--colour-concrete-20);
-    color: var(--colour-concrete-50);
+    background: var(--colour-grey-20);
+    color: var(--colour-grey-50);
     cursor: not-allowed;
   }
 }

@@ -94,7 +94,7 @@ $transition-duration: 0.4s;
 
 .search-pane__btn-back {
   @extend %btn-nav-base;
-  border-top: 1px solid var(--colour-concrete-05);
+  border-top: 1px solid var(--colour-grey-05);
   color: var(--colour-blue-80);
   padding-left: calc(2 * var(--space-unit));
   padding-right: calc(2 * var(--space-unit));
@@ -119,7 +119,7 @@ $transition-duration: 0.4s;
 
 .search-pane__btn-close {
   @extend %btn-nav-base;
-  color: var(--colour-concrete-60);
+  color: var(--colour-grey-60);
   padding-left: calc(2 * var(--space-unit));
   padding-right: calc(2 * var(--space-unit));
 
@@ -146,7 +146,7 @@ $transition-duration: 0.4s;
 
 .search-pane__form-input {
   @extend %text-input-base;
-  background: var(--colour-concrete-05);
+  background: var(--colour-grey-05);
   font-size: calc(0.94 * var(--text-base-size));
   padding: var(--space-md) var(--space-lg);
   width: 100%;
