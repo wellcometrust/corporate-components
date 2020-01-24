@@ -8,8 +8,8 @@ export type FooterNavProps = {
 };
 
 export const FooterNav = ({ sections }: FooterNavProps) => (
-  <nav id="footer-nav">
-    <ul>
+  <nav className="footer-nav" id="footer-nav">
+    <ul className="footer-nav__grid">
       {sections.map(section => (
         <FooterNavItem {...section} />
       ))}

@@ -1,0 +1,18 @@
+// ----------------------------------
+// UI Components
+// Footer Newsletter
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.footer-newsletter__intro {
+  @extend %footer-nav-link;
+  margin-bottom: var(--space-md);
+}
+
+.footer-newsletter__form {
+  @include mq(md) {
+    max-width: 50%;
+  }
+}

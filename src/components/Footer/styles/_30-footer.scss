@@ -1,0 +1,25 @@
+// ----------------------------------
+// UI Components
+// Footer
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.footer {
+  background: var(--colour-blue-80);
+  color: var(--colour-white);
+}
+
+.footer__container {
+  @extend %container;
+}
+
+.footer__mission-statement {
+  @extend %margin-0;
+  font-family: var(--font-secondary);
+  font-size: var(--text-lg);
+  padding-bottom: var(--space-xl);
+  padding-top: var(--space-xl);
+  text-align: center;
+}

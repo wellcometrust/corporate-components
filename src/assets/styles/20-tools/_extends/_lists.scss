@@ -1,6 +1,6 @@
 // ----------------------------------
 // UI Tools
-// Mixins
+// Extends
 // List
 // ----------------------------------
 // Design System 1.0 Alpha
@@ -12,15 +12,16 @@
  *
  * Usage:
  *
- * .list-selector {
- *   @include list-clean;
+ * .ul/ol-selector {
+ *   @extend %list-clean;
  * }
  *
  */
 
-@mixin list-clean {
+%list-clean {
   margin-bottom: 0;
   margin-left: 0;
+  padding: 0;
 
   > li {
     list-style: none;

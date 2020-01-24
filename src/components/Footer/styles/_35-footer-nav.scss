@@ -1,0 +1,60 @@
+// ----------------------------------
+// UI Components
+// Footer Nav
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.footer-nav {
+  font-size: var(--text-xs);
+}
+
+.footer-nav__grid {
+  @extend %list-clean;
+
+  @include mq(sm) {
+    display: flex;
+    flex-wrap: wrap;
+    // (negative) margin gutter hack
+    margin-left: calc(-1 * var(--space-lg));
+  }
+}
+
+.footer-nav__grid-item {
+  margin-bottom: var(--space-lg);
+
+  @include mq(sm) {
+    // margin gutter hack
+    margin-left: var(--space-lg);
+    width: calc(25% - var(--space-lg));
+  }
+
+  &:last-child {
+    // expands :last-child to fill available space in row
+    flex-grow: 1;
+  }
+}
+
+.footer-nav__menu-title {
+  @extend %footer-nav-link;
+  --transition-duration: 0.3s;
+  // todo: update border-bottom-color to rgba(--colour-white, 0.2)
+  border-bottom: calc(0.125 * var(--space-unit)) solid var(--colour-white);
+  display: block;
+  font-weight: bold;
+  padding-bottom: var(--space-sm);
+  padding-top: var(--space-sm);
+  transition: opacity var(--transition-duration), border-color var(--transition-duration);
+}
+
+.footer-nav__menu-list {
+  @extend %list-clean;
+  line-height: var(--heading-line-height);
+}
+
+.footer-nav__menu-list-link {
+  @extend %footer-nav-link;
+  @extend %text-xs;
+  @include animated-underline;
+}

@@ -1,0 +1,43 @@
+// ----------------------------------
+// UI Components
+// Footer
+// Tools
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/* Placeholders */
+
+%footer-nav-link {
+  color: inherit;
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
+  text-decoration: none;
+}
+
+/* Mixins */
+
+@mixin animated-underline {
+  --transition-duration: 0.3s;
+  position: relative;
+
+  &:before {
+    background-color: var(--colour-white);
+    bottom: 0;
+    content: '';
+    height: calc(0.125 * var(--space-unit));
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transition: all var(--transition-duration) ease-in-out;
+    visibility: hidden;
+    width: 100%;
+  }
+
+  &:hover:before {
+    transform: scaleX(1);
+    visibility: visible;
+  }
+}
