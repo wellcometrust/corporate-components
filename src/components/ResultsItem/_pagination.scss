@@ -1,0 +1,110 @@
+@mixin icon-chevron($color: blue) {
+  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='utf-8'?%3E %3Csvg version='1.1' baseProfile='tiny' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 8 11.9' xml:space='preserve'%3E %3Cpolygon fill='%23#{str-slice(#{$color}, 2)}' points='2,0 0,2 3.9,5.9 0,9.9 2,11.9 8,5.9 '/%3E %3C/svg%3E ");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+.no-js .pagination {
+  display: none;
+}
+
+.pagination {
+  align-items: baseline;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.pagination__break,
+.pagination__next,
+.pagination__prev,
+.pagination__item {
+  margin: 0;
+  text-align: center;
+}
+
+.pagination__break-link,
+.pagination__next-link,
+.pagination__prev-link,
+.pagination__link {
+  cursor: pointer;
+  display: flex;
+  padding: var(--space-unit);
+}
+
+.pagination__next,
+.pagination__prev {
+  font-weight: bold;
+
+  @include mq($until: xs) {
+    width: 50%;
+  }
+}
+
+.pagination:before {
+  @include mq($until: xs) {
+    content: '';
+
+    // place after page numbers and before next and previous
+    order: 1000;
+
+    // force a break in the wrapping to ensure prev and next are always below the page numbers
+    width: 100%;
+  }
+}
+
+.pagination__prev {
+  @include mq($until: xs) {
+    // place after page numbers
+    order: 10001;
+    text-align: left;
+  }
+}
+
+.pagination__next {
+  @include mq($until: xs) {
+    // place after page numbers
+    order: 10002;
+    text-align: right;
+  }
+}
+
+.pagination__prev-link:before,
+.pagination__next-link:after {
+  content: '';
+  display: inline-block;
+  margin-left: 0;
+  margin-right: calc(0.5 * var(--space-unit));
+  vertical-align: middle;
+  width: 0.9em;
+  @include icon-chevron;
+}
+
+.pagination__prev-link:before {
+  transform: rotate(180deg);
+}
+
+.pagination__prev-link:hover:before,
+.pagination__next-link:hover:after {
+  //@include iconChevron($ncOrange);
+}
+
+.pagination__link.is-active {
+  font-weight: bold;
+}
+
+.pagination .is-disabled > * {
+  color: var(--link-colour-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+
+  &:hover {
+    color: var(--link-colour-disabled);
+  }
+}
+

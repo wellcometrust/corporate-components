@@ -15,7 +15,7 @@
   }
 
   @include mq($until: md) {
-    border-bottom: 1px solid var(--colour-concrete-05);
+    border-bottom: 1px solid var(--colour-grey-05);
   }
 }
 
@@ -125,7 +125,7 @@
   z-index: var(--z-low);
 
   @include mq($until: md) {
-    border-top: 1px solid var(--colour-concrete-05);
+    border-top: 1px solid var(--colour-grey-05);
     bottom: 0;
     right: 0;
     top: calc(8 * var(--space-unit));
