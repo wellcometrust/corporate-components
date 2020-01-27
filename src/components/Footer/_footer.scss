@@ -1,0 +1,20 @@
+// ----------------------------------
+// UI Components
+// Footer
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+// Core variables e.g. base sizes and colors
+@import 'styles/10-settings';
+
+// Style functions and mixins
+@import 'styles/20-tools';
+
+// Core component styles
+@import 'styles/30-footer';
+@import 'styles/35-footer-nav';
+@import 'styles/35-footer-social';
+@import 'styles/35-footer-links';
+@import 'styles/35-footer-newsletter';

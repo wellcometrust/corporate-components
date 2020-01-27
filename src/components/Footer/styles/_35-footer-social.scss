@@ -1,0 +1,22 @@
+// ----------------------------------
+// UI Components
+// Footer Social
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-xl) 0;
+  transform: translateX(var(-(--space-md)));
+
+  @include mq(sm) {
+    margin: calc(6 * var(--space-md)) 0;
+  }
+
+  @include mq(md) {
+    margin: calc(8 * var(--space-md)) 0;
+  }
+}

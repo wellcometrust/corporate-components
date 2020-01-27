@@ -1,0 +1,32 @@
+// ----------------------------------
+// UI Components
+// Footer Links
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.footer-links {
+  border-top: 1px solid rgba(var(--colour-white), 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+}
+
+.footer-links__item {
+  font-size: var(--text-sm);
+  margin: 0 var(--space-md);
+
+  &:after {
+    content: '|';
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    right: var(-(--space-md));
+  }
+
+  &:last-child:after {
+    content: none;
+  }
+}
