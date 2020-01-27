@@ -7,23 +7,27 @@
 // ----------------------------------
 
 .footer-links {
-  border-top: 1px solid rgba(var(--colour-white), 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: var(--space-lg) 0;
+  padding: var(--space-unit) 0;
 }
 
 .footer-links__item {
-  font-size: var(--text-sm);
-  margin: 0 var(--space-md);
+  color: var(--colour-white);
+  display: inline-block;
+  font-size: calc(0.875 * var(--text-base-size));
+  margin: 0 var(--space-unit);
+  position: relative;
+  text-decoration: none;
 
   &:after {
     content: '|';
     height: 100%;
     margin: 0;
     position: absolute;
-    right: var(-(--space-md));
+    right: -(var(--space-unit));
   }
 
   &:last-child:after {
