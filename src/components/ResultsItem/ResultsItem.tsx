@@ -3,7 +3,7 @@ import React from 'react';
 type ResultItemMetaProps = {
   date?: string;
   lastUpdated?: string;
-  type?: string;
+  type?: string | null;
 };
 
 type ResultItemFileMetaProps = {
@@ -17,7 +17,7 @@ export type ResultItemProps = {
   meta?: ResultItemMetaProps;
   text?: string;
   title: string;
-  type?: 'file' | null;
+  type?: 'content' | 'file' | 'taxonomy_term';
 };
 
 export const ResultsItem = ({
