@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import NewsletterFormItem from '../Item/NewsletterFormItem';
+import NewsletterFormItem from './NewsletterFormItem';
 
 type NewsletterFormConsentProps = {
   checked?: boolean | null;

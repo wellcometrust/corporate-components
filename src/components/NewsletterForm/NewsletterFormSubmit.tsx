@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from 'Button';
 
-import NewsletterFormItem from '../Item/NewsletterFormItem';
+import NewsletterFormItem from './NewsletterFormItem';
 
 type NewsletterFormSubmitProps = {
   disabled?: boolean | null;

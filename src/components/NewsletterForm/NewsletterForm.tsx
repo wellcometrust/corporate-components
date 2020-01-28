@@ -3,10 +3,10 @@ import cx from 'classnames';
 
 import isEmail from 'utils/is-email';
 
-import NewsletterFormEmail from './Email/NewsletterFormEmail';
-import NewsletterFormConsent from './Consent/NewsletterFormConsent';
-import NewsletterFormFooter from './Footer/NewsletterFormFooter';
-import NewsletterFormSubmit from './Submit/NewsletterFormSubmit';
+import NewsletterFormEmail from './NewsletterFormEmail';
+import NewsletterFormConsent from './NewsletterFormConsent';
+import NewsletterFormFooter from './NewsletterFormFooter';
+import NewsletterFormSubmit from './NewsletterFormSubmit';
 
 type NewsletterFormProps = {
   className?: string;
