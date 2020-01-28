@@ -6,16 +6,107 @@
 // 2019-11-11
 // ----------------------------------
 
-// Core variables e.g. base sizes and colors
-@import 'styles/10-settings';
+/* Form */
 
-// Style functions and mixins
-@import 'styles/20-tools';
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-// Core component styles
-@import 'styles/30-newsletter-form';
-@import 'styles/35-newsletter-form-item';
-@import 'styles/35-newsletter-form-item-error';
-@import 'styles/35-newsletter-form-label';
-@import 'styles/35-newsletter-form-input';
-@import 'styles/35-newsletter-form-checkbox';
+/* Form Item */
+
+.newsletter-form__item {
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-form__item--email,
+.newsletter-form__item--consent {
+  @include mq($until: md) {
+    flex-basis: 100%;
+  }
+}
+
+.newsletter-form__item--email {
+  order: 1;
+
+  @include mq(md) {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+}
+
+.newsletter-form__item--consent {
+  flex-basis: 100%;
+  order: 3;
+}
+
+.newsletter-form__item--submit {
+  height: 2.75rem;
+  order: 2;
+
+  @include mq(md) {
+    margin-top: 1.5rem;
+  }
+}
+
+.newsletter-form__item--footer {
+  font-size: 12px;
+  order: 4;
+}
+
+/* Errors */
+
+.newsletter-form__item-error {
+  background-color: #ffebeb;
+  background-image: none;
+  border-radius: calc(0.25 * var(--space-unit));
+  color: #d2373f;
+  font-size: var(--text-xs);
+  margin-top: var(--space-md);
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-sm);
+  padding-right: var(--space-sm);
+  padding-top: var(--space-xs);
+  position: relative;
+  width: max-content;
+
+  &:after {
+    border: 8px solid transparent;
+    border-bottom-color: #ffebeb;
+    border-top: 0;
+    content: '';
+    left: 1rem;
+    margin-left: -var(--space-unit);
+    margin-top: -var(--space-unit);
+    position: absolute;
+    top: 0.125rem;
+  }
+}
+
+/* Labels */
+
+
+.newsletter-form__item-label {
+  @extend %text-xs;
+  margin-bottom: var(--space-xs);
+}
+
+.newsletter-form__item-label--email {
+  @extend %text-bold;
+  display: block;
+  height: 20px;
+}
+
+/* Inputs */
+
+.newsletter-form__input {
+  @extend %text-input-base;
+  height: 2.75rem;
+  width: 100%;
+}
+
+/* Checkbox */
+
+.newsletter-form__checkbox {
+  @extend %checkbox;
+}

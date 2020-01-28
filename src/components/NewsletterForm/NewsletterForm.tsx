@@ -3,8 +3,6 @@ import cx from 'classnames';
 
 import isEmail from 'utils/is-email';
 
-import fetchNewsletterResponse from './fetch-newsletter-response';
-
 import NewsletterFormEmail from './Email';
 import NewsletterFormConsent from './Consent';
 import NewsletterFormFooter from './Footer';
@@ -20,56 +18,53 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
   const [emailError, setEmailError] = useState(null);
   const [consentError, setConsentError] = useState(null);
 
-  // handle some pre-submit tidy-ups
-  const handlePreSubmitUpdates = () => {
+  /**
+   * Handles the form validation; sets error state(s) if any form fields
+   * are invalid.
+   */
+  const checkFormValidity = () => {
     setEmailError(!isEmail(email));
     setConsentError(!consent);
   };
 
-  // Handle submit
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  /**
+   * Handles the form submission.
+   *
+   * @param {event} FormEvent
+   */
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    handlePreSubmitUpdates();
-
-    const requestOptions = {
-      method: 'POST',
-      body: JSON.stringify({
-        email
-      })
-    };
-
-    // TODO: use fetchNewsletterResponse (currently throws no-useless-catch error)
-    try {
-      const response = await fetch(
-        'https://wellcome.ac.uk/newsletter-signup',
-        requestOptions
-      );
-      const data = await response.json();
-
-      return data;
-
-      // TODO: handle success response
-    } catch (error) {
-      throw new Error(error);
-
-      // TODO: handle error response
-    }
+    checkFormValidity();
   };
 
-  // Handle consent chekckbox change
-  const handleConsentChange = (checked: boolean) => {
+  /**
+   * Handles when consent <input /> (checkbox) changes; updates value of
+   * state variable, sets error state.
+   *
+   * @param {boolean} checked - 'checked' property of HTMLInputElement
+   */
+  const handleConsentChange = ({ checked }: HTMLInputElement) => {
     setConsent(checked);
     setConsentError(!checked);
   };
 
-  // Handle email input change
-  const handleEmailChange = (value: string) => {
+  /**
+   * Handles email <input /> changes; updates value of state variable.
+   *
+   * @param {Object} HTMLInputElement - value key of an HTMLInputElement
+   */
+  const handleEmailChange = ({ value }: HTMLInputElement) => {
     setEmail(value);
   };
 
-  // Handle email input blur
-  const handleEmailBlur = (value: string) => {
+  /**
+   * Handles email <input /> blur; updates error state when user blurs the
+   * email <input />.
+   *
+   * @param {Object} HTMLInputElement - value key of an HTMLInputElement
+   */
+  const handleEmailBlur = ({ value }: HTMLInputElement) => {
     setEmailError(!isEmail(value));
   };
 
@@ -85,19 +80,19 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
       onSubmit={handleSubmit}
     >
       <NewsletterFormEmail
-        handleBlur={event => handleEmailBlur(event.currentTarget.value)}
-        handleChange={event => handleEmailChange(event.currentTarget.value)}
+        handleBlur={event => handleEmailBlur(event.currentTarget)}
+        handleChange={event => handleEmailChange(event.currentTarget)}
         hasError={emailError}
         value={email}
       />
       <NewsletterFormConsent
         checked={consent}
-        handleChange={event => handleConsentChange(event.currentTarget.checked)}
+        handleChange={event => handleConsentChange(event.currentTarget)}
         hasError={consentError}
       />
       <NewsletterFormSubmit
         disabled={consentError || emailError}
-        handleClick={handlePreSubmitUpdates}
+        handleClick={checkFormValidity}
       />
       <NewsletterFormFooter />
     </form>
