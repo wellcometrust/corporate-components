@@ -1,7 +1,7 @@
 /**
  * Checks if provided string matches an email regex
  *
- * @param { string } email - a string to see if it's an email address
+ * @param { string } email - a potential email address
  */
 
 export const isEmail = (email: string) => {
