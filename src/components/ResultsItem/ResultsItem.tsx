@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DateTime from 'DateTime/DateTime';
+import FormattedDate from 'FormattedDate/FormattedDate';
 
 type ResultItemMetaProps = {
   date?: string;
@@ -36,11 +36,11 @@ export const ResultsItem = ({
         <span className="result-item__meta-type">{meta.type}</span>
         <span className="result-item__meta-date">
           &nbsp;
-          <DateTime dateString={meta.date} />
+          <FormattedDate dateString={meta.date} />
         </span>
         {meta.lastUpdated && (
           <span className="result-item__meta-last-updated">
-            Updated <DateTime dateString={meta.lastUpdated} />
+            Updated <FormattedDate dateString={meta.lastUpdated} />
           </span>
         )}
       </div>
