@@ -47,6 +47,12 @@
 
 .pagination__prev-link {
   padding-left: 0;
+
+  // fix required to ensure non-breaking space used in IE11 fix
+  // does not increase space between icon and text
+  > span {
+    order: 1;
+  }
 }
 
 .pagination__prev-icon,
