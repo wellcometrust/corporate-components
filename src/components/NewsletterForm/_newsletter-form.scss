@@ -12,13 +12,6 @@
   }
 }
 
-// .newsletter-form__item--email,
-// .newsletter-form__item--consent {
-//   @include mq($until: md) {
-//     flex-basis: 100%;
-//   }
-// }
-
 .newsletter-form__item--email {
   order: 1;
 
