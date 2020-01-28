@@ -81,6 +81,15 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
       method="POST"
       onSubmit={handleSubmit}
     >
+      {/* The hidden inputs below are required by dotmailer */}
+      <input type="hidden" name="userid" value="279650" />
+      <input type="hidden" name="addressbookid" value="49968" />
+      <input
+        type="hidden"
+        name="SIG403976cd6c63800564a89357fa76a5569262074a6d9631a18038ac57300124ef"
+      />
+      <input type="hidden" name="ReturnURL" value="/" />
+
       <NewsletterFormEmail
         handleBlur={event => handleEmailBlur(event.currentTarget)}
         handleChange={event => handleEmailChange(event.currentTarget)}
