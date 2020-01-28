@@ -3,10 +3,10 @@ import cx from 'classnames';
 
 import isEmail from 'utils/is-email';
 
-import NewsletterFormEmail from './Email';
-import NewsletterFormConsent from './Consent';
-import NewsletterFormFooter from './Footer';
-import NewsletterFormSubmit from './Submit';
+import NewsletterFormEmail from './Email/NewsletterFormEmail';
+import NewsletterFormConsent from './Consent/NewsletterFormConsent';
+import NewsletterFormFooter from './Footer/NewsletterFormFooter';
+import NewsletterFormSubmit from './Submit/NewsletterFormSubmit';
 
 type NewsletterFormProps = {
   className?: string;
@@ -36,6 +36,8 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
     event.preventDefault();
 
     checkFormValidity();
+
+    // TODO:
   };
 
   /**

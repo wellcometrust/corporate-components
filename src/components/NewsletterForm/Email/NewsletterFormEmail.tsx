@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import NewsletterFormItem from 'NewsletterForm/Item';
+import NewsletterFormItem from '../Item/NewsletterFormItem';
 
 type NewsletterFormEmailProps = {
   handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void;

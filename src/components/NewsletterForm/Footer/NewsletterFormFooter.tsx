@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NewsletterFormItem from 'NewsletterForm/Item';
+import NewsletterFormItem from '../Item/NewsletterFormItem';
 
 export const NewsletterFormFooter = () => (
   <NewsletterFormItem type="footer">
