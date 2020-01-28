@@ -1,8 +1,19 @@
+// ----------------------------------
+// UI Components
+// Newsletter Form
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/* Form */
+
 .newsletter-form {
-  align-items: middle;
   display: flex;
   flex-wrap: wrap;
 }
+
+/* Form Item */
 
 .newsletter-form__item {
   margin-bottom: var(--space-md);
@@ -43,6 +54,40 @@
   order: 4;
 }
 
+/* Errors */
+
+.newsletter-form__item-error {
+  // TODO: #6018 - convert to CSS var
+  background-color: #ffebeb;
+  background-image: none;
+  border-radius: calc(0.25 * var(--space-unit));
+  // TODO: #6018 - convert to CSS var
+  color: #d2373f;
+  font-size: var(--text-xs);
+  margin-top: var(--space-md);
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-sm);
+  padding-right: var(--space-sm);
+  padding-top: var(--space-xs);
+  position: relative;
+  width: max-content;
+
+  &:after {
+    border: 8px solid transparent;
+    // TODO: #6018 - convert to CSS var
+    border-bottom-color: #ffebeb;
+    border-top: 0;
+    content: '';
+    left: 1rem;
+    margin-left: -var(--space-unit);
+    margin-top: -var(--space-unit);
+    position: absolute;
+    top: 0.125rem;
+  }
+}
+
+/* Labels */
+
 .newsletter-form__item-label {
   @extend %text-xs;
   margin-bottom: var(--space-xs);
@@ -54,11 +99,15 @@
   height: 20px;
 }
 
+/* Inputs */
+
 .newsletter-form__input {
   @extend %text-input-base;
   height: 2.75rem;
   width: 100%;
 }
+
+/* Checkbox */
 
 .newsletter-form__checkbox {
   @extend %checkbox;

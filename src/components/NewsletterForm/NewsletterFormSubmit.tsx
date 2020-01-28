@@ -2,12 +2,27 @@ import React from 'react';
 
 import Button from 'Button';
 
-export const NewsletterFormSubmit = () => (
-  <div className="newsletter-form__item newsletter-form__item--submit">
-    <Button className="newsletter-form__btn-submit" type="submit">
+import NewsletterFormItem from './NewsletterFormItem';
+
+type NewsletterFormSubmitProps = {
+  disabled?: boolean | null;
+  handleClick: () => void;
+};
+
+export const NewsletterFormSubmit = ({
+  disabled,
+  handleClick
+}: NewsletterFormSubmitProps) => (
+  <NewsletterFormItem type="submit">
+    <Button
+      className="newsletter-form__btn-submit"
+      disabled={disabled}
+      onClick={handleClick}
+      type="submit"
+    >
       Subscribe
     </Button>
-  </div>
+  </NewsletterFormItem>
 );
 
 export default NewsletterFormSubmit;
