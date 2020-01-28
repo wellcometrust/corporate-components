@@ -37,7 +37,7 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
 
     checkFormValidity();
 
-    // TODO:
+    // TODO: #6014 handle form submission
   };
 
   /**
