@@ -1,14 +1,14 @@
 /**
- * Checks if provided string matches an email regex
+ * Checks if provided string matches an email regex.
  *
- * @param { string } email - a potential email address
+ * @param {string} str
  */
 
-export const isEmail = (email: string) => {
-  const emailRegex = new RegExp(
+export const isEmail = (str: string) => {
+  const regex = new RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
-  return emailRegex.test(email);
+  return regex.test(str);
 };
 
 export default isEmail;
