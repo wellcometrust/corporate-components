@@ -17,11 +17,8 @@
 
 .newsletter-form__item {
   margin-bottom: var(--space-md);
-}
 
-.newsletter-form__item--email,
-.newsletter-form__item--consent {
-  @include mq($until: md) {
+  @include mq($until: sm) {
     flex-basis: 100%;
   }
 }
@@ -29,7 +26,7 @@
 .newsletter-form__item--email {
   order: 1;
 
-  @include mq(md) {
+  @include mq(sm) {
     flex-grow: 1;
     flex-shrink: 0;
   }
@@ -44,7 +41,7 @@
   height: 2.75rem;
   order: 2;
 
-  @include mq(md) {
+  @include mq(sm) {
     margin-top: 1.5rem;
   }
 }
@@ -111,4 +108,8 @@
 
 .newsletter-form__checkbox {
   @extend %checkbox;
+}
+
+.newsletter-form__btn-submit {
+  width: 100%;
 }
