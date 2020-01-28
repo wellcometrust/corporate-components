@@ -1,65 +1,21 @@
-.newsletter-form {
-  align-items: middle;
-  display: flex;
-  flex-wrap: wrap;
-}
+// ----------------------------------
+// UI Components
+// Newsletter Form
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
 
-.newsletter-form__item {
-  margin-bottom: var(--space-md);
-}
+// Core variables e.g. base sizes and colors
+@import 'styles/10-settings';
 
-.newsletter-form__item--email,
-.newsletter-form__item--consent {
-  @include mq($until: md) {
-    flex-basis: 100%;
-  }
-}
+// Style functions and mixins
+@import 'styles/20-tools';
 
-.newsletter-form__item--email {
-  order: 1;
-
-  @include mq(md) {
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
-}
-
-.newsletter-form__item--consent {
-  flex-basis: 100%;
-  order: 3;
-}
-
-.newsletter-form__item--submit {
-  height: 2.75rem;
-  order: 2;
-
-  @include mq(md) {
-    margin-top: 1.5rem;
-  }
-}
-
-.newsletter-form__item--footer {
-  font-size: 12px;
-  order: 4;
-}
-
-.newsletter-form__item-label {
-  @extend %text-xs;
-  margin-bottom: var(--space-xs);
-}
-
-.newsletter-form__item-label--email {
-  @extend %text-bold;
-  display: block;
-  height: 20px;
-}
-
-.newsletter-form__input {
-  @extend %text-input-base;
-  height: 2.75rem;
-  width: 100%;
-}
-
-.newsletter-form__checkbox {
-  @extend %checkbox;
-}
+// Core component styles
+@import 'styles/30-newsletter-form';
+@import 'styles/35-newsletter-form-item';
+@import 'styles/35-newsletter-form-item-error';
+@import 'styles/35-newsletter-form-label';
+@import 'styles/35-newsletter-form-input';
+@import 'styles/35-newsletter-form-checkbox';

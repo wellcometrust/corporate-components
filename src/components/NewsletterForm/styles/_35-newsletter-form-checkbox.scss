@@ -1,0 +1,11 @@
+// ----------------------------------
+// UI Components
+// Newsletter Form Checkbox
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.newsletter-form__checkbox {
+  @extend %checkbox;
+}

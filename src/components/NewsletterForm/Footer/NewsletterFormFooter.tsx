@@ -1,13 +1,15 @@
 import React from 'react';
 
+import NewsletterFormItem from 'NewsletterForm/Item';
+
 export const NewsletterFormFooter = () => (
-  <div className="newsletter-form__item newsletter-form__item--footer">
+  <NewsletterFormItem type="footer">
     <p>
       We use a third party provider, Dotdigital, to deliver our newsletters. For
       information about how we handle your data, please read our privacy notice.
       You can unsubscribe at any time using links in the emails you receive.
     </p>
-  </div>
+  </NewsletterFormItem>
 );
 
 export default NewsletterFormFooter;

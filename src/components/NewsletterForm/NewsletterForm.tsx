@@ -1,20 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 
-import NewsletterFormEmail from './NewsletterFormEmail';
-import NewsletterFormConsent from './NewsletterFormConsent';
-import NewsletterFormFooter from './NewsletterFormFooter';
-import NewsletterFormSubmit from './NewsletterFormSubmit';
+import isEmail from 'utils/is-email';
+
+import fetchNewsletterResponse from './fetch-newsletter-response';
+
+import NewsletterFormEmail from './Email';
+import NewsletterFormConsent from './Consent';
+import NewsletterFormFooter from './Footer';
+import NewsletterFormSubmit from './Submit';
 
 type NewsletterFormProps = {
   className?: string;
-  handleSubmit?: (event: React.FormEvent<HTMLFormElement>) => {};
 };
 
-export const NewsletterForm = ({
-  handleSubmit,
-  className
-}: NewsletterFormProps) => {
+export const NewsletterForm = ({ className }: NewsletterFormProps) => {
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [emailError, setEmailError] = useState(null);
+  const [consentError, setConsentError] = useState(null);
+
+  // handle some pre-submit tidy-ups
+  const handlePreSubmitUpdates = () => {
+    setEmailError(!isEmail(email));
+    setConsentError(!consent);
+  };
+
+  // Handle submit
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    handlePreSubmitUpdates();
+
+    const requestOptions = {
+      method: 'POST',
+      body: JSON.stringify({
+        email
+      })
+    };
+
+    // TODO: use fetchNewsletterResponse (currently throws no-useless-catch error)
+    try {
+      const response = await fetch(
+        'https://wellcome.ac.uk/newsletter-signup',
+        requestOptions
+      );
+      const data = await response.json();
+
+      return data;
+
+      // TODO: handle success response
+    } catch (error) {
+      throw new Error(error);
+
+      // TODO: handle error response
+    }
+  };
+
+  // Handle consent chekckbox change
+  const handleConsentChange = (checked: boolean) => {
+    setConsent(checked);
+    setConsentError(!checked);
+  };
+
+  // Handle email input change
+  const handleEmailChange = (value: string) => {
+    setEmail(value);
+  };
+
+  // Handle email input blur
+  const handleEmailBlur = (value: string) => {
+    setEmailError(!isEmail(value));
+  };
+
   const classNames = cx('newsletter-form', {
     [`${className}`]: className
   });
@@ -26,18 +84,21 @@ export const NewsletterForm = ({
       method="POST"
       onSubmit={handleSubmit}
     >
-      {/* The hidden inputs below are required by dotmailer */}
-      <input type="hidden" name="userid" value="279650" />
-      <input type="hidden" name="addressbookid" value="49968" />
-      <input
-        type="hidden"
-        name="SIG403976cd6c63800564a89357fa76a5569262074a6d9631a18038ac57300124ef"
+      <NewsletterFormEmail
+        handleBlur={event => handleEmailBlur(event.currentTarget.value)}
+        handleChange={event => handleEmailChange(event.currentTarget.value)}
+        hasError={emailError}
+        value={email}
       />
-      <input type="hidden" name="ReturnURL" value="/" />
-
-      <NewsletterFormEmail />
-      <NewsletterFormConsent />
-      <NewsletterFormSubmit />
+      <NewsletterFormConsent
+        checked={consent}
+        handleChange={event => handleConsentChange(event.currentTarget.checked)}
+        hasError={consentError}
+      />
+      <NewsletterFormSubmit
+        disabled={consentError || emailError}
+        handleClick={handlePreSubmitUpdates}
+      />
       <NewsletterFormFooter />
     </form>
   );

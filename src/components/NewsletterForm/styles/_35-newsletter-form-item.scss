@@ -1,0 +1,46 @@
+// ----------------------------------
+// UI Components
+// Newsletter Form Item
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.newsletter-form__item {
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-form__item--email,
+.newsletter-form__item--consent {
+  @include mq($until: md) {
+    flex-basis: 100%;
+  }
+}
+
+.newsletter-form__item--email {
+  order: 1;
+
+  @include mq(md) {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+}
+
+.newsletter-form__item--consent {
+  flex-basis: 100%;
+  order: 3;
+}
+
+.newsletter-form__item--submit {
+  height: 2.75rem;
+  order: 2;
+
+  @include mq(md) {
+    margin-top: 1.5rem;
+  }
+}
+
+.newsletter-form__item--footer {
+  font-size: 12px;
+  order: 4;
+}
