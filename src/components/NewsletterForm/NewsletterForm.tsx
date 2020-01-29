@@ -9,10 +9,14 @@ import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
 
 type NewsletterFormProps = {
+  children?: React.ReactNode;
   className?: string;
 };
 
-export const NewsletterForm = ({ className }: NewsletterFormProps) => {
+export const NewsletterForm = ({
+  children,
+  className
+}: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
@@ -75,38 +79,41 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
   });
 
   return (
-    <form
-      action="https://r1.dmtrk.net/signup.ashx"
-      className={classNames}
-      method="POST"
-      onSubmit={handleSubmit}
-    >
-      {/* The hidden inputs below are required by dotmailer */}
-      <input type="hidden" name="userid" value="279650" />
-      <input type="hidden" name="addressbookid" value="49968" />
-      <input
-        type="hidden"
-        name="SIG403976cd6c63800564a89357fa76a5569262074a6d9631a18038ac57300124ef"
-      />
-      <input type="hidden" name="ReturnURL" value="/" />
+    <>
+      {children}
+      <form
+        action="https://r1.dmtrk.net/signup.ashx"
+        className={classNames}
+        method="POST"
+        onSubmit={handleSubmit}
+      >
+        {/* The hidden inputs below are required by dotmailer */}
+        <input type="hidden" name="userid" value="279650" />
+        <input type="hidden" name="addressbookid" value="49968" />
+        <input
+          type="hidden"
+          name="SIG403976cd6c63800564a89357fa76a5569262074a6d9631a18038ac57300124ef"
+        />
+        <input type="hidden" name="ReturnURL" value="/" />
 
-      <NewsletterFormEmail
-        handleBlur={event => handleEmailBlur(event.currentTarget)}
-        handleChange={event => handleEmailChange(event.currentTarget)}
-        hasError={emailError}
-        value={email}
-      />
-      <NewsletterFormConsent
-        checked={consent}
-        handleChange={event => handleConsentChange(event.currentTarget)}
-        hasError={consentError}
-      />
-      <NewsletterFormSubmit
-        disabled={consentError || emailError}
-        handleClick={checkFormValidity}
-      />
-      <NewsletterFormFooter />
-    </form>
+        <NewsletterFormEmail
+          handleBlur={event => handleEmailBlur(event.currentTarget)}
+          handleChange={event => handleEmailChange(event.currentTarget)}
+          hasError={emailError}
+          value={email}
+        />
+        <NewsletterFormConsent
+          checked={consent}
+          handleChange={event => handleConsentChange(event.currentTarget)}
+          hasError={consentError}
+        />
+        <NewsletterFormSubmit
+          disabled={consentError || emailError}
+          handleClick={checkFormValidity}
+        />
+        <NewsletterFormFooter />
+      </form>
+    </>
   );
 };
 

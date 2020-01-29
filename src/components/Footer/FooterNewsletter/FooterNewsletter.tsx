@@ -4,11 +4,12 @@ import NewsletterForm from 'NewsletterForm';
 
 export const FooterNewsletter = () => (
   <div className="footer-newsletter">
-    <p className="footer-newsletter__intro">
-      Get the latest news about Wellcome and the work we fund in a monthly
-      email.
-    </p>
-    <NewsletterForm className="footer-newsletter__form" />
+    <NewsletterForm className="footer-newsletter__form">
+      <p className="footer-newsletter__intro">
+        Get the latest news about Wellcome and the work we fund in a monthly
+        email.
+      </p>
+    </NewsletterForm>
   </div>
 );
 
