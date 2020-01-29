@@ -29,6 +29,11 @@
   .assistive-text,
   &:hover .assistive-text {
     background: none;
+    display: inline-block;
+    height: var(--space-xs);
+    overflow: hidden;
+    text-indent: 100%;
+    vertical-align: middle;
   }
 }
 
