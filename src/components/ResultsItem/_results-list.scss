@@ -1,0 +1,8 @@
+.search-results__total {
+  margin-bottom: var(--space-unit);
+  margin-top: 0;
+
+  @include mq(sm) {
+    margin-bottom: calc(2 * var(--space-unit));
+  }
+}
