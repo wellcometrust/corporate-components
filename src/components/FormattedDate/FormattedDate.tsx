@@ -1,14 +1,14 @@
 import React from 'react';
 import { format, isValid } from 'date-fns';
 
-type DateTimeProps = {
+type FormattedDateProps = {
   dateString: string;
 };
 
-export const DateTime = ({ dateString }: DateTimeProps) => {
+export const FormattedDate = ({ dateString }: FormattedDateProps) => {
   const dateObject = new Date(dateString);
 
   return <>{isValid(dateObject) ? format(dateObject, 'd MMMM y') : null}</>;
 };
 
-export default DateTime;
+export default FormattedDate;
