@@ -105,42 +105,40 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
     [`${className}`]: className
   });
 
-  // Show the success response if the submission has been sent
-  if (responseSuccess) {
-    return (
+  return (
+    // Show the success response if the submission has been sent
+    responseSuccess ? (
       <p className="newsletter-form__response-msg newsletter-form__response-msg--success">
         Thank you. If this is the first time you have subscribed to a newsletter
         from Wellcome, you will receive an email asking you to confirm your
         subscription.
       </p>
-    );
-  }
-
-  return (
-    <form
-      action="https://r1.dmtrk.net/signup.ashx"
-      className={classNames}
-      method="POST"
-      onSubmit={handleSubmit}
-    >
-      <NewsletterFormEmail
-        handleBlur={event => handleEmailBlur(event.currentTarget)}
-        handleChange={event => handleEmailChange(event.currentTarget)}
-        hasError={emailError}
-        value={email}
-      />
-      <NewsletterFormConsent
-        checked={consent}
-        handleChange={event => handleConsentChange(event.currentTarget)}
-        hasError={consentError}
-      />
-      <NewsletterFormSubmit
-        disabled={consentError || emailError || busy}
-        busy={busy}
-        handleClick={checkFormValidity}
-      />
-      <NewsletterFormFooter />
-    </form>
+    ) : (
+      <form
+        action="https://r1.dmtrk.net/signup.ashx"
+        className={classNames}
+        method="POST"
+        onSubmit={handleSubmit}
+      >
+        <NewsletterFormEmail
+          handleBlur={event => handleEmailBlur(event.currentTarget)}
+          handleChange={event => handleEmailChange(event.currentTarget)}
+          hasError={emailError}
+          value={email}
+        />
+        <NewsletterFormConsent
+          checked={consent}
+          handleChange={event => handleConsentChange(event.currentTarget)}
+          hasError={consentError}
+        />
+        <NewsletterFormSubmit
+          disabled={consentError || emailError || busy}
+          busy={busy}
+          handleClick={checkFormValidity}
+        />
+        <NewsletterFormFooter />
+      </form>
+    )
   );
 };
 
