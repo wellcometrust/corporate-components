@@ -54,12 +54,10 @@
 /* Errors */
 
 .newsletter-form__item-error {
-  // TODO: #6018 - convert to CSS var
-  background-color: #ffebeb;
+  background-color: var(--colour-legacy-footer-error-pink);
   background-image: none;
   border-radius: calc(0.25 * var(--space-unit));
-  // TODO: #6018 - convert to CSS var
-  color: #d2373f;
+  color: var(--colour-legacy-footer-error-red);
   font-size: var(--text-xs);
   margin-top: var(--space-md);
   padding-bottom: var(--space-xs);
@@ -71,8 +69,7 @@
 
   &:after {
     border: 8px solid transparent;
-    // TODO: #6018 - convert to CSS var
-    border-bottom-color: #ffebeb;
+    border-bottom-color: var(--colour-legacy-footer-error-pink);
     border-top: 0;
     content: '';
     left: 1rem;

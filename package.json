@@ -80,6 +80,7 @@
     "browserslist": "^4.8.2",
     "create-react-component-folder": "^0.1.30",
     "css-loader": "^3.4.0",
+    "date-fns": "^2.9.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",

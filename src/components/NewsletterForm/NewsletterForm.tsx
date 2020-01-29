@@ -12,10 +12,14 @@ import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
 
 type NewsletterFormProps = {
+  children?: React.ReactNode;
   className?: string;
 };
 
-export const NewsletterForm = ({ className }: NewsletterFormProps) => {
+export const NewsletterForm = ({
+  children,
+  className
+}: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
@@ -114,30 +118,33 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
         subscription.
       </p>
     ) : (
-      <form
-        action="https://r1.dmtrk.net/signup.ashx"
-        className={classNames}
-        method="POST"
-        onSubmit={handleSubmit}
-      >
-        <NewsletterFormEmail
-          handleBlur={event => handleEmailBlur(event.currentTarget)}
-          handleChange={event => handleEmailChange(event.currentTarget)}
-          hasError={emailError}
-          value={email}
-        />
-        <NewsletterFormConsent
-          checked={consent}
-          handleChange={event => handleConsentChange(event.currentTarget)}
-          hasError={consentError}
-        />
-        <NewsletterFormSubmit
-          disabled={consentError || emailError || busy}
-          busy={busy}
-          handleClick={checkFormValidity}
-        />
-        <NewsletterFormFooter />
-      </form>
+      <>
+        {children}
+        <form
+          action="https://r1.dmtrk.net/signup.ashx"
+          className={classNames}
+          method="POST"
+          onSubmit={handleSubmit}
+        >
+          <NewsletterFormEmail
+            handleBlur={event => handleEmailBlur(event.currentTarget)}
+            handleChange={event => handleEmailChange(event.currentTarget)}
+            hasError={emailError}
+            value={email}
+          />
+          <NewsletterFormConsent
+            checked={consent}
+            handleChange={event => handleConsentChange(event.currentTarget)}
+            hasError={consentError}
+          />
+          <NewsletterFormSubmit
+            disabled={consentError || emailError || busy}
+            busy={busy}
+            handleClick={checkFormValidity}
+          />
+          <NewsletterFormFooter />
+        </form>
+      </>
     )
   );
 };

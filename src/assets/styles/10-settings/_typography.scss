@@ -43,7 +43,7 @@
     // --text-md: 18px
     // --text-xl: 28px
     // --text-xxl: 32px
-    --text-md: calc(1.13 * var(--text-base-size));
+    --text-md: calc(1.125 * var(--text-base-size));
     --text-xl: calc(1.75 * var(--text-base-size));
     --text-xxl: calc(2 * var(--text-base-size));
   }
