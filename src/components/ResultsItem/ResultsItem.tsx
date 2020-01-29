@@ -33,10 +33,13 @@ export const ResultsItem = ({
   <article className="result-item">
     {meta && (
       <div className="result-item__meta">
-        <span className="result-item__meta-type">{meta.type}</span>
-        <span className="result-item__meta-date">
+        <span className="result-item__meta-type">
+          {meta.type}
           &nbsp;
+        </span>
+        <span className="result-item__meta-date">
           <FormattedDate dateString={meta.date} />
+          &nbsp;
         </span>
         {meta.lastUpdated && (
           <span className="result-item__meta-last-updated">
