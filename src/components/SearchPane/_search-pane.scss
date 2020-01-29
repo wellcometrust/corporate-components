@@ -55,7 +55,7 @@ $transition-duration: 0.4s;
   }
 
   @include mq(md) {
-    min-height: var(--search-height-wide);
+    min-height: var(--search-height-md);
     padding: 0;
   }
 

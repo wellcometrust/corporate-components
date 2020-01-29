@@ -9,6 +9,7 @@ export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
 export { Logo } from 'Logo/Logo';
+export { Main } from 'Main/Main';
 export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
 export { NewsletterForm } from 'NewsletterForm/NewsletterForm';
