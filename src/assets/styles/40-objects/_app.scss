@@ -9,12 +9,13 @@
 // handle vertical shift of top level app content to reveal search pane on wider screens
 .o-app {
   @include mq(sm) {
-    transition: height 0.3s ease-in-out, transform ease var(--transition-duration);
+    transition: var(--transition-duration) ease-in-out;
+    transition-property: height, padding, transform;
   }
 }
 
 .is-search-active .o-app {
   @include mq(md) {
-    transform: translate3d(0, var(--search-height-wide), 0);
+    transform: translate3d(0, var(--search-height-md), 0);
   }
 }

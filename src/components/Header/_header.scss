@@ -16,16 +16,16 @@
 .header__container {
   display: flex;
   height: 100%;
-  height: calc(5.5 * var(--space-unit));
+  height: var(--header-height);
   max-width: var(--container-width);
-  transition: height 0.3s ease-in-out;
+  transition: height var(--transition-duration) ease-in-out;
 
   @include mq(sm) {
-    height: calc(10 * var(--space-unit));
+    height: var(--header-height-sm);
     margin: 0 5%;
 
     .sticky & {
-      height: calc(8.5 * var(--space-unit));
+      height: var(--header-height-sm-sticky);
     }
   }
 

@@ -7,13 +7,19 @@
 // ----------------------------------
 
 .search-form {
-  border: 1px solid var(--colour-grey-10);
-  margin-bottom: calc(3.75 * var(--space-unit));
+  padding-bottom: calc(4 * var(--space-unit));
+  padding-top: calc(4 * var(--space-unit));
   position: relative;
+
+  @include mq(md) {
+    padding-bottom: calc(8 * var(--space-unit));
+    padding-top: calc(8 * var(--space-unit));
+  }
 }
 
 .search-form__input {
   @extend %text-input-base;
+  border: 1px solid var(--colour-grey-10);
   font-size: inherit;
   height: calc(6.75 * var(--space-unit));
   padding-left: calc(3.125 * var(--space-unit));
