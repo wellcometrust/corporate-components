@@ -9,14 +9,43 @@
 .footer-social {
   display: flex;
   justify-content: center;
-  margin: var(--space-xl) 0;
-  transform: translateX(var(-(--space-md)));
+  margin: var(--space-lg) 0;
+  transform: translateX(-(var(--space-md)));
 
   @include mq(sm) {
-    margin: calc(6 * var(--space-md)) 0;
+    margin: calc(4 * var(--space-md)) 0;
   }
-
   @include mq(md) {
-    margin: calc(8 * var(--space-md)) 0;
+    margin: calc(5 * var(--space-md)) 0;
   }
 }
+
+.footer-social-item {
+  @extend %social-icon;
+
+  &:hover {
+    color: var(--colour-white);
+  }
+}
+
+.footer-social-item__icon {
+  height: 100%;
+  width: 100%;
+}
+
+.assistive-text {
+  background: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 62%;
+  content: '';
+  display: inline-block;
+  height: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+  text-indent: 100%;
+  vertical-align: middle;
+  width: 1.3em;
+}
+

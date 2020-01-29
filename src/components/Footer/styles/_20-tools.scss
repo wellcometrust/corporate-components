@@ -17,6 +17,21 @@
   text-decoration: none;
 }
 
+%social-icon {
+  background-size: calc(7 * var(--space-xs));
+  color: var(--colour-white);
+  display: block;
+  height: calc(7 * var(--space-xs));
+  margin: var(--space-sm);
+  margin: calc(2 * var(--space-xs));
+  width: calc(7 * var(--space-xs));
+
+  .assistive-text,
+  &:hover .assistive-text {
+    background: none;
+  }
+}
+
 /* Mixins */
 
 @mixin animated-underline {
