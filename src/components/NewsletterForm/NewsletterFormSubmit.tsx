@@ -5,11 +5,13 @@ import Button from 'Button';
 import NewsletterFormItem from './NewsletterFormItem';
 
 type NewsletterFormSubmitProps = {
+  busy: boolean;
   disabled?: boolean | null;
   handleClick: () => void;
 };
 
 export const NewsletterFormSubmit = ({
+  busy,
   disabled,
   handleClick
 }: NewsletterFormSubmitProps) => (
@@ -20,7 +22,7 @@ export const NewsletterFormSubmit = ({
       onClick={handleClick}
       type="submit"
     >
-      Subscribe
+      {busy ? 'Submitting' : 'Subscribe'}
     </Button>
   </NewsletterFormItem>
 );

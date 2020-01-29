@@ -6,6 +6,7 @@
 }
 
 .result-item__title {
+  @extend %text-md;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
 }
@@ -36,10 +37,16 @@
 .result-item__meta-date,
 .result-item__meta-last-updated {
   color: var(--colour-grey-60);
+
+  @include mq($until: xs) {
+    display: block;
+  }
 }
 
 .result-item__meta-last-updated {
-  float: right;
+  @include mq(xs) {
+    float: right;
+  }
 }
 
 .result-item__file-meta {

@@ -3,20 +3,29 @@ import cx from 'classnames';
 
 import isEmail from 'utils/is-email';
 
+import fetchNewsletterResponse from './fetch-newsletter-response';
+
+import NewsletterFormItem from './NewsletterFormItem';
 import NewsletterFormEmail from './NewsletterFormEmail';
 import NewsletterFormConsent from './NewsletterFormConsent';
 import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
 
 type NewsletterFormProps = {
+  children?: React.ReactNode;
   className?: string;
 };
 
-export const NewsletterForm = ({ className }: NewsletterFormProps) => {
+export const NewsletterForm = ({
+  children,
+  className
+}: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
   const [consentError, setConsentError] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [responseSuccess, setResponseSuccess] = useState(null);
 
   /**
    * Handles the form validation; sets error state(s) if any form fields
@@ -28,16 +37,42 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
   };
 
   /**
+   * Handles a form submission success
+   */
+  const handleSuccess = () => {
+    setResponseSuccess(true);
+  };
+
+  /**
+   * Run pre-form submission tidy ups; clears any errors + ensures
+   * form fields are valid.
+   */
+  const preSubmitUpdates = () => {
+    checkFormValidity();
+    setBusy(true);
+  };
+
+  /**
    * Handles the form submission.
    *
    * @param {event} FormEvent
    */
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    checkFormValidity();
+    preSubmitUpdates();
 
-    // TODO: #6014 handle form submission
+    const response = await fetchNewsletterResponse(
+      // TODO: #6023 - move to .env
+      'https://wellcome.ac.uk/newsletter-signup',
+      email
+    );
+
+    if (response.status === 200) {
+      handleSuccess();
+    } else {
+      // TODO: #6022 - add UI error handling
+    }
   };
 
   /**
@@ -75,38 +110,42 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
   });
 
   return (
-    <form
-      action="https://r1.dmtrk.net/signup.ashx"
-      className={classNames}
-      method="POST"
-      onSubmit={handleSubmit}
-    >
-      {/* The hidden inputs below are required by dotmailer */}
-      <input type="hidden" name="userid" value="279650" />
-      <input type="hidden" name="addressbookid" value="49968" />
-      <input
-        type="hidden"
-        name="SIG403976cd6c63800564a89357fa76a5569262074a6d9631a18038ac57300124ef"
-      />
-      <input type="hidden" name="ReturnURL" value="/" />
-
-      <NewsletterFormEmail
-        handleBlur={event => handleEmailBlur(event.currentTarget)}
-        handleChange={event => handleEmailChange(event.currentTarget)}
-        hasError={emailError}
-        value={email}
-      />
-      <NewsletterFormConsent
-        checked={consent}
-        handleChange={event => handleConsentChange(event.currentTarget)}
-        hasError={consentError}
-      />
-      <NewsletterFormSubmit
-        disabled={consentError || emailError}
-        handleClick={checkFormValidity}
-      />
-      <NewsletterFormFooter />
-    </form>
+    // Show the success response if the submission has been sent
+    responseSuccess ? (
+      <p className="newsletter-form__response-msg newsletter-form__response-msg--success">
+        Thank you. If this is the first time you have subscribed to a newsletter
+        from Wellcome, you will receive an email asking you to confirm your
+        subscription.
+      </p>
+    ) : (
+      <>
+        {children}
+        <form
+          action="https://r1.dmtrk.net/signup.ashx"
+          className={classNames}
+          method="POST"
+          onSubmit={handleSubmit}
+        >
+          <NewsletterFormEmail
+            handleBlur={event => handleEmailBlur(event.currentTarget)}
+            handleChange={event => handleEmailChange(event.currentTarget)}
+            hasError={emailError}
+            value={email}
+          />
+          <NewsletterFormConsent
+            checked={consent}
+            handleChange={event => handleConsentChange(event.currentTarget)}
+            hasError={consentError}
+          />
+          <NewsletterFormSubmit
+            disabled={consentError || emailError || busy}
+            busy={busy}
+            handleClick={checkFormValidity}
+          />
+          <NewsletterFormFooter />
+        </form>
+      </>
+    )
   );
 };
 
