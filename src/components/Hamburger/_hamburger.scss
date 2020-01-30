@@ -4,12 +4,12 @@
   margin-left: auto;
   pointer-events: all;
 
-  &:hover {
-    color: var(--colour-white);
-  }
-
   @include mq(md) {
     display: none;
+  }
+
+  &:hover {
+    color: var(--colour-white);
   }
 
   &[disabled] {

@@ -43,24 +43,6 @@
     calc(2 * var(--space-unit));
   text-decoration: none;
 
-  &:focus,
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:active,
-  &:focus,
-  &:hover,
-  &.active {
-    color: var(--colour-blue-80);
-  }
-
-  &.active .nav__link-text:before,
-  &:hover .nav__link-text:before {
-    transform: scaleX(1);
-    width: 100%;
-  }
-
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
@@ -88,6 +70,24 @@
     &.active + .nav-secondary {
       display: block;
     }
+  }
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover,
+  &.active {
+    color: var(--colour-blue-80);
+  }
+
+  &.active .nav__link-text:before,
+  &:hover .nav__link-text:before {
+    transform: scaleX(1);
+    width: 100%;
   }
 
   .nav__link-text {
@@ -136,17 +136,17 @@
     visibility: hidden;
     z-index: var(--z-medium);
 
-    .is-active {
-      top: 0;
-      z-index: var(--z-high);
-    }
-
     &.is-active {
       transform: translate3d(0, 0, 0);
       transition:
         transform ease 0.4s,
         visibility ease 0.4s;
       visibility: visible;
+    }
+
+    .is-active {
+      top: 0;
+      z-index: var(--z-high);
     }
   }
 
