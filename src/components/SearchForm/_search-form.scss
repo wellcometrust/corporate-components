@@ -7,14 +7,9 @@
 // ----------------------------------
 
 .search-form {
-  margin-bottom: calc(4 * var(--space-unit));
-  margin-top: calc(4 * var(--space-unit));
+  margin-bottom: var(--space-xl);
+  margin-top: var(--space-xl);
   position: relative;
-
-  @include mq(md) {
-    margin-bottom: calc(8 * var(--space-unit));
-    margin-top: calc(8 * var(--space-unit));
-  }
 }
 
 .search-form__input {
