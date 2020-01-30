@@ -56,6 +56,5 @@
 .footer-nav__menu-list-link {
   @extend %footer-nav-link;
   @extend %text-xs;
-  @extend %color-inherit;
   @include animated-underline;
 }
