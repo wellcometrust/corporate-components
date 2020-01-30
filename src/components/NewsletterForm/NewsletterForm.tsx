@@ -5,11 +5,11 @@ import isEmail from 'utils/is-email';
 
 import fetchNewsletterResponse from './fetch-newsletter-response';
 
-import NewsletterFormItem from './NewsletterFormItem';
 import NewsletterFormEmail from './NewsletterFormEmail';
 import NewsletterFormConsent from './NewsletterFormConsent';
 import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
+import NewsletterFormError from './NewsletterFormError';
 
 type NewsletterFormProps = {
   children?: React.ReactNode;
@@ -26,6 +26,7 @@ export const NewsletterForm = ({
   const [consentError, setConsentError] = useState(null);
   const [busy, setBusy] = useState(false);
   const [responseSuccess, setResponseSuccess] = useState(null);
+  const [responseError, setResponseError] = useState(null);
 
   /**
    * Handles the form validation; sets error state(s) if any form fields
@@ -44,12 +45,21 @@ export const NewsletterForm = ({
   };
 
   /**
+   * Handles a form submission error
+   */
+  const handleError = () => {
+    setResponseError(true);
+    setBusy(false);
+  };
+
+  /**
    * Run pre-form submission tidy ups; clears any errors + ensures
    * form fields are valid.
    */
   const preSubmitUpdates = () => {
     checkFormValidity();
     setBusy(true);
+    setResponseError(false);
   };
 
   /**
@@ -68,10 +78,10 @@ export const NewsletterForm = ({
       email
     );
 
-    if (response.status === 200) {
+    if (response?.status === 200) {
       handleSuccess();
     } else {
-      // TODO: #6022 - add UI error handling
+      handleError();
     }
   };
 
@@ -84,6 +94,7 @@ export const NewsletterForm = ({
   const handleConsentChange = ({ checked }: HTMLInputElement) => {
     setConsent(checked);
     setConsentError(!checked);
+    setResponseError(false);
   };
 
   /**
@@ -93,6 +104,7 @@ export const NewsletterForm = ({
    */
   const handleEmailChange = ({ value }: HTMLInputElement) => {
     setEmail(value);
+    setResponseError(false);
   };
 
   /**
@@ -112,11 +124,13 @@ export const NewsletterForm = ({
   return (
     // Show the success response if the submission has been sent
     responseSuccess ? (
-      <p className="newsletter-form__response-msg newsletter-form__response-msg--success">
-        Thank you. If this is the first time you have subscribed to a newsletter
-        from Wellcome, you will receive an email asking you to confirm your
-        subscription.
-      </p>
+      <div className="newsletter-form__response-msg newsletter-form__response-msg--success">
+        <p className="newsletter-form__response-msg-text">
+          Thank you. If this is the first time you have subscribed to a
+          newsletter from Wellcome, you will receive an email asking you to
+          confirm your subscription.
+        </p>
+      </div>
     ) : (
       <>
         {children}
@@ -142,6 +156,7 @@ export const NewsletterForm = ({
             busy={busy}
             handleClick={checkFormValidity}
           />
+          {responseError && <NewsletterFormError />}
           <NewsletterFormFooter />
         </form>
       </>

@@ -46,9 +46,13 @@
   }
 }
 
+.newsletter-form__item--error {
+  order: 4;
+}
+
 .newsletter-form__item--footer {
   font-size: 12px;
-  order: 4;
+  order: 5;
 }
 
 /* Errors */
@@ -116,4 +120,8 @@
 .newsletter-form__response-msg {
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
+}
+
+.newsletter-form__response-msg-text {
+  @extend %margin-0;
 }
