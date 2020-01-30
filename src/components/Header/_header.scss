@@ -83,6 +83,12 @@
 }
 
 .nav__overlay {
+  &.is-active {
+    opacity: 1;
+    transition: opacity var(--transition-duration) ease, visibility 0s ease 0s;
+    visibility: visible;
+  }
+
   @include mq($until: md) {
     background: rgba(255, 255, 255, 0.6);
     bottom: 0;
@@ -95,12 +101,6 @@
     visibility: hidden;
     z-index: var(--z-medium);
   }
-
-  &.is-active {
-    opacity: 1;
-    transition: opacity var(--transition-duration) ease, visibility 0s ease 0s;
-    visibility: visible;
-  }
 }
 
 .nav__toggle {
@@ -111,16 +111,16 @@
   margin-left: auto;
   text-decoration: none;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   @include mq(md) {
     display: none;
   }
 
   .js & {
     pointer-events: none;
-  }
-
-  &:hover {
-    text-decoration: none;
   }
 }
 
@@ -177,6 +177,14 @@
   @extend %btn-nav-base;
   color: var(--colour-grey-60);
 
+  &:hover {
+    color: var(--colour-grey-60);
+  }
+
+  &.is-disabled {
+    opacity: 0;
+  }
+
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
@@ -191,16 +199,8 @@
     }
   }
 
-  &:hover {
-    color: var(--colour-grey-60);
-  }
-
   .icon {
     margin-left: calc(1.5 * var(--space-unit));
-  }
-
-  &.is-disabled {
-    opacity: 0;
   }
 
   &.keyboard-nav {

@@ -23,16 +23,16 @@ $transition-duration: 0.4s;
   transition: transform ease $transition-duration;
   z-index: var(--z-high);
 
-  @include mq(md) {
-    bottom: auto;
-    position: absolute;
-    transform: translate3d(0, -100%, 0);
-  }
-
   &.is-active {
     @include mq($until: md) {
       transform: translate3d(0, 0, 0);
     }
+  }
+
+  @include mq(md) {
+    bottom: auto;
+    position: absolute;
+    transform: translate3d(0, -100%, 0);
   }
 }
 
@@ -49,6 +49,10 @@ $transition-duration: 0.4s;
   width: 100%;
   z-index: var(--z-low);
 
+  &.is-active {
+    box-shadow: var(--space-xs) 0 var(--space-md) rgba(var(--colour-black), 0.1);
+  }
+
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
@@ -57,10 +61,6 @@ $transition-duration: 0.4s;
   @include mq(md) {
     min-height: var(--search-height-md);
     padding: 0;
-  }
-
-  &.is-active {
-    box-shadow: var(--space-xs) 0 var(--space-md) rgba(var(--colour-black), 0.1);
   }
 }
 
@@ -183,6 +183,16 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__overlay {
+  &.is-active {
+    @include mq(md) {
+      opacity: 1;
+      transition:
+        opacity $transition-duration ease,
+        visibility 0s ease 0s;
+      visibility: visible;
+    }
+  }
+
   @include mq(md) {
     background: rgba(255, 255, 255, 0.9);
     content: '';
@@ -198,15 +208,5 @@ $transition-duration: 0.4s;
     visibility: hidden;
     width: 100%;
     z-index: 0;
-  }
-
-  &.is-active {
-    @include mq(md) {
-      opacity: 1;
-      transition:
-        opacity $transition-duration ease,
-        visibility 0s ease 0s;
-      visibility: visible;
-    }
   }
 }

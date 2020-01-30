@@ -43,6 +43,24 @@
     calc(2 * var(--space-unit));
   text-decoration: none;
 
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover,
+  &.active {
+    color: var(--colour-blue-80);
+  }
+
+  &.active .nav__link-text:before,
+  &:hover .nav__link-text:before {
+    transform: scaleX(1);
+    width: 100%;
+  }
+
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
@@ -72,18 +90,6 @@
     }
   }
 
-  &:focus,
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:active,
-  &:focus,
-  &:hover,
-  &.active {
-    color: var(--colour-blue-80);
-  }
-
   .nav__link-text {
     align-items: center;
     display: flex;
@@ -102,12 +108,6 @@
     position: absolute;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
-    width: 100%;
-  }
-
-  &.active .nav__link-text:before,
-  &:hover .nav__link-text:before {
-    transform: scaleX(1);
     width: 100%;
   }
 
