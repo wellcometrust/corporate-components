@@ -22,12 +22,30 @@
         "scss/at-mixin-argumentless-call-parentheses": "never",
         "order/order": [
             [
-                "declarations",
                 {
                     "type": "at-rule",
                     "name": "include",
                     "hasBlock": false
-                }
+                },
+                {
+                    "type": "at-rule",
+                    "name": "extend",
+                    "hasBlock": false
+                },
+                "custom-properties",
+                "declarations",
+                {
+                    "type": "at-rule",
+                    "name": "include",
+                    "hasBlock": true
+                },
+                {
+                    "type": "at-rule",
+                    "name": "include",
+                    "parameter": "mq",
+                    "hasBlock": true
+                },
+                "rules"
             ]
         ],
         "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",

@@ -111,16 +111,16 @@
   margin-left: auto;
   text-decoration: none;
 
+  @include mq(md) {
+    display: none;
+  }
+
   .js & {
     pointer-events: none;
   }
 
   &:hover {
     text-decoration: none;
-  }
-
-  @include mq(md) {
-    display: none;
   }
 }
 
@@ -159,10 +159,6 @@
   @extend %btn-nav-base;
   color: var(--colour-grey-60);
 
-  .icon {
-    margin-right: calc(1.5 * var(--space-unit));
-  }
-
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
@@ -171,19 +167,15 @@
   @include mq(md) {
     display: none;
   }
+
+  .icon {
+    margin-right: calc(1.5 * var(--space-unit));
+  }
 }
 
 .nav__btn--search-mobile {
   @extend %btn-nav-base;
   color: var(--colour-grey-60);
-
-  &:hover {
-    color: var(--colour-grey-60);
-  }
-
-  .icon {
-    margin-left: calc(1.5 * var(--space-unit));
-  }
 
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
@@ -197,6 +189,14 @@
     &:hover {
       color: var(--colour-white);
     }
+  }
+
+  &:hover {
+    color: var(--colour-grey-60);
+  }
+
+  .icon {
+    margin-left: calc(1.5 * var(--space-unit));
   }
 
   &.is-disabled {

@@ -3,6 +3,10 @@
 .nav__item {
   list-style: none;
 
+  @include mq($until: md) {
+    border-bottom: 1px solid var(--colour-grey-05);
+  }
+
   //duplication of class name for higher specificity
   &.nav__item {
     margin: 0;
@@ -12,10 +16,6 @@
 
   &.nav__item:before {
     content: none;
-  }
-
-  @include mq($until: md) {
-    border-bottom: 1px solid var(--colour-grey-05);
   }
 }
 
@@ -42,6 +42,35 @@
     calc(2.25 * var(--space-unit))
     calc(2 * var(--space-unit));
   text-decoration: none;
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    color: var(--colour-white);
+    padding: calc(2 * var(--space-unit));
+
+    &:active,
+    &:focus,
+    &:hover,
+    &.active {
+      color: var(--colour-white);
+    }
+
+    .nav__link-text:before {
+      background-color: var(--colour-white);
+    }
+
+    .icon {
+      display: none;
+    }
+
+    &.active + .nav-secondary {
+      display: block;
+    }
+  }
 
   &:focus,
   &:hover {
@@ -85,35 +114,6 @@
   .nav-secondary & {
     @include mq(md) {
       align-items: stretch;
-    }
-  }
-
-  @include mq(sm) {
-    padding-left: calc(4 * var(--space-unit));
-    padding-right: calc(4 * var(--space-unit));
-  }
-
-  @include mq(md) {
-    color: var(--colour-white);
-    padding: calc(2 * var(--space-unit));
-
-    &:active,
-    &:focus,
-    &:hover,
-    &.active {
-      color: var(--colour-white);
-    }
-
-    .nav__link-text:before {
-      background-color: var(--colour-white);
-    }
-
-    .icon {
-      display: none;
-    }
-
-    &.active + .nav-secondary {
-      display: block;
     }
   }
 }
