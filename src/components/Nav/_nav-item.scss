@@ -1,32 +1,46 @@
 // TODO: #5862 refactor to reduce nesting and avoid repeated selectors
 
+/* List */
+
+.nav__list {
+  @extend %margin-auto;
+  @extend %list-clean;
+  border-top: 1px solid var(--colour-grey-05);
+
+  @include mq(md) {
+    border-top: 0;
+    display: flex;
+    max-width: var(--container-width);
+  }
+
+  .nav__pane & {
+    @include mq(md) {
+      margin: 0 auto;
+      max-width: var(--container-width);
+      padding: 0 0 0 calc(13.5 * var(--space-unit));
+    }
+  }
+}
+
+/* Item */
+
 .nav__item {
-  list-style: none;
+  @extend %margin-0;
+  padding: 0;
+  position: static;
 
   @include mq($until: md) {
     border-bottom: 1px solid var(--colour-grey-05);
   }
 
-  //duplication of class name for higher specificity
-  &.nav__item {
-    margin: 0;
-    padding: 0;
-    position: static;
-  }
-
-  &.nav__item:before {
-    content: none;
+  &.first {
+    @include mq(md) {
+      display: none;
+    }
   }
 }
 
-.nav-secondary .nav__item.first {
-  @include mq(md) {
-    display: none;
-  }
-}
-
-
-// NavLink
+/* Link */
 
 .nav__link {
   align-items: center;
@@ -52,25 +66,6 @@
   @include mq(md) {
     color: var(--colour-white);
     padding: calc(2 * var(--space-unit));
-
-    &:active,
-    &:focus,
-    &:hover,
-    &.active {
-      color: var(--colour-white);
-    }
-
-    .nav__link-text:before {
-      background-color: var(--colour-white);
-    }
-
-    .icon {
-      display: none;
-    }
-
-    &.active + .nav-secondary {
-      display: block;
-    }
   }
 
   &:focus,
@@ -83,24 +78,54 @@
   &:hover,
   &.active {
     color: var(--colour-blue-80);
+
+    @include mq(md) {
+      color: var(--colour-white);
+    }
   }
 
-  &.active .nav__link-text:before,
-  &:hover .nav__link-text:before {
-    transform: scaleX(1);
-    width: 100%;
+  .icon {
+    @include mq(md) {
+      display: none;
+    }
   }
 
-  .nav__link-text {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    padding-bottom: calc(0.5 * var(--space-unit));
-    padding-top: calc(0.5 * var(--space-unit));
-    position: relative;
+  &.active + .nav-secondary {
+    @include mq(md) {
+      display: block;
+    }
   }
 
-  .nav__link-text:before {
+  .nav-secondary & {
+    @include mq(md) {
+      align-items: stretch;
+    }
+  }
+
+  .nav__pane & {
+    @include mq(md) {
+      color: var(--colour-blue-80);
+      padding: 0 calc(2 * var(--space-unit));
+    }
+  }
+
+  .nav__pane &:hover,
+  .nav__pane &.active {
+    @include mq(md) {
+      color: var(--colour-blue-80);
+    }
+  }
+}
+
+.nav__link-text {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding-bottom: calc(0.5 * var(--space-unit));
+  padding-top: calc(0.5 * var(--space-unit));
+  position: relative;
+
+  &:before {
     background-color: var(--colour-blue-80);
     bottom: 0;
     content: '';
@@ -110,14 +135,26 @@
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
     width: 100%;
+
+    @include mq(md) {
+      background-color: var(--colour-white);
+    }
   }
 
-  .nav-secondary & {
+  .nav__link:hover &:before,
+  .nav__link.active &:before {
+    transform: scaleX(1);
+    width: 100%;
+  }
+
+  .nav__pane &:before {
     @include mq(md) {
-      align-items: stretch;
+      background-color: var(--colour-blue-80);
     }
   }
 }
+
+/* Pane */
 
 .nav__pane {
   background: var(--colour-white);
@@ -136,19 +173,6 @@
       0s visibility ease 0.4s;
     visibility: hidden;
     z-index: var(--z-medium);
-
-    &.is-active {
-      transform: translate3d(0, 0, 0);
-      transition:
-        transform ease 0.4s,
-        visibility ease 0.4s;
-      visibility: visible;
-    }
-
-    .is-active {
-      top: 0;
-      z-index: var(--z-high);
-    }
   }
 
   @include mq(md) {
@@ -159,25 +183,22 @@
     padding: 0 5%;
     top: 100%;
     width: 100%;
+  }
 
-    .nav__link {
-      color: var(--colour-blue-80);
-      padding: 0 calc(2 * var(--space-unit));
+  &.is-active {
+    @include mq($until: md) {
+      transform: translate3d(0, 0, 0);
+      transition:
+        transform ease 0.4s,
+        visibility ease 0.4s;
+      visibility: visible;
     }
+  }
 
-    .nav__link:hover,
-    .nav__link.active {
-      color: var(--colour-blue-80);
-    }
-
-    .nav__link-text:before {
-      background-color: var(--colour-blue-80);
-    }
-
-    .nav__list {
-      margin: 0 auto;
-      max-width: var(--container-width);
-      padding: 0 0 0 calc(13.5 * var(--space-unit));
+  .is-active {
+    @include mq($until: md) {
+      top: 0;
+      z-index: var(--z-high);
     }
   }
 }

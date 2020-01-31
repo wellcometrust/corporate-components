@@ -23,10 +23,6 @@
   @include mq(sm) {
     height: var(--header-height-sm);
     margin: 0 5%;
-
-    .sticky & {
-      height: var(--header-height-sm-sticky);
-    }
   }
 
   @include mq(md) {
@@ -36,6 +32,12 @@
   /* global maxWidth + 5% margin on left and right */
   @include mq(1.1 * map-get($mq-breakpoints, xl)) {
     margin: 0 auto;
+  }
+
+  .sticky & {
+    @include mq(sm) {
+      height: var(--header-height-sm-sticky);
+    }
   }
 }
 
@@ -54,8 +56,18 @@
     visibility: hidden;
     width: 80vw;
     z-index: var(--z-high);
+  }
 
-    &.is-active {
+  @include mq(md) {
+    align-items: center;
+    display: flex;
+    flex: auto;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-between;
+  }
+
+  &.is-active {
+    @include mq($until: md) {
       box-shadow:
         calc(0.5 * var(--space-unit)) 0 calc(1.5 * var(--space-unit))
         rgba(0, 0, 0, 0.1);
@@ -65,14 +77,6 @@
         visibility var(--transition-duration);
       visibility: visible;
     }
-  }
-
-  @include mq(md) {
-    align-items: center;
-    display: flex;
-    flex: auto;
-    flex-flow: row-reverse nowrap;
-    justify-content: space-between;
   }
 }
 
@@ -119,17 +123,16 @@
     text-decoration: none;
   }
 
+  &:focus + .keyboard-nav {
+    max-width: 100px;
+    opacity: 1;
+    visibility: visible;
+  }
+
   .js & {
     pointer-events: none;
   }
 }
-
-.nav__toggle:focus + .keyboard-nav {
-  max-width: 100px;
-  opacity: 1;
-  visibility: visible;
-}
-
 
 // Nav buttons
 
@@ -185,14 +188,14 @@
   @include mq(md) {
     color: var(--colour-white);
     margin-right: calc(-4 * var(--space-unit));
-
-    &:hover {
-      color: var(--colour-white);
-    }
   }
 
   &:hover {
     color: var(--colour-grey-60);
+
+    @include mq(md) {
+      color: var(--colour-white);
+    }
   }
 
   &.is-disabled {
