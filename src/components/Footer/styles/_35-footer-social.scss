@@ -15,6 +15,7 @@
   @include mq(sm) {
     margin: calc(4 * var(--space-md)) 0;
   }
+
   @include mq(md) {
     margin: calc(5 * var(--space-md)) 0;
   }
