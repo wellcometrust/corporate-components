@@ -116,7 +116,9 @@
     grid-column: #{$col-start} / #{$col-end};
     // stylelint-disable-next-line property-no-vendor-prefix
     -ms-grid-column-span: ($col-end - $col-start) * 2 - 1;
-  } @else {
+  }
+
+  @else {
     grid-column: #{$col-start};
   }
 }
@@ -137,7 +139,9 @@
     grid-row: #{$row-start} / #{$row-end};
     // stylelint-disable-next-line property-no-vendor-prefix
     -ms-grid-row-span: ($row-end - $row-start) * 2 - 1;
-  } @else {
+  }
+
+  @else {
     grid-row: #{$row-start};
   }
 }
@@ -189,16 +193,24 @@
   @if (map-get($data, 'gap') == 'column') {
     $column-gap: true;
     $row-gap: false;
-  } @else if (map-get($data, gap) == 'row') {
+  }
+
+  @else if (map-get($data, gap) == 'row') {
     $column-gap: false;
     $row-gap: true;
-  } @else if (map-get($data, gap) == 'both') {
+  }
+
+  @else if (map-get($data, gap) == 'both') {
     $column-gap: true;
     $row-gap: true;
-  } @else if (map-get($data, gap) == 'neither') {
+  }
+
+  @else if (map-get($data, gap) == 'neither') {
     $column-gap: false;
     $row-gap: false;
-  } @else {
+  }
+
+  @else {
     @error The 'gap' argument must be one of 'column', 'row', 'both', or 'neither';
   }
 
@@ -221,9 +233,13 @@
         // This element can be filled iff we are not in a row gap or a column gap.
         @if ($i % 2 == 0 and $column-gap) {
           // This is a column gap. Don't place the next element.
-        } @else if ($j % 2 == 0 and $row-gap) {
+        }
+
+        @else if ($j % 2 == 0 and $row-gap) {
           // This is a row gap. Don't place the next element.
-        } @else {
+        }
+
+        @else {
           // Place the next element in column $i and row $j.
           // stylelint-disable-next-line max-nesting-depth
           > :nth-child(#{$counter}) {
@@ -236,15 +252,21 @@
         }
       }
     }
-  } @else if ($autoflow == 'row') {
+  }
+
+  @else if ($autoflow == 'row') {
     @for $i from 1 through $rows {
       @for $j from 1 through $columns {
         // This element can be filled iff we are not in a row gap or a column gap.
         @if ($i % 2 == 0 and $row-gap) {
           // This is a row gap. Don't place the next element.
-        } @else if ($j % 2 == 0 and $column-gap) {
+        }
+
+        @else if ($j % 2 == 0 and $column-gap) {
           // This is a column gap. Don't place the next element.
-        } @else {
+        }
+
+        @else {
           // Place the next element in row $i and column $j.
           // stylelint-disable-next-line max-nesting-depth
           > :nth-child(#{$counter}) {
@@ -277,7 +299,9 @@
         // stylelint-disable-next-line property-no-vendor-prefix
         -ms-grid-row: $i;
       }
-    } @else {
+    }
+
+    @else {
       > :nth-child(#{$counter}) {
         // stylelint-disable-next-line property-no-vendor-prefix
         -ms-grid-row: $i;

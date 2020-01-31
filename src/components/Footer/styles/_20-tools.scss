@@ -10,7 +10,7 @@
 /* Placeholders */
 
 %footer-nav-link {
-  color: inherit;
+  @extend %color-inherit;
   display: inline-block;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
@@ -45,6 +45,11 @@
   --transition-duration: 0.3s;
   position: relative;
 
+  &:hover:before {
+    transform: scaleX(1);
+    visibility: visible;
+  }
+
   &:before {
     background-color: var(--colour-white);
     bottom: 0;
@@ -56,10 +61,5 @@
     transition: all var(--transition-duration) ease-in-out;
     visibility: hidden;
     width: 100%;
-  }
-
-  &:hover:before {
-    transform: scaleX(1);
-    visibility: visible;
   }
 }

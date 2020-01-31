@@ -35,6 +35,7 @@
   @extend %btn-base;
   background-color: var(--colour-blue-50);
   height: 100%;
+  justify-content: center;
   opacity: 0;
   position: absolute;
   right: 0;
@@ -49,9 +50,5 @@
 
 .search-form__btn-submit .icon {
   color: var(--colour-white);
-  height: 72.5%;
-  // TODO: add %margin-auto placeholder
-  margin-left: auto;
-  margin-right: auto;
-  width: 72.5%;
+  margin-right: 0;
 }

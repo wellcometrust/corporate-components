@@ -7,14 +7,14 @@
 // ----------------------------------
 
 .grid {
-  display: grid;
-  // stylelint-disable value-no-vendor-prefix
-  display: -ms-grid;
   @include grid-container;
 
   // Columns: 6 / Gutter: 12px
   @include grid-columns($grid-gutter-xs, grid-repeat(6, 1fr));
   @include grid-rows(0, 1fr);
+  display: grid;
+  // stylelint-disable value-no-vendor-prefix
+  display: -ms-grid;
 
   @include mq(sm) {
     // Columns: 12 / Gutter: 20px
@@ -34,9 +34,9 @@
 
 // Reset nested grids
 .grid--nested {
+  @include grid-column(1, 13);
   margin-left: 0;
   margin-right: 0;
-  @include grid-column(1, 13);
 
   > * {
     @include grid-column(1, 13);

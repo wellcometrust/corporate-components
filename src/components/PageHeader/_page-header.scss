@@ -21,15 +21,15 @@
 }
 
 .title-banner__title {
-  margin: 0;
-  padding-bottom: var(--space-md);
   @include heading-divider;
   @extend %heading-base;
   @extend %text-xxl;
+  margin: 0;
+  padding-bottom: var(--space-md);
 }
 
 .title-banner__standfirst {
+  @extend %text-md;
   padding-bottom: var(--space-xl);
   text-align: center;
-  @extend %text-md;
 }

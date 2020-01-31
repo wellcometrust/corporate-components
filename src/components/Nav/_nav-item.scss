@@ -3,6 +3,10 @@
 .nav__item {
   list-style: none;
 
+  @include mq($until: md) {
+    border-bottom: 1px solid var(--colour-grey-05);
+  }
+
   //duplication of class name for higher specificity
   &.nav__item {
     margin: 0;
@@ -12,10 +16,6 @@
 
   &.nav__item:before {
     content: none;
-  }
-
-  @include mq($until: md) {
-    border-bottom: 1px solid var(--colour-grey-05);
   }
 }
 
@@ -43,51 +43,6 @@
     calc(2.25 * var(--space-unit))
     calc(2 * var(--space-unit));
   text-decoration: none;
-
-  &:focus,
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:active,
-  &:focus,
-  &:hover,
-  &.active {
-    color: var(--colour-blue-80);
-  }
-
-  .nav__link-text {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    padding-bottom: calc(0.5 * var(--space-unit));
-    padding-top: calc(0.5 * var(--space-unit));
-    position: relative;
-  }
-
-  .nav__link-text:before {
-    background-color: var(--colour-blue-80);
-    bottom: 0;
-    content: '';
-    height: calc(0.25 * var(--space-unit));
-    left: 0;
-    position: absolute;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-  }
-
-  &.active .nav__link-text:before,
-  &:hover .nav__link-text:before {
-    transform: scaleX(1);
-    width: 100%;
-  }
-
-  .nav-secondary & {
-    @include mq(md) {
-      align-items: stretch;
-    }
-  }
 
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
@@ -117,6 +72,51 @@
       display: block;
     }
   }
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover,
+  &.active {
+    color: var(--colour-blue-80);
+  }
+
+  &.active .nav__link-text:before,
+  &:hover .nav__link-text:before {
+    transform: scaleX(1);
+    width: 100%;
+  }
+
+  .nav__link-text {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    padding-bottom: calc(0.5 * var(--space-unit));
+    padding-top: calc(0.5 * var(--space-unit));
+    position: relative;
+  }
+
+  .nav__link-text:before {
+    background-color: var(--colour-blue-80);
+    bottom: 0;
+    content: '';
+    height: calc(0.25 * var(--space-unit));
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  .nav-secondary & {
+    @include mq(md) {
+      align-items: stretch;
+    }
+  }
 }
 
 .nav__pane {
@@ -137,17 +137,17 @@
     visibility: hidden;
     z-index: var(--z-medium);
 
-    .is-active {
-      top: 0;
-      z-index: var(--z-high);
-    }
-
     &.is-active {
       transform: translate3d(0, 0, 0);
       transition:
         transform ease 0.4s,
         visibility ease 0.4s;
       visibility: visible;
+    }
+
+    .is-active {
+      top: 0;
+      z-index: var(--z-high);
     }
   }
 

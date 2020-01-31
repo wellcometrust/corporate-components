@@ -18,16 +18,63 @@
             }
 
         ],
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "first-nested",
+                    "blockless-after-blockless"
+                ],
+                "ignore": [
+                    "after-comment"
+                ]
+            }
+        ],
         "scss/at-import-no-partial-leading-underscore": null,
         "scss/at-mixin-argumentless-call-parentheses": "never",
         "order/order": [
             [
-                "declarations",
                 {
                     "type": "at-rule",
                     "name": "include",
                     "hasBlock": false
-                }
+                },
+                {
+                    "type": "at-rule",
+                    "name": "extend"
+                },
+                "custom-properties",
+                "declarations",
+                {
+                    "type": "at-rule",
+                    "name": "include",
+                    "hasBlock": true
+                },
+                {
+                    "type": "at-rule",
+                    "name": "include",
+                    "parameter": "mq",
+                    "hasBlock": true
+                },
+                {
+                    "type": "rule",
+                    "selector": "&:hover|&:focus|&:active|&:visited|&:focus-within"
+                },
+                {
+                    "type": "at-rule",
+                    "name": "include",
+                    "parameter": "hocus",
+                    "hasBlock": true
+                },
+                {
+                    "type": "rule",
+                    "selector": "&.is-|&.has-|[[_a-zA-Z0-9].*]$"
+                },
+                {
+                    "type": "rule",
+                    "selector": "&:before|&:after"
+                },
+                "rules"
             ]
         ],
         "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
