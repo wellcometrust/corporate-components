@@ -31,10 +31,7 @@
 
 .footer-social-item__icon {
   height: 100%;
-  padding-bottom: calc(1.75 * var(--space-xs));
-  padding-left: calc(1.75 * var(--space-xs));
-  padding-right: calc(1.75 * var(--space-xs));
-  padding-top: calc(1.75 * var(--space-xs));
+  padding: calc(1.75 * var(--space-xs));
   width: 100%;
 
   > svg {
