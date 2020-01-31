@@ -183,8 +183,12 @@
  */
 
 @mixin grid-autoflow($data) {
+  $autoflow: map-get($data, autoflow);
+  $columns: map-get($data, columns);
+  $rows: map-get($data, rows);
 
-  grid-auto-flow: $autoflow;
+  $column-gap: false;
+  $row-gap: false;
 
   @if (map-get($data, 'gap') == 'column') {
     $column-gap: true;
@@ -217,6 +221,11 @@
   @if ($row-gap) {
     $rows: $rows * 2 - 1;
   }
+
+  grid-auto-flow: $autoflow;
+  $column: 1;
+  $row: 1;
+  $counter: 1;
 
   @if ($autoflow == 'column') {
     @for $i from 1 through $columns {
@@ -271,15 +280,6 @@
       }
     }
   }
-  $autoflow: map-get($data, autoflow);
-  $columns: map-get($data, columns);
-  $rows: map-get($data, rows);
-
-  $column-gap: false;
-  $row-gap: false;
-  $column: 1;
-  $row: 1;
-  $counter: 1;
 }
 
 /**
@@ -291,6 +291,8 @@
  */
 
 @mixin grid-row-auto($rows, $self: false) {
+  $counter: 1;
+
   @for $i from 1 through $rows {
     @if ($self == true) {
       &:nth-child(#{$counter}) {
@@ -307,5 +309,4 @@
     }
     $counter: $counter + 1;
   }
-  $counter: 1;
 }
