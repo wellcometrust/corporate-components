@@ -31,6 +31,9 @@
  */
 
 @mixin middle($axis: both, $position: absolute) {
+
+  position: $position;
+
   @if $axis != x and $axis != y and $axis != both {
     @error 'Property #{$axis} must be either x, y or both.';
   }
@@ -38,8 +41,6 @@
   @if $position != absolute and $position != relative {
     @error 'Property #{$position} must be either x, y or both.';
   }
-
-  position: $position;
 
   @if $axis == y {
     top: 50%;
