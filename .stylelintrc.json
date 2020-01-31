@@ -61,6 +61,16 @@
                     "selector": "&:hover|&:focus|&:active|&:visited|&:focus-within"
                 },
                 {
+                    "type": "at-rule",
+                    "name": "include",
+                    "parameter": "hocus",
+                    "hasBlock": true
+                },
+                {
+                    "type": "at-rule",
+                    "hasBlock": true
+                },
+                {
                     "type": "rule",
                     "selector": "&.is-|&.has-|[[_a-zA-Z0-9].*]$"
                 },

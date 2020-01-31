@@ -22,12 +22,14 @@
 
 .title-banner__title {
   margin: 0;
-  // @todo commenting out for now. mixin need to be pulled in.
-  // @include headingDivider((var(--text-base-size-px) / 4), ($grid-spacing-unit * 2.5));
   padding-bottom: var(--space-md);
+  @include heading-divider;
+  @extend %heading-base;
+  @extend %text-xxl;
 }
 
 .title-banner__standfirst {
   padding-bottom: var(--space-xl);
   text-align: center;
+  @extend %text-md;
 }

@@ -10,7 +10,7 @@
 /* Placeholders */
 
 %footer-nav-link {
-  color: inherit;
+  @extend %color-inherit;
   display: inline-block;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
@@ -19,12 +19,14 @@
 
 %social-icon {
   background-size: calc(7 * var(--space-xs));
+  border: 1px solid var(--colour-blue-70);
+  border-radius: 50%;
   color: var(--colour-white);
   display: block;
-  height: calc(7 * var(--space-xs));
+  height: calc(7 * var(--space-xs) + 2px); // plus border-width
   margin: var(--space-sm);
   margin: calc(2 * var(--space-xs));
-  width: calc(7 * var(--space-xs));
+  width: calc(7 * var(--space-xs) + 2px); // plus border-width
 
   .assistive-text,
   &:hover .assistive-text {
