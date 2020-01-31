@@ -177,6 +177,10 @@
   @extend %btn-nav-base;
   color: var(--colour-grey-60);
 
+  &:hover {
+    color: var(--colour-grey-60);
+  }
+
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
@@ -189,10 +193,6 @@
     &:hover {
       color: var(--colour-white);
     }
-  }
-
-  &:hover {
-    color: var(--colour-grey-60);
   }
 
   &.is-disabled {

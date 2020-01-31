@@ -44,6 +44,13 @@
     calc(2 * var(--space-unit));
   text-decoration: none;
 
+  &:active,
+  &:focus,
+  &:hover,
+  &.active {
+    color: var(--colour-blue-80);
+  }
+
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
     padding-right: calc(4 * var(--space-unit));
@@ -60,10 +67,6 @@
       color: var(--colour-white);
     }
 
-    .nav__link-text:before {
-      background-color: var(--colour-white);
-    }
-
     .icon {
       display: none;
     }
@@ -76,13 +79,6 @@
   &:focus,
   &:hover {
     text-decoration: none;
-  }
-
-  &:active,
-  &:focus,
-  &:hover,
-  &.active {
-    color: var(--colour-blue-80);
   }
 
   &.active .nav__link-text:before,
@@ -110,6 +106,10 @@
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
     width: 100%;
+
+    @include mq(md) {
+      background-color: var(--colour-white);
+    }
   }
 
   .nav-secondary & {
