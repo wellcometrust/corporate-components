@@ -67,10 +67,6 @@
                     "hasBlock": true
                 },
                 {
-                    "type": "at-rule",
-                    "hasBlock": true
-                },
-                {
                     "type": "rule",
                     "selector": "&.is-|&.has-|[[_a-zA-Z0-9].*]$"
                 },
