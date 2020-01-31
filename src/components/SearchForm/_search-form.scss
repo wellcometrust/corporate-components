@@ -7,13 +7,13 @@
 // ----------------------------------
 
 .search-form {
-  padding-bottom: calc(4 * var(--space-unit));
-  padding-top: calc(4 * var(--space-unit));
+  margin-bottom: calc(4 * var(--space-unit));
+  margin-top: calc(4 * var(--space-unit));
   position: relative;
 
   @include mq(md) {
-    padding-bottom: calc(8 * var(--space-unit));
-    padding-top: calc(8 * var(--space-unit));
+    margin-bottom: calc(8 * var(--space-unit));
+    margin-top: calc(8 * var(--space-unit));
   }
 }
 
