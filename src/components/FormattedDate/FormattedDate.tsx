@@ -8,7 +8,7 @@ type FormattedDateProps = {
 export const FormattedDate = ({ dateString }: FormattedDateProps) => {
   const dateObject = new Date(dateString);
 
-  return <>{isValid(dateObject) ? format(dateObject, 'd MMMM yyyy') : null}</>;
+  return <>{isValid(dateObject) ? format(dateObject, 'd MMMM y') : null}</>;
 };
 
 export default FormattedDate;
