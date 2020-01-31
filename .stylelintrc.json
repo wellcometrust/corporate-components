@@ -16,7 +16,6 @@
                     "blockless-at-rules"
                 ]
             }
-
         ],
         "at-rule-empty-line-before": [
             "always",
@@ -48,27 +47,8 @@
                 {
                     "type": "at-rule",
                     "name": "include",
-                    "hasBlock": true
-                },
-                {
-                    "type": "at-rule",
-                    "name": "include",
                     "parameter": "mq",
                     "hasBlock": true
-                },
-                {
-                    "type": "rule",
-                    "selector": "&:hover|&:focus|&:active|&:visited|&:focus-within"
-                },
-                {
-                    "type": "at-rule",
-                    "name": "include",
-                    "parameter": "hocus",
-                    "hasBlock": true
-                },
-                {
-                    "type": "rule",
-                    "selector": "&.is-|&.has-|[[_a-zA-Z0-9].*]$"
                 },
                 {
                     "type": "rule",
