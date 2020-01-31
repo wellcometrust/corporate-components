@@ -7,8 +7,6 @@
 // 2019-11-11
 // ----------------------------------
 
-/* stylelint-disable */
-
 /**
  * Sets up a grid container with a max-width and some margins
  */
@@ -75,7 +73,7 @@
  */
 
 @mixin grid-columns($gap, $columns: grid-repeat(12, 1fr)) {
-  // [temp]stylelint-disable-next-line property-no-vendor-prefix
+  // stylelint-disable-next-line property-no-vendor-prefix
   -ms-grid-columns: box-gap($columns, $gap);
   grid-template-columns: $columns;
 
@@ -93,7 +91,7 @@
  */
 
 @mixin grid-rows($gap, $rows) {
-  // [temp]stylelint-disable-next-line property-no-vendor-prefix
+  // stylelint-disable-next-line property-no-vendor-prefix
   -ms-grid-rows: box-gap($rows, $gap);
   grid-template-rows: $rows;
 
@@ -111,12 +109,12 @@
  */
 
 @mixin grid-column($col-start, $col-end: null) {
-  // [temp]stylelint-disable-next-line property-no-vendor-prefix
+  // stylelint-disable-next-line property-no-vendor-prefix
   -ms-grid-column: $col-start * 2 - 1;
 
   @if $col-end != null {
     grid-column: #{$col-start} / #{$col-end};
-    // [temp]stylelint-disable-next-line property-no-vendor-prefix
+    // stylelint-disable-next-line property-no-vendor-prefix
     -ms-grid-column-span: ($col-end - $col-start) * 2 - 1;
   }
 
@@ -134,12 +132,12 @@
  */
 
 @mixin grid-row($row-start, $row-end: null) {
-  // [temp]stylelint-disable-next-line property-no-vendor-prefix
+  // stylelint-disable-next-line property-no-vendor-prefix
   -ms-grid-row: $row-start * 2 - 1;
 
   @if $row-end != null {
     grid-row: #{$row-start} / #{$row-end};
-    // [temp]stylelint-disable-next-line property-no-vendor-prefix
+    // stylelint-disable-next-line property-no-vendor-prefix
     -ms-grid-row-span: ($row-end - $row-start) * 2 - 1;
   }
 
@@ -157,7 +155,7 @@
 
 @mixin grid-align-self($value) {
   align-self: $value;
-  // [temp]stylelint-disable-next-line property-no-vendor-prefix
+  // stylelint-disable-next-line property-no-vendor-prefix
   -ms-grid-row-align: $value;
 }
 
@@ -169,7 +167,7 @@
  */
 
 @mixin grid-justify-self($value) {
-  // [temp]stylelint-disable-next-line property-no-vendor-prefix
+  // stylelint-disable-next-line property-no-vendor-prefix
   -ms-grid-column-align: $value;
   justify-self: $value;
 }
@@ -234,11 +232,11 @@
 
         @else {
           // Place the next element in column $i and row $j.
-          // [temp]stylelint-disable-next-line max-nesting-depth
+          // stylelint-disable-next-line max-nesting-depth
           > :nth-child(#{$counter}) {
-            // [temp]stylelint-disable-next-line property-no-vendor-prefix
+            // stylelint-disable-next-line property-no-vendor-prefix
             -ms-grid-column: $i;
-            // [temp]stylelint-disable-next-line property-no-vendor-prefix
+            // stylelint-disable-next-line property-no-vendor-prefix
             -ms-grid-row: $j;
           }
           $counter: $counter + 1;
@@ -261,11 +259,11 @@
 
         @else {
           // Place the next element in row $i and column $j.
-          // [temp]stylelint-disable-next-line max-nesting-depth
+          // stylelint-disable-next-line max-nesting-depth
           > :nth-child(#{$counter}) {
-            // [temp]stylelint-disable-next-line property-no-vendor-prefix
+            // stylelint-disable-next-line property-no-vendor-prefix
             -ms-grid-column: $j;
-            // [temp]stylelint-disable-next-line property-no-vendor-prefix
+            // stylelint-disable-next-line property-no-vendor-prefix
             -ms-grid-row: $i;
           }
           $counter: $counter + 1;
@@ -296,14 +294,14 @@
   @for $i from 1 through $rows {
     @if ($self == true) {
       &:nth-child(#{$counter}) {
-        // [temp]stylelint-disable-next-line property-no-vendor-prefix
+        // stylelint-disable-next-line property-no-vendor-prefix
         -ms-grid-row: $i;
       }
     }
 
     @else {
       > :nth-child(#{$counter}) {
-        // [temp]stylelint-disable-next-line property-no-vendor-prefix
+        // stylelint-disable-next-line property-no-vendor-prefix
         -ms-grid-row: $i;
       }
     }
@@ -311,5 +309,3 @@
   }
   $counter: 1;
 }
-
-/* stylelint-enable */

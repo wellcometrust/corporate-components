@@ -27,10 +27,8 @@
  */
 
 @mixin pseudo($display: block, $position: absolute, $content: '') {
-
-  content: $content;
-  display: $display;
-  position: $position;
+  $displays: block, inline-block, inline;
+  $positions: relative, absolute, static;
 
   @each $value in $displays {
     @if $display != $value {
@@ -43,8 +41,10 @@
       @error 'Property #{$position} is not valid';
     }
   }
-  $displays: block, inline-block, inline;
-  $positions: relative, absolute, static;
+
+  content: $content;
+  display: $display;
+  position: $position;
 }
 
 /**
