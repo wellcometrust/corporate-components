@@ -31,7 +31,10 @@ export const FooterNavItem = ({
     {links && (
       <ul className="footer-nav__menu-list">
         {links.map(({ text, href }) => (
-          <li className="footer-nav__menu-list-item">
+          <li
+            key={`footer-menu-item-${href}`}
+            className="footer-nav__menu-list-item"
+          >
             <a className="footer-nav__menu-list-link" href={href}>
               {text}
             </a>

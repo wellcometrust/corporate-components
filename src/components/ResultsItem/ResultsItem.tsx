@@ -31,7 +31,7 @@ export const ResultsItem = ({
   type
 }: ResultItemProps) => (
   <article className="result-item">
-    {meta && (
+    {meta && (meta.type || meta.date) && (
       <div className="result-item__meta">
         <span className="result-item__meta-type">
           {meta.type}

@@ -2,7 +2,6 @@ import React from 'react';
 import cx from 'classnames';
 
 import Grid, { GridCell } from 'Grid';
-import Section from 'Section/Section';
 
 type PageHeaderProps = {
   background?: 'blue' | 'transparent';

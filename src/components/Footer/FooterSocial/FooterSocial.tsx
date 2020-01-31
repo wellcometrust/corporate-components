@@ -10,7 +10,11 @@ export const FooterSocial = ({ links }: FooterSocialProps) => {
   return (
     <div className="footer-social">
       {links.map(({ text, href }) => (
-        <FooterSocialItem text={text} url={href} />
+        <FooterSocialItem
+          key={`footer-social-link-${href}`}
+          text={text}
+          url={href}
+        />
       ))}
     </div>
   );
