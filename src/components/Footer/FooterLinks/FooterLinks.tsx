@@ -11,6 +11,7 @@ export const FooterLinks = ({ links }: FooterLinksProps) => {
     <div className="footer-links">
       {links.map(({ text, href, target, rel, role, tabIndex }) => (
         <FooterLinksItem
+          key={`footer-links-item-${href}`}
           text={text}
           url={href}
           target={target}

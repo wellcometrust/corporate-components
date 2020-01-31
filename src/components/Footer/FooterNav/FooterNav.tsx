@@ -11,7 +11,10 @@ export const FooterNav = ({ sections }: FooterNavProps) => (
   <nav className="footer-nav" id="footer-nav">
     <ul className="footer-nav__grid">
       {sections.map(section => (
-        <FooterNavItem {...section} />
+        <FooterNavItem
+          key={`footer-nav-item-${section.heading}`}
+          {...section}
+        />
       ))}
       <FooterNavItem heading={{ text: 'Newsletter' }}>
         <FooterNewsletter />
