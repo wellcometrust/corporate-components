@@ -2,8 +2,10 @@ import React from 'react';
 import cx from 'classnames';
 
 import Grid, { GridCell } from 'Grid';
+import Section from 'Section/Section';
 
 type PageHeaderProps = {
+  background?: 'blue' | 'transparent';
   title: string;
   className?: string;
   standfirst?: string;
@@ -11,12 +13,14 @@ type PageHeaderProps = {
 };
 
 export const PageHeader = ({
-  title,
+  background = 'transparent',
   className,
+  meta,
   standfirst,
-  meta
+  title
 }: PageHeaderProps) => {
   const classNames = cx('title-banner', {
+    [`title-banner--${background}`]: background,
     [`${className}`]: className
   });
 
@@ -30,11 +34,13 @@ export const PageHeader = ({
           </GridCell>
         </Grid>
       </div>
-      <Grid>
-        <GridCell column={1} columnCount={1}>
-          <div className="title-banner__standfirst">{standfirst}</div>
-        </GridCell>
-      </Grid>
+      {standfirst && (
+        <Grid>
+          <GridCell column={1} columnCount={1}>
+            <div className="title-banner__standfirst">{standfirst}</div>
+          </GridCell>
+        </Grid>
+      )}
     </div>
   );
 };

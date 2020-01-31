@@ -16,7 +16,7 @@
 
 .footer-links__item {
   @include animated-underline;
-  color: var(--colour-white);
+  @extend %color-inherit;
   display: inline-block;
   font-size: calc(0.875 * var(--text-base-size));
   margin: 0 var(--space-unit);

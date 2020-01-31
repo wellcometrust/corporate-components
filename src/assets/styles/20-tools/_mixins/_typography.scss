@@ -1,0 +1,16 @@
+@mixin heading-divider($height: calc(0.5 * var(--space-unit)), $width: calc(2.5 * var(--space-unit))) {
+  margin-bottom: calc(4 * var(--space-unit));
+  padding-bottom: calc(2 * var(--space-unit));
+  position: relative;
+
+  &:after {
+    background-color: var(--colour-black);
+    bottom: 0;
+    content: '';
+    height: $height;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: $width;
+  }
+}

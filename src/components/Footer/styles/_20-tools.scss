@@ -10,7 +10,7 @@
 /* Placeholders */
 
 %footer-nav-link {
-  color: inherit;
+  @extend %color-inherit;
   display: inline-block;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
