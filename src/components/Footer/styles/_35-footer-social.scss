@@ -24,12 +24,19 @@
 .footer-social-item {
   @extend %social-icon;
 
-  &:hover {
+  @include hocus {
+    border-color: var(--colour-white);
     color: var(--colour-white);
   }
 }
 
 .footer-social-item__icon {
   height: 100%;
+  padding: calc(1.75 * var(--space-xs));
   width: 100%;
+
+  > svg {
+    height: 100%;
+    width: 100%;
+  }
 }
