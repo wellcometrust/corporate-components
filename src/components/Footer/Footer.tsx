@@ -11,7 +11,7 @@ type FooterProps = {
 };
 
 export const Footer = ({ links, navigation, socialLinks }: FooterProps) => (
-  <footer className="footer">
+  <footer className="footer o-app">
     <div className="footer__container">
       <h3 className="footer__mission-statement">
         Wellcome exists to improve health by helping great ideas to thrive
