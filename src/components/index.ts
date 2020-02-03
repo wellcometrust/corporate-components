@@ -4,6 +4,7 @@ import 'assets/styles/app.scss';
 export { ActiveLink } from 'Nav/ActiveLink';
 export { Button } from 'Button/Button';
 export { Footer } from 'Footer/Footer';
+export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { Grid, GridCell } from 'Grid/Grid';
 export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';
