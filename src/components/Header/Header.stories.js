@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import Header from './Header';
 import { NavContextProvider } from '../NavContext/NavContext';
-import { SearchPaneContextProvider } from '../SearchPane/Context/SearchPaneContext';
+import { SearchPaneContextProvider } from '../SearchPaneContext/SearchPaneContext';
 import { ViewportContextProvider } from '../ViewportContext/ViewportContext';
 import HeaderReadme from './Header.md';
 

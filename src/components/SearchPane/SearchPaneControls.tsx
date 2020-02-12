@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
 import NavContext from 'NavContext/NavContext';
-import Button from 'Button/Button';
-import SearchContext from '../Context/SearchPaneContext';
+import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
+import Button from 'Button';
 
 export const SearchPaneControls = () => {
   const { toggleNav } = useContext(NavContext);
-  const { toggleSearch } = useContext(SearchContext);
+  const { toggleSearch } = useContext(SearchPaneContext);
 
   const closeAll = () => {
     toggleNav(false);
