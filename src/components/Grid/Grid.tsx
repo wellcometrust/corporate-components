@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import GridCell from './Cell/GridCell';
+import GridCell from './GridCell';
 
 type GridProps = {
   children: React.ReactNode;
