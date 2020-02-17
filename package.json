@@ -4,6 +4,7 @@
   "description": "Component library for main Wellcome Trust corporate site",
   "main": "dist/index.js",
   "style": "dist/styles.css",
+  "types": "dist/index.d.ts",
   "files": [
     "package.json",
     "dist"
@@ -13,7 +14,8 @@
   ],
   "scripts": {
     "build:clean": "rm -rf dist",
-    "build": "npm run build:clean && rollup -c ./config/rollup.config.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:clean && rollup -c ./config/rollup.config.js && npm run build:types",
     "dev": "npm run build -- -w",
     "lint": "npm run lint:style && npm run lint:js",
     "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",
@@ -70,7 +72,6 @@
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/react-paginate": "^6.2.1",
-    "@types/storybook__react": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "autoprefixer": "^9.7.3",

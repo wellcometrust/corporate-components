@@ -19,6 +19,7 @@
         "noImplicitAny": true,
         "strict": false,
         "target": "esnext",
+        "module": "commonjs",
         "declaration": true /* Generates corresponding '.d.ts' file. */,
         "outDir": "dist" /* Redirect output structure to the directory. */,
         "typeRoots": [
