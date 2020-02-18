@@ -23,7 +23,7 @@ const globals = {
 
 export default {
   external: Object.keys(globals),
-  input: 'src/components/index.ts',
+  input: 'src/index.ts',
   output: {
     file: 'dist/index.js',
     format: 'cjs'
