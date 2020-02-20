@@ -11,7 +11,7 @@ type ButtonProps = {
   icon?: string;
   iconPlacementSwitch?: boolean;
   onClick?: MouseEventHandler;
-  tabIndex?: string;
+  tabIndex?: number;
   type?: string;
   styled?: boolean;
 };

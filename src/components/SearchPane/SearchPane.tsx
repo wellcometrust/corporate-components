@@ -29,6 +29,7 @@ export const SearchPane = () => {
   const searchInputRef = useRef(null);
   const { toggleNav } = useContext(NavContext);
   const { isSearchActive, toggleSearch } = useContext(SearchContext);
+  const searchTabIndex = isSearchActive ? 0 : -1;
 
   useEffect(() => {
     if (isSearchActive) {
@@ -83,7 +84,7 @@ export const SearchPane = () => {
       </div>
       <Button
         className={classNames.overlay}
-        tabIndex={isSearchActive ? '0' : '-1'}
+        tabIndex={searchTabIndex}
         disabled={!isSearchActive}
         onClick={closeAll}
         styled={false}
