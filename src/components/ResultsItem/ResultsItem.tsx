@@ -39,18 +39,17 @@ export const ResultsItem = ({
           {meta.type}
           &nbsp;
         </span>
-        {meta.date && (nodeType === 'article' || nodeType === 'press_release') && (
+        {meta.date && ['article', 'press_release'].includes(nodeType) && (
           <span className="result-item__meta-date">
             <FormattedDate dateString={meta.date} />
             &nbsp;
           </span>
         )}
-        {meta.lastUpdated &&
-          (nodeType === 'article' || nodeType === 'press_release') && (
-            <span className="result-item__meta-last-updated">
-              Updated <FormattedDate dateString={meta.lastUpdated} />
-            </span>
-          )}
+        {meta.lastUpdated && ['article', 'press_release'].includes(nodeType) && (
+          <span className="result-item__meta-last-updated">
+            Updated <FormattedDate dateString={meta.lastUpdated} />
+          </span>
+        )}
       </div>
     )}
     <h3 className="result-item__title">
