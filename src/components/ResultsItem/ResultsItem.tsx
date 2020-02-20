@@ -45,8 +45,6 @@ export const ResultsItem = ({
             &nbsp;
           </span>
         )}
-        {console.log(nodeType)}
-
         {meta.lastUpdated &&
           (nodeType === 'article' || nodeType === 'press_release') && (
             <span className="result-item__meta-last-updated">
