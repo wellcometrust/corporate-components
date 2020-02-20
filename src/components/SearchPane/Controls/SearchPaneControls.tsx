@@ -6,7 +6,8 @@ import SearchContext from '../Context/SearchPaneContext';
 
 export const SearchPaneControls = () => {
   const { toggleNav } = useContext(NavContext);
-  const { toggleSearch } = useContext(SearchContext);
+  const { isSearchActive, toggleSearch } = useContext(SearchContext);
+  const searchTabIndex = isSearchActive ? 0 : -1;
 
   const closeAll = () => {
     toggleNav(false);
@@ -20,6 +21,7 @@ export const SearchPaneControls = () => {
         onClick={closeAll}
         icon="close"
         styled={false}
+        tabIndex={searchTabIndex}
       >
         Close <span className="u-visually-hidden">search</span>
       </Button>
@@ -28,6 +30,7 @@ export const SearchPaneControls = () => {
         onClick={() => toggleSearch(false)}
         icon="chevron"
         styled={false}
+        tabIndex={searchTabIndex}
       >
         Back to menu
       </Button>
