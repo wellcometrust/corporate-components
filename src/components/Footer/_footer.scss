@@ -6,15 +6,25 @@
 // 2019-11-11
 // ----------------------------------
 
-// Core variables e.g. base sizes and colors
-@import 'styles/10-settings';
+.footer {
+  background: var(--colour-blue-80);
+  color: var(--colour-white);
+}
 
-// Style functions and mixins
-@import 'styles/20-tools';
+.footer__container {
+  @extend %container;
+}
 
-// Core component styles
-@import 'styles/30-footer';
-@import 'styles/35-footer-nav';
-@import 'styles/35-footer-newsletter';
-@import 'styles/35-footer-social';
-@import 'styles/35-footer-links';
+.footer__mission-statement {
+  @extend %margin-0;
+  font-family: var(--font-secondary);
+  font-size: rem(18);
+  line-height: rem(27);
+  padding-bottom: var(--space-xl);
+  padding-top: var(--space-xl);
+  text-align: center;
+
+  @include mq(md) {
+    font-size: rem(20);
+  }
+}

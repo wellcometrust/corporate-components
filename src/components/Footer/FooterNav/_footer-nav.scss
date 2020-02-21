@@ -1,6 +1,7 @@
 // ----------------------------------
 // UI Components
-// Footer Nav
+// Footer
+// Nav
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
@@ -33,18 +34,24 @@
   &:last-child {
     // expands :last-child to fill available space in row
     flex-grow: 1;
+
+    @include mq(sm) {
+      margin-bottom: 0; // #tbc refactor
+    }
   }
 }
 
 .footer-nav__menu-title {
-  @extend %footer-nav-link;
+  @extend %color-inherit;
   --transition-duration: 0.3s;
-  // todo: update border-bottom-color to rgba(--colour-white, 0.2)
-  border-bottom: calc(0.125 * var(--space-unit)) solid var(--colour-white);
+  border-bottom: calc(0.125 * var(--space-unit)) solid rgba(255, 255, 255, 0.2);
   display: block;
   font-weight: bold;
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
   padding-bottom: var(--space-sm);
   padding-top: var(--space-sm);
+  text-decoration: none;
   transition: opacity var(--transition-duration), border-color var(--transition-duration);
 }
 
@@ -55,6 +62,10 @@
 
 .footer-nav__menu-list-link {
   @include animated-underline;
-  @extend %footer-nav-link;
+  @extend %color-inherit;
   @extend %text-xs;
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
+  text-decoration: none;
 }

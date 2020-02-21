@@ -1,17 +1,23 @@
 // ----------------------------------
 // UI Components
-// Footer Newsletter
+// Footer
+// Newsletter
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
 .footer-newsletter__intro {
-  @extend %footer-nav-link;
-  margin-bottom: var(--space-md);
+  display: inline-block;
+  line-height: rem(21); // #tbc remove
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
+  text-decoration: none;
 }
 
 .footer-newsletter__form {
+  margin-top: rem(14); // #tbc remove
+
   @include mq(md) {
     max-width: 50%;
   }
