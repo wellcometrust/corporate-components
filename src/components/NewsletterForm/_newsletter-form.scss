@@ -67,10 +67,10 @@
 /* Errors */
 
 .newsletter-form__item-error {
-  background-color: var(--colour-legacy-footer-error-pink);
+  background-color: var(--X-colour-error-pink);
   background-image: none;
   border-radius: calc(0.25 * var(--space-unit));
-  color: var(--colour-legacy-footer-error-red);
+  color: var(--X-colour-error-red);
   font-size: var(--text-xs);
   margin-top: var(--space-md);
   padding-bottom: var(--space-xs);
