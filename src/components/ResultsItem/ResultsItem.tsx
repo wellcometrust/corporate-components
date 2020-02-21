@@ -19,6 +19,7 @@ export type ResultItemProps = {
   meta?: ResultItemMetaProps;
   text?: string;
   title: string;
+  nodeType?: string;
   type?: 'content' | 'file' | 'taxonomy_term';
 };
 
@@ -28,6 +29,7 @@ export const ResultsItem = ({
   meta,
   text,
   title,
+  nodeType,
   type
 }: ResultItemProps) => (
   <article className="result-item">
@@ -37,11 +39,13 @@ export const ResultsItem = ({
           {meta.type}
           &nbsp;
         </span>
-        <span className="result-item__meta-date">
-          <FormattedDate dateString={meta.date} />
-          &nbsp;
-        </span>
-        {meta.lastUpdated && (
+        {meta.date && ['article', 'press_release'].includes(nodeType) && (
+          <span className="result-item__meta-date">
+            <FormattedDate dateString={meta.date} />
+            &nbsp;
+          </span>
+        )}
+        {meta.lastUpdated && ['article', 'press_release'].includes(nodeType) && (
           <span className="result-item__meta-last-updated">
             Updated <FormattedDate dateString={meta.lastUpdated} />
           </span>

@@ -43,21 +43,21 @@ If you need to set up a new project, we recommend using [create-react-app](https
 Once you have a project you want to import corporate-components into, `cd` in to your new project's root and run:
 
 ```bash
-npm link @wellcome/corporate-components
+npm link @wellcometrust/corporate-components
 ```
 
-Please note that `corporate-components` must first be compiled or built in order to use the compiled distributable files.
+**Please note that `corporate-components` must first be compiled or built in order to use the compiled distributable files.**
 
 ### 4. Import desired component(s) into your project
 
 ```js
-import { ComponentName } from '@wellcome/corporate-components';
+import { ComponentName } from '@wellcometrust/corporate-components';
 ```
 
 ### 5. Import styles
 
 ```js
-import '@wellcome/corporate-components/dist/styles.css';
+import '@wellcometrust/corporate-components/dist/styles.css';
 ```
 
 ## Issues

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import cx from 'classnames';
 
 import Button from 'Button/Button';
@@ -26,12 +26,18 @@ const removeBodyClass = (className: string) => {
 };
 
 export const SearchPane = () => {
+  const searchInputRef = useRef(null);
   const { toggleNav } = useContext(NavContext);
   const { isSearchActive, toggleSearch } = useContext(SearchPaneContext);
+  const searchTabIndex = isSearchActive ? 0 : -1;
 
   useEffect(() => {
     if (isSearchActive) {
       addBodyClass(CSS_CLASSES.IS_SEARCH_ACTIVE);
+
+      if (searchInputRef.current !== null) {
+        searchInputRef.current.focus();
+      }
     } else {
       removeBodyClass(CSS_CLASSES.IS_SEARCH_ACTIVE);
     }
@@ -45,6 +51,12 @@ export const SearchPane = () => {
     toggleSearch(false);
   };
 
+  const escHandler = (event: React.KeyboardEvent) => {
+    if (event.keyCode === 27) {
+      closeAll();
+    }
+  };
+
   const classNames = {
     parent: cx('search-pane', {
       'is-active': isSearchActive
@@ -55,20 +67,24 @@ export const SearchPane = () => {
   };
 
   // TODO: #5916 - add accessibility features from corporate-react
-  // * focus search input on opening search
-  // * press esc key to close search
   // * ensure search form is unreachable when closed
+
+  // eslint ignore added to wrapping element as esc keydown detection is required for whole search pane
   return (
-    <div className={classNames.parent}>
+    <div // eslint-disable-line jsx-a11y/no-noninteractive-element-interactions
+      className={classNames.parent}
+      onKeyDown={escHandler}
+      role="dialog"
+    >
       <div className="search-pane__content">
         <div className="search-pane__container">
           <SearchPaneControls />
-          <SearchPaneForm />
+          <SearchPaneForm ref={searchInputRef} />
         </div>
       </div>
       <Button
         className={classNames.overlay}
-        tabIndex={isSearchActive ? '0' : '-1'}
+        tabIndex={searchTabIndex}
         disabled={!isSearchActive}
         onClick={closeAll}
         styled={false}

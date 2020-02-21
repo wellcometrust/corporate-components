@@ -53,7 +53,7 @@ export const Header = ({ banner }: HeaderProps) => {
     }
 
     return () => {};
-  });
+  }, [isSearchActive]);
 
   const openNav = (e: ReactMouseEvent) => {
     e.stopPropagation();
@@ -71,8 +71,8 @@ export const Header = ({ banner }: HeaderProps) => {
         <div className="header__container">
           <>
             <div className="logo-container">
-              <Link href="/">
-                <a href="/" ref={logoRef} className="brand-link">
+              <Link href="/" ref={logoRef}>
+                <a href="/" className="brand-link">
                   <Logo data={logoData.medium} title="Wellcome" />
                   <Logo data={logoData.small} className={logoSmallClass} />
                   <Logo data={logoData.large} className={logoLargeClass} />
@@ -143,7 +143,7 @@ export const Header = ({ banner }: HeaderProps) => {
               onClick={() => toggleNav(false)}
               onKeyDown={() => toggleNav(false)}
               role="button"
-              tabIndex={0}
+              tabIndex={-1}
             >
               <span className="u-visually-hidden">Close search and menu</span>
             </div>
