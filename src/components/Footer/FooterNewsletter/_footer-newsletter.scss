@@ -9,14 +9,14 @@
 
 .footer-newsletter__intro {
   display: inline-block;
-  line-height: rem(21); // #tbc remove
+  line-height: rem(21); // #6171 refactor footer styles
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
   text-decoration: none;
 }
 
 .footer-newsletter__form {
-  margin-top: rem(14); // #tbc remove
+  margin-top: rem(14); // #6171 refactor footer styles
 
   @include mq(md) {
     max-width: 50%;

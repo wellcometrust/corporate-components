@@ -16,8 +16,7 @@
 /* Form Item */
 
 .newsletter-form__item {
-  // margin-bottom: var(--space-md); // #tbc
-  margin-bottom: rem(16); // #tbc remove
+  margin-bottom: rem(16); // #6171 refactor footer styles
 
   @include mq($until: sm) {
     flex-basis: 100%;
@@ -25,19 +24,19 @@
 }
 
 .newsletter-form__item--email {
-  margin-bottom: rem(24); // #tbc remove
+  margin-bottom: rem(24); // #6171 refactor footer styles
   order: 1;
 
   @include mq(sm) {
     flex-grow: 1;
     flex-shrink: 0;
-    margin-bottom: rem(16); // #tbc remove
+    margin-bottom: rem(16); // #6171 refactor footer styles
   }
 }
 
 .newsletter-form__item--consent {
   flex-basis: 100%;
-  line-height: rem(20.533); // #tbc remove
+  line-height: rem(20.533); // #6171 refactor footer styles
   order: 3;
 }
 
@@ -55,8 +54,8 @@
 }
 
 .newsletter-form__item--footer {
-  font-size: rem(11); // #tbc
-  line-height: rem(17.2833); // #tbc
+  font-size: rem(11); // #6171 refactor footer styles
+  line-height: rem(17.2833); // #6171 refactor footer styles
   margin-top: 0;
   order: 5;
 
@@ -98,7 +97,7 @@
 
 .newsletter-form__item-label {
   @extend %text-xs;
-  line-height: rem(20.53); // matches D7 site
+  line-height: rem(20.53); // #6171 refactor footer styles
   margin-bottom: var(--space-xs);
 }
 
