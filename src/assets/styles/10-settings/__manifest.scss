@@ -5,9 +5,9 @@
 // 2019-11-11
 // ----------------------------------
 
+@import 'mq'; // must be first import
 @import 'colours';
 @import 'grid';
-@import 'mq';
 @import 'sizes';
 @import 'spacing';
 @import 'typography';
