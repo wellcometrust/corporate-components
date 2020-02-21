@@ -27,7 +27,7 @@ export { NavContext, NavContextProvider } from 'NavContext/NavContext';
 export {
   SearchPaneContext,
   SearchPaneContextProvider
-} from 'SearchPane/Context/SearchPaneContext';
+} from 'SearchPaneContext/SearchPaneContext';
 export {
   ViewportContext,
   ViewportContextProvider

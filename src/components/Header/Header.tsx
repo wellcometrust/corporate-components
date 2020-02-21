@@ -11,7 +11,7 @@ import classnames from 'classnames';
 // import { useInView } from 'react-intersection-observer';
 
 import NavContext from 'NavContext/NavContext';
-import SearchPaneContext from 'SearchPane/Context/SearchPaneContext';
+import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
 
 import Hamburger from 'Hamburger/Hamburger';
 import Icon from 'Icon/Icon';

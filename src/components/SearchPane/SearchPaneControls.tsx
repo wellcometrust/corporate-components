@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 
 import NavContext from 'NavContext/NavContext';
 import Button from 'Button/Button';
-import SearchContext from '../Context/SearchPaneContext';
+import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
 
 export const SearchPaneControls = () => {
   const { toggleNav } = useContext(NavContext);
-  const { isSearchActive, toggleSearch } = useContext(SearchContext);
+  const { isSearchActive, toggleSearch } = useContext(SearchPaneContext);
   const searchTabIndex = isSearchActive ? 0 : -1;
 
   const closeAll = () => {
