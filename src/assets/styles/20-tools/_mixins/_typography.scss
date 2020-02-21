@@ -1,4 +1,16 @@
-@mixin heading-divider($height: calc(0.5 * var(--space-unit)), $width: calc(2.5 * var(--space-unit))) {
+// ----------------------------------
+// UI Tools
+// Mixins
+// Typography
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+@mixin heading-divider(
+  $height: calc(0.5 * var(--space-unit)),
+  $width: calc(2.5 * var(--space-unit))
+) {
   margin-bottom: calc(4 * var(--space-unit));
   padding-bottom: calc(2 * var(--space-unit));
   position: relative;
@@ -12,5 +24,32 @@
     position: absolute;
     transform: translate(-50%);
     width: $width;
+  }
+}
+
+/**
+ * Generates a style where a horizontal line displays
+ * beneath an element on hover.
+ */
+@mixin animated-underline {
+  --transition-duration: 0.3s;
+  position: relative;
+
+  &:before {
+    background-color: var(--colour-white);
+    bottom: 0;
+    content: '';
+    height: calc(0.125 * var(--space-unit));
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transition: all var(--transition-duration) ease-in-out;
+    visibility: hidden;
+    width: 100%;
+  }
+
+  &:hover:before {
+    transform: scaleX(1);
+    visibility: visible;
   }
 }

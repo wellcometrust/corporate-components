@@ -20,7 +20,9 @@ export const FooterSocialItem = ({ text, url }: FooterSocialItemProps) => {
         name={text.charAt(0).toLowerCase() + text.slice(1)}
       />
       <span className="u-visually-hidden">Wellcome on {text}</span>
-      <span className="assistive-text">&nbsp;(opens in a new tab)</span>
+      <span className="footer-social-item__assistive-text">
+        &nbsp;(opens in a new tab)
+      </span>
     </a>
   );
 };
