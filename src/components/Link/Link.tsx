@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Icon from 'Icon';
+import RouterLinkWrapper from 'RouterLinkWrapper';
 
 type LinkProps = {
   className: string;
@@ -61,9 +62,11 @@ export const Link = ({ children, className, to, ...props }: LinkProps) => {
       </span>
     </a>
   ) : (
-    <a className={className} href={to} {...props}>
-      {children}
-    </a>
+    <RouterLinkWrapper href={to}>
+      <a className={className} href={to} {...props}>
+        {children}
+      </a>
+    </RouterLinkWrapper>
   );
 };
 
