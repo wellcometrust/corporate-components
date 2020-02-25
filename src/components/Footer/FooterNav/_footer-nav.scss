@@ -42,8 +42,9 @@
 }
 
 .footer-nav__menu-title {
-  @extend %color-inherit;
   --transition-duration: 0.3s;
+
+  @extend %color-inherit;
   border-bottom: calc(0.125 * var(--space-unit)) solid rgba(255, 255, 255, 0.2);
   display: block;
   font-weight: bold;
@@ -61,9 +62,9 @@
 }
 
 .footer-nav__menu-list-link {
-  @include animated-underline;
   @extend %color-inherit;
   @extend %text-xs;
+  @include animated-underline;
   display: inline-block;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
