@@ -3,6 +3,7 @@ import 'assets/styles/app.scss';
 // standard components
 export { ActiveLink } from 'Nav/ActiveLink';
 export { Button } from 'Button/Button';
+export { CookieMessage } from 'CookieMessage/CookieMessage';
 export { Footer } from 'Footer/Footer';
 export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { Grid, GridCell } from 'Grid/Grid';
