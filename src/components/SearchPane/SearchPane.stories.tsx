@@ -1,12 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import SearchPaneContext, {
+  SearchPaneContextProvider
+} from 'SearchPaneContext/SearchPaneContext';
 import Button from 'Button';
 
 import SearchPane from './SearchPane';
-import SearchPaneContext, {
-  SearchPaneContextProvider
-} from './Context/SearchPaneContext';
 
 const SearchPaneExample = () => (
   <SearchPaneContextProvider>

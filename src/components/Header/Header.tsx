@@ -11,7 +11,7 @@ import classnames from 'classnames';
 // import { useInView } from 'react-intersection-observer';
 
 import NavContext from 'NavContext/NavContext';
-import SearchPaneContext from 'SearchPane/Context/SearchPaneContext';
+import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
 
 import Hamburger from 'Hamburger/Hamburger';
 import Icon from 'Icon/Icon';
@@ -36,10 +36,15 @@ export const Header = ({ banner }: HeaderProps) => {
   const { isNavActive, toggleNav } = useContext(NavContext);
   const { isSearchActive, toggleSearch } = useContext(SearchPaneContext);
 
-  // TODO: find a better way to handle logo switch
-  // isMobile returns initial state first which results in 'double rendering'
+  /**
+   * Header renders three different logos:
+   *
+   * logo       - used when sticky header (mobile + desktop)
+   * logoSmall  - used when static header (mobile)
+   * logoLarge  - used when static header (desktop)
+   */
+  const logoClass = classnames(null, { transparent: !sticky });
   const logoSmallClass = classnames('logo--small', { transparent: sticky });
-
   const logoLargeClass = classnames('logo--large', { transparent: sticky });
 
   const openSearch = (e: ReactMouseEvent) => {
@@ -73,7 +78,11 @@ export const Header = ({ banner }: HeaderProps) => {
             <div className="logo-container">
               <Link href="/" ref={logoRef}>
                 <a href="/" className="brand-link">
-                  <Logo data={logoData.medium} title="Wellcome" />
+                  <Logo
+                    data={logoData.medium}
+                    className={logoClass}
+                    title="Wellcome"
+                  />
                   <Logo data={logoData.small} className={logoSmallClass} />
                   <Logo data={logoData.large} className={logoLargeClass} />
                 </a>

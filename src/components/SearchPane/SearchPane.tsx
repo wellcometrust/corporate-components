@@ -4,10 +4,10 @@ import cx from 'classnames';
 import Button from 'Button/Button';
 
 import NavContext from 'NavContext/NavContext';
-import SearchContext from 'SearchPane/Context/SearchPaneContext';
+import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
 
-import SearchPaneForm from './Form/SearchPaneForm';
-import SearchPaneControls from './Controls/SearchPaneControls';
+import SearchPaneForm from './SearchPaneForm';
+import SearchPaneControls from './SearchPaneControls';
 
 const CSS_CLASSES = {
   IS_SEARCH_ACTIVE: 'is-search-active'
@@ -28,7 +28,7 @@ const removeBodyClass = (className: string) => {
 export const SearchPane = () => {
   const searchInputRef = useRef(null);
   const { toggleNav } = useContext(NavContext);
-  const { isSearchActive, toggleSearch } = useContext(SearchContext);
+  const { isSearchActive, toggleSearch } = useContext(SearchPaneContext);
   const searchTabIndex = isSearchActive ? 0 : -1;
 
   useEffect(() => {

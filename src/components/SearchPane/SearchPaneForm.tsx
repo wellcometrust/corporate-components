@@ -1,11 +1,11 @@
 import React, { forwardRef, useContext } from 'react';
 
 import Button from 'Button/Button';
-import SearchContext from '../Context/SearchPaneContext';
+import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
 
 export const SearchPaneForm = forwardRef(
   (props, ref: React.Ref<HTMLInputElement>) => {
-    const { isSearchActive, toggleSearch } = useContext(SearchContext);
+    const { isSearchActive, toggleSearch } = useContext(SearchPaneContext);
     const searchTabIndex = isSearchActive ? 0 : -1;
 
     return (

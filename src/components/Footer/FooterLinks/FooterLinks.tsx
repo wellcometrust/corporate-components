@@ -1,27 +1,29 @@
 import React from 'react';
 
-import FooterLinksItem from './FooterLinksItem';
+import Link from 'Link';
 
 type FooterLinksProps = {
-  links: [];
+  links: FooterLinksItemProps[];
 };
 
-export const FooterLinks = ({ links }: FooterLinksProps) => {
-  return (
-    <div className="footer-links">
-      {links.map(({ text, href, target, rel, role, tabIndex }) => (
-        <FooterLinksItem
-          key={`footer-links-item-${href}`}
-          text={text}
-          url={href}
-          target={target}
-          rel={rel}
-          role={role}
-          tabIndex={tabIndex}
-        />
-      ))}
-    </div>
-  );
+type FooterLinksItemProps = {
+  text: string;
+  href: string;
 };
+
+export const FooterLinks = ({ links }: FooterLinksProps) => (
+  <div className="footer-links">
+    {links.map(({ text, href, ...props }: FooterLinksItemProps) => (
+      <Link
+        key={`footer-links-item-${href}`}
+        className="footer-links__item"
+        to={href}
+        {...props}
+      >
+        {text}
+      </Link>
+    ))}
+  </div>
+);
 
 export default FooterLinks;
