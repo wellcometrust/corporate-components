@@ -8,6 +8,7 @@ import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
 import cssvariables from 'postcss-css-variables';
 import calc from 'postcss-calc';
+import { terser } from 'rollup-plugin-terser';
 
 const extensions = [
   '.js',
@@ -57,6 +58,7 @@ export default {
         ]
       }
     }),
+    terser(),
     url({
       // by default, rollup-plugin-url will not handle font files
       include: ['**/*.woff', '**/*.woff2'],
