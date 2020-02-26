@@ -83,7 +83,7 @@ export const SearchPane = () => {
         </div>
       </div>
       <Button
-        buttonType="unstyled"
+        variant="unstyled"
         className={classNames.overlay}
         disabled={!isSearchActive}
         onClick={closeAll}

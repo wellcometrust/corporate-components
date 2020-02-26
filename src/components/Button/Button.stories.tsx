@@ -7,11 +7,6 @@ import Readme from './Button.md';
 
 const ButtonExample = () => {
   const buttonText = text('button text', 'Click me');
-  const buttonType = select(
-    'buttonType',
-    ['primary', 'secondary', 'ghost', 'link', 'unstyled'],
-    'primary'
-  );
   const disabled = boolean('disabled', false);
   const href = text('href', '');
   const icon = select(
@@ -23,6 +18,7 @@ const ButtonExample = () => {
       'close',
       'closeBold',
       'closeCircle',
+      'cookie',
       'download',
       'emailAddress',
       'externalLink',
@@ -40,14 +36,19 @@ const ButtonExample = () => {
     ''
   );
   const iconPlacementSwitch = boolean('iconPlacementSwitch', false);
+  const variant = select(
+    'variant',
+    ['primary', 'secondary', 'ghost', 'link', 'unstyled'],
+    'primary'
+  );
 
   return (
     <Button
-      buttonType={buttonType}
       disabled={disabled}
       href={href}
       icon={icon}
       iconPlacementSwitch={iconPlacementSwitch}
+      variant={variant}
     >
       {buttonText}
     </Button>
