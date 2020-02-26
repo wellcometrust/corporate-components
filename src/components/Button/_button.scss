@@ -29,21 +29,21 @@
 }
 
 .btn--primary {
-  background: var(--colour-blue-60);
+  background-color: var(--colour-blue-60);
   color: var(--colour-white);
 
   &:hover {
-    background: var(--colour-blue-70);
+    background-color: var(--colour-blue-70);
     color: var(--colour-white);
   }
 
   &:active {
-    background: var(--colour-blue-50);
+    background-color: var(--colour-blue-50);
     color: var(--colour-white);
   }
 
   &[disabled] {
-    background: var(--colour-grey-20);
+    background-color: var(--colour-grey-20);
   }
 }
 
@@ -79,14 +79,14 @@
 }
 
 .btn--secondary {
-  background: var(--colour-white);
+  background-color: var(--colour-white);
 
   &:active {
-    background: var(--colour-blue-10);
+    background-color: var(--colour-blue-10);
   }
 
   &[disabled] {
-    background: var(--colour-grey-20);
+    background-color: var(--colour-grey-20);
   }
 }
 
