@@ -18,6 +18,8 @@ storiesOf('Components|Icon', module).add(
       <Icon name="closeBold" />
       <p>Close (cross in circle)</p>
       <Icon name="closeCircle" />
+      <p>Cookie</p>
+      <Icon name="cookie" />
       <p>Download</p>
       <Icon name="download" />
       <p>Email</p>

@@ -1,108 +1,43 @@
-// TODO: conform styles to Wellcome Design System
-.sitewide-message,
 .cookie-message {
-  background: var(--colour-blue-10);
-  box-sizing: border-box;
+  background-color: var(--colour-cyan-20);
+  bottom: 0;
   color: var(--colour-black);
-  //letter-spacing: $body-letter-spacing * 2;
+  left: 0;
+  letter-spacing: calc(2 * var(--body-letter-spacing));
   padding: calc(4 * var(--space-unit)) calc(6 * var(--space-unit));
-  position: relative;
-  z-index: 5;
-
-  .message__heading {
-    font-weight: bold;
-    //@include font-size-with-line-height(
-    //    $bodyFontSizeSmall,
-    //    $bodyLineHeightSmall
-    //);
-    margin-bottom: var(--space-unit);
-  }
-}
-
-.sitewide-message {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100vw;
-
-  .show-sitewide-message & {
-    // class is added to the body with javascript if cookie present, meaning the message has already been displayed.
-    display: block;
-  }
-}
-
-.sitewide-message__text,
-.cookie-message__text {
-  margin: 0;
-
-  a {
-    color: var(--colour-black);
-  }
-}
-
-.cookie-message {
-  background-color: var(--colour-cyan20);
-  bottom: 0;
-  left: 0;
-  margin-top: var(--space-unit);
   position: fixed;
   z-index: 105;
 
   @include mq(sm) {
     width: 100vw;
   }
-
-  .show-cookie-message & {
-    // class is added to the body with javascript if cookie present, meaning the message has already been displayed.
-    display: block;
-  }
-
-  .page-cookies-config & {
-    display: none;
-  }
-
-  .message__heading:before {
-    content: '';
-    display: inline-block;
-    //@extend %icon--cookie; // TODO
-    height: rem(22);
-    margin-right: rem(10);
-    position: relative;
-    top: 3px;
-    width: rem(19);
-  }
 }
 
-.cookie-message__button,
-.sitewide-message__button {
-  //@extend %icon--cross--black;
-  //@include image-replacement;
-  background-color: transparent;
-  background-size: 24px 24px;
-  height: 1.5em;
+.cookie-message__heading {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: var(--space-unit);
+  margin-top: 0;
+}
+
+.cookie-message__heading-icon {
+  color: var(--colour-grey-80);
+  margin-right: calc(1.25 * var(--space-unit));
+}
+
+.cookie-message__text {
   margin: 0;
-  padding: 0;
-  position: absolute;
-  right: rem(10);
-  top: rem(10);
-  transform: translateY(-50%) rotate(45deg);
-  width: 1.5em;
-
-  &:before {
-    content: none;
-  }
 }
 
-.cookie-message__button {
-  // over rides
-  //@extend %button__overrides--general;
-  min-width: auto;
+.cookie-message__text-link {
+  color: var(--colour-black);
 }
 
 .cookie-message__buttons {
   display: flex;
   flex-wrap: wrap;
-
   padding-top: calc(2 * var(--space-unit));
 
   > :nth-child(n) {

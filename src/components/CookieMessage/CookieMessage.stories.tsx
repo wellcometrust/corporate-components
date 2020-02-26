@@ -12,4 +12,4 @@ const MessageExample = () => {
 
 const stories = storiesOf('Components|CookieMessage', module);
 
-stories.add('WellcomeCollectionBanner', MessageExample);
+stories.add('CookieMessage', MessageExample);

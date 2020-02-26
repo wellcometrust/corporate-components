@@ -3,6 +3,7 @@ import chevron from './components/Chevron';
 import close from './components/Close';
 import closeBold from './components/CloseBold';
 import closeCircle from './components/CloseCircle';
+import cookie from './components/Cookie';
 import download from './components/Download';
 import emailAddress from './components/EmailAddress';
 import externalLink from './components/ExternalLink';
@@ -24,6 +25,7 @@ export default new Map([
   ['close', close],
   ['closeBold', closeBold],
   ['closeCircle', closeCircle],
+  ['cookie', cookie],
   ['download', download],
   ['emailAddress', emailAddress],
   ['externalLink', externalLink],
