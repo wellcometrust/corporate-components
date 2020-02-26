@@ -17,19 +17,19 @@ export const SearchPaneControls = () => {
   return (
     <div className="search-pane__controls">
       <Button
+        variant="unstyled"
         className="search-pane__btn-close"
-        onClick={closeAll}
         icon="close"
-        styled={false}
+        onClick={closeAll}
         tabIndex={searchTabIndex}
       >
         Close <span className="u-visually-hidden">search</span>
       </Button>
       <Button
+        variant="unstyled"
         className="search-pane__btn-back"
-        onClick={() => toggleSearch(false)}
         icon="chevron"
-        styled={false}
+        onClick={() => toggleSearch(false)}
         tabIndex={searchTabIndex}
       >
         Back to menu

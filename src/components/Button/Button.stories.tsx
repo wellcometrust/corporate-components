@@ -18,6 +18,7 @@ const ButtonExample = () => {
       'close',
       'closeBold',
       'closeCircle',
+      'cookie',
       'download',
       'emailAddress',
       'externalLink',
@@ -35,6 +36,11 @@ const ButtonExample = () => {
     ''
   );
   const iconPlacementSwitch = boolean('iconPlacementSwitch', false);
+  const variant = select(
+    'variant',
+    ['primary', 'secondary', 'ghost', 'link', 'unstyled'],
+    'primary'
+  );
 
   return (
     <Button
@@ -42,6 +48,7 @@ const ButtonExample = () => {
       href={href}
       icon={icon}
       iconPlacementSwitch={iconPlacementSwitch}
+      variant={variant}
     >
       {buttonText}
     </Button>

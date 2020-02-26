@@ -14,7 +14,7 @@ const SearchPaneExample = () => (
       {({ isSearchActive, toggleSearch }) => (
         <>
           {!isSearchActive && (
-            <Button onClick={() => toggleSearch(true)} styled={false}>
+            <Button onClick={() => toggleSearch(true)} variant="unstyled">
               Show search pane
             </Button>
           )}

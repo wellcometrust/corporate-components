@@ -11,10 +11,11 @@
   align-items: center;
   background: transparent;
   border: 0;
+  box-sizing: border-box;
   cursor: pointer;
   display: flex;
   font-size: calc(0.94 * var(--text-base-size));
-  letter-spacing: rem(0.4);
+  letter-spacing: rem(0.5);
   line-height: 1;
   padding: 0;
   text-decoration: none;

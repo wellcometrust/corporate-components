@@ -13,7 +13,7 @@ type ButtonProps = {
   onClick?: MouseEventHandler;
   tabIndex?: number;
   type?: string;
-  styled?: boolean;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'link' | 'unstyled';
 };
 
 export const Button = ({
@@ -26,12 +26,14 @@ export const Button = ({
   onClick,
   tabIndex,
   type = 'button',
-  styled = true
+  variant = 'primary'
 }: ButtonProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Element: any = href ? 'a' : 'button';
+  const isUnstyled = variant !== 'unstyled';
   const classNames = cx({
-    btn: styled,
+    btn: isUnstyled,
+    [`btn--${variant}`]: isUnstyled,
     [`${className}`]: className
   });
 
