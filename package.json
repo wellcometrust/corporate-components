@@ -15,7 +15,7 @@
   "scripts": {
     "build:clean": "rm -rf dist",
     "build:types": "tsc --emitDeclarationOnly",
-    "build": "npm run build:clean && rollup -c ./config/rollup.config.js && npm run build:types",
+    "build": "npm run build:clean && rollup -c ./config/rollup.config.js --environment NODE_ENV:production && npm run build:types",
     "dev": "rollup -c ./config/rollup.config.js -w",
     "lint": "npm run lint:style && npm run lint:js",
     "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",

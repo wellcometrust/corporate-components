@@ -8,7 +8,6 @@ import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
 import cssvariables from 'postcss-css-variables';
 import calc from 'postcss-calc';
-import { terser } from 'rollup-plugin-terser';
 
 const extensions = [
   '.js',
@@ -22,7 +21,9 @@ const globals = {
   'react-dom': 'ReactDOM',
 };
 
-export default {
+const isProduction = process.env.NODE_ENV === 'production';
+
+export default (async () => ({
   external: Object.keys(globals),
   input: 'src/index.ts',
   output: {
@@ -58,7 +59,8 @@ export default {
         ]
       }
     }),
-    terser(),
+    // Minifies JS if production
+    isProduction && (await import('rollup-plugin-terser')).terser(),
     url({
       // by default, rollup-plugin-url will not handle font files
       include: ['**/*.woff', '**/*.woff2'],
@@ -69,12 +71,12 @@ export default {
     json(),
     postcss({
       extract: 'dist/style.css',
-      minimize: true,
+      minimize: isProduction,
       plugins: [
         autoprefixer(),
         cssvariables({ preserve: false, preserveAtRulesOrder: true }),
         calc()
       ]
-    })
+    }),
   ]
-};
+}))();
