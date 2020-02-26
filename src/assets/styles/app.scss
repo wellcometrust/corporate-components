@@ -10,6 +10,8 @@
  * styles (written in .scss).
  */
 
+/* stylelint-disable scss/at-import-no-partial-leading-underscore */
+
 // Core variables e.g. base sizes and colors
 @import '10-settings/__manifest';
 
@@ -24,6 +26,8 @@
 
 // Utility and helper classes
 @import '50-utilities/__manifest';
+
+/* stylelint-enable scss/at-import-no-partial-leading-underscore */
 
 /**
  * Whilst we initially adopted a fully-fledged version of the ITCSS

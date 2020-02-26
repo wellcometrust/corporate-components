@@ -21,9 +21,9 @@
 }
 
 .title-banner__title {
-  @include heading-divider;
   @extend %heading-base;
   @extend %text-xxl;
+  @include heading-divider;
   margin: 0;
   padding-bottom: var(--space-md);
 }
