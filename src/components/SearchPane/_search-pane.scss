@@ -175,10 +175,8 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__form-submit .btn__icon {
-  margin-left: 0;
-
-  @include mq(md) {
-    margin-left: 1rem;
+  @include mq($until: md) {
+    margin: 0;
   }
 }
 

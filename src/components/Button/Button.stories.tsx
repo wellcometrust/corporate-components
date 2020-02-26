@@ -9,7 +9,7 @@ const ButtonExample = () => {
   const buttonText = text('button text', 'Click me');
   const buttonType = select(
     'buttonType',
-    ['primary', 'secondary', 'ghost', 'link'],
+    ['primary', 'secondary', 'ghost', 'link', 'unstyled'],
     'primary'
   );
   const disabled = boolean('disabled', false);

@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Icon from 'Icon/Icon';
 
 type ButtonProps = {
-  buttonType?: 'primary' | 'secondary' | 'ghost' | 'link';
+  buttonType?: 'primary' | 'secondary' | 'ghost' | 'link' | 'unstyled';
   className?: string;
   children: React.ReactNode;
   disabled?: boolean;
@@ -30,7 +30,10 @@ export const Button = ({
 }: ButtonProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Element: any = href ? 'a' : 'button';
-  const classNames = cx(`btn`, `btn--${buttonType}`, {
+  const isUnstyled = buttonType !== 'unstyled';
+  const classNames = cx({
+    btn: isUnstyled,
+    [`btn--${buttonType}`]: isUnstyled,
     [`${className}`]: className
   });
 
