@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Icon from 'Icon/Icon';
 
 type ButtonProps = {
+  buttonType?: 'primary' | 'secondary' | 'ghost' | 'link';
   className?: string;
   children: React.ReactNode;
   disabled?: boolean;
@@ -13,10 +14,10 @@ type ButtonProps = {
   onClick?: MouseEventHandler;
   tabIndex?: number;
   type?: string;
-  styled?: boolean;
 };
 
 export const Button = ({
+  buttonType = 'primary',
   children,
   className,
   disabled,
@@ -25,13 +26,11 @@ export const Button = ({
   iconPlacementSwitch,
   onClick,
   tabIndex,
-  type = 'button',
-  styled = true
+  type = 'button'
 }: ButtonProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Element: any = href ? 'a' : 'button';
-  const classNames = cx({
-    btn: styled,
+  const classNames = cx(`btn`, `btn--${buttonType}`, {
     [`${className}`]: className
   });
 

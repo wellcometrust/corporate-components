@@ -7,6 +7,11 @@ import Readme from './Button.md';
 
 const ButtonExample = () => {
   const buttonText = text('button text', 'Click me');
+  const buttonType = select(
+    'buttonType',
+    ['primary', 'secondary', 'ghost', 'link'],
+    'primary'
+  );
   const disabled = boolean('disabled', false);
   const href = text('href', '');
   const icon = select(
@@ -38,6 +43,7 @@ const ButtonExample = () => {
 
   return (
     <Button
+      buttonType={buttonType}
       disabled={disabled}
       href={href}
       icon={icon}

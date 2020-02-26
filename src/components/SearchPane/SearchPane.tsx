@@ -83,11 +83,11 @@ export const SearchPane = () => {
         </div>
       </div>
       <Button
+        buttonType="link"
         className={classNames.overlay}
-        tabIndex={searchTabIndex}
         disabled={!isSearchActive}
         onClick={closeAll}
-        styled={false}
+        tabIndex={searchTabIndex}
       >
         <span className="u-visually-hidden">Hide Search</span>
       </Button>
