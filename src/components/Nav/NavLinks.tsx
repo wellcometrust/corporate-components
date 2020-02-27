@@ -31,7 +31,7 @@ const NavList = ({ data, level, parentUrl }: NavListProps) => {
   // children of the context level (e.g. level 2)
   const children = (childNodes: NavDataProps, parentNode: NavDataItemProps) =>
     childNodes && (
-      <ul className="header-nav__list">
+      <ul className="nav__list">
         <NavItem
           key={parentNode.id}
           level={level + 1}
@@ -66,7 +66,7 @@ const NavList = ({ data, level, parentUrl }: NavListProps) => {
 
 export const NavLinks = ({ data, level }: NavLinksProps) => {
   return (
-    <ul className="header-nav__list">
+    <ul className="nav__list">
       <NavList data={data} level={level} />
     </ul>
   );

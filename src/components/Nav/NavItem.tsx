@@ -25,11 +25,11 @@ export const NavItem = ({
   const [isActive, setIsActive] = useState(false);
   const { isMobile } = useContext(ViewportContext);
 
-  const itemClasses = classNames('header-nav__item', className, {
+  const itemClasses = classNames('nav__item', className, {
     'has-children': children
   });
 
-  const childClasses = classNames('header-nav__pane', 'nav-secondary', {
+  const childClasses = classNames('nav__pane', 'nav-secondary', {
     'is-active': isActive
   });
 
@@ -44,13 +44,13 @@ export const NavItem = ({
     <li className={itemClasses}>
       <Link href={url} activeClassName="active">
         <a
-          className="header-nav__link"
+          className="nav__link"
           data-level={level}
           data-parent={parentUrl}
           href={url}
           onClick={handleItemClick}
         >
-          <span className="header-nav__link-text">{text}</span>
+          <span className="nav__link-text">{text}</span>
           {children && <Icon name="chevron" />}
         </a>
       </Link>
@@ -59,7 +59,7 @@ export const NavItem = ({
           <button
             type="button"
             onClick={handleItemClick}
-            className="header-nav__btn--back"
+            className="nav__btn--back"
           >
             <Icon name="chevron" />
             Back to menu

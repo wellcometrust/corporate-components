@@ -2,7 +2,7 @@
 
 /* List */
 
-.header-nav__list {
+.nav__list {
   @extend %margin-auto;
   @extend %list-clean;
   border-top: 1px solid var(--colour-grey-05);
@@ -13,7 +13,7 @@
     max-width: var(--container-width);
   }
 
-  .header-nav__pane & {
+  .nav__pane & {
     @include mq(md) {
       margin: 0 auto;
       max-width: var(--container-width);
@@ -24,7 +24,7 @@
 
 /* Item */
 
-.header-nav__item {
+.nav__item {
   @extend %margin-0;
   padding: 0;
   position: static;
@@ -42,7 +42,7 @@
 
 /* Link */
 
-.header-nav__link {
+.nav__link {
   align-items: center;
   color: var(--colour-blue-80);
   display: flex;
@@ -90,34 +90,34 @@
     }
   }
 
-  &.active + .header-nav-secondary {
+  &.active + .nav-secondary {
     @include mq(md) {
       display: block;
     }
   }
 
-  .header-nav-secondary & {
+  .nav-secondary & {
     @include mq(md) {
       align-items: stretch;
     }
   }
 
-  .header-nav__pane & {
+  .nav__pane & {
     @include mq(md) {
       color: var(--colour-blue-80);
       padding: 0 calc(2 * var(--space-unit));
     }
   }
 
-  .header-nav__pane &:hover,
-  .header-nav__pane &.active {
+  .nav__pane &:hover,
+  .nav__pane &.active {
     @include mq(md) {
       color: var(--colour-blue-80);
     }
   }
 }
 
-.header-nav__link-text {
+.nav__link-text {
   align-items: center;
   display: flex;
   height: 100%;
@@ -141,13 +141,13 @@
     }
   }
 
-  .header-nav__link:hover &:before,
-  .header-nav__link.active &:before {
+  .nav__link:hover &:before,
+  .nav__link.active &:before {
     transform: scaleX(1);
     width: 100%;
   }
 
-  .header-nav__pane &:before {
+  .nav__pane &:before {
     @include mq(md) {
       background-color: var(--colour-blue-80);
     }
@@ -156,7 +156,7 @@
 
 /* Pane */
 
-.header-nav__pane {
+.nav__pane {
   background: var(--colour-white);
   left: 0;
   position: absolute;

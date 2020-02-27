@@ -89,7 +89,7 @@ export const Header = ({ banner }: HeaderProps) => {
               </Link>
             </div>
             {!isNavActive && (
-              <a href="#footer-nav" className="header-nav__toggle">
+              <a href="#footer-nav" className="nav__toggle">
                 <Hamburger
                   ariaControls="main-nav"
                   ariaExpanded={isNavActive}
@@ -103,8 +103,8 @@ export const Header = ({ banner }: HeaderProps) => {
               aria-controls="search-pane"
               className={
                 isSearchActive
-                  ? 'header-nav__btn--search-mobile keyboard-nav is-disabled'
-                  : 'header-nav__btn--search-mobile keyboard-nav'
+                  ? 'nav__btn--search-mobile keyboard-nav is-disabled'
+                  : 'nav__btn--search-mobile keyboard-nav'
               }
               href="/search?search=&op=Search"
               onClick={openSearch}
@@ -114,12 +114,12 @@ export const Header = ({ banner }: HeaderProps) => {
               <Icon name="search" />
             </a>
             <div
-              className={isNavActive ? 'header-nav is-active' : 'header-nav'}
+              className={isNavActive ? 'nav is-active' : 'nav'}
               id="main-nav"
             >
-              <div className="header-nav__mobile-header">
+              <div className="nav__mobile-header">
                 <button
-                  className="header-nav__btn--close"
+                  className="nav__btn--close"
                   type="button"
                   onClick={() => toggleNav(false)}
                 >
@@ -130,8 +130,8 @@ export const Header = ({ banner }: HeaderProps) => {
                   aria-controls="search-pane"
                   className={
                     isSearchActive
-                      ? 'header-nav__btn--search-mobile is-disabled'
-                      : 'header-nav__btn--search-mobile'
+                      ? 'nav__btn--search-mobile is-disabled'
+                      : 'nav__btn--search-mobile'
                   }
                   href="/search"
                   onClick={openSearch}
@@ -147,9 +147,7 @@ export const Header = ({ banner }: HeaderProps) => {
             <SearchPane />
             <div
               className={
-                isNavActive
-                  ? 'header-nav__overlay is-active'
-                  : 'header-nav__overlay'
+                isNavActive ? 'nav__overlay is-active' : 'nav__overlay'
               }
               onClick={() => toggleNav(false)}
               onKeyDown={() => toggleNav(false)}
