@@ -19,37 +19,40 @@ export type ResultItemProps = {
   meta?: ResultItemMetaProps;
   text?: string;
   title: string;
-  nodeType?: string;
+  itemType?: string;
   type?: 'content' | 'file' | 'taxonomy_term';
 };
-
 export const ResultsItem = ({
   fileMeta,
   href,
   meta,
   text,
   title,
-  nodeType,
+  itemType,
   type
 }: ResultItemProps) => (
   <article className="result-item">
     {meta && (meta.type || meta.date) && (
       <div className="result-item__meta">
-        <span className="result-item__meta-type">
-          {meta.type}
-          &nbsp;
-        </span>
-        {meta.date && ['article', 'press_release'].includes(nodeType) && (
-          <span className="result-item__meta-date">
-            <FormattedDate dateString={meta.date} />
+        {meta.type && !['taxonomy_term'].includes(itemType) && (
+          <span className="result-item__meta-type">
+            {meta.type}
             &nbsp;
           </span>
         )}
-        {meta.lastUpdated && ['article', 'press_release'].includes(nodeType) && (
-          <span className="result-item__meta-last-updated">
-            Updated <FormattedDate dateString={meta.lastUpdated} />
-          </span>
-        )}
+        {meta.date &&
+          ['article', 'press_release', 'report'].includes(itemType) && (
+            <span className="result-item__meta-date">
+              <FormattedDate dateString={meta.date} />
+              &nbsp;
+            </span>
+          )}
+        {meta.lastUpdated &&
+          ['article', 'press_release', 'report'].includes(itemType) && (
+            <span className="result-item__meta-last-updated">
+              Updated <FormattedDate dateString={meta.lastUpdated} />
+            </span>
+          )}
       </div>
     )}
     <h3 className="result-item__title">
