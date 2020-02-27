@@ -15,7 +15,7 @@
   "scripts": {
     "build:clean": "rm -rf dist",
     "build:types": "tsc --emitDeclarationOnly",
-    "build": "npm run build:clean && rollup -c ./config/rollup.config.js && npm run build:types",
+    "build": "npm run build:clean && rollup -c ./config/rollup.config.js --environment NODE_ENV:production && npm run build:types",
     "dev": "rollup -c ./config/rollup.config.js -w",
     "lint": "npm run lint:style && npm run lint:js",
     "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",
@@ -111,6 +111,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-url": "^2.2.4",
     "sass-loader": "^8.0.0",
     "sass-mq": "^5.0.1",

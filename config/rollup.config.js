@@ -21,7 +21,9 @@ const globals = {
   'react-dom': 'ReactDOM',
 };
 
-export default {
+const isProduction = process.env.NODE_ENV === 'production';
+
+export default (async () => ({
   external: Object.keys(globals),
   input: 'src/index.ts',
   output: {
@@ -57,6 +59,8 @@ export default {
         ]
       }
     }),
+    // Minifies JS if production
+    isProduction && (await import('rollup-plugin-terser')).terser(),
     url({
       // by default, rollup-plugin-url will not handle font files
       include: ['**/*.woff', '**/*.woff2'],
@@ -67,12 +71,12 @@ export default {
     json(),
     postcss({
       extract: 'dist/style.css',
-      minimize: true,
+      minimize: isProduction,
       plugins: [
         autoprefixer(),
         cssvariables({ preserve: false, preserveAtRulesOrder: true }),
         calc()
       ]
-    })
+    }),
   ]
-};
+}))();
