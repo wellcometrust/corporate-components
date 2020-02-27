@@ -18,25 +18,25 @@ export const PageHeader = ({
   standfirst,
   title
 }: PageHeaderProps) => {
-  const classNames = cx('title-banner', {
-    [`title-banner--${background}`]: background,
+  const classNames = cx('page-header', {
+    [`page-header--${background}`]: background,
     [`${className}`]: className
   });
 
   return (
     <div className={classNames}>
-      <div className="title-banner__container">
+      <div className="page-header__container">
         <Grid>
           <GridCell column={1} columnCount={1}>
             {meta}
-            <h1 className="title-banner__title">{title}</h1>
+            <h1 className="page-header__title">{title}</h1>
           </GridCell>
         </Grid>
       </div>
       {standfirst && (
         <Grid>
           <GridCell column={1} columnCount={1}>
-            <div className="title-banner__standfirst">{standfirst}</div>
+            <div className="page-header__standfirst">{standfirst}</div>
           </GridCell>
         </Grid>
       )}
