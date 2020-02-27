@@ -41,7 +41,7 @@
   }
 }
 
-.nav {
+.header-nav {
   @include mq($until: md) {
     background: var(--colour-white);
     bottom: 0;
@@ -80,13 +80,13 @@
   }
 }
 
-.nav__mobile-header {
+.header-nav__mobile-header {
   display: flex;
   justify-content: space-between;
   min-height: calc(8 * var(--space-unit));
 }
 
-.nav__overlay {
+.header-nav__overlay {
   @include mq($until: md) {
     background: rgba(255, 255, 255, 0.6);
     bottom: 0;
@@ -107,7 +107,7 @@
   }
 }
 
-.nav__toggle {
+.header-nav__toggle {
   align-items: stretch;
   color: var(--colour-white);
   cursor: default;
@@ -136,7 +136,7 @@
 
 // Nav buttons
 
-.nav__btn--back {
+.header-nav__btn--back {
   @extend %btn-nav-base;
   color: var(--colour-blue-80);
   width: 100%;
@@ -158,7 +158,7 @@
   }
 }
 
-.nav__btn--close {
+.header-nav__btn--close {
   @extend %btn-nav-base;
   color: var(--colour-grey-60);
 
@@ -176,7 +176,7 @@
   }
 }
 
-.nav__btn--search-mobile {
+.header-nav__btn--search-mobile {
   @extend %btn-nav-base;
   color: var(--colour-grey-60);
 
