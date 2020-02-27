@@ -6,12 +6,6 @@
 // 2020-01-20
 // ----------------------------------
 
-// Variables
-
-$transition-duration: 0.4s;
-
-// Styles
-
 .search-pane {
   background: var(--colour-white);
   bottom: 0;
@@ -20,7 +14,7 @@ $transition-duration: 0.4s;
   right: 0;
   top: 0;
   transform: translate3d(100%, 0, 0);
-  transition: transform ease $transition-duration;
+  transition: transform ease var(--transition-duration);
   z-index: var(--z-high);
 
   @include mq(md) {
@@ -45,7 +39,7 @@ $transition-duration: 0.4s;
   justify-content: stretch;
   padding: calc(var(--space-unit) * 2);
   position: relative;
-  transition: transform ease $transition-duration;
+  transition: transform ease var(--transition-duration);
   width: 100%;
   z-index: var(--z-low);
 
@@ -157,7 +151,7 @@ $transition-duration: 0.4s;
 }
 
 .search-pane__form-submit {
-  transition: opacity ease $transition-duration;
+  transition: opacity ease var(--transition-duration);
 
   @include mq($until: md) {
     padding: 0;
@@ -191,8 +185,8 @@ $transition-duration: 0.4s;
     right: 0;
     top: var(--search-height-md);
     transition:
-      opacity $transition-duration ease,
-      visibility 0s ease $transition-duration;
+      opacity var(--transition-duration) ease,
+      visibility 0s ease var(--transition-duration);
     visibility: hidden;
     width: 100%;
     z-index: 0;
@@ -202,7 +196,7 @@ $transition-duration: 0.4s;
     @include mq(md) {
       opacity: 1;
       transition:
-        opacity $transition-duration ease,
+        opacity var(--transition-duration) ease,
         visibility 0s ease 0s;
       visibility: visible;
     }
