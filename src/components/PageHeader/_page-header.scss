@@ -1,26 +1,18 @@
-.title-banner__container {
+.page-header {
+  background: transparent;
+}
+
+.page-header--blue {
+  background-color: var(--colour-blue-05);
+}
+
+.page-header__container {
   padding-bottom: var(--space-xl);
   padding-top: var(--space-xl);
   text-align: center;
 }
 
-// default white background
-.title-banner--transparent {
-  background: transparent;
-}
-
-// light blue background
-.title-banner--blue {
-  .title-banner__container {
-    background: var(--colour-blue-05);
-  }
-
-  .title-banner__standfirst {
-    padding-top: var(--space-lg);
-  }
-}
-
-.title-banner__title {
+.page-header__title {
   @extend %heading-base;
   @extend %text-xxl;
   @include heading-divider;
@@ -28,7 +20,7 @@
   padding-bottom: var(--space-md);
 }
 
-.title-banner__standfirst {
+.page-header__standfirst {
   @extend %text-md;
   padding-bottom: var(--space-xl);
   text-align: center;
