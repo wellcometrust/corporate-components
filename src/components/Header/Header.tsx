@@ -16,12 +16,11 @@ import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
 import Hamburger from 'Hamburger/Hamburger';
 import Icon from 'Icon/Icon';
 import Logo from 'Logo/Logo';
-import NavLinks from 'Nav/NavLinks';
 import SearchPane from 'SearchPane/SearchPane';
 import { RouterLinkWrapper as Link } from 'RouterLinkWrapper/RouterLinkWrapper';
 
-import navLinkData from 'data/default-site-links.json';
 import logoData from 'Logo/constants';
+import HeaderNav from './HeaderNav';
 import { useSticky } from './use-sticky';
 
 type HeaderProps = {
@@ -113,37 +112,7 @@ export const Header = ({ banner }: HeaderProps) => {
               Search
               <Icon name="search" />
             </a>
-            <div
-              className={isNavActive ? 'header-nav is-active' : 'header-nav'}
-              id="main-nav"
-            >
-              <div className="header-nav__mobile-header">
-                <button
-                  className="header-nav__btn--close"
-                  type="button"
-                  onClick={() => toggleNav(false)}
-                >
-                  <Icon name="close" />
-                  Close<span className="u-visually-hidden"> menu</span>
-                </button>
-                <a
-                  aria-controls="search-pane"
-                  className={
-                    isSearchActive
-                      ? 'header-nav__btn--search-mobile is-disabled'
-                      : 'header-nav__btn--search-mobile'
-                  }
-                  href="/search"
-                  onClick={openSearch}
-                >
-                  Search
-                  <Icon name="search" />
-                </a>
-              </div>
-              <nav>
-                <NavLinks data={navLinkData} level={1} />
-              </nav>
-            </div>
+            <HeaderNav isActive={isNavActive} />
             <SearchPane />
             <div
               className={
