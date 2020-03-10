@@ -1,35 +1,35 @@
 [
     {
         "id": "a",
-        "url": "/funding",
-        "text": "Funding",
+        "url": "/grant-funding",
+        "text": "Grant funding",
         "navLinks": [
             {
                 "id": "a-0",
-                "url": "/funding/schemes",
+                "url": "/grant-funding/schemes",
                 "text": "Find a scheme"
             },
             {
                 "id": "a-1",
-                "url": "/funding/guidance",
+                "url": "/grant-funding/guidance",
                 "text": "Guidance"
             },
             {
                 "id": "a-2",
-                "url": "/funding/research-careers",
+                "url": "/grant-funding/research-careers",
                 "text": "Develop your research career"
             },
             {
                 "id": "a-3",
-                "url": "/funding/people-and-projects",
+                "url": "/grant-funding/funded-people-and-projects",
                 "text": "Funded people and projects"
             }
         ]
     },
     {
         "id": "b",
-        "url": "/key-issues",
-        "text": "Key issues"
+        "url": "/policy-and-advocacy",
+        "text": "Policy & advocacy"
     },
     {
         "id": "c",

@@ -67,7 +67,7 @@ export const ResultsItem = ({
     {type === 'file' && (
       <div className="result-item__file-meta">
         <a href={href} className="result-item__file-meta-download">
-          Download
+          Download<span className="u-visually-hidden">&nbsp;{title}</span>
         </a>
         <span className="result-item__file-meta-size">
           &nbsp;
