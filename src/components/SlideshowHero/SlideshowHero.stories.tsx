@@ -5,11 +5,6 @@ import { select, text } from '@storybook/addon-knobs';
 import SlideshowHero from './SlideshowHero';
 
 const SlideshowHeroExample = () => {
-  const background = select(
-    'background',
-    ['blue', 'transparent'],
-    'transparent'
-  );
   const className = text('classname', '');
   const standfirst = text('standfirst', '');
   const title = text('title', 'Search Results');
