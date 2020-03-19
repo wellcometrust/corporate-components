@@ -9,7 +9,6 @@
   @extend %text-md;
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
-  text-transform: capitalize;
 }
 
 .result-item__link {
@@ -27,7 +26,6 @@
 .result-item__text {
   margin-bottom: 0;
   margin-top: 0;
-  text-transform: capitalize;
 }
 
 .result-item__meta {
