@@ -1,27 +1,164 @@
-.page-header {
-  background: transparent;
+.slideshow-hero {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  
+  @include mq($until: sm) {
+    padding-top: 56.25vw;
+  }
+
+  @include mq(sm) {
+    min-height: calc(100vh - (18 * var(--space-unit)));
+  }
 }
 
-.page-header--blue {
-  background-color: var(--colour-blue-05);
+.slideshow-hero__container {
+  @include mq(sm) {
+    background: var(--colour-cyan-05);
+  }
 }
 
-.page-header__container {
-  padding-bottom: var(--space-xl);
-  padding-top: var(--space-xl);
-  text-align: center;
+// TODO - rename class
+.slideshow {
+  @include grid-column(1, 7);
+
+  @include mq(sm) {
+    @include grid-column(7, 13);
+  }
 }
 
-.page-header__title {
-  @extend %heading-base;
-  @extend %text-xxl;
-  @include heading-divider;
+// TODO - rename class
+.grid-one {
+  @include grid-column(1, 7);
+  
+  @include mq($until: sm) {
+    position: relative;
+
+    // used as background to expand edges to reach to screen edges of parent grid
+    &:before {
+      background: var(--colour-cyan-05);
+      bottom: 0;
+      content: '';
+      display: block;
+      left: -5vw;
+      position: absolute;
+      right: -5vw;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  @include mq(sm) {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: calc(100vh - 8rem);
+    
+    // spacer helps to vertically center content
+    &:before {
+      content: '';
+      display: block;
+      height: calc(4 * var(--space-unit));
+      margin-top: calc(8 * var(--space-unit));
+    }
+  }
+  
+  @include mq(lg) {
+    @include grid-column(1, 6);
+  }
+}
+
+.slideshow-hero__content {
+  margin-bottom: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.slideshow-hero__btn-skip {
+  @extend %btn-base;
+  color: var(--colour-blue-60);
+  height: calc(4 * var(--space-unit));
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+  transition: opacity ease var(--transition-duration);
+  width: 100%;
+  
+  @include mq(sm) {
+    justify-content: flex-start;
+  }
+}
+
+.slideshow-hero__btn-skip .icon {
+  display: flex;
+  height: calc(2.5 * var(--space-unit));
+  justify-content: center;
   margin: 0;
-  padding-bottom: var(--space-md);
+  transform: rotate(90deg);
+  width: calc(2.5 * var(--space-unit));
 }
 
-.page-header__standfirst {
-  @extend %text-md;
-  padding-bottom: var(--space-xl);
-  text-align: center;
+
+// --------------------
+
+
+.image-wrapper {
+  display: none;
+  height: 100%;
+  margin: 0;
+  
+  &:first-child {
+    display: block;
+  }
 }
+
+// TODO - rename class
+.foo {
+  height: 100%;
+}
+
+.image-frame {
+  overflow: hidden;
+  position: absolute;
+  
+  @include mq($until: sm) {
+    height: 56.25vw;
+    left: 0;
+    top: 0;
+  }
+  
+  @include mq(sm) {
+    height: 100%;
+  }
+}
+
+.image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.image-caption {
+  border-left: 1px solid var(--colour-grey-70);
+  color: var(--colour-grey-70);
+  font-size: 11px; // TODO
+  margin-bottom: calc(4 * var(--space-unit));
+  margin-top: calc(2 * var(--space-unit));
+  padding-left: calc(2 * var(--space-unit));
+  
+  &:before {
+    content: 'Above';
+  }
+}
+
+.image-caption-detail {
+  display: block;
+  font-family: var(--font-tertiary);
+  font-weight: bold;
+}
+
+.image-credit {
+  display: block;
+  font-family: var(--font-tertiary);
+}
+
+
+// --------------------
