@@ -15,6 +15,8 @@ type SlideshowHeroProps = {
     src: string;
   }[];
   standfirst?: string;
+  animationDuration?: number;
+  animationSpeed?: number;
   title: string;
 };
 
@@ -22,16 +24,43 @@ export const SlideshowHero = ({
   className,
   images,
   standfirst,
+  animationDuration = 2000,
+  animationSpeed = 400,
   title
 }: SlideshowHeroProps) => {
-  const [loaded, setLoaded] = useState(false);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const imageCount = images.length || 0;
 
   const classNames = cx('slideshow-hero', {
     [`${className}`]: className
   });
 
   useEffect(() => {
-    setLoaded(true);
+    const t = setInterval(
+      (function() {
+        let nextIndex = 0;
+
+        return function() {
+          setCurrentSlideIndex(nextIndex);
+
+          // remove active state to fade out previous image before next image comes in
+          setTimeout(() => {
+            setCurrentSlideIndex(null);
+          }, animationDuration - animationSpeed);
+
+          nextIndex += 1;
+
+          if (nextIndex > imageCount - 1) {
+            nextIndex = 0;
+          }
+        };
+      })(),
+      animationDuration
+    );
+
+    return () => {
+      clearInterval(t);
+    };
   }, []);
 
   const handleClick = () => {};
@@ -55,25 +84,36 @@ export const SlideshowHero = ({
               <span className="u-visually-hidden">Show search pane</span>
             </Button>
           </div>
-          {images && (
-            <div className="slideshow">
-              {images.map(({ caption, credit, focalX, focalY, id, src }) => (
-                <figure key={`slideshow-image-${id}`} className="image-wrapper">
-                  <div className="foo">
-                    <div className="image-frame">
-                      <img src={src} alt="" className="image" />
-                    </div>
-                  </div>
-                  <figcaption className="image-caption">
-                    <span className="image-caption-detail">
-                      {caption}&nbsp;
-                    </span>
-                    <span className="image-credit">{credit}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          )}
+          <div className="slideshow">
+            {images &&
+              images.map(
+                ({ caption, credit, focalX, focalY, id, src }, index) => {
+                  const imageClassNames = cx('image-wrapper', {
+                    [`is-active`]: index === currentSlideIndex
+                  });
+
+                  return (
+                    <figure
+                      key={`slideshow-image-${id}`}
+                      className={imageClassNames}
+                      data-index={index}
+                    >
+                      <div className="foo">
+                        <div className="image-frame">
+                          <img src={src} alt="" className="image" />
+                        </div>
+                      </div>
+                      <figcaption className="image-caption">
+                        <span className="image-caption-detail">
+                          {caption}&nbsp;
+                        </span>
+                        <span className="image-credit">{credit}</span>
+                      </figcaption>
+                    </figure>
+                  );
+                }
+              )}
+          </div>
         </Grid>
       </div>
     </div>
