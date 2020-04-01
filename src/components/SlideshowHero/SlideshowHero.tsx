@@ -37,8 +37,8 @@ export const SlideshowHero = ({
 
   useEffect(() => {
     const t = setInterval(
-      (function(nextIndex = 0) {
-        let nextI = nextIndex;
+      (function() {
+        let nextIndex = 0;
 
         return function() {
           setCurrentSlideIndex(nextIndex);
@@ -48,10 +48,10 @@ export const SlideshowHero = ({
             setCurrentSlideIndex(null);
           }, animationDuration - animationSpeed);
 
-          nextI += 1;
+          nextIndex += 1;
 
-          if (nextI > imageCount - 1) {
-            nextI = 0;
+          if (nextIndex > imageCount - 1) {
+            nextIndex = 0;
           }
         };
       })(),
