@@ -19,21 +19,12 @@
 }
 
 // TODO - rename class
-.slideshow {
-  @include grid-column(1, 7);
-
-  @include mq(sm) {
-    @include grid-column(7, 13);
-  }
-}
-
-// TODO - rename class
 .grid-one {
   @include grid-column(1, 7);
   
   @include mq($until: sm) {
     position: relative;
-
+    
     // used as background to expand edges to reach to screen edges of parent grid
     &:before {
       background: var(--colour-cyan-05);
@@ -47,8 +38,9 @@
       z-index: -1;
     }
   }
-
+  
   @include mq(sm) {
+    @include grid-column(1, 7);
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
@@ -97,31 +89,65 @@
 }
 
 
+// TODO - rename class
+.slideshow {
+  @include grid-column(1, 7);
+
+  @include mq(sm) {
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+
 // --------------------
 
-
+// TODO replace animation duration with css variables
 .image-wrapper {
-  display: none;
+  // display: none;
   height: 100%;
   margin: 0;
+  opacity: 0;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s linear 0.4s;
+  visibility: hidden;
   
-  &:first-child {
+  @include mq(sm) {
+    position: absolute;
+  }
+  
+  // &:first-child {
+  //   opacity: 1;
+  //   visibility: visible;
+  // }
+    
+  &.is-active {
     display: block;
+    opacity: 1;
+    transition:
+      opacity 0.4s ease,
+      visibility linear 0s;
+    visibility: visible;
   }
 }
 
 // TODO - rename class
 .foo {
   height: 100%;
+  width: 100%;
 }
 
 .image-frame {
   overflow: hidden;
-  position: absolute;
   
   @include mq($until: sm) {
     height: 56.25vw;
     left: 0;
+    position: absolute;
     top: 0;
   }
   
@@ -138,11 +164,25 @@
 
 .image-caption {
   border-left: 1px solid var(--colour-grey-70);
+  bottom: 0;
   color: var(--colour-grey-70);
   font-size: 11px; // TODO
   margin-bottom: calc(4 * var(--space-unit));
   margin-top: calc(2 * var(--space-unit));
   padding-left: calc(2 * var(--space-unit));
+  position: absolute;
+  
+  @include mq(sm) {
+    max-width: 45vw;
+  }
+
+  @include mq(xl) {
+    max-width: 672px;
+  }
+
+  .image-wrapper:first-child  > & {
+    position: static;
+  }
   
   &:before {
     content: 'Above';
@@ -159,6 +199,3 @@
   display: block;
   font-family: var(--font-tertiary);
 }
-
-
-// --------------------
