@@ -1,6 +1,7 @@
 .slideshow-hero {
   display: flex;
   flex-flow: column nowrap;
+  margin-bottom: var(--space-xl);
   position: relative;
   
   @include mq($until: sm) {
@@ -93,6 +94,10 @@
 .slideshow {
   @include grid-column(1, 7);
 
+  display: grid;
+  // stylelint-disable value-no-vendor-prefix
+  display: -ms-grid;
+
   @include mq(sm) {
     bottom: 0;
     left: 50%;
@@ -107,7 +112,9 @@
 
 // TODO replace animation duration with css variables
 .image-wrapper {
-  // display: none;
+
+  grid-column: 1;
+  grid-row: 1;
   height: 100%;
   margin: 0;
   opacity: 0;
@@ -115,15 +122,6 @@
     opacity 0.4s ease,
     visibility 0s linear 0.4s;
   visibility: hidden;
-  
-  @include mq(sm) {
-    position: absolute;
-  }
-  
-  // &:first-child {
-  //   opacity: 1;
-  //   visibility: visible;
-  // }
     
   &.is-active {
     display: block;
@@ -139,6 +137,12 @@
 .foo {
   height: 100%;
   width: 100%;
+  
+  @include mq($until: sm) {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .image-frame {
@@ -146,9 +150,6 @@
   
   @include mq($until: sm) {
     height: 56.25vw;
-    left: 0;
-    position: absolute;
-    top: 0;
   }
   
   @include mq(sm) {
@@ -164,24 +165,17 @@
 
 .image-caption {
   border-left: 1px solid var(--colour-grey-70);
-  bottom: 0;
   color: var(--colour-grey-70);
   font-size: 11px; // TODO
-  margin-bottom: calc(4 * var(--space-unit));
   margin-top: calc(2 * var(--space-unit));
   padding-left: calc(2 * var(--space-unit));
-  position: absolute;
-  
+
   @include mq(sm) {
     max-width: 45vw;
   }
 
   @include mq(xl) {
     max-width: 672px;
-  }
-
-  .image-wrapper:first-child  > & {
-    position: static;
   }
   
   &:before {
