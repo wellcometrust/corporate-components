@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
+import bowser from 'bowser';
 
 import Button from 'Button';
 import Grid, { GridCell } from 'Grid';
@@ -29,11 +30,19 @@ export const SlideshowHero = ({
   title
 }: SlideshowHeroProps) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [browserName, setBrowserName] = useState(null);
   const imageCount = images.length || 0;
 
   const classNames = cx('slideshow-hero', {
+    [`${browserName}`]: browserName,
     [`${className}`]: className
   });
+
+  useEffect(() => {
+    const browser = bowser.getParser(window.navigator.userAgent);
+
+    setBrowserName(`is-${browser.getBrowserName().toLowerCase()}`);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(
@@ -68,7 +77,7 @@ export const SlideshowHero = ({
   return (
     <div className={classNames}>
       <div className="slideshow-hero__container">
-        <Grid>
+        <Grid className="slideshow-hero__grid">
           <div className="grid-one">
             <div className="slideshow-hero__content">
               <h1 className="slideshow-hero__title">{title}</h1>
