@@ -31,7 +31,7 @@ export const SlideshowHero = ({
 }: SlideshowHeroProps) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [browserName, setBrowserName] = useState(null);
-  const imageCount = images.length || 0;
+  const imageCount = images?.length || 0;
 
   const classNames = cx('slideshow-hero', {
     [`${browserName}`]: browserName,
@@ -45,31 +45,36 @@ export const SlideshowHero = ({
   }, []);
 
   useEffect(() => {
-    const t = setInterval(
-      (function() {
-        let nextIndex = 0;
+    if (imageCount > 1) {
+      const t = setInterval(
+        (function() {
+          let nextIndex = 0;
 
-        return function() {
-          setCurrentSlideIndex(nextIndex);
+          return function() {
+            setCurrentSlideIndex(nextIndex);
 
-          // remove active state to fade out previous image before next image comes in
-          setTimeout(() => {
-            setCurrentSlideIndex(null);
-          }, animationDuration - animationSpeed);
+            // remove active state to fade out previous image before next image comes in
+            setTimeout(() => {
+              setCurrentSlideIndex(null);
+            }, animationDuration - animationSpeed);
 
-          nextIndex += 1;
+            nextIndex += 1;
 
-          if (nextIndex > imageCount - 1) {
-            nextIndex = 0;
-          }
-        };
-      })(),
-      animationDuration
-    );
+            if (nextIndex > imageCount - 1) {
+              nextIndex = 0;
+            }
+          };
+        })(),
+        animationDuration
+      );
 
-    return () => {
-      clearInterval(t);
-    };
+      return () => {
+        clearInterval(t);
+      };
+    }
+    setCurrentSlideIndex(0);
+
+    return () => {};
   }, []);
 
   const handleClick = () => {};
@@ -82,10 +87,7 @@ export const SlideshowHero = ({
             <div className="slideshow-hero__copy">
               <h1 className="slideshow-hero__title">{title}</h1>
               <p className="slideshow-hero__standfirst">{standfirst}</p>
-              <Button
-                variant="link"
-                href="/"
-              >
+              <Button variant="link" href="/">
                 Learn more
               </Button>
             </div>
@@ -121,7 +123,9 @@ export const SlideshowHero = ({
                         <span className="slideshow__image-caption-detail">
                           {caption}&nbsp;
                         </span>
-                        <span className="slideshow__image-credit">{credit}</span>
+                        <span className="slideshow__image-credit">
+                          {credit}
+                        </span>
                       </figcaption>
                     </figure>
                   );
