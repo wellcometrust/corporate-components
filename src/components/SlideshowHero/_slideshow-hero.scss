@@ -28,12 +28,12 @@
   }
 }
 
-// TODO - rename class
-.grid-one {
+.slideshow-hero__content {
   @include grid-column(1, 7);
   
   @include mq($until: sm) {
     position: relative;
+    z-index: 1;
     
     // used as background to expand edges to reach to screen edges of parent grid
     &:before {
@@ -70,17 +70,18 @@
   }
 }
 
-.slideshow-hero__content {
+.slideshow-hero__copy {
+  font-size: calc(18/16 * var(--text-base-size));
   margin-bottom: var(--space-xl);
   margin-top: var(--space-xl);
-}
-
-.slideshow-hero__standfirst {
-  font-size: calc(18/16 * var(--text-base-size));
   
   @include mq(sm) {
     font-size: calc(20/16 * var(--text-base-size));
   }
+}
+
+.slideshow-hero__title {
+  @extend %heading-super;
 }
 
 .slideshow-hero__btn-skip {
@@ -105,8 +106,6 @@
   width: calc(3 * var(--space-unit));
 }
 
-
-// TODO - rename class
 .slideshow {
   display: grid;
   // stylelint-disable value-no-vendor-prefix
@@ -132,30 +131,28 @@
 
 // --------------------
 
-// TODO replace animation duration with css variables
-.image-wrapper {
+.slideshow__image-container {
   @include grid-column(1);
   @include grid-row(1);
   height: 100%;
   margin: 0;
   opacity: 0;
   transition:
-    opacity 0.4s ease,
-    visibility 0s linear 0.4s;
+    opacity var(--transition-duration) ease,
+    visibility 0s linear var(--transition-duration);
   visibility: hidden;
 
   &.is-active {
     display: block;
     opacity: 1;
     transition:
-      opacity 0.4s ease,
+      opacity var(--transition-duration) ease,
       visibility linear 0s;
     visibility: visible;
   }
 }
 
-// TODO - rename class
-.foo {
+.slideshow__image-frame-outer {
   height: 100%;
   width: 100%;
   
@@ -166,7 +163,7 @@
   }
 }
 
-.image-frame {
+.slideshow__image-frame {
   height: 56.25vw;
   overflow: hidden;
   position: relative;
@@ -182,14 +179,14 @@
   }
 }
 
-.image {
+.slideshow__image {
   height: 100%;
   object-fit: cover;
   position: absolute;
   width: 100%;
 }
 
-.image-caption {
+.slideshow__image-caption {
   border-left: 1px solid var(--colour-grey-70);
   color: var(--colour-grey-70);
   font-size: var(--text-smallest);
@@ -209,13 +206,13 @@
   }
 }
 
-.image-caption-detail {
+.slideshow__image-caption-detail {
   display: block;
   font-family: var(--font-tertiary);
   font-weight: bold;
 }
 
-.image-credit {
+.slideshow__image-credit {
   display: block;
   font-family: var(--font-tertiary);
 }

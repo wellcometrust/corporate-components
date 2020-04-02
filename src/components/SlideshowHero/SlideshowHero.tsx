@@ -78,11 +78,16 @@ export const SlideshowHero = ({
     <div className={classNames}>
       <div className="slideshow-hero__container">
         <Grid className="slideshow-hero__grid">
-          <div className="grid-one">
-            <div className="slideshow-hero__content">
+          <div className="slideshow-hero__content">
+            <div className="slideshow-hero__copy">
               <h1 className="slideshow-hero__title">{title}</h1>
               <p className="slideshow-hero__standfirst">{standfirst}</p>
-              <a href="/">Learn more</a>
+              <Button
+                variant="link"
+                href="/"
+              >
+                Learn more
+              </Button>
             </div>
             <Button
               variant="unstyled"
@@ -97,7 +102,7 @@ export const SlideshowHero = ({
             {images &&
               images.map(
                 ({ caption, credit, focalX, focalY, id, src }, index) => {
-                  const imageClassNames = cx('image-wrapper', {
+                  const imageClassNames = cx('slideshow__image-container', {
                     [`is-active`]: index === currentSlideIndex
                   });
 
@@ -107,16 +112,16 @@ export const SlideshowHero = ({
                       className={imageClassNames}
                       data-index={index}
                     >
-                      <div className="foo">
-                        <div className="image-frame">
-                          <img src={src} alt="" className="image" />
+                      <div className="slideshow__image-frame-outer">
+                        <div className="slideshow__image-frame">
+                          <img src={src} alt="" className="slideshow__image" />
                         </div>
                       </div>
-                      <figcaption className="image-caption">
-                        <span className="image-caption-detail">
+                      <figcaption className="slideshow__image-caption">
+                        <span className="slideshow__image-caption-detail">
                           {caption}&nbsp;
                         </span>
-                        <span className="image-credit">{credit}</span>
+                        <span className="slideshow__image-credit">{credit}</span>
                       </figcaption>
                     </figure>
                   );

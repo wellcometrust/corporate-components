@@ -79,3 +79,11 @@
     --text-xxl: calc(2.5 * var(--text-base-size));
   }
 }
+
+%heading-super {
+  font-family: var(--font-secondary);
+  font-size: var(--text-xxl);
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: var(--heading-line-height);
+  margin: 0 0 var(--space-lg);
+}
