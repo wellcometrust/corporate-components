@@ -17,18 +17,33 @@
   --text-base-size: 1rem;
   --text-base-size-px: 16;
 
-  // --text-xs: 14px
-  // --text-sm: 15px
-  // --text-md: 16px
-  // --text-lg: 22px
-  // --text-xl: 24px
+  // responsive headings
   // --text-xxl: 28px
-  --text-xs: calc(0.875 * var(--text-base-size));
-  --text-sm: calc(0.94 * var(--text-base-size));
-  --text-md: calc(1 * var(--text-base-size));
-  --text-lg: calc(1.38 * var(--text-base-size));
-  --text-xl: calc(1.5 * var(--text-base-size));
+  // --text-xl: 24px
+  // --text-lg: 22px
+  // --text-md: 16px
+  // --text-sm: 15px
+  // --text-xs: 14px
   --text-xxl: calc(1.75 * var(--text-base-size));
+  --text-xl: calc(1.5 * var(--text-base-size));
+  --text-lg: calc(1.38 * var(--text-base-size));
+  --text-md: calc(1 * var(--text-base-size));
+  --text-sm: calc(0.94 * var(--text-base-size));
+  --text-xs: calc(0.875 * var(--text-base-size));
+  
+  // non-responsive body text sizes
+  // --text-larger:   20px
+  // --text-large:    20px
+  // --text-regular:  16px
+  // --text-small:    14px
+  // --text-smaller:  13px
+  // --text-smallest: 11px
+  --text-larger: calc(20/16 * var(--text-base-size));
+  --text-large: calc(20/16 * var(--text-base-size));
+  --text-regular: var(--text-base-size);
+  --text-small: calc(14/16 * var(--text-base-size));
+  --text-smaller: calc(13/16 * var(--text-base-size));
+  --text-smallest: calc(11/16 * var(--text-base-size));
 
   // line height
   --body-line-height: 1.7;
