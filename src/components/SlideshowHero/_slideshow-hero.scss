@@ -99,11 +99,10 @@
 
 .slideshow-hero__btn-skip .icon {
   display: flex;
-  height: calc(2.5 * var(--space-unit));
+  height: calc(3 * var(--space-unit));
   justify-content: center;
   margin: 0;
-  transform: rotate(90deg);
-  width: calc(2.5 * var(--space-unit));
+  width: calc(3 * var(--space-unit));
 }
 
 

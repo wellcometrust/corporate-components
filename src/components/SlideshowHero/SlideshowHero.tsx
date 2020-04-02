@@ -87,7 +87,7 @@ export const SlideshowHero = ({
             <Button
               variant="unstyled"
               className="slideshow-hero__btn-skip"
-              icon="chevron"
+              icon="chevronThin"
               onClick={handleClick}
             >
               <span className="u-visually-hidden">Show search pane</span>
