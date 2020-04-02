@@ -73,10 +73,8 @@ export const SearchForm = ({
       method={method}
       onSubmit={handleSubmit}
     >
-      <SearchFormLabel {...labelProps}>
-        <SearchFormInput {...inputProps} />
-      </SearchFormLabel>
-      {children}
+      <SearchFormLabel {...labelProps} />
+      <SearchFormInput {...inputProps} />
       <SearchFormSubmitButton {...submitButtonProps} />
     </form>
   );
