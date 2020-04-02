@@ -31,7 +31,7 @@ export const SlideshowHero = ({
 }: SlideshowHeroProps) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [browserName, setBrowserName] = useState(null);
-  const imageCount = images.length || 0;
+  const imageCount = images?.length || 0;
 
   const classNames = cx('slideshow-hero', {
     [`${browserName}`]: browserName,
