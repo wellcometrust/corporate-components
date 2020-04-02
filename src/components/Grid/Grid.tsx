@@ -5,11 +5,13 @@ import GridCell from './GridCell';
 
 type GridProps = {
   children: React.ReactNode;
+  className?: string;
   nested?: boolean;
 };
 
-export const Grid = ({ children, nested }: GridProps) => {
+export const Grid = ({ children, className, nested }: GridProps) => {
   const classNames = cx('grid', {
+    [`${className}`]: className,
     'grid--nested': nested
   });
 

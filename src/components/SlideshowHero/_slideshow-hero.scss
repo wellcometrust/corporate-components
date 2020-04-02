@@ -16,6 +16,15 @@
 .slideshow-hero__container {
   @include mq(sm) {
     background: var(--colour-cyan-05);
+    position: relative;
+  }
+}
+
+// browser sniffing to apply Safari only fix
+// because sometimes you just gotta :(
+.is-safari .slideshow-hero__grid {
+  @include mq(sm) {
+    position: relative;
   }
 }
 
@@ -66,6 +75,14 @@
   margin-top: var(--space-xl);
 }
 
+.slideshow-hero__standfirst {
+  font-size: calc(18/16 * var(--text-base-size));
+  
+  @include mq(sm) {
+    font-size: calc(20/16 * var(--text-base-size));
+  }
+}
+
 .slideshow-hero__btn-skip {
   @extend %btn-base;
   color: var(--colour-blue-60);
@@ -92,14 +109,20 @@
 
 // TODO - rename class
 .slideshow {
-  @include grid-column(1, 7);
-
   display: grid;
   // stylelint-disable value-no-vendor-prefix
   display: -ms-grid;
+  
+  @include mq($until: sm) {
+    @include grid-column(1, 7);
+    
+    // ensure captions are displayed below title and intro text
+    // stylelint-disable property-no-vendor-prefix
+    -ms-grid-row: 3;
+  }
 
   @include mq(sm) {
-    bottom: 0;
+    height: 100%;
     left: 50%;
     position: absolute;
     right: 0;
@@ -112,9 +135,8 @@
 
 // TODO replace animation duration with css variables
 .image-wrapper {
-
-  grid-column: 1;
-  grid-row: 1;
+  @include grid-column(1);
+  @include grid-row(1);
   height: 100%;
   margin: 0;
   opacity: 0;
@@ -122,7 +144,7 @@
     opacity 0.4s ease,
     visibility 0s linear 0.4s;
   visibility: hidden;
-    
+
   &.is-active {
     display: block;
     opacity: 1;
@@ -146,27 +168,32 @@
 }
 
 .image-frame {
+  height: 56.25vw;
   overflow: hidden;
-  
-  @include mq($until: sm) {
-    height: 56.25vw;
-  }
+  position: relative;
+  width: 100vw;
   
   @include mq(sm) {
     height: 100%;
+    width: 100%;
+
+    @media all and (-ms-high-contrast:none) {
+      position: static;
+    }
   }
 }
 
 .image {
   height: 100%;
   object-fit: cover;
+  position: absolute;
   width: 100%;
 }
 
 .image-caption {
   border-left: 1px solid var(--colour-grey-70);
   color: var(--colour-grey-70);
-  font-size: 11px; // TODO
+  font-size: var(--text-smallest);
   margin-top: calc(2 * var(--space-unit));
   padding-left: calc(2 * var(--space-unit));
 
