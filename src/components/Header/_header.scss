@@ -1,5 +1,9 @@
 // TODO: #5878 - refactor to reduce nesting and tidy up
 
+:root {
+  --nav-text-size: calc(15/16 * var(--text-base-size));
+}
+
 .header {
   @extend %text-sm;
   background: var(--X-colour-dark-blue);
