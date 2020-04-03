@@ -8,7 +8,7 @@
 // ----------------------------------
 
 .footer-nav {
-  font-size: var(--text-xs);
+  font-size: var(--body-md);
 }
 
 .footer-nav__grid {
@@ -63,9 +63,9 @@
 
 .footer-nav__menu-list-link {
   @extend %color-inherit;
-  @extend %text-xs;
   @include animated-underline;
   display: inline-block;
+  font-size: var(--body-md);
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
   text-decoration: none;

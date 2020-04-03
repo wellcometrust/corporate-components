@@ -14,8 +14,7 @@
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
-  font-size: calc(0.94 * var(--text-base-size));
-  letter-spacing: rem(0.5);
+  letter-spacing: var(--body-letter-spacing);
   line-height: 1;
   padding: 0;
   text-decoration: none;
@@ -27,6 +26,7 @@
 
 %btn-nav-base {
   @extend %btn-base;
+  font-size: var(--nav-text-size);
   height: calc(8 * var(--space-unit));
   justify-content: flex-start;
   min-height: calc(8 * var(--space-unit));

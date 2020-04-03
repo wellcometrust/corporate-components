@@ -11,8 +11,6 @@
   $height: calc(0.5 * var(--space-unit)),
   $width: calc(2.5 * var(--space-unit))
 ) {
-  margin-bottom: calc(4 * var(--space-unit));
-  padding-bottom: calc(2 * var(--space-unit));
   position: relative;
 
   &:after {

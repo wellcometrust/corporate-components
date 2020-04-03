@@ -23,7 +23,10 @@
   border-radius: calc(0.25 * var(--space-unit));
   box-sizing: border-box;
   color: var(--colour-black);
-  letter-spacing: rem(0.4);
+  font-size: var(--body-md);
+  letter-spacing: var(--body-letter-spacing);
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
   width: 100%;
 
   &::placeholder {

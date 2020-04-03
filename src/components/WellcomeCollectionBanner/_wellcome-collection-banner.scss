@@ -20,11 +20,11 @@
 }
 
 .wc-banner__container {
-  @extend %text-xs;
   align-items: center;
   background: var(--wc-banner-colour-yellow);
   bottom: 0;
   display: flex;
+  font-size: var(--body-md);
   height: var(--wc-banner-height);
   justify-content: space-between;
   left: 0;
@@ -76,6 +76,7 @@
   color: var(--wc-banner-colour-text);
   cursor: pointer;
   display: flex;
+  font-size: var(--body-md);
   padding: var(--space-unit);
   position: relative;
 

@@ -46,10 +46,10 @@
   align-items: center;
   color: var(--colour-blue-80);
   display: flex;
-  font-size: calc(0.94 * var(--text-base-size));
+  font-size: var(--nav-text-size);
   height: 100%;
   justify-content: space-between;
-  letter-spacing: rem(0.43);
+  letter-spacing: var(--body-letter-spacing);
   line-height: 1.4;
   padding:
     calc(2.25 * var(--space-unit))

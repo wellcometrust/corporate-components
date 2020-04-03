@@ -1,3 +1,4 @@
+
 // ----------------------------------
 // UI Tools
 // Extends
@@ -10,34 +11,47 @@
 
 %heading-base {
   font-family: var(--font-secondary);
-  letter-spacing: var(--heading-letter-spacing);
   line-height: var(--heading-line-height);
+  margin: 0;
 }
 
-/* Font Sizes */
-
-%text-xxl {
-  font-size: var(--text-xxl);
+/* Wellcome Design System type styles */
+// effectively equivalent to theoretical <h0>
+// and only really used for home hero
+%heading-super {
+  font-size: var(--heading-xxl);
+  letter-spacing: var(--heading-letter-spacing);
+  margin-bottom: var(--space-lg);
 }
 
-%text-xl {
-  font-size: var(--text-xl);
+// equivalent to <h1>
+%heading-hero {
+  font-size: var(--heading-xl);
+  letter-spacing: var(--heading-letter-spacing);
 }
 
-%text-lg {
-  font-size: var(--text-lg);
+// equivalent to <h2>
+%heading-display {
+  font-size: var(--heading-lg);
+  margin-bottom: var(--space-lg);
 }
 
-%text-md {
-  font-size: var(--text-md);
+// equivalent to <h3>
+%heading-large {
+  font-size: var(--heading-md);
+  margin-bottom: var(--space-md);
 }
 
-%text-sm {
-  font-size: var(--text-sm);
+// equivalent to <h4>
+%heading-regular {
+  font-size: var(--heading-sm);
+  margin-bottom: var(--space-md);
 }
 
-%text-xs {
-  font-size: var(--text-xs);
+// equivalent to <h5>
+%heading-small {
+  font-size: var(--heading-xs);
+  margin-bottom: var(--space-md);
 }
 
 /* Alignment */
