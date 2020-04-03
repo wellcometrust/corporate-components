@@ -45,31 +45,36 @@ export const SlideshowHero = ({
   }, []);
 
   useEffect(() => {
-    const t = setInterval(
-      (function() {
-        let nextIndex = 0;
+    if (imageCount > 1) {
+      const t = setInterval(
+        (function() {
+          let nextIndex = 0;
 
-        return function() {
-          setCurrentSlideIndex(nextIndex);
+          return function() {
+            setCurrentSlideIndex(nextIndex);
 
-          // remove active state to fade out previous image before next image comes in
-          setTimeout(() => {
-            setCurrentSlideIndex(null);
-          }, animationDuration - animationSpeed);
+            // remove active state to fade out previous image before next image comes in
+            setTimeout(() => {
+              setCurrentSlideIndex(null);
+            }, animationDuration - animationSpeed);
 
-          nextIndex += 1;
+            nextIndex += 1;
 
-          if (nextIndex > imageCount - 1) {
-            nextIndex = 0;
-          }
-        };
-      })(),
-      animationDuration
-    );
+            if (nextIndex > imageCount - 1) {
+              nextIndex = 0;
+            }
+          };
+        })(),
+        animationDuration
+      );
 
-    return () => {
-      clearInterval(t);
-    };
+      return () => {
+        clearInterval(t);
+      };
+    }
+    setCurrentSlideIndex(0);
+
+    return () => {};
   }, []);
 
   const handleClick = () => {};
@@ -78,16 +83,18 @@ export const SlideshowHero = ({
     <div className={classNames}>
       <div className="slideshow-hero__container">
         <Grid className="slideshow-hero__grid">
-          <div className="grid-one">
-            <div className="slideshow-hero__content">
+          <div className="slideshow-hero__content">
+            <div className="slideshow-hero__copy">
               <h1 className="slideshow-hero__title">{title}</h1>
               <p className="slideshow-hero__standfirst">{standfirst}</p>
-              <a href="/">Learn more</a>
+              <Button variant="link" href="/">
+                Learn more
+              </Button>
             </div>
             <Button
               variant="unstyled"
               className="slideshow-hero__btn-skip"
-              icon="chevron"
+              icon="chevronThin"
               onClick={handleClick}
             >
               <span className="u-visually-hidden">Show search pane</span>
@@ -97,7 +104,7 @@ export const SlideshowHero = ({
             {images &&
               images.map(
                 ({ caption, credit, focalX, focalY, id, src }, index) => {
-                  const imageClassNames = cx('image-wrapper', {
+                  const imageClassNames = cx('slideshow__image-container', {
                     [`is-active`]: index === currentSlideIndex
                   });
 
@@ -107,16 +114,18 @@ export const SlideshowHero = ({
                       className={imageClassNames}
                       data-index={index}
                     >
-                      <div className="foo">
-                        <div className="image-frame">
-                          <img src={src} alt="" className="image" />
+                      <div className="slideshow__image-frame-outer">
+                        <div className="slideshow__image-frame">
+                          <img src={src} alt="" className="slideshow__image" />
                         </div>
                       </div>
-                      <figcaption className="image-caption">
-                        <span className="image-caption-detail">
+                      <figcaption className="slideshow__image-caption">
+                        <span className="slideshow__image-caption-detail">
                           {caption}&nbsp;
                         </span>
-                        <span className="image-credit">{credit}</span>
+                        <span className="slideshow__image-credit">
+                          {credit}
+                        </span>
                       </figcaption>
                     </figure>
                   );
