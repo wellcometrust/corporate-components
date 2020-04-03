@@ -3,7 +3,7 @@
   bottom: 0;
   color: var(--colour-black);
   left: 0;
-  letter-spacing: calc(2 * var(--body-letter-spacing));
+  letter-spacing: var(--body-letter-spacing);
   padding: calc(4 * var(--space-unit)) calc(6 * var(--space-unit));
   position: fixed;
   z-index: 105;

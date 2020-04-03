@@ -1,6 +1,7 @@
 .btn--nav-toggle {
   @extend %btn-base;
   color: var(--colour-white);
+  font-size: var(--nav-text-size);
   margin-left: auto;
   pointer-events: all;
 

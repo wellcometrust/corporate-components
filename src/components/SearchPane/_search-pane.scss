@@ -141,7 +141,7 @@
 .search-pane__form-input {
   @extend %text-input-base;
   background: var(--colour-grey-05);
-  font-size: calc(0.94 * var(--text-base-size));
+  font-size: var(--nav-text-size);
   padding: var(--space-md) var(--space-lg);
   width: 100%;
 

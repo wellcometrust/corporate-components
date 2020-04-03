@@ -71,16 +71,13 @@
 }
 
 .slideshow-hero__copy {
-  font-size: calc(18/16 * var(--text-base-size));
+  font-size: var(--heading-md);
   margin-bottom: var(--space-xl);
   margin-top: var(--space-xl);
-  
-  @include mq(sm) {
-    font-size: calc(20/16 * var(--text-base-size));
-  }
 }
 
 .slideshow-hero__title {
+  @extend %heading-base;
   @extend %heading-super;
 }
 
@@ -189,7 +186,7 @@
 .slideshow__image-caption {
   border-left: 1px solid var(--colour-grey-70);
   color: var(--colour-grey-70);
-  font-size: var(--text-smallest);
+  font-size: var(--body-xs);
   margin-top: calc(2 * var(--space-unit));
   padding-left: calc(2 * var(--space-unit));
 

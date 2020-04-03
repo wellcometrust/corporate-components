@@ -21,27 +21,24 @@ h6 {
 }
 
 h1 {
-  @extend %text-xxl;
+  @extend %heading-hero;
 }
 
 h2 {
-  @extend %text-xl;
+  @extend %heading-display;
 }
 
 h3 {
-  @extend %text-lg;
+  @extend %heading-large;
 }
 
 h4 {
-  @extend %text-md;
+  @extend %heading-regular;
 }
 
-h5 {
-  @extend %text-sm;
-}
-
+h5,
 h6 {
-  @extend %text-xs;
+  @extend %heading-small;
 }
 
 // stylelint-disable selector-max-id

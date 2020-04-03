@@ -14,14 +14,13 @@
 
 .page-header__title {
   @extend %heading-base;
-  @extend %text-xxl;
+  @extend %heading-hero;
   @include heading-divider;
-  margin: 0;
   padding-bottom: var(--space-md);
 }
 
 .page-header__standfirst {
-  @extend %text-md;
+  font-size: var(--heading-md);
   padding-bottom: var(--space-xl);
   text-align: center;
 }

@@ -71,7 +71,7 @@
   background-image: none;
   border-radius: calc(0.25 * var(--space-unit));
   color: var(--X-colour-error-red);
-  font-size: var(--text-xs);
+  font-size: var(--body-md);
   margin-top: var(--space-md);
   padding-bottom: var(--space-xs);
   padding-left: var(--space-sm);
@@ -96,7 +96,7 @@
 /* Labels */
 
 .newsletter-form__item-label {
-  @extend %text-xs;
+  font-size: var(--body-md);
   line-height: rem(20.53); // #6171 refactor footer styles
   margin-bottom: var(--space-xs);
 }
