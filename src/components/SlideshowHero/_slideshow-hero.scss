@@ -72,13 +72,16 @@
 
 .slideshow-hero__copy {
   font-size: var(--heading-md);
-  margin-bottom: var(--space-xl);
-  margin-top: var(--space-xl);
+  padding: var(--space-lg) 0; 
 }
 
 .slideshow-hero__title {
   @extend %heading-base;
   @extend %heading-super;
+
+  @include mq($until: sm) {
+    font-size: rem(21);
+  }
 }
 
 .slideshow-hero__btn-skip {
@@ -89,6 +92,10 @@
   margin-bottom: var(--space-xl);
   transition: opacity ease var(--transition-duration);
   width: 100%;
+
+  @include mq($until: sm) {
+    margin-bottom: calc(2 * var(--space-unit));
+  }
   
   @include mq(sm) {
     justify-content: flex-start;
@@ -200,6 +207,13 @@
   
   &:before {
     content: 'Above';
+  }
+
+  // IE11: ensure caption is at least visible
+  @media all and (-ms-high-contrast:none) {
+    background: rgba(255, 255, 255, 0.9);
+    padding: var(--space-unit);
+    position: relative;
   }
 }
 
