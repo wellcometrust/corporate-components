@@ -94,7 +94,7 @@
   width: 100%;
 
   @include mq($until: sm) {
-    margin-bottom: calc(2* var(--space-unit));
+    margin-bottom: calc(2 * var(--space-unit));
   }
   
   @include mq(sm) {
