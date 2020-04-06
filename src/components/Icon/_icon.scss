@@ -13,7 +13,7 @@
   }
 
   // D7 override
-  &[aria-hidden='true'] {
+  &.icon[aria-hidden='true'] {
     display: flex;
   }
 
