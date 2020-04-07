@@ -54,6 +54,13 @@
   margin-bottom: var(--space-md);
 }
 
+// equivalent to <p>
+%body-large {
+  margin-bottom: var(--space-md);
+  // D7 override
+  margin-top: 0;
+}
+
 /* Alignment */
 
 %text-center {

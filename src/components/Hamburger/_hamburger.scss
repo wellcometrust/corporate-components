@@ -24,10 +24,15 @@
   margin: 0 calc(3 * var(--space-unit)) 0 calc(1.5 * var(--space-unit));
   position: relative;
   width: calc(2 * var(--space-unit));
-
+  
   @include mq(sm) {
     margin-right: 0;
   }
+}
+
+// D7 override
+.icon-menu.icon-menu[aria-hidden='true'] {
+  display: inline-block;
 }
 
 %menu-icon-line {

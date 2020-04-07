@@ -38,6 +38,11 @@
       display: none;
     }
   }
+
+  // D7 override
+  &:before {
+    content: none;
+  }
 }
 
 /* Link */
@@ -84,7 +89,8 @@
     }
   }
 
-  .icon {
+  // D7 override
+  .icon.icon {
     @include mq(md) {
       display: none;
     }

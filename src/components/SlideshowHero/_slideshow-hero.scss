@@ -78,10 +78,17 @@
 .slideshow-hero__title {
   @extend %heading-base;
   @extend %heading-super;
-
+  // D7 override
+  padding: 0;
+  
   @include mq($until: sm) {
     font-size: rem(21);
   }
+}
+
+.slideshow-hero__standfirst {
+  // D7 override
+  @extend %body-large;
 }
 
 .slideshow-hero__btn-skip {
@@ -191,6 +198,8 @@
 }
 
 .slideshow__image-caption {
+  // D7 override
+  border: 0;
   border-left: 1px solid var(--colour-grey-70);
   color: var(--colour-grey-70);
   font-size: var(--body-xs);

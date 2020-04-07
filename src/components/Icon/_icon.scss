@@ -12,7 +12,8 @@
     }
   }
 
-  &[aria-hidden='true'] {
+  // D7 override
+  &.icon[aria-hidden='true'] {
     display: flex;
   }
 
