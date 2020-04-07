@@ -14,6 +14,7 @@ type SlideshowHeroProps = {
     focalY?: number;
     id: string;
     src: string;
+    zoom?: number;
   }[];
   standfirst?: string;
   animationDuration?: number;
@@ -103,7 +104,10 @@ export const SlideshowHero = ({
           <div className="slideshow">
             {images &&
               images.map(
-                ({ caption, credit, focalX, focalY, id, src }, index) => {
+                (
+                  { caption, credit, focalX = 50, focalY = 50, id, src, zoom },
+                  index
+                ) => {
                   const imageClassNames = cx('slideshow__image-container', {
                     [`is-active`]: index === currentSlideIndex
                   });
@@ -116,7 +120,15 @@ export const SlideshowHero = ({
                     >
                       <div className="slideshow__image-frame-outer">
                         <div className="slideshow__image-frame">
-                          <img src={src} alt="" className="slideshow__image" />
+                          <img
+                            src={src}
+                            alt=""
+                            className="slideshow__image"
+                            style={{
+                              objectPosition: `${focalX}% ${focalY}%`,
+                              transform: `scale(${zoom})`
+                            }}
+                          />
                         </div>
                       </div>
                       <figcaption className="slideshow__image-caption">
