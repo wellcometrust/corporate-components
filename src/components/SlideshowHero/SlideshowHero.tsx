@@ -10,11 +10,10 @@ type SlideshowHeroProps = {
   images?: {
     caption: string;
     credit: string;
-    focalX?: number;
-    focalY?: number;
     id: string;
-    src: string;
-    zoom?: number;
+    srcNarrow: string;
+    srcWide: string;
+    srcSuperWide: string;
   }[];
   standfirst?: string;
   animationDuration?: number;
@@ -105,7 +104,7 @@ export const SlideshowHero = ({
             {images &&
               images.map(
                 (
-                  { caption, credit, focalX = 50, focalY = 50, id, src, zoom },
+                  { caption, credit, id, srcNarrow, srcWide, srcSuperWide },
                   index
                 ) => {
                   const imageClassNames = cx('slideshow__image-container', {
@@ -120,14 +119,21 @@ export const SlideshowHero = ({
                     >
                       <div className="slideshow__image-frame-outer">
                         <div className="slideshow__image-frame">
+                          {/* TODO: 6411 - add responsive images */}
+                          {/* <picture>
+                            <?php foreach ($variables['image_data'] as $image): ?>
+                              <source
+                                type="<?php print $image['type']; ?>"
+                                media="<?php print $image['media_string']; ?>"
+                                srcset="<?php print $image['preload_url']; ?>"
+                                data-loaded-url="<?php print $image['loaded_url'] ?>">
+                            <?php endforeach; ?>
+                            <img alt="<?php print $variables['alt_text'] ?>" srcset="<?php print $variables['default_img'] ?>">
+                          </picture> */}
                           <img
-                            src={src}
+                            src={srcNarrow}
                             alt=""
                             className="slideshow__image"
-                            style={{
-                              objectPosition: `${focalX}% ${focalY}%`,
-                              transform: `scale(${zoom})`
-                            }}
                           />
                         </div>
                       </div>
