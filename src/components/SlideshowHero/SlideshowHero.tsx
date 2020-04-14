@@ -121,14 +121,23 @@ export const SlideshowHero = ({
                         <div className="slideshow__image-frame">
                           {/* TODO: 6411 - add responsive images */}
                           {/* <picture>
-                            <?php foreach ($variables['image_data'] as $image): ?>
-                              <source
-                                type="<?php print $image['type']; ?>"
-                                media="<?php print $image['media_string']; ?>"
-                                srcset="<?php print $image['preload_url']; ?>"
-                                data-loaded-url="<?php print $image['loaded_url'] ?>">
-                            <?php endforeach; ?>
-                            <img alt="<?php print $variables['alt_text'] ?>" srcset="<?php print $variables['default_img'] ?>">
+                            <source
+                              type="image/jpeg"
+                              media="(min-aspect-ratio: 16/9)"
+                              srcSet={srcSuperWide}
+                              data-loaded-url="<?php print $image['loaded_url'] ?>"
+                            />
+                            <source
+                              type="image/jpeg"
+                              media="(min-width: 768px)"
+                              srcSet={srcWide}
+                              data-loaded-url="<?php print $image['loaded_url'] ?>"
+                            />
+                            <img
+                              srcSet={srcNarrow}
+                              alt=""
+                              className="slideshow__image"
+                            />
                           </picture> */}
                           <img
                             src={srcNarrow}
