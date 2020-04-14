@@ -10,10 +10,10 @@ type SlideshowHeroProps = {
   images?: {
     caption: string;
     credit: string;
-    focalX?: number;
-    focalY?: number;
     id: string;
-    src: string;
+    srcNarrow: string;
+    srcWide: string;
+    srcSuperWide: string;
   }[];
   standfirst?: string;
   animationDuration?: number;
@@ -103,7 +103,10 @@ export const SlideshowHero = ({
           <div className="slideshow">
             {images &&
               images.map(
-                ({ caption, credit, focalX, focalY, id, src }, index) => {
+                (
+                  { caption, credit, id, srcNarrow, srcWide, srcSuperWide },
+                  index
+                ) => {
                   const imageClassNames = cx('slideshow__image-container', {
                     [`is-active`]: index === currentSlideIndex
                   });
@@ -116,7 +119,31 @@ export const SlideshowHero = ({
                     >
                       <div className="slideshow__image-frame-outer">
                         <div className="slideshow__image-frame">
-                          <img src={src} alt="" className="slideshow__image" />
+                          {/* TODO: 6411 - add responsive images */}
+                          {/* <picture>
+                            <source
+                              type="image/jpeg"
+                              media="(min-aspect-ratio: 16/9)"
+                              srcSet={srcSuperWide}
+                              data-loaded-url="<?php print $image['loaded_url'] ?>"
+                            />
+                            <source
+                              type="image/jpeg"
+                              media="(min-width: 768px)"
+                              srcSet={srcWide}
+                              data-loaded-url="<?php print $image['loaded_url'] ?>"
+                            />
+                            <img
+                              srcSet={srcNarrow}
+                              alt=""
+                              className="slideshow__image"
+                            />
+                          </picture> */}
+                          <img
+                            src={srcNarrow}
+                            alt=""
+                            className="slideshow__image"
+                          />
                         </div>
                       </div>
                       <figcaption className="slideshow__image-caption">

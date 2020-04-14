@@ -154,7 +154,6 @@
   visibility: hidden;
 
   &.is-active {
-    display: block;
     opacity: 1;
     transition:
       opacity var(--transition-duration) ease,
