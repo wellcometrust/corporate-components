@@ -6,6 +6,8 @@ import Button from 'Button';
 import Grid, { GridCell } from 'Grid';
 
 type SlideshowHeroProps = {
+  animationDuration?: number;
+  animationSpeed?: number;
   className?: string;
   images?: {
     caption: string;
@@ -15,18 +17,22 @@ type SlideshowHeroProps = {
     srcWide: string;
     srcSuperWide: string;
   }[];
+  moreLink?: string;
+  skipLink?: string;
+  skipLinkText?: string;
   standfirst?: string;
-  animationDuration?: number;
-  animationSpeed?: number;
   title: string;
 };
 
 export const SlideshowHero = ({
+  animationDuration = 6000,
+  animationSpeed = 1000,
   className,
   images,
+  moreLink,
+  skipLink,
+  skipLinkText,
   standfirst,
-  animationDuration = 2000,
-  animationSpeed = 400,
   title
 }: SlideshowHeroProps) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -77,8 +83,6 @@ export const SlideshowHero = ({
     return () => {};
   }, []);
 
-  const handleClick = () => {};
-
   return (
     <div className={classNames}>
       <div className="slideshow-hero__container">
@@ -87,18 +91,25 @@ export const SlideshowHero = ({
             <div className="slideshow-hero__copy">
               <h1 className="slideshow-hero__title">{title}</h1>
               <p className="slideshow-hero__standfirst">{standfirst}</p>
-              <Button variant="link" href="/">
-                Learn more
-              </Button>
+              {moreLink && (
+                <Button variant="link" href={moreLink}>
+                  Learn more
+                </Button>
+              )}
             </div>
-            <Button
-              variant="unstyled"
-              className="slideshow-hero__btn-skip"
-              icon="chevronThin"
-              onClick={handleClick}
-            >
-              <span className="u-visually-hidden">Show search pane</span>
-            </Button>
+            {skipLink && (
+              <Button
+                aria-hidden="true"
+                className="slideshow-hero__btn-skip"
+                href={skipLink}
+                icon="chevronThin"
+                role="presentation"
+                tabIndex={-1}
+                variant="unstyled"
+              >
+                <span className="u-visually-hidden">{skipLinkText}</span>
+              </Button>
+            )}
           </div>
           <div className="slideshow">
             {images &&
