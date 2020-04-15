@@ -11,6 +11,7 @@ type ButtonProps = {
   icon?: string;
   iconPlacementSwitch?: boolean;
   onClick?: MouseEventHandler;
+  role?: string;
   tabIndex?: number;
   type?: string;
   variant?: 'primary' | 'secondary' | 'ghost' | 'link' | 'unstyled';
@@ -24,6 +25,7 @@ export const Button = ({
   icon,
   iconPlacementSwitch,
   onClick,
+  role,
   tabIndex,
   type = 'button',
   variant = 'primary'
@@ -47,6 +49,7 @@ export const Button = ({
           onClick(e);
         }
       }}
+      role={role}
       tabIndex={tabIndex}
       type={!href ? type : null}
     >
