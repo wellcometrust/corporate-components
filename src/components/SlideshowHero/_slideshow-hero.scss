@@ -1,3 +1,7 @@
+:root {
+  --hero-transition-duration: 1s;
+}
+
 .slideshow-hero {
   display: flex;
   flex-flow: column nowrap;
@@ -149,14 +153,14 @@
   margin: 0;
   opacity: 0;
   transition:
-    opacity var(--transition-duration) ease,
-    visibility 0s linear var(--transition-duration);
+    opacity var(--hero-transition-duration) ease,
+    visibility 0s linear var(--hero-transition-duration);
   visibility: hidden;
 
   &.is-active {
     opacity: 1;
     transition:
-      opacity var(--transition-duration) ease,
+      opacity var(--hero-transition-duration) ease,
       visibility linear 0s;
     visibility: visible;
   }
