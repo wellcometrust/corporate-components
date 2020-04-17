@@ -194,10 +194,22 @@
 }
 
 .slideshow__image {
-  height: 100%;
-  object-fit: cover;
   position: absolute;
   width: 100%;
+
+  @supports (object-fit: cover) {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media all and (-ms-high-contrast:none) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.lazy {
+    filter: blur(20px) brightness(110%);
+  }
 }
 
 .slideshow__image-caption {

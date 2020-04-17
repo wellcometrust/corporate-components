@@ -3,7 +3,8 @@ import cx from 'classnames';
 import bowser from 'bowser';
 
 import Button from 'Button';
-import Grid, { GridCell } from 'Grid';
+import Grid from 'Grid';
+import Picture from 'Picture';
 
 type SlideshowHeroProps = {
   animationDuration?: number;
@@ -13,8 +14,11 @@ type SlideshowHeroProps = {
     credit: string;
     id: string;
     srcNarrow: string;
+    srcNarrowPreload: string;
     srcWide: string;
+    srcWidePreload: string;
     srcSuperWide: string;
+    srcSuperWidePreload: string;
   }[];
   moreLink?: string;
   skipLink?: string;
@@ -24,7 +28,7 @@ type SlideshowHeroProps = {
 };
 
 export const SlideshowHero = ({
-  animationDuration = 5000,
+  animationDuration = 6000,
   className,
   images,
   moreLink,
@@ -36,6 +40,25 @@ export const SlideshowHero = ({
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [browserName, setBrowserName] = useState(null);
   const imageCount = images?.length || 0;
+
+  useEffect(() => {
+    if (images.length) {
+      const imgArray = document.querySelectorAll('.slideshow__image-frame');
+
+      imgArray.forEach(el => {
+        const sources = Array.from(el.querySelectorAll('source'));
+
+        sources.forEach(source => {
+          // assigned source to separate variable `s` to avoid mutating the arguments object
+          const s = source;
+
+          // update the source (need to update both the property and the HTML attribute because of iOS Safari)
+          s.srcset = s.dataset.srcset;
+          s.setAttribute('srcset', s.getAttribute('data-srcset'));
+        });
+      });
+    }
+  }, []);
 
   const classNames = cx('slideshow-hero', {
     [`${browserName}`]: browserName,
@@ -50,12 +73,12 @@ export const SlideshowHero = ({
 
   useEffect(() => {
     if (imageCount > 1) {
+      // slideshow timing sequence
       const t = setInterval(
         (function() {
           let nextIndex = 0;
 
           return function() {
-            setCurrentSlideIndex(null);
             setCurrentSlideIndex(nextIndex);
 
             nextIndex += 1;
@@ -109,7 +132,17 @@ export const SlideshowHero = ({
             {images &&
               images.map(
                 (
-                  { caption, credit, id, srcNarrow, srcWide, srcSuperWide },
+                  {
+                    caption,
+                    credit,
+                    id,
+                    srcNarrow,
+                    srcNarrowPreload,
+                    srcWide,
+                    srcWidePreload,
+                    srcSuperWide,
+                    srcSuperWidePreload
+                  },
                   index
                 ) => {
                   const imageClassNames = cx('slideshow__image-container', {
@@ -124,30 +157,16 @@ export const SlideshowHero = ({
                     >
                       <div className="slideshow__image-frame-outer">
                         <div className="slideshow__image-frame">
-                          {/* TODO: 6411 - add responsive images */}
-                          {/* <picture>
-                            <source
-                              type="image/jpeg"
-                              media="(min-aspect-ratio: 16/9)"
-                              srcSet={srcSuperWide}
-                              data-loaded-url="<?php print $image['loaded_url'] ?>"
-                            />
-                            <source
-                              type="image/jpeg"
-                              media="(min-width: 768px)"
-                              srcSet={srcWide}
-                              data-loaded-url="<?php print $image['loaded_url'] ?>"
-                            />
-                            <img
-                              srcSet={srcNarrow}
-                              alt=""
-                              className="slideshow__image"
-                            />
-                          </picture> */}
-                          <img
-                            src={srcNarrow}
-                            alt=""
-                            className="slideshow__image"
+                          <Picture
+                            fallbackSrc={srcWide}
+                            isLazy
+                            src={srcNarrowPreload}
+                            srcSet={srcNarrow}
+                            srcSetPreload={srcNarrowPreload}
+                            srca={srcWide}
+                            srcap={srcWidePreload}
+                            srcb={srcSuperWide}
+                            srcbp={srcSuperWidePreload}
                           />
                         </div>
                       </div>
