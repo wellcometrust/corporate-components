@@ -7,7 +7,6 @@ import Grid, { GridCell } from 'Grid';
 
 type SlideshowHeroProps = {
   animationDuration?: number;
-  animationSpeed?: number;
   className?: string;
   images?: {
     caption: string;
@@ -25,8 +24,7 @@ type SlideshowHeroProps = {
 };
 
 export const SlideshowHero = ({
-  animationDuration = 6000,
-  animationSpeed = 1000,
+  animationDuration = 5000,
   className,
   images,
   moreLink,
@@ -57,12 +55,8 @@ export const SlideshowHero = ({
           let nextIndex = 0;
 
           return function() {
+            setCurrentSlideIndex(null);
             setCurrentSlideIndex(nextIndex);
-
-            // remove active state to fade out previous image before next image comes in
-            setTimeout(() => {
-              setCurrentSlideIndex(null);
-            }, animationDuration - animationSpeed);
 
             nextIndex += 1;
 
