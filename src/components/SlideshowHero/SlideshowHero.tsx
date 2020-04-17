@@ -12,13 +12,14 @@ type SlideshowHeroProps = {
   images?: {
     caption: string;
     credit: string;
+    fallbackImage: string;
     id: string;
-    srcNarrow: string;
-    srcNarrowPreload: string;
-    srcWide: string;
-    srcWidePreload: string;
-    srcSuperWide: string;
-    srcSuperWidePreload: string;
+    imageSources: {
+      sourceMedia?: string;
+      sourcePreload: string;
+      sourceFull: string;
+      sourceType: string;
+    }[];
   }[];
   moreLink?: string;
   skipLink?: string;
@@ -132,17 +133,7 @@ export const SlideshowHero = ({
             {images &&
               images.map(
                 (
-                  {
-                    caption,
-                    credit,
-                    id,
-                    srcNarrow,
-                    srcNarrowPreload,
-                    srcWide,
-                    srcWidePreload,
-                    srcSuperWide,
-                    srcSuperWidePreload
-                  },
+                  { caption, credit, fallbackImage, id, imageSources },
                   index
                 ) => {
                   const imageClassNames = cx('slideshow__image-container', {
@@ -158,15 +149,9 @@ export const SlideshowHero = ({
                       <div className="slideshow__image-frame-outer">
                         <div className="slideshow__image-frame">
                           <Picture
-                            fallbackSrc={srcWide}
+                            fallbackSrc={fallbackImage}
                             isLazy
-                            src={srcNarrowPreload}
-                            srcSet={srcNarrow}
-                            srcSetPreload={srcNarrowPreload}
-                            srca={srcWide}
-                            srcap={srcWidePreload}
-                            srcb={srcSuperWide}
-                            srcbp={srcSuperWidePreload}
+                            sources={imageSources}
                           />
                         </div>
                       </div>

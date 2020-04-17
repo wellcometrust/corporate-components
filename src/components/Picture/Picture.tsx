@@ -6,13 +6,14 @@ type PictureProps = {
   className?: string;
   fallbackSrc?: string;
   isLazy: boolean;
-  src: string;
+  sources: {
+    sourceMedia?: string;
+    sourcePreload: string;
+    sourceFull: string;
+    sourceType: string;
+  }[];
+  src?: string;
   srcSet?: string;
-  srcSetPreload?: string;
-  srca?: string;
-  srcap?: string;
-  srcb?: string;
-  srcbp?: string;
 };
 
 const Picture = ({
@@ -22,11 +23,7 @@ const Picture = ({
   isLazy,
   src,
   srcSet,
-  srcSetPreload,
-  srca,
-  srcap,
-  srcb,
-  srcbp
+  sources
 }: PictureProps) => {
   const [loaded, setLoaded] = useState(false);
   const classNames = cx('slideshow__image', {
@@ -45,19 +42,14 @@ const Picture = ({
 
   return (
     <picture>
-      <source
-        type="image/jpeg"
-        media="(min-aspect-ratio: 16/9)"
-        srcSet={srcbp}
-        data-srcset={srcb}
-      />
-      <source
-        type="image/jpeg"
-        media="(min-width: 768px)"
-        srcSet={srcap}
-        data-srcset={srca}
-      />
-      <source type="image/jpeg" srcSet={srcSetPreload} data-srcset={srcSet} />
+      {sources?.map(s => (
+        <source
+          type={s.sourceType}
+          media={s.sourceMedia}
+          srcSet={s.sourcePreload}
+          data-srcset={s.sourceFull}
+        />
+      ))}
       <img
         onError={onError}
         onLoad={onLoad}
