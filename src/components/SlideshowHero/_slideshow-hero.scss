@@ -206,10 +206,6 @@
     top: 50%;
     transform: translateY(-50%);
   }
-
-  &.u-loading-preload {
-    filter: blur(20px) brightness(110%);
-  }
 }
 
 .slideshow__image-caption {
