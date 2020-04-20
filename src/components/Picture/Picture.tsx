@@ -5,6 +5,7 @@ type PictureProps = {
   alt?: string;
   className?: string;
   fallbackSrc?: string;
+  // TODO: establish method for setting lazy loading based on latest spec
   isLazy?: boolean;
   sources: {
     sourceMedia?: string;
