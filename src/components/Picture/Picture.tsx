@@ -5,7 +5,7 @@ type PictureProps = {
   alt?: string;
   className?: string;
   fallbackSrc?: string;
-  isLazy: boolean;
+  isLazy?: boolean;
   sources: {
     sourceMedia?: string;
     sourcePreload: string;
@@ -27,7 +27,8 @@ const Picture = ({
 }: PictureProps) => {
   const [loaded, setLoaded] = useState(false);
   const classNames = cx('slideshow__image', {
-    lazy: isLazy && !loaded,
+    'u-loading-lazy': isLazy && !loaded,
+    'u-loading-preload': !isLazy && !loaded,
     [`${className}`]: className
   });
 

@@ -207,7 +207,7 @@
     transform: translateY(-50%);
   }
 
-  &.lazy {
+  &.u-loading-preload {
     filter: blur(20px) brightness(110%);
   }
 }

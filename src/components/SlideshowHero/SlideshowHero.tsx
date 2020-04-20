@@ -150,7 +150,6 @@ export const SlideshowHero = ({
                         <div className="slideshow__image-frame">
                           <Picture
                             fallbackSrc={fallbackImage}
-                            isLazy
                             sources={imageSources}
                           />
                         </div>
