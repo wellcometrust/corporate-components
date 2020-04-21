@@ -44,8 +44,9 @@ const Picture = ({
 
   return (
     <picture>
-      {sources?.map(s => (
+      {sources?.map((s, index) => (
         <source
+          key={`${index}-${s.sourcePreload}`}
           type={s.sourceType}
           media={s.sourceMedia}
           srcSet={s.sourcePreload}
