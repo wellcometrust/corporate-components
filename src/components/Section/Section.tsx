@@ -4,12 +4,14 @@ import cx from 'classnames';
 type SectionProps = {
   children: React.ReactNode;
   hasAlternateStyle?: boolean;
+  id?: string;
   type?: 'div' | 'section';
 };
 
 export const Section = ({
   children,
   hasAlternateStyle,
+  id,
   type = 'section'
 }: SectionProps) => {
   const Element = type;
@@ -17,7 +19,11 @@ export const Section = ({
     [`section--alternate`]: hasAlternateStyle
   });
 
-  return <Element className={classNames}>{children}</Element>;
+  return (
+    <Element className={classNames} id={id}>
+      {children}
+    </Element>
+  );
 };
 
 export default Section;

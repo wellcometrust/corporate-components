@@ -3,35 +3,63 @@ import cx from 'classnames';
 import bowser from 'bowser';
 
 import Button from 'Button';
-import Grid, { GridCell } from 'Grid';
+import Grid from 'Grid';
+import Picture from 'Picture';
 
 type SlideshowHeroProps = {
+  animationDuration?: number;
   className?: string;
   images?: {
     caption: string;
     credit: string;
-    focalX?: number;
-    focalY?: number;
+    fallbackImage: string;
     id: string;
-    src: string;
+    imageSources: {
+      sourceMedia?: string;
+      sourcePreload: string;
+      sourceFull: string;
+      sourceType: string;
+    }[];
   }[];
+  moreLink?: string;
+  skipLink?: string;
+  skipLinkText?: string;
   standfirst?: string;
-  animationDuration?: number;
-  animationSpeed?: number;
   title: string;
 };
 
 export const SlideshowHero = ({
+  animationDuration = 6000,
   className,
   images,
+  moreLink,
+  skipLink,
+  skipLinkText,
   standfirst,
-  animationDuration = 2000,
-  animationSpeed = 400,
   title
 }: SlideshowHeroProps) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [browserName, setBrowserName] = useState(null);
   const imageCount = images?.length || 0;
+
+  useEffect(() => {
+    if (images.length) {
+      const imgArray = document.querySelectorAll('.slideshow__image-frame');
+
+      imgArray.forEach(el => {
+        const sources = Array.from(el.querySelectorAll('source'));
+
+        sources.forEach(source => {
+          // assigned source to separate variable `s` to avoid mutating the arguments object
+          const s = source;
+
+          // update the source (need to update both the property and the HTML attribute because of iOS Safari)
+          s.srcset = s.dataset.srcset;
+          s.setAttribute('srcset', s.getAttribute('data-srcset'));
+        });
+      });
+    }
+  }, []);
 
   const classNames = cx('slideshow-hero', {
     [`${browserName}`]: browserName,
@@ -46,17 +74,13 @@ export const SlideshowHero = ({
 
   useEffect(() => {
     if (imageCount > 1) {
+      // slideshow timing sequence
       const t = setInterval(
         (function() {
           let nextIndex = 0;
 
           return function() {
             setCurrentSlideIndex(nextIndex);
-
-            // remove active state to fade out previous image before next image comes in
-            setTimeout(() => {
-              setCurrentSlideIndex(null);
-            }, animationDuration - animationSpeed);
 
             nextIndex += 1;
 
@@ -77,8 +101,6 @@ export const SlideshowHero = ({
     return () => {};
   }, []);
 
-  const handleClick = () => {};
-
   return (
     <div className={classNames}>
       <div className="slideshow-hero__container">
@@ -87,23 +109,33 @@ export const SlideshowHero = ({
             <div className="slideshow-hero__copy">
               <h1 className="slideshow-hero__title">{title}</h1>
               <p className="slideshow-hero__standfirst">{standfirst}</p>
-              <Button variant="link" href="/">
-                Learn more
-              </Button>
+              {moreLink && (
+                <Button variant="link" href={moreLink}>
+                  Learn more
+                </Button>
+              )}
             </div>
-            <Button
-              variant="unstyled"
-              className="slideshow-hero__btn-skip"
-              icon="chevronThin"
-              onClick={handleClick}
-            >
-              <span className="u-visually-hidden">Show search pane</span>
-            </Button>
+            {skipLink && (
+              <Button
+                aria-hidden="true"
+                className="slideshow-hero__btn-skip"
+                href={skipLink}
+                icon="chevronThin"
+                role="presentation"
+                tabIndex={-1}
+                variant="unstyled"
+              >
+                <span className="u-visually-hidden">{skipLinkText}</span>
+              </Button>
+            )}
           </div>
           <div className="slideshow">
             {images &&
               images.map(
-                ({ caption, credit, focalX, focalY, id, src }, index) => {
+                (
+                  { caption, credit, fallbackImage, id, imageSources },
+                  index
+                ) => {
                   const imageClassNames = cx('slideshow__image-container', {
                     [`is-active`]: index === currentSlideIndex
                   });
@@ -116,7 +148,7 @@ export const SlideshowHero = ({
                     >
                       <div className="slideshow__image-frame-outer">
                         <div className="slideshow__image-frame">
-                          <img src={src} alt="" className="slideshow__image" />
+                          <Picture src={fallbackImage} sources={imageSources} />
                         </div>
                       </div>
                       <figcaption className="slideshow__image-caption">

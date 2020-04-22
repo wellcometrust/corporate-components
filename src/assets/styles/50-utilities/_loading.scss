@@ -1,10 +1,11 @@
 // ----------------------------------
 // UI Settings
+// Global
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
-@import 'a11y';
-@import 'external-link-indicator';
-@import 'loading';
+.u-loading-preload {
+  filter: blur(20px) brightness(110%);
+}
