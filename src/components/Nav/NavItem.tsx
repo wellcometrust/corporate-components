@@ -9,6 +9,7 @@ type Props = {
   className?: string;
   level: number;
   parentUrl?: string;
+  parentText?: string;
   text: string;
   url: string;
   children?: React.ReactNode;
@@ -18,6 +19,7 @@ export const NavItem = ({
   className,
   level,
   parentUrl,
+  parentText,
   text,
   url,
   children
@@ -40,6 +42,8 @@ export const NavItem = ({
     }
   };
 
+  const itempath = parentText ? `${parentText}__${text}` : `${text}`;
+
   return (
     <li className={itemClasses}>
       <Link href={url} activeClassName="active">
@@ -47,6 +51,7 @@ export const NavItem = ({
           className="nav__link"
           data-level={level}
           data-parent={parentUrl}
+          data-itempath={itempath}
           href={url}
           onClick={handleItemClick}
         >
