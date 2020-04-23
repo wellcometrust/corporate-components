@@ -19,6 +19,7 @@ type NavListProps = {
   data: NavDataProps;
   level?: number;
   parentUrl?: string;
+  parentText?: string;
 };
 
 type NavLinksProps = {
@@ -26,7 +27,7 @@ type NavLinksProps = {
   level?: number;
 };
 
-const NavList = ({ data, level, parentUrl }: NavListProps) => {
+const NavList = ({ data, level, parentUrl, parentText }: NavListProps) => {
   // create child nav items
   // children of the context level (e.g. level 2)
   const children = (childNodes: NavDataProps, parentNode: NavDataItemProps) =>
@@ -36,17 +37,18 @@ const NavList = ({ data, level, parentUrl }: NavListProps) => {
           key={parentNode.id}
           level={level + 1}
           text={parentNode.text}
+          parentText={parentText}
           url={parentNode.url}
           className="first"
         />
         <NavList
           data={childNodes}
+          parentText={parentNode.text}
           level={level + 1}
           parentUrl={parentNode.url}
         />
       </ul>
     );
-
   return (
     <>
       {data.map(node => (
@@ -54,6 +56,7 @@ const NavList = ({ data, level, parentUrl }: NavListProps) => {
           key={node.id}
           level={level}
           parentUrl={parentUrl}
+          parentText={parentText}
           text={node.text}
           url={node.url}
         >
