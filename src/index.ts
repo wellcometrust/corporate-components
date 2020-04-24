@@ -21,6 +21,7 @@ export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { SearchForm } from 'SearchForm/SearchForm';
 export { SearchPane } from 'SearchPane/SearchPane';
 export { Section } from 'Section/Section';
+export { SectionTitle } from 'SectionTitle/SectionTitle';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 

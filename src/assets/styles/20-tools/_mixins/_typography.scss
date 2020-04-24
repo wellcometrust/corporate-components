@@ -9,18 +9,15 @@
 
 @mixin heading-divider(
   $height: calc(0.5 * var(--space-unit)),
+  $spacing: var(--space-md),
   $width: calc(2.5 * var(--space-unit))
 ) {
-  position: relative;
-
   &:after {
     background-color: var(--colour-black);
-    bottom: 0;
     content: '';
+    display: block;
     height: $height;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%);
+    margin: $spacing auto 0;
     width: $width;
   }
 }
