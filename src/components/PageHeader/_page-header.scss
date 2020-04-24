@@ -16,7 +16,6 @@
   @extend %heading-base;
   @extend %heading-hero;
   @include heading-divider;
-  padding-bottom: var(--space-md);
 }
 
 .page-header__standfirst {

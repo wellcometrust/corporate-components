@@ -1,0 +1,14 @@
+// ----------------------------------
+// UI Components
+// SectionTitle
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-section__title {
+  @extend %heading-base;
+  @extend %heading-display;
+  @include heading-divider;
+  text-align: center;
+}
