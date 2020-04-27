@@ -31,13 +31,21 @@
 }
 
 .search-form__btn-submit {
-  background-color: var(--colour-blue-50);
+  background-color: var(--colour-blue-60);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  flex-basis: calc(4.375 * var(--space-unit));
+  flex-shrink: 0;
   height: auto;
   justify-content: center;
-  transition: opacity ease calc(0.5 * var(--transition-duration));
+  width: 110px;
+
+  &:hover {
+    background-color: var(--colour-blue-70);
+  }
+
+  &:active {
+    background-color: var(---colour-blue-50);
+  }
 }
 
 .search-form__btn-submit .icon {
