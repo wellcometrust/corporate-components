@@ -6,12 +6,16 @@ import Image from './Image';
 import Readme from './Image.md';
 
 const ImageExample = () => {
-  const ImageText = text('alt', 'Image description');
+  const AltText = text('alt', 'Image alt text');
+  const CaptionText = text('caption', 'Image caption');
+  const CreditText = text('credit', 'Image credit');
 
   return (
     <Image
+      alt={AltText}
       src="https://placehold.it/800x450&text=aspect+ratio+16:9"
-      alt={ImageText}
+      caption={CaptionText}
+      credit={CreditText}
     />
   );
 };

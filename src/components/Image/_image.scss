@@ -6,6 +6,24 @@
 // 2019-11-11
 // ----------------------------------
 
-.cc-image {
+.cc-media {
+  @include grid-container;
+  margin: 0;
+}
+
+.cc-media__image {
+  @include grid-column(4, 10);
   width: 100%;
+}
+
+.cc-media__caption {
+  @include grid-column(10, 13);
+}
+
+.cc-media__caption-detail {
+  display: block;
+}
+
+.cc-media__credit {
+  display: block;
 }
