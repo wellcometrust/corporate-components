@@ -32,7 +32,7 @@
   background-color: var(--colour-blue-60);
   color: var(--colour-white);
 
-  &:hover {
+  @include hocus {
     background-color: var(--colour-blue-70);
     color: var(--colour-white);
   }
@@ -52,7 +52,7 @@
 .btn--link {
   color: var(--colour-blue-60);
 
-  &:hover {
+  @include hocus {
     color: var(--colour-blue-70);
   }
 
@@ -65,7 +65,7 @@
 .btn--ghost {
   border: 1px solid var(--colour-blue-50);
 
-  &:hover {
+  @include hocus {
     border-color: var(--colour-blue-60);
   }
 

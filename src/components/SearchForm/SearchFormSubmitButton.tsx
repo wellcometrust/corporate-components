@@ -18,8 +18,13 @@ export const SearchFormSubmitButton = ({
   });
 
   return (
-    <Button className={classNames} icon="search" type="submit">
-      <span className="u-visually-hidden">Submit</span>
+    <Button
+      className={classNames}
+      icon="search"
+      iconPlacementSwitch
+      type="submit"
+    >
+      Search
     </Button>
   );
 };

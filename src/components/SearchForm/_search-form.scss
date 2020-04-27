@@ -31,13 +31,11 @@
 }
 
 .search-form__btn-submit {
-  background-color: var(--colour-blue-50);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  flex-basis: calc(4.375 * var(--space-unit));
+  flex-shrink: 0;
   height: auto;
   justify-content: center;
-  transition: opacity ease calc(0.5 * var(--transition-duration));
 }
 
 .search-form__btn-submit .icon {
