@@ -42,7 +42,8 @@
     background-color: var(--colour-blue-70);
   }
 
-  &:active {
+  &:active,
+  &:focus {
     background-color: var(---colour-blue-50);
   }
 }
