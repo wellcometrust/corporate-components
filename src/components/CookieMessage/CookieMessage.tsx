@@ -34,10 +34,18 @@ export const CookieMessage = ({
         </a>
       </p>
       <div className="cookie-message__buttons">
-        <Button href="/cookies/config" variant="ghost">
+        <Button
+          className="cookie-message__button"
+          href="/cookies/config"
+          variant="ghost"
+        >
           Manage preferences
         </Button>
-        <Button href="#main" onClick={handleItemClick}>
+        <Button
+          className="cookie-message__button"
+          href="#main"
+          onClick={handleItemClick}
+        >
           Accept and close
         </Button>
       </div>
