@@ -31,21 +31,11 @@
 }
 
 .search-form__btn-submit {
-  background-color: var(--colour-blue-60);
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   flex-shrink: 0;
   height: auto;
   justify-content: center;
-
-  &:hover {
-    background-color: var(--colour-blue-70);
-  }
-
-  &:active,
-  &:focus {
-    background-color: var(---colour-blue-50);
-  }
 }
 
 .search-form__btn-submit .icon {
