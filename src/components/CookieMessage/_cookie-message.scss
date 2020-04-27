@@ -4,7 +4,7 @@
   color: var(--colour-black);
   left: 0;
   letter-spacing: var(--body-letter-spacing);
-  padding: var(--space-lg);
+  padding: calc(2 * var(--space-unit));
   position: fixed;
   width: 100%;
   z-index: 105;
