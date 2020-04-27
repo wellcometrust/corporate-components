@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import cx from 'classnames';
+
+import Media from 'Media';
 
 type ImageProps = {
   alt: string;
@@ -22,9 +23,6 @@ export const Image = ({
   srcSet
 }: ImageProps) => {
   const [loaded, setLoaded] = useState(false);
-  const classNames = cx('cc-media grid', {
-    [`${className}`]: className
-  });
 
   const onLoad = () => {
     setLoaded(true);
@@ -36,24 +34,17 @@ export const Image = ({
   };
 
   return (
-    <>
-      <figure className={classNames}>
-        <img
-          alt={alt}
-          className="cc-media__image"
-          onError={onError}
-          onLoad={onLoad}
-          sizes={sizes}
-          src={src}
-          srcSet={srcSet}
-        />
-        <figcaption className="cc-media__caption">
-          <span className="cc-media__caption-detail">{caption}</span>
-          <span className="u-visually-hidden"> - </span>
-          <span className="cc-media__credit">{credit}</span>
-        </figcaption>
-      </figure>
-    </>
+    <Media caption={caption} className={className} credit={credit}>
+      <img
+        alt={alt}
+        className="cc-media__image"
+        onError={onError}
+        onLoad={onLoad}
+        sizes={sizes}
+        src={src}
+        srcSet={srcSet}
+      />
+    </Media>
   );
 };
 
