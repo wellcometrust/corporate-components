@@ -1,0 +1,30 @@
+// ----------------------------------
+// UI Components
+// Image
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-media {
+  @include grid-container;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.cc-media__image {
+  @include grid-column(4, 10);
+  width: 100%;
+}
+
+.cc-media__caption {
+  @include grid-column(10, 13);
+}
+
+.cc-media__caption-detail {
+  display: block;
+}
+
+.cc-media__credit {
+  display: block;
+}
