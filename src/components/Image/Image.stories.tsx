@@ -13,9 +13,10 @@ const ImageExample = () => {
   return (
     <Image
       alt={AltText}
-      src="https://placehold.it/800x450&text=aspect+ratio+16:9"
       caption={CaptionText}
       credit={CreditText}
+      src="https://placehold.it/768x432&text=default+image+(768w)"
+      srcSet="https://placehold.it/400x225 400w, https://placehold.it/768x432 768w, https://placehold.it/1024x576 1024w"
     />
   );
 };

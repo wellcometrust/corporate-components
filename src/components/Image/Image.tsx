@@ -13,12 +13,15 @@ type ImageProps = {
   srcSet?: string;
 };
 
+const imageSizesDefault =
+  '(min-width: 1494px) 648px, (min-width: 1024px) 42vw, (min-width: 768px) 75vw, 90vw';
+
 export const Image = ({
   alt = '',
   caption,
   credit,
   className,
-  sizes,
+  sizes = imageSizesDefault,
   src,
   srcSet
 }: ImageProps) => {

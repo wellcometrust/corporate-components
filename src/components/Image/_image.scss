@@ -13,12 +13,28 @@
 }
 
 .cc-media__image {
-  @include grid-column(4, 10);
+  @include grid-column(1, 7);
   width: 100%;
+
+  @include mq(sm) {
+    @include grid-column(2, 12);
+  }
+
+  @include mq(md) {
+    @include grid-column(4, 10);
+  }
 }
 
 .cc-media__caption {
-  @include grid-column(10, 13);
+  @include grid-column(1, 7);
+
+  @include mq(sm) {
+    @include grid-column(2, 12);
+  }
+
+  @include mq(md) {
+    @include grid-column(10, 13);
+  }
 }
 
 .cc-media__caption-detail {
