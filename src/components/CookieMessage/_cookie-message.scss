@@ -4,12 +4,13 @@
   color: var(--colour-black);
   left: 0;
   letter-spacing: var(--body-letter-spacing);
-  padding: calc(4 * var(--space-unit)) calc(6 * var(--space-unit));
+  padding: calc(2 * var(--space-unit));
   position: fixed;
+  width: 100%;
   z-index: 105;
 
   @include mq(sm) {
-    width: 100vw;
+    padding: calc(4 * var(--space-unit)) calc(6 * var(--space-unit));
   }
 }
 
@@ -39,12 +40,17 @@
   display: flex;
   flex-wrap: wrap;
   padding-top: calc(2 * var(--space-unit));
+}
 
-  > :nth-child(n) {
-    margin: var(--space-unit) 0;
-  }
+.cookie-message__button {
+  margin: var(--space-unit) 0;
+  width: 100%;
 
-  > :first-child {
-    margin-right: calc(4 * var(--space-unit));
+  @include mq(sm) {
+    width: auto;
+
+    &:first-child {
+      margin-right: calc(4 * var(--space-unit));
+    }
   }
 }
