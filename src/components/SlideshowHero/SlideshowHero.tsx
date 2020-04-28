@@ -153,8 +153,9 @@ export const SlideshowHero = ({
                       </div>
                       <figcaption className="slideshow__image-caption">
                         <span className="slideshow__image-caption-detail">
-                          {caption}&nbsp;
+                          {caption}
                         </span>
+                        <span className="u-visually-hidden"> - </span>
                         <span className="slideshow__image-credit">
                           {credit}
                         </span>
