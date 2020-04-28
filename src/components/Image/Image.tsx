@@ -34,10 +34,9 @@ export const Image = ({
   };
 
   return (
-    <Media caption={caption} className={className} credit={credit}>
+    <Media caption={caption} className={className} credit={credit} type="image">
       <img
         alt={alt}
-        className="cc-media__image"
         onError={onError}
         onLoad={onLoad}
         sizes={sizes}
