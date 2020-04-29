@@ -24,6 +24,7 @@ export { SearchPane } from 'SearchPane/SearchPane';
 export { Section } from 'Section/Section';
 export { SectionTitle } from 'SectionTitle/SectionTitle';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
+export { Video } from 'Video/Video';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 
 // context components
