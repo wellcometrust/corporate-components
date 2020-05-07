@@ -5,6 +5,7 @@ import bowser from 'bowser';
 import Button from 'Button';
 import Grid from 'Grid';
 import Picture from 'Picture';
+import MediaCaption from 'Media/MediaCaption';
 
 type SlideshowHeroProps = {
   animationDuration?: number;
@@ -151,15 +152,11 @@ export const SlideshowHero = ({
                           <Picture src={fallbackImage} sources={imageSources} />
                         </div>
                       </div>
-                      <figcaption className="slideshow__image-caption">
-                        <span className="slideshow__image-caption-detail">
-                          {caption}
-                        </span>
-                        <span className="u-visually-hidden"> - </span>
-                        <span className="slideshow__image-credit">
-                          {credit}
-                        </span>
-                      </figcaption>
+                      <MediaCaption
+                        caption={caption}
+                        className="slideshow__image-caption"
+                        credit={credit}
+                      />
                     </figure>
                   );
                 }
