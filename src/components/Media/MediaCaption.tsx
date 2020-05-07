@@ -12,13 +12,13 @@ const MediaCaption = ({ caption, className, credit }: MediaCaptionProps) => {
     [`${className}`]: className
   });
 
-  return (
+  return caption || credit ? (
     <figcaption className={classNames}>
-      <span className="cc-media__caption-detail">{caption}</span>
-      <span className="u-visually-hidden"> - </span>
-      <span className="cc-media__credit">Credit: {credit}</span>
+      {caption && <span className="cc-media__caption-detail">{caption}</span>}
+      {caption && credit && <span className="u-visually-hidden"> - </span>}
+      {credit && <span className="cc-media__credit">Credit: {credit}</span>}
     </figcaption>
-  );
+  ) : null;
 };
 
 export default MediaCaption;
