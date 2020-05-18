@@ -1,0 +1,38 @@
+// ----------------------------------
+// UI Components
+// Media (in-page Image and Video)
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-text {
+  h3 {
+    @extend %heading-display;
+  }
+
+  h4 {
+    @extend %heading-large;
+  }
+
+  h5 {
+    @extend %heading-regular;
+  }
+
+  h6 {
+    @extend %heading-small;
+  }
+}
+
+.cc-text__content {
+  @include grid-column(1, 7);
+  width: 100%;
+
+  @include mq(sm) {
+    @include grid-column(2, 12);
+  }
+
+  @include mq(md) {
+    @include grid-column(4, 10);
+  }
+}
