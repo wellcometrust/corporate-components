@@ -30,16 +30,12 @@ export const PageHeader = ({
           <GridCell column={1} columnCount={1}>
             {meta}
             <h1 className="page-header__title">{title}</h1>
+            {standfirst && (
+              <div className="page-header__standfirst">{standfirst}</div>
+            )}
           </GridCell>
         </Grid>
       </div>
-      {standfirst && (
-        <Grid>
-          <GridCell column={1} columnCount={1}>
-            <div className="page-header__standfirst">{standfirst}</div>
-          </GridCell>
-        </Grid>
-      )}
     </div>
   );
 };
