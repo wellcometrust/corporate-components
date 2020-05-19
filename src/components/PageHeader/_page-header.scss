@@ -9,17 +9,17 @@
 .page-header__container {
   padding-bottom: var(--space-xl);
   padding-top: var(--space-xl);
-  text-align: center;
 }
 
 .page-header__title {
   @extend %heading-base;
-  @extend %heading-hero;
+  @extend %heading-super;
   @include heading-divider;
+  font-family: var(--font-secondary);
+  text-align: center;
 }
 
 .page-header__standfirst {
   font-size: var(--heading-md);
-  padding-bottom: var(--space-xl);
-  text-align: center;
+  margin-top: var(--space-xl);
 }

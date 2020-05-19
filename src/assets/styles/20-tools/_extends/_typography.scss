@@ -10,45 +10,42 @@
 /* Font Sets */
 
 %heading-base {
-  font-family: var(--font-secondary);
   line-height: var(--heading-line-height);
   margin: 0;
 }
 
 /* Wellcome Design System type styles */
-// effectively equivalent to theoretical <h0>
-// and only really used for home hero
+// equivalent to <h1>
 %heading-super {
   font-size: var(--heading-xxl);
   letter-spacing: var(--heading-letter-spacing);
-  margin-bottom: var(--space-lg);
 }
 
-// equivalent to <h1>
+// equivalent to <h2>
 %heading-hero {
   font-size: var(--heading-xl);
   letter-spacing: var(--heading-letter-spacing);
 }
 
-// equivalent to <h2>
+// equivalent to <h3>
 %heading-display {
   font-size: var(--heading-lg);
   margin-bottom: var(--space-lg);
 }
 
-// equivalent to <h3>
+// equivalent to <h4>
 %heading-large {
   font-size: var(--heading-md);
   margin-bottom: var(--space-md);
 }
 
-// equivalent to <h4>
+// equivalent to <h5>
 %heading-regular {
   font-size: var(--heading-sm);
   margin-bottom: var(--space-md);
 }
 
-// equivalent to <h5>
+// equivalent to <h6>
 %heading-small {
   font-size: var(--heading-xs);
   margin-bottom: var(--space-md);

@@ -21,22 +21,25 @@ h6 {
 }
 
 h1 {
-  @extend %heading-hero;
+  @extend %heading-super;
 }
 
 h2 {
-  @extend %heading-display;
+  @extend %heading-hero;
 }
 
 h3 {
-  @extend %heading-large;
+  @extend %heading-display;
 }
 
 h4 {
+  @extend %heading-large;
+}
+
+h5 {
   @extend %heading-regular;
 }
 
-h5,
 h6 {
   @extend %heading-small;
 }
