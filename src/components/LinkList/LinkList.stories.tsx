@@ -23,8 +23,8 @@ const links = [
 
 const LinkListExample = () => <LinkList links={links} />;
 
-const stories = storiesOf('Components|Image', module);
+const stories = storiesOf('Components|Listings', module);
 
-stories.add('Image', LinkListExample, {
+stories.add('LinkList', LinkListExample, {
   readme: { sidebar: Readme }
 });
