@@ -1,0 +1,39 @@
+// ----------------------------------
+// UI Components
+// Media (in-page Image and Video)
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-link-list {
+  @extend %list-clean;
+  border-top: 1px solid var(--colour-grey-10);
+}
+
+.cc-link-list__item {
+  border-bottom: 1px solid var(--colour-grey-10);
+}
+
+.cc-link-list__link {
+  align-items: center;
+  color: var(--colour-blue-60);
+  display: flex;
+  line-height: 1.5;
+  padding: var(--space-unit) 0;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--colour-blue-70);
+  }
+
+  &:active {
+    color: var(--colour-blue-50);
+  }
+}
+
+.cc-link-list__link-icon {
+  margin-left: auto;
+  order: 2;
+  width: 0.375em;
+}
