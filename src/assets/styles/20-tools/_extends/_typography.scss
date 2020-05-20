@@ -25,6 +25,7 @@
 %heading-hero {
   font-size: var(--heading-xl);
   letter-spacing: var(--heading-letter-spacing);
+  margin-bottom: var(--space-lg);
 }
 
 // equivalent to <h3>
@@ -53,9 +54,16 @@
 
 // equivalent to <p>
 %body-large {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   // D7 override
   margin-top: 0;
+}
+
+/* Lists */
+
+%list-base {
+  margin: 0 0 var(--space-lg);
+  padding-left: calc(2 * var(--space-unit));
 }
 
 /* Alignment */
