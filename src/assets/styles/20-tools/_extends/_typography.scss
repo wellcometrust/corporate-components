@@ -7,6 +7,18 @@
 // 2019-11-11
 // ----------------------------------
 
+%anchor-base {
+  color: var(--colour-blue-60);
+
+  &:hover {
+    color: var(--colour-blue-70);
+  }
+  
+  &:active {
+    color: var(--colour-blue-50);
+  }
+}
+
 /* Font Sets */
 
 %heading-base {

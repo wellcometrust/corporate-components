@@ -1,0 +1,45 @@
+// ----------------------------------
+// UI Components
+// Media (in-page Image and Video)
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-contact {
+  line-height: 1.5;
+  padding-bottom: var(--space-sm);
+}
+
+.cc-link-list__item {
+  border-bottom: 1px solid var(--colour-grey-10);
+}
+
+.cc-contact__name {
+  font-size: var(--body-lg);
+  font-weight: bold;
+  margin-bottom: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.cc-contact__title {
+  display: block;
+  font-weight: normal;
+  margin-bottom: var(--space-sm);
+}
+
+.cc-contact__item {
+  align-items: center;
+  display: flex;
+  margin-bottom: var(--space-sm);
+  margin-top: 0;
+}
+
+.cc-contact__link {
+  @extend %anchor-base;
+  text-decoration: none;
+}
+
+.cc-contact__link-icon {
+  margin-right: calc(2 * var(--space-unit));
+}

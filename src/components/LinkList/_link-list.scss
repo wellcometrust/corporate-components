@@ -16,24 +16,19 @@
 }
 
 .cc-link-list__link {
+  @extend %anchor-base;
   align-items: center;
-  color: var(--colour-blue-60);
   display: flex;
   line-height: 1.5;
   padding: var(--space-unit) 0;
   text-decoration: none;
-
-  &:hover {
-    color: var(--colour-blue-70);
-  }
-
-  &:active {
-    color: var(--colour-blue-50);
-  }
 }
 
 .cc-link-list__link-icon {
+  box-sizing: content-box;
   margin-left: auto;
   order: 2;
+  padding-left: calc(3 * var(--space-unit));
+  padding-right: var(--space-unit);
   width: 0.375em;
 }
