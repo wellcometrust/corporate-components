@@ -12,6 +12,7 @@ export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
 export { Image } from 'Image/Image';
+export { InfoBox } from 'InfoBox/InfoBox';
 export { LinkList } from 'LinkList/LinkList';
 export { Logo } from 'Logo/Logo';
 export { Main } from 'Main/Main';

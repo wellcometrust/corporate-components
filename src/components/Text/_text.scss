@@ -1,13 +1,13 @@
 // ----------------------------------
 // UI Components
-// Media (in-page Image and Video)
+// Text
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
 .cc-text {
-  padding-bottom: var(--space-xl);
+  // padding-bottom: var(--space-xl);
 
   h3 {
     @extend %heading-base;
@@ -43,23 +43,27 @@
   ul {
     @extend %list-base;
   }
+
+  > * + h3 {
+    margin-top: var(--space-xl);
+  }
 }
 
 .cc-text__content {
-  @include grid-column(1, 7);
-  width: 100%;
+  // @include grid-column(1, 7);
+  // width: 100%;
 
-  @include mq(sm) {
-    @include grid-column(2, 12);
-  }
+  // @include mq(sm) {
+  //   @include grid-column(2, 12);
+  // }
 
-  @include mq(md) {
-    @include grid-column(4, 10);
-  }
+  // @include mq(md) {
+  //   @include grid-column(4, 10);
+  // }
 
-  > :last-child {
-    margin-bottom: 0;
-  }
+  // > :last-child {
+  //   margin-bottom: 0;
+  // }
 
   /* ensure h3 always has more space above */
   > * + h3 {
