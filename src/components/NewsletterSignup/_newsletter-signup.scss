@@ -1,0 +1,36 @@
+// ----------------------------------
+// UI Components
+// Newsletter Signup
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.newsletter-signup {
+  background: var(--colour-blue-60);
+  color: var(--colour-white);
+  padding-bottom: var(--space-xl);
+  padding-top: var(--space-xl);
+}
+
+.newsletter__title {
+  @extend %heading-base;
+  @extend %heading-display;
+  @include heading-divider(var(--colour-white));
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.newsletter__intro {
+  @extend %body-large;
+}
+
+.newsletter-signup .newsletter-form__btn-submit {
+  background-color: var(--colour-blue-10);
+  color: var(--colour-blue-60);
+}
+
+.newsletter-signup .newsletter-form__item--footer {
+  font-size: var(--body-md);
+  line-height: 1.5;
+}

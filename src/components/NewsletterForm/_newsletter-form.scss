@@ -112,6 +112,11 @@
   @extend %text-input-base;
   height: 2.75rem;
   width: 100%;
+
+  @include mq(sm) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
 
 /* Checkbox */
@@ -122,6 +127,11 @@
 
 .newsletter-form__btn-submit {
   width: 100%;
+  
+  @include mq(sm) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }  
 }
 
 /* Response Messages */
