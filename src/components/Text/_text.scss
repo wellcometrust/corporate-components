@@ -1,12 +1,13 @@
 // ----------------------------------
 // UI Components
-// Media (in-page Image and Video)
+// Text
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
 .cc-text {
+  // TODO: #6636 - create global styles for scaffolding sections 
   padding-bottom: var(--space-xl);
 
   h3 {
@@ -45,6 +46,7 @@
   }
 }
 
+// TODO: #6636 section scaffolding - make these styles globally accessible for content level components
 .cc-text__content {
   @include grid-column(1, 7);
   width: 100%;
