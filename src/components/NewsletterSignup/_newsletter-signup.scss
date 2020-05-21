@@ -13,7 +13,7 @@
   padding-top: var(--space-xl);
 }
 
-.newsletter__title {
+.newsletter-signup__title {
   @extend %heading-base;
   @extend %heading-display;
   @include heading-divider(var(--colour-white));
@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-.newsletter__intro {
+.newsletter-signup__intro {
   @extend %body-large;
 }
 
