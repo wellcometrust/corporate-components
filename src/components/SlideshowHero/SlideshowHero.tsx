@@ -44,7 +44,7 @@ export const SlideshowHero = ({
   const imageCount = images?.length || 0;
 
   useEffect(() => {
-    if (images.length) {
+    if (images?.length) {
       const imgArray = document.querySelectorAll('.slideshow__image-frame');
 
       imgArray.forEach(el => {
