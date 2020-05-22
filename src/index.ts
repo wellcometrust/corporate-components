@@ -18,6 +18,7 @@ export { Logo } from 'Logo/Logo';
 export { Main } from 'Main/Main';
 export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
+export { NewsletterSignup } from 'NewsletterSignup/NewsletterSignup';
 export { NewsletterForm } from 'NewsletterForm/NewsletterForm';
 export { PageHeader } from 'PageHeader/PageHeader';
 export { ResultsItem } from 'ResultsItem/ResultsItem';
