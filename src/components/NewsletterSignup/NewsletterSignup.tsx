@@ -5,8 +5,8 @@ import NewsletterForm from 'NewsletterForm';
 import Section from 'Section';
 
 type NewsletterSignupProps = {
-  intro: string;
-  title: string;
+  intro?: string;
+  title?: string;
 };
 
 const introDefault =
