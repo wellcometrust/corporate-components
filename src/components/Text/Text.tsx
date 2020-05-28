@@ -1,8 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
+import ReactHtmlParser from 'react-html-parser';
 
 type TextProps = {
-  children: React.ReactNode;
+  children: string;
   className?: string;
 };
 
@@ -13,7 +14,7 @@ export const Text = ({ children, className }: TextProps) => {
 
   return (
     <div className={classNames}>
-      <div className="cc-text__content">{children}</div>
+      <div className="cc-text__content">{ReactHtmlParser(children)}</div>
     </div>
   );
 };
