@@ -12,7 +12,7 @@ const InfoBoxExample = () => {
   return (
     <InfoBox title={titleText}>
       <Text>
-        <p>This new funding should be directed to a global response for:</p>
+        {`<p>This new funding should be directed to a global response for:</p>
         <ul>
           <li>
             developing new vaccines, treatments and diagnostics quickly and at
@@ -30,7 +30,7 @@ const InfoBoxExample = () => {
           epidemic is the best time to determine the effectiveness of a vaccine
           or treatment. Mobilising these financial resources is an urgent
           priority for G20 countries, philanthropy and the private sector.
-        </p>
+        </p>`}
       </Text>
     </InfoBox>
   );
