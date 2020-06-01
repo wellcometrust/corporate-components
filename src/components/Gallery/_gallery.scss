@@ -1,0 +1,56 @@
+// ----------------------------------
+// UI Components
+// Gallery
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+@mixin flex-grid() {
+  display: flex;
+  flex-flow: row wrap;
+  margin: calc(-2 * var(--space-unit));
+}
+
+@mixin flex-grid-item($cols: 1) {
+  flex: 0 0 auto;
+  padding: calc(2 * var(--space-unit));
+  width: 100%/$cols;
+}
+
+.cc-gallery {
+  @include grid-container;
+}
+
+.cc-gallery__media {
+  @include grid-column(1, 7);
+
+  @include mq(sm) {
+    @include grid-column(2, 12);
+    @include flex-grid;
+  }
+  
+  @include mq(md) {
+    @include grid-column(4, 13);
+  }
+}
+
+.cc-gallery__media-item {
+  @include mq($until: sm) {
+    + .cc-gallery__media-item {
+      margin-top: calc(4 * var(--space-unit));
+    }
+  }
+
+  @include mq(sm) {
+    @include flex-grid-item(2);
+  }
+  
+  @include mq(md) {
+    @include flex-grid-item(3);
+  }
+}
+
+.cc-gallery__media-content {
+  @extend %image-responsive;
+}

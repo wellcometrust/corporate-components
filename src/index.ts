@@ -7,6 +7,7 @@ export { Contact } from 'Contact/Contact';
 export { CookieMessage } from 'CookieMessage/CookieMessage';
 export { Footer } from 'Footer/Footer';
 export { FormattedDate } from 'FormattedDate/FormattedDate';
+export { Gallery } from 'Gallery/Gallery';
 export { Grid, GridCell } from 'Grid/Grid';
 export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';

@@ -11,7 +11,7 @@ const TextExample = () => {
 
   return (
     <Text className={textClassName}>
-      <h3>Heading 3</h3>
+      {`<h3>Heading 3</h3>
       <p>This new funding should be directed to a global response for:</p>
       <ul>
         <li>
@@ -178,7 +178,7 @@ const TextExample = () => {
         best time to determine the effectiveness of a vaccine or treatment.
         Mobilising these financial resources is an urgent priority for G20
         countries, philanthropy and the private sector.
-      </p>
+      </p>`}
     </Text>
   );
 };

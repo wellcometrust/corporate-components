@@ -1,0 +1,24 @@
+// ----------------------------------
+// UI Tools
+// Extends
+// images
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Force image to conform to size of containing element
+ *
+ * Usage:
+ *
+ * .selector {
+ *   @extend %image-responsive;
+ * }
+ *
+ */
+
+%image-responsive {
+  display: block;
+  width: 100%;
+}
