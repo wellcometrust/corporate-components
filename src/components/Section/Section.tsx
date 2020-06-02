@@ -4,6 +4,7 @@ import cx from 'classnames';
 type SectionProps = {
   children: React.ReactNode;
   className?: string;
+  dataType?: string;
   hasAlternateStyle?: boolean;
   id?: string;
   type?: 'div' | 'section';
@@ -12,6 +13,7 @@ type SectionProps = {
 export const Section = ({
   children,
   className,
+  dataType,
   hasAlternateStyle,
   id,
   type = 'section'
@@ -23,7 +25,7 @@ export const Section = ({
   });
 
   return (
-    <Element className={classNames} id={id}>
+    <Element className={classNames} id={id} data-type={dataType}>
       {children}
     </Element>
   );
