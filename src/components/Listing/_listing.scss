@@ -1,0 +1,17 @@
+// ----------------------------------
+// UI Components
+// Listing
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-listing {
+  border-top: 1px solid var(--colour-grey-10);
+  margin: 0;
+  padding: 0;
+  
+  > * {
+    border-bottom: 1px solid var(--colour-grey-10);
+  }
+}
