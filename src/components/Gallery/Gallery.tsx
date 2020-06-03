@@ -2,6 +2,7 @@ import React, { MouseEventHandler } from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
+import ImageElement from 'Image/ImageElement';
 
 type GalleryMediaProps = {
   height: number;
@@ -20,17 +21,6 @@ const GalleryMedia = ({
   srcSet,
   width
 }: GalleryMediaProps) => {
-  // const [loaded, setLoaded] = useState(false);
-
-  // const onLoad = () => {
-  //   setLoaded(true);
-  // };
-
-  // // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const onError = (e: any) => {
-  //   console.error('Image error', e);
-  // };
-
   const classNames = cx('cc-gallery__media-item', {
     'cc-gallery__media-lead': isLead,
     'cc-gallery__media-lead--landscape': isLead && width >= height,
@@ -40,7 +30,7 @@ const GalleryMedia = ({
   return (
     <>
       <Button className={classNames} onClick={onClick} variant="unstyled">
-        <img alt="" className="cc-gallery__media-content" src={src} />
+        <ImageElement className="cc-gallery__media-content" src={src} />
       </Button>
       {isLead && <div className="break" />}
     </>

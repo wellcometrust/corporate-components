@@ -41,6 +41,9 @@
 .cc-gallery__media-item {
   @extend %flex-grid-item;
   @include flex-grid-item(2);
+  appearance: none;
+  background: transparent;
+  border: 0;
   
   @include mq(sm) {
     @include flex-grid-item(3);
