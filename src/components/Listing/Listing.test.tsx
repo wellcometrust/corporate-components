@@ -5,7 +5,7 @@ import Listing from './Listing';
 
 describe('<Listing />', () => {
   const output = shallow(
-    <Listing>
+    <Listing as="ul">
       <li>List item 1</li>
       <li>List item 2</li>
       <li>List item 3</li>
