@@ -12,9 +12,12 @@
   margin: calc(-2 * var(--space-unit));
 }
 
-@mixin flex-grid-item($cols: 1) {
+%flex-grid-item {
   flex: 0 0 auto;
   padding: calc(2 * var(--space-unit));
+}
+
+@mixin flex-grid-item($cols: 1) {
   width: 100%/$cols;
 }
 
@@ -23,11 +26,11 @@
 }
 
 .cc-gallery__media {
+  @include flex-grid;
   @include grid-column(1, 7);
-
+  
   @include mq(sm) {
-    @include grid-column(2, 12);
-    @include flex-grid;
+    @include grid-column(1, 13);
   }
   
   @include mq(md) {
@@ -36,21 +39,35 @@
 }
 
 .cc-gallery__media-item {
-  @include mq($until: sm) {
-    + .cc-gallery__media-item {
-      margin-top: calc(4 * var(--space-unit));
-    }
-  }
-
-  @include mq(sm) {
-    @include flex-grid-item(2);
-  }
+  @extend %flex-grid-item;
+  @include flex-grid-item(2);
   
-  @include mq(md) {
+  @include mq(sm) {
     @include flex-grid-item(3);
   }
 }
 
 .cc-gallery__media-content {
   @extend %image-responsive;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.cc-gallery__media-lead {
+  width: 100%;
+}
+
+.cc-gallery__media-lead--portrait {
+  @include mq(sm) {
+    width: 50%;
+  }
+}
+
+.cc-gallery__media-lead--landscape {
+  @include mq(sm) {
+    width: 80%;
+  }
 }
