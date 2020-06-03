@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 import Media from 'Media';
+import ImageElement from './ImageElement';
 
 type ImageProps = {
   alt: string;
   caption?: string;
   credit?: string;
   className?: string;
-  // TODO #6478: establish method for setting lazy loading based on latest spec
   sizes?: string;
   src: string;
   srcSet?: string;
@@ -24,30 +24,11 @@ export const Image = ({
   sizes = imageSizesDefault,
   src,
   srcSet
-}: ImageProps) => {
-  const [loaded, setLoaded] = useState(false);
-
-  const onLoad = () => {
-    setLoaded(true);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onError = (e: any) => {
-    console.error('Image error', e);
-  };
-
-  return (
-    <Media caption={caption} className={className} credit={credit} type="image">
-      <img
-        alt={alt}
-        onError={onError}
-        onLoad={onLoad}
-        sizes={sizes}
-        src={src}
-        srcSet={srcSet}
-      />
-    </Media>
-  );
-};
+}: ImageProps) => (
+  <Media caption={caption} className={className} credit={credit} type="image">
+    <ImageElement alt={alt} sizes={sizes} src={src} srcSet={srcSet} />
+  </Media>
+);
 
 export default Image;
+export { ImageElement };
