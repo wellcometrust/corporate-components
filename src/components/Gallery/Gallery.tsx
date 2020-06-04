@@ -37,48 +37,21 @@ const GalleryMedia = ({
   );
 };
 
-export const Gallery = () => {
+type GalleryProps = {
+  children?: React.ReactNode;
+};
+
+export const Gallery = ({ children }: GalleryProps) => {
   const handleOnClick = (e: any) => {
     console.log(e.currentTarget);
   };
 
   return (
     <div className="cc-gallery grid">
-      <div className="cc-gallery__media">
-        <GalleryMedia
-          height={1200}
-          isLead
-          src="https://placehold.it/678x1200"
-          width={678}
-          onClick={handleOnClick}
-        />
-        <GalleryMedia
-          height={310}
-          src="https://placehold.it/310x310"
-          width={310}
-          onClick={handleOnClick}
-        />
-        <GalleryMedia
-          height={310}
-          src="https://placehold.it/310x310"
-          width={310}
-          onClick={handleOnClick}
-        />
-        <GalleryMedia
-          height={310}
-          src="https://placehold.it/310x310"
-          width={310}
-          onClick={handleOnClick}
-        />
-        <GalleryMedia
-          height={310}
-          src="https://placehold.it/310x310"
-          width={310}
-          onClick={handleOnClick}
-        />
-      </div>
+      <div className="cc-gallery__media">{children}</div>
     </div>
   );
 };
 
 export default Gallery;
+export { GalleryMedia };
