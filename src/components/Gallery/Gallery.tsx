@@ -31,13 +31,19 @@ export const GalleryMedia = ({
 
   return (
     <>
-      <Button className={classNames} onClick={onClick} variant="unstyled">
-        <ImageElement
-          alt={alt}
-          className="cc-gallery__media-content"
-          src={src}
-        />
-      </Button>
+      <div className={classNames}>
+        <Button
+          className="cc-gallery__media-frame"
+          onClick={onClick}
+          variant="unstyled"
+        >
+          <ImageElement
+            alt={alt}
+            className="cc-gallery__media-content"
+            src={src}
+          />
+        </Button>
+      </div>
       {isLead && <div className="break" />}
     </>
   );
