@@ -1,10 +1,11 @@
-import React, { MouseEventHandler } from 'react';
+import React, { Children, cloneElement, MouseEventHandler } from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
 import ImageElement from 'Image/ImageElement';
 
 type GalleryMediaProps = {
+  alt?: string;
   height: number;
   isLead?: boolean;
   onClick: MouseEventHandler;
@@ -13,7 +14,8 @@ type GalleryMediaProps = {
   width: number;
 };
 
-const GalleryMedia = ({
+export const GalleryMedia = ({
+  alt,
   height,
   isLead,
   onClick,
@@ -29,29 +31,43 @@ const GalleryMedia = ({
 
   return (
     <>
-      <Button className={classNames} onClick={onClick} variant="unstyled">
-        <ImageElement className="cc-gallery__media-content" src={src} />
-      </Button>
+      <div className={classNames}>
+        <Button
+          className="cc-gallery__media-frame"
+          onClick={onClick}
+          variant="unstyled"
+        >
+          <ImageElement
+            alt={alt}
+            className="cc-gallery__media-content"
+            src={src}
+          />
+        </Button>
+      </div>
       {isLead && <div className="break" />}
     </>
   );
 };
 
 type GalleryProps = {
-  children?: React.ReactNode;
+  children?: JSX.Element[];
 };
 
 export const Gallery = ({ children }: GalleryProps) => {
   const handleOnClick = (e: any) => {
-    console.log(e.currentTarget);
+    // TODO open gallery lightbox
+    console.log('Gallery handleOnClick', e.currentTarget);
   };
+
+  const childrenWithProps = Children.map(children, child =>
+    cloneElement(child, { onClick: handleOnClick })
+  );
 
   return (
     <div className="cc-gallery grid">
-      <div className="cc-gallery__media">{children}</div>
+      <div className="cc-gallery__media">{childrenWithProps}</div>
     </div>
   );
 };
 
 export default Gallery;
-export { GalleryMedia };
