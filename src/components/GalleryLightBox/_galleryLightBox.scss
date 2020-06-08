@@ -1,0 +1,71 @@
+// ----------------------------------
+// UI Components
+// GalleryLightBox
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-gallery-lightbox {
+  background-color: var(--colour-grey-80);
+  color: var(--colour-white);
+  height: 100%;
+  width: 100%;
+}
+
+.cc-gallery-lightbox__carousel {
+  height: 100%;
+}
+
+.cc-gallery-lightbox__slider {
+  height: 100%;
+}
+
+.cc-gallery-lightbox__slide .carousel__inner-slide {
+  display: flex;
+
+  flex-direction: column;
+
+  @include mq($from: sm) {
+    flex-direction: row;
+  }
+}
+
+.cc-gallery-lightbox__image-pane {
+  display: flex;
+  flex: 1 0 70%;
+  flex-direction: column;
+}
+
+.cc-gallery-lightbox__caption {
+  flex: 0 0 30%;
+
+  h3 {
+    @extend %heading-base;
+    @extend %heading-regular;
+    letter-spacing: 0;
+  }
+
+  p {
+    @extend %body-large;
+  }
+}
+
+.cc-gallery-lightbox__media-content {
+  align-items: flex-start;
+
+  display: flex;
+  flex: 1 0 70%;
+  justify-content: center;
+}
+
+.cc-gallery-lightbox__media-content img {
+  padding: 0 var(--space-xl);
+}
+
+.cc-gallery-lightbox__meta-info {
+  flex: 0 1 30%;
+
+  margin: 0;
+}
+
