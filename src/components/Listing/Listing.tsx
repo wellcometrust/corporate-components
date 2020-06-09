@@ -1,10 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
 
+import ListingLink from './ListingLink';
+
 type ListingProps = {
+  as?: 'div' | 'ol' | 'ul';
   children: React.ReactNode;
   className?: string;
-  as?: 'div' | 'ol' | 'ul';
 };
 
 export const Listing = ({ as = 'div', children, className }: ListingProps) => {
@@ -17,3 +19,4 @@ export const Listing = ({ as = 'div', children, className }: ListingProps) => {
 };
 
 export default Listing;
+export { ListingLink };

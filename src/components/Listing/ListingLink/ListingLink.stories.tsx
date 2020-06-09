@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text } from '@storybook/addon-knobs';
 
-import LinkList from './LinkList';
-import Readme from './LinkList.md';
+import Listing from 'Listing';
+import ListingLink from './ListingLink';
+import Readme from './ListingLink.md';
 
 const links = [
   {
@@ -21,10 +21,18 @@ const links = [
   }
 ];
 
-const LinkListExample = () => <LinkList links={links} />;
+const LinkListExample = () => (
+  <Listing as="ul">
+    {links.map(({ href, text }) => (
+      <ListingLink key={`listing-item-${href}`} href={href}>
+        {text}
+      </ListingLink>
+    ))}
+  </Listing>
+);
 
 const stories = storiesOf('Components|Listings', module);
 
-stories.add('LinkList', LinkListExample, {
+stories.add('Links List', LinkListExample, {
   readme: { sidebar: Readme }
 });
