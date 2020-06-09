@@ -18,18 +18,19 @@
 
 .cc-listing__link {
   @extend %anchor-base;
-  align-items: center;
-  display: flex;
+  display: block;
   line-height: 1.5;
-  padding: var(--space-unit) 0;
+  padding: var(--space-unit) calc(5 * var(--space-unit)) var(--space-unit) 0;
+  position: relative;
   text-decoration: none;
 }
 
 .cc-listing__link-icon {
   box-sizing: content-box;
   margin-left: auto;
-  order: 2;
-  padding-left: calc(3 * var(--space-unit));
-  padding-right: var(--space-unit);
+  position: absolute;
+  right: var(--space-unit);
+  top: 50%;
+  transform: translateY(-50%);
   width: 0.375em;
 }
