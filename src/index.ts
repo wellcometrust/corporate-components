@@ -14,6 +14,7 @@ export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
 export { Image } from 'Image/Image';
 export { InfoBox } from 'InfoBox/InfoBox';
+export { InpageNav } from 'InpageNav/InpageNav';
 export { LinkList } from 'LinkList/LinkList';
 export { Listing } from 'Listing/Listing';
 export { Logo } from 'Logo/Logo';
