@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { shallow } from 'enzyme';
 
-import LinkList from './LinkList';
+import Listing from 'Listing';
+import ListingLink from './ListingLink';
 
 const links = [
   {
@@ -19,10 +20,18 @@ const links = [
   }
 ];
 
-describe('<LinkList />', () => {
-  const output = shallow(<LinkList links={links} />);
+describe('<ListingLink />', () => {
+  const output = shallow(
+    <Listing as="ul">
+      {links.map(({ href, text }) => (
+        <ListingLink key={`listing-item-${href}`} href={href}>
+          {text}
+        </ListingLink>
+      ))}
+    </Listing>
+  );
 
   it('renders the component', () => {
-    expect(output);
+    expect(output.find(ListingLink)).toHaveLength(3);
   });
 });

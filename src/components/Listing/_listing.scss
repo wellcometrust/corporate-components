@@ -7,11 +7,29 @@
 // ----------------------------------
 
 .cc-listing {
+  @extend %list-clean;
   border-top: 1px solid var(--colour-grey-10);
-  margin: 0;
-  padding: 0;
+}
   
-  > * {
-    border-bottom: 1px solid var(--colour-grey-10);
-  }
+.cc-listing__item {
+  border-bottom: 1px solid var(--colour-grey-10);
+  display: block;
+}
+
+.cc-listing__link {
+  @extend %anchor-base;
+  align-items: center;
+  display: flex;
+  line-height: 1.5;
+  padding: var(--space-unit) 0;
+  text-decoration: none;
+}
+
+.cc-listing__link-icon {
+  box-sizing: content-box;
+  margin-left: auto;
+  order: 2;
+  padding-left: calc(3 * var(--space-unit));
+  padding-right: var(--space-unit);
+  width: 0.375em;
 }
