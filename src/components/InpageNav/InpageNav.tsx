@@ -11,13 +11,11 @@ type InpageNavItemProps = {
 
 export const InpageNav = ({ links }: InpageNavItemLinksProps) => (
   <>
-    <h3 className="section-links__heading">On this page</h3>
+    <strong className="section-links__heading">On this page</strong>
     <ul className="list-unstyled list-highlight">
       {links.map(({ title, id, ...props }) => (
         <li className="list-highlight__item">
-          <p className="list-highlight__title">
-            <a href={id}>{title}</a>
-          </p>
+          <a href={id}>{title}</a>
         </li>
       ))}
     </ul>
