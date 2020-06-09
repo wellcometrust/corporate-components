@@ -51,7 +51,6 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.11.0",
     "lodash.throttle": "^4.1.1",
-    "pure-react-carousel": "^1.27.1",
     "react-html-parser": "^2.0.2"
   },
   "devDependencies": {
