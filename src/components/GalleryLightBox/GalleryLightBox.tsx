@@ -25,13 +25,15 @@ type GalleryLightBoxSlideProps = {
   src: string;
 };
 
+type GalleryLightBoxNavProps = {
+  slideCount: number;
+  currentSlide: number;
+};
+
 const GalleryLightBoxNav = ({
   slideCount,
   currentSlide
-}: {
-  slideCount: number;
-  currentSlide: number;
-}) => (
+}: GalleryLightBoxNavProps) => (
   <div className="cc-gallery-lightbox__nav">
     <ButtonBack className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back">
       <Icon name="arrow" />
