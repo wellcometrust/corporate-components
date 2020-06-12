@@ -19,7 +19,7 @@ type GalleryLightBoxProps = {
 
 type GalleryLightBoxSlideProps = {
   alt?: string;
-  caption?: string;
+  caption: string;
   credit?: string;
   license?: string;
   src: string;
