@@ -1,11 +1,20 @@
-import React, { Children, cloneElement, MouseEventHandler } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  MouseEventHandler,
+  MouseEvent,
+  useState
+} from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
 import ImageElement from 'Image/ImageElement';
+import GalleryLightBox from 'GalleryLightBox';
 
 type GalleryMediaProps = {
   alt?: string;
+  caption?: string;
+  credit?: string;
   height: number;
   isLead?: boolean;
   onClick: MouseEventHandler;
@@ -16,6 +25,8 @@ type GalleryMediaProps = {
 
 export const GalleryMedia = ({
   alt,
+  caption,
+  credit,
   height,
   isLead,
   onClick,
@@ -54,18 +65,41 @@ type GalleryProps = {
 };
 
 export const Gallery = ({ children }: GalleryProps) => {
-  const handleOnClick = (e: any) => {
-    // TODO open gallery lightbox
-    console.log('Gallery handleOnClick', e.currentTarget);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentLightboxIndex, setCurrentLightboxIndex] = useState(0);
+
+  /**
+   * Handles opening the GalleryLightbox.
+   */
+  const openLightbox = ({ index }: { index: number }) => {
+    setCurrentLightboxIndex(index);
+    setIsLightboxOpen(true);
   };
 
-  const childrenWithProps = Children.map(children, child =>
-    cloneElement(child, { onClick: handleOnClick })
+  const childrenWithProps = Children.map(children, (child, index) =>
+    cloneElement(child, {
+      /**
+       * Pass an onClick handler to the child, to allow it to open
+       * the lightbox from itself.
+       */
+      onClick: () => openLightbox({ index })
+    })
   );
+
+  const slides = Children.map(children, child => {
+    const { props } = child;
+
+    return { ...props };
+  });
 
   return (
     <div className="cc-gallery grid">
       <div className="cc-gallery__media">{childrenWithProps}</div>
+      <GalleryLightBox
+        isOpen={isLightboxOpen}
+        openAtSlide={currentLightboxIndex}
+        slides={slides}
+      />
     </div>
   );
 };

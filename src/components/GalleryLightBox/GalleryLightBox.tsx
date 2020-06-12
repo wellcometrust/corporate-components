@@ -8,147 +8,126 @@ import {
   ButtonNext
 } from 'pure-react-carousel';
 
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import ImageElement from 'Image/ImageElement';
+import Icon from 'Icon';
 
-export const GalleryLightBox = () => {
-  return (
-    <dialog open className="cc-gallery-lightbox">
-      <CarouselProvider
-        naturalSlideWidth={400}
-        naturalSlideHeight={240}
-        totalSlides={3}
-        className="cc-gallery-lightbox__carousel"
-      >
-        <ButtonBack>Back</ButtonBack>
-        <ButtonNext>Next</ButtonNext>
-        <Slider className="cc-gallery-lightbox__slider">
-          <Slide className="cc-gallery-lightbox__slide" index={0}>
-            <div className="cc-gallery-lightbox__image-pane">
-              <picture className="cc-gallery-lightbox__media-content">
-                <source
-                  srcSet="https://placehold.it/720x310"
-                  media="(min-width: 768px)"
-                />
-                <img alt="" srcSet="https://placehold.it/310x310" />
-              </picture>
-              <dl className="cc-gallery-lightbox__meta-info">
-                <dt>Image Credit</dt>
-                <dd>Slide image credit info</dd>
-                <dt>Image Licence</dt>
-                <dd>Slice image licenceinfo</dd>
-              </dl>
-            </div>
-            <div className="cc-gallery-lightbox__caption">
-              <h3>Optional image title</h3>
-              <p>
-                Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum
-                primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Donec velit neque, auctor sit amet aliquam vel,
-                ullamcorper sit amet ligula. Cras ultricies ligula sed magna
-                dictum porta.
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                dui. Proin eget tortor risus.
-              </p>
-
-              <p>
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia Curae; Donec velit neque, auctor sit amet
-                aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin
-                molestie malesuada. Cras ultricies ligula sed magna dictum
-                porta.
-              </p>
-            </div>
-          </Slide>
-          <Slide className="cc-gallery-lightbox__slide" index={1}>
-            <div className="cc-gallery-lightbox__image-pane">
-              <picture className="cc-gallery-lightbox__media-content">
-                <source
-                  srcSet="https://placehold.it/720x710"
-                  media="(min-width: 768px)"
-                />
-                <img alt="" srcSet="https://placehold.it/310x310" />
-              </picture>
-              <dl className="cc-gallery-lightbox__meta-info">
-                <dt>Image Credit</dt>
-                <dd>Slide image credit info</dd>
-                <dt>Image Licence</dt>
-                <dd>Slice image licenceinfo</dd>
-              </dl>
-            </div>
-            <div className="cc-gallery-lightbox__caption">
-              <h3>Optional image title</h3>
-              <p>
-                Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum
-                primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Donec velit neque, auctor sit amet aliquam vel,
-                ullamcorper sit amet ligula. Cras ultricies ligula sed magna
-                dictum porta.
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                dui. Proin eget tortor risus.
-              </p>
-
-              <p>
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia Curae; Donec velit neque, auctor sit amet
-                aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin
-                molestie malesuada. Cras ultricies ligula sed magna dictum
-                porta.
-              </p>
-            </div>
-          </Slide>
-          <Slide className="cc-gallery-lightbox__slide" index={2}>
-            <div className="cc-gallery-lightbox__image-pane">
-              <picture className="cc-gallery-lightbox__media-content">
-                <source
-                  srcSet="https://placehold.it/1020x710"
-                  media="(min-width: 768px)"
-                />
-                <img alt="" srcSet="https://placehold.it/310x310" />
-              </picture>
-              <dl className="cc-gallery-lightbox__meta-info">
-                <dt>Image Credit</dt>
-                <dd>Slide image credit info</dd>
-                <dt>Image Licence</dt>
-                <dd>Slice image licenceinfo</dd>
-              </dl>
-            </div>
-            <div className="cc-gallery-lightbox__caption">
-              <h3>Optional image title</h3>
-              <p>
-                Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum
-                primis in faucibus orci luctus et ultrices posuere cubilia
-                Curae; Donec velit neque, auctor sit amet aliquam vel,
-                ullamcorper sit amet ligula. Cras ultricies ligula sed magna
-                dictum porta.
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                dui. Proin eget tortor risus.
-              </p>
-
-              <p>
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia Curae; Donec velit neque, auctor sit amet
-                aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin
-                molestie malesuada. Cras ultricies ligula sed magna dictum
-                porta.
-              </p>
-            </div>
-          </Slide>
-        </Slider>
-      </CarouselProvider>
-    </dialog>
-  );
+type GalleryLightBoxProps = {
+  isOpen: boolean;
+  slides: any; // should be array of objects
+  openAtSlide?: number;
 };
+
+type GalleryLightBoxSlideProps = {
+  alt?: string;
+  caption?: string;
+  credit?: string;
+  license?: string;
+  src: string;
+};
+
+const GalleryLightBoxNav = ({
+  slideCount,
+  currentSlide
+}: {
+  slideCount: number;
+  currentSlide: number;
+}) => (
+  <div className="cc-gallery-lightbox__nav">
+    <ButtonBack className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back">
+      <Icon name="arrow" />
+    </ButtonBack>
+    <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
+      {`${currentSlide} / ${slideCount}`}
+    </span>
+    <ButtonNext className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next">
+      <Icon name="arrow" />
+    </ButtonNext>
+  </div>
+);
+
+export const GalleryLightBox = ({
+  isOpen,
+  slides,
+  openAtSlide
+}: GalleryLightBoxProps) => (
+  <dialog className="cc-gallery-lightbox" open={isOpen}>
+    <CarouselProvider
+      className="cc-gallery-lightbox__carousel"
+      currentSlide={openAtSlide}
+      dragEnabled={false}
+      naturalSlideWidth={16}
+      naturalSlideHeight={9}
+      totalSlides={slides.length}
+    >
+      <Slider
+        className="cc-gallery-lightbox__slider"
+        classNameTray="cc-gallery-lightbox__carousel-tray"
+        classNameTrayWrap="cc-gallery-lightbox__carousel-tray-wrap"
+      >
+        {slides.map((slide: GalleryLightBoxSlideProps, index: number) => (
+          <Slide
+            className="cc-gallery-lightbox__slide"
+            index={index}
+            innerClassName="cc-gallery-lightbox__slide-layout"
+            innerTag="figure"
+            key={`gallery-lightbox-slide-${slide.src}`}
+          >
+            <div className="cc-gallery-lightbox__image-pane">
+              <div className="cc-gallery-lightbox__image-pane-stage">
+                <ImageElement alt={slide.alt} src={slide.src} />
+              </div>
+              <span className="cc-gallery-lightbox__image-pane-tray">
+                <GalleryLightBoxNav
+                  slideCount={slides.length}
+                  currentSlide={index + 1}
+                />
+                {!!(slide.credit || slide.license) && (
+                  <dl className="cc-gallery-lightbox__meta">
+                    {slide.credit && (
+                      <>
+                        <dt className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--label">
+                          Image credit:{' '}
+                        </dt>
+                        <dd
+                          className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--text"
+                          dangerouslySetInnerHTML={{ __html: slide.credit }}
+                        />
+                      </>
+                    )}
+                    {slide.license && (
+                      <>
+                        <dt className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--label">
+                          Image license:{' '}
+                        </dt>
+                        <dd
+                          className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--text"
+                          dangerouslySetInnerHTML={{ __html: slide.license }}
+                        />
+                      </>
+                    )}
+                  </dl>
+                )}
+                <a
+                  href={slide.src}
+                  download
+                  className="cc-gallery-lightbox__download"
+                >
+                  <span className="cc-gallery-lightbox__download-icon">
+                    <Icon name="download" />
+                  </span>
+                  Download
+                </a>
+              </span>
+            </div>
+            <figcaption
+              className="cc-gallery-lightbox__info-pane"
+              dangerouslySetInnerHTML={{ __html: slide.caption }}
+            />
+          </Slide>
+        ))}
+      </Slider>
+    </CarouselProvider>
+  </dialog>
+);
 
 export default GalleryLightBox;

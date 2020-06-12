@@ -1,0 +1,195 @@
+// ----------------------------------
+// UI Components
+// GalleryLightBox
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+// @import '~pure-react-carousel/dist/react-carousel.es.css';
+
+.cc-gallery-lightbox {
+  background-color: var(--colour-grey-80);
+  border: 0;
+  bottom: 0;
+  color: var(--colour-white);
+  height: 100%;
+  left: 0;
+  padding: var(--space-xl);
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-modal);
+}
+
+.cc-gallery-lightbox__carousel {
+  height: 100%;
+  position: relative;
+}
+
+.cc-gallery-lightbox__slider {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cc-gallery-lightbox__carousel-tray-wrap,
+.cc-gallery-lightbox__carousel-tray {
+  height: 100%;
+  overflow: hidden;
+}
+
+.cc-gallery-lightbox__carousel-tray {
+  @extend %list-clean;
+
+  display: flex;
+  transition: transform 0.5s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  will-change: transform;
+}
+
+.cc-gallery-lightbox__slide {
+  flex-basis: 100vw;
+  height: 100%;
+
+  /**
+   * Becuase our carousel library wants to set an aspect-ratio on our slides,
+   * based on the natural height and width of the images, it sets the padding-bottom
+   * property inline to style the slides appropriately.
+   *
+   * We're rolling our own styles, and so we want to override this.
+   */
+  padding-bottom: 0 !important;
+}
+
+.cc-gallery-lightbox__slide-layout {
+  // Reset <figure> style
+  @extend %margin-0;
+
+  height: 100%;
+  overflow: scroll;
+
+  @include mq(sm) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include mq(md) {
+    flex-direction: row;
+  }
+}
+
+.cc-gallery-lightbox__image-pane {
+  @include mq(sm) {
+    flex-basis: 57%;
+    overflow: hidden;
+  }
+
+  @include mq(md) {
+    display: flex;
+    flex-basis: 70%;
+    flex-direction: column;
+    padding-right: var(--space-lg);
+  }
+}
+
+.cc-gallery-lightbox__image-pane-stage {
+  height: 100%;
+
+  @include mq(md) {
+    flex-basis: 84%;
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+  }
+
+  > img {
+    display: block;
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+.cc-gallery-lightbox__image-pane-tray {
+  display: block;
+
+  @include mq(md) {
+    flex-basis: 16%;
+  }
+}
+
+.cc-gallery-lightbox__info-pane {
+  @include mq(sm) {
+    flex-basis: 43%;
+    overflow: scroll;
+  }
+
+  @include mq(md) {
+    flex-basis: 30%;
+    padding-left: var(--space-lg);
+  }
+}
+
+.cc-gallery-lightbox__meta {
+  border-left: 1px solid var(--colour-white);
+  font-family: monospace;
+  font-size: var(--body-xs);
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-md);
+}
+
+.cc-gallery-lightbox__meta-item {
+  display: inline;
+
+  // Override styles from wysiwyg
+  > p {
+    @extend %margin-0;
+
+    display: inline;
+  }
+}
+
+.cc-gallery-lightbox__download {
+  color: var(--colour-white);
+
+  @include hocus {
+    color: inherit;
+  }
+}
+
+.cc-gallery-lightbox__download-icon {
+  display: inline-block;
+  margin-right: var(--space-sm);
+  vertical-align: sub;
+}
+
+.cc-gallery-lightbox__nav {
+  float: right;
+}
+
+.cc-gallery-lightbox__nav-item {
+  color: var(--colour-white);
+  display: inline-block;
+  vertical-align: middle;
+
+  &[disabled] {
+    opacity: 0.2;
+  }
+}
+
+.cc-gallery-lightbox__nav-item--back {
+  transform: rotate(180deg);
+}
+
+.cc-gallery-lightbox__nav-item--count {
+  margin-left: var(--space-md);
+  margin-right: var(--space-md);
+}
+
+.cc-gallery-lightbox ::selection {
+  color: var(--colour-grey-80);
+}
