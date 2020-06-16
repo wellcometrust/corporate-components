@@ -23,15 +23,15 @@ storiesOf('Components|Icon', module).add(
       <p>Download</p>
       <Icon name="download" />
       <p>Email</p>
-      <Icon name="emailAddress" />
+      <Icon name="email" />
       <p>External link</p>
       <Icon name="externalLink" />
       <p>Facebook button for share or follow</p>
       <Icon name="facebook" />
-      <p>Fax button for share or follow</p>
-      <Icon name="fax" />
       <p>LinkedIn button for share or follow</p>
       <Icon name="linkedin" />
+      <p>Info</p>
+      <Icon name="info" />
       <p>Message</p>
       <Icon name="message" />
       <p>Phone</p>

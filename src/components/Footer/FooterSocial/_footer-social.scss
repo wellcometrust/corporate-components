@@ -27,6 +27,7 @@
   display: block;
   height: calc(7 * var(--space-xs) + 2px); // plus border-width
   margin: calc(2 * var(--space-xs));
+  transition: border ease var(--transition-duration);
   width: calc(7 * var(--space-xs) + 2px); // plus border-width
 
   @include hocus {
@@ -37,7 +38,6 @@
 
 .footer-social-item__icon {
   height: 100%;
-  padding: calc(1.75 * var(--space-xs));
   width: 100%;
 
   > svg {

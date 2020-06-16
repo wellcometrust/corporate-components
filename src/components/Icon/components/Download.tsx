@@ -3,11 +3,12 @@ import React from 'react';
 import { IconSVGProps } from '../Icon';
 
 const SvgDownload = (props: IconSVGProps) => (
-  <svg viewBox="0 0 21 16" {...props}>
-    <g fill="currentColor" fillRule="evenodd">
-      <path d="M19.5 7.75v6.75h-18V7.75H0V15a1 1 0 0 0 1 1h19a1 1 0 0 0 1-1V7.75h-1.5z" />
-      <path d="M9.75 0v9.775L5.782 5.807 4.72 6.868l5.78 5.78 5.779-5.78-1.062-1.06-3.968 3.968V0z" />
-    </g>
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M6.239 14v3.75h11.488V14H19v4.394l-.67.606H5.636L5 18.394V14h1.239zm6.533-9l-.016 7.306L15.062 10l.938.938-4 4-4-4L8.938 10l2.332 2.332L11.286 5h1.486z"
+    />
   </svg>
 );
 

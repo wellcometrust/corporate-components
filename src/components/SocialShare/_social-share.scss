@@ -1,0 +1,73 @@
+// ----------------------------------
+// UI Components
+// Social Share
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-social-share {
+  position: relative;
+}
+
+.cc-social-share__list {
+  @extend %list-clean;
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.cc-social-share__item {
+  margin-right: calc(1.5 * var(--space-unit));
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.cc-social-share__link {
+  cursor: pointer;
+  display: block;
+  
+  @include hocus {
+    .cc-social-share__icon {
+      border-color: var(--colour-grey-80);
+      color: var(--colour-grey-80);
+    }
+  }
+}
+
+.cc-social-share__icon {
+  border: 1px solid var(--colour-grey-30);
+  border-radius: 50%;
+  color: var(--colour-grey-30);
+  height: 1.5rem;
+  transition: all ease var(--transition-duration);
+  width: 1.5rem;
+}
+
+@keyframes fade-delay {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.cc-social-share__copied {
+  animation: 2s ease 3s 1 forwards fade-delay;
+  background: var(--colour-grey-05);
+  border: 1px solid var(--colour-grey-20);
+  bottom: calc(-1.5 * var(--space-unit));
+  color: var(--colour-grey-50);
+  display: block;
+  font-size: var(--body-sm);
+  left: 0;
+  padding: var(--space-unit);
+  position: absolute;
+  right: 0;
+  transform: translateY(100%);
+  z-index: 1;
+}
