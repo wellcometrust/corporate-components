@@ -70,12 +70,13 @@
   // Reset <figure> style
   @extend %margin-0;
 
+  display: flex;
+  flex-direction: column;
   height: 100%;
   overflow: scroll;
 
   @include mq(sm) {
-    display: flex;
-    flex-direction: column;
+    justify-content: space-between;
   }
 
   @include mq(md) {
@@ -84,21 +85,30 @@
 }
 
 .cc-gallery-lightbox__image-pane {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+
   @include mq(sm) {
     flex-basis: 57%;
-    overflow: hidden;
   }
 
   @include mq(md) {
-    display: flex;
     flex-basis: 70%;
-    flex-direction: column;
     padding-right: var(--space-lg);
   }
 }
 
 .cc-gallery-lightbox__image-pane-stage {
-  height: 100%;
+  flex-basis: 90%;
+  margin-bottom: var(--space-lg);
+  overflow: hidden;
+
+  @include mq(sm) {
+    height: auto;
+  }
 
   @include mq(md) {
     flex-basis: 84%;
@@ -123,9 +133,11 @@
 }
 
 .cc-gallery-lightbox__info-pane {
+  flex-basis: 50%;
+  overflow: scroll;
+
   @include mq(sm) {
     flex-basis: 43%;
-    overflow: scroll;
   }
 
   @include mq(md) {
