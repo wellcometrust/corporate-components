@@ -88,7 +88,7 @@ export const GalleryLightBox = ({
                     {slide.credit && (
                       <>
                         <dt className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--label">
-                          Image credit:{' '}
+                          Image credit:
                         </dt>
                         <dd
                           className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--text"
@@ -99,7 +99,7 @@ export const GalleryLightBox = ({
                     {slide.license && (
                       <>
                         <dt className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--label">
-                          Image license:{' '}
+                          Image license:
                         </dt>
                         <dd
                           className="cc-gallery-lightbox__meta-item cc-gallery-lightbox__meta-item--text"
