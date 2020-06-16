@@ -5,6 +5,7 @@ import GalleryLightBox from './GalleryLightBox';
 import Readme from './GalleryLightBox.md';
 
 const GalleryLightBoxExample = () => {
+  // TODO: #6844 render GalleryLightbox storybook component
   return <GalleryLightBox isOpen slides={[]} />;
 };
 
