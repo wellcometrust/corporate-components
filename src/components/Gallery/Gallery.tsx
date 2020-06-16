@@ -71,7 +71,7 @@ export const Gallery = ({ children }: GalleryProps) => {
   /**
    * Handles opening the GalleryLightbox.
    */
-  const openLightbox = ({ index }: { index: number }) => {
+  const openLightbox = (index: number) => {
     setCurrentLightboxIndex(index);
     setIsLightboxOpen(true);
   };
@@ -82,7 +82,7 @@ export const Gallery = ({ children }: GalleryProps) => {
        * Pass an onClick handler to the child, to allow it to open
        * the lightbox from itself.
        */
-      onClick: () => openLightbox({ index })
+      onClick: () => openLightbox(index)
     })
   );
 
