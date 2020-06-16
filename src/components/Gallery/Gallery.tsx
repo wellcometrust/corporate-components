@@ -88,8 +88,16 @@ export const Gallery = ({ children }: GalleryProps) => {
 
   const slides = Children.map(children, child => {
     const { props } = child;
+    const { alt, caption, credit, fileSize, license, src } = props;
 
-    return { ...props };
+    return {
+      alt,
+      caption,
+      credit,
+      fileSize,
+      license,
+      src
+    };
   });
 
   return (

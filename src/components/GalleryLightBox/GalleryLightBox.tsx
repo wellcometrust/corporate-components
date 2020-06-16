@@ -21,6 +21,7 @@ type GalleryLightBoxSlideProps = {
   alt?: string;
   caption: string;
   credit?: string;
+  fileSize: number;
   license?: string;
   src: string;
 };
@@ -109,16 +110,21 @@ export const GalleryLightBox = ({
                     )}
                   </dl>
                 )}
-                <a
-                  href={slide.src}
-                  download
-                  className="cc-gallery-lightbox__download"
-                >
-                  <span className="cc-gallery-lightbox__download-icon">
-                    <Icon name="download" />
+                <span className="cc-gallery-lightbox__download">
+                  <a
+                    href={slide.src}
+                    download
+                    className="cc-gallery-lightbox__download-link"
+                  >
+                    <span className="cc-gallery-lightbox__download-icon">
+                      <Icon name="download" />
+                    </span>
+                    Download
+                  </a>
+                  <span className="cc-gallery-lightbox__download-filesize">
+                    {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                   </span>
-                  Download
-                </a>
+                </span>
               </span>
             </div>
             <figcaption

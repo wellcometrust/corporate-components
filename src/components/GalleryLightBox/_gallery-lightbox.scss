@@ -166,6 +166,10 @@
 }
 
 .cc-gallery-lightbox__download {
+  color: var(--color-white);
+}
+
+.cc-gallery-lightbox__download-link {
   color: var(--colour-white);
 
   @include hocus {
@@ -177,6 +181,11 @@
   display: inline-block;
   margin-right: var(--space-sm);
   vertical-align: sub;
+}
+
+.cc-gallery-lightbox__download-filesize {
+  font-size: var(--body-md);
+  margin-left: var(--space-md);
 }
 
 .cc-gallery-lightbox__nav {
