@@ -13,7 +13,7 @@ import Icon from 'Icon';
 
 type GalleryLightBoxProps = {
   isOpen: boolean;
-  slides: any; // should be array of objects
+  slides: GalleryLightBoxSlideProps[];
   openAtSlide?: number;
 };
 
