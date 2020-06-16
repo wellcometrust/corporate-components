@@ -6,10 +6,10 @@ import closeBold from './components/CloseBold';
 import closeCircle from './components/CloseCircle';
 import cookie from './components/Cookie';
 import download from './components/Download';
-import emailAddress from './components/EmailAddress';
+import email from './components/Email';
 import externalLink from './components/ExternalLink';
 import facebook from './components/Facebook';
-import fax from './components/Fax';
+import info from './components/Info';
 import linkedin from './components/Linkedin';
 import message from './components/Message';
 import phone from './components/Phone';
@@ -29,10 +29,10 @@ export default new Map([
   ['closeCircle', closeCircle],
   ['cookie', cookie],
   ['download', download],
-  ['emailAddress', emailAddress],
+  ['email', email],
   ['externalLink', externalLink],
   ['facebook', facebook],
-  ['fax', fax],
+  ['info', info],
   ['linkedin', linkedin],
   ['message', message],
   ['phone', phone],

@@ -29,7 +29,7 @@ export const Contact = ({
       <strong className="cc-contact__title">{title}</strong>
       {email && (
         <p className="cc-contact__item">
-          <Icon name="emailAddress" className="cc-contact__link-icon" />
+          <Icon name="email" className="cc-contact__link-icon" />
           <a href={`mailto:${email}`} className="cc-contact__link">
             {email}
           </a>
