@@ -3,34 +3,12 @@ import React from 'react';
 import { IconSVGProps } from '../Icon';
 
 const SvgShareLink = (props: IconSVGProps) => (
-  <svg viewBox="0 0 44 44" {...props}>
-    <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
-      <path
-        d="M21.999641,8.5 C14.5563466,8.5 8.5,14.5565315 8.5,22.0001795 C8.5,29.4435221 14.5564002,35.5 21.999641,35.5 C29.4434926,35.5 35.5,29.4436293 35.5,22.0001795 C35.5,14.5564243 29.4435462,8.5 21.999641,8.5 Z"
-        id="Circle"
-        stroke="currentColor"
-      />
-      <g transform="translate(13.741989, 13.107423)" stroke="currentColor">
-        <rect
-          id="Rectangle"
-          transform="translate(6.500000, 11.106484) rotate(-26.000000) translate(-6.500000, -11.106484) "
-          x={1.5}
-          y={8.60648404}
-          width={10}
-          height={5}
-          rx={2.5}
-        />
-        <rect
-          id="Rectangle-Copy"
-          transform="translate(10.516492, 6.000000) rotate(-26.000000) translate(-10.516492, -6.000000) "
-          x={5.51649169}
-          y={3.5}
-          width={10}
-          height={5}
-          rx={2.5}
-        />
-      </g>
-    </g>
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      fillRule="evenodd"
+      d="M16.464 8.5a2.5 2.5 0 01-.915 3.415l-.779.451a2.5 2.5 0 01-1.221 2.55l-2.598 1.5a2.5 2.5 0 01-2.5-4.331l.78-.45a2.5 2.5 0 011.22-2.55l2.598-1.5a2.5 2.5 0 013.415.915zm-6.877 4.084l-.636.367a1.5 1.5 0 001.371 2.664l.129-.066 2.598-1.5c.424-.245.684-.666.74-1.117l-.838.483a2.5 2.5 0 01-3.364-.83zm1.962-1.133l-1.094.632.025.039a1.5 1.5 0 001.842.493l.129-.066 1.094-.632-.025-.039a1.5 1.5 0 00-1.971-.427zm2-3l-2.598 1.5a1.498 1.498 0 00-.74 1.117l.838-.483a2.5 2.5 0 013.364.83l.636-.366a1.5 1.5 0 00-1.5-2.598z"
+    />
   </svg>
 );
 
