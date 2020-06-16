@@ -31,12 +31,15 @@
   
   @include hocus {
     .cc-social-share__icon {
+      border-color: var(--colour-grey-80);
       color: var(--colour-grey-80);
     }
   }
 }
 
 .cc-social-share__icon {
+  border: 1px solid var(--colour-grey-30);
+  border-radius: 50%;
   color: var(--colour-grey-30);
   height: 1.5rem;
   transition: all ease var(--transition-duration);
