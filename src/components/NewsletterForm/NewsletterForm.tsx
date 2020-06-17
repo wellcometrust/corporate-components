@@ -6,6 +6,7 @@ import isEmail from 'utils/is-email';
 import fetchNewsletterResponse from './fetch-newsletter-response';
 
 import NewsletterFormEmail from './NewsletterFormEmail';
+import NewsletterFormResearchDropDown from './NewsletterFormResearchDropDown';
 import NewsletterFormConsent from './NewsletterFormConsent';
 import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
@@ -14,13 +15,18 @@ import NewsletterFormError from './NewsletterFormError';
 type NewsletterFormProps = {
   children?: React.ReactNode;
   className?: string;
+  type?: string;
+  researchOption?: number;
 };
 
 export const NewsletterForm = ({
   children,
-  className
+  className,
+  type,
+  researchOption
 }: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
+  // const [dropdown, setDropdown] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
   const [consentError, setConsentError] = useState(null);
@@ -75,7 +81,9 @@ export const NewsletterForm = ({
     const response = await fetchNewsletterResponse(
       // TODO: #6023 - move to .env
       'https://wellcome.ac.uk/newsletter-signup',
-      email
+      email,
+      type,
+      researchOption
     );
 
     if (response?.status === 200) {
@@ -140,6 +148,9 @@ export const NewsletterForm = ({
           method="POST"
           onSubmit={handleSubmit}
         >
+          {type === 'research' && (
+            <NewsletterFormResearchDropDown value={researchOption} />
+          )}
           <NewsletterFormEmail
             handleBlur={event => handleEmailBlur(event.currentTarget)}
             handleChange={event => handleEmailChange(event.currentTarget)}
@@ -151,6 +162,7 @@ export const NewsletterForm = ({
             handleChange={event => handleConsentChange(event.currentTarget)}
             hasError={consentError}
           />
+          {/* <input type='hidden' value='paa' /> */}
           <NewsletterFormSubmit
             disabled={consentError || emailError || busy}
             busy={busy}
