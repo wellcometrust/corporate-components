@@ -12,9 +12,7 @@ import ImageElement from 'Image/ImageElement';
 import Icon from 'Icon';
 
 type GalleryLightBoxProps = {
-  isOpen: boolean;
   slides: GalleryLightBoxSlideProps[];
-  openAtSlide?: number;
 };
 
 type GalleryLightBoxSlideProps = {
@@ -48,15 +46,10 @@ const GalleryLightBoxNav = ({
   </div>
 );
 
-export const GalleryLightBox = ({
-  isOpen,
-  slides,
-  openAtSlide
-}: GalleryLightBoxProps) => (
-  <dialog className="cc-gallery-lightbox" open={isOpen}>
+export const GalleryLightBox = ({ slides }: GalleryLightBoxProps) => (
+  <dialog className="cc-gallery-lightbox">
     <CarouselProvider
       className="cc-gallery-lightbox__carousel"
-      currentSlide={openAtSlide}
       dragEnabled={false}
       naturalSlideWidth={16}
       naturalSlideHeight={9}
@@ -137,5 +130,15 @@ export const GalleryLightBox = ({
     </CarouselProvider>
   </dialog>
 );
+
+/**
+ * TODO #6673: Integrate GalleryLighBox
+ *
+ * Temporaily declare some default props to prevent type errors until
+ * we integrate the Lightbox.
+ */
+GalleryLightBox.defaultProps = {
+  slides: []
+};
 
 export default GalleryLightBox;
