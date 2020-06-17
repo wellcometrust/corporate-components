@@ -1,11 +1,20 @@
-import React, { Children, cloneElement, MouseEventHandler } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  MouseEventHandler,
+  MouseEvent,
+  useState
+} from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
 import ImageElement from 'Image/ImageElement';
+import GalleryLightBox from 'GalleryLightBox';
 
 type GalleryMediaProps = {
   alt?: string;
+  caption?: string;
+  credit?: string;
   height: number;
   isLead?: boolean;
   onClick: MouseEventHandler;
@@ -16,6 +25,8 @@ type GalleryMediaProps = {
 
 export const GalleryMedia = ({
   alt,
+  caption,
+  credit,
   height,
   isLead,
   onClick,
@@ -66,6 +77,7 @@ export const Gallery = ({ children }: GalleryProps) => {
   return (
     <div className="cc-gallery grid">
       <div className="cc-gallery__media">{childrenWithProps}</div>
+      <GalleryLightBox />
     </div>
   );
 };
