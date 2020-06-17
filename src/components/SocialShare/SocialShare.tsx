@@ -6,11 +6,17 @@ import Icon from 'Icon';
 
 type SocialShareProps = {
   body: string;
+  hasCopyLink?: boolean;
   title: string;
   url: string;
 };
 
-export const SocialShare = ({ body, title, url }: SocialShareProps) => {
+export const SocialShare = ({
+  body,
+  hasCopyLink = false,
+  title,
+  url
+}: SocialShareProps) => {
   const [copied, setCopied] = useState(false);
 
   // TODO: introduce data array or map for dynamically generating social links
@@ -61,14 +67,16 @@ export const SocialShare = ({ body, title, url }: SocialShareProps) => {
             <Icon name="email" className="cc-social-share__icon" />
           </a>
         </li>
-        <li className="cc-social-share__item">
-          <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
-            <Button className="cc-social-share__link" variant="unstyled">
-              <span className="u-visually-hidden">Share</span>
-              <Icon name="shareLink" className="cc-social-share__icon" />
-            </Button>
-          </CopyToClipboard>
-        </li>
+        {hasCopyLink && (
+          <li className="cc-social-share__item">
+            <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
+              <Button className="cc-social-share__link" variant="unstyled">
+                <span className="u-visually-hidden">Share</span>
+                <Icon name="shareLink" className="cc-social-share__icon" />
+              </Button>
+            </CopyToClipboard>
+          </li>
+        )}
       </ul>
       {copied && <span className="cc-social-share__copied">URL copied</span>}
     </div>

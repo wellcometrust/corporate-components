@@ -26,5 +26,5 @@ const PageHeaderExample = () => {
   );
 };
 
-const stories = storiesOf('Components|PageHeader', module);
+const stories = storiesOf('Components|Page header', module);
 stories.add('PageHeader', PageHeaderExample);

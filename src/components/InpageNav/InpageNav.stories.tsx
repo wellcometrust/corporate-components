@@ -25,7 +25,7 @@ const links = [
 ];
 
 const InpageNavExample = () => <InpageNav links={links} />;
-const stories = storiesOf('Components|InpageNav', module);
+const stories = storiesOf('Components|Page header', module);
 
 stories.add('InpageNav', InpageNavExample, {
   readme: { sidebar: Readme }
