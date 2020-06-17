@@ -2,7 +2,7 @@ export const fetchNewsletterResponse = async (
   endpointUrl: string,
   email: string,
   type: string,
-  researchOption?: number
+  researchOption?: string
 ) => {
   const requestOptions = {
     method: 'POST',

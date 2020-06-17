@@ -4,12 +4,12 @@ import cx from 'classnames';
 import NewsletterFormItem from './NewsletterFormItem';
 
 type NewsletterFormResearchDropDownProps = {
-  // handleChange?: (event: React.FormEvent<HTMLSelectElement>) => void;
-  value?: number;
+  handleChange?: (event: React.FormEvent<HTMLSelectElement>) => void;
+  value: string;
 };
 
 export const NewsletterFormResearchDropDown = ({
-  // handleChange,
+  handleChange,
   value
 }: NewsletterFormResearchDropDownProps) => {
   return (
@@ -25,7 +25,7 @@ export const NewsletterFormResearchDropDown = ({
         name="research_dd"
         className="form-select"
         value={value}
-        // onChange={handleChange}
+        onChange={handleChange}
       >
         <option value="0">Please select</option>
         <option value="1">I am Wellcome-funded</option>

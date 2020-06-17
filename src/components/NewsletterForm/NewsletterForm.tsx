@@ -16,7 +16,7 @@ type NewsletterFormProps = {
   children?: React.ReactNode;
   className?: string;
   type?: string;
-  researchOption?: number;
+  researchOption?: string;
 };
 
 export const NewsletterForm = ({
@@ -26,7 +26,7 @@ export const NewsletterForm = ({
   researchOption
 }: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
-  // const [dropdown, setDropdown] = useState('');
+  const [dropdown, setDropdown] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
   const [consentError, setConsentError] = useState(null);
@@ -115,6 +115,10 @@ export const NewsletterForm = ({
     setResponseError(false);
   };
 
+  const handleDropDownChange = ({ value }: HTMLSelectElement) => {
+    setDropdown(researchOption);
+  };
+
   /**
    * Handles email <input /> blur; updates error state when user blurs the
    * email <input />.
@@ -149,7 +153,10 @@ export const NewsletterForm = ({
           onSubmit={handleSubmit}
         >
           {type === 'research' && (
-            <NewsletterFormResearchDropDown value={researchOption} />
+            <NewsletterFormResearchDropDown
+              handleChange={event => handleDropDownChange(event.currentTarget)}
+              value={researchOption}
+            />
           )}
           <NewsletterFormEmail
             handleBlur={event => handleEmailBlur(event.currentTarget)}
