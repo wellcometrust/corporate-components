@@ -6,6 +6,7 @@ import isEmail from 'utils/is-email';
 import fetchNewsletterResponse from './fetch-newsletter-response';
 
 import NewsletterFormEmail from './NewsletterFormEmail';
+import NewsletterFormResearchDropDown from './NewsletterFormResearchDropDown';
 import NewsletterFormConsent from './NewsletterFormConsent';
 import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
@@ -14,13 +15,18 @@ import NewsletterFormError from './NewsletterFormError';
 type NewsletterFormProps = {
   children?: React.ReactNode;
   className?: string;
+  type?: string;
+  researchOption?: string;
 };
 
 export const NewsletterForm = ({
   children,
-  className
+  className,
+  researchOption,
+  type
 }: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
+  const [dropdown, setDropdown] = useState('');
   const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
   const [consentError, setConsentError] = useState(null);
@@ -75,7 +81,9 @@ export const NewsletterForm = ({
     const response = await fetchNewsletterResponse(
       // TODO: #6023 - move to .env
       'https://wellcome.ac.uk/newsletter-signup',
-      email
+      dropdown,
+      email,
+      type
     );
 
     if (response?.status === 200) {
@@ -117,6 +125,15 @@ export const NewsletterForm = ({
     setEmailError(!isEmail(value));
   };
 
+  /**
+   * Handles researchdropdwon <select /> changes; updates value of state variable.
+   *
+   * @param {Object} HTMLSelectElement - value key of an HTMLSelectElement
+   */
+  const handleDropDownChange = ({ value }: HTMLSelectElement) => {
+    setDropdown(value);
+  };
+
   const classNames = cx('newsletter-form', {
     [`${className}`]: className
   });
@@ -140,6 +157,12 @@ export const NewsletterForm = ({
           method="POST"
           onSubmit={handleSubmit}
         >
+          {type === 'research' && (
+            <NewsletterFormResearchDropDown
+              handleChange={event => handleDropDownChange(event.currentTarget)}
+              value={researchOption}
+            />
+          )}
           <NewsletterFormEmail
             handleBlur={event => handleEmailBlur(event.currentTarget)}
             handleChange={event => handleEmailChange(event.currentTarget)}

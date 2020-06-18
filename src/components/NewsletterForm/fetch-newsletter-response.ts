@@ -1,11 +1,15 @@
 export const fetchNewsletterResponse = async (
+  email: string,
   endpointUrl: string,
-  email: string
+  researchOption?: string,
+  type?: string
 ) => {
   const requestOptions = {
     method: 'POST',
     body: JSON.stringify({
-      email
+      email,
+      research_dd:researchOption,
+      type
     })
   };
 
