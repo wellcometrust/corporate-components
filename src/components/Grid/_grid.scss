@@ -6,7 +6,7 @@
 // 2019-11-11
 // ----------------------------------
 
-.grid {
+%grid {
   @include grid-container;
 
   // Columns: 6 / Gutter: 12px
@@ -30,6 +30,10 @@
     // Columns: 12 / Gutter: 48px
     @include grid-columns($grid-gutter-xl);
   }
+}
+
+.grid {
+  @extend %grid;
 }
 
 // Reset nested grids

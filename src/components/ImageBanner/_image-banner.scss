@@ -11,12 +11,17 @@
 }
 
 .cc-image-banner {
+  margin: 0;
+  position: relative;
+}
+
+.cc-image-banner__container {
   background: var(--colour-blue-80);
   height: 50vh;
-  margin: 0;
   overflow: hidden;
   position: relative;
   width: 100%;
+  z-index: var(--z-low);
 
   @include mq(sm) {
     display: block;
@@ -39,8 +44,8 @@
   min-height: 100%;
   min-width: 100%;
   position: absolute;
-  top: 0;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: auto;
   
   @include mq(sm) {
@@ -55,19 +60,31 @@
 }
 
 .cc-image-banner__caption-container {
-  @include grid-container;
-}
-
-.cc-image-banner__caption--fixed {
+  @extend %grid;
+  
   @include mq(md) {
     bottom: 0;
     position: absolute;
-    width: 90%;
+    transform: translateY(100%);
+    width: 90vw;
   }
   
   @include mq(xxl) {
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: var(--container-width);
+  }
+}
+
+.cc-image-banner__caption {
+  @include grid-column(1, 7);
+  margin-top: var(--space-xl);
+
+  @include mq(sm) {
+    @include grid-column(7, 13);
+  }
+
+  @include mq(lg) {
+    @include grid-column(10, 13);
   }
 }

@@ -31,13 +31,15 @@ export const ImageBanner = ({
 
   return (
     <figure className={classNames} role="banner">
-      <ImageElement
-        alt={alt}
-        className="cc-image-banner__img"
-        src={src}
-        role="presentation"
-        sizes={sizes}
-      />
+      <div className="cc-image-banner__container">
+        <ImageElement
+          alt={alt}
+          className="cc-image-banner__img"
+          src={src}
+          role="presentation"
+          sizes={sizes}
+        />
+      </div>
 
       <div className="cc-image-banner__caption-container">
         <MediaCaption
