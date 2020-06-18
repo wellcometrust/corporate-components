@@ -31,3 +31,4 @@ const Media = ({ caption, children, className, credit, type }: MediaProps) => {
 };
 
 export default Media;
+export { MediaCaption };

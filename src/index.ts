@@ -14,6 +14,7 @@ export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
 export { Image } from 'Image/Image';
+export { ImageBanner } from 'ImageBanner/ImageBanner';
 export { InfoBox } from 'InfoBox/InfoBox';
 export { InpageNav } from 'InpageNav/InpageNav';
 export { Listing, ListingLink } from 'Listing/Listing';

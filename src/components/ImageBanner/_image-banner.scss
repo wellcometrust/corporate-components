@@ -1,0 +1,115 @@
+// ----------------------------------
+// UI Components
+// ImageBanner
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+:root {
+  --min-height: #{map-get($mq-breakpoints, md)};
+}
+
+.cc-image-banner {
+  margin: 0;
+  position: relative;
+}
+
+.cc-image-banner__container {
+  //   @include flex(flex-end, flex-start);
+  //   @include rem(margin-bottom, $grid-typo-spacing-s);
+  //   @include rem(margin-bottom, $grid-spacing-unit * 3);
+  background: var(--colour-blue-80);
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  @include mq(sm) {
+    display: block;
+    height: auto;
+    
+    &:after {
+      content: '';
+      display: block;
+      height: 0;
+      padding-bottom: 36.13%; // ratio based on 1600x578
+      width: 100%;
+    }
+  }
+}
+
+.cc-image-banner__img {
+  height: inherit;
+  left: 50%;
+  max-width: none;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: auto;
+  
+  @include mq(sm) {
+    // @include rem(padding-top, $header-height-l);
+    min-height: 0;
+    width: 100%;
+    
+    .main & {
+      padding-top: 0;
+    }
+  }
+}
+
+.cc-image-banner__caption-container {
+  @include grid-container;
+}
+
+.cc-image-banner__caption--fixed {
+  @include mq(md) {
+    bottom: 0;
+    position: absolute;
+    width: 90%;
+  }
+  
+  @include mq(xxl) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+}
+
+.cc-image-banner__caption {
+  //   @include rem(font-size, $caption-font-size);
+  //   @include rem(margin-bottom, $grid-spacing-unit * 4);
+  //   @include rem(padding, $grid-spacing-unit / 2 0);
+  border-bottom: 1px solid var(--colour-grey-20);
+  border-top: 1px solid var(--colour-grey-20);
+  color: var(--colour-grey-60);
+  line-height: inherit;
+  text-align: left;
+  
+  @include mq(md) {
+    //   @include rem(bottom, -$grid-spacing-unit * 28);
+    //   @include rem(height, $grid-spacing-unit * 25);
+    //   @include rem(max-width, $grid-spacing-unit * 25);
+    //   @include rem(padding-top, $grid-spacing-unit * 3);
+    border-bottom: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    //   width: calc(33.33% - (#{$grid-spacing-unit} * 10));
+  }
+}
+
+.cc-image-banner__caption-title {
+  font-weight: bold;
+}
+
+.cc-image-banner__caption-desc {
+  //   @include rem(padding-top, $grid-spacing-unit);
+}
+
+.cc-image-banner__caption-credit {
+  //   @include rem(padding-top, $grid-spacing-unit / 2);
+}
