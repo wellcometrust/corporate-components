@@ -1,0 +1,73 @@
+// ----------------------------------
+// UI Components
+// ImageBanner
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+:root {
+  --min-height: #{map-get($mq-breakpoints, md)};
+}
+
+.cc-image-banner {
+  background: var(--colour-blue-80);
+  height: 50vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  @include mq(sm) {
+    display: block;
+    height: auto;
+    
+    &:after {
+      content: '';
+      display: block;
+      height: 0;
+      padding-bottom: 36.13%; // ratio based on 1600x578
+      width: 100%;
+    }
+  }
+}
+
+.cc-image-banner__img {
+  height: inherit;
+  left: 50%;
+  max-width: none;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: auto;
+  
+  @include mq(sm) {
+    // @include rem(padding-top, $header-height-l);
+    min-height: 0;
+    width: 100%;
+    
+    .main & {
+      padding-top: 0;
+    }
+  }
+}
+
+.cc-image-banner__caption-container {
+  @include grid-container;
+}
+
+.cc-image-banner__caption--fixed {
+  @include mq(md) {
+    bottom: 0;
+    position: absolute;
+    width: 90%;
+  }
+  
+  @include mq(xxl) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+}
