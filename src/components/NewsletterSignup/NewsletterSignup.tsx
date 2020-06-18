@@ -11,7 +11,7 @@ type NewsletterSignupProps = {
 };
 
 const introDefault =
-  'Say what Get the latest news about Wellcome and the work we fund in a monthly email.';
+  'Get the latest news about Wellcome and the work we fund in a monthly email.';
 const titleDefault = 'Sign up to our research newsletter';
 const typeDefault = 'corporate';
 
