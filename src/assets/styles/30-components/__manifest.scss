@@ -5,6 +5,8 @@
 // 2019-11-11
 // ----------------------------------
 
+// Base level components used by other components
+@import './src/components/Media/media';
 @import './src/components/Button/button';
 @import './src/components/Contact/contact';
 @import './src/components/CookieMessage/cookie-message';
@@ -26,7 +28,6 @@
 @import './src/components/Listing/listing';
 @import './src/components/Logo/logo';
 @import './src/components/Main/main';
-@import './src/components/Media/media';
 @import './src/components/Nav/nav-item';
 @import './src/components/NewsletterForm/newsletter-form';
 @import './src/components/NewsletterSignup/newsletter-signup';
