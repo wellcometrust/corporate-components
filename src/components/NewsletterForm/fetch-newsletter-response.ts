@@ -9,16 +9,9 @@ export const fetchNewsletterResponse = async (
     body: JSON.stringify({
       email,
       type,
-      researchOption
+      research_dd:researchOption
     })
   };
-
-  console.log(requestOptions);
-  // {
-  //   email: testt@test.com
-  //   type: research
-  //   researchOptions: 1
-  // }
 
   try {
     const response = await fetch(endpointUrl, requestOptions);

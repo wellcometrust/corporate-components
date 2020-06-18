@@ -83,7 +83,7 @@ export const NewsletterForm = ({
       'https://wellcome.ac.uk/newsletter-signup',
       email,
       type,
-      researchOption
+      dropdown
     );
 
     if (response?.status === 200) {
@@ -115,10 +115,6 @@ export const NewsletterForm = ({
     setResponseError(false);
   };
 
-  const handleDropDownChange = ({ value }: HTMLSelectElement) => {
-    setDropdown(researchOption);
-  };
-
   /**
    * Handles email <input /> blur; updates error state when user blurs the
    * email <input />.
@@ -127,6 +123,15 @@ export const NewsletterForm = ({
    */
   const handleEmailBlur = ({ value }: HTMLInputElement) => {
     setEmailError(!isEmail(value));
+  };
+
+  /**
+   * Handles researchdropdwon <select /> changes; updates value of state variable.
+   *
+   * @param {Object} HTMLSelectElement - value key of an HTMLSelectElement
+   */
+  const handleDropDownChange = ({ value }: HTMLSelectElement) => {
+    setDropdown(value);
   };
 
   const classNames = cx('newsletter-form', {
@@ -169,7 +174,6 @@ export const NewsletterForm = ({
             handleChange={event => handleConsentChange(event.currentTarget)}
             hasError={consentError}
           />
-          {/* <input type='hidden' value='paa' /> */}
           <NewsletterFormSubmit
             disabled={consentError || emailError || busy}
             busy={busy}
