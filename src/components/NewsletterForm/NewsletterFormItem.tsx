@@ -4,7 +4,7 @@ import cx from 'classnames';
 type NewsletterFormItemProps = {
   children: React.ReactNode;
   hasError?: boolean;
-  type?: 'email' | 'dropdown' | 'consent' | 'submit' | 'footer' | 'error';
+  type?: 'consent' | 'dropdown' | 'email' | 'error' | 'footer' | 'submit';
 };
 
 export const NewsletterFormItem = ({

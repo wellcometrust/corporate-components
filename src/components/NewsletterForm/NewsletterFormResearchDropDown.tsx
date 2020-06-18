@@ -15,7 +15,7 @@ export const NewsletterFormResearchDropDown = ({
     <NewsletterFormItem type="dropdown">
       <label
         className="newsletter-form__item-label newsletter-form__item-label--dropdown"
-        htmlFor="dropdown"
+        htmlFor="edit-research-options"
       >
         Which of these best describes you?
       </label>

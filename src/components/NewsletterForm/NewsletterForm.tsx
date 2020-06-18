@@ -22,8 +22,8 @@ type NewsletterFormProps = {
 export const NewsletterForm = ({
   children,
   className,
-  type,
-  researchOption
+  researchOption,
+  type
 }: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
   const [dropdown, setDropdown] = useState('');
@@ -81,9 +81,9 @@ export const NewsletterForm = ({
     const response = await fetchNewsletterResponse(
       // TODO: #6023 - move to .env
       'https://wellcome.ac.uk/newsletter-signup',
+      dropdown,
       email,
-      type,
-      dropdown
+      type
     );
 
     if (response?.status === 200) {
