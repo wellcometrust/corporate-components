@@ -144,5 +144,8 @@
       "npm run lint:style",
       "git add"
     ]
+  },
+  "storybook-deployer": {
+    "commitMessage": "Deploy Storybook [skip-ci]"
   }
 }
