@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 jobs:
   build:
     branches:
@@ -8,7 +8,7 @@ jobs:
       - image: circleci/node:8
     working_directory: ~/repo
     environment:
-      - SOURCE_BRANCH: master
+      - SOURCE_BRANCH: circleci-project-setup
       - TARGET_BRANCH: gh-pages
     steps:
       - checkout
