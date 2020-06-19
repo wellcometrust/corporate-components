@@ -24,7 +24,7 @@ jobs:
             command: npm install
         - run:
             name: Deploy
-            command: npm run deploy-storybook -- --ci
+            command: npm run deploy-storybook --ci
 
 workflows:
   deploy:
