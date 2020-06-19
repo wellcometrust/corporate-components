@@ -1,17 +1,45 @@
-version: 2.1
-orbs:
-  node: circleci/node@1.1.6
-jobs:
-  build-and-test:
-    executor:
-      name: node/default
+executors:
+  node:
+    docker:
+      - image: circleci/node:10.15.0
+
+commands:
+  install_dependencies:
+    ...
+  set_deploy_key:
+    description: Sets the ssh key for project access
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - add_ssh_keys:
+          fingerprints:
+            - '62:37:ac:a7:2a:a4:b6:0c:06:1f:5a:eb:cc:98:3f:0e'
+
+jobs:
+  ...
+    deploy:
+      executor: node
+      steps:
+        - set_deploy_key
+        - checkout
+        - install_dependencies
+        - run:
+            name: Deploy
+            command: yarn deploy
+
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+  deploy:
+    jobs:
+      - lint:
+          filters:
+            branches:
+              ignore: 'gh-pages'
+      - test:
+          filters:
+            branches:
+              ignore: 'gh-pages'
+      - deploy:
+          filters:
+            branches:
+              only: circle-ci-project-setup
+          requires:
+            - lint
+            - test
