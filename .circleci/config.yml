@@ -14,16 +14,15 @@ commands:
             - '62:37:ac:a7:2a:a4:b6:0c:06:1f:5a:eb:cc:98:3f:0e'
 
 jobs:
-  ...
-    deploy:
-      executor: node
-      steps:
-        - set_deploy_key
-        - checkout
-        - install_dependencies
-        - run:
-            name: Deploy
-            command: yarn deploy
+  deploy:
+    executor: node
+    steps:
+      - set_deploy_key
+      - checkout
+      - install_dependencies
+      - run:
+          name: Deploy
+          command: yarn deploy
 
 workflows:
   deploy:
