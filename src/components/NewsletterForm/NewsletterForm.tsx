@@ -7,7 +7,6 @@ import fetchNewsletterResponse from './fetch-newsletter-response';
 
 import NewsletterFormEmail from './NewsletterFormEmail';
 import NewsletterFormResearchDropDown from './NewsletterFormResearchDropDown';
-import NewsletterFormConsent from './NewsletterFormConsent';
 import NewsletterFormFooter from './NewsletterFormFooter';
 import NewsletterFormSubmit from './NewsletterFormSubmit';
 import NewsletterFormError from './NewsletterFormError';
@@ -27,7 +26,6 @@ export const NewsletterForm = ({
 }: NewsletterFormProps) => {
   const [email, setEmail] = useState('');
   const [dropdown, setDropdown] = useState('');
-  const [consent, setConsent] = useState(false);
   const [emailError, setEmailError] = useState(null);
   const [consentError, setConsentError] = useState(null);
   const [busy, setBusy] = useState(false);
@@ -40,7 +38,6 @@ export const NewsletterForm = ({
    */
   const checkFormValidity = () => {
     setEmailError(!isEmail(email));
-    setConsentError(!consent);
   };
 
   /**
@@ -91,18 +88,6 @@ export const NewsletterForm = ({
     } else {
       handleError();
     }
-  };
-
-  /**
-   * Handles when consent <input /> (checkbox) changes; updates value of
-   * state variable, sets error state.
-   *
-   * @param {boolean} checked - 'checked' property of HTMLInputElement
-   */
-  const handleConsentChange = ({ checked }: HTMLInputElement) => {
-    setConsent(checked);
-    setConsentError(!checked);
-    setResponseError(false);
   };
 
   /**
@@ -168,11 +153,6 @@ export const NewsletterForm = ({
             handleChange={event => handleEmailChange(event.currentTarget)}
             hasError={emailError}
             value={email}
-          />
-          <NewsletterFormConsent
-            checked={consent}
-            handleChange={event => handleConsentChange(event.currentTarget)}
-            hasError={consentError}
           />
           <NewsletterFormSubmit
             disabled={consentError || emailError || busy}
