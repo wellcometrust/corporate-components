@@ -35,9 +35,10 @@ export const ImageBanner = ({
         <ImageElement
           alt={alt}
           className="cc-image-banner__img"
-          src={src}
           role="presentation"
           sizes={sizes}
+          src={src}
+          srcSet={srcSet}
         />
       </div>
 
