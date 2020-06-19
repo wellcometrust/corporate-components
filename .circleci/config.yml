@@ -1,42 +1,54 @@
 version: 2.1
-
 jobs:
-  build-storybook:
-    working_directory: ~/repo
+  build:
+    branches:
+      ignore:
+        - gh-pages
     docker:
-      - image: circleci/node:lts
+      - image: circleci/node:8
+    working_directory: ~/repo
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
     steps:
       - checkout
-      - run:
-          name: Create GitHub Deployment
-          command: ./tasks/deployment/start.sh > deployment
       - restore_cache:
           keys:
-            - cache-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - cache-
+          - v1-dependencies-
+          - v1-dependencies-
       - run:
-          name: Installing Dependencies
+          name: Install dependencies
           command: npm install
-      - run:
-          name: Build Storybook
-          command: npm run build-storybook
-      - store_artifacts:
-          path: storybook-static
-      - run:
-          name: Add GitHub Deployment success status
-          command: ./tasks/deployment/end.sh success
-          when: on_success
-      - run:
-          name: Add GitHub Deployment error status
-          command: ./tasks/deployment/end.sh error
-          when: on_fail
       - save_cache:
           paths:
             - node_modules
-          key: cache-{{ checksum "package.json" }}
+          key: v1-dependencies-
+      - run:
+          name: Run tests
+          command: npm test
+      - deploy:
+          name: Deploy
+          command: |
+            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+              git config --global user.email $GH_EMAIL
+              git config --global user.name $GH_NAME
 
-workflows:
-  deploy:
-    jobs:
-      - build-storybook
+              git clone $CIRCLE_REPOSITORY_URL out
+
+              cd out
+              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+              git rm -rf .
+              cd ..
+
+              npm run build
+
+              cp -a build/. out/.
+
+              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+              cd out
+
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+
+              git push origin $TARGET_BRANCH
+            fi
