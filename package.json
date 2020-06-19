@@ -146,6 +146,6 @@
     ]
   },
   "storybook-deployer": {
-    "commitMessage": "Deploy Storybook [skip-ci]"
+    "commitMessage": "Deploy Storybook [ci skip]"
   }
 }
