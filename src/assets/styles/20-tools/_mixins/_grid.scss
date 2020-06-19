@@ -1,0 +1,312 @@
+// ----------------------------------
+// UI Components
+// Mixins
+// Grid
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Sets up a grid container with a max-width and some margins
+ */
+
+@mixin grid-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: rem(var(--grid-max-width));
+
+  @include mq(xxl) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/**
+ * Repeat columns
+ *
+ * @param {number} $repeat - Number of columns to repeat
+ * @param {type}   $unit - Type of units (default is fraction)
+ */
+
+@function grid-repeat($repeat, $unit: 1fr) {
+  $list: ();
+
+  @for $i from 1 through $repeat {
+    $list: append($list, $unit, space);
+  }
+
+  @return $list;
+}
+
+/**
+ * Add gap between the grid tracks
+ *
+ * @param {list}   $boxes - List with box sizes
+ * @param {string} $gap - Optional column gap
+ */
+
+@function box-gap($boxes, $gap) {
+  $box: ();
+
+  @for $i from 1 through length($boxes) {
+    $box: append($box, nth($boxes, $i), space);
+
+    // Adding gap between
+    @if $gap > 0 {
+      // Not the last loop
+      @if $i != length($boxes) {
+        $box: append($box, $gap, space);
+      }
+    }
+  }
+
+  @return $box;
+}
+
+/**
+ * Build grid template columns with optional gap
+ *
+ * @param   {string}   $gap - Optional column gap
+ * @param   {list}     $columns - Columns sizes
+ * @require {function} box-gap
+ */
+
+@mixin grid-columns($gap, $columns: grid-repeat(12, 1fr)) {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-columns: box-gap($columns, $gap);
+  grid-template-columns: $columns;
+
+  @if $gap > 0 {
+    grid-column-gap: $gap;
+  }
+}
+
+/**
+ * Build grid template rows with optional gap
+ *
+ * @param   {string}   $gap - Optional row gap
+ * @param   {list}     $rows - Rows sizes
+ * @require {function} box-gap
+ */
+
+@mixin grid-rows($gap, $rows) {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-rows: box-gap($rows, $gap);
+  grid-template-rows: $rows;
+
+  @if $gap > 0 {
+    grid-row-gap: $gap;
+  }
+}
+
+/**
+ * Set column span on grid cell
+ *
+ * @param   {number}   $col-start - grid-column-start
+ * @param   {number}   $col-end - grid-column-end
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-cell
+ */
+
+@mixin grid-column($col-start, $col-end: null) {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-column: $col-start * 2 - 1;
+
+  @if $col-end != null {
+    grid-column: #{$col-start} / #{$col-end};
+    // stylelint-disable-next-line property-no-vendor-prefix
+    -ms-grid-column-span: ($col-end - $col-start) * 2 - 1;
+  }
+
+  @else {
+    grid-column: #{$col-start};
+  }
+}
+
+/**
+ * Set row span on grid cell
+ *
+ * @param   {number}   $row-start - grid-row-start
+ * @param   {number}   $row-end - grid-row-end
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row
+ */
+
+@mixin grid-row($row-start, $row-end: null) {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-row: $row-start * 2 - 1;
+
+  @if $row-end != null {
+    grid-row: #{$row-start} / #{$row-end};
+    // stylelint-disable-next-line property-no-vendor-prefix
+    -ms-grid-row-span: ($row-end - $row-start) * 2 - 1;
+  }
+
+  @else {
+    grid-row: #{$row-start};
+  }
+}
+
+/**
+ * Grid Alignment
+ *
+ * @param   {string}   $value - align-self value
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/align-self
+ */
+
+@mixin grid-align-self($value) {
+  align-self: $value;
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-row-align: $value;
+}
+
+/**
+ * Grid Justify
+ *
+ * @param   {string}   $value - justify-self value
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self
+ */
+
+@mixin grid-justify-self($value) {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-column-align: $value;
+  justify-self: $value;
+}
+
+/**
+ * Generates IE10/11 grid placement to simulate grid-auto-flow
+ *
+ * @param {map}    $data - Information needed to tell IE exactly where to place everything
+ * @param {string} $data.autoflow - Value for "grid-auto-flow". Either 'column' or 'row'
+ * @param {number} $data.columns - Number of columns in the grid
+ * @param {number} $data.rows - Number of rows in the grid
+ * @param {string} $data.gap - Where to allow for gaps. Should be 'column', 'row', or 'both'
+ */
+
+@mixin grid-autoflow($data) {
+  $autoflow: map-get($data, autoflow);
+  $columns: map-get($data, columns);
+  $rows: map-get($data, rows);
+
+  $column-gap: false;
+  $row-gap: false;
+  $column: 1;
+  $row: 1;
+  $counter: 1;
+
+  grid-auto-flow: $autoflow;
+
+  @if (map-get($data, 'gap') == 'column') {
+    $column-gap: true;
+    $row-gap: false;
+  }
+
+  @else if (map-get($data, gap) == 'row') {
+    $column-gap: false;
+    $row-gap: true;
+  }
+
+  @else if (map-get($data, gap) == 'both') {
+    $column-gap: true;
+    $row-gap: true;
+  }
+
+  @else if (map-get($data, gap) == 'neither') {
+    $column-gap: false;
+    $row-gap: false;
+  }
+
+  @else {
+    @error The 'gap' argument must be one of 'column', 'row', 'both', or 'neither';
+  }
+
+  @if ($column-gap) {
+    $columns: $columns * 2 - 1;
+  }
+
+  @if ($row-gap) {
+    $rows: $rows * 2 - 1;
+  }
+
+  @if ($autoflow == 'column') {
+    @for $i from 1 through $columns {
+      @for $j from 1 through $rows {
+        // This element can be filled iff we are not in a row gap or a column gap.
+        @if ($i % 2 == 0 and $column-gap) {
+          // This is a column gap. Don't place the next element.
+        }
+
+        @else if ($j % 2 == 0 and $row-gap) {
+          // This is a row gap. Don't place the next element.
+        }
+
+        @else {
+          // Place the next element in column $i and row $j.
+          // stylelint-disable-next-line max-nesting-depth
+          > :nth-child(#{$counter}) {
+            // stylelint-disable-next-line property-no-vendor-prefix
+            -ms-grid-column: $i;
+            // stylelint-disable-next-line property-no-vendor-prefix
+            -ms-grid-row: $j;
+          }
+          $counter: $counter + 1;
+        }
+      }
+    }
+  }
+
+  @else if ($autoflow == 'row') {
+    @for $i from 1 through $rows {
+      @for $j from 1 through $columns {
+        // This element can be filled iff we are not in a row gap or a column gap.
+        @if ($i % 2 == 0 and $row-gap) {
+          // This is a row gap. Don't place the next element.
+        }
+
+        @else if ($j % 2 == 0 and $column-gap) {
+          // This is a column gap. Don't place the next element.
+        }
+
+        @else {
+          // Place the next element in row $i and column $j.
+          // stylelint-disable-next-line max-nesting-depth
+          > :nth-child(#{$counter}) {
+            // stylelint-disable-next-line property-no-vendor-prefix
+            -ms-grid-column: $j;
+            // stylelint-disable-next-line property-no-vendor-prefix
+            -ms-grid-row: $i;
+          }
+          $counter: $counter + 1;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Explicitly place a grid item on a row
+ *
+ * @param {number}    $rows
+ * @param {boolean}   $self
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row#Internet_Explorer_issues
+ */
+
+@mixin grid-row-auto($rows, $self: false) {
+  $counter: 1;
+
+  @for $i from 1 through $rows {
+    @if ($self == true) {
+      &:nth-child(#{$counter}) {
+        // stylelint-disable-next-line property-no-vendor-prefix
+        -ms-grid-row: $i;
+      }
+    }
+
+    @else {
+      > :nth-child(#{$counter}) {
+        // stylelint-disable-next-line property-no-vendor-prefix
+        -ms-grid-row: $i;
+      }
+    }
+    $counter: $counter + 1;
+  }
+}

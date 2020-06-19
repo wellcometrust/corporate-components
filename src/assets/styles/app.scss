@@ -1,0 +1,69 @@
+// ----------------------------------
+// UI
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * This file serves as the main entry point for the library's
+ * styles (written in .scss).
+ */
+
+/* stylelint-disable scss/at-import-no-partial-leading-underscore */
+
+// Core variables e.g. base sizes and colors
+@import '10-settings/__manifest';
+
+// Core style functions and mixins
+@import '20-tools/__manifest';
+
+// More detailed components such as buttons, alerts etc.
+@import '30-components/__manifest';
+
+// Objects e/g grid or media object
+@import '40-objects/__manifest';
+
+// Utility and helper classes
+@import '50-utilities/__manifest';
+
+/* stylelint-enable scss/at-import-no-partial-leading-underscore */
+
+/**
+ * Whilst we initially adopted a fully-fledged version of the ITCSS
+ * framework, we decided to strip back to a slimmed down version which
+ * emits no CSS anywhere other than from `components`.
+ *
+ * This may not be the final decision, and we may choose to incorporate
+ * things like `object` and `utility` styles as the project grows -
+ * this is why the original @import declarations are left intact below.
+ *
+ * This gives us reference of how we can expand the styles in future.
+ */
+
+// Core variables e.g. base sizes and colors
+// @import '10-settings/__manifest';
+
+// Core style functions and mixins
+// @import '20-tools/__manifest';
+
+// Default fonts and cross browser normalisation
+// @import '30-generic/__manifest';
+
+// Global elements only containg html tags e.g. h1,li,ol,ul
+// @import '40-elements/__manifest';
+
+// Objects e/g grid or media object
+// @import '50-objects/__manifest';
+
+// More detailed components such as buttons, alerts etc.
+// @import '60-components/__manifest';
+
+// Vendor files
+// @import '70-vendors/__manifest';
+
+// Scopes
+// @import '80-scopes/__manifest';
+
+// Utility and helper classes
+// @import '90-utilities/__manifest';

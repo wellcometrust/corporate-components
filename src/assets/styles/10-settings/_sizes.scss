@@ -1,0 +1,19 @@
+// ----------------------------------
+// UI Settings
+// Sizes
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+:root {
+  --container-width: #{map-get($mq-breakpoints, xl)};
+
+  --header-height: calc(5.5 * var(--space-unit));
+  --header-height-sm: calc(10 * var(--space-unit));
+  --header-height-sm-sticky: calc(8.5 * var(--space-unit));
+
+  --secondary-nav-height: calc(2 * var(--space-unit));
+
+  --search-height-md: calc(8 * --var(--space-unit));
+}

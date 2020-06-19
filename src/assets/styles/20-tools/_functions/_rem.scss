@@ -1,0 +1,33 @@
+// ----------------------------------
+// UI Tools
+// Functions
+// REM
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Convert a pixel value to rem units.
+ *
+ * @param   $size   a pixel value
+ *
+ * Usage:
+ *
+ * .c-component {
+ *   font-size: rem(32);
+ * }
+ *
+ * Outputs (based on a 16px $base-font-size):
+ *
+ * .c-component {
+ *   font-size: 2rem;
+ * }
+ *
+ */
+
+@function rem($size) {
+  $rems: calc(#{$size}rem / var(--text-base-size-px));
+
+  @return #{$rems};
+}

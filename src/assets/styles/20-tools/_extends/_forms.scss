@@ -1,0 +1,80 @@
+// ----------------------------------
+// UI Tools
+// Extends
+// Forms
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Set some base (reset) styles on an <input> or <textarea>.
+ *
+ * Usage:
+ *
+ * .an-input-selector {
+ *   @extend %text-input-base;
+ * }
+ *
+ */
+
+%text-input-base {
+  border: 0;
+  border-radius: calc(0.25 * var(--space-unit));
+  box-sizing: border-box;
+  color: var(--colour-black);
+  font-size: var(--body-md);
+  letter-spacing: var(--body-letter-spacing);
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
+  width: 100%;
+
+  &::placeholder {
+    color: var(--text-colour);
+  }
+}
+
+/**
+ * Use custom checkbox styles
+ *
+ * Usage:
+ *
+ * .an-input-checkbox-selector {
+ *   @extend %checkbox;
+ * }
+ *
+ */
+
+%checkbox {
+  @extend %visually-hidden;
+
+  + label {
+    cursor: pointer;
+    display: block;
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  + label:before {
+    border: solid 1px #c5c5c5;
+    content: '';
+    display: inline-block;
+    height: 16px;
+    left: 0;
+    margin-right: 0.625rem;
+    position: absolute;
+    top: 1px;
+    transition: border-color 0.3s;
+    vertical-align: baseline;
+    width: 16px;
+  }
+
+  &:checked + label:before {
+    @extend %icon-checkbox-tick;
+    background-color: #ed6b00;
+    background-position: 50% 40%;
+    background-size: 10px;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}

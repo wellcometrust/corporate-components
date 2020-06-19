@@ -1,0 +1,44 @@
+// ----------------------------------
+// UI Components
+// Search Form
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.search-form {
+  display: flex;
+  margin-bottom: var(--space-xl);
+  margin-top: var(--space-xl);
+  position: relative;
+}
+
+.search-form__input {
+  @extend %text-input-base;
+  border: 1px solid var(--colour-grey-10);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  flex-basis: 100%;
+  font-size: inherit;
+  height: calc(6.75 * var(--space-unit));
+  padding-left: calc(3.125 * var(--space-unit));
+  padding-right: calc(3.125 * var(--space-unit));
+  transition: background-color ease var(--transition-duration);
+
+  &:focus {
+    background-color: var(--colour-grey-05);
+  }
+}
+
+.search-form__btn-submit {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  flex-shrink: 0;
+  height: auto;
+  justify-content: center;
+}
+
+.search-form__btn-submit .icon {
+  color: var(--colour-white);
+  margin-right: 0;
+}

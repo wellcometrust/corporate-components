@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "rootDir": "./src",
+        "baseUrl": "./src",
+        "paths": {
+            "*": [
+                "/",
+                "components/*",
+            ],
+            "data/*": [
+                "data/*"
+            ],
+            "utils/*": [
+                "utils/*"
+            ],
+        },
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "strict": false,
+        "target": "esnext",
+        "module": "commonjs",
+        "declaration": true /* Generates corresponding '.d.ts' file. */,
+        "outDir": "dist" /* Redirect output structure to the directory. */,
+        "typeRoots": [
+            "node_modules/@types",
+            "./typings.d.ts",
+        ],
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "resolveJsonModule": true,
+    },
+    "include": [
+        "./"
+    ],
+    "exclude": [
+        "coverage",
+        "dist",
+        "node_modules"
+    ]
+}

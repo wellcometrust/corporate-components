@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+// body vars
+body {
+  color: var(--colour-concrete-90);
+  font-family: var(--font-primary);
+  font-size: var(--text-base-size);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
+}
+
+a {
+  @extend %anchor-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %heading-base;
+}
+
+h1 {
+  @extend %heading-super;
+}
+
+h2 {
+  @extend %heading-hero;
+}
+
+h3 {
+  @extend %heading-display;
+}
+
+h4 {
+  @extend %heading-large;
+}
+
+h5 {
+  @extend %heading-regular;
+}
+
+h6 {
+  @extend %heading-small;
+}
+
+// stylelint-disable selector-max-id
+.is-search-active .header,
+.is-search-active .image-lead,
+.is-search-active .pride-strip,
+.is-search-active .banner,
+.is-search-active .main,
+.is-search-active #main,
+.is-search-active .footer {
+  @include mq(md) {
+    transform: translate3d(0, 64px, 0);
+  }
+}

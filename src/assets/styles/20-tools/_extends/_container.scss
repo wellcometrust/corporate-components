@@ -1,0 +1,31 @@
+// ----------------------------------
+// UI Tools
+// Extends
+// Container
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * The main site container; sets a max-width and some margins to keep
+ * content aligned within/between components
+ *
+ * Usage:
+ *
+ * .selector {
+ *   @extend %container;
+ * }
+ *
+ */
+
+%container {
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: var(--container-width);
+
+  /* global maxWidth + 5% margin on left and right */
+  @include mq(1.1 * map-get($mq-breakpoints, xl)) {
+    margin: 0 auto;
+  }
+}

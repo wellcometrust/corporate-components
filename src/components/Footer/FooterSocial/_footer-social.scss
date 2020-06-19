@@ -1,0 +1,54 @@
+// ----------------------------------
+// UI Components
+// Footer
+// Social
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+  margin-top: var(--space-lg);
+  transform: translateX(-(var(--space-md)));
+
+  @include mq(sm) {
+    margin-top: var(--space-xl);
+  }
+}
+
+.footer-social-item {
+  background-size: calc(7 * var(--space-xs));
+  border: 1px solid rgba(255, 255, 255, 0.2); // #6171 refactor footer styles
+  border-radius: 50%;
+  color: var(--colour-white);
+  display: block;
+  height: calc(7 * var(--space-xs) + 2px); // plus border-width
+  margin: calc(2 * var(--space-xs));
+  transition: border ease var(--transition-duration);
+  width: calc(7 * var(--space-xs) + 2px); // plus border-width
+
+  @include hocus {
+    border-color: var(--colour-white);
+    color: var(--colour-white);
+  }
+}
+
+.footer-social-item__icon {
+  height: 100%;
+  width: 100%;
+
+  > svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.footer-social-item__assistive-text {
+  // For users tabbing through document
+  .footer-social-item:not(:focus) & {
+    @include visually-hidden;
+  }
+}

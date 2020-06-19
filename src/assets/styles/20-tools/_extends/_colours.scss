@@ -1,0 +1,27 @@
+// ----------------------------------
+// UI Tools
+// Extends
+// Colors
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Inherit color from parent (including hocus); useful for <a> tags
+ *
+ * Usage:
+ *
+ * .selector (an <a> tag, probably) {
+ *   @extend %color-inherit;
+ * }
+ *
+ */
+
+%color-inherit {
+  color: inherit;
+
+  @include hocus {
+    color: inherit;
+  }
+}

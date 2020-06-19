@@ -1,0 +1,70 @@
+// ----------------------------------
+// UI Components
+// Text
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-text {
+  // TODO: #6636 - create global styles for scaffolding sections 
+  padding-bottom: var(--space-xl);
+
+  h3 {
+    @extend %heading-base;
+    @extend %heading-display;
+    @include heading-divider;
+    letter-spacing: 0;
+    text-align: center;
+  }
+  
+  h4 {
+    @extend %heading-base;
+    @extend %heading-large;
+    letter-spacing: 0;
+  }
+  
+  h5 {
+    @extend %heading-base;
+    @extend %heading-regular;
+    letter-spacing: 0;
+  }
+  
+  h6 {
+    @extend %heading-base;
+    @extend %heading-small;
+    letter-spacing: 0;
+  }
+
+  p {
+    @extend %body-large;
+  }
+  
+  ol,
+  ul {
+    @extend %list-base;
+  }
+}
+
+// TODO: #6636 section scaffolding - make these styles globally accessible for content level components
+.cc-text__content {
+  @include grid-column(1, 7);
+  width: 100%;
+
+  @include mq(sm) {
+    @include grid-column(2, 12);
+  }
+
+  @include mq(md) {
+    @include grid-column(4, 10);
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* ensure h3 always has more space above */
+  > * + h3 {
+    margin-top: var(--space-xl);
+  }
+}

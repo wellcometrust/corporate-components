@@ -1,0 +1,41 @@
+{
+    "extends": [
+        "stylelint-config-sass-guidelines"
+    ],
+    "rules": {
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "first-nested",
+                    "blockless-after-blockless"
+                ],
+                "ignore": [
+                    "after-comment"
+                ]
+            }
+        ],
+        "max-nesting-depth": [
+            1,
+            {
+                "ignoreAtRules": [
+                    "each",
+                    "media",
+                    "supports",
+                    "include"
+                ],
+                "ignore": [
+                    "blockless-at-rules"
+                ]
+            }
+        ],
+        "selector-class-pattern": [
+            "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+            {
+                "message": "Selector should be written in kebab-case and in the BEM format `.block__element--modifier` (selector-class-pattern)"
+            }
+        ],
+        "scss/at-mixin-argumentless-call-parentheses": "never",
+        "selector-pseudo-element-colon-notation": "single"
+    }
+}

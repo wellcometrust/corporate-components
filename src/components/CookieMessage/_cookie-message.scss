@@ -1,0 +1,56 @@
+.cookie-message {
+  background-color: var(--colour-cyan-20);
+  bottom: 0;
+  color: var(--colour-black);
+  left: 0;
+  letter-spacing: var(--body-letter-spacing);
+  padding: calc(2 * var(--space-unit));
+  position: fixed;
+  width: 100%;
+  z-index: 105;
+
+  @include mq(sm) {
+    padding: calc(4 * var(--space-unit)) calc(6 * var(--space-unit));
+  }
+}
+
+.cookie-message__heading {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: var(--space-unit);
+  margin-top: 0;
+}
+
+.cookie-message__heading-icon {
+  color: var(--colour-grey-80);
+  margin-right: calc(1.25 * var(--space-unit));
+}
+
+.cookie-message__text {
+  margin: 0;
+}
+
+.cookie-message__text-link {
+  color: var(--colour-black);
+}
+
+.cookie-message__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: calc(2 * var(--space-unit));
+}
+
+.cookie-message__button {
+  margin: var(--space-unit) 0;
+  width: 100%;
+
+  @include mq(sm) {
+    width: auto;
+
+    &:first-child {
+      margin-right: calc(4 * var(--space-unit));
+    }
+  }
+}

@@ -1,0 +1,45 @@
+// ----------------------------------
+// UI Components
+// InpageNav
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-inpage-nav {
+  font-size: var(--body-md);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: 1.5;
+}
+
+.cc-inpage-nav__title {
+  font-size: var(--body-xxs);
+  font-weight: 500;
+  line-height: 2.4;
+  text-transform: uppercase;
+}
+
+.cc-inpage-nav__list {
+  @extend %list-clean;
+}
+
+.cc-inpage-nav__link {
+  color: var(--colour-grey-60);
+  display: block;
+  padding: calc(0.25 * var(--space-unit)) calc(0.5 * var(--space-unit));
+  text-decoration: none;
+  
+  @include hocus {
+    color: var(--colour-blue-70);
+  }
+  
+  &:active {
+    color: var(--colour-blue-50);
+  }
+  
+  &.is-active {
+    border-left: 2px solid var(--colour-blue-60);
+    color: var(--colour-grey-80);
+    padding-left: var(--space-unit);
+  }
+}

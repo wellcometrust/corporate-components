@@ -1,0 +1,145 @@
+{
+  "name": "@wellcometrust/corporate-components",
+  "version": "0.4.9",
+  "description": "Component library for main Wellcome Trust corporate site",
+  "main": "dist/index.js",
+  "style": "dist/styles.css",
+  "types": "dist/index.d.ts",
+  "files": [
+    "package.json",
+    "dist"
+  ],
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "build:clean": "rm -rf dist",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:clean && rollup -c ./config/rollup.config.js --environment NODE_ENV:production && npm run build:types",
+    "dev": "npm run build:types && rollup -c ./config/rollup.config.js -w",
+    "lint": "npm run lint:style && npm run lint:js",
+    "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",
+    "lint:style": "stylelint --fix '**/*.scss' && echo 'Style linting complete'",
+    "prepublishOnly": "npm run type-check & npm run lint && npm run test && npm run build",
+    "storybook": "start-storybook -c ./config/storybook -p 6006",
+    "test": "jest",
+    "test:ci": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wellcometrust/corporate-components.git"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wellcometrust/corporate/issues"
+  },
+  "homepage": "https://github.com/wellcometrust/corporate-components#readme",
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "@babel/runtime-corejs3": "^7.8.4",
+    "@types/react-copy-to-clipboard": "^4.3.0",
+    "@types/react-html-parser": "^2.0.1",
+    "bowser": "^2.9.0",
+    "classnames": "^2.2.6",
+    "date-fns": "^2.11.0",
+    "lodash.throttle": "^4.1.1",
+    "pure-react-carousel": "^1.27.1",
+    "react-copy-to-clipboard": "^5.0.2",
+    "react-html-parser": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.7",
+    "@storybook/addon-a11y": "^5.3.18",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-storyshots": "^5.3.18",
+    "@storybook/addon-viewport": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "@types/classnames": "^2.2.9",
+    "@types/enzyme": "^3.10.4",
+    "@types/jest": "^24.0.25",
+    "@types/lodash.throttle": "^4.1.6",
+    "@types/node": "^12.12.22",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-paginate": "^6.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "autoprefixer": "^9.7.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "browserslist": "^4.8.2",
+    "create-react-component-folder": "^0.1.30",
+    "css-loader": "^3.4.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "markdown-loader-jest": "^0.1.1",
+    "node-sass": "^4.14.1",
+    "postcss": "^7.0.26",
+    "postcss-calc": "^7.0.1",
+    "postcss-css-variables": "^0.13.0",
+    "prettier": "^1.18.2",
+    "react": "^16.12.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-dom": "^16.12.0",
+    "rollup": "^1.27.14",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-url": "^2.2.4",
+    "sass-loader": "^8.0.0",
+    "sass-mq": "^5.0.1",
+    "storybook-readme": "^5.0.8",
+    "style-loader": "^1.1.2",
+    "stylelint": "^12.0.1",
+    "stylelint-config-sass-guidelines": "^6.2.0",
+    "typescript": "^3.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run type-check && lint-staged && jest --onlyChanged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint:js",
+      "git add"
+    ],
+    "**/*.{scss,css}": [
+      "npm run lint:style",
+      "git add"
+    ]
+  }
+}

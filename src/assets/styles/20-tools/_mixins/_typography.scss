@@ -1,0 +1,51 @@
+// ----------------------------------
+// UI Tools
+// Mixins
+// Typography
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+@mixin heading-divider(
+  $colour: var(--colour-black),
+  $height: calc(0.5 * var(--space-unit)),
+  $spacing: calc(1.5 * var(--space-unit)),
+  $width: calc(4 * var(--space-unit))
+) {
+  &:after {
+    background-color: $colour;
+    content: '';
+    display: block;
+    height: $height;
+    margin: $spacing auto 0;
+    width: $width;
+  }
+}
+
+/**
+ * Generates a style where a horizontal line displays
+ * beneath an element on hover.
+ */
+@mixin animated-underline {
+  --transition-duration: 0.3s;
+  position: relative;
+
+  &:before {
+    background-color: var(--colour-white);
+    bottom: 0;
+    content: '';
+    height: calc(0.125 * var(--space-unit));
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transition: all var(--transition-duration) ease-in-out;
+    visibility: hidden;
+    width: 100%;
+  }
+
+  &:hover:before {
+    transform: scaleX(1);
+    visibility: visible;
+  }
+}

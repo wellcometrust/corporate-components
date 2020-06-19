@@ -1,0 +1,21 @@
+// ----------------------------------
+// UI Settings
+// Global
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+// handle vertical shift of top level app content to reveal search pane on wider screens
+.o-app {
+  @include mq(sm) {
+    transition: var(--transition-duration) ease-in-out;
+    transition-property: height, padding, transform;
+  }
+}
+
+.is-search-active .o-app {
+  @include mq(md) {
+    transform: translate3d(0, var(--search-height-md), 0);
+  }
+}

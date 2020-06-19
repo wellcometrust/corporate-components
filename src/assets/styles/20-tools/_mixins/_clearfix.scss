@@ -1,0 +1,27 @@
+// ----------------------------------
+// UI Tools
+// Mixins
+// Clearfix
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * Clear floated content within a container.
+ *
+ * Usage:
+ *
+ * .selector {
+ *   @include clearfix;
+ * }
+ *
+ */
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}

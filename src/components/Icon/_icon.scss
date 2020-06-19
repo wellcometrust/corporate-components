@@ -1,0 +1,25 @@
+.icon {
+  display: flex;
+  flex: 0 0 auto;
+  height: 1rem;
+  justify-content: center;
+  width: 1rem;
+
+  // TODO - move to nav__link styles once NavItem Styled Components are converted to SCSS
+  @include mq(md) {
+    .nav__link & {
+      display: none;
+    }
+  }
+
+  // D7 override
+  &.icon[aria-hidden='true'] {
+    display: flex;
+  }
+
+  svg {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+  }
+}

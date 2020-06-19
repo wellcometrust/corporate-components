@@ -1,9 +1,22 @@
-*.log
+# NPM
+npm-debug.log
+node_modules/
+
+# Build/output files
+.dist/
+*.sass-cache*
+dist
+coverage
+
+# Private
+.env
+
 .log
 .DS_Store
 .jest-*
-lib
-node_modules
+*.log
+*.tgz
 
 .idea
-dist
+.DS_Store
+*.code-workspace

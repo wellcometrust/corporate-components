@@ -1,0 +1,35 @@
+// ----------------------------------
+// UI Tools
+// Extends
+// Button
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+%btn-base {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  letter-spacing: var(--body-letter-spacing);
+  line-height: 1;
+  padding: 0;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+%btn-nav-base {
+  @extend %btn-base;
+  font-size: var(--nav-text-size);
+  height: calc(8 * var(--space-unit));
+  justify-content: flex-start;
+  min-height: calc(8 * var(--space-unit));
+  padding: 0 calc(2 * var(--space-unit));
+  transition: opacity ease var(--transition-duration);
+}

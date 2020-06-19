@@ -1,0 +1,206 @@
+// ----------------------------------
+// UI Components
+// Search Pane
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2020-01-20
+// ----------------------------------
+
+.search-pane {
+  background: var(--colour-white);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translate3d(100%, 0, 0);
+  transition: transform ease var(--transition-duration);
+  z-index: var(--z-high);
+
+  @include mq(md) {
+    bottom: auto;
+    position: absolute;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  &.is-active {
+    @include mq($until: md) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+.search-pane__content {
+  align-items: center;
+  background: var(--colour-white);
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  justify-content: stretch;
+  padding: calc(var(--space-unit) * 2);
+  position: relative;
+  transition: transform ease var(--transition-duration);
+  width: 100%;
+  z-index: var(--z-low);
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    min-height: var(--search-height-md);
+    padding: 0;
+  }
+
+  &.is-active {
+    box-shadow: var(--space-xs) 0 var(--space-md) rgba(var(--colour-black), 0.1);
+  }
+}
+
+.search-pane__container {
+  max-width: map-get($mq-breakpoints, xl);
+  width: 100%;
+
+  @include mq(md) {
+    align-items: center;
+    display: flex;
+    margin: 0 5%;
+  }
+
+  /* global maxWidth + 5% margin on left and right */
+  @include mq(1.1 * map-get($mq-breakpoints, xl)) {
+    margin: 0 auto;
+  }
+}
+
+.search-pane__controls {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  @include mq(md) {
+    margin-left: calc(-4 * var(--space-unit));
+    position: static;
+  }
+}
+
+.search-pane__btn-back {
+  @extend %btn-nav-base;
+  border-top: 1px solid var(--colour-grey-05);
+  color: var(--colour-blue-80);
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
+  width: 100%;
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.search-pane__btn-back .icon {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: var(--space-xs);
+  transform: rotate(180deg);
+}
+
+.search-pane__btn-close {
+  @extend %btn-nav-base;
+  color: var(--colour-grey-60);
+  padding-left: calc(2 * var(--space-unit));
+  padding-right: calc(2 * var(--space-unit));
+
+  @include mq(sm) {
+    padding-left: calc(4 * var(--space-unit));
+    padding-right: calc(4 * var(--space-unit));
+  }
+}
+
+.search-pane__btn-close .icon {
+  margin-right: var(--space-md);
+}
+
+.search-pane__form {
+  align-items: center;
+  display: flex;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.search-pane__form-label {
+  flex: auto;
+}
+
+.search-pane__form-input {
+  @extend %text-input-base;
+  background: var(--colour-grey-05);
+  font-size: var(--nav-text-size);
+  // D7 override
+  height: calc(5.5 * var(--space-unit));
+  padding: var(--space-md) var(--space-lg);
+  width: 100%;
+
+  @include mq(md) {
+    background: var(--colour-white);
+  }
+}
+
+.search-pane__form-submit {
+  transition: opacity ease var(--transition-duration);
+
+  @include mq($until: md) {
+    padding: 0;
+  }
+
+  @include mq(md) {
+    color: var(--colour-white);
+  }
+}
+
+.search-pane__form-submit .btn__text {
+  @include mq($until: md) {
+    @include visually-hidden;
+  }
+}
+
+.search-pane__form-submit .btn__icon {
+  @include mq($until: md) {
+    margin: 0;
+  }
+}
+
+.search-pane__overlay {
+  @include mq(md) {
+    background: rgba(255, 255, 255, 0.9);
+    content: '';
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: var(--search-height-md);
+    transition:
+      opacity var(--transition-duration) ease,
+      visibility 0s ease var(--transition-duration);
+    visibility: hidden;
+    width: 100%;
+    z-index: 0;
+  }
+
+  &.is-active {
+    @include mq(md) {
+      opacity: 1;
+      transition:
+        opacity var(--transition-duration) ease,
+        visibility 0s ease 0s;
+      visibility: visible;
+    }
+  }
+}

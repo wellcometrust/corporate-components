@@ -1,0 +1,57 @@
+// ----------------------------------
+// UI Settings
+// Typography
+// https://zpl.io/aRGJN8v
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+:root {
+  // font family
+  --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-secondary: 'Wellcome-Bold', sans-serif;
+  --font-tertiary: 'Courier New', Courier, monospace;
+
+  // body font size (1rem = 16px browser default)
+  --text-base-size: 1rem;
+  --text-base-size-px: 16;
+
+  // font size - non-responsive body text
+  --body-xl: calc(20/16 * var(--text-base-size));     // Large
+  --body-lg: var(--text-base-size);                   // Regular
+  --body-md: calc(14/16 * var(--text-base-size));     // Small
+  --body-sm: calc(13/16 * var(--text-base-size));     // Smaller
+  --body-xs: calc(11/16 * var(--text-base-size));     // Smallest
+  --body-xxs: calc(10/16 * var(--text-base-size));    // 
+
+  // font size responsive headings
+  --heading-xxl: calc(28/16 * var(--text-base-size)); // Super
+  --heading-xl: calc(24/16 * var(--text-base-size));  // Hero
+  --heading-lg: calc(22/16 * var(--text-base-size));  // Display
+  --heading-md: calc(16/16 * var(--text-base-size));  // Large
+  --heading-sm: calc(15/16 * var(--text-base-size));  // Regular
+  --heading-xs: calc(14/16 * var(--text-base-size));  // Small
+
+  // line height
+  --body-line-height: 1.7;
+  --heading-line-height: 1.5;
+
+  // letter spacing
+  --body-letter-spacing: 0.03125rem;
+  --heading-letter-spacing: -0.014em;
+
+  @include mq(sm) {
+    --heading-xxl: calc(32/16 * var(--text-base-size));
+    --heading-xl: calc(28/16 * var(--text-base-size));
+    --heading-md: calc(18/16 * var(--text-base-size));
+  }
+
+  @include mq(md) {
+    --heading-xxl: calc(40/16 * var(--text-base-size));
+    --heading-xl: calc(32/16 * var(--text-base-size));
+    --heading-lg: calc(24/16 * var(--text-base-size));
+    --heading-md: calc(20/16 * var(--text-base-size));
+    --heading-sm: calc(16/16 * var(--text-base-size));
+  }
+}
