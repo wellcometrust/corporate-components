@@ -23,9 +23,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-
-      - run:
-          name: Run tests
-          command: npm test
       - deploy:
           name: Deploy
           command: |
