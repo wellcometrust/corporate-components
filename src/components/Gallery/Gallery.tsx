@@ -1,10 +1,4 @@
-import React, {
-  Children,
-  cloneElement,
-  MouseEventHandler,
-  MouseEvent,
-  useState
-} from 'react';
+import React, { Children, cloneElement, MouseEventHandler } from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
@@ -17,11 +11,19 @@ type GalleryMediaProps = {
   credit?: string;
   height: number;
   isLead?: boolean;
-  onClick: MouseEventHandler;
-  src: string;
-  srcSet?: string;
+  mediaSources: any;
+  onClick?: MouseEventHandler;
+  sizes?: string;
   width: number;
 };
+
+// #6872 - finalise Gallery responsive images
+const imageSizesDefault =
+  '(min-width: 1494px) 310px, (min-width: 1024px) 20vw, (min-width: 768px) 27vw, (min-width: 512px) 42vw, 90vw';
+const imageSizesLandscape =
+  '(min-width: 1494px) 648px, (min-width: 1024px) 42vw, (min-width: 768px) 75vw, 90vw';
+const imageSizesPortrait =
+  '(min-width: 1494px) 482px, (min-width: 1024px) 42vw, (min-width: 768px) 75vw, 90vw';
 
 export const GalleryMedia = ({
   alt,
@@ -29,9 +31,9 @@ export const GalleryMedia = ({
   credit,
   height,
   isLead,
+  mediaSources,
   onClick,
-  src,
-  srcSet,
+  sizes,
   width
 }: GalleryMediaProps) => {
   const classNames = cx('cc-gallery__media-item', {
@@ -39,6 +41,18 @@ export const GalleryMedia = ({
     'cc-gallery__media-lead--landscape': isLead && width >= height,
     'cc-gallery__media-lead--portrait': isLead && height > width
   });
+
+  const src = isLead
+    ? mediaSources.gallery_thumbnail_original_mobile
+    : mediaSources.gallery_thumbnail_square_mobile;
+
+  const srcSetLeadWidth = width >= height ? '790w' : '482w';
+
+  const srcSet = isLead
+    ? `${mediaSources.gallery_thumbnail_original} ${srcSetLeadWidth},
+      ${mediaSources.gallery_thumbnail_original_mobile}`
+    : `${mediaSources.gallery_thumbnail_square} 310w,
+      ${mediaSources.gallery_thumbnail_square_mobile}`;
 
   return (
     <>
@@ -52,6 +66,7 @@ export const GalleryMedia = ({
             alt={alt}
             className="cc-gallery__media-content"
             src={src}
+            srcSet={src}
           />
         </Button>
       </div>
@@ -61,17 +76,21 @@ export const GalleryMedia = ({
 };
 
 type GalleryProps = {
-  children?: JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
+  hasLeadItem?: boolean;
 };
 
-export const Gallery = ({ children }: GalleryProps) => {
+export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
   const handleOnClick = (e: any) => {
     // TODO open gallery lightbox
     console.log('Gallery handleOnClick', e.currentTarget);
   };
 
-  const childrenWithProps = Children.map(children, child =>
-    cloneElement(child, { onClick: handleOnClick })
+  const childrenWithProps = Children.map(children, (child, index) =>
+    cloneElement(child, {
+      isLead: hasLeadItem && index === 0,
+      onClick: handleOnClick
+    })
   );
 
   return (
