@@ -40,8 +40,12 @@
 
 .cc-gallery__media-item {
   @extend %flex-grid-item;
-  @include flex-grid-item(2);
+  @include flex-grid-item(1);
   
+  @include mq(xs) {
+    @include flex-grid-item(2);
+  }
+
   @include mq(sm) {
     @include flex-grid-item(3);
   }
@@ -89,6 +93,33 @@
 
     .cc-gallery__media-content {
       opacity: 0.8;
+    }
+  }
+}
+
+// prevent portrait images becoming too long on smaller devices
+@include mq($until: xs, $and: '(orientation: portrait)') {
+  .cc-gallery__media-lead--portrait {
+    .cc-gallery__media-frame {
+      max-height: 80vh;
+    }
+  
+    .cc-gallery__media-content {
+      max-height: 80vh;
+      object-fit: contain;
+    }
+  }
+}
+
+// remove image background for touch devices so there is no overlap 
+@media (any-pointer: coarse) { 
+  .cc-gallery__media-frame {
+    background: transparent;
+    color: var(--colour-grey-80);
+
+    // remove icon
+    &:before {
+      background-image: none;
     }
   }
 }
