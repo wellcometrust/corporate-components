@@ -22,6 +22,8 @@
     "lint:style": "stylelint --fix '**/*.scss' && echo 'Style linting complete'",
     "prepublishOnly": "npm run type-check & npm run lint && npm run test && npm run build",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
+    "storybook:build": "build-storybook -c ./config/storybook",
+    "storybook:deploy": "storybook-to-ghpages",
     "test": "jest",
     "test:ci": "jest --runInBand",
     "test:watch": "jest --watch",
@@ -71,6 +73,7 @@
     "@storybook/addon-viewport": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
+    "@storybook/storybook-deployer": "^2.8.6",
     "@types/classnames": "^2.2.9",
     "@types/enzyme": "^3.10.4",
     "@types/jest": "^24.0.25",
@@ -141,5 +144,8 @@
       "npm run lint:style",
       "git add"
     ]
+  },
+  "storybook-deployer": {
+    "commitMessage": "Deploy Storybook [ci skip]"
   }
 }
