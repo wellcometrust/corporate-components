@@ -21,12 +21,15 @@ jobs:
             name: Install
             command: npm install
         - run:
+            name: Build
+            command: npm run storybook:build
+        - run:
             name: Deploy
-            command: npm run storybook:deploy --ci
+            command: npm run storybook:deploy
 workflows:
   deploy:
     jobs:
       - deploy:
           filters:
             branches:
-              only: develop
+              only: feat/circleci-project-setup-#6644
