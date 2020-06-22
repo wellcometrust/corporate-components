@@ -97,6 +97,33 @@
   }
 }
 
+// prevent portrait images becoming too long on smaller devices
+@include mq($until: xs, $and: '(orientation: portrait)') {
+  .cc-gallery__media-lead--portrait {
+    .cc-gallery__media-frame {
+      max-height: 80vh;
+    }
+  
+    .cc-gallery__media-content {
+      max-height: 80vh;
+      object-fit: contain;
+    }
+  }
+}
+
+// remove image background for touch devices so there is no overlap 
+@media (any-pointer: coarse) { 
+  .cc-gallery__media-frame {
+    background: transparent;
+    color: var(--colour-grey-80);
+
+    // remove icon
+    &:before {
+      background-image: none;
+    }
+  }
+}
+
 .break {
   flex-basis: 100%;
   height: 0;
