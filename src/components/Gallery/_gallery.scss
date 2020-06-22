@@ -40,8 +40,12 @@
 
 .cc-gallery__media-item {
   @extend %flex-grid-item;
-  @include flex-grid-item(2);
+  @include flex-grid-item(1);
   
+  @include mq(xs) {
+    @include flex-grid-item(2);
+  }
+
   @include mq(sm) {
     @include flex-grid-item(3);
   }
