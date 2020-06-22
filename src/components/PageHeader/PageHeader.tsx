@@ -1,41 +1,66 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Grid, { GridCell } from 'Grid';
+import Grid from 'Grid';
 
 type PageHeaderProps = {
   background?: 'blue' | 'transparent';
-  title: string;
+  banner?: React.ReactElement;
+  bannerLocation?: 'top' | 'bottom';
+  children?: React.ReactNode;
   className?: string;
-  standfirst?: string;
   meta?: string;
+  metaLabel?: string;
+  share?: React.ReactNode;
+  standfirst?: string;
+  title: string;
 };
 
 export const PageHeader = ({
   background = 'transparent',
+  banner,
+  bannerLocation = 'top',
+  children,
   className,
   meta,
+  metaLabel,
+  share,
   standfirst,
   title
 }: PageHeaderProps) => {
-  const classNames = cx('page-header', {
-    [`page-header--${background}`]: background,
+  const classNames = cx('cc-page-header', {
+    [`cc-page-header--${background}`]: background,
     [`${className}`]: className
   });
 
   return (
     <div className={classNames}>
-      <div className="page-header__container">
+      {bannerLocation === 'top' && banner}
+      <div className="cc-page-header__container">
         <Grid>
-          <GridCell column={1} columnCount={1}>
-            {meta}
-            <h1 className="page-header__title">{title}</h1>
-            {standfirst && (
-              <div className="page-header__standfirst">{standfirst}</div>
-            )}
-          </GridCell>
+          <div className="c-a">
+            <span className="cc-page-header__meta">
+              <strong className="cc-page-header__meta-label">
+                {metaLabel}
+              </strong>
+              {metaLabel && meta && ' | '}
+              {meta}
+            </span>
+            <h1 className="cc-page-header__title">{title}</h1>
+          </div>
+          <div className="c-b">
+            <div className="cc-page-header__breadcrumb">Breadcrumb</div>
+            <div className="cc-page-header__share">{share}</div>
+          </div>
         </Grid>
       </div>
+      {bannerLocation === 'bottom' && banner}
+      <Grid>
+        {standfirst && (
+          <div className="cc-page-header__standfirst">{standfirst}</div>
+        )}
+        {children && <div className="c-c">{children}</div>}
+      </Grid>
     </div>
   );
 };
