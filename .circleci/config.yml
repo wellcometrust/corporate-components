@@ -30,6 +30,3 @@ workflows:
   deploy:
     jobs:
       - deploy:
-          filters:
-            branches:
-              only: feat/circleci-project-setup-#6644
