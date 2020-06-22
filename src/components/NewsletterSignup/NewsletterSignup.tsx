@@ -6,6 +6,7 @@ import Section from 'Section';
 
 type NewsletterSignupProps = {
   intro?: string;
+  style?: string;
   title?: string;
   type?: string;
 };
@@ -13,10 +14,12 @@ type NewsletterSignupProps = {
 const introDefault =
   'Get the latest news about Wellcome and the work we fund in a monthly email.';
 const titleDefault = 'Sign up to our research newsletter';
+const styleDefault = 'light-blue';
 const typeDefault = 'corporate';
 
 export const NewsletterSignup = ({
   intro = introDefault,
+  style = styleDefault,
   title = titleDefault,
   type = typeDefault
 }: NewsletterSignupProps) => (

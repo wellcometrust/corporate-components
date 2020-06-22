@@ -11,8 +11,17 @@ const NewsletterSignupExample = () => {
     'intro',
     'Get the latest news about Wellcome and the work we fund in a monthly email.'
   );
+  const styleDefault = text('style', 'light-blue');
+  const typeDefault = text('type', 'corporate');
 
-  return <NewsletterSignup title={titleText} intro={introText} />;
+  return (
+    <NewsletterSignup
+      title={titleText}
+      intro={introText}
+      type={typeDefault}
+      style={styleDefault}
+    />
+  );
 };
 
 const stories = storiesOf('Components|NewsletterSignup', module);
