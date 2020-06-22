@@ -23,7 +23,7 @@
     "prepublishOnly": "npm run type-check & npm run lint && npm run test && npm run build",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "storybook:deploy": "storybook-to-ghpages",
+    "storybook:deploy": "storybook-to-ghpages --ci --existing-output-dir=./storybook-static",
     "test": "jest",
     "test:ci": "jest --runInBand",
     "test:watch": "jest --watch",
