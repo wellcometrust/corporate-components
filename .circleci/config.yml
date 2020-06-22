@@ -26,7 +26,3 @@ jobs:
         - run:
             name: Deploy
             command: npm run storybook:deploy
-workflows:
-  deploy:
-    jobs:
-      - deploy:
