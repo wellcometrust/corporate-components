@@ -28,7 +28,10 @@ export const NewsletterSignup = ({
       <GridCell column={1} columnCount={1}>
         <h3 className="newsletter-signup__title">{title}</h3>
         <NewsletterForm className="newsletter__form" type={type}>
-          <p className="newsletter-signup__intro">{intro}</p>
+          <div
+            className="newsletter-signup__intro"
+            dangerouslySetInnerHTML={{ __html: intro }}
+          />
         </NewsletterForm>
       </GridCell>
     </Grid>
