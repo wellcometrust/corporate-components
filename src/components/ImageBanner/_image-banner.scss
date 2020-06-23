@@ -71,7 +71,7 @@
   
   @include mq(xxl) {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 100%);
     width: var(--container-width);
   }
 }
