@@ -110,10 +110,6 @@ export const GalleryLightBox = ({
     handleClose();
   });
 
-  /**
-   * Create srcSet values from mediaSources in slides
-   */
-
   return (
     <div
       className="cc-gallery-lightbox"
@@ -198,12 +194,9 @@ export const GalleryLightBox = ({
                             <dt className="cc-gallery-lightbox__meta-item-label">
                               Image license:{' '}
                             </dt>
-                            <dd
-                              className="cc-gallery-lightbox__meta-item-text"
-                              dangerouslySetInnerHTML={{
-                                __html: slide.license
-                              }}
-                            />
+                            <dd className="cc-gallery-lightbox__meta-item-text">
+                              {slide.license}
+                            </dd>
                           </span>
                         )}
                       </dl>

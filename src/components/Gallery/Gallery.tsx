@@ -115,6 +115,7 @@ export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
       caption: child.props.caption,
       credit: child.props.credit,
       fileSize: child.props.fileSize,
+      license: child.props.license,
       mediaSources: child.props.mediaSources
     };
   });
