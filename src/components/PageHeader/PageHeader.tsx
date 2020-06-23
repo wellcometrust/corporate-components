@@ -49,7 +49,8 @@ export const PageHeader = ({
             <h1 className="cc-page-header__title">{title}</h1>
           </div>
           <div className="cc-page-header__tools">
-            <div className="cc-page-header__breadcrumb">Breadcrumb</div>
+            {/* TODO: Add breadcrumb here
+            <div className="cc-page-header__breadcrumb">Breadcrumb</div> */}
             <div className="cc-page-header__share">{share}</div>
           </div>
         </Grid>
