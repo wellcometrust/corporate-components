@@ -37,6 +37,12 @@ type GalleryLightBoxSlideProps = {
   credit?: string;
   fileSize: number;
   license?: string;
+  mediaSources: {
+    gallery_full: string;
+    gallery_full_hi: string;
+    gallery_full_mobile: string;
+    gallery_full_mobile_hi: string;
+  };
   src?: string;
 };
 
@@ -104,6 +110,10 @@ export const GalleryLightBox = ({
     handleClose();
   });
 
+  /**
+   * Create srcSet values from mediaSources in slides
+   */
+
   return (
     <div
       className="cc-gallery-lightbox"
@@ -113,6 +123,7 @@ export const GalleryLightBox = ({
     >
       <CarouselProvider
         className="cc-gallery-lightbox__carousel"
+        currentSlide={openAtSlideIndex}
         dragEnabled={false}
         isIntrinsicHeight
         naturalSlideWidth={16}
@@ -133,88 +144,94 @@ export const GalleryLightBox = ({
           classNameTray="cc-gallery-lightbox__slider-tray"
           classNameTrayWrap="cc-gallery-lightbox__slider-tray-wrap"
         >
-          {slides.map((slide: GalleryLightBoxSlideProps, index: number) => (
-            <Slide
-              className="cc-gallery-lightbox__slide"
-              index={index}
-              innerClassName="cc-gallery-lightbox__slide-layout"
-              innerTag="figure"
-              key={`gallery-lightbox-slide-${slide.src}`}
-            >
-              <div className="cc-gallery-lightbox__image-pane">
-                <div className="cc-gallery-lightbox__image-pane-stage">
-                  <ImageElement
-                    alt={slide.alt}
-                    src={slide.src}
-                    srcSet={slide.src}
-                  />
-                </div>
-                <span className="cc-gallery-lightbox__image-pane-tray">
-                  <div className="cc-gallery-lightbox__slide-actions">
-                    <GalleryLightBoxNav
-                      slideCount={slides.length}
-                      currentSlide={index + 1}
+          {slides.map((slide: GalleryLightBoxSlideProps, index: number) => {
+            const srcSet = `${slide.mediaSources.gallery_full_hi} 1538w, ${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_mobile_hi} 1538w, ${slide.mediaSources.gallery_full_mobile} 769w`;
+
+            return (
+              <Slide
+                className="cc-gallery-lightbox__slide"
+                index={index}
+                innerClassName="cc-gallery-lightbox__slide-layout"
+                innerTag="figure"
+                key={`gallery-lightbox-slide-${slide.src}`}
+              >
+                <div className="cc-gallery-lightbox__image-pane">
+                  <div className="cc-gallery-lightbox__image-pane-stage">
+                    <ImageElement
+                      alt={slide.alt}
+                      src={slide.mediaSources.gallery_full}
+                      srcSet={srcSet}
                     />
-                    <Button
-                      className={infoPaneClassNames.toggle}
-                      icon="chevronThin"
-                      iconPlacementSwitch
-                      onClick={toggleInfoPane}
-                      role="button"
-                      variant="unstyled"
-                    >
-                      {isInfoPaneVisible ? `Hide` : `Show`} info
-                    </Button>
                   </div>
-                  {!!(slide.credit || slide.license) && (
-                    <dl className="cc-gallery-lightbox__meta">
-                      {slide.credit && (
-                        <span className="cc-gallery-lightbox__meta-item">
-                          <dt className="cc-gallery-lightbox__meta-item-label">
-                            Image credit:{' '}
-                          </dt>
-                          <dd
-                            className="cc-gallery-lightbox__meta-item-text"
-                            dangerouslySetInnerHTML={{ __html: slide.credit }}
-                          />
+                  <span className="cc-gallery-lightbox__image-pane-tray">
+                    <div className="cc-gallery-lightbox__slide-actions">
+                      <GalleryLightBoxNav
+                        slideCount={slides.length}
+                        currentSlide={index + 1}
+                      />
+                      <Button
+                        className={infoPaneClassNames.toggle}
+                        icon="chevronThin"
+                        iconPlacementSwitch
+                        onClick={toggleInfoPane}
+                        role="button"
+                        variant="unstyled"
+                      >
+                        {isInfoPaneVisible ? `Hide` : `Show`} info
+                      </Button>
+                    </div>
+                    {!!(slide.credit || slide.license) && (
+                      <dl className="cc-gallery-lightbox__meta">
+                        {slide.credit && (
+                          <span className="cc-gallery-lightbox__meta-item">
+                            <dt className="cc-gallery-lightbox__meta-item-label">
+                              Image credit:{' '}
+                            </dt>
+                            <dd
+                              className="cc-gallery-lightbox__meta-item-text"
+                              dangerouslySetInnerHTML={{ __html: slide.credit }}
+                            />
+                          </span>
+                        )}
+                        {slide.license && (
+                          <span className="cc-gallery-lightbox__meta-item">
+                            <dt className="cc-gallery-lightbox__meta-item-label">
+                              Image license:{' '}
+                            </dt>
+                            <dd
+                              className="cc-gallery-lightbox__meta-item-text"
+                              dangerouslySetInnerHTML={{
+                                __html: slide.license
+                              }}
+                            />
+                          </span>
+                        )}
+                      </dl>
+                    )}
+                    <span className="cc-gallery-lightbox__download">
+                      <a
+                        href={slide.src}
+                        download
+                        className="cc-gallery-lightbox__download-link u-color-inherit"
+                      >
+                        <span className="cc-gallery-lightbox__download-icon">
+                          <Icon name="download" />
                         </span>
-                      )}
-                      {slide.license && (
-                        <span className="cc-gallery-lightbox__meta-item">
-                          <dt className="cc-gallery-lightbox__meta-item-label">
-                            Image license:{' '}
-                          </dt>
-                          <dd
-                            className="cc-gallery-lightbox__meta-item-text"
-                            dangerouslySetInnerHTML={{ __html: slide.license }}
-                          />
-                        </span>
-                      )}
-                    </dl>
-                  )}
-                  <span className="cc-gallery-lightbox__download">
-                    <a
-                      href={slide.src}
-                      download
-                      className="cc-gallery-lightbox__download-link u-color-inherit"
-                    >
-                      <span className="cc-gallery-lightbox__download-icon">
-                        <Icon name="download" />
+                        Download
+                      </a>
+                      <span className="cc-gallery-lightbox__download-filesize">
+                        {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                       </span>
-                      Download
-                    </a>
-                    <span className="cc-gallery-lightbox__download-filesize">
-                      {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                     </span>
                   </span>
-                </span>
-              </div>
-              <figcaption
-                className={infoPaneClassNames.pane}
-                dangerouslySetInnerHTML={{ __html: slide.caption }}
-              />
-            </Slide>
-          ))}
+                </div>
+                <figcaption
+                  className={infoPaneClassNames.pane}
+                  dangerouslySetInnerHTML={{ __html: slide.caption }}
+                />
+              </Slide>
+            );
+          })}
         </Slider>
       </CarouselProvider>
     </div>
