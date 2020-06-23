@@ -7,9 +7,6 @@
 // ----------------------------------
 
 .cc-text {
-  // TODO: #6636 - create global styles for scaffolding sections 
-  padding-bottom: var(--space-xl);
-
   h3 {
     @extend %heading-base;
     @extend %heading-display;
@@ -43,20 +40,6 @@
   ol,
   ul {
     @extend %list-base;
-  }
-}
-
-// TODO: #6636 section scaffolding - make these styles globally accessible for content level components
-.cc-text__content {
-  @include grid-column(1, 7);
-  width: 100%;
-
-  @include mq(sm) {
-    @include grid-column(2, 12);
-  }
-
-  @include mq(md) {
-    @include grid-column(4, 10);
   }
 
   > :last-child {

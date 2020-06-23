@@ -8,15 +8,11 @@ type TextProps = {
 };
 
 export const Text = ({ children, className }: TextProps) => {
-  const classNames = cx('cc-text grid', {
+  const classNames = cx('cc-text', {
     [`${className}`]: className
   });
 
-  return (
-    <div className={classNames}>
-      <div className="cc-text__content">{ReactHtmlParser(children)}</div>
-    </div>
-  );
+  return <div className={classNames}>{ReactHtmlParser(children)}</div>;
 };
 
 export default Text;
