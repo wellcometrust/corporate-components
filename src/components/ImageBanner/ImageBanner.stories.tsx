@@ -5,7 +5,7 @@ import { text } from '@storybook/addon-knobs';
 import ImageBanner from './ImageBanner';
 import Readme from './ImageBanner.md';
 
-const ImageExample = () => {
+const ImageBannerExample = () => {
   const AltText = text('alt', 'ImageBanner alt text');
   const CaptionText = text('caption', 'ImageBanner caption');
   const CreditText = text('credit', 'ImageBanner credit');
@@ -21,8 +21,8 @@ const ImageExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Image', module);
+const stories = storiesOf('Components|Page header', module);
 
-stories.add('ImageBanner', ImageExample, {
+stories.add('ImageBanner', ImageBannerExample, {
   readme: { sidebar: Readme }
 });
