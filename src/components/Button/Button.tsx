@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Icon from 'Icon/Icon';
 
 type ButtonProps = {
+  autoFocus?: boolean;
   className?: string;
   children: React.ReactNode;
   disabled?: boolean;
@@ -18,6 +19,7 @@ type ButtonProps = {
 };
 
 export const Button = ({
+  autoFocus = false,
   children,
   className,
   disabled,
@@ -41,6 +43,7 @@ export const Button = ({
 
   return (
     <Element
+      autoFocus={autoFocus}
       className={classNames}
       disabled={disabled}
       href={href}

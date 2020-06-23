@@ -1,5 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, {
+  KeyboardEvent,
+  KeyboardEventHandler,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+  useContext
+} from 'react';
 import cx from 'classnames';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 import {
   CarouselProvider,
@@ -16,7 +25,9 @@ import Button from 'Button';
 import ViewportContext from 'ViewportContext/ViewportContext';
 
 type GalleryLightBoxProps = {
+  handleClose: () => void;
   isOpen?: boolean;
+  openAtSlideIndex?: number;
   slides: GalleryLightBoxSlideProps[];
 };
 
@@ -26,7 +37,7 @@ type GalleryLightBoxSlideProps = {
   credit?: string;
   fileSize: number;
   license?: string;
-  src: string;
+  src?: string;
 };
 
 type GalleryLightBoxNavProps = {
@@ -51,7 +62,12 @@ const GalleryLightBoxNav = ({
   </div>
 );
 
-export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
+export const GalleryLightBox = ({
+  handleClose,
+  isOpen,
+  openAtSlideIndex = 0,
+  slides
+}: GalleryLightBoxProps) => {
   /**
    * Because we want to set the initial info pane state differently dependent
    * on the browser width.
@@ -80,15 +96,38 @@ export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
     })
   };
 
+  /**
+   * Use react-hot-keys hook to detect user clicking 'escape'
+   * to close the lightbox.
+   */
+  useHotkeys('esc', () => {
+    handleClose();
+  });
+
   return (
-    <dialog className="cc-gallery-lightbox" open={isOpen}>
+    <div
+      className="cc-gallery-lightbox"
+      role="dialog"
+      aria-modal
+      id="gallery-lightbox"
+    >
       <CarouselProvider
         className="cc-gallery-lightbox__carousel"
         dragEnabled={false}
+        isIntrinsicHeight
         naturalSlideWidth={16}
         naturalSlideHeight={9}
         totalSlides={slides.length}
       >
+        <Button
+          autoFocus
+          className="cc-gallery-lightbox__close"
+          onClick={handleClose}
+          role="button"
+          variant="unstyled"
+        >
+          <Icon name="close" />
+        </Button>
         <Slider
           className="cc-gallery-lightbox__slider"
           classNameTray="cc-gallery-lightbox__slider-tray"
@@ -104,7 +143,11 @@ export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
             >
               <div className="cc-gallery-lightbox__image-pane">
                 <div className="cc-gallery-lightbox__image-pane-stage">
-                  <ImageElement alt={slide.alt} src={slide.src} />
+                  <ImageElement
+                    alt={slide.alt}
+                    src={slide.src}
+                    srcSet={slide.src}
+                  />
                 </div>
                 <span className="cc-gallery-lightbox__image-pane-tray">
                   <div className="cc-gallery-lightbox__slide-actions">
@@ -117,6 +160,7 @@ export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
                       icon="chevronThin"
                       iconPlacementSwitch
                       onClick={toggleInfoPane}
+                      role="button"
                       variant="unstyled"
                     >
                       {isInfoPaneVisible ? `Hide` : `Show`} info
@@ -173,18 +217,8 @@ export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
           ))}
         </Slider>
       </CarouselProvider>
-    </dialog>
+    </div>
   );
-};
-
-/**
- * TODO #6673: Integrate GalleryLighBox
- *
- * Temporaily declare some default props to prevent type errors until
- * we integrate the Lightbox.
- */
-GalleryLightBox.defaultProps = {
-  slides: []
 };
 
 export default GalleryLightBox;
