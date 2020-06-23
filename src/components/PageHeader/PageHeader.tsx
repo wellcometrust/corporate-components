@@ -38,7 +38,7 @@ export const PageHeader = ({
       {bannerLocation === 'top' && banner}
       <div className="cc-page-header__container">
         <Grid>
-          <div className="c-a">
+          <div className="cc-page-header__main">
             <span className="cc-page-header__meta">
               <strong className="cc-page-header__meta-label">
                 {metaLabel}
@@ -48,7 +48,7 @@ export const PageHeader = ({
             </span>
             <h1 className="cc-page-header__title">{title}</h1>
           </div>
-          <div className="c-b">
+          <div className="cc-page-header__tools">
             <div className="cc-page-header__breadcrumb">Breadcrumb</div>
             <div className="cc-page-header__share">{share}</div>
           </div>
@@ -57,9 +57,12 @@ export const PageHeader = ({
       {bannerLocation === 'bottom' && banner}
       <Grid>
         {standfirst && (
-          <div className="cc-page-header__standfirst">{standfirst}</div>
+          <div
+            className="cc-page-header__standfirst"
+            dangerouslySetInnerHTML={{ __html: standfirst }}
+          />
         )}
-        {children && <div className="c-c">{children}</div>}
+        {children && <div className="cc-page-header__misc">{children}</div>}
       </Grid>
     </div>
   );
