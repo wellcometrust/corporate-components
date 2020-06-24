@@ -2,26 +2,31 @@
  * @file Scaffolding utility styles.
  */
 
-/**
- * 
- */
 .u-scaffold-spacing {
   padding-bottom: var(--space-xl);
 }
- 
+
 .u-scaffold-grid-item {
   @include grid-column(1, 7);
   width: 100%;
   
-  @include mq(sm) {
-    @include grid-column(2, 12);
-  }
-  
   @include mq(md) {
     @include grid-column(4, 10);
   }
-
+  
   > :last-child {
     margin-bottom: 0;
+  }
+}
+
+.u-scaffold-grid-item--narrow {
+  @include mq($from: sm, $until: md) {
+    @include grid-column(2, 12);
+  }
+}
+
+.u-scaffold-grid-item--wide {
+  @include mq($from: sm, $until: md) {
+    @include grid-column(1, 13);
   }
 }
