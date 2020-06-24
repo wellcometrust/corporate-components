@@ -111,12 +111,7 @@ export const GalleryLightBox = ({
   });
 
   return (
-    <div
-      className="cc-gallery-lightbox"
-      role="dialog"
-      aria-modal
-      id="gallery-lightbox"
-    >
+    <dialog className="cc-gallery-lightbox" open={isOpen}>
       <CarouselProvider
         className="cc-gallery-lightbox__carousel"
         currentSlide={openAtSlideIndex}
@@ -227,7 +222,7 @@ export const GalleryLightBox = ({
           })}
         </Slider>
       </CarouselProvider>
-    </div>
+    </dialog>
   );
 };
 

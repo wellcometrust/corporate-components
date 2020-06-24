@@ -126,6 +126,7 @@ export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
       {isLightboxOpen && (
         <GalleryLightBox
           handleClose={() => setIsLightboxOpen(false)}
+          isOpen={isLightboxOpen}
           openAtSlideIndex={currentLightboxSlideIndex}
           slides={lightboxSlides}
         />
