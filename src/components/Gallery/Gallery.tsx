@@ -1,4 +1,10 @@
-import React, { Children, cloneElement, MouseEventHandler } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  createRef,
+  MouseEventHandler,
+  useState
+} from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
@@ -9,6 +15,7 @@ type GalleryMediaProps = {
   alt?: string;
   caption?: string;
   credit?: string;
+  fileSize?: number;
   height: number;
   isLead?: boolean;
   mediaSources: any;
@@ -29,6 +36,7 @@ export const GalleryMedia = ({
   alt,
   caption,
   credit,
+  fileSize,
   height,
   isLead,
   mediaSources,
@@ -81,22 +89,48 @@ type GalleryProps = {
 };
 
 export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
-  const handleOnClick = (e: any) => {
-    // TODO open gallery lightbox
-    console.log('Gallery handleOnClick', e.currentTarget);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentLightboxSlideIndex, setCurrentLightboxSlideIndex] = useState(0);
+
+  const openLightbox = (slideIndex: number) => {
+    setCurrentLightboxSlideIndex(slideIndex);
+    setIsLightboxOpen(true);
   };
 
   const childrenWithProps = Children.map(children, (child, index) =>
     cloneElement(child, {
       isLead: hasLeadItem && index === 0,
-      onClick: handleOnClick
+
+      /**
+       * Pass an onClick handler to the child, to allow it to open
+       * the lightbox from itself.
+       */
+      onClick: () => openLightbox(index)
     })
   );
+
+  const lightboxSlides = Children.map(children, child => {
+    return {
+      alt: child.props.alt,
+      caption: child.props.caption,
+      credit: child.props.credit,
+      fileSize: child.props.fileSize,
+      license: child.props.license,
+      mediaSources: child.props.mediaSources
+    };
+  });
 
   return (
     <div className="cc-gallery grid">
       <div className="cc-gallery__media">{childrenWithProps}</div>
-      <GalleryLightBox />
+      {isLightboxOpen && (
+        <GalleryLightBox
+          handleClose={() => setIsLightboxOpen(false)}
+          isOpen={isLightboxOpen}
+          openAtSlideIndex={currentLightboxSlideIndex}
+          slides={lightboxSlides}
+        />
+      )}
     </div>
   );
 };
