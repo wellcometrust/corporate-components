@@ -1,12 +1,4 @@
-import React, {
-  KeyboardEvent,
-  KeyboardEventHandler,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-  useContext
-} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
 
@@ -94,7 +86,7 @@ export const GalleryLightBox = ({
   };
 
   const infoPaneClassNames = {
-    pane: cx('cc-gallery-lightbox__info-pane', {
+    main: cx('cc-gallery-lightbox__info-pane', {
       'cc-gallery-lightbox__info-pane--hidden': !isInfoPaneVisible
     }),
     toggle: cx('cc-gallery-lightbox__slide-actions-toggle', {
@@ -214,7 +206,7 @@ export const GalleryLightBox = ({
                   </span>
                 </div>
                 <figcaption
-                  className={infoPaneClassNames.pane}
+                  className={infoPaneClassNames.main}
                   dangerouslySetInnerHTML={{ __html: slide.caption }}
                 />
               </Slide>
