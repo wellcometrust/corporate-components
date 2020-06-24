@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import cx from 'classnames';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 import {
   CarouselProvider,
@@ -16,7 +17,9 @@ import Button from 'Button';
 import ViewportContext from 'ViewportContext/ViewportContext';
 
 type GalleryLightBoxProps = {
+  handleClose: () => void;
   isOpen?: boolean;
+  openAtSlideIndex?: number;
   slides: GalleryLightBoxSlideProps[];
 };
 
@@ -26,7 +29,13 @@ type GalleryLightBoxSlideProps = {
   credit?: string;
   fileSize: number;
   license?: string;
-  src: string;
+  mediaSources: {
+    gallery_full: string;
+    gallery_full_hi: string;
+    gallery_full_mobile: string;
+    gallery_full_mobile_hi: string;
+  };
+  src?: string;
 };
 
 type GalleryLightBoxNavProps = {
@@ -51,7 +60,12 @@ const GalleryLightBoxNav = ({
   </div>
 );
 
-export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
+export const GalleryLightBox = ({
+  handleClose,
+  isOpen,
+  openAtSlideIndex = 0,
+  slides
+}: GalleryLightBoxProps) => {
   /**
    * Because we want to set the initial info pane state differently dependent
    * on the browser width.
@@ -72,7 +86,7 @@ export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
   };
 
   const infoPaneClassNames = {
-    pane: cx('cc-gallery-lightbox__info-pane', {
+    main: cx('cc-gallery-lightbox__info-pane', {
       'cc-gallery-lightbox__info-pane--hidden': !isInfoPaneVisible
     }),
     toggle: cx('cc-gallery-lightbox__slide-actions-toggle', {
@@ -80,111 +94,128 @@ export const GalleryLightBox = ({ slides, isOpen }: GalleryLightBoxProps) => {
     })
   };
 
+  /**
+   * Use react-hot-keys hook to detect user clicking 'escape'
+   * to close the lightbox.
+   */
+  useHotkeys('esc', () => {
+    handleClose();
+  });
+
   return (
     <dialog className="cc-gallery-lightbox" open={isOpen}>
       <CarouselProvider
         className="cc-gallery-lightbox__carousel"
+        currentSlide={openAtSlideIndex}
         dragEnabled={false}
+        isIntrinsicHeight
         naturalSlideWidth={16}
         naturalSlideHeight={9}
         totalSlides={slides.length}
       >
+        <Button
+          autoFocus
+          className="cc-gallery-lightbox__close"
+          onClick={handleClose}
+          role="button"
+          variant="unstyled"
+        >
+          <Icon name="close" />
+        </Button>
         <Slider
           className="cc-gallery-lightbox__slider"
           classNameTray="cc-gallery-lightbox__slider-tray"
           classNameTrayWrap="cc-gallery-lightbox__slider-tray-wrap"
         >
-          {slides.map((slide: GalleryLightBoxSlideProps, index: number) => (
-            <Slide
-              className="cc-gallery-lightbox__slide"
-              index={index}
-              innerClassName="cc-gallery-lightbox__slide-layout"
-              innerTag="figure"
-              key={`gallery-lightbox-slide-${slide.src}`}
-            >
-              <div className="cc-gallery-lightbox__image-pane">
-                <div className="cc-gallery-lightbox__image-pane-stage">
-                  <ImageElement alt={slide.alt} src={slide.src} />
-                </div>
-                <span className="cc-gallery-lightbox__image-pane-tray">
-                  <div className="cc-gallery-lightbox__slide-actions">
-                    <GalleryLightBoxNav
-                      slideCount={slides.length}
-                      currentSlide={index + 1}
+          {slides.map((slide: GalleryLightBoxSlideProps, index: number) => {
+            const srcSet = `${slide.mediaSources.gallery_full_hi} 1538w, ${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_mobile_hi} 1538w, ${slide.mediaSources.gallery_full_mobile} 769w`;
+
+            return (
+              <Slide
+                className="cc-gallery-lightbox__slide"
+                index={index}
+                innerClassName="cc-gallery-lightbox__slide-layout"
+                innerTag="figure"
+                key={`gallery-lightbox-slide-${slide.src}`}
+              >
+                <div className="cc-gallery-lightbox__image-pane">
+                  <div className="cc-gallery-lightbox__image-pane-stage">
+                    <ImageElement
+                      alt={slide.alt}
+                      src={slide.mediaSources.gallery_full}
+                      srcSet={srcSet}
                     />
-                    <Button
-                      className={infoPaneClassNames.toggle}
-                      icon="chevronThin"
-                      iconPlacementSwitch
-                      onClick={toggleInfoPane}
-                      variant="unstyled"
-                    >
-                      {isInfoPaneVisible ? `Hide` : `Show`} info
-                    </Button>
                   </div>
-                  {!!(slide.credit || slide.license) && (
-                    <dl className="cc-gallery-lightbox__meta">
-                      {slide.credit && (
-                        <span className="cc-gallery-lightbox__meta-item">
-                          <dt className="cc-gallery-lightbox__meta-item-label">
-                            Image credit:{' '}
-                          </dt>
-                          <dd
-                            className="cc-gallery-lightbox__meta-item-text"
-                            dangerouslySetInnerHTML={{ __html: slide.credit }}
-                          />
+                  <span className="cc-gallery-lightbox__image-pane-tray">
+                    <div className="cc-gallery-lightbox__slide-actions">
+                      <GalleryLightBoxNav
+                        slideCount={slides.length}
+                        currentSlide={index + 1}
+                      />
+                      <Button
+                        className={infoPaneClassNames.toggle}
+                        icon="chevronThin"
+                        iconPlacementSwitch
+                        onClick={toggleInfoPane}
+                        role="button"
+                        variant="unstyled"
+                      >
+                        {isInfoPaneVisible ? `Hide` : `Show`} info
+                      </Button>
+                    </div>
+                    {!!(slide.credit || slide.license) && (
+                      <dl className="cc-gallery-lightbox__meta">
+                        {slide.credit && (
+                          <span className="cc-gallery-lightbox__meta-item">
+                            <dt className="cc-gallery-lightbox__meta-item-label">
+                              Image credit:{' '}
+                            </dt>
+                            <dd
+                              className="cc-gallery-lightbox__meta-item-text"
+                              dangerouslySetInnerHTML={{ __html: slide.credit }}
+                            />
+                          </span>
+                        )}
+                        {slide.license && (
+                          <span className="cc-gallery-lightbox__meta-item">
+                            <dt className="cc-gallery-lightbox__meta-item-label">
+                              Image license:{' '}
+                            </dt>
+                            <dd className="cc-gallery-lightbox__meta-item-text">
+                              {slide.license}
+                            </dd>
+                          </span>
+                        )}
+                      </dl>
+                    )}
+                    <span className="cc-gallery-lightbox__download">
+                      <a
+                        href={slide.src}
+                        download
+                        className="cc-gallery-lightbox__download-link u-color-inherit"
+                      >
+                        <span className="cc-gallery-lightbox__download-icon">
+                          <Icon name="download" />
                         </span>
-                      )}
-                      {slide.license && (
-                        <span className="cc-gallery-lightbox__meta-item">
-                          <dt className="cc-gallery-lightbox__meta-item-label">
-                            Image license:{' '}
-                          </dt>
-                          <dd
-                            className="cc-gallery-lightbox__meta-item-text"
-                            dangerouslySetInnerHTML={{ __html: slide.license }}
-                          />
-                        </span>
-                      )}
-                    </dl>
-                  )}
-                  <span className="cc-gallery-lightbox__download">
-                    <a
-                      href={slide.src}
-                      download
-                      className="cc-gallery-lightbox__download-link u-color-inherit"
-                    >
-                      <span className="cc-gallery-lightbox__download-icon">
-                        <Icon name="download" />
+                        Download
+                      </a>
+                      <span className="cc-gallery-lightbox__download-filesize">
+                        {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                       </span>
-                      Download
-                    </a>
-                    <span className="cc-gallery-lightbox__download-filesize">
-                      {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                     </span>
                   </span>
-                </span>
-              </div>
-              <figcaption
-                className={infoPaneClassNames.pane}
-                dangerouslySetInnerHTML={{ __html: slide.caption }}
-              />
-            </Slide>
-          ))}
+                </div>
+                <figcaption
+                  className={infoPaneClassNames.main}
+                  dangerouslySetInnerHTML={{ __html: slide.caption }}
+                />
+              </Slide>
+            );
+          })}
         </Slider>
       </CarouselProvider>
     </dialog>
   );
-};
-
-/**
- * TODO #6673: Integrate GalleryLighBox
- *
- * Temporaily declare some default props to prevent type errors until
- * we integrate the Lightbox.
- */
-GalleryLightBox.defaultProps = {
-  slides: []
 };
 
 export default GalleryLightBox;

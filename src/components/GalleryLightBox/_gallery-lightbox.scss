@@ -68,15 +68,6 @@
 .cc-gallery-lightbox__slide {
   flex-basis: 100vw;
   height: 100%;
-
-  /**
-   * Becuase our carousel library wants to set an aspect-ratio on our slides,
-   * based on the natural height and width of the images, it sets the padding-bottom
-   * property inline to style the slides appropriately.
-   *
-   * We're rolling our own styles, and so we want to override this.
-   */
-  padding-bottom: 0 !important;
 }
 
 .cc-gallery-lightbox__slide-layout {
@@ -262,6 +253,7 @@
 }
 
 .cc-gallery-lightbox__nav-item {
+  cursor: pointer;
   display: inline-block;
   vertical-align: middle;
 
@@ -277,6 +269,15 @@
 .cc-gallery-lightbox__nav-item--count {
   margin-left: var(--space-md);
   margin-right: var(--space-md);
+}
+
+.cc-gallery-lightbox__close {
+  color: inherit;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--z-modal);
 }
 
 /**
