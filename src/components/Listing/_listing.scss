@@ -8,6 +8,7 @@
 
 .cc-listing {
   @extend %list-clean;
+  @extend %body-large;
   border-top: 1px solid var(--colour-grey-10);
 }
   

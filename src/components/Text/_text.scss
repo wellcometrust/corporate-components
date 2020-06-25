@@ -1,6 +1,6 @@
 // ----------------------------------
 // UI Components
-// Text
+// Text | TextSnippet
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
@@ -36,12 +36,12 @@
   p {
     @extend %body-large;
   }
-  
+
   ol,
   ul {
     @extend %list-base;
   }
-
+  
   > :last-child {
     margin-bottom: 0;
   }
@@ -50,4 +50,34 @@
   > * + h3 {
     margin-top: var(--space-xl);
   }
+}
+
+.cc-text-snippet {
+  @extend %body-large;
+  line-height: var(--body-regular-line-height);
+
+  p {
+    @extend %body-regular;
+  }
+
+  ol,
+  ul {
+    @extend %list-base;
+    margin-bottom: calc(2 * var(--space-unit));
+  }
+  
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cc-text-snippet__title,
+.cc-text-snippet h3,
+.cc-text-snippet h4,
+.cc-text-snippet h5,
+.cc-text-snippet h6 {
+  font-size: var(--body-lg);
+  font-weight: bold;
+  letter-spacing: normal;
+  margin-bottom: var(--space-unit);
 }

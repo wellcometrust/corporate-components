@@ -2,6 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
 
+import Contact from 'Contact';
+import Listing from 'Listing';
+import ListingLink from 'Listing/ListingLink';
 import Text from 'Text';
 import InfoBox from './InfoBox';
 import Readme from './InfoBox.md';
@@ -10,8 +13,8 @@ const InfoBoxExample = () => {
   const titleText = text('title', 'Info box title');
 
   return (
-    <InfoBox title={titleText}>
-      <Text>
+    <InfoBox>
+      <Text title={titleText} variant="text-snippet">
         {`<p>This new funding should be directed to a global response for:</p>
         <ul>
           <li>
@@ -32,6 +35,15 @@ const InfoBoxExample = () => {
           priority for G20 countries, philanthropy and the private sector.
         </p>`}
       </Text>
+      <Listing>
+        <Contact name="John Smith" />
+        <Contact name="Bertie Basset" />
+      </Listing>
+      <Listing>
+        <ListingLink href="#1">Link 1 text</ListingLink>
+        <ListingLink href="#2">Link 2 text</ListingLink>
+        <ListingLink href="#3">Link 3 text</ListingLink>
+      </Listing>
     </InfoBox>
   );
 };
