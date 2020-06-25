@@ -131,7 +131,7 @@ export const GalleryLightBox = ({
           classNameTrayWrap="cc-gallery-lightbox__slider-tray-wrap"
         >
           {slides.map((slide: GalleryLightBoxSlideProps, index: number) => {
-            const srcSet = `${slide.mediaSources.gallery_full_hi} 1538w, ${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_mobile_hi} 1538w, ${slide.mediaSources.gallery_full_mobile} 769w`;
+            const srcSet = `${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_hi} 1538w`;
             const infoPaneContent = slide.title
               ? `<h2 className="cc-gallery-lightbox__info-title">${slide.title}</h2>${slide.caption}`
               : slide.caption;
@@ -148,6 +148,7 @@ export const GalleryLightBox = ({
                   <div className="cc-gallery-lightbox__image-pane-stage">
                     <ImageElement
                       alt={slide.alt}
+                      sizes="100vw"
                       src={slide.mediaSources.gallery_full}
                       srcSet={srcSet}
                     />
