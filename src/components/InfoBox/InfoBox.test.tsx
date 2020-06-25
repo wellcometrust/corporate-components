@@ -5,7 +5,7 @@ import InfoBox from './InfoBox';
 
 describe('<InfoBox />', () => {
   const output = shallow(
-    <InfoBox title="My heading">
+    <InfoBox>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis culpa
         unde dicta delectus sint ut reprehenderit iure saepe sed velit non ab

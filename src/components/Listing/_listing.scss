@@ -9,6 +9,7 @@
 .cc-listing {
   @extend %list-clean;
   border-top: 1px solid var(--colour-grey-10);
+  margin-bottom: var(--space-lg);
 }
   
 .cc-listing__item {

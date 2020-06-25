@@ -4,20 +4,14 @@ import cx from 'classnames';
 type InfoBoxProps = {
   children: React.ReactNode;
   className?: string;
-  title?: string;
 };
 
-export const InfoBox = ({ children, className, title }: InfoBoxProps) => {
+export const InfoBox = ({ children, className }: InfoBoxProps) => {
   const classNames = cx('cc-info-box', {
     [`${className}`]: className
   });
 
-  return (
-    <div className={classNames}>
-      {title && <div className="cc-info-box__title">{title}</div>}
-      {children}
-    </div>
-  );
+  return <div className={classNames}>{children}</div>;
 };
 
 export default InfoBox;

@@ -2,6 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import ReactHtmlParser from 'react-html-parser';
 
+import TextSnippet from './TextSnippet';
+
 type TextProps = {
   children: string;
   className?: string;
@@ -16,3 +18,4 @@ export const Text = ({ children, className }: TextProps) => {
 };
 
 export default Text;
+export { TextSnippet };

@@ -1,10 +1,29 @@
 // ----------------------------------
 // UI Components
-// Text
+// Text | TextSnippet
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
+
+%text-snippet-heading {
+  font-size: var(--body-lg);
+  font-weight: bold;
+  letter-spacing: normal;
+  margin-bottom: var(--space-sm);
+}
+
+.cc-text-snippet {
+  margin-bottom: var(--space-lg);
+}
+
+.cc-text-snippet__title,
+.cc-text-snippet h3,
+.cc-text-snippet h4,
+.cc-text-snippet h5,
+.cc-text-snippet h6 {
+  @extend %text-snippet-heading;
+}
 
 .cc-text {
   h3 {
@@ -33,6 +52,14 @@
     letter-spacing: 0;
   }
 
+  /* ensure h3 always has more space above */
+  > * + h3 {
+    margin-top: var(--space-xl);
+  }
+}
+
+.cc-text,
+.cc-text-snippet {
   p {
     @extend %body-large;
   }
@@ -44,10 +71,5 @@
 
   > :last-child {
     margin-bottom: 0;
-  }
-
-  /* ensure h3 always has more space above */
-  > * + h3 {
-    margin-top: var(--space-xl);
   }
 }
