@@ -5,7 +5,7 @@ import { text } from '@storybook/addon-knobs';
 import Contact from 'Contact';
 import Listing from 'Listing';
 import ListingLink from 'Listing/ListingLink';
-import TextSnippet from 'Text/TextSnippet';
+import Text from 'Text';
 import InfoBox from './InfoBox';
 import Readme from './InfoBox.md';
 
@@ -14,7 +14,7 @@ const InfoBoxExample = () => {
 
   return (
     <InfoBox>
-      <TextSnippet title={titleText}>
+      <Text title={titleText} variant="text-snippet">
         {`<p>This new funding should be directed to a global response for:</p>
         <ul>
           <li>
@@ -34,7 +34,7 @@ const InfoBoxExample = () => {
           or treatment. Mobilising these financial resources is an urgent
           priority for G20 countries, philanthropy and the private sector.
         </p>`}
-      </TextSnippet>
+      </Text>
       <Listing>
         <Contact name="John Smith" />
         <Contact name="Bertie Basset" />

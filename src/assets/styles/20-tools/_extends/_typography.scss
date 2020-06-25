@@ -66,7 +66,14 @@
 
 // equivalent to <p>
 %body-large {
-  margin-bottom: var(--space-lg);
+  margin-bottom: calc(4 * var(--space-unit));
+  // D7 override
+  margin-top: 0;
+}
+
+// equivalent to <p> in infobox
+%body-regular {
+  margin-bottom: calc(2 * var(--space-unit));
   // D7 override
   margin-top: 0;
 }
@@ -74,7 +81,7 @@
 /* Lists */
 
 %list-base {
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 calc(4 * var(--space-unit));
   padding-left: calc(2 * var(--space-unit));
 }
 

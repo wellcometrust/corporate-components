@@ -6,25 +6,6 @@
 // 2019-11-11
 // ----------------------------------
 
-%text-snippet-heading {
-  font-size: var(--body-lg);
-  font-weight: bold;
-  letter-spacing: normal;
-  margin-bottom: var(--space-sm);
-}
-
-.cc-text-snippet {
-  margin-bottom: var(--space-lg);
-}
-
-.cc-text-snippet__title,
-.cc-text-snippet h3,
-.cc-text-snippet h4,
-.cc-text-snippet h5,
-.cc-text-snippet h6 {
-  @extend %text-snippet-heading;
-}
-
 .cc-text {
   h3 {
     @extend %heading-base;
@@ -52,24 +33,51 @@
     letter-spacing: 0;
   }
 
+  p {
+    @extend %body-large;
+  }
+
+  ol,
+  ul {
+    @extend %list-base;
+  }
+  
+  > :last-child {
+    margin-bottom: 0;
+  }
+
   /* ensure h3 always has more space above */
   > * + h3 {
     margin-top: var(--space-xl);
   }
 }
 
-.cc-text,
 .cc-text-snippet {
+  @extend %body-large;
+  line-height: var(--body-regular-line-height);
+
   p {
-    @extend %body-large;
+    @extend %body-regular;
   }
-  
+
   ol,
   ul {
     @extend %list-base;
+    margin-bottom: calc(2 * var(--space-unit));
   }
-
+  
   > :last-child {
     margin-bottom: 0;
   }
+}
+
+.cc-text-snippet__title,
+.cc-text-snippet h3,
+.cc-text-snippet h4,
+.cc-text-snippet h5,
+.cc-text-snippet h6 {
+  font-size: var(--body-lg);
+  font-weight: bold;
+  letter-spacing: normal;
+  margin-bottom: var(--space-unit);
 }
