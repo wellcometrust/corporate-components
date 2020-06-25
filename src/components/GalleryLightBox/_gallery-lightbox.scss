@@ -211,8 +211,9 @@
 
 .cc-gallery-lightbox__meta {
   border-left: 1px solid var(--colour-white);
-  font-family: monospace;
+  font-family: var(--font-tertiary);
   font-size: var(--body-xs);
+  -webkit-font-smoothing: auto;
   margin-bottom: var(--space-lg);
   padding-left: var(--space-md);
 }
@@ -272,11 +273,16 @@
 }
 
 .cc-gallery-lightbox__close {
+  align-items: center;
   color: inherit;
   cursor: pointer;
+  display: flex;
+  height: calc(5.5 * var(--space-unit));
+  justify-content: center;
   position: absolute;
   right: 0;
   top: 0;
+  width: calc(5.5 * var(--space-unit));
   z-index: var(--z-modal);
 }
 
