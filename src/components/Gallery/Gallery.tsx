@@ -1,7 +1,6 @@
 import React, {
   Children,
   cloneElement,
-  createRef,
   MouseEventHandler,
   useState
 } from 'react';
@@ -20,17 +19,29 @@ type GalleryMediaProps = {
   isLead?: boolean;
   mediaSources: any;
   onClick?: MouseEventHandler;
-  sizes?: string;
   width: number;
 };
 
 // #6872 - finalise Gallery responsive images
-const imageSizesDefault =
-  '(min-width: 1494px) 310px, (min-width: 1024px) 20vw, (min-width: 768px) 27vw, (min-width: 512px) 42vw, 90vw';
-const imageSizesLandscape =
-  '(min-width: 1494px) 648px, (min-width: 1024px) 42vw, (min-width: 768px) 75vw, 90vw';
-const imageSizesPortrait =
-  '(min-width: 1494px) 482px, (min-width: 1024px) 42vw, (min-width: 768px) 75vw, 90vw';
+const imageSizes = {
+  default:
+    '(min-width: 1494px) 310px, (min-width: 1024px) 20vw, (min-width: 768px) 27vw, (min-width: 512px) 42vw, 90vw',
+  landscape:
+    '(min-width: 1494px) 996px, (min-width: 1024px) 66vw, (min-width: 768px) 90vw, 90vw',
+  portrait:
+    '(min-width: 1494px) 482px, (min-width: 1024px) 32vw, (min-width: 768px) 43vw, 90vw'
+};
+
+const getSizes = (isLead: boolean, isPortrait: boolean) => {
+  if (isLead && isPortrait) {
+    return imageSizes.landscape;
+  }
+  if (isLead && !isPortrait) {
+    return imageSizes.landscape;
+  }
+
+  return imageSizes.default;
+};
 
 export const GalleryMedia = ({
   alt,
@@ -41,26 +52,31 @@ export const GalleryMedia = ({
   isLead,
   mediaSources,
   onClick,
-  sizes,
   width
 }: GalleryMediaProps) => {
+  const isPortrait = height > width;
   const classNames = cx('cc-gallery__media-item', {
     'cc-gallery__media-lead': isLead,
-    'cc-gallery__media-lead--landscape': isLead && width >= height,
-    'cc-gallery__media-lead--portrait': isLead && height > width
+    'cc-gallery__media-lead--landscape': isLead && !isPortrait,
+    'cc-gallery__media-lead--portrait': isLead && isPortrait
   });
 
+  const sizes = getSizes(isLead, isPortrait);
+
   const src = isLead
-    ? mediaSources.gallery_thumbnail_original_mobile
+    ? mediaSources.gallery_full_mobile
     : mediaSources.gallery_thumbnail_square_mobile;
 
-  const srcSetLeadWidth = width >= height ? '790w' : '482w';
+  const srcSetLeadWidth = isPortrait ? '482w' : '790w';
 
   const srcSet = isLead
-    ? `${mediaSources.gallery_thumbnail_original} ${srcSetLeadWidth},
-      ${mediaSources.gallery_thumbnail_original_mobile}`
-    : `${mediaSources.gallery_thumbnail_square} 310w,
-      ${mediaSources.gallery_thumbnail_square_mobile}`;
+    ? `
+      ${mediaSources.gallery_full_mobile} 768w,
+      ${mediaSources.gallery_full_mobile_hi} 1538w
+    `
+    : `
+      ${mediaSources.gallery_thumbnail_square_mobile} 310w,
+      ${mediaSources.gallery_thumbnail_square_mobile_hi} 620w`;
 
   return (
     <>
@@ -73,8 +89,9 @@ export const GalleryMedia = ({
           <ImageElement
             alt={alt}
             className="cc-gallery__media-content"
+            sizes={sizes}
             src={src}
-            srcSet={src}
+            srcSet={srcSet}
           />
         </Button>
       </div>
