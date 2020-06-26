@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
+import shortid from 'shortid';
 
 import {
   CarouselProvider,
@@ -10,9 +11,10 @@ import {
   ButtonNext
 } from 'pure-react-carousel';
 
-import ImageElement from 'Image/ImageElement';
-import Icon from 'Icon';
 import Button from 'Button';
+import Icon from 'Icon';
+import ImageElement from 'Image/ImageElement';
+import Text from 'Text';
 
 import ViewportContext from 'ViewportContext/ViewportContext';
 
@@ -36,6 +38,7 @@ type GalleryLightBoxSlideProps = {
     gallery_full_mobile_hi: string;
   };
   src?: string;
+  title?: string;
 };
 
 type GalleryLightBoxNavProps = {
@@ -120,7 +123,7 @@ export const GalleryLightBox = ({
           role="button"
           variant="unstyled"
         >
-          <Icon name="close" />
+          <Icon name="closeBold" />
         </Button>
         <Slider
           className="cc-gallery-lightbox__slider"
@@ -128,7 +131,10 @@ export const GalleryLightBox = ({
           classNameTrayWrap="cc-gallery-lightbox__slider-tray-wrap"
         >
           {slides.map((slide: GalleryLightBoxSlideProps, index: number) => {
-            const srcSet = `${slide.mediaSources.gallery_full_hi} 1538w, ${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_mobile_hi} 1538w, ${slide.mediaSources.gallery_full_mobile} 769w`;
+            const srcSet = `${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_hi} 1538w`;
+            const infoPaneContent = slide.title
+              ? `<h2 className="cc-gallery-lightbox__info-title">${slide.title}</h2>${slide.caption}`
+              : slide.caption;
 
             return (
               <Slide
@@ -136,12 +142,13 @@ export const GalleryLightBox = ({
                 index={index}
                 innerClassName="cc-gallery-lightbox__slide-layout"
                 innerTag="figure"
-                key={`gallery-lightbox-slide-${slide.src}`}
+                key={shortid.generate()}
               >
                 <div className="cc-gallery-lightbox__image-pane">
                   <div className="cc-gallery-lightbox__image-pane-stage">
                     <ImageElement
                       alt={slide.alt}
+                      sizes="100vw"
                       src={slide.mediaSources.gallery_full}
                       srcSet={srcSet}
                     />
@@ -205,10 +212,9 @@ export const GalleryLightBox = ({
                     </span>
                   </span>
                 </div>
-                <figcaption
-                  className={infoPaneClassNames.main}
-                  dangerouslySetInnerHTML={{ __html: slide.caption }}
-                />
+                <figcaption className={infoPaneClassNames.main}>
+                  <Text variant="text-snippet">{infoPaneContent}</Text>
+                </figcaption>
               </Slide>
             );
           })}

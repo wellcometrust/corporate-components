@@ -19,10 +19,10 @@ type GalleryMediaProps = {
   isLead?: boolean;
   mediaSources: any;
   onClick?: MouseEventHandler;
+  title?: string;
   width: number;
 };
 
-// #6872 - finalise Gallery responsive images
 const imageSizes = {
   default:
     '(min-width: 1494px) 310px, (min-width: 1024px) 20vw, (min-width: 768px) 27vw, (min-width: 512px) 42vw, 90vw',
@@ -52,6 +52,7 @@ export const GalleryMedia = ({
   isLead,
   mediaSources,
   onClick,
+  title,
   width
 }: GalleryMediaProps) => {
   const isPortrait = height > width;
@@ -133,7 +134,8 @@ export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
       credit: child.props.credit,
       fileSize: child.props.fileSize,
       license: child.props.license,
-      mediaSources: child.props.mediaSources
+      mediaSources: child.props.mediaSources,
+      title: child.props.title
     };
   });
 

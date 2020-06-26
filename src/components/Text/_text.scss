@@ -72,10 +72,12 @@
 }
 
 .cc-text-snippet__title,
+.cc-text-snippet h2,
 .cc-text-snippet h3,
 .cc-text-snippet h4,
 .cc-text-snippet h5,
 .cc-text-snippet h6 {
+  @extend %heading-base;
   font-size: var(--body-lg);
   font-weight: bold;
   letter-spacing: normal;

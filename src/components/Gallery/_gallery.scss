@@ -53,7 +53,7 @@
 
 .cc-gallery__media-frame {
   appearance: none;
-  background: var(--colour-grey-50);
+  background: transparent;
   border: 0;
   color: var(--colour-white);
   cursor: pointer;
@@ -82,7 +82,7 @@
 
 .cc-gallery__media-content {
   @extend %image-responsive;
-  transition: opacity var(--transition-duration);
+  transition: filter var(--transition-duration);
 }
 
 .cc-gallery__media-frame {
@@ -92,7 +92,7 @@
     }
 
     .cc-gallery__media-content {
-      opacity: 0.8;
+      filter: brightness(70%);
     }
   }
 }
