@@ -63,20 +63,15 @@ const GalleryLightBoxNav = ({
   </div>
 );
 
-export const GalleryLightBox = ({
-  handleClose,
-  isOpen,
-  openAtSlideIndex = 0,
-  slides
-}: GalleryLightBoxProps) => {
-  /**
-   * Because we want to set the initial info pane state differently dependent
-   * on the browser width.
-   *
-   * #6673 TODO: Add useEffect hook to handle browser width changing,
-   * therefore requiring us to set the infoPane to visible by default (probably
-   * provding the user hasn't already touched it...)
-   */
+const GalleryLightBoxSlide = ({
+  slide,
+  index,
+  slideCount
+}: {
+  slide: GalleryLightBoxSlideProps;
+  index: number;
+  slideCount: number;
+}) => {
   const { isMobile } = useContext(ViewportContext);
   const initialInfoPaneVisibility = !isMobile;
 
@@ -88,6 +83,11 @@ export const GalleryLightBox = ({
     setIsInfoPaneVisible(!isInfoPaneVisible);
   };
 
+  const srcSet = `${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_hi} 1538w`;
+  const infoPaneContent = slide.title
+    ? `<h2 class="cc-gallery-lightbox__info-title">${slide.title}</h2>${slide.caption}`
+    : slide.caption;
+
   const infoPaneClassNames = {
     main: cx('cc-gallery-lightbox__info-pane', {
       'cc-gallery-lightbox__info-pane--hidden': !isInfoPaneVisible
@@ -97,6 +97,95 @@ export const GalleryLightBox = ({
     })
   };
 
+  return (
+    <Slide
+      className="cc-gallery-lightbox__slide"
+      index={index}
+      innerClassName="cc-gallery-lightbox__slide-layout"
+      innerTag="figure"
+      key={shortid.generate()}
+    >
+      <div className="cc-gallery-lightbox__image-pane">
+        <div className="cc-gallery-lightbox__image-pane-stage">
+          <ImageElement
+            alt={slide.alt}
+            sizes="100vw"
+            src={slide.mediaSources.gallery_full}
+            srcSet={srcSet}
+          />
+        </div>
+        <span className="cc-gallery-lightbox__image-pane-tray">
+          <div className="cc-gallery-lightbox__slide-actions">
+            <GalleryLightBoxNav
+              slideCount={slideCount}
+              currentSlide={index + 1}
+            />
+            <Button
+              className={infoPaneClassNames.toggle}
+              icon="chevronThin"
+              iconPlacementSwitch
+              onClick={toggleInfoPane}
+              role="button"
+              variant="unstyled"
+            >
+              {isInfoPaneVisible ? `Hide` : `Show`} info
+            </Button>
+          </div>
+          {!!(slide.credit || slide.license) && (
+            <dl className="cc-gallery-lightbox__meta">
+              {slide.credit && (
+                <span className="cc-gallery-lightbox__meta-item">
+                  <dt className="cc-gallery-lightbox__meta-item-label">
+                    Image credit:{' '}
+                  </dt>
+                  <dd
+                    className="cc-gallery-lightbox__meta-item-text"
+                    dangerouslySetInnerHTML={{ __html: slide.credit }}
+                  />
+                </span>
+              )}
+              {slide.license && (
+                <span className="cc-gallery-lightbox__meta-item">
+                  <dt className="cc-gallery-lightbox__meta-item-label">
+                    Image license:{' '}
+                  </dt>
+                  <dd className="cc-gallery-lightbox__meta-item-text">
+                    {slide.license}
+                  </dd>
+                </span>
+              )}
+            </dl>
+          )}
+          <span className="cc-gallery-lightbox__download">
+            <a
+              href={slide.mediaSources.gallery_full_hi}
+              download
+              className="cc-gallery-lightbox__download-link u-color-inherit"
+            >
+              <span className="cc-gallery-lightbox__download-icon">
+                <Icon name="download" />
+              </span>
+              Download
+            </a>
+            <span className="cc-gallery-lightbox__download-filesize">
+              {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
+            </span>
+          </span>
+        </span>
+      </div>
+      <figcaption className={infoPaneClassNames.main}>
+        <Text variant="text-snippet">{infoPaneContent}</Text>
+      </figcaption>
+    </Slide>
+  );
+};
+
+export const GalleryLightBox = ({
+  handleClose,
+  isOpen,
+  openAtSlideIndex = 0,
+  slides
+}: GalleryLightBoxProps) => {
   /**
    * Use react-hot-keys hook to detect user clicking 'escape'
    * to close the lightbox.
@@ -130,94 +219,13 @@ export const GalleryLightBox = ({
           classNameTray="cc-gallery-lightbox__slider-tray"
           classNameTrayWrap="cc-gallery-lightbox__slider-tray-wrap"
         >
-          {slides.map((slide: GalleryLightBoxSlideProps, index: number) => {
-            const srcSet = `${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_hi} 1538w`;
-            const infoPaneContent = slide.title
-              ? `<h2 className="cc-gallery-lightbox__info-title">${slide.title}</h2>${slide.caption}`
-              : slide.caption;
-
-            return (
-              <Slide
-                className="cc-gallery-lightbox__slide"
-                index={index}
-                innerClassName="cc-gallery-lightbox__slide-layout"
-                innerTag="figure"
-                key={shortid.generate()}
-              >
-                <div className="cc-gallery-lightbox__image-pane">
-                  <div className="cc-gallery-lightbox__image-pane-stage">
-                    <ImageElement
-                      alt={slide.alt}
-                      sizes="100vw"
-                      src={slide.mediaSources.gallery_full}
-                      srcSet={srcSet}
-                    />
-                  </div>
-                  <span className="cc-gallery-lightbox__image-pane-tray">
-                    <div className="cc-gallery-lightbox__slide-actions">
-                      <GalleryLightBoxNav
-                        slideCount={slides.length}
-                        currentSlide={index + 1}
-                      />
-                      <Button
-                        className={infoPaneClassNames.toggle}
-                        icon="chevronThin"
-                        iconPlacementSwitch
-                        onClick={toggleInfoPane}
-                        role="button"
-                        variant="unstyled"
-                      >
-                        {isInfoPaneVisible ? `Hide` : `Show`} info
-                      </Button>
-                    </div>
-                    {!!(slide.credit || slide.license) && (
-                      <dl className="cc-gallery-lightbox__meta">
-                        {slide.credit && (
-                          <span className="cc-gallery-lightbox__meta-item">
-                            <dt className="cc-gallery-lightbox__meta-item-label">
-                              Image credit:{' '}
-                            </dt>
-                            <dd
-                              className="cc-gallery-lightbox__meta-item-text"
-                              dangerouslySetInnerHTML={{ __html: slide.credit }}
-                            />
-                          </span>
-                        )}
-                        {slide.license && (
-                          <span className="cc-gallery-lightbox__meta-item">
-                            <dt className="cc-gallery-lightbox__meta-item-label">
-                              Image license:{' '}
-                            </dt>
-                            <dd className="cc-gallery-lightbox__meta-item-text">
-                              {slide.license}
-                            </dd>
-                          </span>
-                        )}
-                      </dl>
-                    )}
-                    <span className="cc-gallery-lightbox__download">
-                      <a
-                        href={slide.src}
-                        download
-                        className="cc-gallery-lightbox__download-link u-color-inherit"
-                      >
-                        <span className="cc-gallery-lightbox__download-icon">
-                          <Icon name="download" />
-                        </span>
-                        Download
-                      </a>
-                      <span className="cc-gallery-lightbox__download-filesize">
-                        {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
-                      </span>
-                    </span>
-                  </span>
-                </div>
-                <figcaption className={infoPaneClassNames.main}>
-                  <Text variant="text-snippet">{infoPaneContent}</Text>
-                </figcaption>
-              </Slide>
-            );
-          })}
+          {slides.map((slide: GalleryLightBoxSlideProps, index: number) => (
+            <GalleryLightBoxSlide
+              slide={slide}
+              index={index}
+              slideCount={slides.length}
+            />
+          ))}
         </Slider>
       </CarouselProvider>
     </dialog>
