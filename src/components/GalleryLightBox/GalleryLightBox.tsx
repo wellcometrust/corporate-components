@@ -1,15 +1,16 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { MouseEventHandler, useState, useContext } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
 import shortid from 'shortid';
 
 import {
-  CarouselProvider,
-  Slider,
-  Slide,
   ButtonBack,
-  ButtonNext
+  ButtonNext,
+  CarouselProvider,
+  Slide,
+  Slider
 } from 'pure-react-carousel';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import Button from 'Button';
 import Icon from 'Icon';
@@ -46,6 +47,12 @@ type GalleryLightBoxNavProps = {
   currentSlide: number;
 };
 
+type TransformWrapperProps = {
+  zoomIn: MouseEventHandler;
+  zoomOut: MouseEventHandler;
+  resetTransform: MouseEventHandler;
+};
+
 const GalleryLightBoxNav = ({
   slideCount,
   currentSlide
@@ -73,7 +80,7 @@ const GalleryLightBoxSlide = ({
   slideCount: number;
 }) => {
   const { isMobile } = useContext(ViewportContext);
-  const initialInfoPaneVisibility = !isMobile;
+  const initialInfoPaneVisibility = true;
 
   const [isInfoPaneVisible, setIsInfoPaneVisible] = useState(
     initialInfoPaneVisibility
@@ -103,17 +110,45 @@ const GalleryLightBoxSlide = ({
       index={index}
       innerClassName="cc-gallery-lightbox__slide-layout"
       innerTag="figure"
-      key={shortid.generate()}
     >
       <div className="cc-gallery-lightbox__image-pane">
-        <div className="cc-gallery-lightbox__image-pane-stage">
-          <ImageElement
-            alt={slide.alt}
-            sizes="100vw"
-            src={slide.mediaSources.gallery_full}
-            srcSet={srcSet}
-          />
-        </div>
+        <TransformWrapper
+          wheel={{
+            wheelEnabled: false
+          }}
+        >
+          {({
+            zoomIn,
+            zoomOut,
+            resetTransform,
+            ...rest
+          }: TransformWrapperProps) => (
+            <>
+              <div className="tools">
+                <Button onClick={zoomIn} variant="primary">
+                  +
+                </Button>
+                <Button onClick={zoomOut} variant="primary">
+                  -
+                </Button>
+                <Button onClick={resetTransform} variant="primary">
+                  x
+                </Button>
+              </div>
+              <div className="cc-gallery-lightbox__image-pane-stage">
+                <TransformComponent>
+                  <ImageElement
+                    className="cc-gallery-lightbox__image"
+                    alt={slide.alt}
+                    sizes="100vw"
+                    src={slide.mediaSources.gallery_full}
+                    srcSet={srcSet}
+                  />
+                </TransformComponent>
+              </div>
+            </>
+          )}
+        </TransformWrapper>
         <span className="cc-gallery-lightbox__image-pane-tray">
           <div className="cc-gallery-lightbox__slide-actions">
             <GalleryLightBoxNav
@@ -221,8 +256,9 @@ export const GalleryLightBox = ({
         >
           {slides.map((slide: GalleryLightBoxSlideProps, index: number) => (
             <GalleryLightBoxSlide
-              slide={slide}
+              key={shortid.generate()}
               index={index}
+              slide={slide}
               slideCount={slides.length}
             />
           ))}

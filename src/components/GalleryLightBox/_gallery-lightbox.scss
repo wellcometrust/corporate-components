@@ -24,12 +24,17 @@
   color: var(--colour-white);
   height: 100%;
   left: 0;
-  padding: var(--space-xl);
+  overflow-y: auto;
+  padding: calc(2 * var(--space-unit));
   position: fixed;
   right: 0;
   top: 0;
   width: 100%;
   z-index: var(--z-modal);
+
+  @include mq(xs) {
+    padding: var(--space-xl);
+  }
 }
 
 .cc-gallery-lightbox__carousel {
@@ -48,7 +53,8 @@
 .cc-gallery-lightbox__slider-tray-wrap,
 .cc-gallery-lightbox__slider-tray {
   height: 100%;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow-x: hidden;
 }
 
 .cc-gallery-lightbox__slider-tray {
@@ -66,8 +72,9 @@
  */
 
 .cc-gallery-lightbox__slide {
-  flex-basis: 100vw;
   height: 100%;
+  // overflow-y: auto;
+  width: 100%;
 }
 
 .cc-gallery-lightbox__slide-layout {
@@ -76,7 +83,7 @@
 
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   overflow: scroll;
 
   @include mq(sm) {
@@ -94,6 +101,7 @@
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
+  position: relative;
 
   @include mq(sm) {
     flex-basis: 57%;
@@ -101,30 +109,22 @@
 
   @include mq(md) {
     flex-basis: 70%;
-    padding-right: var(--space-lg);
   }
 }
 
 .cc-gallery-lightbox__image-pane-stage {
-  flex-basis: 90%;
+  // flex-basis: 90%;
   margin-bottom: var(--space-lg);
   overflow: hidden;
 
   @include mq(sm) {
-    height: auto;
+    // height: auto;
   }
 
   @include mq(md) {
-    flex-basis: 84%;
+    // flex-basis: 84%;
     margin-bottom: var(--space-lg);
     overflow: hidden;
-  }
-
-  > img {
-    display: block;
-    height: 100%;
-    object-fit: contain;
-    width: 100%;
   }
 }
 
@@ -157,7 +157,9 @@
 }
 
 .cc-gallery-lightbox__info-pane--hidden {
-  display: none;
+  @include mq(md) {
+    display: none;
+  }
 }
 
 /**
@@ -280,8 +282,8 @@
   height: calc(5.5 * var(--space-unit));
   justify-content: center;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: calc(-1.75 * var(--space-unit));
+  top: calc(-1.75 * var(--space-unit));
   width: calc(5.5 * var(--space-unit));
   z-index: var(--z-modal);
 }
@@ -292,4 +294,49 @@
 
 .cc-gallery-lightbox ::selection {
   color: var(--colour-grey-80);
+}
+
+:root {
+  --lightbox-image-height: calc(100vh - (4 * var(--space-unit)) - (4 * var(--space-unit)) - calc(2 * var(--space-unit)));
+
+  @include mq(xs) {
+    --lightbox-image-height: calc(100vh - (2 * var(--space-xl)) - (4 * var(--space-unit)) - var(--space-lg));
+  }
+  
+  @include mq(md) {
+    --lightbox-image-height: calc(100vh - (2 * var(--space-xl)));
+  }
+}
+
+// Zoom element
+.cc-gallery-lightbox__image {
+  // will likely need to calculate height using javascript
+  max-height: var(--lightbox-image-height);
+  max-width: calc(100vw - (4 * var(--space-unit)));
+
+  @include mq(xs) {
+    // max-height: calc(100vh - (2 * var(--space-xl)));
+    max-width: calc(100vw - (2 * var(--space-xl)));
+  }
+}
+
+.tools {
+  position: absolute;
+  z-index: var(--z-low);
+}
+
+// Zoom wrapper
+.react-transform-component {
+  // background: rgba(255, 0, 0, 0.5);
+  height: var(--lightbox-image-height) !important;
+  width: calc(100vw - (4 * var(--space-unit))) !important;
+
+  @include mq(xs) {
+    // height: calc(100vh - (2 * var(--space-xl))) !important;
+    width: calc(100vw - (2 * var(--space-xl))) !important;
+  }
+}
+
+.react-transform-element {
+  cursor: grab;
 }
