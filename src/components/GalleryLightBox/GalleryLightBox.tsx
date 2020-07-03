@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
 import shortid from 'shortid';
@@ -19,7 +19,10 @@ import Text from 'Text';
 import ViewportContext from 'ViewportContext/ViewportContext';
 
 type GalleryLightBoxProps = {
+  galleryId?: number;
   handleClose: () => void;
+  handleBack: (galleryId: number, index: number) => void;
+  handleNext: (galleryId: number, index: number) => void;
   isOpen?: boolean;
   openAtSlideIndex?: number;
   slides: GalleryLightBoxSlideProps[];
@@ -41,30 +44,11 @@ type GalleryLightBoxSlideProps = {
   title?: string;
 };
 
-type GalleryLightBoxNavProps = {
-  slideCount: number;
-  currentSlide: number;
-};
-
-const GalleryLightBoxNav = ({
-  slideCount,
-  currentSlide
-}: GalleryLightBoxNavProps) => (
-  <div className="cc-gallery-lightbox__nav">
-    <ButtonBack className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit">
-      <Icon name="arrow" />
-    </ButtonBack>
-    <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
-      {`${currentSlide} / ${slideCount}`}
-    </span>
-    <ButtonNext className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit">
-      <Icon name="arrow" />
-    </ButtonNext>
-  </div>
-);
-
 export const GalleryLightBox = ({
+  galleryId,
+  handleBack,
   handleClose,
+  handleNext,
   isOpen,
   openAtSlideIndex = 0,
   slides
@@ -155,10 +139,23 @@ export const GalleryLightBox = ({
                   </div>
                   <span className="cc-gallery-lightbox__image-pane-tray">
                     <div className="cc-gallery-lightbox__slide-actions">
-                      <GalleryLightBoxNav
-                        slideCount={slides.length}
-                        currentSlide={index + 1}
-                      />
+                      <div className="cc-gallery-lightbox__nav">
+                        <ButtonBack
+                          className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit"
+                          onClick={() => handleBack(galleryId, index)}
+                        >
+                          <Icon name="arrow" />
+                        </ButtonBack>
+                        <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
+                          {`${index + 1} / ${slides.length}`}
+                        </span>
+                        <ButtonNext
+                          className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit"
+                          onClick={() => handleNext(galleryId, index)}
+                        >
+                          <Icon name="arrow" />
+                        </ButtonNext>
+                      </div>
                       <Button
                         className={infoPaneClassNames.toggle}
                         icon="chevronThin"
