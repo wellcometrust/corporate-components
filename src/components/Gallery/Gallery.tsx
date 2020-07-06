@@ -2,9 +2,11 @@ import React, {
   Children,
   cloneElement,
   MouseEventHandler,
+  useEffect,
   useState
 } from 'react';
 import cx from 'classnames';
+import queryString from 'query-string';
 
 import Button from 'Button';
 import ImageElement from 'Image/ImageElement';
@@ -103,10 +105,21 @@ export const GalleryMedia = ({
 
 type GalleryProps = {
   children?: JSX.Element | JSX.Element[];
+  galleryId?: number;
   hasLeadItem?: boolean;
+  handleClose?: () => void;
+  handleBack?: () => void;
+  handleNext?: () => void;
 };
 
-export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
+export const Gallery = ({
+  children,
+  galleryId,
+  hasLeadItem = false,
+  handleClose,
+  handleBack,
+  handleNext
+}: GalleryProps) => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentLightboxSlideIndex, setCurrentLightboxSlideIndex] = useState(0);
 
@@ -115,15 +128,46 @@ export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
     setIsLightboxOpen(true);
   };
 
+  const handleLightBoxClose = () => {
+    handleClose();
+    setIsLightboxOpen(false);
+  };
+
+  /**
+   * Capture specific gallery and photo linking from hash
+   * Hash is used in preference to querystring as the latter causes
+   * the page to reload
+   * As an aside `getStaticPaths` generates static files, which means they can't
+   * access querystring at generation time
+   * https://github.com/vercel/next.js/discussions/10951
+   */
+  useEffect(() => {
+    const hash = queryString.parse(window.location.hash);
+    const gid = parseInt(hash?.gid as string, 10);
+    const pid = parseInt(hash?.pid as string, 10);
+
+    if (gid === galleryId) {
+      openLightbox(pid);
+    }
+
+    return () => {};
+  }, []);
+
   const childrenWithProps = Children.map(children, (child, index) =>
     cloneElement(child, {
+      /**
+       * If the gallery is 'lead image' enabled then set the first item accordingly
+       */
       isLead: hasLeadItem && index === 0,
 
       /**
-       * Pass an onClick handler to the child, to allow it to open
+       * Pass an additional onClick handler to the child, to allow it to open
        * the lightbox from itself.
        */
-      onClick: () => openLightbox(index)
+      onClick: () => {
+        child.props.onClick(galleryId, index);
+        openLightbox(index);
+      }
     })
   );
 
@@ -144,8 +188,11 @@ export const Gallery = ({ children, hasLeadItem = false }: GalleryProps) => {
       <div className="cc-gallery__media">{childrenWithProps}</div>
       {isLightboxOpen && (
         <GalleryLightBox
-          handleClose={() => setIsLightboxOpen(false)}
+          galleryId={galleryId}
+          handleClose={handleLightBoxClose}
           isOpen={isLightboxOpen}
+          handleBack={handleBack}
+          handleNext={handleNext}
           openAtSlideIndex={currentLightboxSlideIndex}
           slides={lightboxSlides}
         />

@@ -2,6 +2,7 @@ import React, { MouseEventHandler, useState, useContext } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
 import shortid from 'shortid';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import {
   ButtonBack,
@@ -10,7 +11,6 @@ import {
   Slide,
   Slider
 } from 'pure-react-carousel';
-import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import Button from 'Button';
 import Icon from 'Icon';
@@ -20,7 +20,10 @@ import Text from 'Text';
 import ViewportContext from 'ViewportContext/ViewportContext';
 
 type GalleryLightBoxProps = {
+  galleryId?: number;
+  handleBack: (galleryId: number, index: number) => void;
   handleClose: () => void;
+  handleNext: (galleryId: number, index: number) => void;
   isOpen?: boolean;
   openAtSlideIndex?: number;
   slides: GalleryLightBoxSlideProps[];
@@ -42,39 +45,25 @@ type GalleryLightBoxSlideProps = {
   title?: string;
 };
 
-type GalleryLightBoxNavProps = {
-  slideCount: number;
-  currentSlide: number;
-};
-
 type TransformWrapperProps = {
   zoomIn: MouseEventHandler;
   zoomOut: MouseEventHandler;
   resetTransform: MouseEventHandler;
 };
 
-const GalleryLightBoxNav = ({
-  slideCount,
-  currentSlide
-}: GalleryLightBoxNavProps) => (
-  <div className="cc-gallery-lightbox__nav">
-    <ButtonBack className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit">
-      <Icon name="arrow" />
-    </ButtonBack>
-    <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
-      {`${currentSlide} / ${slideCount}`}
-    </span>
-    <ButtonNext className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit">
-      <Icon name="arrow" />
-    </ButtonNext>
-  </div>
-);
-
 const GalleryLightBoxSlide = ({
+  galleryId,
+  handleBack,
+  handleClose,
+  handleNext,
   slide,
   index,
   slideCount
 }: {
+  galleryId?: number;
+  handleBack: (galleryId: number, index: number) => void;
+  handleClose: () => void;
+  handleNext: (galleryId: number, index: number) => void;
   slide: GalleryLightBoxSlideProps;
   index: number;
   slideCount: number;
@@ -151,10 +140,23 @@ const GalleryLightBoxSlide = ({
         </TransformWrapper>
         <span className="cc-gallery-lightbox__image-pane-tray">
           <div className="cc-gallery-lightbox__slide-actions">
-            <GalleryLightBoxNav
-              slideCount={slideCount}
-              currentSlide={index + 1}
-            />
+            <div className="cc-gallery-lightbox__nav">
+              <ButtonBack
+                className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit"
+                onClick={() => handleBack(galleryId, index)}
+              >
+                <Icon name="arrow" />
+              </ButtonBack>
+              <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
+                {`${index + 1} / ${slideCount}`}
+              </span>
+              <ButtonNext
+                className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit"
+                onClick={() => handleNext(galleryId, index)}
+              >
+                <Icon name="arrow" />
+              </ButtonNext>
+            </div>
             <Button
               className={infoPaneClassNames.toggle}
               icon="chevronThin"
@@ -216,7 +218,10 @@ const GalleryLightBoxSlide = ({
 };
 
 export const GalleryLightBox = ({
+  galleryId,
+  handleBack,
   handleClose,
+  handleNext,
   isOpen,
   openAtSlideIndex = 0,
   slides
@@ -257,6 +262,10 @@ export const GalleryLightBox = ({
           {slides.map((slide: GalleryLightBoxSlideProps, index: number) => (
             <GalleryLightBoxSlide
               key={shortid.generate()}
+              galleryId={galleryId}
+              handleBack={handleBack}
+              handleClose={handleClose}
+              handleNext={handleNext}
               index={index}
               slide={slide}
               slideCount={slides.length}

@@ -1,6 +1,6 @@
 {
   "name": "@wellcometrust/corporate-components",
-  "version": "0.4.15",
+  "version": "0.4.16",
   "description": "Component library for main Wellcome Trust corporate site",
   "main": "dist/index.js",
   "style": "dist/styles.css",
@@ -56,6 +56,7 @@
     "date-fns": "^2.11.0",
     "lodash.throttle": "^4.1.1",
     "pure-react-carousel": "^1.27.1",
+    "query-string": "^6.13.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-hotkeys-hook": "^2.1.3",
     "react-html-parser": "^2.0.2",
