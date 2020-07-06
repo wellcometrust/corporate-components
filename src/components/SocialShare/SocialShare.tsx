@@ -1,10 +1,9 @@
 import React, { MouseEvent as ReactMouseEvent, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import htmlToText from 'html-to-text';
 
 import Button from 'Button';
 import Icon from 'Icon';
-
-import extractTextContent from 'utils/extract-text-content';
 
 type SocialShareProps = {
   body: string;
@@ -21,7 +20,7 @@ export const SocialShare = ({
 }: SocialShareProps) => {
   const [copied, setCopied] = useState(false);
 
-  const bodyText = extractTextContent(body);
+  const bodyText = htmlToText.fromString(body, { wordwrap: false });
 
   const handleShareLink = () => {
     // TODO analytics event
