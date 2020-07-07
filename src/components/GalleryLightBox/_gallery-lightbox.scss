@@ -298,26 +298,30 @@
 
 :root {
   --lightbox-image-height: calc(100vh - (4 * var(--space-unit)) - (4 * var(--space-unit)) - calc(2 * var(--space-unit)));
+  --lightbox-image-width: calc(100vw - (4 * var(--space-unit)));
 
   @include mq(xs) {
     --lightbox-image-height: calc(100vh - (2 * var(--space-xl)) - (4 * var(--space-unit)) - var(--space-lg));
+    --lightbox-image-width: calc(100vw - (2 * var(--space-xl)));
   }
   
+  @include mq(sm) {
+    --lightbox-image-height: calc(100vh - (2 * var(--space-xl)) - (4 * var(--space-unit)) - var(--space-lg));
+    --lightbox-image-width: calc(100vw - (2 * var(--space-xl)));
+  }
+
   @include mq(md) {
-    --lightbox-image-height: calc(100vh - (2 * var(--space-xl)));
+    // TODO: basic setting of x% of viewport height works as a default
+    // but this will likely need to be calculated using javascript for larger credits
+    --lightbox-image-height: calc(80vh - (2 * var(--space-xl)));
+    --lightbox-image-width: calc(70vw - (2 * var(--space-xl)));
   }
 }
 
 // Zoom element
 .cc-gallery-lightbox__image {
-  // will likely need to calculate height using javascript
   max-height: var(--lightbox-image-height);
-  max-width: calc(100vw - (4 * var(--space-unit)));
-
-  @include mq(xs) {
-    // max-height: calc(100vh - (2 * var(--space-xl)));
-    max-width: calc(100vw - (2 * var(--space-xl)));
-  }
+  max-width: var(--lightbox-image-width);
 }
 
 .tools {
@@ -327,14 +331,8 @@
 
 // Zoom wrapper
 .react-transform-component {
-  // background: rgba(255, 0, 0, 0.5);
   height: var(--lightbox-image-height) !important;
-  width: calc(100vw - (4 * var(--space-unit))) !important;
-
-  @include mq(xs) {
-    // height: calc(100vh - (2 * var(--space-xl))) !important;
-    width: calc(100vw - (2 * var(--space-xl))) !important;
-  }
+  width: var(--lightbox-image-width) !important;
 }
 
 .react-transform-element {
