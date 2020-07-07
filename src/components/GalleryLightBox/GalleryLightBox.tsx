@@ -14,6 +14,7 @@ import {
 import Button from 'Button';
 import Icon from 'Icon';
 import ImageElement from 'Image/ImageElement';
+import SocialShare from 'SocialShare';
 import Text from 'Text';
 
 import ViewportContext from 'ViewportContext/ViewportContext';
@@ -208,6 +209,12 @@ export const GalleryLightBox = ({
                       </span>
                     </span>
                   </span>
+                  <SocialShare
+                    body={infoPaneContent}
+                    hasCopyLink
+                    title={slide.title}
+                    url={window?.location.href}
+                  />
                 </div>
                 <figcaption className={infoPaneClassNames.main}>
                   <Text variant="text-snippet">{infoPaneContent}</Text>

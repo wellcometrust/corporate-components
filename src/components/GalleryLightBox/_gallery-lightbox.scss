@@ -293,3 +293,22 @@
 .cc-gallery-lightbox ::selection {
   color: var(--colour-grey-80);
 }
+
+/**
+ * Social share icons
+ */
+.cc-gallery-lightbox {
+  .cc-social-share__icon {
+    border-color: var(--colour-white);
+    color: var(--colour-white);
+  }
+
+  .cc-social-share__link {
+    @include hocus {
+      .cc-social-share__icon {
+        border-color: var(--colour-grey-40);
+        color: var(--colour-grey-40);
+      }
+    }
+  }
+}

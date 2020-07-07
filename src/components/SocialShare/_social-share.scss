@@ -7,6 +7,7 @@
 // ----------------------------------
 
 .cc-social-share {
+  margin: calc(-1.5 * var(--space-unit));
   position: relative;
 }
 
@@ -17,17 +18,10 @@
   flex-flow: row nowrap;
 }
 
-.cc-social-share__item {
-  margin-right: calc(1.5 * var(--space-unit));
-
-  &:last-child {
-    margin-right: 0;
-  }
-}
-
 .cc-social-share__link {
   cursor: pointer;
   display: block;
+  padding: calc(1.5 * var(--space-unit));
   
   @include hocus {
     .cc-social-share__icon {
@@ -58,16 +52,17 @@
 
 .cc-social-share__copied {
   animation: 2s ease 3s 1 forwards fade-delay;
-  background: var(--colour-grey-05);
-  border: 1px solid var(--colour-grey-20);
-  bottom: calc(-1.5 * var(--space-unit));
-  color: var(--colour-grey-50);
+  background: var(--colour-grey-70);
+  border: 1px solid var(--colour-grey-40);
+  color: var(--colour-white);
   display: block;
   font-size: var(--body-sm);
-  left: 0;
+  left: calc(1.5 * var(--space-unit));
   padding: var(--space-unit);
+  pointer-events: none;
   position: absolute;
-  right: 0;
-  transform: translateY(100%);
+  right: calc(1.5 * var(--space-unit));
+  top: calc(-1 * var(--space-unit));
+  transform: translateY(-100%);
   z-index: 1;
 }
