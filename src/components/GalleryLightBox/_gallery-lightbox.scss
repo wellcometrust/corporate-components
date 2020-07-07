@@ -296,6 +296,10 @@
   color: var(--colour-grey-80);
 }
 
+/**
+ * Zoom
+ */
+
 :root {
   --lightbox-image-height: calc(100vh - (4 * var(--space-unit)) - (4 * var(--space-unit)) - calc(2 * var(--space-unit)));
   --lightbox-image-width: calc(100vw - (4 * var(--space-unit)));
@@ -337,4 +341,23 @@
 
 .react-transform-element {
   cursor: grab;
+}
+
+/**
+ * Social share icons
+ */
+.cc-gallery-lightbox {
+  .cc-social-share__icon {
+    border-color: var(--colour-white);
+    color: var(--colour-white);
+  }
+
+  .cc-social-share__link {
+    @include hocus {
+      .cc-social-share__icon {
+        border-color: var(--colour-grey-40);
+        color: var(--colour-grey-40);
+      }
+    }
+  }
 }
