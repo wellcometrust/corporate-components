@@ -105,7 +105,7 @@ export const GalleryMedia = ({
 
 type GalleryProps = {
   children?: JSX.Element | JSX.Element[];
-  galleryId?: number;
+  galleryId?: string;
   hasLeadItem?: boolean;
   handleClose?: () => void;
   handleBack?: () => void;
@@ -143,7 +143,7 @@ export const Gallery = ({
    */
   useEffect(() => {
     const hash = queryString.parse(window.location.hash);
-    const gid = parseInt(hash?.gid as string, 10);
+    const gid = hash?.gid;
     const pid = parseInt(hash?.pid as string, 10);
 
     if (gid === galleryId) {
@@ -184,7 +184,7 @@ export const Gallery = ({
   });
 
   return (
-    <div className="cc-gallery grid">
+    <div className="cc-gallery grid" id={galleryId}>
       <div className="cc-gallery__media">{childrenWithProps}</div>
       {isLightboxOpen && (
         <GalleryLightBox

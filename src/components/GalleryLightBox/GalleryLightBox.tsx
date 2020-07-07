@@ -20,10 +20,10 @@ import Text from 'Text';
 import ViewportContext from 'ViewportContext/ViewportContext';
 
 type GalleryLightBoxProps = {
-  galleryId?: number;
+  galleryId?: string;
   handleClose: () => void;
-  handleBack: (galleryId: number, index: number) => void;
-  handleNext: (galleryId: number, index: number) => void;
+  handleBack: (galleryId: string, index: number) => void;
+  handleNext: (galleryId: string, index: number) => void;
   isOpen?: boolean;
   openAtSlideIndex?: number;
   slides: GalleryLightBoxSlideProps[];
