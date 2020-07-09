@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import InpageNav from './InpageNav';
 import Readme from './InpageNav.md';
@@ -24,7 +24,12 @@ const links = [
   }
 ];
 
-const InpageNavExample = () => <InpageNav links={links} />;
+const InpageNavExample = () => {
+  const isMinimal = boolean('isMinimal', false);
+
+  return <InpageNav isMinimal={isMinimal} links={links} />;
+};
+
 const stories = storiesOf('Components|Page header', module);
 
 stories.add('InpageNav', InpageNavExample, {
