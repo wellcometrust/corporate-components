@@ -328,6 +328,7 @@
 :root {
   --lightbox-image-height: calc(100vh - (4 * var(--space-unit)) - (4 * var(--space-unit)) - calc(2 * var(--space-unit)));
   --lightbox-image-width: calc(100vw - (4 * var(--space-unit)));
+  --lightbox-image-width-wide: calc(100vw - (2 * var(--space-xl)));
 
   @include mq(xs) {
     --lightbox-image-height: calc(100vh - (2 * var(--space-xl)) - (4 * var(--space-unit)) - var(--space-lg));
@@ -362,6 +363,10 @@
 .react-transform-component {
   height: var(--lightbox-image-height) !important;
   width: var(--lightbox-image-width) !important;
+  
+  .a--wide & {
+    width: var(--lightbox-image-width-wide) !important;
+  }
 }
 
 .react-transform-element {
@@ -433,7 +438,8 @@
 
 .a--wide {
   @include mq(md) {
-    // grid-template-columns: 5fr 2fr 1fr;
+    // change the width to force the info box out of view
+    // support for animation of grid-template-columns is very poor
     width: 143%;
   }
 }
