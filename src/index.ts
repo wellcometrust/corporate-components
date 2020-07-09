@@ -2,6 +2,7 @@ import 'assets/styles/app.scss';
 
 // standard components
 export { ActiveLink } from 'Nav/ActiveLink';
+export { Accordion, AccordionItem } from 'Accordion/Accordion';
 export { Button } from 'Button/Button';
 export { Contact } from 'Contact/Contact';
 export { CookieMessage } from 'CookieMessage/CookieMessage';

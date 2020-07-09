@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
-import MediaCaption from 'Media/MediaCaption';
+import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import ImageElement from 'Image/ImageElement';
+import MediaCaption from 'Media/MediaCaption';
 
 type ImageBannerProps = {
   alt: string;
@@ -43,11 +44,15 @@ export const ImageBanner = ({
       </div>
 
       <div className="cc-image-banner__caption-container">
-        <MediaCaption
-          caption={caption}
-          className="cc-image-banner__caption"
-          credit={credit}
-        />
+        <Accordion>
+          <AccordionItem title="Read the caption">
+            <MediaCaption
+              caption={caption}
+              className="cc-image-banner__caption"
+              credit={credit}
+            />
+          </AccordionItem>
+        </Accordion>
       </div>
     </figure>
   );
