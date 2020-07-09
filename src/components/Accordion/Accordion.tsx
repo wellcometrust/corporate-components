@@ -1,14 +1,18 @@
 import React, { Children, cloneElement, useState } from 'react';
-import shortid from 'shortid';
+import cx from 'classnames';
 
-import AccordionItem, { AccordionItemProps } from './AccordionItem';
+import AccordionItem from './AccordionItem';
 
 type AccordionProps = {
   children?: JSX.Element | JSX.Element[];
+  className?: string;
 };
 
-export const Accordion = ({ children }: AccordionProps) => {
+export const Accordion = ({ children, className }: AccordionProps) => {
   const [active, setActive] = useState(-1);
+  const classNames = cx('cc-accordion', {
+    [`${className}`]: className
+  });
 
   // Selects the given item and deselects if it has been clicked again by setting `active` to -1
   // Assumes only one item will be active
@@ -29,7 +33,7 @@ export const Accordion = ({ children }: AccordionProps) => {
     })
   );
 
-  return <div className="accordion">{childrenWithProps}</div>;
+  return <div className={classNames}>{childrenWithProps}</div>;
 };
 
 export default Accordion;

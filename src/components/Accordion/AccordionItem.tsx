@@ -20,28 +20,26 @@ export const AccordionItem = ({
   const content = useRef(null);
 
   return (
-    <div className="accordion-item">
-      <h3 className="accordion-item__title">
+    <div className="cc-accordion-item">
+      <h3 className="cc-accordion-item__title">
         <button
           aria-expanded={active}
-          className="accordion__button"
+          className="cc-accordion__button"
           id={`accordion-button-${index}`}
           onClick={onClick}
           type="button"
         >
-          <span className="accordion__button-content">
+          <span className="cc-accordion__button-content">
             <span>{title}</span>
           </span>
         </button>
       </h3>
+
       <div
         aria-labelledby={`accordion-button-${index}`}
-        className="accordion__content"
+        className="cc-accordion__content"
         hidden={!active}
         ref={content}
-        style={{
-          maxHeight: `${active ? `${content.current.scrollHeight}px` : '0px'}`
-        }}
       >
         {children}
       </div>

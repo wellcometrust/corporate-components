@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cx from 'classnames';
 
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import ImageElement from 'Image/ImageElement';
 import MediaCaption from 'Media/MediaCaption';
+
+import ViewportContext from 'ViewportContext/ViewportContext';
 
 type ImageBannerProps = {
   alt: string;
@@ -26,6 +28,7 @@ export const ImageBanner = ({
   src,
   srcSet
 }: ImageBannerProps) => {
+  const { isMobile } = useContext(ViewportContext);
   const classNames = cx('cc-image-banner', {
     [`${className}`]: className
   });
@@ -44,15 +47,23 @@ export const ImageBanner = ({
       </div>
 
       <div className="cc-image-banner__caption-container">
-        <Accordion>
-          <AccordionItem title="Read the caption">
-            <MediaCaption
-              caption={caption}
-              className="cc-image-banner__caption"
-              credit={credit}
-            />
-          </AccordionItem>
-        </Accordion>
+        {isMobile ? (
+          <Accordion className="cc-image-banner__caption">
+            <AccordionItem title="Read the caption">
+              <MediaCaption
+                caption={caption}
+                className="cc-image-banner__caption"
+                credit={credit}
+              />
+            </AccordionItem>
+          </Accordion>
+        ) : (
+          <MediaCaption
+            caption={caption}
+            className="cc-image-banner__caption"
+            credit={credit}
+          />
+        )}
       </div>
     </figure>
   );
