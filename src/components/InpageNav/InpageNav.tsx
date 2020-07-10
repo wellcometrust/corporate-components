@@ -1,6 +1,9 @@
 import React from 'react';
 
-type InpageNavItemLinksProps = {
+import Accordion, { AccordionItem } from 'Accordion/Accordion';
+
+type InpageNavProps = {
+  isMinimal?: boolean;
   links?: InpageNavItemProps[];
 };
 
@@ -9,9 +12,8 @@ type InpageNavItemProps = {
   id?: string;
 };
 
-export const InpageNav = ({ links }: InpageNavItemLinksProps) => (
-  <div className="cc-inpage-nav">
-    <strong className="cc-inpage-nav__title">On this page</strong>
+export const InpageNav = ({ isMinimal, links }: InpageNavProps) => {
+  const navLinks = (
     <ul className="cc-inpage-nav__list">
       {links.map(({ title, id, ...props }) => (
         <li key={`anchor-link-${id}`} className="cc-inpage-nav__item">
@@ -21,7 +23,22 @@ export const InpageNav = ({ links }: InpageNavItemLinksProps) => (
         </li>
       ))}
     </ul>
-  </div>
-);
+  );
+
+  return (
+    <div className="cc-inpage-nav">
+      {isMinimal ? (
+        <Accordion>
+          <AccordionItem title="On this page">{navLinks}</AccordionItem>
+        </Accordion>
+      ) : (
+        <>
+          <strong className="cc-inpage-nav__title">On this page</strong>
+          {navLinks}
+        </>
+      )}
+    </div>
+  );
+};
 
 export default InpageNav;

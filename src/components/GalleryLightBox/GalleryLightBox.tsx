@@ -1,7 +1,6 @@
 import React, { MouseEventHandler, useState, useContext } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
-import shortid from 'shortid';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import {
@@ -132,7 +131,7 @@ export const GalleryLightBox = ({
                 index={index}
                 innerClassName={infoPaneClassNames.grid}
                 innerTag="figure"
-                key={shortid.generate()}
+                key={`gallery-lightbox-slide-${galleryId}-${index + 1}`}
               >
                 <div className="cc-gallery-lightbox__image-pane b">
                   <TransformWrapper
