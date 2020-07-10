@@ -411,8 +411,9 @@
 
   // background: red;
   grid-template-rows: 90% 10% 1fr;
+  min-width: 100%;
   position: relative;
-  transition: width ease 0.4s;
+  transition: min-width ease 0.4s;
 
   @include mq(xs) {
     grid-template-areas:
@@ -440,7 +441,7 @@
   @include mq(md) {
     // change the width to force the info box out of view
     // support for animation of grid-template-columns is very poor
-    width: 143%;
+    min-width: 143%;
   }
 }
 
