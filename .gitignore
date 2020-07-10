@@ -17,6 +17,10 @@ coverage
 *.log
 *.tgz
 
+# Code editor / file system
 .idea
 .DS_Store
 *.code-workspace
+
+# Misc
+temp/
