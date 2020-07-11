@@ -196,10 +196,17 @@
  */
 
 .cc-gallery-lightbox__slide-actions {
-  @include mq($until: md) {
-    // display: flex;
-    // justify-content: space-between;
-    margin-bottom: var(--space-lg);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  // @include mq($until: md) {
+  //   margin-bottom: var(--space-lg);
+  // }
+
+  @include mq(md) {
+    align-items: flex-end;
+    flex-direction: column;
   }
 }
 
@@ -322,60 +329,44 @@
 }
 
 /**
- * Zoom
+ * Image
  */
 
-:root {
-  --lightbox-image-height: calc(100vh - (4 * var(--space-unit)) - (4 * var(--space-unit)) - calc(2 * var(--space-unit)));
-  --lightbox-image-width: calc(100vw - (4 * var(--space-unit)));
-  --lightbox-image-width-wide: calc(100vw - (2 * var(--space-xl)));
+.cc-gallery-lightbox__image {  
 
-  @include mq(xs) {
-    --lightbox-image-height: calc(100vh - (2 * var(--space-xl)) - (4 * var(--space-unit)) - var(--space-lg));
-    --lightbox-image-width: calc(100vw - (2 * var(--space-xl)));
-  }
-  
-  @include mq(sm) {
-    --lightbox-image-height: calc(100vh - (2 * var(--space-xl)) - (4 * var(--space-unit)) - var(--space-lg));
-    --lightbox-image-width: calc(100vw - (2 * var(--space-xl)));
-  }
+  // Setting / overriding pure-react-carousel styles
+  .carousel__image {
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
 
-  @include mq(md) {
-    // TODO: basic setting of x% of viewport height works as a default
-    // but this will likely need to be calculated using javascript for larger credits
-    --lightbox-image-height: calc(80vh - (2 * var(--space-xl)));
-    --lightbox-image-width: calc(70vw - (2 * var(--space-xl)));
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
 
-// Zoom element
-.cc-gallery-lightbox__image {
-  max-height: var(--lightbox-image-height);
-  max-width: var(--lightbox-image-width);
-}
+// Lightbox image zoomed
 
-.tools {
-  position: absolute;
+.carousel__zoom-image-overlay {
+  cursor: zoom-in;
+  opacity: 0;
+  transition: opacity 0.3s,transform 0.3s;
   z-index: var(--z-low);
 }
 
-// Zoom wrapper
-.react-transform-component {
-  height: var(--lightbox-image-height) !important;
-  width: var(--lightbox-image-width) !important;
-  
-  .a--wide & {
-    width: var(--lightbox-image-width-wide) !important;
-  }
-}
-
-.react-transform-element {
-  cursor: grab;
+.carousel__zoom-image-overlay--hovering {
+  cursor: zoom-out;
+  opacity: 1;
 }
 
 /**
  * Social share icons
  */
+
 .cc-gallery-lightbox {
   .cc-social-share__icon {
     border-color: var(--colour-white);
@@ -432,15 +423,19 @@
       'download  controls  info'
       'social    controls  info';
     grid-template-columns: 5fr 2fr 3fr;
-    grid-template-rows: 4fr auto auto 1fr;
+    grid-template-rows: 80% auto auto 1fr;
     overflow-y: hidden;
   }
 }
 
 .a--wide {
+
+  transition: min-width 0.4s ease 0.1s;
+
   @include mq(md) {
     // change the width to force the info box out of view
     // support for animation of grid-template-columns is very poor
+    // default width is 7 10ths - reciprocal of 7/10 = 10/7 ≈ 143%
     min-width: 143%;
   }
 }
@@ -451,14 +446,12 @@
 }
 
 .c {
-  // background: rgba(lime, 0.5);
   grid-area: controls;
 }
 
 .d {
   // background: rgba(cyan, 0.5);
   grid-area: info;
-
 }
 
 .e {

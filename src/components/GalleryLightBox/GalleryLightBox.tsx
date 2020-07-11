@@ -1,11 +1,11 @@
 import React, { MouseEventHandler, useState, useContext } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 import {
   ButtonBack,
   ButtonNext,
+  ImageWithZoom,
   CarouselProvider,
   Slide,
   Slider
@@ -13,7 +13,6 @@ import {
 
 import Button from 'Button';
 import Icon from 'Icon';
-import ImageElement from 'Image/ImageElement';
 import SocialShare from 'SocialShare';
 import Text from 'Text';
 
@@ -45,12 +44,6 @@ type GalleryLightBoxSlideProps = {
   title?: string;
 };
 
-type TransformWrapperProps = {
-  zoomIn: MouseEventHandler;
-  zoomOut: MouseEventHandler;
-  resetTransform: MouseEventHandler;
-};
-
 export const GalleryLightBox = ({
   galleryId,
   handleBack,
@@ -77,9 +70,6 @@ export const GalleryLightBox = ({
   const infoPaneClassNames = {
     grid: cx('cc-gallery-lightbox__slide-layout a', {
       'a--wide': !isInfoPaneVisible
-    }),
-    info: cx('cc-gallery-lightbox__info-pane d', {
-      // 'cc-gallery-lightbox__info-pane--hidden': !isInfoPaneVisible
     }),
     toggle: cx('cc-gallery-lightbox__slide-actions-toggle', {
       'cc-gallery-lightbox__slide-actions-toggle--is-active': isInfoPaneVisible
@@ -134,43 +124,12 @@ export const GalleryLightBox = ({
                 key={`gallery-lightbox-slide-${galleryId}-${index + 1}`}
               >
                 <div className="cc-gallery-lightbox__image-pane b">
-                  <TransformWrapper
-                    wheel={{
-                      wheelEnabled: false
-                    }}
-                  >
-                    {({
-                      zoomIn,
-                      zoomOut,
-                      resetTransform,
-                      ...rest
-                    }: TransformWrapperProps) => (
-                      <>
-                        <div className="tools">
-                          <Button onClick={zoomIn} variant="primary">
-                            +
-                          </Button>
-                          <Button onClick={zoomOut} variant="primary">
-                            -
-                          </Button>
-                          <Button onClick={resetTransform} variant="primary">
-                            x
-                          </Button>
-                        </div>
-                        <div className="cc-gallery-lightbox__image-pane-stage">
-                          <TransformComponent>
-                            <ImageElement
-                              className="cc-gallery-lightbox__image"
-                              alt={slide.alt}
-                              sizes="100vw"
-                              src={slide.mediaSources.gallery_full}
-                              srcSet={srcSet}
-                            />
-                          </TransformComponent>
-                        </div>
-                      </>
-                    )}
-                  </TransformWrapper>
+                  <ImageWithZoom
+                    className="cc-gallery-lightbox__image"
+                    // isBgImage={false}
+                    src={slide.mediaSources.gallery_full}
+                    srcZoomed={slide.mediaSources.gallery_full_hi}
+                  />
                 </div>
                 <div className="cc-gallery-lightbox__slide-actions c">
                   <div className="cc-gallery-lightbox__nav">
@@ -191,7 +150,7 @@ export const GalleryLightBox = ({
                     </ButtonNext>
                   </div>
                   <Button
-                    // className={infoPaneClassNames.toggle}
+                    className={infoPaneClassNames.toggle}
                     icon="chevronThin"
                     iconPlacementSwitch
                     onClick={toggleInfoPane}
@@ -202,7 +161,7 @@ export const GalleryLightBox = ({
                   </Button>
                 </div>
 
-                <figcaption className={infoPaneClassNames.info}>
+                <figcaption className="cc-gallery-lightbox__info-pane d">
                   <Text
                     className="cc-gallery-lightbox__info-content"
                     variant="text-snippet"
