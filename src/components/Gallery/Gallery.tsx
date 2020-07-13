@@ -177,9 +177,11 @@ export const Gallery = ({
       caption: child.props.caption,
       credit: child.props.credit,
       fileSize: child.props.fileSize,
+      height: child.props.height,
       license: child.props.license,
       mediaSources: child.props.mediaSources,
-      title: child.props.title
+      title: child.props.title,
+      width: child.props.width
     };
   });
 

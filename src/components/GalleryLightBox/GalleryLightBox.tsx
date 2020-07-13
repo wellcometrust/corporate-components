@@ -33,6 +33,7 @@ type GalleryLightBoxSlideProps = {
   caption: string;
   credit?: string;
   fileSize: number;
+  height: number;
   license?: string;
   mediaSources: {
     gallery_full: string;
@@ -42,6 +43,7 @@ type GalleryLightBoxSlideProps = {
   };
   src?: string;
   title?: string;
+  width: number;
 };
 
 export const GalleryLightBox = ({
@@ -126,6 +128,8 @@ export const GalleryLightBox = ({
                 <div className="cc-gallery-lightbox__image-pane b">
                   <ImageWithZoom
                     className="cc-gallery-lightbox__image"
+                    data-height={slide.height}
+                    data-width={slide.width}
                     src={slide.mediaSources.gallery_full}
                     srcZoomed={slide.mediaSources.gallery_full_hi}
                   />

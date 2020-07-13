@@ -332,21 +332,26 @@
  * Image
  */
 
-.cc-gallery-lightbox__image {  
+.cc-gallery-lightbox__image {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
 
-  // Setting / overriding pure-react-carousel styles
-  .carousel__image {
-    background-position: 50% 50% !important;
-    background-repeat: no-repeat !important;
-    background-size: contain !important;
+// Setting / overriding pure-react-carousel styles
+.carousel__image {
+  background-position: 50% 50% !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
 
-    bottom: 0;
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  
 }
 
 // Lightbox image zoomed
@@ -354,7 +359,14 @@
 .carousel__zoom-image-overlay {
   cursor: zoom-in;
   opacity: 0;
+
+  // `padding-top` default value fits to image view box height
+  // This should then be set dynamically as inline style by client side script
+  // which analyses data-height and data-width attributes to establish the correct aspect-ratio
+  padding-top: 100%;
+  position: relative;
   transition: opacity 0.3s,transform 0.3s;
+  width: 100%;
   z-index: var(--z-low);
 }
 
