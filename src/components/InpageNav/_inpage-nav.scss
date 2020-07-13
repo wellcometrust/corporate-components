@@ -10,6 +10,11 @@
   font-size: var(--body-md);
   letter-spacing: var(--body-letter-spacing);
   line-height: 1.5;
+
+  @include mq($until: md) {
+    border-top: 1px solid var(--colour-grey-10);
+    padding-top: calc(2 * var(--space-unit));
+  }
 }
 
 .cc-inpage-nav__title {

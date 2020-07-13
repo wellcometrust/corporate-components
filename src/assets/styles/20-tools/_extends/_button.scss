@@ -18,10 +18,18 @@
   line-height: 1;
   padding: 0;
   text-decoration: none;
-
+  
   &:hover {
     text-decoration: none;
   }
+}
+
+%btn-size-standard {
+  height: calc(5.5 * var(--space-unit));
+  justify-content: center;
+  min-height: calc(5.5 * var(--space-unit));
+  min-width: calc(5.5 * var(--space-unit));
+  text-align: center;
 }
 
 %btn-nav-base {

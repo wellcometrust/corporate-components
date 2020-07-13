@@ -15,6 +15,7 @@ const ButtonExample = () => {
       '',
       'arrow',
       'chevron',
+      'chevronRight',
       'close',
       'closeBold',
       'closeCircle',

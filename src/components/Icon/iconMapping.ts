@@ -1,5 +1,8 @@
 import arrow from './components/Arrow';
 import chevron from './components/Chevron';
+import chevronDown from './components/ChevronDown';
+import chevronRight from './components/ChevronRight';
+import chevronUp from './components/ChevronUp';
 import chevronThin from './components/ChevronThin';
 import close from './components/Close';
 import closeBold from './components/CloseBold';
@@ -23,6 +26,9 @@ import youTube from './components/YouTube';
 export default new Map([
   ['arrow', arrow],
   ['chevron', chevron],
+  ['chevronDown', chevronDown],
+  ['chevronRight', chevronRight],
+  ['chevronUp', chevronUp],
   ['chevronThin', chevronThin],
   ['close', close],
   ['closeBold', closeBold],

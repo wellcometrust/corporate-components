@@ -11,6 +11,7 @@ type ButtonProps = {
   href?: string | null;
   icon?: string;
   iconPlacementSwitch?: boolean;
+  id?: string;
   onClick?: MouseEventHandler;
   role?: string;
   tabIndex?: number;
@@ -26,6 +27,7 @@ export const Button = ({
   href,
   icon,
   iconPlacementSwitch,
+  id,
   onClick,
   role,
   tabIndex,
@@ -47,6 +49,7 @@ export const Button = ({
       className={classNames}
       disabled={disabled}
       href={href}
+      id={id}
       onClick={(e: ReactMouseEvent) => {
         if (onClick && !disabled) {
           onClick(e);

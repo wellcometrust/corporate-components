@@ -3,7 +3,6 @@ import cx from 'classnames';
 
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import ImageElement from 'Image/ImageElement';
-import MediaCaption from 'Media/MediaCaption';
 
 import ViewportContext from 'ViewportContext/ViewportContext';
 
@@ -46,25 +45,30 @@ export const ImageBanner = ({
         />
       </div>
 
-      <div className="cc-image-banner__caption-container">
-        {isMobile ? (
-          <Accordion className="cc-image-banner__caption">
-            <AccordionItem title="Read the caption">
-              <MediaCaption
-                caption={caption}
-                className="cc-image-banner__caption"
-                credit={credit}
-              />
-            </AccordionItem>
-          </Accordion>
-        ) : (
-          <MediaCaption
-            caption={caption}
-            className="cc-image-banner__caption"
-            credit={credit}
-          />
-        )}
-      </div>
+      {caption || credit ? (
+        <div className="cc-image-banner__caption-container">
+          <figcaption className="cc-media__caption cc-image-banner__caption">
+            {credit && (
+              <span className="cc-media__credit">Credit: {credit}</span>
+            )}
+            {isMobile && caption ? (
+              <Accordion>
+                <AccordionItem
+                  title="Read the caption"
+                  titleAs="strong"
+                  titleActive="Hide the caption"
+                >
+                  <span className="cc-media__caption-detail">{caption}</span>
+                </AccordionItem>
+              </Accordion>
+            ) : (
+              caption && (
+                <span className="cc-media__caption-detail">{caption}</span>
+              )
+            )}
+          </figcaption>
+        </div>
+      ) : null}
     </figure>
   );
 };

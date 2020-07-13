@@ -12,6 +12,12 @@ storiesOf('Components|Icon', module).add(
       <Icon name="arrow" />
       <p>Chevron</p>
       <Icon name="chevron" />
+      <p>Chevron down</p>
+      <Icon name="chevronDown" />
+      <p>Chevron right</p>
+      <Icon name="chevronRight" />
+      <p>Chevron up</p>
+      <Icon name="chevronUp" />
       <p>Close</p>
       <Icon name="close" />
       <p>Close bold</p>

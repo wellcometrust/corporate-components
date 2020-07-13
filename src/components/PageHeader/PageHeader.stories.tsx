@@ -7,7 +7,12 @@ import InpageNav from 'InpageNav';
 import SocialShare from 'SocialShare';
 import PageHeader from './PageHeader';
 
+import ViewportContext, {
+  ViewportContextProvider
+} from '../ViewportContext/ViewportContext';
+
 const PageHeaderExample = () => {
+  const { isMobile } = React.useContext(ViewportContext);
   // toggle page furniture
   const showBanner = boolean('Show banner', true);
   const showInpageNav = boolean('Show inpage nav', true);
@@ -52,7 +57,9 @@ const PageHeaderExample = () => {
       id: '#section-title-4'
     }
   ];
-  const inpageNav = showInpageNav && <InpageNav links={sectionLinks} />;
+  const inpageNav = showInpageNav && (
+    <InpageNav isMinimal={isMobile} links={sectionLinks} />
+  );
   const socialShare = showSocialShare && (
     <SocialShare
       body="Wellcome Trust share text ..."
@@ -71,19 +78,21 @@ const PageHeaderExample = () => {
   const title = text('title', 'Search Results');
 
   return (
-    <PageHeader
-      background={background}
-      banner={banner}
-      bannerLocation={bannerLocation}
-      className={className}
-      meta={meta}
-      metaLabel={metaLabel}
-      share={socialShare}
-      standfirst={standfirst}
-      title={title}
-    >
-      {inpageNav}
-    </PageHeader>
+    <ViewportContextProvider>
+      <PageHeader
+        background={background}
+        banner={banner}
+        bannerLocation={bannerLocation}
+        className={className}
+        meta={meta}
+        metaLabel={metaLabel}
+        share={socialShare}
+        standfirst={standfirst}
+        title={title}
+      >
+        {inpageNav}
+      </PageHeader>
+    </ViewportContextProvider>
   );
 };
 
