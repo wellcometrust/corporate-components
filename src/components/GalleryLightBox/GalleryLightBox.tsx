@@ -9,7 +9,7 @@ import {
   CarouselProvider,
   Slide,
   Slider
-} from 'pure-react-carousel';
+} from '@wellcometrust/pure-react-carousel';
 
 import Button from 'Button';
 import Icon from 'Icon';
