@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState, useContext } from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
 
@@ -15,8 +15,6 @@ import Button from 'Button';
 import Icon from 'Icon';
 import SocialShare from 'SocialShare';
 import Text from 'Text';
-
-import ViewportContext from 'ViewportContext/ViewportContext';
 
 type GalleryLightBoxProps = {
   galleryId?: string;
@@ -53,10 +51,7 @@ export const GalleryLightBox = ({
   openAtSlideIndex = 0,
   slides
 }: GalleryLightBoxProps) => {
-  const { isMobile } = useContext(ViewportContext);
-
   // Design feedback - on mobile info is always visible and will be scrolled down to
-  // const initialInfoPaneVisibility = !isMobile;
   const initialInfoPaneVisibility = true;
 
   const [isInfoPaneVisible, setIsInfoPaneVisible] = useState(

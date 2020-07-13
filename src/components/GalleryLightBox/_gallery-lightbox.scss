@@ -352,6 +352,7 @@
 // Lightbox image zoomed
 
 .carousel__zoom-image-overlay {
+  background-color: var(--colour-grey-80);
   cursor: zoom-in;
   opacity: 0;
   transition: opacity 0.3s,transform 0.3s;
