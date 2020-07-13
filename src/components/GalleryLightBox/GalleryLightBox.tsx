@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
-import shortid from 'shortid';
 
 import {
   CarouselProvider,
@@ -127,7 +126,7 @@ export const GalleryLightBox = ({
                 index={index}
                 innerClassName="cc-gallery-lightbox__slide-layout"
                 innerTag="figure"
-                key={shortid.generate()}
+                key={`gallery-lightbox-slide-${galleryId}-${index + 1}`}
               >
                 <div className="cc-gallery-lightbox__image-pane">
                   <div className="cc-gallery-lightbox__image-pane-stage">
