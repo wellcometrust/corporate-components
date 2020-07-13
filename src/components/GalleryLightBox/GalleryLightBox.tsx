@@ -126,7 +126,6 @@ export const GalleryLightBox = ({
                 <div className="cc-gallery-lightbox__image-pane b">
                   <ImageWithZoom
                     className="cc-gallery-lightbox__image"
-                    // isBgImage={false}
                     src={slide.mediaSources.gallery_full}
                     srcZoomed={slide.mediaSources.gallery_full_hi}
                   />
