@@ -6,19 +6,37 @@
 // 2019-11-11
 // ----------------------------------
 
+:root {
+  --accordion-button-text-size: calc(12/16 * var(--text-base-size));
+}
+
 // .cc-accordion {}
 
-// .accordion-item {}
+// .cc-accordion-item {}
 
-// .accordion-item__title {}
+// .cc-accordion-item__title {}
 
-// .accordion__button {}
+.cc-accordion__button {
+  @extend %anchor-base;
+  @extend %btn-base;
+  @extend %btn-size-standard;
+  font-size: var(--accordion-button-text-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color ease 0.4s;
+  
+  .btn__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  
+  .btn__icon--right {
+    margin-right: 0;
+  }
 
-// .accordion__button-content {}
-
-// .accordion__content {}
-
-.cc-accordion__content {
-  margin-bottom: 1rem;
-  overflow: hidden;
+  .cc-accordion-item--active & svg {
+    transform: rotate(-90deg);
+  }
 }
+
+// .cc-accordion__content {}
