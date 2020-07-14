@@ -1,27 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
 
 import {
-  CarouselProvider,
-  Slider,
-  Slide,
   ButtonBack,
-  ButtonNext
-} from 'pure-react-carousel';
+  ButtonNext,
+  ImageWithZoom,
+  CarouselProvider,
+  Slide,
+  Slider
+} from '@wellcometrust/pure-react-carousel';
 
 import Button from 'Button';
 import Icon from 'Icon';
-import ImageElement from 'Image/ImageElement';
 import SocialShare from 'SocialShare';
 import Text from 'Text';
 
-import ViewportContext from 'ViewportContext/ViewportContext';
-
 type GalleryLightBoxProps = {
   galleryId?: string;
-  handleClose: () => void;
   handleBack: (galleryId: string, index: number) => void;
+  handleClose: () => void;
   handleNext: (galleryId: string, index: number) => void;
   isOpen?: boolean;
   openAtSlideIndex?: number;
@@ -53,16 +51,8 @@ export const GalleryLightBox = ({
   openAtSlideIndex = 0,
   slides
 }: GalleryLightBoxProps) => {
-  /**
-   * Because we want to set the initial info pane state differently dependent
-   * on the browser width.
-   *
-   * #6673 TODO: Add useEffect hook to handle browser width changing,
-   * therefore requiring us to set the infoPane to visible by default (probably
-   * provding the user hasn't already touched it...)
-   */
-  const { isMobile } = useContext(ViewportContext);
-  const initialInfoPaneVisibility = !isMobile;
+  // Design feedback - on mobile info is always visible and will be scrolled down to
+  const initialInfoPaneVisibility = true;
 
   const [isInfoPaneVisible, setIsInfoPaneVisible] = useState(
     initialInfoPaneVisibility
@@ -73,8 +63,8 @@ export const GalleryLightBox = ({
   };
 
   const infoPaneClassNames = {
-    main: cx('cc-gallery-lightbox__info-pane', {
-      'cc-gallery-lightbox__info-pane--hidden': !isInfoPaneVisible
+    grid: cx('cc-gallery-lightbox__slide-layout a', {
+      'a--wide': !isInfoPaneVisible
     }),
     toggle: cx('cc-gallery-lightbox__slide-actions-toggle', {
       'cc-gallery-lightbox__slide-actions-toggle--is-active': isInfoPaneVisible
@@ -117,97 +107,104 @@ export const GalleryLightBox = ({
           {slides.map((slide: GalleryLightBoxSlideProps, index: number) => {
             const srcSet = `${slide.mediaSources.gallery_full} 769w, ${slide.mediaSources.gallery_full_hi} 1538w`;
             const infoPaneContent = slide.title
-              ? `<h2 className="cc-gallery-lightbox__info-title">${slide.title}</h2>${slide.caption}`
+              ? `<h2 class="cc-gallery-lightbox__info-title">${slide.title}</h2>${slide.caption}`
               : slide.caption;
 
             return (
               <Slide
                 className="cc-gallery-lightbox__slide"
                 index={index}
-                innerClassName="cc-gallery-lightbox__slide-layout"
+                innerClassName={infoPaneClassNames.grid}
                 innerTag="figure"
                 key={`gallery-lightbox-slide-${galleryId}-${index + 1}`}
               >
-                <div className="cc-gallery-lightbox__image-pane">
-                  <div className="cc-gallery-lightbox__image-pane-stage">
-                    <ImageElement
-                      alt={slide.alt}
-                      sizes="100vw"
-                      src={slide.mediaSources.gallery_full}
-                      srcSet={srcSet}
-                    />
-                  </div>
-                  <span className="cc-gallery-lightbox__image-pane-tray">
-                    <div className="cc-gallery-lightbox__slide-actions">
-                      <div className="cc-gallery-lightbox__nav">
-                        <ButtonBack
-                          className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit"
-                          onClick={() => handleBack(galleryId, index)}
-                        >
-                          <Icon name="arrow" />
-                        </ButtonBack>
-                        <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
-                          {`${index + 1} / ${slides.length}`}
-                        </span>
-                        <ButtonNext
-                          className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit"
-                          onClick={() => handleNext(galleryId, index)}
-                        >
-                          <Icon name="arrow" />
-                        </ButtonNext>
-                      </div>
-                      <Button
-                        className={infoPaneClassNames.toggle}
-                        icon="chevronThin"
-                        iconPlacementSwitch
-                        onClick={toggleInfoPane}
-                        role="button"
-                        variant="unstyled"
-                      >
-                        {isInfoPaneVisible ? `Hide` : `Show`} info
-                      </Button>
-                    </div>
-                    {!!(slide.credit || slide.license) && (
-                      <dl className="cc-gallery-lightbox__meta">
-                        {slide.credit && (
-                          <span className="cc-gallery-lightbox__meta-item">
-                            <dt className="cc-gallery-lightbox__meta-item-label">
-                              Image credit:{' '}
-                            </dt>
-                            <dd
-                              className="cc-gallery-lightbox__meta-item-text"
-                              dangerouslySetInnerHTML={{ __html: slide.credit }}
-                            />
-                          </span>
-                        )}
-                        {slide.license && (
-                          <span className="cc-gallery-lightbox__meta-item">
-                            <dt className="cc-gallery-lightbox__meta-item-label">
-                              Image license:{' '}
-                            </dt>
-                            <dd className="cc-gallery-lightbox__meta-item-text">
-                              {slide.license}
-                            </dd>
-                          </span>
-                        )}
-                      </dl>
-                    )}
-                    <span className="cc-gallery-lightbox__download">
-                      <a
-                        href={slide.src}
-                        download
-                        className="cc-gallery-lightbox__download-link u-color-inherit"
-                      >
-                        <span className="cc-gallery-lightbox__download-icon">
-                          <Icon name="download" />
-                        </span>
-                        Download
-                      </a>
-                      <span className="cc-gallery-lightbox__download-filesize">
-                        {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
-                      </span>
+                <div className="cc-gallery-lightbox__image-pane b">
+                  <ImageWithZoom
+                    className="cc-gallery-lightbox__image"
+                    src={slide.mediaSources.gallery_full}
+                    srcZoomed={slide.mediaSources.gallery_full_hi}
+                  />
+                </div>
+                <div className="cc-gallery-lightbox__slide-actions c">
+                  <div className="cc-gallery-lightbox__nav">
+                    <ButtonBack
+                      className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit"
+                      onClick={() => handleBack(galleryId, index)}
+                    >
+                      <Icon name="arrow" />
+                    </ButtonBack>
+                    <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
+                      {`${index + 1} / ${slides.length}`}
                     </span>
+                    <ButtonNext
+                      className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit"
+                      onClick={() => handleNext(galleryId, index)}
+                    >
+                      <Icon name="arrow" />
+                    </ButtonNext>
+                  </div>
+                  <Button
+                    className={infoPaneClassNames.toggle}
+                    icon="chevronThin"
+                    iconPlacementSwitch
+                    onClick={toggleInfoPane}
+                    role="button"
+                    variant="unstyled"
+                  >
+                    {isInfoPaneVisible ? `Hide` : `Show`} info
+                  </Button>
+                </div>
+
+                <figcaption className="cc-gallery-lightbox__info-pane d">
+                  <Text
+                    className="cc-gallery-lightbox__info-content"
+                    variant="text-snippet"
+                  >
+                    {infoPaneContent}
+                  </Text>
+                </figcaption>
+
+                {!!(slide.credit || slide.license) && (
+                  <dl className="cc-gallery-lightbox__meta e">
+                    {slide.credit && (
+                      <span className="cc-gallery-lightbox__meta-item">
+                        <dt className="cc-gallery-lightbox__meta-item-label">
+                          Image credit:{' '}
+                        </dt>
+                        <dd
+                          className="cc-gallery-lightbox__meta-item-text"
+                          dangerouslySetInnerHTML={{ __html: slide.credit }}
+                        />
+                      </span>
+                    )}
+                    {slide.license && (
+                      <span className="cc-gallery-lightbox__meta-item">
+                        <dt className="cc-gallery-lightbox__meta-item-label">
+                          Image license:{' '}
+                        </dt>
+                        <dd className="cc-gallery-lightbox__meta-item-text">
+                          {slide.license}
+                        </dd>
+                      </span>
+                    )}
+                  </dl>
+                )}
+                <div className="cc-gallery-lightbox__download f">
+                  <a
+                    href={slide.mediaSources.gallery_full_hi}
+                    download
+                    className="cc-gallery-lightbox__download-link u-color-inherit"
+                  >
+                    <span className="cc-gallery-lightbox__download-icon">
+                      <Icon name="download" />
+                    </span>
+                    Download
+                  </a>
+                  <span className="cc-gallery-lightbox__download-filesize">
+                    {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                   </span>
+                </div>
+                <div className="g">
                   <SocialShare
                     body={infoPaneContent}
                     hasCopyLink
@@ -215,9 +212,6 @@ export const GalleryLightBox = ({
                     url={window?.location.href}
                   />
                 </div>
-                <figcaption className={infoPaneClassNames.main}>
-                  <Text variant="text-snippet">{infoPaneContent}</Text>
-                </figcaption>
               </Slide>
             );
           })}
