@@ -52,7 +52,7 @@
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@types/react-html-parser": "^2.0.1",
     "@types/shortid": "0.0.29",
-    "@wellcometrust/pure-react-carousel": "git+https://github.com/wellcometrust/pure-react-carousel.git",
+    "@wellcometrust/pure-react-carousel": "git+ssh://git@github.com/wellcometrust/pure-react-carousel.git",
     "bowser": "^2.9.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.11.0",
