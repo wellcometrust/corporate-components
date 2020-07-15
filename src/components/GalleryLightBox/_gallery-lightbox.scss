@@ -31,15 +31,10 @@
   @include mq(xs) {
     padding-bottom: calc(4 * var(--space-unit));
   }
-
-  // @include mq(sm) {
-  //   padding-bottom: 64px;
-  // }
 }
 
 .cc-gallery-lightbox {
   background-color: var(--colour-grey-80);
-  background-color: var(--colour-grey-40);
   border: 0;
   bottom: 0;
   color: var(--colour-white);
@@ -115,29 +110,13 @@
   height: 100%;
   overflow-x: hidden;
   width: 100%;
-
-  // @include mq(md) {
-  //   overflow: hidden;
-  // }
 }
 
 .cc-gallery-lightbox__slide-layout {
   // Reset <figure> style
   @extend %margin-0;
 
-  // display: flex;
-  // flex-direction: column;
   height: 100%;
-  // min-height: 100%;
-  // overflow: scroll;
-
-  // @include mq(sm) {
-  //   justify-content: space-between;
-  // }
-
-  // @include mq(md) {
-  //   flex-direction: row;
-  // }
 }
 
 .cc-gallery-lightbox__slide-content {
@@ -146,33 +125,15 @@
 }
 
 .cc-gallery-lightbox__image-pane {
-  // display: flex;
-  // flex-basis: 50%;
-  // flex-direction: column;
-  // flex-grow: 1;
   overflow: hidden;
   position: relative;
-
-  // @include mq(sm) {
-  //   flex-basis: 57%;
-  // }
-
-  // @include mq(md) {
-  //   flex-basis: 70%;
-  // }
 }
 
 .cc-gallery-lightbox__image-pane-stage {
-  // flex-basis: 90%;
   margin-bottom: var(--space-lg);
   overflow: hidden;
 
-  @include mq(sm) {
-    // height: auto;
-  }
-
   @include mq(md) {
-    // flex-basis: 84%;
     margin-bottom: var(--space-lg);
   }
 }
@@ -187,17 +148,9 @@
 }
 
 .cc-gallery-lightbox__info-pane {
-  // flex-basis: 50%;
-  // overflow: scroll;
-  
-  // @include mq(sm) {
-  //   flex-basis: 43%;
-  // }
     
   @include mq(md) {
-    // flex-basis: 30%;
     overflow-y: scroll;
-    // padding-left: var(--space-lg);
   }
 
   // WYSIWYG styles
@@ -215,7 +168,7 @@
       visibility 0s linear 0.4s;
   }
 }
-    
+
 .a--wide .cc-gallery-lightbox__info-content {
   @include mq(md) {
     opacity: 0;
@@ -247,10 +200,6 @@
   display: flex;
   justify-content: space-between;
 
-  // @include mq($until: md) {
-  //   margin-bottom: var(--space-lg);
-  // }
-
   @include mq(md) {
     align-items: flex-end;
     flex-direction: column;
@@ -259,9 +208,9 @@
 }
 
 .cc-gallery-lightbox__slide-actions-toggle {
+  @extend %btn-base;
+  @extend %btn-size-standard;
   @extend %color-inherit;
-  align-items: center;
-  display: flex;
 }
 
 .cc-gallery-lightbox__slide-actions-toggle .btn__text {
@@ -275,7 +224,6 @@
 .cc-gallery-lightbox__slide-actions-toggle .btn__icon {
   margin-left: 0;
   margin-right: 0;
-  // transform: rotate(180deg);
 
   @include mq(md) {
     transform: rotate(90deg);
@@ -320,23 +268,53 @@
 }
 
 .cc-gallery-lightbox__download {
+  align-items: center;
+  display: flex;
   margin-bottom: calc(2 * var(--space-unit));
+}
+
+.cc-gallery-lightbox__download-link {
+  @extend %btn-size-standard;
+  align-items: center;
+  display: inline-flex;
 }
 
 .cc-gallery-lightbox__download-icon {
   display: inline-block;
   margin-right: var(--space-sm);
   vertical-align: sub;
+
+  .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
 
 .cc-gallery-lightbox__download-filesize {
+  @extend %btn-size-standard;
+  align-items: center;
+  display: inline-flex;
   font-size: var(--body-md);
   margin-left: var(--space-md);
 }
 
+.cc-gallery-lightbox__nav {
+  align-items: center;
+  display: flex;
+  
+  @include mq($until: md) {
+    margin-left: calc(-1.75 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    margin-right: calc(-1.25 * var(--space-unit));
+  }
+}
+
 .cc-gallery-lightbox__nav-item {
+  @extend %btn-base;
+  @extend %btn-size-standard;
   cursor: pointer;
-  display: inline-block;
   vertical-align: middle;
 
   &[disabled] {
@@ -348,22 +326,13 @@
   transform: rotate(180deg);
 }
 
-.cc-gallery-lightbox__nav-item--count {
-  margin-left: var(--space-md);
-  margin-right: var(--space-md);
-}
-
 .cc-gallery-lightbox__close {
-  align-items: center;
+  @extend %btn-base;
+  @extend %btn-size-standard;
   color: inherit;
-  cursor: pointer;
-  display: flex;
-  height: calc(5.5 * var(--space-unit));
-  justify-content: center;
   position: absolute;
   right: 0;
   top: 0;
-  width: calc(5.5 * var(--space-unit));
   z-index: var(--z-modal);
 
   @include mq(xs) {
@@ -372,8 +341,8 @@
   }
 
   @include mq(sm) {
-    right: calc(4 * var(--space-unit));
-    top: calc(4 * var(--space-unit));
+    right: calc(3.5 * var(--space-unit));
+    top: calc(3.5 * var(--space-unit));
   }
 }
 
@@ -403,7 +372,9 @@
     position: absolute;
     right: 0;
     top: 0;
-
+  }
+  
+  .carousel__image:not(.carousel__zoom-image-overlay) {
     @include mq(sm) {
       background-position: 50% 0 !important;
     }
@@ -448,6 +419,8 @@
 
 /**
  * Grid
+ *
+ * TODO: consolidate styles into BEM class names above
  */
 .a {
   display: grid;
@@ -461,19 +434,19 @@
     'controls'
     'info'
     'footer';
-  grid-template-rows: 90% 10% 1fr auto;
+  grid-template-rows: calc(90% - (2 * var(--space-unit))) min-content 1fr auto;
   min-width: 100%;
   position: relative;
   transition: min-width ease 0.4s;
 
   @include mq(xs) {
-    grid-gap: var(--space-xl);
+    grid-gap: calc(4 * var(--space-unit));
     grid-template-areas:
       'image     image'
       'controls  controls'
       'footer    info';
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 90% 10% 1fr;
+    grid-template-rows: calc(90% - (4 * var(--space-unit))) min-content 1fr;
   }
 
   @include mq(md) {
@@ -507,6 +480,10 @@
 .c {
   @extend %bottom-padding;
   grid-area: controls;
+
+  @include mq($until: md) {
+    // TODO remove spacing between controls and info / footer
+  }  
 }
 
 .d {
@@ -517,13 +494,4 @@
 .e {
   @extend %bottom-padding;
   grid-area: footer;
-}
-
-
-/**
- * override
- */
-
-.carousel__slide-focus-ring {
-  // display: none;
 }
