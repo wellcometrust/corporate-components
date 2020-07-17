@@ -11,6 +11,7 @@ type ImageBannerProps = {
   caption?: string;
   credit?: string;
   className?: string;
+  license?: string;
   sizes?: string;
   src: string;
   srcSet?: string;
@@ -23,6 +24,7 @@ export const ImageBanner = ({
   caption,
   credit,
   className,
+  license,
   sizes = imageSizesDefault,
   src,
   srcSet
@@ -45,11 +47,20 @@ export const ImageBanner = ({
         />
       </div>
 
-      {caption || credit ? (
+      {caption || credit || license ? (
         <div className="cc-image-banner__caption-container">
           <figcaption className="cc-media__caption cc-image-banner__caption">
             {credit && (
-              <span className="cc-media__credit">Credit: {credit}</span>
+              <div
+                className="cc-media__credit"
+                dangerouslySetInnerHTML={{ __html: `Credit: ${credit}` }}
+              />
+            )}
+            {license && (
+              <div
+                className="cc-media__license"
+                dangerouslySetInnerHTML={{ __html: `License: ${license}` }}
+              />
             )}
             {isMobile && caption ? (
               <Accordion>
@@ -58,12 +69,18 @@ export const ImageBanner = ({
                   titleAs="strong"
                   titleActive="Hide the caption"
                 >
-                  <span className="cc-media__caption-detail">{caption}</span>
+                  <div
+                    className="cc-media__caption-detail"
+                    dangerouslySetInnerHTML={{ __html: caption }}
+                  />
                 </AccordionItem>
               </Accordion>
             ) : (
               caption && (
-                <span className="cc-media__caption-detail">{caption}</span>
+                <div
+                  className="cc-media__caption-detail"
+                  dangerouslySetInnerHTML={{ __html: caption }}
+                />
               )
             )}
           </figcaption>

@@ -19,6 +19,7 @@ type GalleryMediaProps = {
   fileSize?: number;
   height: number;
   isLead?: boolean;
+  license?: string;
   mediaSources: any;
   onClick?: MouseEventHandler;
   title?: string;
@@ -52,6 +53,7 @@ export const GalleryMedia = ({
   fileSize,
   height,
   isLead,
+  license,
   mediaSources,
   onClick,
   title,
