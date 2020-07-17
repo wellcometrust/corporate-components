@@ -57,7 +57,7 @@ export const ImageBanner = ({
               />
             )}
             {license && (
-              <span
+              <div
                 className="cc-media__license"
                 dangerouslySetInnerHTML={{ __html: `License: ${license}` }}
               />
@@ -69,7 +69,7 @@ export const ImageBanner = ({
                   titleAs="strong"
                   titleActive="Hide the caption"
                 >
-                  <span
+                  <div
                     className="cc-media__caption-detail"
                     dangerouslySetInnerHTML={{ __html: caption }}
                   />
@@ -77,7 +77,10 @@ export const ImageBanner = ({
               </Accordion>
             ) : (
               caption && (
-                <span className="cc-media__caption-detail">{caption}</span>
+                <div
+                  className="cc-media__caption-detail"
+                  dangerouslySetInnerHTML={{ __html: caption }}
+                />
               )
             )}
           </figcaption>
