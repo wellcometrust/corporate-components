@@ -55,7 +55,7 @@ export const GalleryMedia = ({
   isLead,
   license,
   mediaSources,
-  onClick,
+  onClick = () => {},
   title,
   width
 }: GalleryMediaProps) => {
@@ -118,9 +118,9 @@ export const Gallery = ({
   children,
   galleryId,
   hasLeadItem = false,
-  handleClose,
-  handleBack,
-  handleNext
+  handleClose = () => {},
+  handleBack = () => {},
+  handleNext = () => {}
 }: GalleryProps) => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentLightboxSlideIndex, setCurrentLightboxSlideIndex] = useState(0);

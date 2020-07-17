@@ -15,6 +15,12 @@ a {
   @extend %anchor-base;
 }
 
+button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+}
+
 h1,
 h2,
 h3,
