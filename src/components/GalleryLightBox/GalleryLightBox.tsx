@@ -120,7 +120,6 @@ export const GalleryLightBox = ({
                 className="cc-gallery-lightbox__slide"
                 index={index}
                 innerClassName="cc-gallery-lightbox__slide-layout"
-                // innerTag="figure"
                 key={`gallery-lightbox-slide-${galleryId}-${index + 1}`}
               >
                 <figure className={infoPaneClassNames.grid}>
