@@ -67,8 +67,8 @@ export const GalleryLightBox = ({
   };
 
   const infoPaneClassNames = {
-    grid: cx('cc-gallery-lightbox__slide-content a', {
-      'a--wide': !isInfoPaneVisible
+    grid: cx('cc-gallery-lightbox__slide-content', {
+      'cc-gallery-lightbox__slide-content--wide': !isInfoPaneVisible
     }),
     toggle: cx('cc-gallery-lightbox__slide-actions-toggle', {
       'cc-gallery-lightbox__slide-actions-toggle--is-active':
@@ -124,14 +124,14 @@ export const GalleryLightBox = ({
                 key={`gallery-lightbox-slide-${galleryId}-${index + 1}`}
               >
                 <figure className={infoPaneClassNames.grid}>
-                  <div className="cc-gallery-lightbox__image-pane b">
+                  <div className="cc-gallery-lightbox__image-pane">
                     <ImageWithZoom
                       className="cc-gallery-lightbox__image"
                       src={slide.mediaSources.gallery_full}
                       srcZoomed={slide.mediaSources.gallery_full_hi}
                     />
                   </div>
-                  <div className="cc-gallery-lightbox__slide-actions c">
+                  <div className="cc-gallery-lightbox__slide-actions">
                     <div className="cc-gallery-lightbox__nav">
                       <ButtonBack
                         className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit"
@@ -171,7 +171,7 @@ export const GalleryLightBox = ({
                     </Text>
                   </figcaption>
 
-                  <div className="e">
+                  <div className="cc-gallery-lightbox__footer">
                     {!!(slide.credit || slide.license) && (
                       <dl className="cc-gallery-lightbox__meta">
                         {slide.credit && (
@@ -212,14 +212,12 @@ export const GalleryLightBox = ({
                         {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                       </span>
                     </div>
-                    {/* <div className="g"> */}
                     <SocialShare
                       body={infoPaneContent}
                       hasCopyLink
                       title={slide.title}
                       url={window?.location.href}
                     />
-                    {/* </div> */}
                   </div>
                 </figure>
               </Slide>

@@ -120,11 +120,60 @@
 }
 
 .cc-gallery-lightbox__slide-content {
+  display: grid;
+  
+  // stylelint-disable value-no-vendor-prefix
+  // display: -ms-grid;
+  
+  grid-gap: calc(2 * var(--space-unit));
+  grid-template-areas:
+    'image'
+    'actions'
+    'info'
+    'footer';
+  grid-template-rows: calc(90% - (2 * var(--space-unit))) min-content 1fr auto;
   height: 100%;
   margin: 0;
+  min-width: 100%;
+  position: relative;
+  transition: min-width ease 0.4s;
+
+  @include mq(xs) {
+    grid-gap: calc(4 * var(--space-unit));
+    grid-template-areas:
+      'image     image'
+      'actions   actions'
+      'footer    info';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: calc(90% - (4 * var(--space-unit))) min-content 1fr;
+  }
+
+  @include mq(md) {
+    grid-template-areas:
+      'image     image     info'
+      'footer    actions   info';
+    grid-template-columns: 5fr 2fr 3fr;
+    grid-template-rows: 1fr min-content;
+  }
+
+  @include mq(xl) {
+    grid-gap: calc(10 * var(--space-unit));
+  }
+}
+
+.cc-gallery-lightbox__slide-content--wide {
+  transition: min-width 0.4s ease 0.1s;
+
+  @include mq(md) {
+    // change the width to force the info box out of view
+    // support for animation of grid-template-columns is very poor
+    // default width is 7 10ths - reciprocal of 7/10 = 10/7 ≈ 143%
+    min-width: 143%;
+  }
 }
 
 .cc-gallery-lightbox__image-pane {
+  grid-area: image;
   overflow: hidden;
   position: relative;
 }
@@ -148,6 +197,8 @@
 }
 
 .cc-gallery-lightbox__info-pane {
+  @extend %bottom-padding;
+  grid-area: info;
     
   @include mq(md) {
     overflow-y: scroll;
@@ -167,15 +218,15 @@
       opacity 0.4s ease 0.4s,
       visibility 0s linear 0.4s;
   }
-}
 
-.a--wide .cc-gallery-lightbox__info-content {
-  @include mq(md) {
-    opacity: 0;
-    transition:
-      opacity 0s,
-      visibility 0s;
-    visibility: hidden;
+  .cc-gallery-lightbox__slide-content--wide & {
+    @include mq(md) {
+      opacity: 0;
+      transition:
+        opacity 0s,
+        visibility 0s;
+      visibility: hidden;
+    }
   }
 }
 
@@ -188,16 +239,19 @@
 /**
  * Start child component styles; these are the 'smaller' components
  * which make up the individual elements within each slide.
- *
- * - Actions
- * - Meta
- * - Download
- * - Nav
+ * 
+ * Component | Grid area
+ * --------- | ---------
+ * Actions   | actions
+ * Meta      | footer
+ * Download  | footer
+ * Nav       | footer
  */
 
 .cc-gallery-lightbox__slide-actions {
   align-items: center;
   display: flex;
+  grid-area: actions;
   justify-content: space-between;
 
   @include mq(md) {
@@ -236,6 +290,12 @@
   @include mq(md) {
     transform: rotate(270deg);
   }
+}
+
+
+.cc-gallery-lightbox__footer {
+  @extend %bottom-padding;
+  grid-area: footer;
 }
 
 .cc-gallery-lightbox__meta {
@@ -414,84 +474,4 @@
       }
     }
   }
-}
-
-
-/**
- * Grid
- *
- * TODO: consolidate styles into BEM class names above
- */
-.a {
-  display: grid;
-
-  // stylelint-disable value-no-vendor-prefix
-  // display: -ms-grid;
-
-  grid-gap: calc(2 * var(--space-unit));
-  grid-template-areas:
-    'image'
-    'controls'
-    'info'
-    'footer';
-  grid-template-rows: calc(90% - (2 * var(--space-unit))) min-content 1fr auto;
-  min-width: 100%;
-  position: relative;
-  transition: min-width ease 0.4s;
-
-  @include mq(xs) {
-    grid-gap: calc(4 * var(--space-unit));
-    grid-template-areas:
-      'image     image'
-      'controls  controls'
-      'footer    info';
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: calc(90% - (4 * var(--space-unit))) min-content 1fr;
-  }
-
-  @include mq(md) {
-    grid-template-areas:
-      'image     image     info'
-      'footer    controls  info';
-    grid-template-columns: 5fr 2fr 3fr;
-    grid-template-rows: 1fr min-content;
-  }
-
-  @include mq(xl) {
-    grid-gap: calc(10 * var(--space-unit));
-  }
-}
-
-.a--wide {
-  transition: min-width 0.4s ease 0.1s;
-
-  @include mq(md) {
-    // change the width to force the info box out of view
-    // support for animation of grid-template-columns is very poor
-    // default width is 7 10ths - reciprocal of 7/10 = 10/7 ≈ 143%
-    min-width: 143%;
-  }
-}
-
-.b {
-  grid-area: image;
-}
-
-.c {
-  @extend %bottom-padding;
-  grid-area: controls;
-
-  @include mq($until: md) {
-    // TODO remove spacing between controls and info / footer
-  }  
-}
-
-.d {
-  @extend %bottom-padding;
-  grid-area: info;
-}
-
-.e {
-  @extend %bottom-padding;
-  grid-area: footer;
 }
