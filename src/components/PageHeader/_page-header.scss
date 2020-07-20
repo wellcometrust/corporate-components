@@ -105,6 +105,7 @@
   @include grid-column(1, 7);
   @include grid-row(2);
   margin-bottom: var(--space-xl);
+  position: relative;
   
   @include mq(sm) {
     @include grid-column(1, 13);
