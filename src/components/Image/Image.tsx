@@ -8,6 +8,7 @@ type ImageProps = {
   caption?: string;
   credit?: string;
   className?: string;
+  licence?: string;
   sizes?: string;
   src: string;
   srcSet?: string;
@@ -21,11 +22,18 @@ export const Image = ({
   caption,
   credit,
   className,
+  licence,
   sizes = imageSizesDefault,
   src,
   srcSet
 }: ImageProps) => (
-  <Media caption={caption} className={className} credit={credit} type="image">
+  <Media
+    caption={caption}
+    className={className}
+    credit={credit}
+    licence={licence}
+    type="image"
+  >
     <ImageElement alt={alt} sizes={sizes} src={src} srcSet={srcSet} />
   </Media>
 );

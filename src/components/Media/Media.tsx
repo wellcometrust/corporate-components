@@ -8,10 +8,18 @@ type MediaProps = {
   children: React.ReactElement;
   className?: string;
   credit?: string;
+  licence?: string;
   type: 'image' | 'video';
 };
 
-const Media = ({ caption, children, className, credit, type }: MediaProps) => {
+const Media = ({
+  caption,
+  children,
+  className,
+  credit,
+  licence,
+  type
+}: MediaProps) => {
   const parentClassNames = cx('cc-media grid', {
     [`${className}`]: className
   });
@@ -25,6 +33,7 @@ const Media = ({ caption, children, className, credit, type }: MediaProps) => {
         caption={caption}
         className="cc-media--wide__caption"
         credit={credit}
+        licence={licence}
       />
     </figure>
   );
