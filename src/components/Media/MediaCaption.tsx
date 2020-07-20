@@ -5,18 +5,39 @@ type MediaCaptionProps = {
   caption?: string;
   className?: string;
   credit?: string;
+  licence?: string;
 };
 
-const MediaCaption = ({ caption, className, credit }: MediaCaptionProps) => {
+const MediaCaption = ({
+  caption,
+  className,
+  credit,
+  licence
+}: MediaCaptionProps) => {
   const classNames = cx('cc-media__caption', {
     [`${className}`]: className
   });
 
   return caption || credit ? (
     <figcaption className={classNames}>
-      {caption && <span className="cc-media__caption-detail">{caption}</span>}
-      {caption && credit && <span className="u-visually-hidden"> - </span>}
-      {credit && <span className="cc-media__credit">Credit: {credit}</span>}
+      {caption && (
+        <div
+          className="cc-media__caption-detail"
+          dangerouslySetInnerHTML={{ __html: caption }}
+        />
+      )}
+      {credit && (
+        <div
+          className="cc-media__credit"
+          dangerouslySetInnerHTML={{ __html: `Credit: ${credit}` }}
+        />
+      )}
+      {licence && (
+        <div
+          className="cc-media__licence"
+          dangerouslySetInnerHTML={{ __html: `Licence: ${licence}` }}
+        />
+      )}
     </figcaption>
   ) : null;
 };
