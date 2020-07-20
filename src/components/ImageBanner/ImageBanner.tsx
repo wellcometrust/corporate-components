@@ -11,7 +11,7 @@ type ImageBannerProps = {
   caption?: string;
   credit?: string;
   className?: string;
-  license?: string;
+  licence?: string;
   sizes?: string;
   src: string;
   srcSet?: string;
@@ -24,7 +24,7 @@ export const ImageBanner = ({
   caption,
   credit,
   className,
-  license,
+  licence,
   sizes = imageSizesDefault,
   src,
   srcSet
@@ -47,7 +47,7 @@ export const ImageBanner = ({
         />
       </div>
 
-      {caption || credit || license ? (
+      {caption || credit || licence ? (
         <div className="cc-image-banner__caption-container">
           <figcaption className="cc-media__caption cc-image-banner__caption">
             {credit && (
@@ -56,10 +56,10 @@ export const ImageBanner = ({
                 dangerouslySetInnerHTML={{ __html: `Credit: ${credit}` }}
               />
             )}
-            {license && (
+            {licence && (
               <div
-                className="cc-media__license"
-                dangerouslySetInnerHTML={{ __html: `License: ${license}` }}
+                className="cc-media__licence"
+                dangerouslySetInnerHTML={{ __html: `Licence: ${licence}` }}
               />
             )}
             {isMobile && caption ? (

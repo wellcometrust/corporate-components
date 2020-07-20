@@ -33,7 +33,7 @@ type GalleryLightBoxSlideProps = {
   caption: string;
   credit?: string;
   fileSize: number;
-  license?: string;
+  licence?: string;
   mediaSources: {
     gallery_full: string;
     gallery_full_hi: string;
@@ -171,7 +171,7 @@ export const GalleryLightBox = ({
                   </figcaption>
 
                   <div className="cc-gallery-lightbox__footer">
-                    {!!(slide.credit || slide.license) && (
+                    {!!(slide.credit || slide.licence) && (
                       <dl className="cc-gallery-lightbox__meta">
                         {slide.credit && (
                           <span className="cc-gallery-lightbox__meta-item">
@@ -184,13 +184,13 @@ export const GalleryLightBox = ({
                             />
                           </span>
                         )}
-                        {slide.license && (
+                        {slide.licence && (
                           <span className="cc-gallery-lightbox__meta-item">
                             <dt className="cc-gallery-lightbox__meta-item-label">
-                              Image license:{' '}
+                              Image licence:{' '}
                             </dt>
                             <dd className="cc-gallery-lightbox__meta-item-text">
-                              {slide.license}
+                              {slide.licence}
                             </dd>
                           </span>
                         )}

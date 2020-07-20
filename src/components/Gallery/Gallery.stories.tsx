@@ -13,7 +13,7 @@ const data = [
     fileSize: 10000000,
     height: 1920,
     id: '123',
-    license: 'license',
+    licence: 'licence',
     mediaSources: {
       gallery_thumbnail_original: 'https://placehold.it/310x310',
       gallery_thumbnail_original_hi: 'https://placehold.it/310x310',
@@ -45,7 +45,7 @@ const GalleryExample = () => {
             fileSize={item.fileSize}
             height={item.height}
             key={item.id}
-            license={item.license}
+            licence={item.licence}
             mediaSources={item.mediaSources}
             title={item.title}
             width={item.width}
