@@ -19,7 +19,7 @@ type GalleryMediaProps = {
   fileSize?: number;
   height: number;
   isLead?: boolean;
-  license?: string;
+  licence?: string;
   mediaSources: any;
   onClick?: MouseEventHandler;
   title?: string;
@@ -53,7 +53,7 @@ export const GalleryMedia = ({
   fileSize,
   height,
   isLead,
-  license,
+  licence,
   mediaSources,
   onClick = () => {},
   title,
@@ -179,7 +179,7 @@ export const Gallery = ({
       caption: child.props.caption,
       credit: child.props.credit,
       fileSize: child.props.fileSize,
-      license: child.props.license,
+      licence: child.props.licence,
       mediaSources: child.props.mediaSources,
       title: child.props.title
     };
