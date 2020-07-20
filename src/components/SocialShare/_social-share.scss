@@ -7,7 +7,6 @@
 // ----------------------------------
 
 .cc-social-share {
-  margin: calc(-1.5 * var(--space-unit));
   position: relative;
 }
 
@@ -16,6 +15,7 @@
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
+  margin: calc(-1.5 * var(--space-unit));
 }
 
 .cc-social-share__link {

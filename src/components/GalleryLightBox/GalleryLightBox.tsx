@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import cx from 'classnames';
 import { useHotkeys } from 'react-hotkeys-hook';
 
@@ -15,6 +15,8 @@ import Button from 'Button';
 import Icon from 'Icon';
 import SocialShare from 'SocialShare';
 import Text from 'Text';
+
+import { ViewportContext } from 'ViewportContext/ViewportContext';
 
 type GalleryLightBoxProps = {
   galleryId?: string;
@@ -51,6 +53,8 @@ export const GalleryLightBox = ({
   openAtSlideIndex = 0,
   slides
 }: GalleryLightBoxProps) => {
+  const { isMobile } = useContext(ViewportContext);
+
   // Design feedback - on mobile info is always visible and will be scrolled down to
   const initialInfoPaneVisibility = true;
 
@@ -63,11 +67,12 @@ export const GalleryLightBox = ({
   };
 
   const infoPaneClassNames = {
-    grid: cx('cc-gallery-lightbox__slide-layout a', {
-      'a--wide': !isInfoPaneVisible
+    grid: cx('cc-gallery-lightbox__slide-content', {
+      'cc-gallery-lightbox__slide-content--wide': !isInfoPaneVisible
     }),
     toggle: cx('cc-gallery-lightbox__slide-actions-toggle', {
-      'cc-gallery-lightbox__slide-actions-toggle--is-active': isInfoPaneVisible
+      'cc-gallery-lightbox__slide-actions-toggle--is-active':
+        isInfoPaneVisible && !isMobile
     })
   };
 
@@ -81,6 +86,15 @@ export const GalleryLightBox = ({
 
   return (
     <dialog className="cc-gallery-lightbox" open={isOpen}>
+      <Button
+        autoFocus
+        className="cc-gallery-lightbox__close"
+        onClick={handleClose}
+        role="button"
+        variant="unstyled"
+      >
+        <Icon name="closeBold" />
+      </Button>
       <CarouselProvider
         className="cc-gallery-lightbox__carousel"
         currentSlide={openAtSlideIndex}
@@ -90,15 +104,6 @@ export const GalleryLightBox = ({
         naturalSlideHeight={9}
         totalSlides={slides.length}
       >
-        <Button
-          autoFocus
-          className="cc-gallery-lightbox__close"
-          onClick={handleClose}
-          role="button"
-          variant="unstyled"
-        >
-          <Icon name="closeBold" />
-        </Button>
         <Slider
           className="cc-gallery-lightbox__slider"
           classNameTray="cc-gallery-lightbox__slider-tray"
@@ -114,104 +119,106 @@ export const GalleryLightBox = ({
               <Slide
                 className="cc-gallery-lightbox__slide"
                 index={index}
-                innerClassName={infoPaneClassNames.grid}
-                innerTag="figure"
+                innerClassName="cc-gallery-lightbox__slide-layout"
                 key={`gallery-lightbox-slide-${galleryId}-${index + 1}`}
               >
-                <div className="cc-gallery-lightbox__image-pane b">
-                  <ImageWithZoom
-                    className="cc-gallery-lightbox__image"
-                    src={slide.mediaSources.gallery_full}
-                    srcZoomed={slide.mediaSources.gallery_full_hi}
-                  />
-                </div>
-                <div className="cc-gallery-lightbox__slide-actions c">
-                  <div className="cc-gallery-lightbox__nav">
-                    <ButtonBack
-                      className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit"
-                      onClick={() => handleBack(galleryId, index)}
-                    >
-                      <Icon name="arrow" />
-                    </ButtonBack>
-                    <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
-                      {`${index + 1} / ${slides.length}`}
-                    </span>
-                    <ButtonNext
-                      className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit"
-                      onClick={() => handleNext(galleryId, index)}
-                    >
-                      <Icon name="arrow" />
-                    </ButtonNext>
+                <figure className={infoPaneClassNames.grid}>
+                  <div className="cc-gallery-lightbox__image-pane">
+                    <ImageWithZoom
+                      className="cc-gallery-lightbox__image"
+                      src={slide.mediaSources.gallery_full}
+                      srcZoomed={slide.mediaSources.gallery_full_hi}
+                    />
                   </div>
-                  <Button
-                    className={infoPaneClassNames.toggle}
-                    icon="chevronThin"
-                    iconPlacementSwitch
-                    onClick={toggleInfoPane}
-                    role="button"
-                    variant="unstyled"
-                  >
-                    {isInfoPaneVisible ? `Hide` : `Show`} info
-                  </Button>
-                </div>
-
-                <figcaption className="cc-gallery-lightbox__info-pane d">
-                  <Text
-                    className="cc-gallery-lightbox__info-content"
-                    variant="text-snippet"
-                  >
-                    {infoPaneContent}
-                  </Text>
-                </figcaption>
-
-                {!!(slide.credit || slide.license) && (
-                  <dl className="cc-gallery-lightbox__meta e">
-                    {slide.credit && (
-                      <span className="cc-gallery-lightbox__meta-item">
-                        <dt className="cc-gallery-lightbox__meta-item-label">
-                          Image credit:{' '}
-                        </dt>
-                        <dd
-                          className="cc-gallery-lightbox__meta-item-text"
-                          dangerouslySetInnerHTML={{ __html: slide.credit }}
-                        />
+                  <div className="cc-gallery-lightbox__slide-actions">
+                    <div className="cc-gallery-lightbox__nav">
+                      <ButtonBack
+                        className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--back u-color-inherit"
+                        onClick={() => handleBack(galleryId, index)}
+                      >
+                        <Icon name="arrow" />
+                      </ButtonBack>
+                      <span className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--count">
+                        {`${index + 1} / ${slides.length}`}
                       </span>
+                      <ButtonNext
+                        className="cc-gallery-lightbox__nav-item cc-gallery-lightbox__nav-item--next u-color-inherit"
+                        onClick={() => handleNext(galleryId, index)}
+                      >
+                        <Icon name="arrow" />
+                      </ButtonNext>
+                    </div>
+                    <Button
+                      className={infoPaneClassNames.toggle}
+                      disabled={isMobile}
+                      icon="chevronThin"
+                      iconPlacementSwitch
+                      onClick={toggleInfoPane}
+                      role="button"
+                      variant="unstyled"
+                    >
+                      {isInfoPaneVisible && !isMobile ? `Hide` : `Show`} info
+                    </Button>
+                  </div>
+
+                  <figcaption className="cc-gallery-lightbox__info-pane d">
+                    <Text
+                      className="cc-gallery-lightbox__info-content"
+                      variant="text-snippet"
+                    >
+                      {infoPaneContent}
+                    </Text>
+                  </figcaption>
+
+                  <div className="cc-gallery-lightbox__footer">
+                    {!!(slide.credit || slide.license) && (
+                      <dl className="cc-gallery-lightbox__meta">
+                        {slide.credit && (
+                          <span className="cc-gallery-lightbox__meta-item">
+                            <dt className="cc-gallery-lightbox__meta-item-label">
+                              Image credit:{' '}
+                            </dt>
+                            <dd
+                              className="cc-gallery-lightbox__meta-item-text"
+                              dangerouslySetInnerHTML={{ __html: slide.credit }}
+                            />
+                          </span>
+                        )}
+                        {slide.license && (
+                          <span className="cc-gallery-lightbox__meta-item">
+                            <dt className="cc-gallery-lightbox__meta-item-label">
+                              Image license:{' '}
+                            </dt>
+                            <dd className="cc-gallery-lightbox__meta-item-text">
+                              {slide.license}
+                            </dd>
+                          </span>
+                        )}
+                      </dl>
                     )}
-                    {slide.license && (
-                      <span className="cc-gallery-lightbox__meta-item">
-                        <dt className="cc-gallery-lightbox__meta-item-label">
-                          Image license:{' '}
-                        </dt>
-                        <dd className="cc-gallery-lightbox__meta-item-text">
-                          {slide.license}
-                        </dd>
+                    <div className="cc-gallery-lightbox__download">
+                      <a
+                        href={slide.mediaSources.gallery_full_hi}
+                        download
+                        className="cc-gallery-lightbox__download-link u-color-inherit"
+                      >
+                        <span className="cc-gallery-lightbox__download-icon">
+                          <Icon name="download" />
+                        </span>
+                        Download
+                      </a>
+                      <span className="cc-gallery-lightbox__download-filesize">
+                        {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
                       </span>
-                    )}
-                  </dl>
-                )}
-                <div className="cc-gallery-lightbox__download f">
-                  <a
-                    href={slide.mediaSources.gallery_full_hi}
-                    download
-                    className="cc-gallery-lightbox__download-link u-color-inherit"
-                  >
-                    <span className="cc-gallery-lightbox__download-icon">
-                      <Icon name="download" />
-                    </span>
-                    Download
-                  </a>
-                  <span className="cc-gallery-lightbox__download-filesize">
-                    {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
-                  </span>
-                </div>
-                <div className="g">
-                  <SocialShare
-                    body={infoPaneContent}
-                    hasCopyLink
-                    title={slide.title}
-                    url={window?.location.href}
-                  />
-                </div>
+                    </div>
+                    <SocialShare
+                      body={infoPaneContent}
+                      hasCopyLink
+                      title={slide.title}
+                      url={window?.location.href}
+                    />
+                  </div>
+                </figure>
               </Slide>
             );
           })}
