@@ -10,5 +10,18 @@
   @extend %heading-base;
   @extend %heading-hero;
   @include heading-divider;
+  position: relative;
   text-align: center;
+}
+
+.cc-section__title-anchor {
+  display: block;
+  left: 0;
+  position: absolute;
+  top: calc(-1 * var(--header-height));
+  visibility: hidden;
+  
+  @include mq(sm) {
+    top: calc(-1 * var(--header-height-sm));
+  }
 }
