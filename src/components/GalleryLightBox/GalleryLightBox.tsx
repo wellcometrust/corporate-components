@@ -199,9 +199,11 @@ export const GalleryLightBox = ({
                     )}
                     <div className="cc-gallery-lightbox__download">
                       <a
-                        href={slide.mediaSources.gallery_full_hi}
-                        download
                         className="cc-gallery-lightbox__download-link u-color-inherit"
+                        download
+                        href={slide.mediaSources.gallery_full_hi}
+                        rel="noopener noreferrer"
+                        target="_blank"
                       >
                         <span className="cc-gallery-lightbox__download-icon">
                           <Icon name="download" />
