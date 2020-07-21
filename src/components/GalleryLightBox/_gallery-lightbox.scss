@@ -40,7 +40,6 @@
   color: var(--colour-white);
   height: 100%;
   left: 0;
-  overflow-y: auto;
   // grid-gap: 16px;
   padding: 0 calc(2 * var(--space-unit));
   position: fixed;
@@ -69,7 +68,6 @@
 
 .cc-gallery-lightbox__carousel {
   height: 100%;
-  overflow-y: auto;
   position: relative;
 }
 
@@ -121,10 +119,6 @@
 
 .cc-gallery-lightbox__slide-content {
   display: grid;
-  
-  // stylelint-disable value-no-vendor-prefix
-  // display: -ms-grid;
-  
   grid-gap: calc(2 * var(--space-unit));
   grid-template-areas:
     'image'
@@ -176,6 +170,11 @@
   grid-area: image;
   overflow: hidden;
   position: relative;
+
+  // IE11 - set image height as proportion of overall screen height
+  @media all and (-ms-high-contrast:none) {
+    height: 60vh;
+  }
 }
 
 .cc-gallery-lightbox__image-pane-stage {
@@ -201,7 +200,7 @@
   grid-area: info;
     
   @include mq(md) {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   // WYSIWYG styles
@@ -265,6 +264,11 @@
   @extend %btn-base;
   @extend %btn-size-standard;
   @extend %color-inherit;
+
+  // IE11 - hide toggle control
+  @media all and (-ms-high-contrast:none) {
+    display: none;
+  }
 }
 
 .cc-gallery-lightbox__slide-actions-toggle .btn__text {
