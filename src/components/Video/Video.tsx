@@ -6,6 +6,7 @@ type VideoProps = {
   caption?: string;
   credit?: string;
   className?: string;
+  licence?: string;
   src: string;
 };
 
@@ -26,11 +27,23 @@ export const getYoutubeEmbedUrl = (src: string) => {
     : null;
 };
 
-export const Video = ({ caption, credit, className, src }: VideoProps) => {
+export const Video = ({
+  caption,
+  credit,
+  className,
+  licence,
+  src
+}: VideoProps) => {
   const embedSrc = getYoutubeEmbedUrl(src);
 
   return (
-    <Media caption={caption} className={className} credit={credit} type="video">
+    <Media
+      caption={caption}
+      className={className}
+      credit={credit}
+      licence={licence}
+      type="video"
+    >
       <div className="widescreen-container">
         <iframe
           allowFullScreen
