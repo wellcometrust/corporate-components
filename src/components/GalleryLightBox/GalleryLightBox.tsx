@@ -30,9 +30,9 @@ type GalleryLightBoxProps = {
 
 type GalleryLightBoxSlideProps = {
   alt?: string;
+  canDownload?: boolean;
   caption: string;
   credit?: string;
-  canDownload?: boolean;
   fileSize: number;
   licence?: string;
   mediaSources: {
