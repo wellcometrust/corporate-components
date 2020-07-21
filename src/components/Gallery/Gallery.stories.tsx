@@ -8,6 +8,7 @@ import Readme from './Gallery.md';
 const data = [
   {
     alt: 'alt text',
+    canDownload: true,
     caption: 'caption text',
     credit: 'credit',
     fileSize: 10000000,
@@ -40,6 +41,7 @@ const GalleryExample = () => {
         return (
           <GalleryMedia
             alt={item.alt}
+            canDownload={item.canDownload}
             caption={item.caption}
             credit={item.credit}
             fileSize={item.fileSize}

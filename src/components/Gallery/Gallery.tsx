@@ -15,6 +15,7 @@ import getUrlParameters from 'utils/get-url-parameters';
 
 type GalleryMediaProps = {
   alt?: string;
+  canDownload?: boolean;
   caption?: string;
   credit?: string;
   fileSize?: number;
@@ -49,6 +50,7 @@ const getSizes = (isLead: boolean, isPortrait: boolean) => {
 
 export const GalleryMedia = ({
   alt,
+  canDownload = false,
   caption,
   credit,
   fileSize,
@@ -177,6 +179,7 @@ export const Gallery = ({
   const lightboxSlides = Children.map(children, child => {
     return {
       alt: child.props.alt,
+      canDownload: child.props.canDownload,
       caption: child.props.caption,
       credit: child.props.credit,
       fileSize: child.props.fileSize,
