@@ -15,9 +15,9 @@ import getUrlParameters from 'utils/get-url-parameters';
 
 type GalleryMediaProps = {
   alt?: string;
+  canDownload?: true | false;
   caption?: string;
   credit?: string;
-  download?: string;
   fileSize?: number;
   height: number;
   isLead?: boolean;
@@ -50,9 +50,9 @@ const getSizes = (isLead: boolean, isPortrait: boolean) => {
 
 export const GalleryMedia = ({
   alt,
+  canDownload,
   caption,
   credit,
-  download,
   fileSize,
   height,
   isLead,
@@ -185,7 +185,7 @@ export const Gallery = ({
       licence: child.props.licence,
       mediaSources: child.props.mediaSources,
       title: child.props.title,
-      download: child.props.download
+      canDownload: child.props.canDownload
     };
   });
 

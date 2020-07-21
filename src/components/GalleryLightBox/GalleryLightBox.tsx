@@ -32,7 +32,7 @@ type GalleryLightBoxSlideProps = {
   alt?: string;
   caption: string;
   credit?: string;
-  download?: string;
+  canDownload?: 'true' | 'false';
   fileSize: number;
   licence?: string;
   mediaSources: {
@@ -198,7 +198,7 @@ export const GalleryLightBox = ({
                         )}
                       </dl>
                     )}
-                    {slide.download === 'On' && (
+                    {slide.canDownload && (
                       <div className="cc-gallery-lightbox__download">
                         <a
                           className="cc-gallery-lightbox__download-link u-color-inherit"

@@ -8,9 +8,9 @@ import Readme from './Gallery.md';
 const data = [
   {
     alt: 'alt text',
+    canDownload: true,
     caption: 'caption text',
     credit: 'credit',
-    download: 'On',
     fileSize: 10000000,
     height: 1920,
     id: '123',
@@ -41,9 +41,9 @@ const GalleryExample = () => {
         return (
           <GalleryMedia
             alt={item.alt}
+            canDownload={item.canDownload}
             caption={item.caption}
             credit={item.credit}
-            download={item.download}
             fileSize={item.fileSize}
             height={item.height}
             key={item.id}
