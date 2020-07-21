@@ -32,6 +32,7 @@ type GalleryLightBoxSlideProps = {
   alt?: string;
   caption: string;
   credit?: string;
+  download?: string;
   fileSize: number;
   licence?: string;
   mediaSources: {
@@ -197,23 +198,27 @@ export const GalleryLightBox = ({
                         )}
                       </dl>
                     )}
-                    <div className="cc-gallery-lightbox__download">
-                      <a
-                        className="cc-gallery-lightbox__download-link u-color-inherit"
-                        download
-                        href={slide.mediaSources.gallery_full_hi}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        <span className="cc-gallery-lightbox__download-icon">
-                          <Icon name="download" />
+                    {slide.download === 'On' && (
+                      <div className="cc-gallery-lightbox__download">
+                        <a
+                          className="cc-gallery-lightbox__download-link u-color-inherit"
+                          download
+                          href={slide.mediaSources.gallery_full_hi}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <span className="cc-gallery-lightbox__download-icon">
+                            <Icon name="download" />
+                          </span>
+                          Download
+                        </a>
+                        <span className="cc-gallery-lightbox__download-filesize">
+                          {`[${(slide.fileSize / (1024 * 1024)).toFixed(
+                            2
+                          )} MB]`}
                         </span>
-                        Download
-                      </a>
-                      <span className="cc-gallery-lightbox__download-filesize">
-                        {`[${(slide.fileSize / (1024 * 1024)).toFixed(2)} MB]`}
-                      </span>
-                    </div>
+                      </div>
+                    )}
                     <SocialShare
                       body={infoPaneContent}
                       hasCopyLink

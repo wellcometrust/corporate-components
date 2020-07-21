@@ -17,6 +17,7 @@ type GalleryMediaProps = {
   alt?: string;
   caption?: string;
   credit?: string;
+  download?: string;
   fileSize?: number;
   height: number;
   isLead?: boolean;
@@ -51,6 +52,7 @@ export const GalleryMedia = ({
   alt,
   caption,
   credit,
+  download,
   fileSize,
   height,
   isLead,
@@ -182,7 +184,8 @@ export const Gallery = ({
       fileSize: child.props.fileSize,
       licence: child.props.licence,
       mediaSources: child.props.mediaSources,
-      title: child.props.title
+      title: child.props.title,
+      download: child.props.download
     };
   });
 

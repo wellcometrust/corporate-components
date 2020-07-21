@@ -10,6 +10,7 @@ const data = [
     alt: 'alt text',
     caption: 'caption text',
     credit: 'credit',
+    download: 'On',
     fileSize: 10000000,
     height: 1920,
     id: '123',
@@ -42,6 +43,7 @@ const GalleryExample = () => {
             alt={item.alt}
             caption={item.caption}
             credit={item.credit}
+            download={item.download}
             fileSize={item.fileSize}
             height={item.height}
             key={item.id}
