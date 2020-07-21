@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import cx from 'classnames';
-import { useHotkeys } from 'react-hotkeys-hook';
+// import { useHotkeys } from 'react-hotkeys-hook';
 
 import {
   ButtonBack,
@@ -79,10 +79,11 @@ export const GalleryLightBox = ({
   /**
    * Use react-hot-keys hook to detect user clicking 'escape'
    * to close the lightbox.
+   * TODO: This causes an error in IE11 - investigate and reinstate or replace
    */
-  useHotkeys('esc', () => {
-    handleClose();
-  });
+  // useHotkeys('esc', () => {
+  //   handleClose();
+  // });
 
   return (
     <dialog className="cc-gallery-lightbox" open={isOpen}>

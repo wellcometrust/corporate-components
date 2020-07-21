@@ -6,11 +6,12 @@ import React, {
   useState
 } from 'react';
 import cx from 'classnames';
-import queryString from 'query-string';
 
 import Button from 'Button';
 import ImageElement from 'Image/ImageElement';
 import GalleryLightBox from 'GalleryLightBox';
+
+import getUrlParameter from 'utils/get-url-param';
 
 type GalleryMediaProps = {
   alt?: string;
@@ -144,7 +145,7 @@ export const Gallery = ({
    * https://github.com/vercel/next.js/discussions/10951
    */
   useEffect(() => {
-    const hash = queryString.parse(window.location.hash);
+    const hash = getUrlParameter(window.location?.hash.substring(1));
     const gid = hash?.gid;
     const pid = parseInt(hash?.pid as string, 10);
 
