@@ -32,7 +32,7 @@ type GalleryLightBoxSlideProps = {
   alt?: string;
   caption: string;
   credit?: string;
-  canDownload?: 'true' | 'false';
+  canDownload?: boolean;
   fileSize: number;
   licence?: string;
   mediaSources: {
