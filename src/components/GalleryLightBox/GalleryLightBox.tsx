@@ -18,6 +18,8 @@ import Text from 'Text';
 
 import { ViewportContext } from 'ViewportContext/ViewportContext';
 
+import useLockBodyScroll from 'utils/use-body-scroll-lock';
+
 type GalleryLightBoxProps = {
   galleryId?: string;
   handleBack: (galleryId: string, index: number) => void;
@@ -53,6 +55,8 @@ export const GalleryLightBox = ({
   openAtSlideIndex = 0,
   slides
 }: GalleryLightBoxProps) => {
+  useLockBodyScroll();
+
   const { isMobile } = useContext(ViewportContext);
 
   // Design feedback - on mobile info is always visible and will be scrolled down to
