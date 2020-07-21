@@ -13,8 +13,11 @@ export const SectionTitle = ({ className, id, title }: SectionTitleProps) => {
   });
 
   return (
-    <h2 className={classNames} id={id}>
+    <h2 className={classNames}>
       {title}
+      <span id={id} className="cc-section__title-anchor">
+        &nbsp;
+      </span>
     </h2>
   );
 };
