@@ -3,7 +3,7 @@ import React from 'react';
 import { IconSVGProps } from '../Icon';
 
 const Arrow = (props: IconSVGProps) => (
-  <svg viewBox="0 0 11 12" {...props}>
+  <svg viewBox="0 0 12 12" {...props}>
     <path
       fill="currentColor"
       fillRule="evenodd"
