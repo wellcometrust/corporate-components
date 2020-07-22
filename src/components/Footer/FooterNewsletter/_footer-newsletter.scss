@@ -21,4 +21,17 @@
   @include mq(md) {
     max-width: 50%;
   }
+
+  a {
+    color: var(--colour-white);
+  }
+
+  a:focus,
+  a:hover {
+    color: var(--colour-blue-40);
+  }
+
+  a:active {
+    color: var(--colour-blue-20);
+  }
 }
