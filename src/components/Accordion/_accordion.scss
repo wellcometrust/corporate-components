@@ -34,9 +34,11 @@
     margin-right: 0;
   }
 
-  .cc-accordion-item--active & svg {
+  .cc-accordion-item & svg {
     transform: rotate(-90deg);
   }
-}
 
-// .cc-accordion__content {}
+  .cc-accordion-item--active & svg {
+    transform: rotate(180deg);
+  }
+}
