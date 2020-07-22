@@ -29,6 +29,7 @@ export const SocialShare = ({
   const socialLightboxText = `${htmlToText.fromString(caption, {
     wordwrap: false
   })}  Credit:${htmlToText.fromString(credit, { wordwrap: false })}`;
+
   const twitterLightboxText = `${title}  Credit:${htmlToText.fromString(
     credit,
     { wordwrap: false }
@@ -56,8 +57,7 @@ export const SocialShare = ({
         </li>
         <li className="cc-social-share__item">
           <a
-            href={`https://twitter.com/intent/tweet?text=${twitterLightboxText +
-              bodyText}%20%40wellcometrust%20&amp;url=${url}?utm_source=twitterShare`}
+            href={`https://twitter.com/intent/tweet?text=${twitterLightboxText}%20%40wellcometrust%20&amp;url=${url}?utm_source=twitterShare`}
             className="cc-social-share__link"
             target="_blank"
             rel="noopener noreferrer"
