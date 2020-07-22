@@ -35,7 +35,8 @@ export const ResultsItem = ({
     {meta && (meta.type || meta.date) && (
       <div className="result-item__meta">
         {/* remove this for now as types are not correctly displayed in search result
-        need to look back at some point later. */}
+        need to look back at some point later. 
+        https://github.com/wellcometrust/corporate/issues/6730 */}
         {/* {meta.type && !['taxonomy_term'].includes(itemType) && (
           <span className="result-item__meta-type">
             {meta.type}
