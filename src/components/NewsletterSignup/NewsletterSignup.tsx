@@ -29,9 +29,7 @@ export const NewsletterSignup = ({
       <GridCell column={1} columnCount={1}>
         <h3 className="newsletter-signup__title">
           {title}
-          <span id={inpageId} className="cc-section__title-anchor">
-            &nbsp;
-          </span>
+          <span id={inpageId}>&nbsp;</span>
         </h3>
         <NewsletterForm className="newsletter__form" type={type}>
           <div
