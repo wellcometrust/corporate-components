@@ -6,6 +6,7 @@ import NewsletterSignup from './NewsletterSignup';
 import Readme from './NewsletterSignup.md';
 
 const NewsletterSignupExample = () => {
+  const inPageId = text('inPageId', 'sign-up-newsletter');
   const titleText = text('title', 'Sign up to our research newsletter');
   const introText = text(
     'intro',
@@ -16,6 +17,7 @@ const NewsletterSignupExample = () => {
 
   return (
     <NewsletterSignup
+      inpageId={inPageId}
       title={titleText}
       intro={introText}
       type={typeDefault}
