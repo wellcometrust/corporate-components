@@ -5,19 +5,20 @@ import NewsletterForm from 'NewsletterForm';
 import Section from 'Section';
 
 type NewsletterSignupProps = {
+  inpageId?: string;
   intro?: string;
   style?: string;
   title?: string;
   type?: string;
 };
 
-const introDefault =
-  'Get the latest news about Wellcome and the work we fund in a monthly email.';
-const titleDefault = 'Sign up to our research newsletter';
+const introDefault = 'Get the latest news about Wellcome monthly email.';
+const titleDefault = 'Sign up to our newsletter';
 const styleDefault = 'light-blue';
 const typeDefault = 'corporate';
 
 export const NewsletterSignup = ({
+  inpageId,
   intro = introDefault,
   style = styleDefault,
   title = titleDefault,
@@ -26,11 +27,11 @@ export const NewsletterSignup = ({
   <Section className="newsletter-signup">
     <Grid>
       <GridCell column={1} columnCount={1}>
-        <h3
-          className="newsletter-signup__title"
-          id={title.replace(/\s+/g, '-').toLowerCase()}
-        >
+        <h3 className="newsletter-signup__title">
           {title}
+          <span id={inpageId} className="cc-section__title-anchor">
+            &nbsp;
+          </span>
         </h3>
         <NewsletterForm className="newsletter__form" type={type}>
           <div
