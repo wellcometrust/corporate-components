@@ -7,6 +7,8 @@ import Icon from 'Icon';
 
 type SocialShareProps = {
   body: string;
+  caption?: string;
+  credit?: string;
   hasCopyLink?: boolean;
   title: string;
   url: string;
@@ -14,6 +16,8 @@ type SocialShareProps = {
 
 export const SocialShare = ({
   body,
+  caption,
+  credit,
   hasCopyLink = false,
   title,
   url
@@ -21,6 +25,15 @@ export const SocialShare = ({
   const [copied, setCopied] = useState(false);
 
   const bodyText = htmlToText.fromString(body, { wordwrap: false });
+
+  const socialLightboxText = `${htmlToText.fromString(caption, {
+    wordwrap: false
+  })}  Credit:${htmlToText.fromString(credit, { wordwrap: false })}`;
+
+  const twitterLightboxText = `${title}  Credit:${htmlToText.fromString(
+    credit,
+    { wordwrap: false }
+  )}`;
 
   const handleShareLink = () => {
     // TODO analytics event
@@ -33,7 +46,7 @@ export const SocialShare = ({
       <ul className="cc-social-share__list">
         <li className="cc-social-share__item">
           <a
-            href={`https://www.facebook.com/share.php?u=${url}?utm_source=facebookShare`}
+            href={`https://www.facebook.com/share.php?u=${url}&quote=${socialLightboxText}?utm_source=facebookShare`}
             className="cc-social-share__link"
             target="_blank"
             rel="noopener noreferrer"
@@ -44,7 +57,7 @@ export const SocialShare = ({
         </li>
         <li className="cc-social-share__item">
           <a
-            href={`https://twitter.com/intent/tweet?text=${bodyText}%20%40wellcometrust%20&amp;url=${url}?utm_source=twitterShare`}
+            href={`https://twitter.com/intent/tweet?text=${twitterLightboxText}%20%40wellcometrust%20&amp;url=${url}?utm_source=twitterShare`}
             className="cc-social-share__link"
             target="_blank"
             rel="noopener noreferrer"
@@ -55,7 +68,7 @@ export const SocialShare = ({
         </li>
         <li className="cc-social-share__item">
           <a
-            href={`http://www.linkedin.com/shareArticle?mini=true&url=${url}?utm_source=linkedinShare`}
+            href={`http://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${socialLightboxText}?utm_source=linkedinShare`}
             className="cc-social-share__link"
             target="_blank"
             rel="noopener noreferrer"
@@ -66,7 +79,7 @@ export const SocialShare = ({
         </li>
         <li className="cc-social-share__item">
           <a
-            href={`mailto:?subject=Shared%20from%20Wellcome%3A%20${title}&amp;body=${bodyText}: ${url}?utm_source=emailShare %0A%0A---%0A%0ASign up to the Wellcome newsletter: https://wellcome.ac.uk/newsletters/subscribe-to-wellcome-newsletter-temp`}
+            href={`mailto:?subject=Shared%20from%20Wellcome%3A%20${title}&body=${socialLightboxText}: ${url}?utm_source=emailShare %0A%0A---%0A%0ASign up to the Wellcome newsletter: https://wellcome.ac.uk/newsletters/subscribe-to-wellcome-newsletter-temp`}
             className="cc-social-share__link"
             target="_blank"
             rel="noopener noreferrer"

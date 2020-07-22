@@ -229,6 +229,8 @@ export const GalleryLightBox = ({
                     )}
                     <SocialShare
                       body={infoPaneContent}
+                      caption={slide.caption}
+                      credit={slide.credit}
                       hasCopyLink
                       title={slide.title}
                       url={window?.location.href}
