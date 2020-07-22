@@ -163,7 +163,11 @@ export const GalleryLightBox = ({
                       role="button"
                       variant="unstyled"
                     >
-                      {isInfoPaneVisible && !isMobile ? `Hide` : `Show`} info
+                      {!isMobile ? (
+                        <>{isInfoPaneVisible ? 'Hide info' : 'Show info'}</>
+                      ) : (
+                        'Scroll down for info'
+                      )}
                     </Button>
                   </div>
 

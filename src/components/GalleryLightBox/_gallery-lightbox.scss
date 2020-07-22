@@ -269,6 +269,10 @@
   @media all and (-ms-high-contrast:none) {
     display: none;
   }
+
+  &[disabled] {
+    cursor: default;
+  }
 }
 
 .cc-gallery-lightbox__slide-actions-toggle .btn__text {

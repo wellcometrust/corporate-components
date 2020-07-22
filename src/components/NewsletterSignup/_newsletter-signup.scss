@@ -11,6 +11,19 @@
   color: var(--colour-white);
   padding-bottom: var(--space-xl);
   padding-top: var(--space-xl);
+
+  // WYSIWYG content styles
+  a {
+    color: var(--colour-white);
+
+    @include hocus {
+      color: var(--colour-blue-70);
+    }
+
+    &:active {
+      color: var(--colour-blue-50);
+    }
+  }
 }
 
 .newsletter-signup__title {
