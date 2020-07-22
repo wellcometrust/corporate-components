@@ -26,7 +26,12 @@ export const NewsletterSignup = ({
   <Section className="newsletter-signup">
     <Grid>
       <GridCell column={1} columnCount={1}>
-        <h3 className="newsletter-signup__title">{title}</h3>
+        <h3
+          className="newsletter-signup__title"
+          id={title.replace(/\s+/g, '-').toLowerCase()}
+        >
+          {title}
+        </h3>
         <NewsletterForm className="newsletter__form" type={type}>
           <div
             className="newsletter-signup__intro"
