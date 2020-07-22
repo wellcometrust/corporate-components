@@ -15,14 +15,15 @@
   // WYSIWYG content styles
   a {
     color: var(--colour-white);
+  }
 
-    @include hocus {
-      color: var(--colour-blue-70);
-    }
+  a:focus,
+  a:hover {
+    color: var(--colour-blue-70);
+  }
 
-    &:active {
-      color: var(--colour-blue-50);
-    }
+  a:active {
+    color: var(--colour-blue-50);
   }
 }
 
