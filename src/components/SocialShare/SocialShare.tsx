@@ -66,7 +66,12 @@ export const SocialShare = ({
             <Icon name="twitter" className="cc-social-share__icon" />
           </a>
         </li>
-        <li className="cc-social-share__item">
+        {/* 
+        Disabling this for now it's coming up with error when trying to share. Need more investigation.
+        Error "We did not scrape the content because it was larger than our threshold of 3.00M bytes."
+        https://www.linkedin.com/post-inspector/inspect/https:%2F%2Fwellcome.ac.uk%2Four-work%2Fwellcome-photography-prize%2F2020
+        */}
+        {/* <li className="cc-social-share__item">
           <a
             href={`http://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${socialLightboxText}?utm_source=linkedinShare`}
             className="cc-social-share__link"
@@ -76,7 +81,7 @@ export const SocialShare = ({
             <span className="u-visually-hidden">Share on LinkedIn</span>
             <Icon name="linkedin" className="cc-social-share__icon" />
           </a>
-        </li>
+        </li> */}
         <li className="cc-social-share__item">
           <a
             href={`mailto:?subject=Shared%20from%20Wellcome%3A%20${title}&body=${socialLightboxText}: ${url}?utm_source=emailShare %0A%0A---%0A%0ASign up to the Wellcome newsletter: https://wellcome.ac.uk/newsletters/subscribe-to-wellcome-newsletter-temp`}
