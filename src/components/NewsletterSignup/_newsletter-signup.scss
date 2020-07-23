@@ -32,6 +32,7 @@
   @extend %heading-display;
   @include heading-divider(var(--colour-white));
   letter-spacing: 0;
+  position: relative;
   text-align: center;
 }
 
