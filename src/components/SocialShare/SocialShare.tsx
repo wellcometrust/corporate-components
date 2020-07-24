@@ -57,7 +57,7 @@ export const SocialShare = ({
         </li>
         <li className="cc-social-share__item">
           <a
-            href={`https://twitter.com/intent/tweet?text=${twitterLightboxText}%20%40wellcometrust%20&amp;url=${url}?utm_source=twitterShare`}
+            href={`https://twitter.com/intent/tweet?text=${twitterLightboxText}%20%40wellcometrust%20&url=${url}?utm_source=twitterShare`}
             className="cc-social-share__link"
             target="_blank"
             rel="noopener noreferrer"
