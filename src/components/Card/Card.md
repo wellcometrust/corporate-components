@@ -1,7 +1,7 @@
-# Section Title
+# Card
 
-Component for rendering a main section heading i.e. h2.
+Component for rendering a presentational card. 
 
 ## When to use
 
-A Card is used as a heading for a discreet section of page content featuring and can be used multiple times within a page/layout. If used, it should be the first item in a Section.
+A Card is a UI design pattern used to group related information in a flexible-size container
