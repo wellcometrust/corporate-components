@@ -45,6 +45,12 @@
   text-decoration: none;
 }
 
+.cc-listing__link-meta {
+  color: var(--colour-grey-60);
+  font-size: var(--body-xs);
+  margin-left: calc(2.5 * var(--space-unit));
+}
+
 .cc-listing__link-icon {
   box-sizing: content-box;
   margin-left: auto;

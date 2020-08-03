@@ -8,13 +8,13 @@ type ResultItemMetaProps = {
   type?: string | null;
 };
 
-type ResultItemFileMetaProps = {
+export type FileMetaProps = {
   type: string;
   size: string;
 };
 
 export type ResultItemProps = {
-  fileMeta?: ResultItemFileMetaProps;
+  fileMeta?: FileMetaProps;
   href: string;
   meta?: ResultItemMetaProps;
   text?: string;
