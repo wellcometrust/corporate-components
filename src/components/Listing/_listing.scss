@@ -1,14 +1,33 @@
 // ----------------------------------
 // UI Components
-// Listing
+// Listing: Card List (aka Static Listing), Link List and Text Listing
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
+.cc-card-listing,
+.cc-listing {
+  @include grid-column(1, 7);
+  width: 100%;
+  
+  @include mq(sm) {
+    @include grid-column(2, 12);
+  }
+  
+  @include mq(md) {
+    @include grid-column(4, 10);
+  }
+}
+
+.cc-card-listing--horizontal {
+  @include mq(md) {
+    @include grid-column(1, 13);
+  }
+}
+
 .cc-listing {
   @extend %list-clean;
-  @extend %body-large;
   border-top: 1px solid var(--colour-grey-10);
 }
   
