@@ -12,7 +12,8 @@ type LinkProps = {
 /**
  * Test if a string ends with a given filename extension
  */
-const isFileLink = (str: string) => /\.(csv|doc|docm|docx|pdf|ppt|pptm|pptx|xls|xlsm|xlsx)$/g.test(str);
+const isFileLink = (str: string) =>
+  /\.(csv|doc|docm|docx|pdf|ppt|pptm|pptx|xls|xlsm|xlsx)$/g.test(str);
 
 /**
  * Detect whether a given string is going to an external domain
@@ -22,14 +23,14 @@ const isFileLink = (str: string) => /\.(csv|doc|docm|docx|pdf|ppt|pptm|pptx|xls|
  */
 const isExternalLink = (url: string) => {
   const isRelativeUrl = ['#', '/', '?'].includes(url.charAt(0));
-  
+
   // Else test whether the current origin === destination URL
   const { origin } = window.location;
   const destination = url
-  .replace('http://', '')
-  .replace('https://', '')
-  .split('/')[0];
-  
+    .replace('http://', '')
+    .replace('https://', '')
+    .split('/')[0];
+
   return !(origin === destination || isRelativeUrl);
 };
 
@@ -62,14 +63,14 @@ export const Link = ({ children, className, to, ...props }: LinkProps) => {
       {...props}
     >
       {children}
-      {isExternal && !isFile &&
+      {isExternal && !isFile && (
         <>
           <span className="u-visually-hidden">(opens in a new tab)</span>
           <span className="u-external-link-indicator">
             <Icon name="externalLink" height="0.85em" width="0.825em" />
           </span>
         </>
-      }
+      )}
     </a>
   ) : (
     <RouterLinkWrapper href={to}>

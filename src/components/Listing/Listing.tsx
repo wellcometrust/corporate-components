@@ -33,9 +33,7 @@ export const Listing = ({
 
   return (
     <Grid>
-      <Element className={classNames}>
-        {variant} - {children}
-      </Element>
+      <Element className={classNames}>{children}</Element>
     </Grid>
   );
 };

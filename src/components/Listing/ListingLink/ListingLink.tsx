@@ -25,7 +25,15 @@ export const ListingLink = ({
   return (
     <li className={classNames}>
       <Link className="cc-listing__link" to={href}>
-        {children} {fileMeta && <span className="cc-listing__link-meta">{fileMeta.type} {fileMeta.size}</span>}
+        {children}
+        {fileMeta && (
+          <>
+            {' '}
+            <span className="cc-listing__link-meta">
+              {fileMeta.type} {fileMeta.size}
+            </span>
+          </>
+        )}
         <Icon name="chevron" className="cc-listing__link-icon" />
       </Link>
     </li>
