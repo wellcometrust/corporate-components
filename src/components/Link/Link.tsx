@@ -45,12 +45,14 @@ const isExternalLink = (url: string) => {
  * @constructor
  */
 export const Link = ({ children, className, to, ...props }: LinkProps) => {
-  const [isExternal, setExternal] = useState(null);
+  const [isExternal, setExternal] = useState(false);
   const isFile = isFileLink(to);
 
   // Ensures 'window' is present
   useEffect(() => {
-    setExternal(isExternalLink(to));
+    if (to) {
+      setExternal(isExternalLink(to));
+    }
   }, []);
 
   return isExternal || isFile ? (

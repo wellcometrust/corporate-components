@@ -8,12 +8,14 @@ type ListingProps = {
   as?: 'div' | 'ol' | 'ul';
   children: React.ReactNode;
   className?: string;
-  variant?: 'horizontal_card' | 'vertical_card';
+  variant?: 'link_list' | 'text_list' | 'horizontal_card' | 'vertical_card';
 };
 
 // Specific style variations for card listings
 const variantMapping = {
   horizontal_card: 'cc-card-listing cc-card-listing--horizontal',
+  link_list: '',
+  text_list: '',
   vertical_card: 'cc-card-listing'
 };
 
@@ -31,11 +33,7 @@ export const Listing = ({
     }
   );
 
-  return (
-    <Grid>
-      <Element className={classNames}>{children}</Element>
-    </Grid>
-  );
+  return <Element className={classNames}>{children}</Element>;
 };
 
 export default Listing;
