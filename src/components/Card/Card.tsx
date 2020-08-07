@@ -10,14 +10,14 @@ type CardProps = {
   date?: string;
   description?: string;
   href: string;
-  image: {
+  image?: {
     alt?: string;
     sources: {
       thumbnail_lo?: string;
       thumbnail?: string;
       thumbnail_hi?: string;
     };
-  },
+  };
   meta?: string;
   id?: string;
   title: string;
@@ -66,7 +66,8 @@ export const Card = ({
             className="cc-card__image"
             sizes={cardImageSizesDefault}
             src={src}
-            srcSet={srcSet} />
+            srcSet={srcSet}
+          />
         </div>
       </div>
       <div className="card__content">
@@ -77,17 +78,19 @@ export const Card = ({
           </a>
         </h3>
         <div className="card__meta">
-          {authors &&
+          {authors && (
             <dl className="card__authors">
               <dt className="card__authors-label">Author</dt>
-              {authors?.map(author => 
+              {authors?.map(author => (
                 <dd className="card__author">{author}</dd>
-              )}
+              ))}
             </dl>
-          }
-          {date && <time className="card__date">
-            <FormattedDate dateString={date} />
-          </time>}
+          )}
+          {date && (
+            <time className="card__date">
+              <FormattedDate dateString={date} />
+            </time>
+          )}
           {description && <p className="card__description">{description}</p>}
         </div>
       </div>
