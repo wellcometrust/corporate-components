@@ -23,6 +23,15 @@
 .cc-card-listing--horizontal {
   @include mq(md) {
     @include grid-column(1, 13);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 33.33%;
+    }
   }
 }
 

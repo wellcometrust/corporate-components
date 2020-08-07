@@ -9,3 +9,7 @@
 .cc-card {
   // 
 }
+
+.cc-card__image {
+  @extend %image-responsive;
+}

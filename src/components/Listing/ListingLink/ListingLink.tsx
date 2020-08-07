@@ -6,17 +6,17 @@ import Icon from 'Icon';
 import Link from 'Link';
 
 type ListingLinkProps = {
-  children: React.ReactNode;
   className?: string;
   fileMeta?: FileMetaProps;
   href: string;
+  title: string;
 };
 
 export const ListingLink = ({
-  children,
   className,
   fileMeta,
-  href
+  href,
+  title
 }: ListingLinkProps) => {
   const classNames = cx('cc-listing__item', {
     [`${className}`]: className
@@ -25,8 +25,8 @@ export const ListingLink = ({
   return (
     <li className={classNames}>
       <Link className="cc-listing__link" to={href}>
-        {children}
-        {fileMeta && (
+        {title}
+        {fileMeta?.type && fileMeta?.size && (
           <>
             {' '}
             <span className="cc-listing__link-meta">
