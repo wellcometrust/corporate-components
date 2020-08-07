@@ -40,9 +40,9 @@ const InfoBoxExample = () => {
         <Contact name="Bertie Basset" />
       </Listing>
       <Listing>
-        <ListingLink href="#1">Link 1 text</ListingLink>
-        <ListingLink href="#2">Link 2 text</ListingLink>
-        <ListingLink href="#3">Link 3 text</ListingLink>
+        <ListingLink href="#1" title="Link 1 text" />
+        <ListingLink href="#2" title="Link 2 text" />
+        <ListingLink href="#3" title="Link 3 text" />
       </Listing>
     </InfoBox>
   );

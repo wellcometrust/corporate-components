@@ -24,9 +24,7 @@ describe('<ListingLink />', () => {
   const output = shallow(
     <Listing as="ul">
       {links.map(({ href, text }) => (
-        <ListingLink key={`listing-item-${href}`} href={href}>
-          {text}
-        </ListingLink>
+        <ListingLink key={`listing-item-${href}`} href={href} title={text} />
       ))}
     </Listing>
   );
