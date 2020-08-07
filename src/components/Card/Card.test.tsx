@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Card from './Card';
 
 describe('<Card />', () => {
-  const output = shallow(<Card title="My heading" />);
+  const output = shallow(<Card href="/test" title="My heading" />);
 
   it('renders the component', () => {
     expect(output);
