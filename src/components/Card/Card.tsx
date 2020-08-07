@@ -12,7 +12,11 @@ type CardProps = {
   href: string;
   image: {
     alt?: string;
-    sources: any;
+    sources: {
+      thumbnail_lo?: string;
+      thumbnail?: string;
+      thumbnail_hi?: string;
+    };
   },
   meta?: string;
   id?: string;
@@ -37,12 +41,14 @@ export const Card = ({
     [`${className}`]: className
   });
 
-  // const src = image?.sources.gallery_thumbnail_square_mobile;
+  // TODO: handle responsive image sources
+  // const src = image?.sources?.thumbnail_lo;
   const src = 'https://placehold.it/300x171';
 
   // const srcSet = `
-  //     ${image?.sources.gallery_full_mobile} 300w,
-  //     ${image?.sources.gallery_full_mobile_hi} 600w
+  //     ${image?.sources?.thumbnail_lo} 300w,
+  //     ${image?.sources?.thumbnail} 600w,
+  //     ${image?.sources?.thumbnail_hi} 900w
   //   `;
   const srcSet = `
       https://placehold.it/300x171 300w,
@@ -74,9 +80,9 @@ export const Card = ({
           {authors &&
             <dl className="card__authors">
               <dt className="card__authors-label">Author</dt>
-              {authors?.map(author => {
+              {authors?.map(author => 
                 <dd className="card__author">{author}</dd>
-              })}
+              )}
             </dl>
           }
           {date && <time className="card__date">
