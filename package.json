@@ -135,20 +135,20 @@
     "stylelint-config-sass-guidelines": "^6.2.0",
     "typescript": "^3.7.4"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run type-check && lint-staged && jest --onlyChanged"
-    }
-  },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "npm run lint:js",
       "git add"
     ],
-    "**/*.{scss,css}": [
+    "src/**/*.{scss,css}": [
       "npm run lint:style",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run type-check && lint-staged && jest --onlyChanged"
+    }
   },
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci skip]"

@@ -8,9 +8,18 @@ import Readme from './Card.md';
 const CardExample = () => {
   const isVertical = boolean('Toggle horizontal / vertical', true);
   const date = text('date', '24 July 2020');
-  const description = text('description', 'The true impact of the COVID-19 pandemic will be felt beyond its immediate effects. Jeremy Farrar explains why the choices leaders make now will help define the 21st century.');
-  const href = text('href', '/news/our-response-covid-19-will-help-define-21st-century');
-  const title = text('title', 'Our response to COVID-19 will help define the 21st century');
+  const description = text(
+    'description',
+    'The true impact of the COVID-19 pandemic will be felt beyond its immediate effects. Jeremy Farrar explains why the choices leaders make now will help define the 21st century.'
+  );
+  const href = text(
+    'href',
+    '/news/our-response-covid-19-will-help-define-21st-century'
+  );
+  const title = text(
+    'title',
+    'Our response to COVID-19 will help define the 21st century'
+  );
   const image = {
     alt: text('alt', 'Image alt text'),
     sources: {
