@@ -21,6 +21,7 @@ type GalleryMediaProps = {
   fileSize?: number;
   height: number;
   isLead?: boolean;
+  isNewRow?: boolean;
   licence?: string;
   mediaSources: any;
   onClick?: MouseEventHandler;
@@ -56,6 +57,7 @@ export const GalleryMedia = ({
   fileSize,
   height,
   isLead,
+  isNewRow,
   licence,
   mediaSources,
   onClick = () => {},
@@ -88,6 +90,7 @@ export const GalleryMedia = ({
 
   return (
     <>
+      {isNewRow && <div className="break break--sm"> </div>}
       <div className={classNames}>
         <Button
           className="cc-gallery__media-frame"
@@ -103,7 +106,7 @@ export const GalleryMedia = ({
           />
         </Button>
       </div>
-      {isLead && <div className="break" />}
+      {isLead && <div className="break"> </div>}
     </>
   );
 };
@@ -158,12 +161,39 @@ export const Gallery = ({
     return () => {};
   }, []);
 
+  /**
+   * @constant {number}
+   * The number of columns in the layout
+   */
+  const columnTotal = 3;
+
+  /**
+   * @constant {number}
+   * Set the modulus used to define the start of a new row
+   */
+  const newRowModulus = hasLeadItem ? 0 : 1;
+
+  /**
+   * Total number of child items including lead image
+   */
+  const childrenTotal = Children.count(children);
+
+  /**
+   * Set additional props for child components
+   */
   const childrenWithProps = Children.map(children, (child, index) =>
     cloneElement(child, {
       /**
-       * If the gallery is 'lead image' enabled then set the first item accordingly
+       * If the gallery is 'lead image' enabled, then set the first item accordingly
        */
       isLead: hasLeadItem && index === 0,
+
+      /**
+       * Set this boolean to true for 2nd to last item to force a new row
+       * if the very last item is an orphan.
+       */
+      isNewRow:
+        index === childrenTotal - 2 && index % columnTotal === newRowModulus,
 
       /**
        * Pass an additional onClick handler to the child, to allow it to open
