@@ -27,6 +27,7 @@ export const ListingElement = ({
 }: ListingElementProps) => {
   const classNames = cx({
     'cc-card--horizontal': variant === 'horizontal_card',
+    'cc-card--vertical': variant === 'vertical_card',
     [`${className}`]: className
   });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FormattedDate from 'FormattedDate/FormattedDate';
+import FormattedDate from 'FormattedDate';
 
 type ResultItemMetaProps = {
   date?: string;
