@@ -5,8 +5,13 @@ import Card from 'Card';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
 
 type ListingElementProps = {
+  authors?: string[];
   className?: string;
+  date?: string;
+  description?: string;
   href: string;
+  image?: any;
+  meta?: string;
   title: string;
   variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
 };
@@ -20,8 +25,13 @@ const variantElement = {
 };
 
 export const ListingElement = ({
+  authors,
   className,
+  date,
+  description,
   href,
+  image,
+  meta,
   title,
   variant
 }: ListingElementProps) => {
@@ -34,7 +44,18 @@ export const ListingElement = ({
   const Element = variantElement[variant];
 
   // TODO #6711, #6715: pass through additional props for populating text listing items / cards
-  return <Element className={classNames} href={href} title={title} />;
+  return (
+    <Element
+      authors={authors}
+      className={classNames}
+      date={date}
+      description={description}
+      href={href}
+      image={image}
+      meta={meta}
+      title={title}
+    />
+  );
 };
 
 export default ListingElement;

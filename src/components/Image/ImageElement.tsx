@@ -16,8 +16,7 @@ export const ImageElement = ({
   role,
   sizes,
   src,
-  srcSet,
-  ...props
+  srcSet
 }: ImageElementProps) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -27,6 +26,7 @@ export const ImageElement = ({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onError = (e: any) => {
+    // eslint-disable-next-line no-console
     console.error('Image error', e);
   };
 

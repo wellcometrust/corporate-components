@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { shallow } from 'enzyme';
 
 import Listing from 'Listing';
