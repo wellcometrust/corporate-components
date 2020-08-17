@@ -171,7 +171,7 @@ export const Gallery = ({
    * @constant {number}
    * Set the modulus used to define the start of a new row
    */
-  const newRowModulus = hasLeadItem ? 0 : 1;
+  const newRowModulus = hasLeadItem ? 0 : 2;
 
   /**
    * Total number of child items including lead image

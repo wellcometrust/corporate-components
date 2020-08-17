@@ -12,11 +12,12 @@ type CardProps = {
   href: string;
   image?: {
     alt?: string;
-    sources: {
-      thumbnail_lo?: string;
-      thumbnail?: string;
-      thumbnail_hi?: string;
-    };
+    src?: string;
+    // sources?: {
+    //   thumbnail_lo?: string;
+    //   thumbnail?: string;
+    //   thumbnail_hi?: string;
+    // };
   };
   meta?: string;
   id?: string;
@@ -41,21 +42,14 @@ export const Card = ({
     [`${className}`]: className
   });
 
-  // TODO: handle responsive image sources
-  // const src = image?.sources?.thumbnail_lo;
-  const src = 'https://placehold.it/300x171';
+  const src = image?.src;
 
+  // TODO: handle responsive image sources
   // const srcSet = `
   //     ${image?.sources?.thumbnail_lo} 300w,
   //     ${image?.sources?.thumbnail} 600w,
   //     ${image?.sources?.thumbnail_hi} 900w
   //   `;
-  const srcSet = `
-      https://placehold.it/300x171 300w,
-      https://placehold.it/600x342 600w,
-      https://placehold.it/900x513 900w
-      https://placehold.it/1200x684 1200w
-    `;
 
   return (
     <div className={classNames} id={id}>
@@ -64,14 +58,14 @@ export const Card = ({
           <ImageElement
             alt={image?.alt}
             className="cc-card__image"
-            sizes={cardImageSizesDefault}
+            // sizes={srcSet && cardImageSizesDefault}
             src={src}
-            srcSet={srcSet}
+            // srcSet={srcSet}
           />
         </div>
       </div>
       <div className="card__content">
-        <p className="card__type">{meta}</p>
+        {meta && <p className="card__type">{meta}</p>}
         <h3 className="card__title">
           <a href={href} className="card__link" target="_self">
             {title}
@@ -82,7 +76,9 @@ export const Card = ({
             <dl className="card__authors">
               <dt className="card__authors-label">Author</dt>
               {authors?.map(author => (
-                <dd className="card__author">{author}</dd>
+                <dd key={author} className="card__author">
+                  {author}
+                </dd>
               ))}
             </dl>
           )}
@@ -91,7 +87,12 @@ export const Card = ({
               <FormattedDate dateString={date} />
             </time>
           )}
-          {description && <p className="card__description">{description}</p>}
+          {description && (
+            <div
+              className="card__description"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          )}
         </div>
       </div>
     </div>

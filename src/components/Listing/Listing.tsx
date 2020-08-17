@@ -30,13 +30,13 @@ export const Listing = ({
     [`${className}`]: className
   });
 
-  const childrenWithProps = Children.map(children, child =>
-    cloneElement(child, {
-      /**
-       * Pass the variant type to the child elements
-       */
-      variant
-    })
+  const childrenWithProps = Children.map(
+    children,
+    child =>
+      child &&
+      cloneElement(child, {
+        variant
+      })
   );
 
   return <Element className={classNames}>{childrenWithProps}</Element>;
