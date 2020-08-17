@@ -12,11 +12,14 @@ describe('<Card />', () => {
       title="Our response to COVID-19 will help define the 21st century"
       image={{
         alt: 'Image alt text',
-        sources: {
-          thumbnail_lo: 'https://placehold.it/300x171',
-          thumbnail: 'https://placehold.it/600x342',
-          thumbnail_hi: 'https://placehold.it/900x513'
-        }
+        src: 'https://placehold.it/600x342'
+
+        // TODO: handle responsive image sources
+        // sources: {
+        //   thumbnail_lo: 'https://placehold.it/300x171',
+        //   thumbnail: 'https://placehold.it/600x342',
+        //   thumbnail_hi: 'https://placehold.it/900x513'
+        // }
       }}
       meta="Opinion"
     />

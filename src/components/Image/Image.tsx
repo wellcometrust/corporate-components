@@ -34,7 +34,7 @@ export const Image = ({
     licence={licence}
     type="image"
   >
-    <ImageElement alt={alt} sizes={sizes} src={src} srcSet={srcSet} />
+    <ImageElement alt={alt} sizes={srcSet && sizes} src={src} srcSet={srcSet} />
   </Media>
 );
 

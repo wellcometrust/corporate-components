@@ -22,11 +22,14 @@ const CardExample = () => {
   );
   const image = {
     alt: text('alt', 'Image alt text'),
-    sources: {
-      thumbnail_lo: text('thumbnail_lo', 'https://placehold.it/300x171'),
-      thumbnail: text('thumbnail', 'https://placehold.it/600x342'),
-      thumbnail_hi: text('thumbnail_hi', 'https://placehold.it/900x513')
-    }
+    src: text('src', 'https://placehold.it/600x342')
+
+    // TODO: handle responsive image sources
+    // sources: {
+    //   thumbnail_lo: text('thumbnail_lo', 'https://placehold.it/300x171'),
+    //   thumbnail: text('thumbnail', 'https://placehold.it/600x342'),
+    //   thumbnail_hi: text('thumbnail_hi', 'https://placehold.it/900x513')
+    // }
   };
   const meta = text('meta', 'Opinion');
 
