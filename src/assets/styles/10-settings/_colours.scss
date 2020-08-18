@@ -37,8 +37,9 @@
 
   --link-colour: var(--colour-blue-60);
   --link-colour-hover: var(--colour-blue-70);
+  --link-colour-focus-outline: var(--colour-blue-40);
   --link-colour-active: var(--colour-blue-50);
-  --link-colour-disabled: var(--colour-grey-30);
+  --link-colour-disabled: var(--colour-grey-50);
 
   --text-colour: var(--colour-grey-60);
 
@@ -50,3 +51,5 @@
   --X-colour-error-pink: #ffebeb;
   --X-colour-dark-blue: #003667;
 }
+
+$colour-grey-60: #767676;
