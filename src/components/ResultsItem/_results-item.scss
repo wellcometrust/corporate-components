@@ -12,18 +12,10 @@
 }
 
 .result-item__link {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: var(--link-colour-hover);
-    text-decoration: underline;
-  }
+  @extend %list-item-link;
 }
 
-.result-item__text {
+.result-item__description {
   margin-bottom: 0;
   margin-top: 0;
 }

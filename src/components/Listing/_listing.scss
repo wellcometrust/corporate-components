@@ -9,7 +9,6 @@
 .cc-card-listing,
 .cc-listing {
   @include grid-column(1, 7);
-  width: 100%;
   
   @include mq(sm) {
     @include grid-column(2, 12);
@@ -20,28 +19,14 @@
   }
 }
 
-.cc-card-listing--horizontal {
-  @include mq(md) {
-    @include grid-column(1, 13);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    > * {
-      flex-grow: 0;
-      flex-shrink: 0;
-      width: 33.33%;
-    }
-  }
-}
-
 .cc-listing {
   @extend %list-clean;
-  border-top: 1px solid var(--colour-grey-10);
+  border-bottom: 1px solid var(--colour-grey-10);
+  width: 100%;
 }
   
 .cc-listing__item {
-  border-bottom: 1px solid var(--colour-grey-10);
+  border-top: 1px solid var(--colour-grey-10);
   display: block;
 }
 
@@ -68,4 +53,20 @@
   top: 50%;
   transform: translateY(-50%);
   width: 0.375em;
+}
+
+// Arrange horizontal cards in a row above `md` breakpoint
+.cc-card-listing--horizontal {
+  @include mq(md) {
+    @include grid-column(1, 13);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: -$grid-gutter-md / 2;
+  }
+  
+  // increase grid spacing
+  @include mq(xl) {
+    margin: -$grid-gutter-xl / 2;
+  }
 }
