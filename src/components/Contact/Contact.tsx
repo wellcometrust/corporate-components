@@ -9,7 +9,6 @@ type ContactProps = {
   name: string;
   tel?: string;
   title?: string;
-  url?: string;
 };
 
 export const Contact = ({
@@ -26,7 +25,10 @@ export const Contact = ({
   return (
     <div className={classNames}>
       <h3 className="cc-contact__name">{name}</h3>
-      <strong className="cc-contact__title">{title}</strong>
+      <strong
+        className="cc-contact__title"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
       {email && (
         <p className="cc-contact__item">
           <Icon name="email" className="cc-contact__link-icon" />

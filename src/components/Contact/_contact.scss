@@ -7,25 +7,30 @@
 // ----------------------------------
 
 .cc-contact {
-  line-height: 1.5;
-  padding-bottom: var(--space-sm);
-}
-
-.cc-link-list__item {
   border-bottom: 1px solid var(--colour-grey-10);
+  border-top: 1px solid var(--colour-grey-10);
+  line-height: var(--body-line-height-sm);
+  margin-bottom: -1px;
+  margin-top: -1px;
+  padding-bottom: var(--space-sm);
 }
 
 .cc-contact__name {
   font-size: var(--body-lg);
   font-weight: bold;
-  margin-bottom: var(--space-sm);
-  margin-top: var(--space-sm);
+  margin: var(--space-sm) 0;
 }
 
 .cc-contact__title {
   display: block;
   font-weight: normal;
   margin-bottom: var(--space-sm);
+
+  // rich text fix
+  // TODO: remove this after data has been changed to plain text
+  p {
+    margin: 0;
+  }
 }
 
 .cc-contact__item {
@@ -41,5 +46,10 @@
 }
 
 .cc-contact__link-icon {
+  border: 1px solid var(--colour-grey-80);
+  border-radius: 50%;
+  color: var(--colour-grey-80);
+  height: 1.5rem;
   margin-right: calc(2 * var(--space-unit));
+  width: 1.5rem;
 }
