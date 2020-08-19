@@ -15,7 +15,7 @@ type ListingProps = {
 const variantMapping = {
   horizontal_card: 'cc-card-listing cc-card-listing--horizontal',
   link_list: 'cc-listing',
-  text_list: 'cc-text-listing',
+  text_list: 'cc-listing',
   vertical_card: 'cc-card-listing'
 };
 

@@ -3,25 +3,20 @@ import cx from 'classnames';
 
 import FormattedDate from 'FormattedDate';
 import ImageElement from 'Image/ImageElement';
+import { CardBaseProps } from 'ResultsItem/ResultsItem';
 
-type CardProps = {
-  authors?: string[];
-  className?: string;
-  date?: string;
-  description?: string;
-  href: string;
-  image?: {
-    alt?: string;
-    src?: string;
-    // sources?: {
-    //   thumbnail_lo?: string;
-    //   thumbnail?: string;
-    //   thumbnail_hi?: string;
-    // };
-  };
-  meta?: string;
-  id?: string;
-  title: string;
+export type CardImageProps = {
+  alt?: string;
+  src?: string;
+  // sources?: {
+  //   thumbnail_lo?: string;
+  //   thumbnail?: string;
+  //   thumbnail_hi?: string;
+  // };
+};
+
+export type CardProps = CardBaseProps & {
+  image?: CardImageProps;
 };
 
 const cardImageSizesDefault =
@@ -30,12 +25,11 @@ const cardImageSizesDefault =
 export const Card = ({
   authors,
   className,
-  date,
   description,
   href,
+  id,
   image,
   meta,
-  id,
   title
 }: CardProps) => {
   const classNames = cx('cc-card', {
@@ -52,9 +46,9 @@ export const Card = ({
   //   `;
 
   return (
-    <div className={classNames} id={id}>
-      <div className="card__image">
-        <div className="promo__image-ratio">
+    <article className={classNames} id={id}>
+      <div className="cc-card__image-wrap">
+        <div className="cc-card__image-ratio">
           <ImageElement
             alt={image?.alt}
             className="cc-card__image"
@@ -64,38 +58,45 @@ export const Card = ({
           />
         </div>
       </div>
-      <div className="card__content">
-        {meta && <p className="card__type">{meta}</p>}
-        <h3 className="card__title">
-          <a href={href} className="card__link" target="_self">
+      <div className="cc-card__content">
+        {/* TODO #7139: conditionally add following props for non-standard page types
+          // meta={...}
+        */}
+        {meta?.type && <p className="cc-card__type">{meta?.type}</p>}
+        <h3 className="cc-card__title">
+          <a href={href} className="cc-card__link" target="_self">
             {title}
           </a>
         </h3>
-        <div className="card__meta">
+        {/* TODO #7139: conditionally add following props for non-standard page types
+          // authors={...}
+          // meta={...}
+        */}
+        <div className="cc-card__meta">
           {authors && (
-            <dl className="card__authors">
-              <dt className="card__authors-label">Author</dt>
+            <dl className="cc-card__authors">
+              <dt className="cc-card__authors-label">Author</dt>
               {authors?.map(author => (
-                <dd key={author} className="card__author">
+                <dd key={author} className="cc-card__author">
                   {author}
                 </dd>
               ))}
             </dl>
           )}
-          {date && (
-            <time className="card__date">
-              <FormattedDate dateString={date} />
+          {meta?.date && (
+            <time className="cc-card__date">
+              <FormattedDate dateString={meta?.date} />
             </time>
           )}
-          {description && (
-            <div
-              className="card__description"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
-          )}
         </div>
+        {description && (
+          <div
+            className="cc-card__description"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        )}
       </div>
-    </div>
+    </article>
   );
 };
 
