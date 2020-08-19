@@ -47,11 +47,11 @@ export const Card = ({
 
   return (
     <article className={classNames} id={id}>
-      <div className="cc-card__image">
-        <div className="promo__image-ratio">
+      <div className="cc-card__image-wrap">
+        <div className="cc-card__image-ratio">
           <ImageElement
             alt={image?.alt}
-            // className="cc-card__image"
+            className="cc-card__image"
             // sizes={srcSet && cardImageSizesDefault}
             src={src}
             // srcSet={srcSet}

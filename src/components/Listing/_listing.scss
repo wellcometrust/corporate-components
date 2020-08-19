@@ -55,7 +55,7 @@
   width: 0.375em;
 }
 
-
+// Arrange horizontal cards in a row above `md` breakpoint
 .cc-card-listing--horizontal {
   @include mq(md) {
     @include grid-column(1, 13);
@@ -64,23 +64,9 @@
     flex-wrap: wrap;
     margin: -$grid-gutter-md / 2;
   }
-
+  
   // increase grid spacing
   @include mq(xl) {
     margin: -$grid-gutter-xl / 2;
-  }
-}
-
-.cc-card--horizontal {
-  @include mq(md) {
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: $grid-gutter-md / 2;
-    width: calc(33.33% - #{$grid-gutter-md});
-  }
-
-  @include mq(xl) {
-    margin: $grid-gutter-xl / 2;
-    width: calc(33.33% - #{$grid-gutter-xl});
   }
 }
