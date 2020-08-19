@@ -32,12 +32,17 @@
 .btn--primary {
   background-color: var(--colour-blue-60);
   color: var(--colour-white);
-
+  
   &:hover {
     background-color: var(--colour-blue-70);
     color: var(--colour-white);
   }
 
+  &:focus {
+    background-color: var(--colour-blue-60);
+    color: var(--colour-white);
+  }
+  
   &:active {
     background-color: var(--colour-blue-50);
     color: var(--colour-white);
