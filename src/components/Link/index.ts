@@ -1,1 +1,1 @@
-export { default } from './Link';
+export { default, ExternalLinkMarker } from './Link';
