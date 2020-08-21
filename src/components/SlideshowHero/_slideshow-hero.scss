@@ -81,7 +81,7 @@
 
 .slideshow-hero__title {
   @extend %heading-base;
-  @extend %heading-super;
+  @extend %heading-hero;
   margin-bottom: var(--space-lg);
   // D7 override
   padding: 0;
