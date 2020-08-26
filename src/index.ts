@@ -24,6 +24,7 @@ export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
 export { NewsletterSignup } from 'NewsletterSignup/NewsletterSignup';
 export { NewsletterForm } from 'NewsletterForm/NewsletterForm';
+export { Quote } from 'Quote/Quote';
 export { PageHeader } from 'PageHeader/PageHeader';
 export { ResultsItem } from 'ResultsItem/ResultsItem';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';

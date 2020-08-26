@@ -18,7 +18,7 @@
   align-items: center;
   display: flex;
   font-weight: bold;
-  line-height: 1.5;
+  line-height: var(--body-line-height-sm);
   margin-bottom: var(--space-unit);
   margin-top: 0;
 }

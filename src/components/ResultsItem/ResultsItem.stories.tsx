@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import ResultsItem from './ResultsItem';
 
@@ -26,6 +26,7 @@ const ResultItemExample = () => {
   };
 
   // Meta props
+  const showDates = boolean('Show dates', true, metaGroupID);
   const meta = {
     type: text('type', 'Funding scheme', metaGroupID),
     date: text('date', '8 July 2016', metaGroupID),
@@ -34,10 +35,11 @@ const ResultItemExample = () => {
 
   return (
     <ResultsItem
+      description={content}
       href={href}
       fileMeta={fileMeta}
+      itemType={showDates ? 'article' : null}
       meta={meta}
-      text={content}
       title={title}
       type={type}
     />

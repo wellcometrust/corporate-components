@@ -49,7 +49,7 @@
 
 .cc-text-snippet {
   @extend %body-large;
-  line-height: var(--body-regular-line-height);
+  line-height: var(--body-line-height-sm);
 
   p {
     @extend %body-regular;

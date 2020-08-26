@@ -6,6 +6,11 @@
   font-size: var(--text-base-size);
   transition: ease 0.4s;
   transition-property: background, border, color;
+
+  &:focus {
+    outline-color: var(--link-colour-focus-outline);
+    outline-offset: calc(0.75 * var(--space-unit));
+  }
 }
 
 .btn[disabled] {
@@ -27,12 +32,17 @@
 .btn--primary {
   background-color: var(--colour-blue-60);
   color: var(--colour-white);
-
-  @include hocus {
+  
+  &:hover {
     background-color: var(--colour-blue-70);
     color: var(--colour-white);
   }
 
+  &:focus {
+    background-color: var(--colour-blue-60);
+    color: var(--colour-white);
+  }
+  
   &:active {
     background-color: var(--colour-blue-50);
     color: var(--colour-white);
@@ -48,7 +58,7 @@
 .btn--link {
   color: var(--colour-blue-60);
 
-  @include hocus {
+  &:hover {
     color: var(--colour-blue-70);
   }
 
@@ -61,7 +71,7 @@
 .btn--ghost {
   border: 1px solid var(--colour-blue-50);
 
-  @include hocus {
+  &:hover {
     border-color: var(--colour-blue-60);
   }
 

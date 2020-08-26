@@ -34,9 +34,9 @@
   --heading-xs: calc(14/16 * var(--text-base-size));  // Small
 
   // line height
-  --body-large-line-height: 1.7;
-  --body-regular-line-height: 1.5;
-  --heading-line-height: 1.5;
+  --body-line-height-md: 1.7;
+  --body-line-height-sm: 1.5;
+  --heading-line-height: var(--body-line-height-sm);
 
   // letter spacing
   --body-letter-spacing: 0.03125rem;
