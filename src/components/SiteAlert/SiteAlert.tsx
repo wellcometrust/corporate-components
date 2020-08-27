@@ -4,14 +4,14 @@ import cx from 'classnames';
 import Icon from 'Icon/Icon';
 
 type SiteAlertProps = {
-  handleClose?: () => void;
+  handleDismiss?: () => void;
   isActive: boolean;
   text: string;
   url?: string;
 };
 
 export const SiteAlert = ({
-  handleClose,
+  handleDismiss,
   isActive,
   text,
   url
@@ -39,7 +39,7 @@ export const SiteAlert = ({
         )}
         <button
           className="site-alert__btn-close"
-          onClick={handleClose}
+          onClick={handleDismiss}
           type="button"
           tabIndex={tabIndex}
         >
