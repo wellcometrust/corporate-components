@@ -1,6 +1,5 @@
 :root {
   --site-alert-height: calc(7.5 * var(--space-unit));
-  --site-alert-colour-text: #292929;
   --site-alert-colour-yellow: #ffce3c;
 
   @include mq(xs) {
@@ -45,7 +44,7 @@
 
 .site-alert__link {
   align-items: center;
-  color: var(--site-alert-colour-text);
+  color: var(--colour-grey-80);
   display: flex;
   font-family: var(--font-secondary);
   max-width: 66%;
@@ -64,7 +63,7 @@
 .site-alert__link.site-alert__link:active,
 .site-alert__link.site-alert__link:focus,
 .site-alert__link.site-alert__link:hover {
-  color: var(--site-alert-colour-text);
+  color: var(--colour-grey-80);
   text-decoration: none;
 }
 
@@ -77,7 +76,7 @@
   appearance: none;
   background: transparent;
   border: 0;
-  color: var(--site-alert-colour-text);
+  color: var(--colour-grey-80);
   cursor: pointer;
   display: flex;
   font-size: var(--body-md);
