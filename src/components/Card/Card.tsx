@@ -17,6 +17,7 @@ export type CardImageProps = {
 
 export type CardProps = CardBaseProps & {
   image?: CardImageProps;
+  variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
 };
 
 const cardImageSizesDefault =
@@ -30,11 +31,15 @@ export const Card = ({
   id,
   image,
   meta,
-  title
+  title,
+  variant
 }: CardProps) => {
   const classNames = cx('cc-card', {
     [`${className}`]: className
   });
+
+  const isHorizontal = variant === 'horizontal_card';
+  const isVertical = variant === 'vertical_card';
 
   const src = image?.src;
 
@@ -62,7 +67,9 @@ export const Card = ({
         {/* TODO #7139: conditionally add following props for non-standard page types
           // meta={...}
         */}
-        {meta?.type && <p className="cc-card__type">{meta?.type}</p>}
+        {isHorizontal && meta?.type && (
+          <p className="cc-card__type">{meta?.type}</p>
+        )}
         <h3 className="cc-card__title">
           <a href={href} className="cc-card__link" target="_self">
             {title}
@@ -72,24 +79,28 @@ export const Card = ({
           // authors={...}
           // meta={...}
         */}
-        <div className="cc-card__meta">
-          {authors && (
-            <dl className="cc-card__authors">
-              <dt className="cc-card__authors-label">Author</dt>
-              {authors?.map(author => (
-                <dd key={author} className="cc-card__author">
-                  {author}
-                </dd>
-              ))}
-            </dl>
-          )}
-          {meta?.date && (
-            <time className="cc-card__date">
-              <FormattedDate dateString={meta?.date} />
-            </time>
-          )}
-        </div>
-        {description && (
+        {isHorizontal && (authors || meta?.date) && (
+          <div className="cc-card__meta">
+            {isHorizontal && authors ? (
+              <dl className="cc-card__authors">
+                <dt className="cc-card__authors-label">Author</dt>
+                {authors?.map(author => (
+                  <dd key={author} className="cc-card__author">
+                    {author}
+                  </dd>
+                ))}
+              </dl>
+            ) : (
+              <span />
+            )}
+            {isHorizontal && meta?.date && (
+              <time className="cc-card__date">
+                <FormattedDate dateString={meta?.date} />
+              </time>
+            )}
+          </div>
+        )}
+        {isVertical && description && (
           <div
             className="cc-card__description"
             dangerouslySetInnerHTML={{ __html: description }}

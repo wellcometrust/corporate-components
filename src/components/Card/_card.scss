@@ -172,3 +172,7 @@
   margin-left: calc(2 * var(--space-unit));
   text-align: right;
 }
+
+.cc-card__description p {
+  margin: 0;
+}
