@@ -81,7 +81,7 @@ export const Card = ({
         */}
         {isHorizontal && (authors || meta?.date) && (
           <div className="cc-card__meta">
-            {isHorizontal && authors ? (
+            {isHorizontal && authors && (
               <dl className="cc-card__authors">
                 <dt className="cc-card__authors-label">Author</dt>
                 {authors?.map(author => (
@@ -90,8 +90,6 @@ export const Card = ({
                   </dd>
                 ))}
               </dl>
-            ) : (
-              <span />
             )}
             {isHorizontal && meta?.date && (
               <time className="cc-card__date">

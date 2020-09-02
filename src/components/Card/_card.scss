@@ -169,7 +169,8 @@
 }
 
 .cc-card__date {
-  margin-left: calc(2 * var(--space-unit));
+  margin-left: auto;
+  padding-left: calc(2 * var(--space-unit));
   text-align: right;
 }
 
