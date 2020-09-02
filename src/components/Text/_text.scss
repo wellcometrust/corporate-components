@@ -9,7 +9,7 @@
 .cc-text {
   h3 {
     @extend %heading-base;
-    @extend %heading-display;
+    @extend %heading-large;
     @include heading-divider;
     letter-spacing: 0;
     text-align: center;
@@ -17,22 +17,17 @@
   
   h4 {
     @extend %heading-base;
-    @extend %heading-large;
-    letter-spacing: 0;
-  }
-  
-  h5 {
-    @extend %heading-base;
     @extend %heading-regular;
     letter-spacing: 0;
   }
   
+  h5,
   h6 {
     @extend %heading-base;
     @extend %heading-small;
     letter-spacing: 0;
   }
-
+  
   p {
     @extend %body-large;
   }

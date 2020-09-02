@@ -4,12 +4,12 @@ import cx from 'classnames';
 import Icon from 'Icon/Icon';
 
 type WellcomeCollectionBannerProps = {
-  handleItemClick?: () => void;
+  handleDismiss?: () => void;
   isActive: boolean;
 };
 
 export const WellcomeCollectionBanner = ({
-  handleItemClick,
+  handleDismiss,
   isActive
 }: WellcomeCollectionBannerProps) => {
   const bannerClassName = cx('wc-banner', {
@@ -32,7 +32,7 @@ export const WellcomeCollectionBanner = ({
 
         <button
           className="wc-banner__btn-close"
-          onClick={handleItemClick}
+          onClick={handleDismiss}
           type="button"
           tabIndex={bannerTabIndex}
         >

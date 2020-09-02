@@ -22,7 +22,7 @@
 
 .cc-page-header__title {
   @extend %heading-base;
-  @extend %heading-super;
+  @extend %heading-hero;
   @include heading-divider;
   font-family: var(--font-secondary);
   text-align: center;

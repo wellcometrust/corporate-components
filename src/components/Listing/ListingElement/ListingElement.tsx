@@ -54,6 +54,7 @@ export const ListingElement = ({
       meta={meta}
       title={title}
       type={type}
+      variant={variant}
     />
   );
 };

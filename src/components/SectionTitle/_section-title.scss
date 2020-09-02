@@ -8,7 +8,7 @@
 
 .cc-section__title {
   @extend %heading-base;
-  @extend %heading-hero;
+  @extend %heading-display;
   @include heading-divider;
   position: relative;
   text-align: center;
