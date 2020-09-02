@@ -64,9 +64,6 @@ export const Card = ({
         </div>
       </div>
       <div className="cc-card__content">
-        {/* TODO #7139: conditionally add following props for non-standard page types
-          // meta={...}
-        */}
         {isHorizontal && meta?.type && (
           <p className="cc-card__type">{meta?.type}</p>
         )}
@@ -75,10 +72,6 @@ export const Card = ({
             {title}
           </a>
         </h3>
-        {/* TODO #7139: conditionally add following props for non-standard page types
-          // authors={...}
-          // meta={...}
-        */}
         {isHorizontal && (authors || meta?.date) && (
           <div className="cc-card__meta">
             {isHorizontal && authors && (
