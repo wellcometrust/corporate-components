@@ -25,6 +25,7 @@ describe('<Card />', () => {
       }}
       meta={meta}
       title="Our response to COVID-19 will help define the 21st century"
+      variant="horizontal_card"
     />
   );
 

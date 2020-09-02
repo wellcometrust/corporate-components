@@ -97,7 +97,12 @@ export const ResultsItem = ({
           </span>
         </div>
       )}
-      {description && <p className="result-item__description">{description}</p>}
+      {description && (
+        <div
+          className="result-item__description"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+      )}
       {authors && (
         <dl className="card__authors">
           <dt className="card__authors-label">Author</dt>

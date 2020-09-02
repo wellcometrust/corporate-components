@@ -59,6 +59,7 @@ const CardExample = () => {
       image={image}
       meta={meta}
       title={title}
+      variant="horizontal_card"
     />
   );
 };
