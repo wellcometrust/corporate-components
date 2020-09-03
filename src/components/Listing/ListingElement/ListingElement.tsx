@@ -26,7 +26,6 @@ export const ListingElement = ({
   fileMeta,
   id,
   image,
-  itemType,
   meta,
   title,
   type,
@@ -50,7 +49,6 @@ export const ListingElement = ({
       href={href}
       id={id}
       image={image}
-      itemType={itemType}
       meta={meta}
       title={title}
       type={type}

@@ -26,7 +26,6 @@ export type CardBaseProps = {
 
 export type ResultItemProps = CardBaseProps & {
   fileMeta?: FileMetaProps;
-  itemType?: string;
   type?: 'content' | 'file' | 'taxonomy_term';
 };
 
@@ -37,7 +36,6 @@ export const ResultsItem = ({
   fileMeta,
   href,
   id,
-  itemType,
   meta,
   title,
   type
@@ -50,8 +48,10 @@ export const ResultsItem = ({
     <article className={classNames} id={id}>
       {meta && (meta.type || meta.date) && (
         <div className="result-item__meta">
-          {/* remove this for now as types are not correctly displayed in search result
-          need to look back at some point later. 
+          {/* `meta.type` temporarily removed as types for search results are not correctly displayed
+          Type label and date logic for cards has been moved to the app side
+          therefore `itemType` prop has been permanently removed
+          TODO: To be revisited for both search results AND text listings
           https://github.com/wellcometrust/corporate/issues/6730 */}
           {/* {meta.type && !['taxonomy_term'].includes(itemType) && (
             <span className="result-item__meta-type">
@@ -59,20 +59,17 @@ export const ResultsItem = ({
               &nbsp;
             </span>
           )} */}
-          {/* TODO: move itemType logic on to the app side */}
-          {meta.date &&
-            ['article', 'press_release', 'report'].includes(itemType) && (
-              <span className="result-item__meta-date">
-                <FormattedDate dateString={meta.date} />
-                &nbsp;
-              </span>
-            )}
-          {meta.lastUpdated &&
-            ['article', 'press_release', 'report'].includes(itemType) && (
-              <span className="result-item__meta-last-updated">
-                Updated <FormattedDate dateString={meta.lastUpdated} />
-              </span>
-            )}
+          {meta.date && (
+            <span className="result-item__meta-date">
+              <FormattedDate dateString={meta.date} />
+              &nbsp;
+            </span>
+          )}
+          {meta.lastUpdated && (
+            <span className="result-item__meta-last-updated">
+              Updated <FormattedDate dateString={meta.lastUpdated} />
+            </span>
+          )}
         </div>
       )}
       <h3 className="result-item__title">

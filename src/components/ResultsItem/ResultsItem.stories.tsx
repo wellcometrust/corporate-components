@@ -26,7 +26,6 @@ const ResultItemExample = () => {
   };
 
   // Meta props
-  const showDates = boolean('Show dates', true, metaGroupID);
   const meta = {
     type: text('type', 'Funding scheme', metaGroupID),
     date: text('date', '8 July 2016', metaGroupID),
@@ -38,7 +37,6 @@ const ResultItemExample = () => {
       description={content}
       href={href}
       fileMeta={fileMeta}
-      itemType={showDates ? 'article' : null}
       meta={meta}
       title={title}
       type={type}
