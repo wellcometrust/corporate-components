@@ -1,0 +1,34 @@
+// ----------------------------------
+// UI Components
+// Tableau
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-tableau {
+  margin-bottom: calc(6 * var(--space-unit));
+
+
+  .tableauPlaceholder {
+    height: 627px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .tableauViz {
+    display: none;
+    height: 627px;
+    width: 100%;
+  }
+}
+
+.cc-tableau__chart {
+  @extend %visually-hidden;
+}
+
+.cc-tableau__enhanced {
+  margin-top: calc(4 * var(--space-unit));
+  padding-bottom: calc(2 * var(--space-unit));
+}
+

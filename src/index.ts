@@ -35,6 +35,7 @@ export { SectionTitle } from 'SectionTitle/SectionTitle';
 export { default as SiteAlert } from 'SiteAlert';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
 export { SocialShare } from 'SocialShare/SocialShare';
+export { TableauChart } from 'TableauChart/TableauChart';
 export { Text } from 'Text/Text';
 export { Video } from 'Video/Video';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
