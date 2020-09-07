@@ -5,9 +5,7 @@ import TableauChart from './TableauChart';
 import Readme from './TableauChart.md';
 
 const TableauChartExample = () => {
-  return (
-    <TableauChart embed="" />
-  );
+  return <TableauChart embed="" />;
 };
 
 const stories = storiesOf('Components|TableauChart', module);

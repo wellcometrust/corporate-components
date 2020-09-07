@@ -9,26 +9,41 @@
 .cc-tableau {
   margin-bottom: calc(6 * var(--space-unit));
 
-
+  /* stylelint-disable selector-class-pattern */
   .tableauPlaceholder {
-    height: 627px;
+    min-height: 627px;
     position: relative;
     width: 100%;
   }
   
   .tableauViz {
     display: none;
-    height: 627px;
+    min-height: 627px;
     width: 100%;
   }
+  /* stylelint-enable selector-class-pattern */
 }
 
-.cc-tableau__chart {
-  @extend %visually-hidden;
-}
+// TODO https://github.com/wellcometrust/corporate/issues/7234
+// awaiting data for toggling extra wide
+// .cc-tableau__chart {
+//   @include grid-column(1, 7);
+  
+//   @include mq(sm) {
+//     @include grid-column(1, 13);
+//   }
+  
+//   @include mq(md) {
+//     @include grid-column(4, 10);
+//   }
+// }
 
-.cc-tableau__enhanced {
-  margin-top: calc(4 * var(--space-unit));
-  padding-bottom: calc(2 * var(--space-unit));
-}
+// .cc-tableau__chart--wide {
+//   @include mq(md) {
+//     @include grid-column(4, 13);
+//   }
+// }
 
+.cc-tableau__download-file {
+  margin-top: var(--space-md);
+}

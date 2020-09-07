@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 
+import FileDownload from 'FileDownload';
+
 type TableauChartProps = {
   className?: string;
-  downloadLink?: string;
+  downloadFile?: string;
+  downloadName?: string;
+  downloadSize?: string;
+  downloadType?: string;
   embed: string;
 };
 
 const TABLEAU_SCRIPT_ID = 'script-tableau';
-const TABLEAU_SCRIPT_SRC = 'https://tableau.portal.wellcome.ac.uk/javascripts/api/viz_v1.js';
+const TABLEAU_SCRIPT_SRC =
+  'https://tableau.portal.wellcome.ac.uk/javascripts/api/viz_v1.js';
 
 export const TableauChart = ({
   className,
-  downloadLink,
+  downloadFile,
+  downloadName,
+  downloadSize,
+  downloadType,
   embed
 }: TableauChartProps) => {
   const [isClient, setClient] = useState(false);
@@ -36,25 +45,30 @@ export const TableauChart = ({
     script.async = true;
     document.body.appendChild(script);
 
+    // eslint-disable-next-line consistent-return
     return () => {
       document.body.removeChild(script);
-    }
+    };
   }, []);
 
   return (
     <div className={classNames}>
-      {isClient ?
-        <div className="cc-tableau__enhanced" dangerouslySetInnerHTML={{ __html: embed }} />
-        : placeholder
-      }
-      {downloadLink &&
-        <a
-          download
-          href={downloadLink}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Download the data</a>}
+      {isClient && (
+        <div
+          className="cc-tableau__chart"
+          dangerouslySetInnerHTML={{ __html: embed }}
+        />
+      )}
+      {downloadFile && (
+        <FileDownload
+          className="cc-tableau__download-file"
+          href={downloadFile}
+          label="Download the data"
+          name={downloadName}
+          size={downloadSize}
+          type={downloadType}
+        />
+      )}
     </div>
   );
 };

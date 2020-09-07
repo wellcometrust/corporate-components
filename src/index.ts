@@ -7,6 +7,7 @@ export { Button } from 'Button/Button';
 export { Contact } from 'Contact/Contact';
 export { CookieMessage } from 'CookieMessage/CookieMessage';
 export { Footer } from 'Footer/Footer';
+export { FileDownload } from 'FileDownload/FileDownload';
 export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { Gallery, GalleryMedia } from 'Gallery/Gallery';
 export { Grid, GridCell } from 'Grid/Grid';
