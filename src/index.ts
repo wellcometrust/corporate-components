@@ -26,6 +26,7 @@ export { NewsletterSignup } from 'NewsletterSignup/NewsletterSignup';
 export { NewsletterForm } from 'NewsletterForm/NewsletterForm';
 export { Quote } from 'Quote/Quote';
 export { PageHeader } from 'PageHeader/PageHeader';
+export { default as RadioInput } from 'RadioInput';
 export { ResultsItem } from 'ResultsItem/ResultsItem';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { SearchForm } from 'SearchForm/SearchForm';
