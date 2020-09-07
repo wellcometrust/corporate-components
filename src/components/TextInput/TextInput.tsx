@@ -5,7 +5,7 @@ type TextInputProps = {
   className?: string;
   name: string;
   id: string;
-  required: boolean;
+  required?: boolean;
 };
 
 export const TextInput = forwardRef(
