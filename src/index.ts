@@ -32,6 +32,7 @@ export { SearchForm } from 'SearchForm/SearchForm';
 export { SearchPane } from 'SearchPane/SearchPane';
 export { Section } from 'Section/Section';
 export { SectionTitle } from 'SectionTitle/SectionTitle';
+export { default as TextInput } from 'TextInput';
 export { default as SiteAlert } from 'SiteAlert';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
 export { SocialShare } from 'SocialShare/SocialShare';
