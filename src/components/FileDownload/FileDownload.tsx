@@ -19,7 +19,7 @@ export const FileDownload = ({
   type
 }: FileDownloadProps) => {
   const classNames = cx('cc-file-download', {
-    [`${className}`]: className
+    [className]: className
   });
 
   return (

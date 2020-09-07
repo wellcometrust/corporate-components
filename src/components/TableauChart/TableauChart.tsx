@@ -27,9 +27,8 @@ export const TableauChart = ({
   const [isClient, setClient] = useState(false);
 
   const classNames = cx('cc-tableau', {
-    [`${className}`]: className
+    [className]: className
   });
-  const placeholder = <p>Tableau Chart will render here</p>;
 
   useEffect(() => {
     setClient(true);
