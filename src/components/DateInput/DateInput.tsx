@@ -3,10 +3,10 @@ import cx from 'classnames';
 
 type DateInputProps = {
   className?: string;
-  name: string;
   id: string;
   isInvalid?: boolean;
   isRequired?: boolean;
+  name: string;
 };
 
 export const DateInput = forwardRef(
