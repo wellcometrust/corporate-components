@@ -5,15 +5,17 @@ type TextInputProps = {
   className?: string;
   name: string;
   id: string;
-  required?: boolean;
+  isInvalid?: boolean;
+  isRequired?: boolean;
 };
 
 export const TextInput = forwardRef(
   (
-    { className, id, name, required }: TextInputProps,
+    { className, id, isInvalid, isRequired, name }: TextInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
     const classNames = cx('cc-text-input', {
+      'cc-text-input--is-invalid': isInvalid,
       [className]: className
     });
 
@@ -23,7 +25,7 @@ export const TextInput = forwardRef(
         id={id}
         name={name}
         ref={ref}
-        required={required}
+        required={isRequired}
         type="text"
       />
     );
