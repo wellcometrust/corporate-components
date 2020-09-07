@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
+import FileDownload from 'FileDownload';
 import FormattedDate from 'FormattedDate';
 
 type ResultItemMetaProps = {
@@ -82,17 +83,13 @@ export const ResultsItem = ({
         )}
       </h3>
       {type === 'file' && (
-        <div className="result-item__file-meta">
-          <a href={href} className="result-item__file-meta-download">
-            Download<span className="u-visually-hidden">&nbsp;{title}</span>
-          </a>
-          <span className="result-item__file-meta-size">
-            &nbsp;
-            {fileMeta.type}
-            &nbsp;
-            {fileMeta.size}
-          </span>
-        </div>
+        <FileDownload
+          className="result-item__file-meta"
+          href={href}
+          name={title}
+          size={fileMeta.size}
+          type={fileMeta.type}
+        />
       )}
       {description && (
         <div
