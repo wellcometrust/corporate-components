@@ -6,6 +6,7 @@ export { Accordion, AccordionItem } from 'Accordion/Accordion';
 export { Button } from 'Button/Button';
 export { Contact } from 'Contact/Contact';
 export { CookieMessage } from 'CookieMessage/CookieMessage';
+export { default as DateInput } from 'DateInput';
 export { Footer } from 'Footer/Footer';
 export { FileDownload } from 'FileDownload/FileDownload';
 export { FormattedDate } from 'FormattedDate/FormattedDate';
