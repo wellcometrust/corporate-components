@@ -18,7 +18,7 @@
     @include grid-column(4, 10);
   }
   
-  > :last-child {
+  > :not(.cc-card-listing--horizontal):last-child {
     margin-bottom: 0;
   }
 }

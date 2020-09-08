@@ -4,12 +4,12 @@ import Button from 'Button';
 import Icon from 'Icon';
 
 type CookieMessageProps = {
-  handleItemClick?: () => void;
+  handleDismiss?: () => void;
   isActive: boolean;
 };
 
 export const CookieMessage = ({
-  handleItemClick,
+  handleDismiss,
   isActive
 }: CookieMessageProps) => {
   return isActive ? (
@@ -43,7 +43,7 @@ export const CookieMessage = ({
         <Button
           className="cookie-message__button"
           href="#main"
-          onClick={handleItemClick}
+          onClick={handleDismiss}
         >
           Accept and close
         </Button>

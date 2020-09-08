@@ -3,25 +3,21 @@ import cx from 'classnames';
 
 import FormattedDate from 'FormattedDate';
 import ImageElement from 'Image/ImageElement';
+import { CardBaseProps } from 'ResultsItem/ResultsItem';
 
-type CardProps = {
-  authors?: string[];
-  className?: string;
-  date?: string;
-  description?: string;
-  href: string;
-  image?: {
-    alt?: string;
-    src?: string;
-    // sources?: {
-    //   thumbnail_lo?: string;
-    //   thumbnail?: string;
-    //   thumbnail_hi?: string;
-    // };
-  };
-  meta?: string;
-  id?: string;
-  title: string;
+export type CardImageProps = {
+  alt?: string;
+  src?: string;
+  // sources?: {
+  //   thumbnail_lo?: string;
+  //   thumbnail?: string;
+  //   thumbnail_hi?: string;
+  // };
+};
+
+export type CardProps = CardBaseProps & {
+  image?: CardImageProps;
+  variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
 };
 
 const cardImageSizesDefault =
@@ -30,17 +26,20 @@ const cardImageSizesDefault =
 export const Card = ({
   authors,
   className,
-  date,
   description,
   href,
+  id,
   image,
   meta,
-  id,
-  title
+  title,
+  variant
 }: CardProps) => {
   const classNames = cx('cc-card', {
     [`${className}`]: className
   });
+
+  const isHorizontal = variant === 'horizontal_card';
+  const isVertical = variant === 'vertical_card';
 
   const src = image?.src;
 
@@ -52,9 +51,9 @@ export const Card = ({
   //   `;
 
   return (
-    <div className={classNames} id={id}>
-      <div className="card__image">
-        <div className="promo__image-ratio">
+    <article className={classNames} id={id}>
+      <div className="cc-card__image-wrap">
+        <div className="cc-card__image-ratio">
           <ImageElement
             alt={image?.alt}
             className="cc-card__image"
@@ -64,38 +63,42 @@ export const Card = ({
           />
         </div>
       </div>
-      <div className="card__content">
-        {meta && <p className="card__type">{meta}</p>}
-        <h3 className="card__title">
-          <a href={href} className="card__link" target="_self">
+      <div className="cc-card__content">
+        {isHorizontal && meta?.type && (
+          <p className="cc-card__type">{meta?.type}</p>
+        )}
+        <h3 className="cc-card__title">
+          <a href={href} className="cc-card__link" target="_self">
             {title}
           </a>
         </h3>
-        <div className="card__meta">
-          {authors && (
-            <dl className="card__authors">
-              <dt className="card__authors-label">Author</dt>
-              {authors?.map(author => (
-                <dd key={author} className="card__author">
-                  {author}
-                </dd>
-              ))}
-            </dl>
-          )}
-          {date && (
-            <time className="card__date">
-              <FormattedDate dateString={date} />
-            </time>
-          )}
-          {description && (
-            <div
-              className="card__description"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
-          )}
-        </div>
+        {isHorizontal && (authors || meta?.date) && (
+          <div className="cc-card__meta">
+            {isHorizontal && authors && (
+              <dl className="cc-card__authors">
+                <dt className="cc-card__authors-label">Author</dt>
+                {authors?.map(author => (
+                  <dd key={author} className="cc-card__author">
+                    {author}
+                  </dd>
+                ))}
+              </dl>
+            )}
+            {isHorizontal && meta?.date && (
+              <time className="cc-card__date">
+                <FormattedDate dateString={meta?.date} />
+              </time>
+            )}
+          </div>
+        )}
+        {isVertical && description && (
+          <div
+            className="cc-card__description"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        )}
       </div>
-    </div>
+    </article>
   );
 };
 

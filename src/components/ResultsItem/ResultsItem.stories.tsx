@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import ResultsItem from './ResultsItem';
 
@@ -34,10 +34,10 @@ const ResultItemExample = () => {
 
   return (
     <ResultsItem
+      description={content}
       href={href}
       fileMeta={fileMeta}
       meta={meta}
-      text={content}
       title={title}
       type={type}
     />

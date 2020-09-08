@@ -6,6 +6,7 @@
 // ----------------------------------
 
 // Base level components used by other components
+@import './src/components/Icon/icon';
 @import './src/components/Media/media';
 @import './src/components/Accordion/accordion';
 @import './src/components/Button/button';
@@ -18,7 +19,7 @@
 @import './src/components/Grid/Cell/grid-cell';
 @import './src/components/Hamburger/hamburger';
 @import './src/components/Header/header';
-@import './src/components/Icon/icon';
+@import './src/components/FileDownload/file-download';
 @import './src/components/Footer/footer';
 @import './src/components/Footer/FooterNav/footer-nav';
 @import './src/components/Footer/FooterLinks/footer-links';
@@ -34,6 +35,7 @@
 @import './src/components/NewsletterForm/newsletter-form';
 @import './src/components/NewsletterSignup/newsletter-signup';
 @import './src/components/PageHeader/page-header';
+@import './src/components/Quote/quote';
 @import './src/components/ResultsItem/pagination';
 @import './src/components/ResultsItem/results-item';
 @import './src/components/ResultsItem/results-list';
@@ -41,7 +43,9 @@
 @import './src/components/SearchPane/search-pane';
 @import './src/components/Section/section';
 @import './src/components/SectionTitle/section-title';
+@import './src/components/SiteAlert/site-alert';
 @import './src/components/SlideshowHero/slideshow-hero';
 @import './src/components/SocialShare/social-share';
+@import './src/components/TableauChart/tableau';
 @import './src/components/Text/text';
 @import './src/components/WellcomeCollectionBanner/wellcome-collection-banner';

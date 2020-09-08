@@ -8,14 +8,51 @@
 // ----------------------------------
 
 %anchor-base {
-  color: var(--colour-blue-60);
+  color: var(--link-colour);
+  text-decoration: underline;
 
   &:hover {
-    color: var(--colour-blue-70);
+    color: var(--link-colour-hover);
   }
   
   &:active {
-    color: var(--colour-blue-50);
+    color: var(--link-colour-active);
+  }
+
+  &:focus {
+    color: var(--link-colour-active);
+    outline-color: var(--link-colour-focus-outline);
+    outline-offset: calc(0.5 * var(--space-unit));
+  }
+  
+  [disabled],
+  &:not([href]) {
+    color: var(--link-colour-disabled);
+  }
+}
+
+%list-item-link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-colour-hover);
+    text-decoration: underline;
+  }
+
+  &:focus,
+  &:active {
+    color: var(--link-colour-active);
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline-color: var(--link-colour-focus-outline);
+  }
+
+  [disabled],
+  &:not([href]) {
+    color: var(--link-colour-disabled);
   }
 }
 
@@ -27,38 +64,38 @@
 }
 
 /* Wellcome Design System type styles */
-// equivalent to <h1>
+// equivalent to a theoretical <h0>
 %heading-super {
   font-size: var(--heading-xxl);
   letter-spacing: var(--heading-letter-spacing);
 }
 
-// equivalent to <h2>
+// equivalent to <h1>
 %heading-hero {
   font-size: var(--heading-xl);
   letter-spacing: var(--heading-letter-spacing);
   margin-bottom: var(--space-lg);
 }
 
-// equivalent to <h3>
+// equivalent to <h2>
 %heading-display {
   font-size: var(--heading-lg);
   margin-bottom: var(--space-lg);
 }
 
-// equivalent to <h4>
+// equivalent to <h3>
 %heading-large {
   font-size: var(--heading-md);
   margin-bottom: var(--space-md);
 }
 
-// equivalent to <h5>
+// equivalent to <h4>
 %heading-regular {
   font-size: var(--heading-sm);
   margin-bottom: var(--space-md);
 }
 
-// equivalent to <h6>
+// equivalent to <h5>
 %heading-small {
   font-size: var(--heading-xs);
   margin-bottom: var(--space-md);

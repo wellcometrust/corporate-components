@@ -3,36 +3,32 @@ import cx from 'classnames';
 
 import Card from 'Card';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
+import ResultsItem, { ResultItemProps } from 'ResultsItem/ResultsItem';
+import { CardImageProps } from 'Card/Card';
 
-type ListingElementProps = {
-  authors?: string[];
-  className?: string;
-  date?: string;
-  description?: string;
-  href: string;
-  image?: any;
-  meta?: string;
-  title: string;
+type ListingElementProps = ResultItemProps & {
+  image?: CardImageProps;
   variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
 };
 
 const variantElement = {
   horizontal_card: Card,
   link_list: ListingLink,
-  // TODO #6715: add item component for Text Listing
-  text_list: Card,
+  text_list: ResultsItem,
   vertical_card: Card
 };
 
 export const ListingElement = ({
   authors,
   className,
-  date,
   description,
   href,
+  fileMeta,
+  id,
   image,
   meta,
   title,
+  type,
   variant
 }: ListingElementProps) => {
   const classNames = cx({
@@ -48,12 +44,15 @@ export const ListingElement = ({
     <Element
       authors={authors}
       className={classNames}
-      date={date}
       description={description}
+      fileMeta={fileMeta}
       href={href}
+      id={id}
       image={image}
       meta={meta}
       title={title}
+      type={type}
+      variant={variant}
     />
   );
 };
