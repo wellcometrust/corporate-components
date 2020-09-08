@@ -19,6 +19,7 @@ export { Image } from 'Image/Image';
 export { ImageBanner } from 'ImageBanner/ImageBanner';
 export { InfoBox } from 'InfoBox/InfoBox';
 export { InpageNav } from 'InpageNav/InpageNav';
+export { default as Label } from 'Label';
 export { Listing, ListingElement, ListingLink } from 'Listing/Listing';
 export { Logo } from 'Logo/Logo';
 export { Main } from 'Main/Main';
