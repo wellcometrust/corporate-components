@@ -47,13 +47,8 @@
 }
 
 .result-item__file-meta-download {
+  @extend %anchor-base;
   margin-right: var(--space-xs);
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: var(--link-colour-hover);
-  }
 }
 
 .result-item__file-meta-size {

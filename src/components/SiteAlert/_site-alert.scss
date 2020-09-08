@@ -1,8 +1,12 @@
 :root {
-  --site-alert-height: calc(7.5 * var(--space-unit));
+  --site-alert-height: calc(9 * var(--space-unit));
   --site-alert-colour-yellow: #ffce3c;
 
   @include mq(xs) {
+    --site-alert-height: calc(6.5 * var(--space-unit));
+  }
+
+  @include mq(sm) {
     --site-alert-height: calc(5 * var(--space-unit));
   }
 }
