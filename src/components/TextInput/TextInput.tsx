@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 type TextInputProps = {
   className?: string;
+  describedBy?: string;
   id: string;
   isInvalid?: boolean;
   isRequired?: boolean;
@@ -11,7 +12,7 @@ type TextInputProps = {
 
 export const TextInput = forwardRef(
   (
-    { className, id, isInvalid, isRequired, name }: TextInputProps,
+    { className, describedBy, id, isInvalid, isRequired, name }: TextInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
     const classNames = cx('cc-text-input', {
@@ -21,6 +22,7 @@ export const TextInput = forwardRef(
 
     return (
       <input
+        aria-describedby={describedBy}
         className={classNames}
         id={id}
         name={name}
