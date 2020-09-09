@@ -10,6 +10,7 @@ export { default as DateInput } from 'DateInput';
 export { Footer } from 'Footer/Footer';
 export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { default as FormField } from 'FormField';
+export { default as FormFieldHint } from 'FormFieldHint';
 export { FileDownload } from 'FileDownload/FileDownload';
 export { Gallery, GalleryMedia } from 'Gallery/Gallery';
 export { Grid, GridCell } from 'Grid/Grid';
