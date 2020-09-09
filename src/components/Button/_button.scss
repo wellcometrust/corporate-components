@@ -32,7 +32,7 @@
 .btn--primary {
   background-color: var(--colour-blue-60);
   color: var(--colour-white);
-  
+
   &:hover {
     background-color: var(--colour-blue-70);
     color: var(--colour-white);
@@ -42,7 +42,7 @@
     background-color: var(--colour-blue-60);
     color: var(--colour-white);
   }
-  
+
   &:active {
     background-color: var(--colour-blue-50);
     color: var(--colour-white);
@@ -108,10 +108,10 @@
 
 .btn--link {
   .btn__icon--left {
-    margin-right: calc(1.5 * var(--space-unit););
+    margin-right: calc(1.5 * var(--space-unit));
   }
 
   .btn__icon--right {
-    margin-left: calc(1.5 * var(--space-unit););
+    margin-left: calc(1.5 * var(--space-unit));
   }
 }

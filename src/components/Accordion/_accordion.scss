@@ -14,31 +14,67 @@
 
 // .cc-accordion-item {}
 
-// .cc-accordion-item__title {}
+.cc-accordion-item__title {
+  margin-bottom: 0;
+}
+
+.cc-accordion__content {
+  padding: var(--space-unit) 0;
+}
 
 .cc-accordion__button {
-  @extend %anchor-base;
   @extend %btn-base;
   @extend %btn-size-standard;
-  font-size: var(--accordion-button-text-size);
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: color ease 0.4s;
-  
+
   .btn__icon {
     height: 1.5rem;
     width: 1.5rem;
   }
-  
+
   .btn__icon--right {
     margin-right: 0;
-  }
-
-  .cc-accordion-item & svg {
-    transform: rotate(-90deg);
   }
 
   .cc-accordion-item--active & svg {
     transform: rotate(0deg);
   }
+}
+
+.cc-accordion__button--chevron {
+  @extend %anchor-base;
+  font-size: var(--accordion-button-text-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color ease 0.4s;
+}
+
+.cc-accordion__button--plus {
+  border-top: 1px solid var(--colour-grey-10);
+  display: flex;
+  font-size: var(--text-base-size);
+  height: auto;
+  justify-content: start;
+  text-align: left;
+  width: 100%;
+
+  .btn__icon--right {
+    color: var(--colour-blue-60);
+    margin-left: auto;
+  }
+
+  .btn__text {
+    padding-right: var(--space-lg);
+  }
+
+  .cc-accordion-item--active & {
+    font-weight: bold;
+  }
+}
+
+.cc-accordion__button--chevron svg {
+  transform: rotate(-90deg);
+}
+
+.cc-accordion__button--plus svg {
+  transform: rotate(-45deg);
 }

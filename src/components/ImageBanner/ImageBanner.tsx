@@ -68,6 +68,7 @@ export const ImageBanner = ({
                   title="Read the caption"
                   titleAs="strong"
                   titleActive="Hide the caption"
+                  variant="chevron"
                 >
                   <div
                     className="cc-media__caption-detail"
