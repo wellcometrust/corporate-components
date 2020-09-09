@@ -15,7 +15,7 @@
 // .cc-accordion-item {}
 
 .cc-accordion-item__title {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .cc-accordion__content {
@@ -53,7 +53,9 @@
   display: flex;
   font-size: var(--text-base-size);
   height: auto;
-  justify-content: start;
+  justify-content: flex-start;
+  margin-right: -5px; // because we are rotating and svg by 45deg
+  padding-right: 5px; // the focus state doesn't look nice
   text-align: left;
   width: 100%;
 

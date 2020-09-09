@@ -1,0 +1,9 @@
+.cc-file-download__link {
+  @extend %anchor-base;
+  margin-right: var(--space-xs);
+}
+
+.cc-file-download__meta {
+  color: var(--colour-grey-60);
+  font-size: var(--body-md);
+}
