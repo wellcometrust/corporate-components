@@ -1,0 +1,13 @@
+// ----------------------------------
+// UI Components
+// DateInput
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-date-input {
+  @extend %text-input-base;
+
+  max-width: calc(22 * var(--space-unit)); // 176px
+}

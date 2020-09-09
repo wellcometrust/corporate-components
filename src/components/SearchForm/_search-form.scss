@@ -14,13 +14,14 @@
 }
 
 .search-form__input {
-  @extend %text-input-base;
+  @extend %text-input-reset;
   border: 1px solid var(--colour-grey-10);
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   flex-basis: 100%;
   font-size: inherit;
   height: calc(6.75 * var(--space-unit));
+  letter-spacing: var(--body-letter-spacing);
   padding-left: calc(3.125 * var(--space-unit));
   padding-right: calc(3.125 * var(--space-unit));
   transition: background-color ease var(--transition-duration);
