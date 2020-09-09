@@ -13,7 +13,6 @@ export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { default as FormField } from 'FormField';
 export { default as FormFieldError } from 'FormFieldError';
 export { default as FormFieldHint } from 'FormFieldHint';
-export { FileDownload } from 'FileDownload/FileDownload';
 export { Gallery, GalleryMedia } from 'Gallery/Gallery';
 export { Grid, GridCell } from 'Grid/Grid';
 export { Hamburger } from 'Hamburger/Hamburger';
