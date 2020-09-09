@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import cx from 'classnames';
 
-type TextInputProps = {
+type TextAreaProps = {
   className?: string;
   describedBy?: string;
   id: string;
@@ -10,28 +10,27 @@ type TextInputProps = {
   name: string;
 };
 
-export const TextInput = forwardRef(
+export const TextArea = forwardRef(
   (
-    { className, describedBy, id, isInvalid, isRequired, name }: TextInputProps,
-    ref: React.Ref<HTMLInputElement>
+    { className, describedBy, id, isInvalid, isRequired, name }: TextAreaProps,
+    ref: React.Ref<HTMLTextAreaElement>
   ) => {
-    const classNames = cx('cc-text-input', {
-      'cc-text-input--is-invalid': isInvalid,
+    const classNames = cx('cc-textarea', {
+      'cc-textarea--is-invalid': isInvalid,
       [className]: className
     });
 
     return (
-      <input
+      <textarea
         aria-describedby={describedBy}
         className={classNames}
         id={id}
         name={name}
         ref={ref}
         required={isRequired}
-        type="text"
       />
     );
   }
 );
 
-export default TextInput;
+export default TextArea;
