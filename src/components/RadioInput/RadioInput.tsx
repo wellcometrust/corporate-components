@@ -35,9 +35,8 @@ export const RadioInput = forwardRef(
 
     return label ? (
       <div className={classNames}>
-        <Label text={label} htmlFor={id} className="cc-radio-input__label" />
         <input
-          className="cc-radio-input__toggle"
+          className="cc-radio-input__input-element"
           id={id}
           name={name}
           ref={ref}
@@ -45,6 +44,7 @@ export const RadioInput = forwardRef(
           type="radio"
           value={value}
         />
+        <Label text={label} htmlFor={id} className="cc-radio-input__label" />
       </div>
     ) : (
       <input
