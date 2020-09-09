@@ -46,7 +46,7 @@ export const RadioInput = forwardRef(
       </div>
     ) : (
       <input
-        className={className ? cx({ [className]: className }) : undefined}
+        className={className ? cx({ [className]: className }) : null}
         id={id}
         name={name}
         ref={ref}
