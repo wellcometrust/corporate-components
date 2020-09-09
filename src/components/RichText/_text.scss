@@ -1,0 +1,80 @@
+// ----------------------------------
+// UI Components
+// Text | TextSnippet
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-text {
+  h3 {
+    @extend %heading-base;
+    @extend %heading-large;
+    @include heading-divider;
+    letter-spacing: 0;
+    text-align: center;
+  }
+  
+  h4 {
+    @extend %heading-base;
+    @extend %heading-regular;
+    letter-spacing: 0;
+  }
+  
+  h5,
+  h6 {
+    @extend %heading-base;
+    @extend %heading-small;
+    letter-spacing: 0;
+  }
+  
+  p {
+    @extend %body-large;
+  }
+
+  ol,
+  ul {
+    @extend %list-base;
+  }
+  
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* ensure h3 always has more space above */
+  > * + h3 {
+    margin-top: var(--space-xl);
+  }
+}
+
+.cc-text-snippet {
+  @extend %body-large;
+  line-height: var(--body-line-height-sm);
+
+  p {
+    @extend %body-regular;
+  }
+
+  ol,
+  ul {
+    @extend %list-base;
+    margin-bottom: calc(2 * var(--space-unit));
+  }
+  
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cc-text-snippet__title,
+.cc-text-snippet h2,
+.cc-text-snippet h3,
+.cc-text-snippet h4,
+.cc-text-snippet h5,
+.cc-text-snippet h6 {
+  @extend %heading-base;
+  font-size: var(--body-lg);
+  font-weight: bold;
+  letter-spacing: normal;
+  margin-bottom: var(--space-unit);
+}

@@ -32,6 +32,7 @@ export { Quote } from 'Quote/Quote';
 export { PageHeader } from 'PageHeader/PageHeader';
 export { default as RadioInput } from 'RadioInput';
 export { ResultsItem } from 'ResultsItem/ResultsItem';
+export { default as RichText } from 'RichText';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';
 export { SearchForm } from 'SearchForm/SearchForm';
 export { SearchPane } from 'SearchPane/SearchPane';
