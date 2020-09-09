@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
+import Icon from 'Icon';
+
 type FormFieldErrorProps = {
   className?: string;
   errors: string | string[];
@@ -18,6 +20,7 @@ export const FormFieldError = ({
 
   return (
     <span className={classNames} id={id}>
+      <Icon className="cc-form-field-error__icon" name="exclamationMark" />
       {typeof errors === 'string' || errors.length === 1 ? (
         <p className="cc-form-field-error__text">{errors.toString()}</p>
       ) : (
