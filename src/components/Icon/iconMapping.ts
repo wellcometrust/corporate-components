@@ -10,6 +10,7 @@ import closeCircle from './components/CloseCircle';
 import cookie from './components/Cookie';
 import download from './components/Download';
 import email from './components/Email';
+import exclamationMark from './components/ExclamationMark';
 import externalLink from './components/ExternalLink';
 import facebook from './components/Facebook';
 import info from './components/Info';
@@ -37,6 +38,7 @@ export default new Map([
   ['download', download],
   ['email', email],
   ['externalLink', externalLink],
+  ['exclamationMark', exclamationMark],
   ['facebook', facebook],
   ['info', info],
   ['linkedin', linkedin],

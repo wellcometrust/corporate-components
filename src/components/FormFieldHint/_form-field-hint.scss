@@ -1,0 +1,15 @@
+// ----------------------------------
+// UI Components
+// FormFieldHint
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-form-field-hint {
+  @extend %rte;
+
+  color: var(--colour-grey-60);
+  font-size: var(--body-md);
+  margin-bottom: var(--space-xs);
+}
