@@ -28,6 +28,7 @@
 
   .btn__icon {
     height: 1.5rem;
+    position: relative;
     width: 1.5rem;
   }
 
@@ -54,14 +55,21 @@
   font-size: var(--text-base-size);
   height: auto;
   justify-content: flex-start;
-  margin-right: -5px; // because we are rotating and svg by 45deg
-  padding-right: 5px; // the focus state doesn't look nice
   text-align: left;
   width: 100%;
+
+  .cc-accordion-item--active & svg {
+    transition: transform 0.8s ease;
+  }
 
   .btn__icon--right {
     color: var(--colour-blue-60);
     margin-left: auto;
+  }
+
+  svg {
+    position: absolute;
+    right: 5px;
   }
 
   .btn__text {
@@ -79,4 +87,5 @@
 
 .cc-accordion__button--plus svg {
   transform: rotate(-45deg);
+  transition: transform 0.8s ease;
 }
