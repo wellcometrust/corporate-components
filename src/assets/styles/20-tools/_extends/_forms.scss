@@ -8,7 +8,33 @@
 // ----------------------------------
 
 /**
- * Set some base (reset) styles on an <input> or <textarea>.
+ * Set some reset styles on an <input> or <textarea>.
+ *
+ * Usage:
+ *
+ * .an-input-selector {
+ *   @extend %text-input-reset;
+ * }
+ *
+ */
+
+%text-input-reset {
+  border: 0;
+  box-sizing: border-box;
+  color: var(--colour-black);
+  width: 100%;
+
+  @include mq(md) {
+    font-size: var(--body-md);
+  }
+
+  &::placeholder {
+    color: var(--text-colour);
+  }
+}
+
+/**
+ * Set some base styles on an <input> or <textarea>.
  *
  * Usage:
  *
@@ -19,18 +45,23 @@
  */
 
 %text-input-base {
-  border: 0;
+  @extend %text-input-reset;
+
+  border: 1px solid var(--colour-grey-20);
   border-radius: calc(0.25 * var(--space-unit));
-  box-sizing: border-box;
-  color: var(--colour-black);
-  font-size: var(--body-md);
+  display: block;
   letter-spacing: var(--body-letter-spacing);
+  padding-bottom: calc(1.5 * var(--space-unit));
   padding-left: calc(2 * var(--space-unit));
   padding-right: calc(2 * var(--space-unit));
-  width: 100%;
+  padding-top: calc(1.5 * var(--space-unit));
 
-  &::placeholder {
-    color: var(--text-colour);
+  &:hover {
+    border-color: var(--colour-grey-90);
+  }
+
+  &:focus {
+    border-color: var(--colour-blue-60);
   }
 }
 
