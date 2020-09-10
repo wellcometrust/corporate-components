@@ -11,6 +11,7 @@ export type AccordionItemProps = {
   title: string;
   titleActive?: string;
   titleAs?: string;
+  variant?: 'chevron' | 'plus';
 };
 
 export const AccordionItem = ({
@@ -20,11 +21,15 @@ export const AccordionItem = ({
   onClick,
   title,
   titleActive,
-  titleAs
+  titleAs,
+  variant = 'plus'
 }: AccordionItemProps) => {
   const content = useRef(null);
   const classNames = cx('cc-accordion-item', {
     'cc-accordion-item--active': active
+  });
+  const buttonClassNames = cx('cc-accordion__button', {
+    [`cc-accordion__button--${variant}`]: variant
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,8 +40,8 @@ export const AccordionItem = ({
       <TitleElement className="cc-accordion-item__title">
         <Button
           aria-expanded={active}
-          className="cc-accordion__button"
-          icon="chevronRight"
+          className={buttonClassNames}
+          icon={variant === 'chevron' ? 'chevronRight' : 'closeSmall'}
           iconPlacementSwitch
           id={`accordion-button-${index}`}
           onClick={onClick}
