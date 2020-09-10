@@ -32,6 +32,8 @@ storiesOf('Components|Icon', module).add(
       <Icon name="email" />
       <p>External link</p>
       <Icon name="externalLink" />
+      <p>Exclamation mark</p>
+      <Icon name="exclamationMark" />
       <p>Facebook button for share or follow</p>
       <Icon name="facebook" />
       <p>LinkedIn button for share or follow</p>

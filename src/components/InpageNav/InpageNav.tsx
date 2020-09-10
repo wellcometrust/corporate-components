@@ -29,7 +29,11 @@ export const InpageNav = ({ isMinimal, links }: InpageNavProps) => {
     <div className="cc-inpage-nav">
       {isMinimal ? (
         <Accordion>
-          <AccordionItem title="On this page" titleAs="strong">
+          <AccordionItem
+            title="On this page"
+            titleAs="strong"
+            variant="chevron"
+          >
             {navLinks}
           </AccordionItem>
         </Accordion>
