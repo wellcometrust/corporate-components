@@ -8,8 +8,10 @@
 
 .u-external-link-indicator {
   display: inline-block;
-  margin-left: var(--space-xs);
-  margin-right: var(--space-xs);
-  margin-top: -0.275em;
+  height: 1em;
+  margin-left: var(--space-unit);
+  margin-right: 0;
+  margin-top: -0.25rem;
   vertical-align: middle;
+  width: 1.3em;
 }

@@ -12,22 +12,22 @@ const TextExample = () => {
   return (
     <Text className={textClassName}>
       {`<h3>Heading 3</h3>
-      <p>This new funding should be directed to a global response for:</p>
-      <ul>
-        <li>
-          developing new vaccines, treatments and diagnostics quickly and at
+        <p>This new funding should be directed to a global response for:</p>
+        <ul>
+          <li>
+          developing new vaccines, <a href="https://who.org">external link no target blank</a>treatments and diagnostics quickly and at
           scale, so they can be available to people that need them
         </li>
         <li>
-          fully funding the World Health Organization (WHO) to coordinate and
+          fully funding the <a href="https://who.org" target="_blank">external link with target blank</a> to coordinate and
           prioritise support efforts to the most vulnerable countries
         </li>
         <li>
-          ensuring sufficient supplies of protective equipment for health
+          ensuring <a href="https://who.org" class="non" target="_blank">external link to be ignored</a> sufficient supplies of protective equipment for health
           workers.
           <ul>
             <li>
-              (Nest bulleted list) developing new vaccines, treatments and
+              (Nest bulleted list) <a href="https://who.org" target="_blank">external link with target blank</a> developing new vaccines, treatments and
               diagnostics quickly and at scale, so they can be available to
               people that need them
             </li>

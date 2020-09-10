@@ -36,6 +36,7 @@ export const NewsletterSignup = ({
         <NewsletterForm className="newsletter__form" type={type}>
           <div
             className="newsletter-signup__intro"
+            // TODO #7256 - new window markers
             dangerouslySetInnerHTML={{ __html: intro }}
           />
         </NewsletterForm>

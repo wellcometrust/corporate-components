@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Icon from 'Icon';
 import RouterLinkWrapper from 'RouterLinkWrapper';
+import ExternalLinkMarker from './ExternalLinkMarker';
 
 type LinkProps = {
   className: string;
@@ -65,14 +66,7 @@ export const Link = ({ children, className, to, ...props }: LinkProps) => {
       {...props}
     >
       {children}
-      {isExternal && !isFile && (
-        <>
-          <span className="u-visually-hidden">(opens in a new tab)</span>
-          <span className="u-external-link-indicator">
-            <Icon name="externalLink" height="0.85em" width="0.825em" />
-          </span>
-        </>
-      )}
+      {isExternal && !isFile && <ExternalLinkMarker />}
     </a>
   ) : (
     <RouterLinkWrapper href={to}>
@@ -84,3 +78,4 @@ export const Link = ({ children, className, to, ...props }: LinkProps) => {
 };
 
 export default Link;
+export { ExternalLinkMarker };

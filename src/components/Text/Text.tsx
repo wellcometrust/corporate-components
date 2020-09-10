@@ -1,6 +1,8 @@
 import React from 'react';
+
 import cx from 'classnames';
-import ReactHtmlParser from 'react-html-parser';
+
+import RichText from 'RichText';
 
 type TextProps = {
   children: string;
@@ -22,7 +24,7 @@ export const Text = ({
   return (
     <div className={classNames}>
       {title && <h3 className={`cc-${variant}__title`}>{title}</h3>}
-      {ReactHtmlParser(children)}
+      <RichText>{children}</RichText>
     </div>
   );
 };

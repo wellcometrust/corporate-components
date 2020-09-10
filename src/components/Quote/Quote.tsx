@@ -16,6 +16,7 @@ export const Quote = ({ className, cite, text }: QuoteProps) => {
     <blockquote className={classNames}>
       <div
         className="cc-quote__body"
+        // TODO #7256 - new window markers
         dangerouslySetInnerHTML={{ __html: text }}
       />
       {cite && <cite className="cc-quote__cite">{cite}</cite>}

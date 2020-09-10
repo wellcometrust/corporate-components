@@ -60,6 +60,7 @@ export const PageHeader = ({
         {standfirst && (
           <div
             className="cc-page-header__standfirst"
+            // TODO #7256 - new window markers
             dangerouslySetInnerHTML={{ __html: standfirst }}
           />
         )}
