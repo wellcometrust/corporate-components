@@ -20,7 +20,7 @@ const setExternalLinkMarkers = (children: React.ReactNode) => {
    *
    * Regex match groups
    * (?!.*class="non")               Negative lookahead to filter out any matches which contain this class
-   * (<a[^>]*target="_blank"[^>]*>   Opening anchor tag which has a target="_blank" attribute
+   * (<a[^>]*target="_blank"[^>]*>)  Opening anchor tag which has a target="_blank" attribute
    * ([^<]+)                         The anchor content (any character which is not a left angle bracket)
    * (<\/a>)                         Closing anchor tag
    */
