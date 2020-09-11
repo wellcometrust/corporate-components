@@ -1,10 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import Text from './Text';
 
 describe('<Text />', () => {
-  const output = shallow(
+  const output = mount(
     <Text className="My heading">{`<h3>Heading 3</h3>`}</Text>
   );
 
