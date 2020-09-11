@@ -22,7 +22,7 @@ export const SearchPaneForm = forwardRef(
             name="search"
             id="search"
             type="search"
-            placeholder="Search wellcome.ac.uk"
+            placeholder="Search wellcome.org"
             ref={ref}
             tabIndex={searchTabIndex}
           />
