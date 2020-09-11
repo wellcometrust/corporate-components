@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 // polyfill and type definitions for String.prototype.replaceAll()
 import 'ts-replace-all';
@@ -11,24 +11,24 @@ type RichTextProps = {
   children: string;
 };
 
+/**
+ * Find all anchor elements with target="_blank"
+ *
+ * Regex match groups
+ * (?!.*class="non")               Negative lookahead to filter out any matches which contain this class
+ * (<a[^>]*target="_blank"[^>]*>)  Opening anchor tag which has a target="_blank" attribute
+ * ([^<]+)                         The anchor content (any character which is not a left angle bracket)
+ * (<\/a>)                         Closing anchor tag
+ */
+const regexAnchorExternal = /(?!.*class="non")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
+
 const setExternalLinkMarkers = (children: React.ReactNode) => {
-  const externalMarker = renderToString(<ExternalLinkMarker />);
+  // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
+  const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
   const str = children.toString();
 
-  /**
-   * Find all anchor elements with target="_blank"
-   *
-   * Regex match groups
-   * (?!.*class="non")               Negative lookahead to filter out any matches which contain this class
-   * (<a[^>]*target="_blank"[^>]*>)  Opening anchor tag which has a target="_blank" attribute
-   * ([^<]+)                         The anchor content (any character which is not a left angle bracket)
-   * (<\/a>)                         Closing anchor tag
-   */
-
-  const regex = /(?!.*class="non")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
-
   return str.replaceAll(
-    regex,
+    regexAnchorExternal,
     (match, p1, p2, p3) =>
       // replace existing anchor string with embellished version containing assistive text
       `${p1.substring(
