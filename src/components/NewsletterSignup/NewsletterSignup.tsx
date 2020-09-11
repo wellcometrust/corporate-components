@@ -2,6 +2,7 @@ import React from 'react';
 
 import Grid, { GridCell } from 'Grid';
 import NewsletterForm from 'NewsletterForm';
+import RichText from 'RichText';
 import Section from 'Section';
 
 type NewsletterSignupProps = {
@@ -34,11 +35,9 @@ export const NewsletterSignup = ({
           </span>
         </h3>
         <NewsletterForm className="newsletter__form" type={type}>
-          <div
-            className="newsletter-signup__intro"
-            // TODO #7256 - new window markers
-            dangerouslySetInnerHTML={{ __html: intro }}
-          />
+          <div className="newsletter-signup__intro">
+            <RichText>{intro}</RichText>
+          </div>
         </NewsletterForm>
       </GridCell>
     </Grid>

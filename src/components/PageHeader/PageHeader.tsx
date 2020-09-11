@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Grid from 'Grid';
+import RichText from 'RichText';
 
 type PageHeaderProps = {
   background?: 'blue' | 'transparent';
@@ -58,11 +59,9 @@ export const PageHeader = ({
       {bannerLocation === 'bottom' && banner}
       <Grid>
         {standfirst && (
-          <div
-            className="cc-page-header__standfirst"
-            // TODO #7256 - new window markers
-            dangerouslySetInnerHTML={{ __html: standfirst }}
-          />
+          <div className="cc-page-header__standfirst">
+            <RichText>{standfirst}</RichText>
+          </div>
         )}
         {children && <div className="cc-page-header__misc">{children}</div>}
       </Grid>
