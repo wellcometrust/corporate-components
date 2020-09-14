@@ -8,9 +8,4 @@
 
 .cc-select {
   @extend %text-input-base;
-
-  // IE11
-  &::-ms-expand {
-    display: none;
-  }
 }

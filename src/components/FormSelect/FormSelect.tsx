@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import cx from 'classnames';
 
-type SelectProps = {
+type FormSelectProps = {
   className?: string;
   defaultText?: string;
   id: string;
@@ -10,7 +10,7 @@ type SelectProps = {
   options: string[];
 };
 
-export const Select = forwardRef(
+export const FormSelect = forwardRef(
   (
     {
       className,
@@ -19,7 +19,7 @@ export const Select = forwardRef(
       isRequired,
       name,
       options
-    }: SelectProps,
+    }: FormSelectProps,
     ref: React.Ref<HTMLSelectElement>
   ) => {
     const classNames = cx('cc-select', {
@@ -45,4 +45,4 @@ export const Select = forwardRef(
   }
 );
 
-export default Select;
+export default FormSelect;
