@@ -1,0 +1,16 @@
+// ----------------------------------
+// UI Components
+// TextInput
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-select {
+  @extend %text-input-base;
+
+  // IE11
+  &::-ms-expand {
+    display: none;
+  }
+}
