@@ -13,6 +13,7 @@
 .cc-page-header__meta {
   display: block;
   font-size: var(--body-md);
+  margin-bottom: var(--space-sm);
   text-align: center;
 }
 
@@ -34,6 +35,34 @@
   @include mq(md) {
     margin-bottom: var(--space-xl);
   }
+}
+
+.cc-page-header__dates {
+  margin: 0;
+  overflow: hidden;
+
+  @include mq($until: md) {
+    margin-bottom: var(--space-xl);
+    order: -1;
+    width: 100%;
+  }
+
+  @include mq(md) {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+.cc-page-header__date-label {
+  clear: left;
+  float: left;
+  font-weight: bold;
+}
+
+.cc-page-header__date {
+  // display: inline-block;
+  float: left;
+  margin-bottom: var(--space-md);
+  margin-left: var(--space-xs);
 }
 
 .cc-page-header__share {
@@ -84,6 +113,7 @@
 
   @include mq($until: md) {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 }

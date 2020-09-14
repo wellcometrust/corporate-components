@@ -61,9 +61,9 @@ export const PageHeader = ({
               <dl className="cc-page-header__dates">
                 {datePublished && (
                   <>
-                    <dt>Published</dt>
-                    <dd>
-                      <time className="cc-page-header__date">
+                    <dt className="cc-page-header__date-label">Published</dt>
+                    <dd className="cc-page-header__date">
+                      <time>
                         <FormattedDate dateString={datePublished} />
                       </time>
                     </dd>
@@ -71,9 +71,9 @@ export const PageHeader = ({
                 )}
                 {dateUpdated && (
                   <>
-                    <dt>Last updated</dt>
-                    <dd>
-                      <time className="cc-page-header__date">
+                    <dt className="cc-page-header__date-label">Last updated</dt>
+                    <dd className="cc-page-header__date">
+                      <time>
                         <FormattedDate dateString={dateUpdated} />
                       </time>
                     </dd>
@@ -81,7 +81,7 @@ export const PageHeader = ({
                 )}
               </dl>
             )}
-            <div className="cc-page-header__share"> {share}</div>
+            <div className="cc-page-header__share">{share}</div>
           </div>
         </Grid>
       </div>
