@@ -31,9 +31,19 @@
 
 .cc-page-header__breadcrumb {
   margin-right: calc(2 * var(--space-unit));
+}
+
+.cc-page-header__breadcrumb + .cc-page-header__dates {
+  width: 100%;
 
   @include mq(md) {
-    margin-bottom: var(--space-xl);
+    margin-top: var(--space-md);
+  }
+}
+
+.cc-page-header__breadcrumb + .cc-page-header__share {
+  @include mq(md) {
+    margin-top: var(--space-xl);
   }
 }
 
@@ -42,13 +52,12 @@
   overflow: hidden;
 
   @include mq($until: md) {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     order: -1;
-    width: 100%;
   }
 
   @include mq(md) {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-unit);
   }
 }
 
@@ -59,7 +68,6 @@
 }
 
 .cc-page-header__date {
-  // display: inline-block;
   float: left;
   margin-bottom: var(--space-md);
   margin-left: var(--space-xs);
