@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
+import FormattedDate from 'FormattedDate';
 import Grid from 'Grid';
 import RichText from 'RichText';
 
@@ -10,6 +11,8 @@ type PageHeaderProps = {
   bannerLocation?: 'top' | 'bottom';
   children?: React.ReactNode;
   className?: string;
+  datePublished?: string;
+  dateUpdated?: string;
   meta?: string;
   metaLabel?: string;
   share?: React.ReactNode;
@@ -23,6 +26,8 @@ export const PageHeader = ({
   bannerLocation = 'top',
   children,
   className,
+  datePublished,
+  dateUpdated,
   meta,
   metaLabel,
   share,
@@ -52,6 +57,30 @@ export const PageHeader = ({
           <div className="cc-page-header__tools">
             {/* TODO: Add breadcrumb here
             <div className="cc-page-header__breadcrumb">Breadcrumb</div> */}
+            {(datePublished || dateUpdated) && (
+              <dl className="cc-page-header__dates">
+                {datePublished && (
+                  <>
+                    <dt className="cc-page-header__date-label">Published</dt>
+                    <dd className="cc-page-header__date">
+                      <time>
+                        <FormattedDate dateString={datePublished} />
+                      </time>
+                    </dd>
+                  </>
+                )}
+                {dateUpdated && (
+                  <>
+                    <dt className="cc-page-header__date-label">Last updated</dt>
+                    <dd className="cc-page-header__date">
+                      <time>
+                        <FormattedDate dateString={dateUpdated} />
+                      </time>
+                    </dd>
+                  </>
+                )}
+              </dl>
+            )}
             <div className="cc-page-header__share">{share}</div>
           </div>
         </Grid>

@@ -13,6 +13,7 @@
 .cc-page-header__meta {
   display: block;
   font-size: var(--body-md);
+  margin-bottom: var(--space-sm);
   text-align: center;
 }
 
@@ -30,10 +31,46 @@
 
 .cc-page-header__breadcrumb {
   margin-right: calc(2 * var(--space-unit));
+}
+
+.cc-page-header__breadcrumb + .cc-page-header__dates {
+  width: 100%;
 
   @include mq(md) {
-    margin-bottom: var(--space-xl);
+    margin-top: var(--space-md);
   }
+}
+
+.cc-page-header__breadcrumb + .cc-page-header__share {
+  @include mq(md) {
+    margin-top: var(--space-xl);
+  }
+}
+
+.cc-page-header__dates {
+  margin: 0;
+  overflow: hidden;
+
+  @include mq($until: md) {
+    margin-bottom: var(--space-lg);
+    order: -1;
+  }
+
+  @include mq(md) {
+    margin-bottom: var(--space-unit);
+  }
+}
+
+.cc-page-header__date-label {
+  clear: left;
+  float: left;
+  font-weight: bold;
+}
+
+.cc-page-header__date {
+  float: left;
+  margin-bottom: var(--space-md);
+  margin-left: var(--space-xs);
 }
 
 .cc-page-header__share {
@@ -84,6 +121,7 @@
 
   @include mq($until: md) {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 }
