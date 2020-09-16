@@ -5,10 +5,17 @@ import Icon from 'Icon';
 
 type FormFieldErrorProps = {
   className?: string;
-  errors: string | string[];
+  errors: string | {};
   id: string;
 };
 
+/**
+ * Renders a list or paragraph of error messages
+ *
+ * @param {string} className
+ * @param {string|object} errors
+ * @param {string} id
+ */
 export const FormFieldError = ({
   className,
   errors,
@@ -21,16 +28,19 @@ export const FormFieldError = ({
   return (
     <span className={classNames} id={id}>
       <Icon className="cc-form-field-error__icon" name="exclamationMark" />
-      {typeof errors === 'string' || errors.length === 1 ? (
-        <p className="cc-form-field-error__text">{errors.toString()}</p>
+      {typeof errors === 'string' && (
+        <p className="cc-form-field-error__text">{errors}</p>
+      )}
+      {typeof errors === 'object' && Object.entries(errors).length === 1 ? (
+        <p className="cc-form-field-error__text">{Object.values(errors)[0]}</p>
       ) : (
         <ul className="cc-form-field-error__list">
-          {errors.map((errorText: string, index: number) => (
+          {Object.entries(errors).map(([type, message]) => (
             <li
-              key={`${id}-error-text-${index + 1}`}
+              key={`${id}-error-text-${type}`}
               className="cc-form-field-error__list-item"
             >
-              {errorText}
+              {message}
             </li>
           ))}
         </ul>
