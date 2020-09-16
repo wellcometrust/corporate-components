@@ -41,7 +41,9 @@ const setExternalLinkMarkers = (children: React.ReactNode) => {
 export const RichText = ({ children }: RichTextProps) => {
   const childrenWithMarkers = setExternalLinkMarkers(children);
 
-  return <>{ReactHtmlParser(childrenWithMarkers)}</>;
+  return (
+    <div className="cc-rich-text">{ReactHtmlParser(childrenWithMarkers)}</div>
+  );
 };
 
 export default RichText;
