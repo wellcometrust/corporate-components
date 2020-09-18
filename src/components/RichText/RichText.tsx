@@ -39,11 +39,11 @@ const setExternalLinkMarkers = (children: React.ReactNode) => {
 };
 
 export const RichText = ({ children }: RichTextProps) => {
-  const childrenWithMarkers = setExternalLinkMarkers(children);
+  const childrenWithMarkers = children && setExternalLinkMarkers(children);
 
-  return (
+  return childrenWithMarkers ? (
     <div className="cc-rich-text">{ReactHtmlParser(childrenWithMarkers)}</div>
-  );
+  ) : null;
 };
 
 export default RichText;
