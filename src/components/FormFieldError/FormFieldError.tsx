@@ -31,9 +31,10 @@ export const FormFieldError = ({
       {typeof errors === 'string' && (
         <p className="cc-form-field-error__text">{errors}</p>
       )}
-      {typeof errors === 'object' && Object.entries(errors).length === 1 ? (
+      {typeof errors === 'object' && Object.entries(errors).length === 1 && (
         <p className="cc-form-field-error__text">{Object.values(errors)[0]}</p>
-      ) : (
+      )}
+      {typeof errors === 'object' && Object.entries(errors).length > 1 && (
         <ul className="cc-form-field-error__list">
           {Object.entries(errors).map(([type, message]) => (
             <li
