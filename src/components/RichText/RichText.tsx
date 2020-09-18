@@ -1,5 +1,6 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import cx from 'classnames';
 
 // polyfill and type definitions for String.prototype.replaceAll()
 import 'ts-replace-all';
@@ -9,6 +10,7 @@ import { ExternalLinkMarker } from 'Link';
 
 type RichTextProps = {
   children: string;
+  className?: string;
 };
 
 /**
@@ -38,11 +40,14 @@ const setExternalLinkMarkers = (children: React.ReactNode) => {
   );
 };
 
-export const RichText = ({ children }: RichTextProps) => {
+export const RichText = ({ children, className }: RichTextProps) => {
   const childrenWithMarkers = children && setExternalLinkMarkers(children);
+  const classNames = cx('cc-rich-text', {
+    [className]: className
+  });
 
   return childrenWithMarkers ? (
-    <div className="cc-rich-text">{ReactHtmlParser(childrenWithMarkers)}</div>
+    <div className={classNames}>{ReactHtmlParser(childrenWithMarkers)}</div>
   ) : null;
 };
 

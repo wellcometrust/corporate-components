@@ -19,22 +19,40 @@
 .cc-timeline__list {
   border-bottom: 1px solid var(--colour-grey-10);
   border-top: 1px solid var(--colour-grey-10);
+  list-style: none;
+  margin: 0;
+  padding: calc(4 * var(--space-unit)) 0;
 }
 
 .cc-timeline__item {
+  margin: 0;
+  padding: 0;
   position: relative;
+
+  @include mq($until: sm) {
+    display: flex;
+    flex-direction: column;
+    padding-left: calc(4 * var(--space-unit));
+  }
 
   @include mq(sm) {
     &:before {
       left: auto;
-      right: 0;
+      right: 50%;
+      transform: translate(50%, 50%);
     }
 
-    &:after {
+    &:not(:last-child):after {
+      border-left: 0;
+      border-right: 1px solid var(--colour-grey-60);
       left: auto;
-      right: 6px;
+      right: 50%;
       transform: translateX(50%);
     }
+  }
+
+  &:not(:last-child) {
+    padding-bottom: var(--space-xl);
   }
 
   &:before {
@@ -42,28 +60,74 @@
     border-radius: 50%;
     content: '';
     height: 0.75rem;
-    left: 0;
+    left: 50%;
     position: absolute;
     top: 0;
+    transform: translate(-50%, 50%);
     width: 0.75rem;
   }
   
-  &:after {
-    border: 1px solid var(--colour-grey-60);
-    bottom: 0;
+  &:not(:last-child):after {
+    border-left: 1px solid var(--colour-grey-60);
+    bottom: -6px;
     content: '';
-    left: 6px;
+    left: 50%;
     position: absolute;
-    top: 1px;
+    top: 6px;
     transform: translateX(-50%);
   }
 }
 
 .cc-timeline__item-date {
   color: var(--colour-grey-60);
+  flex-grow: 0;
+  flex-shrink: 0;
   font-size: var(--body-md);
+
+  @include mq(sm) {
+    float: right;
+    margin-bottom: var(--space-unit);
+    width: calc(50% - calc(3 * var(--space-unit)));
+  }
 }
 
-// .cc-timeline__item-details {}
-// .cc-timeline__item-title {}
-// .cc-timeline__item-link {}
+.cc-timeline__item-details {
+  @include clearfix;
+  margin: 0;
+
+  @include mq(sm) {
+    text-align: right;
+    width: calc(50% - calc(3 * var(--space-unit)));
+  }
+}
+
+.cc-timeline__item-title {
+  @extend %heading-base;
+  font-size: var(--heading-sm);
+  font-weight: normal;
+  margin: 0;
+}
+
+.cc-timeline__item-body {
+  color: var(--colour-grey-60);
+  font-size: var(--body-md);
+
+  p {
+    margin: 0;
+  }
+}
+
+.cc-timeline__item-link {
+  @extend %anchor-base;
+  display: block;
+  width: calc(50% - calc(3 * var(--space-unit)));
+
+  @include mq($until: sm) {
+    order: 10;
+  }
+
+  @include mq(sm) {
+    clear: right;
+    float: right;
+  }
+}
