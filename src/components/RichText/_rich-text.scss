@@ -13,7 +13,7 @@
     border-collapse: collapse;
     caption-side: top;
     line-height: var(--body-line-height-sm);
-    margin: 0;
+    margin-bottom: calc(4 * var(--space-unit));
     width: 100%;
   }
 
