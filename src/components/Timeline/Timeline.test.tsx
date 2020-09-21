@@ -22,11 +22,11 @@ describe('<Timeline />', () => {
 
   const output = shallow(<Timeline milestones={milestones} />);
 
-  it('has 3 definition title elements (<dt>)', () => {
-    expect(output.find('dt')).toHaveLength(3);
+  it('has 1 ordered list element (<ol>)', () => {
+    expect(output.find('ol')).toHaveLength(1);
   });
 
-  it('has 3 definition detail elements (<dd>)', () => {
-    expect(output.find('dd')).toHaveLength(3);
+  it('has 3 list item elements (<li>)', () => {
+    expect(output.find('li')).toHaveLength(3);
   });
 });
