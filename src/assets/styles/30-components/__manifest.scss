@@ -8,6 +8,9 @@
 // Base level components used by other components
 @import './src/components/Icon/icon';
 @import './src/components/Media/media';
+@import './src/components/RichText/rich-text';
+
+// component styles
 @import './src/components/Accordion/accordion';
 @import './src/components/Button/button';
 @import './src/components/Card/card';
@@ -46,7 +49,6 @@
 @import './src/components/ResultsItem/pagination';
 @import './src/components/ResultsItem/results-item';
 @import './src/components/ResultsItem/results-list';
-@import './src/components/RichText/rich-text';
 @import './src/components/SearchForm/search-form';
 @import './src/components/SearchPane/search-pane';
 @import './src/components/Section/section';
@@ -55,7 +57,6 @@
 @import './src/components/SlideshowHero/slideshow-hero';
 @import './src/components/SocialShare/social-share';
 @import './src/components/TableauChart/tableau';
-@import './src/components/Text/text';
 @import './src/components/TextArea/text-area';
 @import './src/components/TextInput/text-input';
 @import './src/components/Timeline/timeline';

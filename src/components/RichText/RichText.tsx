@@ -11,6 +11,7 @@ import { ExternalLinkMarker } from 'Link';
 type RichTextProps = {
   children: string;
   className?: string;
+  variant?: 'text' | 'text-snippet';
 };
 
 /**
@@ -22,6 +23,7 @@ type RichTextProps = {
  * ([^<]+)                         The anchor content (any character which is not a left angle bracket)
  * (<\/a>)                         Closing anchor tag
  */
+// TODO: replace `non` with class name to be ignored
 const regexAnchorExternal = /(?!.*class="non")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
 
 const setExternalLinkMarkers = (children: React.ReactNode) => {
@@ -40,9 +42,13 @@ const setExternalLinkMarkers = (children: React.ReactNode) => {
   );
 };
 
-export const RichText = ({ children, className }: RichTextProps) => {
+export const RichText = ({
+  children,
+  className,
+  variant = 'text'
+}: RichTextProps) => {
   const childrenWithMarkers = children && setExternalLinkMarkers(children);
-  const classNames = cx('cc-rich-text', {
+  const classNames = cx(`cc-rich-${variant}`, {
     [className]: className
   });
 

@@ -16,6 +16,9 @@ const InfoBoxExample = () => {
     <InfoBox>
       <Text title={titleText} variant="text-snippet">
         {`<p>This new funding should be directed to a global response for:</p>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
         <ul>
           <li>
             developing new vaccines, treatments and diagnostics quickly and at
@@ -26,6 +29,7 @@ const InfoBoxExample = () => {
             prioritise support efforts to the most vulnerable countries
           </li>
         </ul>
+        <h5>Heading 5</h5>
         <p>
           There are no treatments or vaccines for coronavirus disease
           (COVID-19). We need to develop them now as an investment in the future

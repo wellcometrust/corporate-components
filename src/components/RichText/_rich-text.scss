@@ -9,6 +9,41 @@
 .cc-rich-text {
   overflow-x: auto;
 
+  h3 {
+    @extend %heading-base;
+    @extend %heading-large;
+    @include heading-divider;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  /* ensure h3 always has more space above */
+  > * + h3 {
+    margin-top: var(--space-xl);
+  }
+  
+  h4 {
+    @extend %heading-base;
+    @extend %heading-regular;
+    letter-spacing: 0;
+  }
+  
+  h5,
+  h6 {
+    @extend %heading-base;
+    @extend %heading-small;
+    letter-spacing: 0;
+  }
+  
+  p {
+    @extend %body-large;
+  }
+
+  ol,
+  ul {
+    @extend %list-base;
+  }
+
   table {
     border-collapse: collapse;
     caption-side: top;
@@ -60,4 +95,40 @@
   td {
     font-size: var(--body-md);
   }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cc-rich-text-snippet {
+  @extend %body-large;
+  line-height: var(--body-line-height-sm);
+
+  p {
+    @extend %body-regular;
+  }
+
+  ol,
+  ul {
+    @extend %list-base;
+    margin-bottom: calc(2 * var(--space-unit));
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cc-text-snippet__title,
+.cc-rich-text-snippet h2,
+.cc-rich-text-snippet h3,
+.cc-rich-text-snippet h4,
+.cc-rich-text-snippet h5,
+.cc-rich-text-snippet h6 {
+  @extend %heading-base;
+  font-size: var(--body-lg);
+  font-weight: bold;
+  letter-spacing: normal;
+  margin-bottom: var(--space-unit);
 }
