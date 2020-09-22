@@ -12,32 +12,35 @@
   line-height: var(--body-line-height-sm);
   margin-bottom: -1px;
   margin-top: -1px;
-  padding-bottom: var(--space-sm);
+  padding: var(--space-lg) 0;
+}
+
+.cc-contact__image {
+  float: left;
+  height: 215px;
+  margin: 0 calc(4 * var(--space-unit)) calc(2 * var(--space-unit)) 0;
+  object-fit: cover;
+  width: 215px;
 }
 
 .cc-contact__name {
   font-size: var(--body-lg);
   font-weight: bold;
-  margin: var(--space-sm) 0;
+  margin: 0 0 var(--space-sm);
 }
 
-.cc-contact__title {
-  display: block;
-  font-weight: normal;
-  margin-bottom: var(--space-sm);
-
-  // rich text fix
-  // TODO: remove this after data has been changed to plain text
-  p {
-    margin: 0;
-  }
+.cc-contact__institution {
+  margin: 0 0 var(--space-sm);
 }
 
 .cc-contact__item {
   align-items: center;
   display: flex;
-  margin-bottom: var(--space-sm);
-  margin-top: 0;
+  margin: 0 0 var(--space-sm);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .cc-contact__link {
