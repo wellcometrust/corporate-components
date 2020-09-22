@@ -17,13 +17,13 @@ export const Text = ({
   variant = 'text'
 }: TextProps) => {
   const classNames = cx(`cc-${variant}`, {
-    [`${className}`]: className
+    [className]: className
   });
 
   return (
     <div className={classNames}>
       {title && <h3 className={`cc-${variant}__title`}>{title}</h3>}
-      <RichText>{children}</RichText>
+      <RichText variant={variant}>{children}</RichText>
     </div>
   );
 };
