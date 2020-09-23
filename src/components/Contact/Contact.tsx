@@ -40,15 +40,19 @@ export const Contact = ({
     [`${className}`]: className
   });
 
+  console.log(imageSources);
+
   return (
     <div className={classNames} itemScope itemType="http://schema.org/Person">
       {/* TODO - finalise responsive images */}
-      <ImageElement
-        className="cc-contact__image"
-        // sizes={sizes}
-        src={imageSources?.image_full_mobile}
-        // srcSet={srcSet}
-      />
+      {imageSources.image_full_mobile && (
+        <ImageElement
+          className="cc-contact__image"
+          // sizes={sizes}
+          src={imageSources?.image_full_mobile}
+          // srcSet={srcSet}
+        />
+      )}
       <h3 className="cc-contact__name" itemProp="name">
         {name}
       </h3>
