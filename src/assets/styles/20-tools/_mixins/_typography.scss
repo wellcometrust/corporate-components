@@ -10,8 +10,8 @@
 @mixin heading-divider(
   $colour: var(--colour-black),
   $height: calc(0.5 * var(--space-unit)),
-  $spacing: calc(1.5 * var(--space-unit)),
-  $width: 1em
+  $spacing: var(--space-md),
+  $width: calc(2.5 * var(--space-unit))
 ) {
   &:after {
     background-color: $colour;

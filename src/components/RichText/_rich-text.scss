@@ -9,17 +9,17 @@
 .cc-rich-text {
   overflow-x: auto;
 
-  h3 {
+  h2 {
     @extend %heading-base;
-    @extend %heading-large;
+    @extend %heading-display;
     @include heading-divider;
-    letter-spacing: 0;
     text-align: center;
   }
 
-  /* ensure h3 always has more space above */
-  > * + h3 {
-    margin-top: var(--space-xl);
+  h3 {
+    @extend %heading-base;
+    @extend %heading-large;
+    letter-spacing: 0;
   }
   
   h4 {

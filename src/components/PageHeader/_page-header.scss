@@ -24,7 +24,7 @@
 .cc-page-header__title {
   @extend %heading-base;
   @extend %heading-hero;
-  @include heading-divider;
+  @include heading-divider($spacing: var(--space-lg));
   font-family: var(--font-secondary);
   text-align: center;
 }
