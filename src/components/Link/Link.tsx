@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import Icon from 'Icon';
 import RouterLinkWrapper from 'RouterLinkWrapper';
 import ExternalLinkMarker from './ExternalLinkMarker';
 
 type LinkProps = {
-  className: string;
+  className?: string;
   to: string;
   children: React.ReactNode;
 };
