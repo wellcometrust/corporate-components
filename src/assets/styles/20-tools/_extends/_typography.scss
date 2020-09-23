@@ -120,6 +120,11 @@
 %list-base {
   margin: 0 0 calc(4 * var(--space-unit));
   padding-left: calc(2 * var(--space-unit));
+
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 /* Alignment */

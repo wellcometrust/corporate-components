@@ -7,8 +7,6 @@
 // ----------------------------------
 
 .cc-rich-text {
-  overflow-x: auto;
-
   h2 {
     @extend %heading-base;
     @extend %heading-display;
@@ -99,6 +97,11 @@
   > :last-child {
     margin-bottom: 0;
   }
+}
+
+.u-table-wrapper {
+  display: block;
+  overflow-x: auto;
 }
 
 .cc-rich-text-snippet {
