@@ -10,6 +10,9 @@
 :root {
   // font family
   --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  // alt font stack removes odd line-height issue encountered with Helvetica Neue
+  --font-primary-alt: Helvetica, Arial, sans-serif;
   --font-secondary: 'Wellcome-Bold', sans-serif;
   --font-tertiary: 'Courier New', Courier, monospace;
 
