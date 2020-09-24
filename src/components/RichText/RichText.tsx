@@ -14,6 +14,8 @@ type RichTextProps = {
   variant?: 'text' | 'text-snippet';
 };
 
+const regexAnchorExternal = /(?!.*class="non")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/gs;
+
 /**
  * Find all anchor elements with target="_blank"
  *
@@ -24,14 +26,11 @@ type RichTextProps = {
  * (<\/a>)                         Closing anchor tag
  */
 // TODO: replace `non` with class name to be ignored
-const regexAnchorExternal = /(?!.*class="non")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
-
-const setExternalLinkMarkers = (children: React.ReactNode) => {
+const addExternalLinkMarkers = (children: string) => {
   // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
   const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
-  const str = children.toString();
 
-  return str.replaceAll(
+  return children.replaceAll(
     regexAnchorExternal,
     (match, p1, p2, p3) =>
       // replace existing anchor string with embellished version containing assistive text
@@ -47,7 +46,7 @@ export const RichText = ({
   className,
   variant = 'text'
 }: RichTextProps) => {
-  const childrenWithMarkers = children && setExternalLinkMarkers(children);
+  const childrenWithMarkers = children && addExternalLinkMarkers(children);
   const classNames = cx(`cc-rich-${variant}`, {
     [className]: className
   });

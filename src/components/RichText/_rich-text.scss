@@ -7,19 +7,20 @@
 // ----------------------------------
 
 .cc-rich-text {
+  // ensure wide table data can be seen using horizontal scroll
   overflow-x: auto;
+
+  h2 {
+    @extend %heading-base;
+    @extend %heading-display;
+    @include heading-divider;
+    text-align: center;
+  }
 
   h3 {
     @extend %heading-base;
     @extend %heading-large;
-    @include heading-divider;
     letter-spacing: 0;
-    text-align: center;
-  }
-
-  /* ensure h3 always has more space above */
-  > * + h3 {
-    margin-top: var(--space-xl);
   }
   
   h4 {

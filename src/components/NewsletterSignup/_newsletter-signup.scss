@@ -30,7 +30,7 @@
 .newsletter-signup__title {
   @extend %heading-base;
   @extend %heading-display;
-  @include heading-divider(var(--colour-white));
+  @include heading-divider($colour: var(--colour-white));
   letter-spacing: 0;
   position: relative;
   text-align: center;
