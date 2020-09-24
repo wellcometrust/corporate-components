@@ -14,6 +14,20 @@
 
 // .cc-accordion-item {}
 
+[class*='cc-accordion--'] {
+  border-bottom: 1px solid var(--colour-grey-10);
+}
+
+.cc-accordion--0,
+.cc-accordion--only-child {
+  border-top: 1px solid var(--colour-grey-10);
+}
+
+.cc-accordion--last-child,
+.cc-accordion--only-child {
+  margin-bottom: var(--space-lg) !important;
+}
+
 .cc-accordion-item__title {
   margin: 0;
 }
@@ -50,16 +64,19 @@
 }
 
 .cc-accordion__button--plus {
-  border-top: 1px solid var(--colour-grey-10);
+  //border-top: 1px solid var(--colour-grey-10);
   display: flex;
   font-size: var(--text-base-size);
+  font-weight: bold;
   height: auto;
   justify-content: flex-start;
+  line-height: var(--body-line-height-sm);
+  padding: 8px 0;
   text-align: left;
   width: 100%;
 
   .cc-accordion-item--active & svg {
-    transition: transform 0.8s ease;
+    transition: transform 0.2s ease;
   }
 
   .btn__icon--right {
@@ -75,10 +92,6 @@
   .btn__text {
     padding-right: var(--space-lg);
   }
-
-  .cc-accordion-item--active & {
-    font-weight: bold;
-  }
 }
 
 .cc-accordion__button--chevron svg {
@@ -87,5 +100,5 @@
 
 .cc-accordion__button--plus svg {
   transform: rotate(-45deg);
-  transition: transform 0.8s ease;
+  transition: transform 0.2s ease;
 }
