@@ -43,7 +43,7 @@ export const Contact = ({
   return (
     <div className={classNames} itemScope itemType="http://schema.org/Person">
       {/* TODO - finalise responsive images */}
-      {imageSources.image_full_mobile && (
+      {imageSources?.image_full_mobile && (
         <ImageElement
           className="cc-contact__image"
           // sizes={sizes}
