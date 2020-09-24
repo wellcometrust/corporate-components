@@ -10,6 +10,7 @@ type TableauChartProps = {
   downloadSize?: string;
   downloadType?: string;
   embed: string;
+  title?: string;
 };
 
 const TABLEAU_SCRIPT_ID = 'script-tableau';
@@ -22,7 +23,8 @@ export const TableauChart = ({
   downloadName,
   downloadSize,
   downloadType,
-  embed
+  embed,
+  title
 }: TableauChartProps) => {
   const [isClient, setClient] = useState(false);
 
@@ -52,6 +54,7 @@ export const TableauChart = ({
 
   return (
     <div className={classNames}>
+      <h4 className="cc-tableau__title">{title}</h4>
       {isClient && (
         <div
           className="cc-tableau__chart"
