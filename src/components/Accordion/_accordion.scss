@@ -64,14 +64,13 @@
 }
 
 .cc-accordion__button--plus {
-  //border-top: 1px solid var(--colour-grey-10);
   display: flex;
   font-size: var(--text-base-size);
   font-weight: bold;
   height: auto;
   justify-content: flex-start;
   line-height: var(--body-line-height-sm);
-  padding: 8px 0;
+  padding: var(--space-unit) 0;
   text-align: left;
   width: 100%;
 

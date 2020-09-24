@@ -33,7 +33,7 @@ const AccordionExample = () => {
       </Accordion>
       <br />
       <p>Accordion - stay open until closed</p>
-      <Accordion>
+      <Accordion className="cc-accordion--0">
         <AccordionItem
           key="3"
           title="Long title closed consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque."
@@ -42,12 +42,12 @@ const AccordionExample = () => {
           {content}
         </AccordionItem>
       </Accordion>
-      <Accordion>
+      <Accordion className="cc-accordion--1">
         <AccordionItem key="4" title={title}>
           {content}
         </AccordionItem>
       </Accordion>
-      <Accordion>
+      <Accordion className="cc-accordion--last-child">
         <AccordionItem key="5" title={title}>
           {content}
         </AccordionItem>
