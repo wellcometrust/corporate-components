@@ -14,6 +14,7 @@ const AccordionExample = () => {
     <>
       <Accordion>
         <AccordionItem
+          key="1"
           title={title}
           titleActive={titleActive}
           variant="chevron"
@@ -25,7 +26,7 @@ const AccordionExample = () => {
       <p>Accordion - the siblings closed when one is open</p>
       <Accordion>
         {[1, 2, 3, 4].map(data => (
-          <AccordionItem title={`${title} ${data}`}>
+          <AccordionItem key={`2-${data}`} title={`${title} ${data}`}>
             {`${content} ${data}`}
           </AccordionItem>
         ))}
@@ -34,6 +35,7 @@ const AccordionExample = () => {
       <p>Accordion - stay open until closed</p>
       <Accordion>
         <AccordionItem
+          key="3"
           title="Long title closed consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque."
           variant="plus"
         >
@@ -41,10 +43,14 @@ const AccordionExample = () => {
         </AccordionItem>
       </Accordion>
       <Accordion>
-        <AccordionItem title={title}>{content}</AccordionItem>
+        <AccordionItem key="4" title={title}>
+          {content}
+        </AccordionItem>
       </Accordion>
       <Accordion>
-        <AccordionItem title={title}>{content}</AccordionItem>
+        <AccordionItem key="5" title={title}>
+          {content}
+        </AccordionItem>
       </Accordion>
     </>
   );
