@@ -60,7 +60,7 @@
   font-size: var(--accordion-button-text-size);
   font-weight: 600;
   text-transform: uppercase;
-  transition: color ease 0.4s;
+  transition: color ease var(--transition-duration);
 }
 
 .cc-accordion__button--plus {
@@ -75,7 +75,7 @@
   width: 100%;
 
   .cc-accordion-item--active & svg {
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-duration-fast) ease;
   }
 
   .btn__icon--right {
@@ -99,5 +99,5 @@
 
 .cc-accordion__button--plus svg {
   transform: rotate(-45deg);
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-duration-fast) ease;
 }
