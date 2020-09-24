@@ -15,16 +15,6 @@ type RichTextProps = {
 };
 
 const regexAnchorExternal = /(?!.*class="non")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/gs;
-const regexTable = /<table[^>]*>.*?<\/table>/gs;
-
-const addTableWrappers = (children: string) => {
-  // const str = children.toString();
-
-  return children.replaceAll(
-    regexTable,
-    match => `<div class="u-table-wrapper">${match}</div>`
-  );
-};
 
 /**
  * Find all anchor elements with target="_blank"
@@ -39,7 +29,6 @@ const addTableWrappers = (children: string) => {
 const addExternalLinkMarkers = (children: string) => {
   // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
   const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
-  // const str = children.toString();
 
   return children.replaceAll(
     regexAnchorExternal,
@@ -58,16 +47,12 @@ export const RichText = ({
   variant = 'text'
 }: RichTextProps) => {
   const childrenWithMarkers = children && addExternalLinkMarkers(children);
-  const childrenWithTableWrappers =
-    childrenWithMarkers && addTableWrappers(childrenWithMarkers);
   const classNames = cx(`cc-rich-${variant}`, {
     [className]: className
   });
 
-  return childrenWithTableWrappers ? (
-    <div className={classNames}>
-      {ReactHtmlParser(childrenWithTableWrappers)}
-    </div>
+  return childrenWithMarkers ? (
+    <div className={classNames}>{ReactHtmlParser(childrenWithMarkers)}</div>
   ) : null;
 };
 
