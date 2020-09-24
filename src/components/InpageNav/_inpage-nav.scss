@@ -39,8 +39,10 @@
 .cc-inpage-nav__link {
   color: var(--colour-grey-60);
   display: block;
-  padding: calc(0.5 * var(--space-unit));
+  padding: calc(0.5 * var(--space-unit)) 0;
   text-decoration: none;
+  transition: ease var(--transition-duration-fast);
+  transition-property: color, padding;
   
   @include hocus {
     color: var(--colour-blue-70);
