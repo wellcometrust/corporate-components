@@ -74,7 +74,7 @@ export default (async () => ({
       minimize: isProduction,
       plugins: [
         autoprefixer(),
-        cssvariables({ preserve: false, preserveAtRulesOrder: true }),
+        cssvariables({ preserve: true, preserveAtRulesOrder: true }),
         calc()
       ]
     }),
