@@ -10,7 +10,7 @@
 // TODO: #5906 discuss approach to grid/layout overall
 
 :root {
-  --grid-max-width: calc(1344 * var(--text-base-size-px)); // calc rems
+  --grid-max-width: 1344; // calc rems
 }
 
 // 8px spacing unit based on (16px / 2)
