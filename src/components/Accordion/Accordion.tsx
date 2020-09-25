@@ -6,11 +6,17 @@ import AccordionItem from './AccordionItem';
 type AccordionProps = {
   children?: JSX.Element | JSX.Element[];
   className?: string;
+  inPageSection?: boolean;
 };
 
-export const Accordion = ({ children, className }: AccordionProps) => {
+export const Accordion = ({
+  children,
+  className,
+  inPageSection
+}: AccordionProps) => {
   const [active, setActive] = useState(-1);
   const classNames = cx('cc-accordion', {
+    'cc-accordion--in-page-section': inPageSection,
     [`${className}`]: className
   });
 

@@ -10,7 +10,9 @@
   --accordion-button-text-size: calc(12/16 * var(--text-base-size));
 }
 
-.cc-accordion {
+// .cc-accordion {}
+
+.cc-accordion--in-page-section {
   border-bottom: 1px solid var(--colour-grey-10);
   border-top: 1px solid var(--colour-grey-10);
 }
