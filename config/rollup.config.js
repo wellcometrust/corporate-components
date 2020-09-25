@@ -6,19 +6,13 @@ import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import autoprefixer from 'autoprefixer';
 import postcss from 'rollup-plugin-postcss';
-import cssvariables from 'postcss-css-variables';
 import calc from 'postcss-calc';
 
-const extensions = [
-  '.js',
-  '.jsx',
-  '.ts',
-  '.tsx',
-];
+const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 const globals = {
   react: 'React',
-  'react-dom': 'ReactDOM',
+  'react-dom': 'ReactDOM'
 };
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -35,10 +29,7 @@ export default (async () => ({
       extensions,
       customResolveOptions: {
         // Allows us to import modules absolutely from these directories
-        moduleDirectory: [
-          './src',
-          './src/components',
-        ]
+        moduleDirectory: ['./src', './src/components']
       }
     }),
     babel({
@@ -70,13 +61,9 @@ export default (async () => ({
     }),
     json(),
     postcss({
-      extract: 'dist/style.css',
+      extract: 'style.css',
       minimize: isProduction,
-      plugins: [
-        autoprefixer(),
-        cssvariables({ preserve: false, preserveAtRulesOrder: true }),
-        calc()
-      ]
-    }),
+      plugins: [autoprefixer(), calc()]
+    })
   ]
 }))();
