@@ -10,23 +10,12 @@
   --accordion-button-text-size: calc(12/16 * var(--text-base-size));
 }
 
-// .cc-accordion {}
-
-// .cc-accordion-item {}
-
-[class*='cc-accordion--'] {
+.cc-accordion {
   border-bottom: 1px solid var(--colour-grey-10);
-}
-
-.cc-accordion--0,
-.cc-accordion--only-child {
   border-top: 1px solid var(--colour-grey-10);
 }
 
-.cc-accordion--last-child,
-.cc-accordion--only-child {
-  margin-bottom: var(--space-lg) !important;
-}
+// .cc-accordion-item {}
 
 .cc-accordion-item__title {
   margin: 0;
