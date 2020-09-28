@@ -14,18 +14,26 @@ type RichTextProps = {
   variant?: 'text' | 'text-snippet';
 };
 
-const regexAnchorExternal = /(?!.*class="non")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/gs;
-
 /**
  * Find all anchor elements with target="_blank"
  *
  * Regex match groups
  * (?!.*class="non")               Negative lookahead to filter out any matches which contain this class
+ * (?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*")
+ *                                 Negative lookahead to filter out absolute links to the Wellcome site
  * (<a[^>]*target="_blank"[^>]*>)  Opening anchor tag which has a target="_blank" attribute
  * ([^<]+)                         The anchor content (any character which is not a left angle bracket)
  * (<\/a>)                         Closing anchor tag
  */
 // TODO: replace `non` with class name to be ignored
+const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/gs;
+
+/**
+ * Add markup to all anchor elements which open in a new window
+ * to indicate an external link
+ *
+ * @param children
+ */
 const addExternalLinkMarkers = (children: string) => {
   // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
   const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
