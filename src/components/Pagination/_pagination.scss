@@ -1,0 +1,124 @@
+// ----------------------------------
+// UI Components
+// Pagination
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-pagination {
+  align-items: baseline;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  list-style: none;
+  margin: 0 0 var(--space-xl);
+  padding: 0;
+  width: 100%;
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.cc-pagination__break,
+.cc-pagination__next,
+.cc-pagination__prev,
+.cc-pagination__item {
+  margin: 0;
+  text-align: center;
+}
+
+.cc-pagination__break-link,
+.cc-pagination__next-link,
+.cc-pagination__prev-link,
+.cc-pagination__link {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  padding: var(--space-unit);
+}
+
+.cc-pagination__next,
+.cc-pagination__prev {
+  font-weight: bold;
+
+  @include mq($until: xs) {
+    width: 50%;
+  }
+}
+
+.cc-pagination__next-link {
+  justify-content: flex-end;
+  padding-right: 0;
+}
+
+.cc-pagination__prev-link {
+  padding-left: 0;
+
+  // fix required to ensure non-breaking space used in IE11 fix
+  // does not increase space between icon and text
+  > span {
+    order: 1;
+  }
+}
+
+.cc-pagination__prev-icon,
+.cc-pagination__next-icon {
+  height: 12px;
+  margin-top: 1px;
+}
+
+.cc-pagination__prev-icon {
+  margin-right: calc(0.5 * var(--space-unit));
+  transform: rotate(180deg);
+}
+
+.cc-pagination__next-icon {
+  margin-left: calc(0.5 * var(--space-unit));
+}
+
+.cc-pagination__link.is-active {
+  font-weight: bold;
+}
+
+.cc-pagination .is-disabled > * {
+  color: var(--link-colour-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+
+  &:hover {
+    color: var(--link-colour-disabled);
+  }
+}
+
+
+// Previous and Next link placement for mobile
+
+.cc-pagination:before {
+  @include mq($until: xs) {
+    content: '';
+
+    // place after page numbers and before next and previous
+    order: 1000;
+
+    // force a break in the wrapping to ensure prev and next are always below the page numbers
+    width: 100%;
+  }
+}
+
+.cc-pagination__prev {
+  @include mq($until: xs) {
+    // place after page numbers
+    order: 10001;
+    text-align: left;
+  }
+}
+
+.cc-pagination__next {
+  @include mq($until: xs) {
+    // place after page numbers
+    order: 10002;
+    text-align: right;
+  }
+}
