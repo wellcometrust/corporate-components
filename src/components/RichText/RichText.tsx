@@ -19,8 +19,10 @@ type RichTextProps = {
  *
  * Regex match groups
  * (?!.*class="non")               Negative lookahead to filter out any matches which contain this class
- * (?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*")
+ * (?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*".*)
  *                                 Negative lookahead to filter out absolute links to the Wellcome site
+ *     (www\.)?                    matches the optional www prefix
+ *     (org|ac\.uk)                matches the possible domain endings
  * (<a[^>]*target="_blank"[^>]*>)  Opening anchor tag which has a target="_blank" attribute
  * ([^<]+)                         The anchor content (any character which is not a left angle bracket)
  * (<\/a>)                         Closing anchor tag
