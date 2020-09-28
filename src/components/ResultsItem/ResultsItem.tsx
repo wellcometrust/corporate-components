@@ -7,6 +7,7 @@ import FormattedDate from 'FormattedDate';
 type ResultItemMetaProps = {
   date?: string;
   lastUpdated?: string;
+  hasType?: boolean;
   type?: string | null;
 };
 
@@ -60,6 +61,13 @@ export const ResultsItem = ({
               &nbsp;
             </span>
           )} */}
+          {/* hasType is a flag to decide if we want to show a type */}
+          {meta.hasType && (
+            <span className="result-item__meta-type">
+              {meta.type}
+              &nbsp;
+            </span>
+          )}
           {meta.date && (
             <span className="result-item__meta-date">
               <FormattedDate dateString={meta.date} />
