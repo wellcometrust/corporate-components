@@ -39,7 +39,6 @@ const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(www\.)?well
 const addExternalLinkMarkers = (children: string) => {
   // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
   const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
-  // console.log('match', children);
 
   return children.replaceAll(regexAnchorExternal, (match, p1, p2, p3, p4, p5) =>
     // replace existing anchor string with embellished version containing assistive text
