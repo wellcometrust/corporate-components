@@ -7,6 +7,7 @@ import FormattedDate from 'FormattedDate';
 type ResultItemMetaProps = {
   date?: string;
   lastUpdated?: string;
+  showType?: boolean;
   type?: string | null;
 };
 
@@ -49,17 +50,12 @@ export const ResultsItem = ({
     <article className={classNames} id={id}>
       {meta && (meta.type || meta.date) && (
         <div className="result-item__meta">
-          {/* `meta.type` temporarily removed as types for search results are not correctly displayed
-          Type label and date logic for cards has been moved to the app side
-          therefore `itemType` prop has been permanently removed
-          TODO: To be revisited for both search results AND text listings
-          https://github.com/wellcometrust/corporate/issues/6730 */}
-          {/* {meta.type && !['taxonomy_term'].includes(itemType) && (
+          {meta.showType && (
             <span className="result-item__meta-type">
               {meta.type}
               &nbsp;
             </span>
-          )} */}
+          )}
           {meta.date && (
             <span className="result-item__meta-date">
               <FormattedDate dateString={meta.date} />
