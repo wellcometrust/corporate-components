@@ -10,10 +10,7 @@
   --accordion-button-text-size: calc(12/16 * var(--text-base-size));
 }
 
-.cc-accordion {
-  border-bottom: 1px solid var(--colour-grey-10);
-  border-top: 1px solid var(--colour-grey-10);
-}
+// .cc-accordion {}
 
 // .cc-accordion-item {}
 
@@ -49,22 +46,20 @@
   font-size: var(--accordion-button-text-size);
   font-weight: 600;
   text-transform: uppercase;
-  transition: color ease var(--transition-duration);
+  transition: color ease 0.4s;
 }
 
 .cc-accordion__button--plus {
+  border-top: 1px solid var(--colour-grey-10);
   display: flex;
   font-size: var(--text-base-size);
-  font-weight: bold;
   height: auto;
   justify-content: flex-start;
-  line-height: var(--body-line-height-sm);
-  padding: var(--space-unit) 0;
   text-align: left;
   width: 100%;
 
   .cc-accordion-item--active & svg {
-    transition: transform var(--transition-duration-fast) ease;
+    transition: transform 0.8s ease;
   }
 
   .btn__icon--right {
@@ -80,6 +75,10 @@
   .btn__text {
     padding-right: var(--space-lg);
   }
+
+  .cc-accordion-item--active & {
+    font-weight: bold;
+  }
 }
 
 .cc-accordion__button--chevron svg {
@@ -88,5 +87,5 @@
 
 .cc-accordion__button--plus svg {
   transform: rotate(-45deg);
-  transition: transform var(--transition-duration-fast) ease;
+  transition: transform 0.8s ease;
 }
