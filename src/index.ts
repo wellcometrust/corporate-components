@@ -34,6 +34,7 @@ export { NewsletterSignup } from 'NewsletterSignup/NewsletterSignup';
 export { NewsletterForm } from 'NewsletterForm/NewsletterForm';
 export { Quote } from 'Quote/Quote';
 export { PageHeader } from 'PageHeader/PageHeader';
+export { default as Pagination } from 'Pagination';
 export { default as RadioInput } from 'RadioInput';
 export { ResultsItem } from 'ResultsItem/ResultsItem';
 export { default as RichText } from 'RichText';
