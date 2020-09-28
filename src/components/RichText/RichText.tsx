@@ -26,7 +26,7 @@ type RichTextProps = {
  * (<\/a>)                         Closing anchor tag
  */
 // TODO: replace `non` with class name to be ignored
-const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*")(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/gs;
+const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*".*)(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
 
 /**
  * Add markup to all anchor elements which open in a new window
@@ -37,15 +37,19 @@ const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(www\.)?well
 const addExternalLinkMarkers = (children: string) => {
   // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
   const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
+  // console.log('match', children);
 
-  return children.replaceAll(
-    regexAnchorExternal,
-    (match, p1, p2, p3) =>
-      // replace existing anchor string with embellished version containing assistive text
-      `${p1.substring(
-        0,
-        p1.length - 1
-      )} class="u-link-new-window">${p2}${externalMarker}${p3}`
+  return children.replaceAll(regexAnchorExternal, (match, p1, p2, p3, p4, p5) =>
+    // replace existing anchor string with embellished version containing assistive text
+    // p[n] refers to each group within the match - groups are defined within parentheses
+    // p1 and p2 are contained in the 2nd negative lookup
+    // so we start with p3 as the first actual string
+    p3
+      ? `${p3.substring(
+          0,
+          p3.length - 1
+        )} class="u-link-new-window">${p4}${externalMarker}${p5}`
+      : match
   );
 };
 
