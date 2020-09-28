@@ -5,15 +5,15 @@ import Icon from 'Icon';
 
 export const PaginationButtonPrevious = () => (
   <>
-    <Icon name="chevron" className="pagination__prev-icon" />
-    <span className="pagination__link-text">Prev</span>
+    <Icon name="chevron" className="cc-pagination__prev-icon" />
+    <span className="cc-pagination__link-text">Prev</span>
   </>
 );
 
 export const PaginationButtonNext = () => (
   <>
-    <span className="pagination__link-text">Next</span>
-    <Icon name="chevron" className="pagination__next-icon" />
+    <span className="cc-pagination__link-text">Next</span>
+    <Icon name="chevron" className="cc-pagination__next-icon" />
   </>
 );
 
