@@ -57,7 +57,7 @@ export const SidebarFilter = ({
       ))}
       <div className="cc-sidebar-filter__body">
         {tags.map(({ name, items }) => (
-          <Accordion key={name}>
+          <Accordion key={name} hasBorders>
             <AccordionItem title={name}>
               <ul className="cc-sidebar-filter__list">
                 {items.map(item => (
