@@ -9,6 +9,11 @@
 .grid__cell {
   @include grid-column(1, 7);
 
+  // Ensures .grid__cell will not expand beyond it's designated
+  // column boundaries
+  max-width: 100%;
+  overflow-x: auto;
+
   // IE row placement fix
   @include mq($until: md) {
     @include grid-row-auto(3, true);
