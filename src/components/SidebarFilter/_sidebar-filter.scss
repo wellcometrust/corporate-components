@@ -1,0 +1,111 @@
+// .cc-sidebar-filter {}
+
+.cc-sidebar-filter__header {
+  align-items: center;
+  border-bottom: 1px solid var(--colour-grey-10);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.cc-sidebar-filter__header-title {
+  flex-shrink: auto;
+  font-size: var(--heading-sm);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.cc-sidebar-filter__header-meta {
+  color: var(--colour-grey-30);
+}
+
+.cc-sidebar-filter__tag {
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  width: 100%;
+}
+
+.cc-sidebar-filter__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cc-sidebar-filter__tag {
+  background-color: var(--colour-blue-05);
+  color: var(--colour-blue-60);
+
+  @include hocus {
+    background-color: var(--colour-blue-05);
+    color: var(--colour-blue-60);
+  }
+}
+
+/**
+ * todo: move to separate checkbox element
+ */
+// .cc-checkbox {}
+
+.cc-checkbox-input__input-element {
+  @extend %visually-hidden;
+}
+
+.cc-checkbox-input__label {
+  --checkbox-width: calc(2 * var(--space-unit));
+  --checkbox-inner-width: calc(0.75 * var(--space-unit));
+
+  cursor: pointer;
+  padding-left: calc(var(--checkbox-width) + var(--space-md));
+  position: relative;
+
+  &:after,
+  &:before {
+    @include middle(y, absolute);
+
+    background-color: var(--colour-white);
+    border: 1px solid var(--colour-grey-20);
+    content: '';
+    height: var(--checkbox-width);
+    left: 0;
+    width: var(--checkbox-width);
+  }
+
+  &:after {
+    box-shadow: inset 0 0 0 0;
+    height: var(--checkbox-inner-width);
+    left: calc((var(--checkbox-width) - var(--checkbox-inner-width)) / 2);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    width: var(--checkbox-inner-width);
+  }
+
+  // Checked checkbox
+  .cc-checkbox-input__input-element:checked ~ &:after,
+  .cc-checkbox-input__input-element:checked ~ &:before {
+    border: 0;
+  }
+
+  .cc-checkbox-input__input-element:checked ~ &:before {
+    background-color: var(--colour-blue-60);
+  }
+
+  .cc-checkbox-input__input-element:checked ~ &:after {
+    opacity: 1;
+  }
+
+  // Hovered/Focused checkbox1
+  .cc-checkbox-input__input-element:not(:disabled) ~ &:hover:before,
+  .cc-checkbox-input__input-element:not(:disabled) ~ .cc-checkbox-input__input-element:focus ~ &:before {
+    border-color: var(--colour-blue-60);
+  }
+
+  // Disabled checkbox
+  .cc-checkbox-input__input-element:disabled ~ &:before {
+    border-color: var(--colour-grey-20);
+  }
+
+  .cc-checkbox-input__input-element:disabled ~ & {
+    color: var(--colour-grey-30);
+  }
+}

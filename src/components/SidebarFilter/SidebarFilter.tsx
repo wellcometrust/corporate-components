@@ -26,20 +26,22 @@ export const SidebarFilter = ({
   onChange,
   onClear,
   onTagRemove,
-  activeTags,
+  activeTags = [],
   tags
 }: SidebarFilterProps) => {
   return (
     <div className="cc-sidebar-filter">
       <header className="cc-sidebar-filter__header">
         <h2 className="cc-sidebar-filter__header-title">Filter results:</h2>
-        {activeTags && (
-          <span className="cc-sidebar-filter__header-btn">
+        <span className="cc-sidebar-filter__header-meta">
+          {activeTags.length ? (
             <Button type="button" onClick={onClear} variant="link">
               Clear all
             </Button>
-          </span>
-        )}
+          ) : (
+            `Showing all`
+          )}
+        </span>
       </header>
       {activeTags.map(({ label, value }) => (
         <Button
@@ -59,16 +61,17 @@ export const SidebarFilter = ({
               <ul className="cc-sidebar-filter__list">
                 {items.map(item => (
                   <li className="cc-sidebar-filter__list-item" key={item.value}>
+                    {/* #7382 todo: add Checkbox component */}
                     <input
                       checked={item.isActive}
-                      className="checkbox-input__input-element u-visually-hidden"
+                      className="cc-checkbox-input__input-element"
                       disabled={item.isDisabled}
                       id={item.label}
                       type="checkbox"
                       onChange={() => onChange(item.value)}
                     />
                     <label
-                      className="checkbox-input__label"
+                      className="cc-checkbox-input__label"
                       htmlFor={item.label}
                     >
                       {item.label}
