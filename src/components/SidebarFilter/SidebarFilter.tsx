@@ -78,6 +78,10 @@ export const SidebarFilter = ({
                       >
                         {item.label}
                       </label>
+                      <Icon
+                        className="cc-sidebar-filter__checkbox-icon"
+                        name="checkmark"
+                      />
                     </span>
                   </li>
                 ))}

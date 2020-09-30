@@ -46,10 +46,23 @@
  * #7382 todo: add Checkbox component
  */
 
-// .cc-sidebar-filter__checkbox {}
+.cc-sidebar-filter__checkbox {
+  position: relative;
+}
 
 .cc-sidebar-filter__checkbox-input {
   @extend %visually-hidden;
+}
+
+.cc-sidebar-filter__checkbox-icon {
+  @include middle(y, absolute);
+
+  color: var(--colour-white);
+  height: 40%;
+
+  .cc-sidebar-filter__checkbox-input:not(:checked) ~ & {
+    @extend %visually-hidden;
+  }
 }
 
 .cc-sidebar-filter__checkbox-label {
@@ -60,7 +73,6 @@
   padding-left: calc(var(--checkbox-width) + var(--space-md));
   position: relative;
 
-  &:after,
   &:before {
     @include middle(y, absolute);
 
@@ -82,22 +94,14 @@
   }
 
   // Checked checkbox
-  .cc-sidebar-filter__checkbox-input:checked ~ &:after,
   .cc-sidebar-filter__checkbox-input:checked ~ &:before {
+    background-color: var(--colour-blue-60);
     border: 0;
   }
 
-  .cc-sidebar-filter__checkbox-input:checked ~ &:before {
-    background-color: var(--colour-blue-60);
-  }
-
-  .cc-sidebar-filter__checkbox-input:checked ~ &:after {
-    opacity: 1;
-  }
-
-  // Hovered/Focused checkbox1
+  // Hovered/Focused checkbox
   .cc-sidebar-filter__checkbox-input:not(:disabled) ~ &:hover:before,
-  .cc-sidebar-filter__checkbox-input:not(:disabled) ~ .cc-sidebar-filter__checkbox-input:focus ~ &:before {
+  .cc-sidebar-filter__checkbox-input:not(:disabled):focus ~ &:before {
     border-color: var(--colour-blue-60);
   }
 
