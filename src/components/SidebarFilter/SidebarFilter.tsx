@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
+import Icon from 'Icon';
 
 type SidebarFilterProps = {
   onChange: (value: string) => void;
@@ -62,20 +63,22 @@ export const SidebarFilter = ({
                 {items.map(item => (
                   <li className="cc-sidebar-filter__list-item" key={item.value}>
                     {/* #7382 todo: add Checkbox component */}
-                    <input
-                      checked={item.isActive}
-                      className="cc-checkbox-input__input-element"
-                      disabled={item.isDisabled}
-                      id={item.label}
-                      type="checkbox"
-                      onChange={() => onChange(item.value)}
-                    />
-                    <label
-                      className="cc-checkbox-input__label"
-                      htmlFor={item.label}
-                    >
-                      {item.label}
-                    </label>
+                    <span className="cc-sidebar-filter__checkbox">
+                      <input
+                        checked={item.isActive}
+                        className="cc-sidebar-filter__checkbox-input"
+                        disabled={item.isDisabled}
+                        id={item.label}
+                        type="checkbox"
+                        onChange={() => onChange(item.value)}
+                      />
+                      <label
+                        className="cc-sidebar-filter__checkbox-label"
+                        htmlFor={item.label}
+                      >
+                        {item.label}
+                      </label>
+                    </span>
                   </li>
                 ))}
               </ul>

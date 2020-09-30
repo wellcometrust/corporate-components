@@ -43,15 +43,16 @@
 }
 
 /**
- * todo: move to separate checkbox element
+ * #7382 todo: add Checkbox component
  */
-// .cc-checkbox {}
 
-.cc-checkbox-input__input-element {
+// .cc-sidebar-filter__checkbox {}
+
+.cc-sidebar-filter__checkbox-input {
   @extend %visually-hidden;
 }
 
-.cc-checkbox-input__label {
+.cc-sidebar-filter__checkbox-label {
   --checkbox-width: calc(2 * var(--space-unit));
   --checkbox-inner-width: calc(0.75 * var(--space-unit));
 
@@ -81,31 +82,31 @@
   }
 
   // Checked checkbox
-  .cc-checkbox-input__input-element:checked ~ &:after,
-  .cc-checkbox-input__input-element:checked ~ &:before {
+  .cc-sidebar-filter__checkbox-input:checked ~ &:after,
+  .cc-sidebar-filter__checkbox-input:checked ~ &:before {
     border: 0;
   }
 
-  .cc-checkbox-input__input-element:checked ~ &:before {
+  .cc-sidebar-filter__checkbox-input:checked ~ &:before {
     background-color: var(--colour-blue-60);
   }
 
-  .cc-checkbox-input__input-element:checked ~ &:after {
+  .cc-sidebar-filter__checkbox-input:checked ~ &:after {
     opacity: 1;
   }
 
   // Hovered/Focused checkbox1
-  .cc-checkbox-input__input-element:not(:disabled) ~ &:hover:before,
-  .cc-checkbox-input__input-element:not(:disabled) ~ .cc-checkbox-input__input-element:focus ~ &:before {
+  .cc-sidebar-filter__checkbox-input:not(:disabled) ~ &:hover:before,
+  .cc-sidebar-filter__checkbox-input:not(:disabled) ~ .cc-sidebar-filter__checkbox-input:focus ~ &:before {
     border-color: var(--colour-blue-60);
   }
 
   // Disabled checkbox
-  .cc-checkbox-input__input-element:disabled ~ &:before {
+  .cc-sidebar-filter__checkbox-input:disabled ~ &:before {
     border-color: var(--colour-grey-20);
   }
 
-  .cc-checkbox-input__input-element:disabled ~ & {
+  .cc-sidebar-filter__checkbox-input:disabled ~ & {
     color: var(--colour-grey-30);
   }
 }
