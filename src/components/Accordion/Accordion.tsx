@@ -6,17 +6,17 @@ import AccordionItem from './AccordionItem';
 type AccordionProps = {
   children?: JSX.Element | JSX.Element[];
   className?: string;
-  inPageSection?: boolean;
+  hasBorders?: boolean;
 };
 
 export const Accordion = ({
   children,
   className,
-  inPageSection
+  hasBorders
 }: AccordionProps) => {
   const [active, setActive] = useState(-1);
   const classNames = cx('cc-accordion', {
-    'cc-accordion--in-page-section': inPageSection,
+    'cc-accordion--has-borders': hasBorders,
     [`${className}`]: className
   });
 
