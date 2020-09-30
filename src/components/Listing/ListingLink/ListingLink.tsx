@@ -25,7 +25,7 @@ export const ListingLink = ({
   });
 
   const iconClassNames = cx('cc-listing__link-icon', {
-    'cc-listing__link-icon--download': iconVariant === 'download'
+    [`cc-listing__link-icon--${iconVariant}`]: iconVariant
   });
 
   return (
