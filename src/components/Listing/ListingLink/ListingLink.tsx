@@ -10,16 +10,22 @@ type ListingLinkProps = {
   fileMeta?: FileMetaProps;
   href: string;
   title: string;
+  iconVariant?: 'chevron' | 'download';
 };
 
 export const ListingLink = ({
   className,
   fileMeta,
   href,
-  title
+  title,
+  iconVariant = 'chevron'
 }: ListingLinkProps) => {
   const classNames = cx('cc-listing__item', {
     [`${className}`]: className
+  });
+
+  const iconClassNames = cx('cc-listing__link-icon', {
+    'cc-listing__link-icon--download': iconVariant === 'download'
   });
 
   return (
@@ -34,7 +40,7 @@ export const ListingLink = ({
             </span>
           </>
         )}
-        <Icon name="chevron" className="cc-listing__link-icon" />
+        <Icon name={iconVariant} className={iconClassNames} />
       </Link>
     </li>
   );

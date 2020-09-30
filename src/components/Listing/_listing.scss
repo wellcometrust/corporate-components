@@ -9,11 +9,11 @@
 .cc-card-listing,
 .cc-listing {
   @include grid-column(1, 7);
-  
+
   @include mq(sm) {
     @include grid-column(2, 12);
   }
-  
+
   @include mq(md) {
     @include grid-column(4, 10);
   }
@@ -24,7 +24,7 @@
   border-bottom: 1px solid var(--colour-grey-10);
   width: 100%;
 }
-  
+
 .cc-listing__item {
   border-top: 1px solid var(--colour-grey-10);
   display: block;
@@ -55,6 +55,10 @@
   width: 0.375em;
 }
 
+.cc-listing__link-icon--download {
+  width: auto;
+}
+
 // Arrange horizontal cards in a row above `md` breakpoint
 .cc-card-listing--horizontal {
   @include mq(md) {
@@ -64,7 +68,7 @@
     flex-wrap: wrap;
     margin: -$grid-gutter-md / 2;
   }
-  
+
   // increase grid spacing
   @include mq(xl) {
     margin: -$grid-gutter-xl / 2;
