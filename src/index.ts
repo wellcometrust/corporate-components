@@ -44,6 +44,7 @@ export { SearchPane } from 'SearchPane/SearchPane';
 export { Section } from 'Section/Section';
 export { SectionTitle } from 'SectionTitle/SectionTitle';
 export { default as SiteAlert } from 'SiteAlert';
+export { default as SidebarFilter } from 'SidebarFilter';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
 export { SocialShare } from 'SocialShare/SocialShare';
 export { TableauChart } from 'TableauChart/TableauChart';
