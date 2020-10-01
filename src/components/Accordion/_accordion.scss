@@ -14,15 +14,6 @@
 
 .cc-accordion--has-borders {
   border-bottom: 1px solid var(--colour-grey-10);
-  border-top: 1px solid var(--colour-grey-10);
-
-  /**
-   * #7365 todo: group related accordion nodes; once done, we can
-   * start to style based on :<nth>-child pseudo selectors
-   */
-  & + & {
-    border-top: 0;
-  }
 }
 
 // .cc-accordion-item {}
