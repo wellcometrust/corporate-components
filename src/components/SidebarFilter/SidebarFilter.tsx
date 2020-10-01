@@ -44,17 +44,21 @@ export const SidebarFilter = ({
           )}
         </span>
       </header>
-      {activeTags.map(({ label, value }) => (
-        <Button
-          className="cc-sidebar-filter__tag"
-          icon="close"
-          iconPlacementSwitch
-          onClick={() => onTagRemove(value)}
-          type="button"
-        >
-          {label}
-        </Button>
-      ))}
+      {!!activeTags.length && (
+        <div className="cc-sidebar-filter__tags-list">
+          {activeTags.map(({ label, value }) => (
+            <Button
+              className="cc-sidebar-filter__tags-list-item"
+              icon="close"
+              iconPlacementSwitch
+              onClick={() => onTagRemove(value)}
+              type="button"
+            >
+              {label}
+            </Button>
+          ))}
+        </div>
+      )}
       <div className="cc-sidebar-filter__body">
         {tags.map(({ name, items }) => (
           <Accordion key={name} hasBorders>

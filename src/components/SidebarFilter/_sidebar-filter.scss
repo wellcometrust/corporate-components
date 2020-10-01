@@ -5,8 +5,7 @@
   border-bottom: 1px solid var(--colour-grey-10);
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--space-md);
-  padding-bottom: var(--space-md);
+  padding-bottom: var(--space-lg);
 }
 
 .cc-sidebar-filter__header-title {
@@ -20,16 +19,38 @@
   color: var(--colour-grey-30);
 }
 
-.cc-sidebar-filter__tag {
+.cc-sidebar-filter__tags-list {
+  border-bottom: 1px solid var(--colour-grey-10);
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.cc-sidebar-filter__tags-list-item {
+  background-color: var(--colour-blue-05);
+  color: var(--colour-blue-60);
   justify-content: space-between;
   margin-bottom: var(--space-md);
   width: 100%;
+
+  @include hocus {
+    background-color: var(--colour-blue-05);
+    color: var(--colour-blue-60);
+  }
 }
 
 .cc-sidebar-filter__list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding-left: 0;
+
+  @include mq(md) {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+}
+
+.cc-sidebar-filter__list-item {
+  margin-bottom: var(--space-sm);
 }
 
 .cc-sidebar-filter__tag {
@@ -47,6 +68,7 @@
  */
 
 .cc-sidebar-filter__checkbox {
+  display: block;
   position: relative;
 }
 
@@ -55,10 +77,11 @@
 }
 
 .cc-sidebar-filter__checkbox-icon {
-  @include middle(y, absolute);
-
   color: var(--colour-white);
-  height: 40%;
+  left: 0.227rem;
+  position: absolute;
+  top: 0.34rem;
+  width: 0.56rem;
 
   .cc-sidebar-filter__checkbox-input:not(:checked) ~ & {
     @extend %visually-hidden;
@@ -70,17 +93,19 @@
   --checkbox-inner-width: calc(0.75 * var(--space-unit));
 
   cursor: pointer;
+  display: inline-block;
   padding-left: calc(var(--checkbox-width) + var(--space-md));
   position: relative;
 
   &:before {
-    @include middle(y, absolute);
-
     background-color: var(--colour-white);
     border: 1px solid var(--colour-grey-20);
+    border-radius: 2px;
     content: '';
     height: var(--checkbox-width);
     left: 0;
+    position: absolute;
+    top: 0.37rem;
     width: var(--checkbox-width);
   }
 
