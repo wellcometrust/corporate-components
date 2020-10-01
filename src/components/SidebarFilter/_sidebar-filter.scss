@@ -80,6 +80,7 @@
 .cc-sidebar-filter__checkbox-icon {
   color: var(--colour-white);
   left: 0.227rem;
+  pointer-events: none;
   position: absolute;
   top: 0.34rem;
   width: 0.56rem;
