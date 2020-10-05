@@ -14,6 +14,11 @@
 
 .cc-accordion--has-borders {
   border-bottom: 1px solid var(--colour-grey-10);
+  border-top: 1px solid var(--colour-grey-10);
+
+  & + & {
+    border-top: 0;
+  }
 }
 
 // .cc-accordion-item {}
@@ -29,6 +34,7 @@
 .cc-accordion__button {
   @extend %btn-base;
   @extend %btn-size-standard;
+  color: inherit;
 
   .btn__icon {
     height: 1.5rem;
