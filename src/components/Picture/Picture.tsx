@@ -27,10 +27,10 @@ const Picture = ({
   sources
 }: PictureProps) => {
   const [loaded, setLoaded] = useState(false);
-  const classNames = cx('slideshow__image', {
+  const classNames = cx({
     'u-loading-lazy': isLazy && !loaded,
     'u-loading-preload': !isLazy && !loaded,
-    [`${className}`]: className
+    [className]: className
   });
 
   const onLoad = () => {
