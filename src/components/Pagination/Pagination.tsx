@@ -25,7 +25,7 @@ export const PaginationButtonBreak = () => (
 );
 
 type PaginationProps = {
-  className: string;
+  className?: string;
   forcePage?: number;
   hrefBuilder?: (page: number) => string;
   onPageChange?: ({ selected }: { selected: number }) => void;
