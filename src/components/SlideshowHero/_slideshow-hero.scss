@@ -81,7 +81,8 @@
 
 .slideshow-hero__title {
   @extend %heading-base;
-  @extend %heading-hero;
+  @extend %heading-super;
+  font-family: var(--font-secondary);
   margin-bottom: var(--space-lg);
   // D7 override
   padding: 0;
@@ -94,6 +95,7 @@
 .slideshow-hero__standfirst {
   // D7 override
   @extend %body-large;
+  line-height: var(--body-line-height-sm);
 }
 
 .slideshow-hero__btn-skip {
