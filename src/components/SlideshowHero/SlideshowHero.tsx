@@ -149,7 +149,11 @@ export const SlideshowHero = ({
                     >
                       <div className="slideshow__image-frame-outer">
                         <div className="slideshow__image-frame">
-                          <Picture src={fallbackImage} sources={imageSources} />
+                          <Picture
+                            className="slideshow__image"
+                            sources={imageSources}
+                            src={fallbackImage}
+                          />
                         </div>
                       </div>
                       <MediaCaption
