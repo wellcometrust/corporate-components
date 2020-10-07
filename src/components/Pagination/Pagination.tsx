@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
+import cx from 'classnames';
 
 import Icon from 'Icon';
 
@@ -24,6 +25,7 @@ export const PaginationButtonBreak = () => (
 );
 
 type PaginationProps = {
+  className?: string;
   forcePage?: number;
   hrefBuilder?: (page: number) => string;
   onPageChange?: ({ selected }: { selected: number }) => void;
@@ -31,34 +33,41 @@ type PaginationProps = {
 };
 
 export const Pagination = ({
+  className,
   forcePage,
   hrefBuilder,
   onPageChange,
   pageCount
 }: PaginationProps) => {
+  const classNames = cx('cc-pagination', {
+    [`${className}`]: className
+  });
+
   return (
-    <ReactPaginate
-      previousLabel={<PaginationButtonPrevious />}
-      nextLabel={<PaginationButtonNext />}
-      breakLabel={<PaginationButtonBreak />}
-      forcePage={forcePage}
-      marginPagesDisplayed={1}
-      onPageChange={onPageChange}
-      hrefBuilder={hrefBuilder}
-      pageCount={pageCount}
-      pageRangeDisplayed={4}
-      containerClassName="cc-pagination"
-      nextClassName="cc-pagination__next"
-      nextLinkClassName="cc-pagination__next-link"
-      previousClassName="cc-pagination__prev"
-      previousLinkClassName="cc-pagination__prev-link"
-      pageClassName="cc-pagination__item"
-      pageLinkClassName="cc-pagination__link"
-      breakClassName="cc-pagination__break"
-      breakLinkClassName="cc-pagination__break-link"
-      disabledClassName="is-disabled"
-      activeLinkClassName="is-active"
-    />
+    <nav aria-label="Pagination" className={classNames}>
+      <ReactPaginate
+        previousLabel={<PaginationButtonPrevious />}
+        nextLabel={<PaginationButtonNext />}
+        breakLabel={<PaginationButtonBreak />}
+        forcePage={forcePage}
+        marginPagesDisplayed={1}
+        onPageChange={onPageChange}
+        hrefBuilder={hrefBuilder}
+        pageCount={pageCount}
+        pageRangeDisplayed={4}
+        containerClassName="cc-pagination__list"
+        nextClassName="cc-pagination__next"
+        nextLinkClassName="cc-pagination__next-link"
+        previousClassName="cc-pagination__prev"
+        previousLinkClassName="cc-pagination__prev-link"
+        pageClassName="cc-pagination__item"
+        pageLinkClassName="cc-pagination__link"
+        breakClassName="cc-pagination__break"
+        breakLinkClassName="cc-pagination__break-link"
+        disabledClassName="is-disabled"
+        activeLinkClassName="is-active"
+      />
+    </nav>
   );
 };
 
