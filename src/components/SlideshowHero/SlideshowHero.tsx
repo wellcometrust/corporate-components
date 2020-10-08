@@ -23,6 +23,7 @@ type SlideshowHeroProps = {
     }[];
   }[];
   moreLink?: string;
+  moreLinkText?: string;
   skipLink?: string;
   skipLinkText?: string;
   standfirst?: string;
@@ -34,6 +35,7 @@ export const SlideshowHero = ({
   className,
   images,
   moreLink,
+  moreLinkText,
   skipLink,
   skipLinkText,
   standfirst,
@@ -112,7 +114,7 @@ export const SlideshowHero = ({
               <p className="slideshow-hero__standfirst">{standfirst}</p>
               {moreLink && (
                 <Button variant="link" href={moreLink}>
-                  Learn more
+                  {moreLinkText || moreLink}
                 </Button>
               )}
             </div>

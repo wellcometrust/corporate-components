@@ -8,6 +8,7 @@ const SlideshowHeroExample = () => {
   const animationDuration = number('animationDuration', 2000);
   const className = text('classname', '');
   const moreLink = text('moreLink', '/');
+  const moreLinkText = text('moreLinkText', 'Learn more');
   const skipLink = text('skipLink', '#main-content');
   const skipLinkText = text('skipLinkText', 'Skip to main content');
   const slides = [
@@ -62,6 +63,7 @@ const SlideshowHeroExample = () => {
       className={className}
       images={images}
       moreLink={moreLink}
+      moreLinkText={moreLinkText}
       skipLink={skipLink}
       skipLinkText={skipLinkText}
       standfirst={standfirst}
