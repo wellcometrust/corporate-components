@@ -20,7 +20,7 @@
   }
 
   @include mq(sm) {
-    @include grid-column(2, 12);
+    @include grid-column(1, 13);
   }
 }
 
