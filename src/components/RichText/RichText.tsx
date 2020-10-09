@@ -2,11 +2,9 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import cx from 'classnames';
 
-// polyfill and type definitions for String.prototype.replaceAll()
-import 'ts-replace-all';
-import ReactHtmlParser from 'react-html-parser';
-
 import { ExternalLinkMarker } from 'Link';
+
+import { parseHtml } from 'utils/parse-html';
 
 type RichTextProps = {
   children: string;
@@ -65,7 +63,7 @@ export const RichText = ({
   });
 
   return childrenWithMarkers ? (
-    <div className={classNames}>{ReactHtmlParser(childrenWithMarkers)}</div>
+    <div className={classNames}>{parseHtml(childrenWithMarkers)}</div>
   ) : null;
 };
 

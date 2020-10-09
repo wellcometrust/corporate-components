@@ -4,6 +4,8 @@ import cx from 'classnames';
 import FileDownload from 'FileDownload';
 import FormattedDate from 'FormattedDate';
 
+import { parseHtml } from 'utils/parse-html';
+
 type ResultItemMetaProps = {
   date?: string;
   lastUpdated?: string;
@@ -83,10 +85,10 @@ export const ResultsItem = ({
       )}
       <h3 className="result-item__title">
         {type === 'file' ? (
-          `${title}`
+          parseHtml(title)
         ) : (
           <a href={href} className="result-item__link">
-            {title}
+            {parseHtml(title)}
           </a>
         )}
       </h3>
