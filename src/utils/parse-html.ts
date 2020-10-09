@@ -1,6 +1,8 @@
 /**
  * @file HTML Parser utility.
  */
+
+// polyfill and type definitions for String.prototype.replaceAll()
 import 'ts-replace-all';
 import ReactHtmlParser, { Options } from 'react-html-parser';
 
