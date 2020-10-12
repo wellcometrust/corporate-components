@@ -29,6 +29,7 @@ export const FormSelect = forwardRef(
     return (
       <select
         className={classNames}
+        defaultValue=""
         id={id}
         name={name}
         ref={ref}
