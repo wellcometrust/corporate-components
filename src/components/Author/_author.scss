@@ -15,26 +15,25 @@
 }
 
 .cc-author__image {
-  @extend %image-cover;
-  border-radius: 50%;
+  --image-size: calc(6.25 * var(--space-unit));
 
-  height: 50px;
+  @extend %image-cover;
+
+  border-radius: 50%;
+  height: var(--image-size);
   overflow: hidden;
-  width: 50px;
+  width: var(--image-size);
 
   @include mq($until: md) {
     margin-right: var(--space-lg);
   }
 
   @include mq(sm) {
-    height: 100px;
-    width: 100px;
+    --image-size: calc(12.5 * var(--space-unit));
   }
 
   @include mq(md) {
-    height: 104px;
     margin-bottom: var(--space-lg);
-    width: 104px;
   }
 }
 
