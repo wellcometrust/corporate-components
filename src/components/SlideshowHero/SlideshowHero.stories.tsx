@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs';
 
 import SlideshowHero from './SlideshowHero';
+import Readme from './SlideshowHero.md';
 
 const SlideshowHeroExample = () => {
   const animationDuration = number('animationDuration', 2000);
@@ -73,4 +74,7 @@ const SlideshowHeroExample = () => {
 };
 
 const stories = storiesOf('Components|SlideshowHero', module);
-stories.add('SlideshowHero', SlideshowHeroExample);
+
+stories.add('SlideshowHero', SlideshowHeroExample, {
+  readme: { sidebar: Readme }
+});
