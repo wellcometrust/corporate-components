@@ -29,7 +29,7 @@
 
 .result-item__meta-date,
 .result-item__meta-last-updated {
-  color: var(--colour-grey-60);
+  color: var(--text-colour);
 
   @include mq($until: xs) {
     display: block;
@@ -52,6 +52,6 @@
 }
 
 .result-item__file-meta-size {
-  color: var(--colour-grey-60);
+  color: var(--text-colour);
   font-size: var(--body-md);
 }

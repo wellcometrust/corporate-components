@@ -14,11 +14,11 @@
 }
 
 .btn[disabled] {
-  color: var(--colour-grey-50);
+  color: var(--link-colour-disabled);
   cursor: not-allowed;
 
   @include hocus {
-    color: var(--colour-grey-50);
+    color: var(--link-colour-disabled);
   }
 }
 
@@ -30,21 +30,21 @@
 }
 
 .btn--primary {
-  background-color: var(--colour-blue-60);
+  background-color: var(--link-colour);
   color: var(--colour-white);
 
   &:hover {
-    background-color: var(--colour-blue-70);
+    background-color: var(--link-colour-hover);
     color: var(--colour-white);
   }
 
   &:focus {
-    background-color: var(--colour-blue-60);
+    background-color: var(--link-colour);
     color: var(--colour-white);
   }
 
   &:active {
-    background-color: var(--colour-blue-50);
+    background-color: var(--link-colour-active);
     color: var(--colour-white);
   }
 
@@ -56,31 +56,31 @@
 .btn--secondary,
 .btn--ghost,
 .btn--link {
-  color: var(--colour-blue-60);
+  color: var(--link-colour);
 
   &:hover {
-    color: var(--colour-blue-70);
+    color: var(--link-colour-hover);
   }
 
   &:active {
-    color: var(--colour-blue-50);
+    color: var(--link-colour-active);
   }
 }
 
 .btn--secondary,
 .btn--ghost {
-  border: 1px solid var(--colour-blue-50);
+  border: 1px solid var(--link-colour-active);
 
   &:hover {
-    border-color: var(--colour-blue-60);
+    border-color: var(--link-colour);
   }
 
   &:active {
-    border-color: var(--colour-blue-50);
+    border-color: var(--link-colour-active);
   }
 
   &[disabled] {
-    border-color: var(--colour-grey-50);
+    border-color: var(--link-colour-disabled);
   }
 }
 
