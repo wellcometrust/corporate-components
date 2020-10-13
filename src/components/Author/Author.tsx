@@ -24,23 +24,24 @@ export const Author = ({
     {(imageSrc || imageSrcSet) && (
       <figure className="cc-author__image">
         <ImageElement
+          itemProp="image"
           sizes={imageSizes}
           src={imageSrc}
           srcSet={imageSrcSet}
-          alt={`A photograph of the author: ${name}`}
+          alt={`A photograph of the author, ${name}.`}
         />
       </figure>
     )}
-    <span className="cc-author__body">
+    <div className="cc-author__body">
       <h2 className="cc-author__name" itemProp="name">
         {name}
       </h2>
       <p className="cc-author__byline">
         {jobTitle && <span itemProp="jobTitle">{jobTitle}</span>}
         {jobTitle && organization && ', '}
-        {organization && <span itemProp="affiliation">{organization}</span>}
+        {organization && <span itemProp="memberOf">{organization}</span>}
       </p>
-    </span>
+    </div>
   </div>
 );
 

@@ -21,12 +21,9 @@
 
   border-radius: 50%;
   height: var(--image-size);
+  margin-right: var(--space-lg);
   overflow: hidden;
   width: var(--image-size);
-
-  @include mq($until: md) {
-    margin-right: var(--space-lg);
-  }
 
   @include mq(sm) {
     --image-size: calc(12.5 * var(--space-unit));
@@ -34,6 +31,7 @@
 
   @include mq(md) {
     margin-bottom: var(--space-lg);
+    margin-right: 0;
   }
 }
 
@@ -43,9 +41,3 @@
 
   font-size: var(--body-md);
 }
-
-// .cc-author__body {}
-
-// .cc-author__name {}
-
-// .cc-author__byline {}
