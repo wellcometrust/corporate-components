@@ -1,0 +1,43 @@
+// ----------------------------------
+// UI Components
+// Author
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-author {
+  margin-bottom: var(--space-lg);
+
+  @include mq($until: md) {
+    display: flex;
+  }
+}
+
+.cc-author__image {
+  --image-size: calc(6.25 * var(--space-unit));
+
+  @extend %image-cover;
+
+  border-radius: 50%;
+  height: var(--image-size);
+  margin-right: var(--space-lg);
+  overflow: hidden;
+  width: var(--image-size);
+
+  @include mq(sm) {
+    --image-size: calc(12.5 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    margin-bottom: var(--space-lg);
+    margin-right: 0;
+  }
+}
+
+.cc-author__name,
+.cc-author__byline {
+  @extend %margin-0;
+
+  font-size: var(--body-md);
+}
