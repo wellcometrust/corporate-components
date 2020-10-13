@@ -48,6 +48,7 @@ export { default as SidebarFilter } from 'SidebarFilter';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
 export { SocialShare } from 'SocialShare/SocialShare';
 export { TableauChart } from 'TableauChart/TableauChart';
+export { default as TagList } from 'TagList';
 export { Text } from 'Text/Text';
 export { default as TextArea } from 'TextArea';
 export { default as TextInput } from 'TextInput';
