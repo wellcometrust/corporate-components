@@ -164,7 +164,7 @@
 
 .nav__btn--close {
   @extend %btn-nav-base;
-  color: var(--colour-grey-60);
+  color: var(--text-colour);
 
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
@@ -182,7 +182,7 @@
 
 .nav__btn--search-mobile {
   @extend %btn-nav-base;
-  color: var(--colour-grey-60);
+  color: var(--text-colour);
 
   @include mq(sm) {
     padding-left: calc(4 * var(--space-unit));
@@ -195,7 +195,7 @@
   }
 
   &:hover {
-    color: var(--colour-grey-60);
+    color: var(--text-colour);
 
     @include mq(md) {
       color: var(--colour-white);
