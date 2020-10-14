@@ -1,17 +1,19 @@
 import React from 'react';
+import cx from 'classnames';
 
 import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import Icon from 'Icon';
 
 type SidebarFilterProps = {
-  onChange: (value: string) => void;
-  onClear: () => void;
-  onTagRemove: (value: string) => void;
   activeTags: {
     label: string;
     value: string;
   }[];
+  className?: string;
+  onChange: (value: string) => void;
+  onClear: () => void;
+  onTagRemove: (value: string) => void;
   tags: {
     name: string;
     items: {
@@ -24,14 +26,19 @@ type SidebarFilterProps = {
 };
 
 export const SidebarFilter = ({
+  activeTags = [],
+  className,
   onChange,
   onClear,
   onTagRemove,
-  activeTags = [],
   tags
 }: SidebarFilterProps) => {
+  const classNames = cx('cc-sidebar-filter', {
+    [className]: className
+  });
+
   return (
-    <div className="cc-sidebar-filter">
+    <div className={classNames}>
       <header className="cc-sidebar-filter__header">
         <h2 className="cc-sidebar-filter__header-title">Filter results:</h2>
         <span className="cc-sidebar-filter__header-meta">
