@@ -11,14 +11,15 @@
 }
 
 .cc-page-header__meta {
+  color: var(--text-colour);
   display: block;
   font-size: var(--body-md);
-  margin-bottom: var(--space-sm);
+  margin-bottom: calc(2 * var(--space-unit));
   text-align: center;
 }
 
 .cc-page-header__meta-label {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .cc-page-header__title {

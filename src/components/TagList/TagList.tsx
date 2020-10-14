@@ -15,7 +15,7 @@ type TagListProps = {
 export const TagList = ({ tags }: TagListProps) => (
   <ul className="cc-tag-list">
     {tags?.map(({ id, href, title }) => (
-      <li>
+      <li key={id}>
         {href ? (
           <Link className="cc-tag cc-tag--link" key={id} to={href}>
             {title}
