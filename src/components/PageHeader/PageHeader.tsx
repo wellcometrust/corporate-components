@@ -2,13 +2,13 @@ import React from 'react';
 import cx from 'classnames';
 
 import FormattedDate from 'FormattedDate';
-import Grid from 'Grid';
+import Grid, { GridCell } from 'Grid';
 import RichText from 'RichText';
 
 type PageHeaderProps = {
   background?: 'blue' | 'transparent';
-  banner?: React.ReactElement;
-  bannerLocation?: 'top' | 'bottom';
+  imageElement?: React.ReactElement;
+  imageLocation?: 'top' | 'bottom';
   children?: React.ReactNode;
   className?: string;
   datePublished?: string;
@@ -22,8 +22,8 @@ type PageHeaderProps = {
 
 export const PageHeader = ({
   background = 'transparent',
-  banner,
-  bannerLocation = 'top',
+  imageElement,
+  imageLocation = 'top',
   children,
   className,
   datePublished,
@@ -41,7 +41,7 @@ export const PageHeader = ({
 
   return (
     <div className={classNames}>
-      {bannerLocation === 'top' && banner}
+      {imageLocation === 'top' && imageElement}
       <div className="cc-page-header__container">
         <Grid>
           <div className="cc-page-header__main">
@@ -85,7 +85,7 @@ export const PageHeader = ({
           </div>
         </Grid>
       </div>
-      {bannerLocation === 'bottom' && banner}
+      {imageLocation === 'bottom' && imageElement}
       <Grid>
         {standfirst && (
           <div className="cc-page-header__standfirst">

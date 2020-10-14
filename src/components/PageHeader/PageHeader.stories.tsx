@@ -15,11 +15,11 @@ const PageHeaderExample = () => {
   const { isMobile } = React.useContext(ViewportContext);
 
   const generalID = 'General';
-  const bannerID = 'Banner';
+  const imageID = 'Image';
   const metaID = 'Meta';
 
   // toggle page furniture
-  const showBanner = boolean('Show banner', true, bannerID);
+  const showImage = boolean('Show image', true, imageID);
   const showInpageNav = boolean('Show inpage nav', true, generalID);
   const showSocialShare = boolean('Show social share', true, generalID);
 
@@ -29,13 +29,13 @@ const PageHeaderExample = () => {
     'transparent',
     generalID
   );
-  const bannerLocation = select(
-    'bannerLocation',
+  const imageLocation = select(
+    'imageLocation',
     ['top', 'bottom'],
     'top',
-    bannerID
+    imageID
   );
-  const banner = showBanner ? (
+  const imageElement = showImage ? (
     <ImageBanner
       alt=""
       caption="caption"
@@ -97,8 +97,8 @@ const PageHeaderExample = () => {
     <ViewportContextProvider>
       <PageHeader
         background={background}
-        banner={banner}
-        bannerLocation={bannerLocation}
+        imageElement={imageElement}
+        imageLocation={imageLocation}
         className={className}
         datePublished={datePublished}
         dateUpdated={dateUpdated}
