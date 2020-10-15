@@ -2,8 +2,7 @@ import React from 'react';
 
 import { ImageElement } from 'Image';
 
-type AuthorProps = {
-  byline: string;
+export type AuthorProps = {
   imageSizes: string;
   imageSrc: string;
   imageSrcSet: string;
