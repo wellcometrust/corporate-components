@@ -10,26 +10,6 @@
   padding-top: var(--space-xl);
 }
 
-.cc-page-header__meta {
-  color: var(--text-colour);
-  display: block;
-  font-size: var(--body-md);
-  margin-bottom: calc(2 * var(--space-unit));
-  text-align: center;
-}
-
-.cc-page-header__meta-label {
-  font-weight: 500;
-}
-
-.cc-page-header__title {
-  @extend %heading-base;
-  @extend %heading-hero;
-  @include heading-divider;
-  font-family: var(--font-secondary);
-  text-align: center;
-}
-
 .cc-page-header__breadcrumb {
   margin-right: calc(2 * var(--space-unit));
 }
@@ -96,11 +76,11 @@
 .cc-page-header__main {
   @include grid-column(1, 7);
   margin-bottom: var(--space-xl);
-  
+
   @include mq(sm) {
     @include grid-column(1, 13);
   }
-  
+
   @include mq(md) {
     @include grid-column(4, 10);
   }
@@ -110,11 +90,11 @@
   @include grid-column(1, 7);
   @include grid-row(2);
   margin-bottom: var(--space-xl);
-  
+
   @include mq(sm) {
     @include grid-column(1, 13);
   }
-  
+
   @include mq(md) {
     @include grid-column(1, 4);
     @include grid-row(1);
@@ -131,7 +111,7 @@
 .cc-page-header__standfirst {
   @include grid-column(1, 7);
   margin-bottom: var(--space-xl);
-  
+
   @include mq(sm) {
     @include grid-column(1, 13);
   }
@@ -146,7 +126,7 @@
   @include grid-row(2);
   margin-bottom: var(--space-xl);
   position: relative;
-  
+
   @include mq(sm) {
     @include grid-column(1, 13);
   }

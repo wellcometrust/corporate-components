@@ -2,6 +2,7 @@ import React from 'react';
 
 import Author, { AuthorProps } from 'Author/Author';
 import { ImageElement } from 'Image';
+import PageTitle from 'PageTitle';
 import RichText from 'RichText';
 import TagList, { TagProps } from 'TagList/TagList';
 import SocialShare from 'SocialShare';
@@ -46,12 +47,7 @@ export const PageHeaderCompact = ({
 }: PageHeaderCompactProps) => (
   <header className="cc-page-header-compact">
     <div className="cc-page-header-compact__main cc-page-header-compact__section cc-page-header-compact__section--main">
-      <span className="cc-page-header-compact__meta">
-        <strong className="cc-page-header-compact__meta-label">
-          {metaLabel}
-        </strong>
-      </span>
-      <h1 className="cc-page-header-compact__title">{title}</h1>
+      <PageTitle metaLabel={metaLabel} title={title} />
       <div className="cc-page-header-compact__standfirst">
         <RichText>{standfirst}</RichText>
       </div>
@@ -61,22 +57,15 @@ export const PageHeaderCompact = ({
         <ImageElement src={imageSrc} srcSet={imageSrcSet} alt={imageAlt} />
         <figcaption className="cc-media__caption">
           {imageCaption && (
-            <div
-              className="cc-media__caption-detail"
-              dangerouslySetInnerHTML={{ __html: imageCaption }}
-            />
+            <RichText className="cc-media__caption-detail">
+              {imageCaption}
+            </RichText>
           )}
           {imageCredit && (
-            <div
-              className="cc-media__credit"
-              dangerouslySetInnerHTML={{ __html: `Credit: ${imageCredit}` }}
-            />
+            <RichText className="cc-media__credit">{imageCredit}</RichText>
           )}
           {imageLicence && (
-            <div
-              className="cc-media__licence"
-              dangerouslySetInnerHTML={{ __html: `Licence: ${imageLicence}` }}
-            />
+            <RichText className="cc-media__license">{imageLicence}</RichText>
           )}
         </figcaption>
       </figure>
