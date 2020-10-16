@@ -10,7 +10,6 @@
 /**
  * Styles <img /> child to conform to size of containing element
  */
-
 %img-responsive {
   > img {
     display: block;
@@ -19,9 +18,8 @@
 }
 
 /**
-* Styles <img /> child to scale of the parent element, using object-fit.
+ * Styles <img /> child to scale of the parent element, using object-fit.
  */
-
 %img-cover {
   > img {
     @supports (object-fit: cover) {
