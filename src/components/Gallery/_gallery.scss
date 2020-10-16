@@ -28,11 +28,11 @@
 .cc-gallery__media {
   @include flex-grid;
   @include grid-column(1, 7);
-  
+
   @include mq(sm) {
     @include grid-column(1, 13);
   }
-  
+
   @include mq(md) {
     @include grid-column(4, 13);
   }
@@ -41,7 +41,7 @@
 .cc-gallery__media-item {
   @extend %flex-grid-item;
   @include flex-grid-item(1);
-  
+
   @include mq(xs) {
     @include flex-grid-item(2);
   }
@@ -61,7 +61,7 @@
   outline: 0;
   position: relative;
   width: 100%;
-  
+
   &:before {
     background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d7dbdb' fill-rule='evenodd'%3E%3Cpath d='M9.5 26l1 7.5 7.5 1-.028 1.5H8V26zM34.467 18.001l-1-7.5-7.5-1-.01-1.5h10.008v9.953z'/%3E%3C/g%3E%3C/svg%3E");
     background-position: center;
@@ -80,7 +80,8 @@
 }
 
 .cc-gallery__media-content {
-  @extend %image-responsive;
+  @extend %img-responsive;
+
   transition: filter var(--transition-duration);
 }
 
@@ -102,7 +103,7 @@
     .cc-gallery__media-frame {
       max-height: 80vh;
     }
-  
+
     .cc-gallery__media-content {
       max-height: 80vh;
       object-fit: contain;
@@ -110,8 +111,8 @@
   }
 }
 
-// remove image background for touch devices so there is no overlap 
-@media (any-pointer: coarse) { 
+// remove image background for touch devices so there is no overlap
+@media (any-pointer: coarse) {
   .cc-gallery__media-frame {
     background: transparent;
     color: var(--colour-grey-80);

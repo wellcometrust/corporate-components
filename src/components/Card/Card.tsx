@@ -52,16 +52,13 @@ export const Card = ({
 
   return (
     <article className={classNames} id={id}>
-      <div className="cc-card__image-wrap">
-        <div className="cc-card__image-ratio">
-          <ImageElement
-            alt={image?.alt}
-            className="cc-card__image"
-            // sizes={srcSet && cardImageSizesDefault}
-            src={src}
-            // srcSet={srcSet}
-          />
-        </div>
+      <div className="cc-card__image">
+        <ImageElement
+          alt={image?.alt}
+          // sizes={srcSet && cardImageSizesDefault}
+          src={src}
+          // srcSet={srcSet}
+        />
       </div>
       <div className="cc-card__content">
         {isHorizontal && meta?.type && (
