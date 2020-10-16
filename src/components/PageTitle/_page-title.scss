@@ -1,0 +1,27 @@
+// ----------------------------------
+// UI Components
+// Page Title
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-page-title {
+  @extend %heading-base;
+  @extend %heading-hero;
+  @include heading-divider;
+  font-family: var(--font-secondary);
+  text-align: center;
+}
+
+.cc-page-title__meta {
+  color: var(--text-colour);
+  display: block;
+  font-size: var(--body-md);
+  margin-bottom: calc(2 * var(--space-unit));
+  text-align: center;
+}
+
+.cc-page-title__meta-label {
+  font-weight: 500;
+}
