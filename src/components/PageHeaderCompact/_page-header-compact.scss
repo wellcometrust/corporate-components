@@ -86,6 +86,14 @@
   }
 }
 
+.cc-page-header-compact__tray {
+  align-items: center;
+  color: var(--colour-grey-60);
+  display: flex;
+  font-size: var(--body-md);
+  justify-content: space-between;
+}
+
 /**
  * IE11 does not support automatic placement of grid-items.
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row#Internet_Explorer_issues}
