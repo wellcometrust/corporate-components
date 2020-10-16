@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Author, { AuthorProps } from 'Author/Author';
-import Grid, { GridCell } from 'Grid';
-import Image from 'Image';
+import { ImageElement } from 'Image';
 import RichText from 'RichText';
 import TagList, { TagProps } from 'TagList/TagList';
 import SocialShare from 'SocialShare';
+import FormattedDate from 'FormattedDate';
 
 interface AuthorPropsExtend extends AuthorProps {
   id: string;
@@ -13,14 +13,15 @@ interface AuthorPropsExtend extends AuthorProps {
 
 type PageHeaderCompactProps = {
   authors: AuthorPropsExtend[];
-  date: Date;
-  imageAlt: string;
-  imageCaption: string;
-  imageCredit: string;
-  imageSrcSet: string;
-  imageSrc: string;
-  imageLicence: string;
-  metaType: string;
+  date: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  imageCredit?: string;
+  imageSizes?: string;
+  imageSrcSet?: string;
+  imageSrc?: string;
+  imageLicence?: string;
+  metaLabel?: string;
   socialUrl: string;
   standfirst: string;
   title: string;
@@ -34,44 +35,56 @@ export const PageHeaderCompact = ({
   imageCaption,
   imageCredit,
   imageLicence,
+  imageSizes,
   imageSrc,
   imageSrcSet,
-  metaType,
+  metaLabel,
   title,
   topics,
   socialUrl,
   standfirst
 }: PageHeaderCompactProps) => (
-  <header className="cc-page-header">
-    <Grid>
-      <GridCell column={2} columnCount={3}>
-        <span className="cc-page-header__meta">
-          <strong className="cc-page-header__meta-label">{metaType}</strong>
-        </span>
-        <h1 className="cc-page-header__title">{title}</h1>
-        <div className="cc-page-header__standfirst">
-          <RichText>{standfirst}</RichText>
-        </div>
-      </GridCell>
-    </Grid>
-    <Image
-      caption={imageCaption}
-      credit={imageCredit}
-      licence={imageLicence}
-      src={imageSrc}
-      srcSet={imageSrcSet}
-      alt={imageAlt}
-    />
-    <Grid>
-      <GridCell column={2} columnCount={3}>
-        <div className="cc-page-header__drawer">
-          {date}
-          <SocialShare url={socialUrl} body={standfirst} title={title} />
-        </div>
-      </GridCell>
-      <GridCell column={1} columnCount={3}>
-        {authors &&
-          authors.map(author => (
+  <header className="cc-page-header-compact">
+    <div className="cc-page-header-compact__main cc-page-header-compact__section cc-page-header-compact__section--main">
+      <span className="cc-page-header-compact__meta">
+        <strong className="cc-page-header-compact__meta-label">
+          {metaLabel}
+        </strong>
+      </span>
+      <h1 className="cc-page-header-compact__title">{title}</h1>
+      <div className="cc-page-header-compact__standfirst">
+        <RichText>{standfirst}</RichText>
+      </div>
+    </div>
+    {(!!imageSrc || (imageSrcSet && imageSizes)) && (
+      <figure className="cc-page-header-compact__image cc-page-header-compact__section cc-page-header-compact__section--main">
+        <ImageElement src={imageSrc} srcSet={imageSrcSet} alt={imageAlt} />
+        <figcaption className="cc-media__caption">
+          {imageCaption && (
+            <div
+              className="cc-media__caption-detail"
+              dangerouslySetInnerHTML={{ __html: imageCaption }}
+            />
+          )}
+          {imageCredit && (
+            <div
+              className="cc-media__credit"
+              dangerouslySetInnerHTML={{ __html: `Credit: ${imageCredit}` }}
+            />
+          )}
+          {imageLicence && (
+            <div
+              className="cc-media__licence"
+              dangerouslySetInnerHTML={{ __html: `Licence: ${imageLicence}` }}
+            />
+          )}
+        </figcaption>
+      </figure>
+    )}
+    <div className="cc-page-header-compact__aside cc-page-header-compact__section cc-page-header-compact__section--sidebar">
+      {authors && (
+        <div className="cc-page-header-compact__authors">
+          {authors.map(author => (
             <Author
               jobTitle={author.jobTitle}
               imageSrc={author.imageSrc}
@@ -82,9 +95,20 @@ export const PageHeaderCompact = ({
               organization={author.organization}
             />
           ))}
-        {topics && <TagList tags={topics} />}
-      </GridCell>
-    </Grid>
+        </div>
+      )}
+      {topics && (
+        <div className="cc-page-header-compact__topics">
+          <TagList tags={topics} />
+        </div>
+      )}
+    </div>
+    <div className="cc-page-header-compact__tray cc-page-header-compact__section cc-page-header-compact__section--main">
+      <time dateTime={date}>
+        <FormattedDate dateString={date} />
+      </time>
+      <SocialShare url={socialUrl} body={standfirst} title={title} />
+    </div>
   </header>
 );
 
