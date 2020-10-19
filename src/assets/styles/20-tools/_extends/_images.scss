@@ -8,7 +8,7 @@
 // ----------------------------------
 
 /**
- * Styles <img /> child to conform to size of containing element
+ * Styles <img /> child to conform to width of containing element
  */
 %img-responsive {
   > img {
@@ -18,7 +18,11 @@
 }
 
 /**
- * Styles <img /> child to scale of the parent element, using object-fit.
+ * Styles <img /> child to scale to the size of the parent element,
+ * using object-fit with a CSS @supports block
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/@supports}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#Browser_compatibility}
  */
 %img-cover {
   > img {
