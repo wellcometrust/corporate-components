@@ -2,15 +2,15 @@ import React from 'react';
 
 import Author, { AuthorProps } from 'Author/Author';
 import { ImageElement } from 'Image';
+import FormattedDate from 'FormattedDate';
 import PageTitle from 'PageTitle';
 import RichText from 'RichText';
-import TagList, { TagProps } from 'TagList/TagList';
 import SocialShare from 'SocialShare';
-import FormattedDate from 'FormattedDate';
+import TagList, { TagProps } from 'TagList/TagList';
 
-interface AuthorPropsExtend extends AuthorProps {
+type AuthorPropsExtend = AuthorProps & {
   id: string;
-}
+};
 
 type PageHeaderCompactProps = {
   authors: AuthorPropsExtend[];
@@ -18,10 +18,10 @@ type PageHeaderCompactProps = {
   imageAlt?: string;
   imageCaption?: string;
   imageCredit?: string;
-  imageSizes?: string;
-  imageSrcSet?: string;
-  imageSrc?: string;
   imageLicence?: string;
+  imageSizes?: string;
+  imageSrc?: string;
+  imageSrcSet?: string;
   metaLabel?: string;
   socialUrl: string;
   standfirst: string;
@@ -40,10 +40,10 @@ export const PageHeaderCompact = ({
   imageSrc,
   imageSrcSet,
   metaLabel,
-  title,
-  topics,
   socialUrl,
-  standfirst
+  standfirst,
+  title,
+  topics
 }: PageHeaderCompactProps) => (
   <header className="cc-page-header-compact">
     <div className="cc-page-header-compact__main cc-page-header-compact__section cc-page-header-compact__section--main">
@@ -75,10 +75,10 @@ export const PageHeaderCompact = ({
         <div className="cc-page-header-compact__authors">
           {authors.map(author => (
             <Author
-              jobTitle={author.jobTitle}
+              imageSizes="(min-width: 48em) 6.25rem, 3.125rem"
               imageSrc={author.imageSrc}
               imageSrcSet={author.imageSrcSet}
-              imageSizes="(min-width: 48em) 6.25rem, 3.125rem"
+              jobTitle={author.jobTitle}
               key={`author-${author.id}`}
               name={`${author.name}`}
               organization={author.organization}
