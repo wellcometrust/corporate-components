@@ -54,6 +54,19 @@
     // Try removing this to see what happens
     grid-row-start: 1;
   }
+
+  @include mq(md) {
+    /**
+     * margin-top = height of .cc-page-title__meta element
+     *
+     * .cc-page-title__meta font-size +
+     * .cc-page-title__meta margin-bottom +
+     * .cc-page-title__meta line-height * font-size * 0.5
+     */
+    margin-top: calc(var(--body-md) +
+    (2 * var(--space-unit)) +
+    (var(--body-line-height-md) * var(--body-md) * 0.5));
+  }
 }
 
 // .cc-page-header__main {}
