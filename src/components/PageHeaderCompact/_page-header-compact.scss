@@ -34,13 +34,13 @@
   }
 }
 /**
-   * We're using modifier styles to set the grid-column position, once
-   * the block parent selector becomes `display: grid;`
-   *
-   * An alternative could be to apply the `.grid__cell` selectors in the
-   * DOM, and they would only become "active" once the block parent
-   * becomes `display: grid;`
-   */
+ * We're using modifier styles to set the grid-column position, once
+ * the block parent selector becomes `display: grid;`
+ *
+ * An alternative could be to apply the `.grid__cell` selectors in the
+ * DOM, and they would only become "active" once the block parent
+ * becomes `display: grid;`
+ */
 .cc-page-header-compact__section--main {
   @include mq(md) {
     @include grid-column(4, 10);
@@ -79,16 +79,17 @@
 }
 
 .cc-page-header-compact__image {
-  // Break the grid on mobile; move to an %extend?
   @include mq($until: sm) {
     /**
-    * Percentage margins are calculated relative to the
-    * width of the containing block, and because the grid-container
-    * has 5% margin either side, we need to increase by the equivalent
-    * amount in reverse.
-    *
-    * 5% of 100% = 5.5% of 90%
-    */
+     * Breaks the element out of the grid-container (spans 100vw)
+     *
+     * Percentage margins are calculated relative to the
+     * width of the containing block, and because the grid-container
+     * has 5% margin either side, we need to increase by the equivalent
+     * amount in reverse.
+     *
+     * 5% of 100% = 5.5% of 90%
+     */
     margin-left: -5.5%;
     margin-right: -5.5%;
   }
