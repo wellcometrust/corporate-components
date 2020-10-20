@@ -12,7 +12,7 @@ const SocialShareExample = () => {
       body="Share body text"
       hasCopyLink={hasCopyLink}
       title="Share title"
-      url="https://wellcome.ac.uk"
+      url="https://wellcome.org"
     />
   );
 };

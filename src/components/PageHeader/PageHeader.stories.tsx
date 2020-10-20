@@ -77,7 +77,7 @@ const PageHeaderExample = () => {
     <SocialShare
       body="Wellcome Trust share text ..."
       title="Wellcome Trust"
-      url="https://wellcome.ac.uk"
+      url="https://wellcome.org"
     />
   );
 

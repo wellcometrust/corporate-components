@@ -9,7 +9,7 @@ describe('<SiteAlert />', () => {
     <SiteAlert
       isActive
       text="Visit the Wellcome Trust website"
-      url="https://wellcome.ac.uk/"
+      url="https://wellcome.org/"
     />
   );
 
