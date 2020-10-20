@@ -51,7 +51,16 @@
   @include mq(md) {
     @include grid-column(1, 4);
 
-    // Try removing this to see what happens
+    /**
+     * Setting an explicit grid-row-end prevents the grid-row boundaries
+     * this element sits on from expanding with the height of the content.
+     *
+     * We've set to span 3 rows as it has 3 sibling grid-items which
+     * use .cc-page-header-compact__section--main.
+     */
+    grid-row-end: span 3;
+    -ms-grid-row-span: 3;
+
     grid-row-start: 1;
   }
 
