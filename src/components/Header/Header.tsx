@@ -22,6 +22,7 @@ import { RouterLinkWrapper as Link } from 'RouterLinkWrapper/RouterLinkWrapper';
 
 import navLinkData from 'data/default-site-links.json';
 import logoData from 'Logo/constants';
+import headerNav from './header-nav';
 import { useSticky } from './use-sticky';
 
 type HeaderProps = {
@@ -51,6 +52,12 @@ export const Header = ({ banner }: HeaderProps) => {
     e.preventDefault();
     toggleSearch(true);
   };
+
+  useEffect(() => {
+    headerNav(window);
+
+    return () => {};
+  }, []);
 
   useEffect(() => {
     if (!isSearchActive && logoRef.current !== null) {
