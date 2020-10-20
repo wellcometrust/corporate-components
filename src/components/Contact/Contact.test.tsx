@@ -6,7 +6,7 @@ import Contact from './Contact';
 describe('<Contact />', () => {
   const output = shallow(
     <Contact
-      email="s.pritchard@wellcome.ac.uk"
+      email="s.pritchard@wellcome.org"
       institution="Stuart's Institute"
       name="Stuart Pritchard"
       contactRole="<p>EU and Public Affairs Manager</p>"

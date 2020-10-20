@@ -6,7 +6,7 @@ import SiteAlert from 'SiteAlert';
 
 const SiteAlertExample = () => {
   const isActive = boolean('isActive', true);
-  const urlString = text('url', 'https://wellcome.ac.uk/');
+  const urlString = text('url', 'https://wellcome.org/');
   const textString = text('text', 'Visit the Wellcome Trust website');
 
   return <SiteAlert isActive={isActive} text={textString} url={urlString} />;

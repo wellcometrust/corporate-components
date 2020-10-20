@@ -1,0 +1,128 @@
+/**
+ * @file PageHeaderCompact component styling.
+ */
+
+.cc-page-header-compact {
+  @include grid-container;
+
+  margin-top: var(--space-xl);
+
+  /**
+   * Layout of the selector becomes a grid at breakpoint md;
+   * the styles below are taken directly from _grid.scss
+   */
+  @include mq(md) {
+    @include grid-columns($grid-gutter-md);
+    @include grid-rows(0, 1fr);
+
+    display: grid;
+    // stylelint-disable value-no-vendor-prefix
+    display: -ms-grid;
+  }
+
+  @include mq(xl) {
+    // Columns: 12 / Gutter: 48px
+    @include grid-columns($grid-gutter-xl);
+  }
+}
+
+.cc-page-header-compact__section {
+  margin-bottom: var(--space-xl);
+
+  @include mq(sm) {
+    margin-bottom: var(--space-lg);
+  }
+}
+/**
+ * We're using modifier styles to set the grid-column position, once
+ * the block parent selector becomes `display: grid;`
+ *
+ * An alternative could be to apply the `.grid__cell` selectors in the
+ * DOM, and they would only become "active" once the block parent
+ * becomes `display: grid;`
+ */
+.cc-page-header-compact__section--main {
+  @include mq(md) {
+    @include grid-column(4, 10);
+  }
+}
+
+.cc-page-header-compact__section--sidebar {
+  @include mq(md) {
+    @include grid-column(1, 4);
+
+    // Try removing this to see what happens
+    grid-row-start: 1;
+  }
+
+  @include mq(md) {
+    /**
+     * margin-top = height of .cc-page-title__meta element
+     *
+     * .cc-page-title__meta font-size +
+     * .cc-page-title__meta margin-bottom +
+     * .cc-page-title__meta line-height * font-size * 0.5
+     */
+    margin-top: calc(var(--body-md) +
+    (2 * var(--space-unit)) +
+    (var(--body-line-height-md) * var(--body-md) * 0.5));
+  }
+}
+
+// .cc-page-header__main {}
+
+.cc-page-header-compact__aside {
+  @include mq($from: sm, $until: md) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.cc-page-header-compact__image {
+  @include mq($until: sm) {
+    /**
+     * Breaks the element out of the grid-container (spans 100vw)
+     *
+     * Percentage margins are calculated relative to the
+     * width of the containing block, and because the grid-container
+     * has 5% margin either side, we need to increase by the equivalent
+     * amount in reverse.
+     *
+     * 5% of 100% = 5.5% of 90%
+     */
+    margin-left: -5.5%;
+    margin-right: -5.5%;
+  }
+
+  > img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.cc-page-header-compact__tray {
+  align-items: center;
+  color: var(--colour-grey-60);
+  display: flex;
+  font-size: var(--body-md);
+  justify-content: space-between;
+}
+
+/**
+ * IE11 does not support automatic placement of grid-items.
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row#Internet_Explorer_issues}
+ */
+.cc-page-header-compact__main {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-row: 1;
+}
+
+.cc-page-header-compact__image {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-row: 2;
+}
+
+.cc-page-header-compact__tray {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -ms-grid-row: 3;
+}

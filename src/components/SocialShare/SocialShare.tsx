@@ -81,7 +81,7 @@ export const SocialShare = ({
         </li>
         <li className="cc-social-share__item">
           <a
-            href={`mailto:?subject=Shared%20from%20Wellcome%3A%20${titleText}&body=${bodyText}%0d%0a%0d%0a${url}&utm_source=emailShare %0A%0A---%0A%0ASign up to the Wellcome newsletter: https://wellcome.ac.uk/newsletters/subscribe-to-wellcome-newsletter-temp`}
+            href={`mailto:?subject=Shared%20from%20Wellcome%3A%20${titleText}&body=${bodyText}%0d%0a%0d%0a${url}&utm_source=emailShare %0A%0A---%0A%0ASign up to the Wellcome newsletter: https://wellcome.org/newsletters/subscribe-to-wellcome-newsletter-temp`}
             className="cc-social-share__link"
             target="_blank"
             rel="noopener noreferrer"
