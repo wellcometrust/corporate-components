@@ -77,7 +77,7 @@ export const NewsletterForm = ({
 
     const response = await fetchNewsletterResponse(
       // TODO: #6023 - move to .env
-      'https://wellcome.ac.uk/newsletter-signup',
+      'https://wellcome.org/newsletter-signup',
       email,
       type,
       dropdown
