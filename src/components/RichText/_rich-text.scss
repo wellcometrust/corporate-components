@@ -22,20 +22,20 @@
     @extend %heading-large;
     letter-spacing: 0;
   }
-  
+
   h4 {
     @extend %heading-base;
     @extend %heading-regular;
     letter-spacing: 0;
   }
-  
+
   h5,
   h6 {
     @extend %heading-base;
     @extend %heading-small;
     letter-spacing: 0;
   }
-  
+
   p {
     @extend %body-large;
   }
@@ -43,6 +43,10 @@
   ol,
   ul {
     @extend %list-base;
+  }
+
+  li p {
+    margin-bottom: var(--space-md);
   }
 
   table {
@@ -62,7 +66,7 @@
     padding: calc(0.25 * var(--space-unit)) 0 calc(0.25 * var(--space-unit)) calc(2 * var(--space-unit));
     text-align: left;
   }
-  
+
   tr {
     border: solid var(--colour-grey-10);
     border-width: 1px 0;
@@ -71,24 +75,24 @@
   thead tr {
     border-bottom-width: 2px;
   }
-  
+
   tbody tr:nth-child(odd) {
     background-color: var(--colour-cyan-05);
   }
-  
+
   th,
   td {
     padding: var(--space-md) var(--space-lg);
     text-align: left;
     vertical-align: top;
   }
-  
+
   th {
     font-size: var(--body-xxs);
     font-weight: 500;
     text-transform: uppercase;
   }
-  
+
   thead th {
     padding: calc(2.5 * var(--space-unit)) var(--space-lg);
   }
