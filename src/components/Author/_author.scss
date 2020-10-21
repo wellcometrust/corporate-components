@@ -26,10 +26,12 @@
   width: var(--image-size);
 
   @include mq(sm) {
-    --image-size: calc(12.5 * var(--space-unit));
+    --image-size: calc(20 * var(--space-unit));
   }
 
   @include mq(md) {
+    --image-size: calc(12.5 * var(--space-unit));
+
     margin-bottom: var(--space-lg);
     margin-right: 0;
   }
