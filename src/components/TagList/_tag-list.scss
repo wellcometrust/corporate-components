@@ -13,6 +13,8 @@
 
 .cc-tag-list {
   @extend %list-clean;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cc-tag {
@@ -24,8 +26,8 @@
   letter-spacing: var(--tag-text-spacing);
   line-height: 1.2;
   margin-bottom: var(--space-xs);
+  margin-right: var(--space-xs);
   min-height: calc(4.5 * var(--space-unit));
-  min-width: calc(14 * var(--space-unit));
   padding: calc(0.75 * var(--space-unit)) calc(2 * var(--space-unit));
 }
 
