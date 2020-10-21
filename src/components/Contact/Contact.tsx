@@ -44,12 +44,13 @@ export const Contact = ({
     <div className={classNames} itemScope itemType="http://schema.org/Person">
       {/* TODO - finalise responsive images */}
       {imageSources?.image_full_mobile && (
-        <ImageElement
-          className="cc-contact__image"
-          // sizes={sizes}
-          src={imageSources?.image_full_mobile}
-          // srcSet={srcSet}
-        />
+        <figure className="cc-contact__image">
+          <ImageElement
+            // sizes={sizes}
+            src={imageSources?.image_full_mobile}
+            // srcSet={srcSet}
+          />
+        </figure>
       )}
       <h3 className="cc-contact__name" itemProp="name">
         {name}
