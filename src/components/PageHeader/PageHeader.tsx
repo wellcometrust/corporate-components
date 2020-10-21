@@ -2,7 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 
 import FormattedDate from 'FormattedDate';
-import Grid, { GridCell } from 'Grid';
+import Grid from 'Grid';
+import PageTitle from 'PageTitle';
 import RichText from 'RichText';
 
 type PageHeaderProps = {
@@ -45,14 +46,7 @@ export const PageHeader = ({
       <div className="cc-page-header__container">
         <Grid>
           <div className="cc-page-header__main">
-            <span className="cc-page-header__meta">
-              <strong className="cc-page-header__meta-label">
-                {metaLabel}
-              </strong>
-              {metaLabel && meta && ' | '}
-              {meta}
-            </span>
-            <h1 className="cc-page-header__title">{title}</h1>
+            <PageTitle meta={meta} metaLabel={metaLabel} title={title} />
           </div>
           <div className="cc-page-header__tools">
             {/* TODO: Add breadcrumb here

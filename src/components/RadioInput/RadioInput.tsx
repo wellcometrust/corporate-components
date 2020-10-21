@@ -36,6 +36,7 @@ export const RadioInput = forwardRef(
     return label ? (
       <div className={classNames}>
         <input
+          aria-describedby={describedBy}
           className="cc-radio-input__input-element"
           id={id}
           name={name}

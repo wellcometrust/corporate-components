@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from 'Link';
 
-type TagProps = {
+export type TagProps = {
   href?: string;
   id: string;
   title: string;
