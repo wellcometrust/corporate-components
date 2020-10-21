@@ -46,7 +46,7 @@
   }
 
   li p {
-    margin-bottom: var(--space-md);
+    margin-bottom: calc(2 * var(--space-unit));
   }
 
   table {

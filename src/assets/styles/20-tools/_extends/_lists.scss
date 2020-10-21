@@ -35,8 +35,8 @@
 
   ol,
   ul {
-    margin-bottom: var(--space-md);
-    margin-top: var(--space-md);
+    margin-bottom: calc(2 * var(--space-unit));
+    margin-top: calc(2 * var(--space-unit));
   }
 
   li:not(:last-child) {
