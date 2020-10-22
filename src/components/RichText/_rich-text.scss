@@ -108,37 +108,6 @@
   > :last-child {
     margin-bottom: 0;
   }
-
-  // Handle anchors
-  //
-  // e.g. <a id="my-anchor"></a>
-  //
-  // stylelint-disable-next-line selector-no-qualifying-type
-  a[id]:not([id='']) {
-    display: block;
-    position: relative;
-    width: 0;
-  }
-  
-  // position a pseudo element for the anchor the height
-  // of the header bar above its natural position to
-  // prevent it from being obscured
-  //
-  // stylelint-disable-next-line selector-no-qualifying-type
-  a[id]:not([id='']):before {
-    content: '';
-    display: block;
-    height: var(--header-height);
-    margin-top: calc(-1 * var(--header-height));
-    pointer-events: none;
-    visibility: hidden;
-    width: 0;
-
-    @include mq(sm) {
-      height: var(--header-height-sm);
-      margin-top: calc(-1 * var(--header-height-sm));
-    }
-  }
 }
 
 .cc-rich-text-snippet {
@@ -172,3 +141,37 @@
   letter-spacing: normal;
   margin-bottom: var(--space-unit);
 }
+
+//
+// Handle anchors
+//
+// e.g. <a id="my-anchor"></a>
+//
+/* stylelint-disable selector-no-qualifying-type */
+.cc-rich-text,
+.cc-rich-text-snippet {
+  a[id]:not([id='']) {
+    display: block;
+    position: relative;
+    width: 0;
+  }
+  
+  // position a pseudo element for the anchor the height
+  // of the header bar above its natural position to
+  // prevent it from being obscured
+  a[id]:not([id='']):before {
+    content: '';
+    display: block;
+    height: var(--header-height);
+    margin-top: calc(-1 * var(--header-height));
+    pointer-events: none;
+    visibility: hidden;
+    width: 0;
+
+    @include mq(sm) {
+      height: var(--header-height-sm);
+      margin-top: calc(-1 * var(--header-height-sm));
+    }
+  }
+}
+/* stylelint-enable selector-no-qualifying-type */
