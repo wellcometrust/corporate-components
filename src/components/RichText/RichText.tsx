@@ -15,18 +15,19 @@ type RichTextProps = {
 /**
  * Find all anchor elements with target="_blank"
  *
- * Regex match groups
+ * Regex groups
  * (?!.*class="non")               Negative lookahead to filter out any matches which contain this class
  * (?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*".*)
  *                                 Negative lookahead to filter out absolute links to the Wellcome site
- *     (www\.)?                    matches the optional www prefix
- *     (org|ac\.uk)                matches the possible domain endings
+ *     (?:www\.)?                  Non-capturing group matches the optional www prefix
+ *     (?:org|ac\.uk)              Non-capturing group matches the possible domain endings
+ * (?!.*href="mailto:)             Negative lookahead to filter out email links
  * (<a[^>]*target="_blank"[^>]*>)  Opening anchor tag which has a target="_blank" attribute
  * ([^<]+)                         The anchor content (any character which is not a left angle bracket)
  * (<\/a>)                         Closing anchor tag
  */
 // TODO: replace `non` with class name to be ignored
-const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(www\.)?wellcome.(org|ac\.uk).*".*)(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
+const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(?:www\.)?wellcome.(?:org|ac\.uk).*".*)(?!.*href="mailto:)(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
 
 /**
  * Add markup to all anchor elements which open in a new window
@@ -38,16 +39,16 @@ const addExternalLinkMarkers = (children: string) => {
   // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
   const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
 
-  return children.replaceAll(regexAnchorExternal, (match, p1, p2, p3, p4, p5) =>
+  return children.replaceAll(regexAnchorExternal, (match, p1, p2, p3) =>
     // replace existing anchor string with embellished version containing assistive text
     // p[n] refers to each group within the match - groups are defined within parentheses
     // p1 and p2 are contained in the 2nd negative lookup
     // so we start with p3 as the first actual string
-    p3
-      ? `${p3.substring(
+    p1
+      ? `${p1.substring(
           0,
-          p3.length - 1
-        )} class="u-link-new-window">${p4}${externalMarker}${p5}`
+          p1.length - 1
+        )} class="u-link-new-window">${p2}${externalMarker}${p3}`
       : match
   );
 };
