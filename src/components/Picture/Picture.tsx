@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, SyntheticEvent } from 'react';
 import cx from 'classnames';
 
 type PictureProps = {
@@ -27,9 +27,11 @@ const Picture = ({
   sources
 }: PictureProps) => {
   const [loaded, setLoaded] = useState(false);
+  const [shouldUseFullSrc, setShouldUseFullSrc] = useState(false);
+
   const classNames = cx({
     'u-loading-lazy': isLazy && !loaded,
-    'u-loading-preload': !isLazy && !loaded,
+    'u-loading-preload': !shouldUseFullSrc,
     [className]: className
   });
 
@@ -37,10 +39,13 @@ const Picture = ({
     setLoaded(true);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onError = (e: any) => {
+  const onError = (e: SyntheticEvent) => {
     console.error('error', e);
   };
+
+  useEffect(() => {
+    setShouldUseFullSrc(true);
+  }, []);
 
   return (
     <picture>
@@ -49,8 +54,7 @@ const Picture = ({
           key={`${index}-${s.sourcePreload}`}
           type={s.sourceType}
           media={s.sourceMedia}
-          srcSet={s.sourcePreload}
-          data-srcset={s.sourceFull}
+          srcSet={shouldUseFullSrc ? s.sourceFull : s.sourcePreload}
         />
       ))}
       <img
