@@ -45,25 +45,6 @@ export const SlideshowHero = ({
   const [browserName, setBrowserName] = useState(null);
   const imageCount = images?.length || 0;
 
-  useEffect(() => {
-    if (images?.length) {
-      const imgArray = document.querySelectorAll('.slideshow__image-frame');
-
-      imgArray.forEach(el => {
-        const sources = Array.from(el.querySelectorAll('source'));
-
-        sources.forEach(source => {
-          // assigned source to separate variable `s` to avoid mutating the arguments object
-          const s = source;
-
-          // update the source (need to update both the property and the HTML attribute because of iOS Safari)
-          s.srcset = s.dataset.srcset;
-          s.setAttribute('srcset', s.getAttribute('data-srcset'));
-        });
-      });
-    }
-  }, []);
-
   const classNames = cx('slideshow-hero', {
     [`${browserName}`]: browserName,
     [`${className}`]: className
