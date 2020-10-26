@@ -20,7 +20,6 @@ export type FileMetaProps = {
 };
 
 export type CardBaseProps = {
-  authors?: string[];
   className?: string;
   description?: string;
   href: string;
@@ -35,7 +34,6 @@ export type ResultItemProps = CardBaseProps & {
 };
 
 export const ResultsItem = ({
-  authors,
   className,
   description,
   fileMeta,
@@ -106,16 +104,6 @@ export const ResultsItem = ({
         <RichText className="cc-result-item__description">
           {description}
         </RichText>
-      )}
-      {authors && (
-        <dl className="cc-card__authors">
-          <dt className="cc-card__authors-label">Author</dt>
-          {authors?.map(author => (
-            <dd key={author} className="cc-card__author">
-              {author}
-            </dd>
-          ))}
-        </dl>
       )}
     </article>
   );
