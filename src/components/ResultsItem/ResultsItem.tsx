@@ -7,29 +7,22 @@ import FormattedDate from 'FormattedDate';
 import { parseHtml } from 'utils/parse-html';
 import RichText from 'RichText';
 
-type ResultItemMetaProps = {
-  date?: string;
-  lastUpdated?: string;
-  hasType?: boolean;
-  type?: string | null;
-};
-
-export type FileMetaProps = {
-  type: string;
-  size: string;
-};
-
-export type CardBaseProps = {
+type ResultItemProps = {
   className?: string;
   description?: string;
   href: string;
   id?: string;
-  meta?: ResultItemMetaProps;
+  meta?: {
+    date?: string;
+    lastUpdated?: string;
+    hasType?: boolean;
+    type?: string | null;
+  };
   title: string;
-};
-
-export type ResultItemProps = CardBaseProps & {
-  fileMeta?: FileMetaProps;
+  fileMeta?: {
+    type: string;
+    size: string;
+  };
   type?: 'content' | 'file' | 'taxonomy_term';
 };
 

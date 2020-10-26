@@ -3,11 +3,35 @@ import cx from 'classnames';
 
 import Card from 'Card';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
-import ResultsItem, { ResultItemProps } from 'ResultsItem/ResultsItem';
-import { CardImageProps } from 'Card/Card';
+import ResultsItem from 'ResultsItem/ResultsItem';
 
-type ListingElementProps = ResultItemProps & {
-  image?: CardImageProps;
+type ListingElementProps = {
+  authors?: string[];
+  className?: string;
+  description?: string;
+  href: string;
+  id?: string;
+  image?: {
+    alt?: string;
+    src?: string;
+    // sources?: {
+    //   thumbnail_lo?: string;
+    //   thumbnail?: string;
+    //   thumbnail_hi?: string;
+    // };
+  };
+  meta?: {
+    date?: string;
+    lastUpdated?: string;
+    hasType?: boolean;
+    type?: string | null;
+  };
+  title: string;
+  fileMeta?: {
+    type: string;
+    size: string;
+  };
+  type?: 'content' | 'file' | 'taxonomy_term';
   variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
 };
 

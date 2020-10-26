@@ -1,13 +1,15 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { FileMetaProps } from 'ResultsItem/ResultsItem';
 import Icon from 'Icon';
 import Link from 'Link';
 
 type ListingLinkProps = {
   className?: string;
-  fileMeta?: FileMetaProps;
+  fileMeta?: {
+    type: string;
+    size: string;
+  };
   href: string;
   title: string;
   iconVariant?: 'chevron' | 'download';
