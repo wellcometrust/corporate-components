@@ -10,4 +10,12 @@
   color: var(--colour-grey-90);
   display: block;
   margin-bottom: var(--space-xs);
+
+  // don't show hover state on input when hovering on label
+  &:hover ~ input,
+  &:hover ~ select,
+  &:hover ~ textarea {
+    // border colour has to match %text-input-base
+    border: 1px solid var(--colour-grey-60);
+  }
 }
