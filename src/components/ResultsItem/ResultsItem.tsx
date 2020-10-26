@@ -5,6 +5,7 @@ import FileDownload from 'FileDownload';
 import FormattedDate from 'FormattedDate';
 
 import { parseHtml } from 'utils/parse-html';
+import RichText from 'RichText';
 
 type ResultItemMetaProps = {
   date?: string;
@@ -44,14 +45,14 @@ export const ResultsItem = ({
   title,
   type
 }: ResultItemProps) => {
-  const classNames = cx('result-item', {
+  const classNames = cx('cc-result-item', {
     [`${className}`]: className
   });
 
   return (
     <article className={classNames} id={id}>
       {meta && (meta.type || meta.date) && (
-        <div className="result-item__meta">
+        <div className="cc-result-item__meta">
           {/* `meta.type` temporarily removed as types for search results are not correctly displayed
           Type label and date logic for cards has been moved to the app side
           therefore `itemType` prop has been permanently removed
@@ -65,36 +66,36 @@ export const ResultsItem = ({
           )} */}
           {/* hasType is a flag to decide if we want to show a type */}
           {meta.hasType && (
-            <span className="result-item__meta-type">
+            <span className="cc-result-item__meta-type">
               {meta.type}
               &nbsp;
             </span>
           )}
           {meta.date && (
-            <span className="result-item__meta-date">
+            <span className="cc-result-item__meta-date">
               <FormattedDate dateString={meta.date} />
               &nbsp;
             </span>
           )}
           {meta.lastUpdated && (
-            <span className="result-item__meta-last-updated">
+            <span className="cc-result-item__meta-last-updated">
               Updated <FormattedDate dateString={meta.lastUpdated} />
             </span>
           )}
         </div>
       )}
-      <h3 className="result-item__title">
+      <h3 className="cc-result-item__title">
         {type === 'file' ? (
           parseHtml(title)
         ) : (
-          <a href={href} className="result-item__link">
+          <a href={href} className="cc-result-item__link">
             {parseHtml(title)}
           </a>
         )}
       </h3>
       {type === 'file' && (
         <FileDownload
-          className="result-item__file-meta"
+          className="cc-result-item__file-meta"
           href={href}
           name={title}
           size={fileMeta.size}
@@ -102,16 +103,15 @@ export const ResultsItem = ({
         />
       )}
       {description && (
-        <div
-          className="result-item__description"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <RichText className="cc-result-item__description">
+          {description}
+        </RichText>
       )}
       {authors && (
-        <dl className="card__authors">
-          <dt className="card__authors-label">Author</dt>
+        <dl className="cc-card__authors">
+          <dt className="cc-card__authors-label">Author</dt>
           {authors?.map(author => (
-            <dd key={author} className="card__author">
+            <dd key={author} className="cc-card__author">
               {author}
             </dd>
           ))}
