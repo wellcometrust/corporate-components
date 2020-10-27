@@ -48,26 +48,31 @@
             },
             {
                 "id": "c-1",
+                "url": "/about-us/strategy",
+                "text": "Strategy"
+            },
+            {
+                "id": "c-2",
                 "url": "/about-us/history-wellcome",
                 "text": "History"
             },
             {
-                "id": "c-2",
+                "id": "c-3",
                 "url": "/about-us/investments",
                 "text": "Investments"
             },
             {
-                "id": "c-3",
+                "id": "c-4",
                 "url": "/about-us/governance",
                 "text": "Governance"
             },
             {
-                "id": "c-4",
+                "id": "c-5",
                 "url": "/about-us/teams",
                 "text": "Teams"
             },
             {
-                "id": "c-5",
+                "id": "c-6",
                 "url": "/about-us/contact-us",
                 "text": "Contact us"
             }
