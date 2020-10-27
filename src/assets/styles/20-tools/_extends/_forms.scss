@@ -47,7 +47,7 @@
 %text-input-base {
   @extend %text-input-reset;
 
-  border: 1px solid var(--colour-grey-20);
+  border: 1px solid var(--colour-grey-60);
   border-radius: calc(0.25 * var(--space-unit));
   display: block;
   letter-spacing: var(--body-letter-spacing);
