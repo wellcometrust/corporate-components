@@ -16,6 +16,6 @@
   &:hover ~ select,
   &:hover ~ textarea {
     // border colour has to match %text-input-base
-    border: 1px solid var(--colour-grey-60);
+    border-color: var(--colour-grey-60);
   }
 }
