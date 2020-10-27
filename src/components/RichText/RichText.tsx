@@ -48,7 +48,7 @@ const addExternalLinkMarkers = (children: string) => {
       ? `${p1.substring(
           0,
           p1.length - 1
-        )} class="u-link-new-window">${p2}${externalMarker}${p3}`
+        )} rel="nofollow noreferrer" class="u-link-new-window">${p2}${externalMarker}${p3}`
       : match
   );
 };
