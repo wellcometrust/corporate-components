@@ -3,20 +3,29 @@ import cx from 'classnames';
 
 import FormattedDate from 'FormattedDate';
 import ImageElement from 'Image/ImageElement';
-import { CardBaseProps } from 'ResultsItem/ResultsItem';
 
-export type CardImageProps = {
-  alt?: string;
-  src?: string;
-  // sources?: {
-  //   thumbnail_lo?: string;
-  //   thumbnail?: string;
-  //   thumbnail_hi?: string;
-  // };
-};
-
-export type CardProps = CardBaseProps & {
-  image?: CardImageProps;
+type CardProps = {
+  authors?: string[];
+  className?: string;
+  description?: string;
+  href: string;
+  id?: string;
+  image?: {
+    alt?: string;
+    src?: string;
+    // sources?: {
+    //   thumbnail_lo?: string;
+    //   thumbnail?: string;
+    //   thumbnail_hi?: string;
+    // };
+  };
+  meta?: {
+    date?: string;
+    lastUpdated?: string;
+    hasType?: boolean;
+    type?: string | null;
+  };
+  title: string;
   variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
 };
 

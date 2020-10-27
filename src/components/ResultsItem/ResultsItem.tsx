@@ -7,35 +7,26 @@ import FormattedDate from 'FormattedDate';
 import { parseHtml } from 'utils/parse-html';
 import RichText from 'RichText';
 
-type ResultItemMetaProps = {
-  date?: string;
-  lastUpdated?: string;
-  hasType?: boolean;
-  type?: string | null;
-};
-
-export type FileMetaProps = {
-  type: string;
-  size: string;
-};
-
-export type CardBaseProps = {
-  authors?: string[];
+type ResultItemProps = {
   className?: string;
   description?: string;
   href: string;
   id?: string;
-  meta?: ResultItemMetaProps;
+  meta?: {
+    date?: string;
+    lastUpdated?: string;
+    hasType?: boolean;
+    type?: string | null;
+  };
   title: string;
-};
-
-export type ResultItemProps = CardBaseProps & {
-  fileMeta?: FileMetaProps;
+  fileMeta?: {
+    type: string;
+    size: string;
+  };
   type?: 'content' | 'file' | 'taxonomy_term';
 };
 
 export const ResultsItem = ({
-  authors,
   className,
   description,
   fileMeta,
@@ -106,16 +97,6 @@ export const ResultsItem = ({
         <RichText className="cc-result-item__description">
           {description}
         </RichText>
-      )}
-      {authors && (
-        <dl className="cc-card__authors">
-          <dt className="cc-card__authors-label">Author</dt>
-          {authors?.map(author => (
-            <dd key={author} className="cc-card__author">
-              {author}
-            </dd>
-          ))}
-        </dl>
       )}
     </article>
   );
