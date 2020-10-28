@@ -13,6 +13,10 @@ type ContactImageSourceProps = {
 
 type ContactProps = {
   className?: string;
+  contactForm?: {
+    title?: string;
+    url?: string;
+  };
   email?: string;
   imageSources?: ContactImageSourceProps;
   institution?: string;
@@ -26,6 +30,7 @@ type ContactProps = {
 
 export const Contact = ({
   className,
+  contactForm,
   email,
   imageSources,
   institution,
@@ -79,6 +84,14 @@ export const Contact = ({
           <Icon name="email" className="cc-contact__link-icon" />
           <a href={`mailto:${email}`} className="cc-contact__link">
             {email}
+          </a>
+        </p>
+      )}
+      {contactForm && (
+        <p className="cc-contact__item">
+          <Icon name="email" className="cc-contact__link-icon" />
+          <a href={`${contactForm.url}`} className="cc-contact__link">
+            {contactForm.title}
           </a>
         </p>
       )}
