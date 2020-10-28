@@ -22,7 +22,7 @@ type ContactProps = {
   institution?: string;
   institutionCountry?: string;
   contactRole?: string;
-  name: string;
+  name?: string;
   teamTitle?: string;
   teamUrl?: string;
   tel?: string;
@@ -56,9 +56,11 @@ export const Contact = ({
           // srcSet={srcSet}
         />
       )}
-      <h3 className="cc-contact__name" itemProp="name">
-        {name}
-      </h3>
+      {name && (
+        <h3 className="cc-contact__name" itemProp="name">
+          {name}
+        </h3>
+      )}
       {contactRole && (
         <RichText className="cc-contact__role" variant="text-snippet">
           {contactRole}
