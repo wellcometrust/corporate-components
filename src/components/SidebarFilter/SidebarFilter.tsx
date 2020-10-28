@@ -10,6 +10,7 @@ type SidebarFilterProps = {
     label: string;
     value: string;
   }[];
+  allowForceReset?: boolean;
   className?: string;
   onChange: (value: string) => void;
   onClear: () => void;
@@ -27,6 +28,7 @@ type SidebarFilterProps = {
 
 export const SidebarFilter = ({
   activeTags = [],
+  allowForceReset,
   className,
   onChange,
   onClear,
@@ -42,7 +44,7 @@ export const SidebarFilter = ({
       <header className="cc-sidebar-filter__header">
         <h2 className="cc-sidebar-filter__header-title">Filter results:</h2>
         <span className="cc-sidebar-filter__header-meta">
-          {activeTags.length ? (
+          {activeTags.length || allowForceReset ? (
             <Button type="button" onClick={onClear} variant="link">
               Clear all
             </Button>
