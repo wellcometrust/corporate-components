@@ -15,7 +15,7 @@ type ContactProps = {
   className?: string;
   contactFormLink?: {
     text?: string;
-    url?: string;
+    url: string;
   };
   email?: string;
   imageSources?: ContactImageSourceProps;
