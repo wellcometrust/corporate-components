@@ -7,7 +7,6 @@
 // ----------------------------------
 
 .cc-rich-text {
-
   // ensure extra long words are wrapped to prevent overlap or horizontal scroll
   overflow-wrap: break-word;
   // ensure wide table data can be seen using horizontal scroll
@@ -56,8 +55,10 @@
   table {
     border-collapse: collapse;
     caption-side: top;
+    display: block;
     line-height: var(--body-line-height-sm);
     margin-bottom: calc(4 * var(--space-unit));
+    overflow-x: scroll;
     width: 100%;
   }
 
