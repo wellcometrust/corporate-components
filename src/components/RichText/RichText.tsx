@@ -5,7 +5,6 @@ import cx from 'classnames';
 import { ExternalLinkMarker } from 'Link';
 
 import { parseHtml } from 'utils/parse-html';
-import { format } from 'path';
 
 type RichTextProps = {
   children: string;
