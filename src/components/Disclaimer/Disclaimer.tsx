@@ -1,35 +1,39 @@
 import React from 'react';
-import cx from 'classnames';
 
 import Grid, { GridCell } from 'Grid';
 import RichText from 'RichText';
 import Section from 'Section';
+import SectionTitle from 'SectionTitle';
 import Button from 'Button';
 
 type DisclaimerProps = {
   title?: string;
   body?: string;
   className?: string;
+  handleDisclaimer?: () => void;
+  isDisclaimerActive: boolean;
   buttons: [];
 };
 
-const titleDefault = 'Disclaimer title';
-const bodyDefault = 'Body goes here';
+const titleDefault = 'Disclaimer ';
+const bodyDefault = '';
 const classDefault = 'cc-info-box';
 
 export const Disclaimer = ({
   title = titleDefault,
   body = bodyDefault,
   className = classDefault,
+  handleDisclaimer,
+  isDisclaimerActive,
   buttons = []
 }: DisclaimerProps) => {
-  return (
+  return isDisclaimerActive ? (
     <Section className={className}>
       <Grid>
         <GridCell column={1} columnCount={1}>
-          <h3>{title}</h3>
+          <SectionTitle title={title} />
           <RichText>{body}</RichText>
-          <div className="cookie-message__buttons">
+          <div className="disclaimer__buttons">
             {buttons &&
               buttons.map((button: any) => {
                 const defaultText: { [key: string]: any } = {
@@ -38,18 +42,21 @@ export const Disclaimer = ({
                   link: 'Back'
                 };
 
-                const buttonType = button.attributes.button_type;
-                const linkStyle = button.attributes.link_style;
-                const { link } = button.attributes;
-
                 return (
                   <Button
-                    type="button"
+                    key={button.id}
+                    type={button.attributes.button_type}
                     className="disclaimer__button"
-                    variant={linkStyle}
-                    href={link?.uri}
+                    variant={button.attributes.link_style}
+                    href={button.attributes.link?.url}
+                    onClick={
+                      button.attributes.button_type === 'agree'
+                        ? handleDisclaimer
+                        : null
+                    }
                   >
-                    {link?.title || defaultText[buttonType]}
+                    {button.attributes.link?.title ||
+                      defaultText[button.attributes.button_type]}
                   </Button>
                 );
               })}
@@ -57,7 +64,7 @@ export const Disclaimer = ({
         </GridCell>
       </Grid>
     </Section>
-  );
+  ) : null;
 };
 
 export default Disclaimer;
