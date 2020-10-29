@@ -55,10 +55,8 @@
   table {
     border-collapse: collapse;
     caption-side: top;
-    display: block;
     line-height: var(--body-line-height-sm);
     margin-bottom: calc(4 * var(--space-unit));
-    overflow-x: scroll;
     width: 100%;
   }
 
@@ -141,4 +139,9 @@
   font-weight: bold;
   letter-spacing: normal;
   margin-bottom: var(--space-unit);
+}
+
+.cc-rich-text__table-wrap {
+  overflow-x: scroll;
+  width: 100%;
 }
