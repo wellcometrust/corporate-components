@@ -1,70 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
+import cx from 'classnames';
 
 import Grid, { GridCell } from 'Grid';
 import RichText from 'RichText';
 import Section from 'Section';
-import SectionTitle from 'SectionTitle';
 import Button from 'Button';
 
 type DisclaimerProps = {
-  title?: string;
   body?: string;
+  buttons: {
+    href?: string;
+    text?: string;
+    type: 'agree' | 'cancel' | 'link';
+    variant: 'link' | 'primary' | 'secondary' | 'ghost' | 'unstyled';
+  }[];
   className?: string;
-  handleDisclaimer?: () => void;
-  isDisclaimerActive: boolean;
-  buttons: [];
+  onAccept: () => void;
+  title?: string;
 };
 
-const titleDefault = 'Disclaimer ';
-const bodyDefault = '';
-const classDefault = 'cc-info-box';
+const defaultButtonText = {
+  agree: 'Agree',
+  cancel: 'Cancel',
+  link: 'Back'
+};
 
 export const Disclaimer = ({
-  title = titleDefault,
-  body = bodyDefault,
-  className = classDefault,
-  handleDisclaimer,
-  isDisclaimerActive,
-  buttons = []
+  body,
+  buttons = [],
+  className,
+  onAccept,
+  title
 }: DisclaimerProps) => {
-  return isDisclaimerActive ? (
-    <Section className={className}>
-      <Grid>
-        <GridCell column={1} columnCount={1}>
-          <SectionTitle title={title} />
-          <RichText>{body}</RichText>
-          <div className="disclaimer__buttons">
-            {buttons &&
-              buttons.map((button: any) => {
-                const defaultText: { [key: string]: any } = {
-                  agree: 'Agree',
-                  cancel: 'Cancel',
-                  link: 'Back'
-                };
+  const [wasAccepted, setWasAccepted] = useState(false);
 
-                return (
+  const classNames = cx('cc-info-box cc-disclaimer', {
+    [className]: className
+  });
+
+  const handleAgree = () => {
+    if (typeof onAccept === 'function') onAccept();
+    setWasAccepted(true);
+  };
+
+  return (
+    !wasAccepted && (
+      <Section className={classNames}>
+        <Grid>
+          <GridCell column={1} columnCount={1}>
+            <h3>{title}</h3>
+            <RichText>{body}</RichText>
+            <div className="cookie-message__buttons">
+              {buttons &&
+                buttons.map(({ text, type, variant, href }) => (
                   <Button
-                    key={button.id}
-                    type={button.attributes.button_type}
-                    className="disclaimer__button"
-                    variant={button.attributes.link_style}
-                    href={button.attributes.link?.url}
-                    onClick={
-                      button.attributes.button_type === 'agree'
-                        ? handleDisclaimer
-                        : null
-                    }
+                    className="cc-disclaimer__button"
+                    href={href.length ? href : null}
+                    key={`disclaimer-button-${type}`}
+                    onClick={type === 'agree' && handleAgree}
+                    type="button"
+                    variant={variant}
                   >
-                    {button.attributes.link?.title ||
-                      defaultText[button.attributes.button_type]}
+                    {text || defaultButtonText[type]}
                   </Button>
-                );
-              })}
-          </div>
-        </GridCell>
-      </Grid>
-    </Section>
-  ) : null;
+                ))}
+            </div>
+          </GridCell>
+        </Grid>
+      </Section>
+    )
+  );
 };
 
 export default Disclaimer;
