@@ -1,0 +1,12 @@
+.cc-modal__button {
+  margin: var(--space-unit) 0;
+  width: 100%;
+
+  @include mq(sm) {
+    width: auto;
+
+    &:first-child {
+      margin-right: calc(4 * var(--space-unit));
+    }
+  }
+}
