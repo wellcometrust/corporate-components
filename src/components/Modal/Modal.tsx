@@ -43,7 +43,6 @@ export const Modal = ({
     setWasAccepted(true);
   };
 
-  console.log(buttons);
   return (
     !wasAccepted && (
       <Section className={classNames}>
