@@ -13,12 +13,16 @@ type ContactImageSourceProps = {
 
 type ContactProps = {
   className?: string;
+  contactFormLink?: {
+    text?: string;
+    url: string;
+  };
   email?: string;
   imageSources?: ContactImageSourceProps;
   institution?: string;
   institutionCountry?: string;
   contactRole?: string;
-  name: string;
+  name?: string;
   teamTitle?: string;
   teamUrl?: string;
   tel?: string;
@@ -26,6 +30,7 @@ type ContactProps = {
 
 export const Contact = ({
   className,
+  contactFormLink,
   email,
   imageSources,
   institution,
@@ -51,9 +56,11 @@ export const Contact = ({
           // srcSet={srcSet}
         />
       )}
-      <h3 className="cc-contact__name" itemProp="name">
-        {name}
-      </h3>
+      {name && (
+        <h3 className="cc-contact__name" itemProp="name">
+          {name}
+        </h3>
+      )}
       {contactRole && (
         <RichText className="cc-contact__role" variant="text-snippet">
           {contactRole}
@@ -79,6 +86,14 @@ export const Contact = ({
           <Icon name="email" className="cc-contact__link-icon" />
           <a href={`mailto:${email}`} className="cc-contact__link">
             {email}
+          </a>
+        </p>
+      )}
+      {contactFormLink && (
+        <p className="cc-contact__item">
+          <Icon name="email" className="cc-contact__link-icon" />
+          <a href={`${contactFormLink.url}`} className="cc-contact__link">
+            {contactFormLink.text || 'Send a message'}
           </a>
         </p>
       )}
