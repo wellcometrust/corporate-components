@@ -1,4 +1,4 @@
-# Disclaimer
+# Modal
 
 Presentational component for wrapping body content components:
 

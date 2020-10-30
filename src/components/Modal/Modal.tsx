@@ -6,7 +6,7 @@ import RichText from 'RichText';
 import Section from 'Section';
 import Button from 'Button';
 
-type DisclaimerProps = {
+type ModalProps = {
   body?: string;
   buttons: {
     href?: string;
@@ -25,16 +25,16 @@ const defaultButtonText = {
   link: 'Back'
 };
 
-export const Disclaimer = ({
+export const Modal = ({
   body,
   buttons = [],
   className,
   onAccept,
   title
-}: DisclaimerProps) => {
+}: ModalProps) => {
   const [wasAccepted, setWasAccepted] = useState(false);
 
-  const classNames = cx('cc-info-box cc-disclaimer', {
+  const classNames = cx('cc-info-box cc-modal', {
     [className]: className
   });
 
@@ -43,6 +43,7 @@ export const Disclaimer = ({
     setWasAccepted(true);
   };
 
+  console.log(buttons);
   return (
     !wasAccepted && (
       <Section className={classNames}>
@@ -54,9 +55,9 @@ export const Disclaimer = ({
               {buttons &&
                 buttons.map(({ text, type, variant, href }) => (
                   <Button
-                    className="cc-disclaimer__button"
-                    href={href.length ? href : null}
-                    key={`disclaimer-button-${type}`}
+                    className="cc-modal__button"
+                    href={href || null}
+                    key={`modal-button-${type}`}
                     onClick={type === 'agree' && handleAgree}
                     type="button"
                     variant={variant}
@@ -72,4 +73,4 @@ export const Disclaimer = ({
   );
 };
 
-export default Disclaimer;
+export default Modal;
