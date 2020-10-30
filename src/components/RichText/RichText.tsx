@@ -29,28 +29,51 @@ type RichTextProps = {
 // TODO: replace `non` with class name to be ignored
 const regexAnchorExternal = /(?!.*class="non")(?!.*href="https?:\/\/(?:www\.)?wellcome.(?:org|ac\.uk).*".*)(?!.*href="mailto:)(<a[^>]*target="_blank"[^>]*>)([^<]+)(<\/a>)/g;
 
-/**
- * Add markup to all anchor elements which open in a new window
- * to indicate an external link
- *
- * @param children
- */
-const addExternalLinkMarkers = (children: string) => {
-  // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
-  const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
+const regexTableElements = /<table(.*?)>(.|\n)(.*?)(.|\n)*<\/table>/g;
 
-  return children.replaceAll(regexAnchorExternal, (match, p1, p2, p3) =>
-    // replace existing anchor string with embellished version containing assistive text
-    // p[n] refers to each group within the match - groups are defined within parentheses
-    // p1 and p2 are contained in the 2nd negative lookup
-    // so we start with p3 as the first actual string
-    p1
-      ? `${p1.substring(
-          0,
-          p1.length - 1
-        )} rel="nofollow noreferrer" class="u-link-new-window">${p2}${externalMarker}${p3}`
-      : match
-  );
+/**
+ * Perform some desirable transforms to a string of HTML so that we
+ * can affect the markup however we desire.
+ *
+ * @param {string} children
+ * @returns {string}
+ */
+const formatHTMLString = (children: string) => {
+  try {
+    // renderToStaticMarkup used to preserve svg attributes in JSX format for re-rendering
+    const externalMarker = renderToStaticMarkup(<ExternalLinkMarker />);
+
+    return (
+      children
+        /**
+         * Add markup to all anchor elements which open in a new window
+         * to indicate an external link
+         */
+        .replaceAll(regexAnchorExternal, (match, p1, p2, p3) =>
+          // replace existing anchor string with embellished version containing assistive text
+          // p[n] refers to each group within the match - groups are defined within parentheses
+          // p1 and p2 are contained in the 2nd negative lookup
+          // so we start with p3 as the first actual string
+          p1
+            ? `${p1.substring(
+                0,
+                p1.length - 1
+              )} rel="nofollow noreferrer" class="u-link-new-window">${p2}${externalMarker}${p3}`
+            : match
+        )
+
+        /**
+         * Add markup to wrap <table> elements with a <div> to prevent overflow-x
+         * on the rich-text element, constraining the overflow-x to only the
+         * <table> element itself.
+         */
+        .replaceAll(regexTableElements, match => {
+          return `<div class="cc-rich-text__table-wrap">${match}</div>`;
+        })
+    );
+  } catch {
+    return children;
+  }
 };
 
 export const RichText = ({
@@ -58,14 +81,12 @@ export const RichText = ({
   className,
   variant = 'text'
 }: RichTextProps) => {
-  const childrenWithMarkers = children && addExternalLinkMarkers(children);
+  const htmlString = formatHTMLString(children);
   const classNames = cx(`cc-rich-${variant}`, {
     [className]: className
   });
 
-  return childrenWithMarkers ? (
-    <div className={classNames}>{parseHtml(childrenWithMarkers)}</div>
-  ) : null;
+  return <div className={classNames}>{parseHtml(htmlString)}</div>;
 };
 
 export default RichText;
