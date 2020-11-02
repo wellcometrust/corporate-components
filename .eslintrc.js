@@ -33,6 +33,7 @@ module.exports = {
   },
   rules: {
     'react/destructuring-assignment': 0,
+    'react/require-default-props': 0,
     'react/forbid-prop-types': 0,
     'react/jsx-filename-extension': 0,
     'react/no-unused-prop-types': 0,
