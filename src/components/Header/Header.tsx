@@ -34,6 +34,13 @@ export const Header = ({ banner }: HeaderProps) => {
   const [sticky] = useSticky(headerRef);
   const logoRef = useRef(null);
 
+  /**
+   * `intialRender` indicates the first time the component is loaded
+   * useRef is used in preference to useState to prevent additional re-renders
+   * https://medium.com/swlh/prevent-useeffects-callback-firing-during-initial-render-the-armchair-critic-f71bc0e03536
+   */
+  const initialRender = useRef(true);
+
   const { isNavActive, toggleNav } = useContext(NavContext);
   const { isSearchActive, toggleSearch } = useContext(SearchPaneContext);
 
@@ -60,7 +67,10 @@ export const Header = ({ banner }: HeaderProps) => {
   }, []);
 
   useEffect(() => {
-    if (!isSearchActive && logoRef.current !== null) {
+    // initialRender prevents logo from being focused on component load
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else if (!isSearchActive && logoRef.current !== null) {
       logoRef.current.focus();
     }
 
