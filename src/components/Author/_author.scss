@@ -17,7 +17,7 @@
 .cc-author__image {
   --image-size: calc(6.25 * var(--space-unit));
 
-  @extend %image-cover;
+  @extend %img-cover;
 
   border-radius: 50%;
   height: var(--image-size);

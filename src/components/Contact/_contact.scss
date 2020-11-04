@@ -16,6 +16,7 @@
 }
 
 .cc-contact__image {
+  @extend %img-responsive;
   float: left;
   height: 215px;
   margin: 0 calc(4 * var(--space-unit)) calc(2 * var(--space-unit)) 0;

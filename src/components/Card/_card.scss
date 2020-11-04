@@ -10,16 +10,16 @@
   background: var(--colour-white);
   margin-bottom: var(--space-lg);
   position: relative;
-  
+
   @include mq(sm) {
     display: flex;
-    
-    .cc-card__image-wrap,
+
+    .cc-card__image,
     .cc-card__content {
       width: 50%;
     }
   }
-  
+
   @include mq($until: md) {
     &:last-child {
       margin-bottom: 0;
@@ -32,7 +32,6 @@
     }
   }
 }
-
 
 // .cc-card--placeholder is to be used on cards which should not
 // be fully styled up as such e.g. promos
@@ -49,7 +48,7 @@
     margin: $grid-gutter-md / 2;
     width: calc(33.33% - #{$grid-gutter-md});
 
-    .cc-card__image-wrap,
+    .cc-card__image,
     .cc-card__content {
       width: 100%;
     }
@@ -61,7 +60,10 @@
   }
 }
 
-.cc-card__image-ratio {
+.cc-card__image {
+  @extend %img-responsive;
+  @extend %img-cover;
+
   position: relative;
 
   &:after {
@@ -72,21 +74,12 @@
     width: 100%;
   }
 
-  @supports (object-fit: cover) {
-    height: 100%;
-  }
-}
-
-.cc-card__image {
-  @extend %image-responsive;
-
-  @supports (object-fit: cover) {
-    height: 100%;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  > img {
+    @supports (object-fit: cover) {
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
   }
 }
 

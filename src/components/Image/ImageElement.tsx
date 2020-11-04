@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 type ImageElementProps = {
   alt?: string;
-  className?: string;
   itemProp?: string;
   role?: string;
   // TODO #6478: establish method for setting lazy loading based on latest spec
@@ -13,7 +12,6 @@ type ImageElementProps = {
 
 export const ImageElement = ({
   alt = '',
-  className,
   itemProp,
   role,
   sizes,
@@ -35,10 +33,10 @@ export const ImageElement = ({
   return (
     <img
       alt={alt}
-      className={className}
       itemProp={itemProp}
       onError={onError}
       onLoad={onLoad}
+      role={role}
       sizes={sizes}
       src={src}
       srcSet={srcSet}

@@ -8,17 +8,30 @@
 // ----------------------------------
 
 /**
- * Force image to conform to size of containing element
- *
- * Usage:
- *
- * .selector {
- *   @extend %image-responsive;
- * }
- *
+ * Styles <img /> child to conform to width of containing element
  */
+%img-responsive {
+  > img {
+    display: block;
+    width: 100%;
+  }
+}
 
-%image-responsive {
-  display: block;
-  width: 100%;
+/**
+ * Styles <img /> child to scale to the size of the parent element,
+ * using object-fit with a CSS @supports block
+ *
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/@supports}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit#Browser_compatibility}
+ */
+%img-cover {
+  > img {
+    @supports (object-fit: cover) {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      width: 100%;
+    }
+  }
 }

@@ -36,10 +36,9 @@ export const ImageBanner = ({
 
   return (
     <figure className={classNames} role="banner">
-      <div className="cc-image-banner__container">
+      <div className="cc-image-banner__image">
         <ImageElement
           alt={alt}
-          className="cc-image-banner__img"
           role="presentation"
           sizes={sizes}
           src={src}

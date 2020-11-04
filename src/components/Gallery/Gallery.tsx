@@ -97,13 +97,9 @@ export const GalleryMedia = ({
           onClick={onClick}
           variant="unstyled"
         >
-          <ImageElement
-            alt={alt}
-            className="cc-gallery__media-content"
-            sizes={sizes}
-            src={src}
-            srcSet={srcSet}
-          />
+          <span className="cc-gallery__media-content">
+            <ImageElement alt={alt} sizes={sizes} src={src} srcSet={srcSet} />
+          </span>
         </Button>
       </div>
       {isLead && <div className="break"> </div>}
