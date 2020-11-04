@@ -15,7 +15,7 @@ module.exports = async ({ config, mode }) => {
   config.resolve.modules = [
     ...(config.resolve.modules || []),
     path.resolve('./src/'),
-    path.resolve('./src/components'),
+    path.resolve('./src/components')
   ];
 
   config.module.rules.push({
@@ -23,17 +23,16 @@ module.exports = async ({ config, mode }) => {
     exclude: /node_modules/,
     use: [
       require.resolve('babel-loader'),
-      require.resolve('react-docgen-typescript-loader'),
-    ],
+      require.resolve('react-docgen-typescript-loader')
+    ]
   });
 
   // CSS
   config.module.rules.push({
     test: /\.scss$/,
     use: ['style-loader', 'css-loader', 'sass-loader'],
-    include: path.resolve(__dirname, '../../'),
+    include: path.resolve(__dirname, '../../')
   });
-
 
   // Return the altered config
   return config;
