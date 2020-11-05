@@ -1,0 +1,99 @@
+// ----------------------------------
+// UI Components
+// Full Width Promo
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-fw-promo {
+  background: var(--colour-amber-05);
+  position: relative;
+}
+
+.cc-fw-promo__image {
+  @extend %img-cover;
+  height: calc(220vw / 320 * 100);
+  margin: 0;
+
+  @include mq(sm) {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+}
+
+.cc-fw-promo__container {
+  @include grid-container;
+  padding: calc(7.5 * var(--space-unit)) 0;
+
+  @include mq(sm) {
+    padding: calc(9 * var(--space-unit)) 0;
+  }
+}
+
+.cc-fw-promo__content {
+  @include grid-column(1, 7);
+  
+  @include mq(sm) {
+    @include grid-column(1, 9);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 48px 40px;
+  }
+
+  @include mq(md) {
+    @include grid-column(1, 8);
+  }
+
+  @include mq(xl) {
+    @include grid-column(1, 7);
+  }
+}
+
+.cc-fw-promo__title {
+  @extend %heading-display;
+  font-weight: normal;
+}
+
+.cc-fw-promo__meta {
+  align-items: center;
+  display: flex;
+  margin-bottom: calc(2 * var(--space-unit));
+  padding: var(--space-unit) 0;
+}
+
+.cc-fw-promo__type {
+  color: var(--colour-grey-60);
+  font-size: var(--body-xs);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cc-fw-promo__type + .cc-fw-promo__authors:before {
+  color: var(--colour-amber-30);
+  content: '/';
+  font-size: var(--body-xs);
+  padding: 0 var(--space-unit);
+}
+
+.cc-fw-promo__authors {
+  align-items: center;
+  display: flex;
+  margin: 0;
+}
+
+.cc-fw-promo__authors-label {
+  @extend %visually-hidden;
+}
+
+.cc-fw-promo__author {
+  font-size: var(--body-md);
+  margin: 0;
+
+  + .cc-fw-promo__author:before {
+    content: ', ';
+  }
+}
