@@ -11,10 +11,6 @@ const NewsCardExample = () => {
 
   const imageAlt = text('Image alt text', 'Alternative image text');
   const imageSrc = text('Image path', `https://via.placeholder.com/300`);
-  const image = {
-    alt: imageAlt,
-    src: `${imageSrc}?text=${imageAlt}`
-  };
 
   const title = text('Title', 'My section');
   const titleAs = select(
@@ -31,7 +27,8 @@ const NewsCardExample = () => {
     <NewsCard
       author={author}
       date={date}
-      image={image}
+      imageAlt={imageAlt}
+      imageSrc={imageSrc}
       title={title}
       titleAs={titleAs}
       topic={topic}

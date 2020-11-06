@@ -9,14 +9,12 @@ type NewsCardProps = {
   author: string;
   className?: string;
   date: string;
-  image: {
-    alt: string;
-    height?: string;
-    sizes?: string;
-    src: string;
-    srcSet?: string;
-    width?: string;
-  };
+  imageAlt: string;
+  imageHeight?: string;
+  imageSizes?: string;
+  imageSrc: string;
+  imageSrcSet?: string;
+  imageWidth?: string;
   title: string;
   titleAs?: keyof JSX.IntrinsicElements;
   topic: string;
@@ -27,7 +25,12 @@ export const NewsCard = ({
   author,
   className,
   date,
-  image,
+  imageAlt,
+  imageHeight,
+  imageSizes,
+  imageSrc,
+  imageSrcSet,
+  imageWidth,
   title,
   titleAs = 'h3',
   topic,
@@ -47,13 +50,13 @@ export const NewsCard = ({
       <Link className="cc-news-card__figure" to={url}>
         <figure className="cc-news-card__image">
           <ImageElement
-            alt={image.alt}
-            height={image.height}
+            alt={imageAlt}
+            height={imageHeight}
             itemProp="image"
-            sizes={image.sizes}
-            src={image.src}
-            srcSet={image.srcSet}
-            width={image.width}
+            sizes={imageSizes}
+            src={imageSrc}
+            srcSet={imageSrcSet}
+            width={imageWidth}
           />
         </figure>
       </Link>
