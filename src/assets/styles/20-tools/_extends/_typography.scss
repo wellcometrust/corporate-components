@@ -14,7 +14,7 @@
   &:hover {
     color: var(--link-colour-hover);
   }
-  
+
   &:active {
     color: var(--link-colour-active);
   }
@@ -24,10 +24,19 @@
     outline-color: var(--link-colour-focus-outline);
     outline-offset: calc(0.5 * var(--space-unit));
   }
-  
+
   [disabled],
   &:not([href]) {
     color: var(--link-colour-disabled);
+  }
+}
+
+%anchor-reverse {
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
   }
 }
 
@@ -99,6 +108,17 @@
 %heading-small {
   font-size: var(--heading-xs);
   margin-bottom: var(--space-md);
+}
+
+%heading-fancy {
+  &:after {
+    background-color: var(--colour-amber-30);
+    content: '';
+    display: block;
+    height: 4px;
+    margin-top: calc(2 * var(--space-unit));
+    width: 30px;
+  }
 }
 
 // equivalent to <p>

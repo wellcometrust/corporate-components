@@ -9,6 +9,7 @@ import { parseHtml } from 'utils/parse-html';
 type RichTextProps = {
   children: string;
   className?: string;
+  itemProp?: string;
   variant?: 'text' | 'text-snippet';
 };
 
@@ -79,6 +80,7 @@ const formatHTMLString = (children: string) => {
 export const RichText = ({
   children,
   className,
+  itemProp,
   variant = 'text'
 }: RichTextProps) => {
   const htmlString = formatHTMLString(children);
@@ -86,7 +88,11 @@ export const RichText = ({
     [className]: className
   });
 
-  return <div className={classNames}>{parseHtml(htmlString)}</div>;
+  return (
+    <div className={classNames} itemProp={itemProp}>
+      {parseHtml(htmlString)}
+    </div>
+  );
 };
 
 export default RichText;
