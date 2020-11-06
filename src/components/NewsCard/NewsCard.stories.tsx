@@ -13,11 +13,7 @@ const NewsCardExample = () => {
   const imageSrc = text('Image path', `https://via.placeholder.com/300`);
 
   const title = text('Title', 'My section');
-  const titleAs = select(
-    'Title element',
-    ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-    'h3'
-  );
+  const titleAs = select('Title element', ['h2', 'h3', 'h4', 'h5', 'h6'], 'h3');
 
   const topic = text('Topic', 'Climate Change');
 

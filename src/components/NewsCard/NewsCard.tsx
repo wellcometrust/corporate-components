@@ -16,7 +16,7 @@ type NewsCardProps = {
   imageSrcSet?: string;
   imageWidth?: string;
   title: string;
-  titleAs?: keyof JSX.IntrinsicElements;
+  titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   topic: string;
   url: string;
 };
