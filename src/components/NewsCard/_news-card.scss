@@ -90,9 +90,19 @@
 }
 
 .cc-news-card__link {
-  @extend %anchor-reverse;
+  @extend %anchor-inherit;
+  @include animated-underline;
 
-  color: inherit;
+  /**
+   * Imitate the hover state when a user hovers over the image of
+   * card.
+   */
+  .cc-news-card__figure:hover + .cc-news-card__body &,
+  .cc-news-card__figure:focus + .cc-news-card__body & {
+    background-size: 100% 2px;
+    text-decoration: none;
+    transition-timing-function: var(--transition-timing-function-in);
+  }
 }
 
 .cc-news-card__date {

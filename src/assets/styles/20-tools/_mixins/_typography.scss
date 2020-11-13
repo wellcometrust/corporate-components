@@ -27,25 +27,55 @@
  * Generates a style where a horizontal line displays
  * beneath an element on hover.
  */
-@mixin animated-underline {
+@mixin animated-underline($use-deprecated: false) {
   --transition-duration: 0.3s;
-  position: relative;
+  --transition-timing-function-in: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-timing-function-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
-  &:before {
-    background-color: var(--colour-white);
-    bottom: 0;
-    content: '';
-    height: calc(0.125 * var(--space-unit));
-    left: 0;
-    position: absolute;
-    transform: scaleX(0);
-    transition: all var(--transition-duration) ease-in-out;
-    visibility: hidden;
-    width: 100%;
+  /**
+   * We are currently maintaining two very similar styles, and are in the
+   * middle of migrating between the two.
+   */
+  @if not index((true, false), $use-deprecated) {
+    @warn '$use-deprecated parameter must be a boolean';
   }
 
-  &:hover:before {
-    transform: scaleX(1);
-    visibility: visible;
+  @if $use-deprecated == true {
+    --transition-timing-function-in: ease-in-out;
+
+    position: relative;
+
+    &:before {
+      background-color: var(--colour-black);
+      bottom: 0;
+      content: '';
+      height: calc(0.125 * var(--space-unit));
+      left: 0;
+      position: absolute;
+      transform: scaleX(0);
+      transition: all var(--transition-duration) var(--transition-timing-function-in);
+      visibility: hidden;
+      width: 100%;
+    }
+
+    &:hover:before {
+      transform: scaleX(1);
+      visibility: visible;
+    }
+  }
+
+  @else {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: 0 calc(0.25 * var(--space-unit));
+    text-decoration: none;
+    transition: background-size var(--transition-duration) var(--transition-timing-function-out);
+
+    @include hocus {
+      background-size: 100% calc(0.25 * var(--space-unit));
+      text-decoration: none;
+      transition-timing-function: var(--transition-timing-function-in);
+    }
   }
 }
