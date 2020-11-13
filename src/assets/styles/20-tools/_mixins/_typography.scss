@@ -37,7 +37,7 @@
    * middle of migrating between the two.
    */
   @if not index((true, false), $use-deprecated) {
-    @warn '$use-deprecated parameter must be a boolean';
+    @warn 'You are passing $use-deprecated: #{$use-deprecated}. Please use either true or false. Passing anything other than these values could cause unexpected behaviour.';
   }
 
   @if $use-deprecated == true {
