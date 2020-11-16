@@ -47,3 +47,29 @@
     transition-timing-function: var(--transition-timing-function-in);
   }
 }
+
+/**
+ * "Fancy" heading style; adds an :after element containing
+ * a block of colour of varying widths/height/spacing above
+ * dependent on parameters passed.
+ *
+ * @param {String} $color
+ * @param {Int} $height
+ * @param {Int} $space-above
+ * @param {Int} $width
+ */
+@mixin heading-fancy(
+  $color: var(--colour-amber-30),
+  $height: calc(0.5 * var(--space-unit)),
+  $space-above: calc(2 * var(--space-unit)),
+  $width: calc(4 * var(--space-unit))
+) {
+  &:after {
+    background-color: $color;
+    content: '';
+    display: block;
+    height: $height;
+    margin-top: $space-above;
+    width: $width;
+  }
+}

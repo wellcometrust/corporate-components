@@ -117,17 +117,6 @@
   margin-bottom: var(--space-md);
 }
 
-%heading-fancy {
-  &:after {
-    background-color: var(--colour-amber-30);
-    content: '';
-    display: block;
-    height: 4px;
-    margin-top: calc(2 * var(--space-unit));
-    width: 30px;
-  }
-}
-
 // equivalent to <p>
 %body-large {
   margin-bottom: calc(4 * var(--space-unit));

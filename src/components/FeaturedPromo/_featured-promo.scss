@@ -88,7 +88,7 @@
 .cc-featured-promo__title {
   @extend %heading-base;
   @extend %heading-large;
-  @extend %heading-fancy;
+  @include heading-fancy;
 
   margin-bottom: calc(2 * var(--space-unit));
 }
