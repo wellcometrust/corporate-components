@@ -19,10 +19,6 @@
 .cc-result-item__description p {
   margin-bottom: 0;
   margin-top: 0;
-
-  .cc-listing {
-    border-color: transparent;
-  }
 }
 
 .cc-result-item__meta {
@@ -58,4 +54,12 @@
 .cc-result-item__file-meta-size {
   color: var(--text-colour);
   font-size: var(--body-md);
+}
+
+.cc-result-item__list {
+  @extend %list-clean;
+}
+
+.cc-result-item__institution {
+  color: var(--colour-grey-70);
 }
