@@ -25,57 +25,23 @@
 
 /**
  * Generates a style where a horizontal line displays
- * beneath an element on hover.
+ * beneath an element on hover with a transition.
  */
-@mixin animated-underline($use-deprecated: false) {
+@mixin animated-underline($height: calc(0.25 * var(--space-unit))) {
   --transition-duration: 0.3s;
   --transition-timing-function-in: cubic-bezier(0.23, 1, 0.32, 1);
   --transition-timing-function-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
-  /**
-   * We are currently maintaining two very similar styles, and are in the
-   * middle of migrating between the two.
-   */
-  @if not index((true, false), $use-deprecated) {
-    @warn 'You are passing $use-deprecated: #{$use-deprecated}. Please use either true or false. Passing anything other than these values could cause unexpected behaviour.';
-  }
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0 $height;
+  text-decoration: none;
+  transition: background-size var(--transition-duration) var(--transition-timing-function-out);
 
-  @if $use-deprecated == true {
-    --transition-timing-function-in: ease-in-out;
-
-    position: relative;
-
-    &:before {
-      background-color: var(--colour-black);
-      bottom: 0;
-      content: '';
-      height: calc(0.125 * var(--space-unit));
-      left: 0;
-      position: absolute;
-      transform: scaleX(0);
-      transition: all var(--transition-duration) var(--transition-timing-function-in);
-      visibility: hidden;
-      width: 100%;
-    }
-
-    &:hover:before {
-      transform: scaleX(1);
-      visibility: visible;
-    }
-  }
-
-  @else {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    background-size: 0 calc(0.25 * var(--space-unit));
+  @include hocus {
+    background-size: 100% $height;
     text-decoration: none;
-    transition: background-size var(--transition-duration) var(--transition-timing-function-out);
-
-    @include hocus {
-      background-size: 100% calc(0.25 * var(--space-unit));
-      text-decoration: none;
-      transition-timing-function: var(--transition-timing-function-in);
-    }
+    transition-timing-function: var(--transition-timing-function-in);
   }
 }
