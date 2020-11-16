@@ -15,8 +15,8 @@ const FeaturedPromoExample = () => {
   const title = text('Title', 'My section');
   const titleAs = select('Title element', ['h2', 'h3', 'h4', 'h5', 'h6'], 'h3');
 
-  const excerpt = text(
-    'Excerpt',
+  const description = text(
+    'Description',
     `<p>Nulla non Lorem in fugiat dolore aliquip ad irure reprehenderit reprehenderit proident.</p>`
   );
 
@@ -29,7 +29,7 @@ const FeaturedPromoExample = () => {
       author={author}
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
-      excerpt={parseHtml(excerpt)}
+      description={parseHtml(description)}
       imageAlt={imageAlt}
       imageSrc={`${imageSrc}?text=${imageAlt}`}
       title={title}
