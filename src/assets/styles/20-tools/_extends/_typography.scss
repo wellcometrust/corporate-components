@@ -34,9 +34,16 @@
 %anchor-reverse {
   text-decoration: none;
 
-  &:focus,
-  &:hover {
+  @include hocus {
     text-decoration: underline;
+  }
+}
+
+%anchor-inherit {
+  color: inherit;
+
+  @include hocus {
+    color: inherit;
   }
 }
 
