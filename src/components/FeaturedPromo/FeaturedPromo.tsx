@@ -8,7 +8,7 @@ import Link from 'Link';
 type FeaturedPromoProps = {
   author: string;
   className?: string;
-  excerpt?: string;
+  description?: string;
   imageAlt: string;
   imageHeight?: string;
   imageSizes?: string;
@@ -24,7 +24,7 @@ type FeaturedPromoProps = {
 export const FeaturedPromo = ({
   author,
   className,
-  excerpt,
+  description,
   imageAlt,
   imageHeight,
   imageSizes,
@@ -72,19 +72,19 @@ export const FeaturedPromo = ({
             {author}
           </span>
         </span>
-        <Link className="cc-featured-promo__link" to={url}>
-          <TitleElement className="cc-featured-promo__title" itemProp="name">
+        <TitleElement className="cc-featured-promo__title" itemProp="name">
+          <Link className="cc-featured-promo__link" to={url}>
             {title}
-          </TitleElement>
-          {excerpt && (
-            <RichText
-              className="cc-featured-promo__excerpt"
-              itemProp="abstract"
-            >
-              {excerpt}
-            </RichText>
-          )}
-        </Link>
+          </Link>
+        </TitleElement>
+        {description && (
+          <RichText
+            className="cc-featured-promo__description"
+            itemProp="abstract"
+          >
+            {description}
+          </RichText>
+        )}
       </div>
     </article>
   );

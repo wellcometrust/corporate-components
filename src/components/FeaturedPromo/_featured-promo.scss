@@ -1,6 +1,6 @@
 // ----------------------------------
 // UI Components
-// Featured Promo
+// FeaturedPromo
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
@@ -43,6 +43,7 @@
   padding-top: calc(2 * var(--space-unit));
 
   @include mq($until: sm) {
+    background-color: var(--colour-amber-05);
     padding-left: calc(2 * var(--space-unit));
     padding-right: calc(2 * var(--space-unit));
   }
@@ -93,7 +94,17 @@
 }
 
 .cc-featured-promo__link {
-  @extend %anchor-reverse;
+  @extend %anchor-inherit;
+  @include animated-underline;
 
-  color: inherit;
+  /**
+   * Imitate the hover state when a user hovers over the image of
+   * card.
+   */
+  .cc-featured-promo__figure:hover + .cc-featured-promo__body &,
+  .cc-featured-promo__figure:focus + .cc-featured-promo__body & {
+    background-size: 100% 2px;
+    text-decoration: none;
+    transition-timing-function: var(--transition-timing-function-in);
+  }
 }
