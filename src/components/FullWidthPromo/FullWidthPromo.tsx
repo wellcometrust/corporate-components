@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { ImageElement } from 'Image';
+import Button from 'Button';
+import Link from 'Link';
 import RichText from 'RichText';
 import TagList, { TagProps } from 'TagList/TagList';
 
@@ -57,15 +59,25 @@ export const FullWidthPromo = ({
             )}
           </div>
         )}
-        <h3 className="cc-fw-promo__title">{title}</h3>
+        <h3 className="cc-fw-promo__title">
+          <Link to={href} className="cc-fw-promo__title-link">
+            {title}
+          </Link>
+        </h3>
         {description && (
           <RichText className="cc-fw-promo__description">
             {description}
           </RichText>
         )}
-        <a href={href} className="cc-fw-promo__link">
+        <Button
+          className="cc-fw-promo__link"
+          icon="arrowLong"
+          iconPlacementSwitch
+          href={href}
+          variant="link"
+        >
           {linkText}
-        </a>
+        </Button>
         {topics && (
           <div className="cc-page-header-compact__topics">
             <TagList tags={topics} />

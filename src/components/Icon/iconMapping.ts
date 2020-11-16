@@ -1,4 +1,5 @@
 import arrow from './components/Arrow';
+import arrowLong from './components/ArrowLong';
 import checkmark from './components/Checkmark';
 import chevron from './components/Chevron';
 import chevronDown from './components/ChevronDown';
@@ -29,6 +30,7 @@ import youTube from './components/YouTube';
 // Map is used here instead of an object to ensure there is no type mismatch thrown by TypeScript
 export default new Map([
   ['arrow', arrow],
+  ['arrowLong', arrowLong],
   ['checkmark', checkmark],
   ['chevron', chevron],
   ['chevronDown', chevronDown],

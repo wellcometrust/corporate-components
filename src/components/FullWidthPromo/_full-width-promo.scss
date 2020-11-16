@@ -58,6 +58,11 @@
   font-weight: normal;
 }
 
+.cc-fw-promo__title-link {
+  @extend %anchor-reverse;
+  color: var(--colour-grey-80);
+}
+
 .cc-fw-promo__meta {
   align-items: center;
   display: flex;
@@ -95,5 +100,20 @@
 
   + .cc-fw-promo__author:before {
     content: ', ';
+  }
+}
+
+.cc-fw-promo__description {
+  margin-bottom: calc(4 * var(--space-unit));
+}
+
+.cc-fw-promo__link {
+  @extend %anchor-reverse;
+  color: var(--colour-grey-80);
+  margin-bottom: calc(4 * var(--space-unit));
+  min-height: calc(5.5 * var(--space-unit));
+
+  .btn__icon {
+    width: 30px;
   }
 }
