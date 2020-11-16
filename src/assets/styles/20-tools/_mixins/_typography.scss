@@ -26,6 +26,8 @@
 /**
  * Generates a style where a horizontal line displays
  * beneath an element on hover with a transition.
+ *
+ * @param {Int} $height - height of the "underline"
  */
 @mixin animated-underline($height: calc(0.25 * var(--space-unit))) {
   --transition-duration: 0.3s;
