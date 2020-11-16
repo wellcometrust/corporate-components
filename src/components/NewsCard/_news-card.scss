@@ -21,15 +21,9 @@
   display: block;
   flex-basis: 33.33%;
   flex-shrink: 0;
-  padding-right: var(--space-unit);
-
-  @include mq(sm) {
-    padding-right: calc(2 * var(--space-unit));
-  }
 
   @include mq(md) {
     margin-bottom: calc(2 * var(--space-unit));
-    padding-right: 0;
   }
 }
 
@@ -41,6 +35,15 @@
 
 .cc-news-card__body {
   flex-grow: 1;
+  padding-left: var(--space-unit);
+
+  @include mq(sm) {
+    padding-left: calc(2 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    padding-left: 0;
+  }
 }
 
 .cc-news-card__meta {
