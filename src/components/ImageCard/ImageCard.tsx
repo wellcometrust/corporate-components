@@ -37,7 +37,7 @@ export const ImageCard = ({
   url
 }: ImageCardProps) => {
   const TitleElement = titleAs;
-  const classNames = cx('cc-news-card', {
+  const classNames = cx('cc-image-card', {
     [className]: className
   });
 
@@ -47,8 +47,8 @@ export const ImageCard = ({
       itemScope
       itemType="https://schema.org/Article"
     >
-      <Link className="cc-news-card__figure" to={url}>
-        <figure className="cc-news-card__image">
+      <Link className="cc-image-card__figure" to={url}>
+        <figure className="cc-image-card__image">
           <ImageElement
             alt={imageAlt}
             height={imageHeight}
@@ -60,25 +60,25 @@ export const ImageCard = ({
           />
         </figure>
       </Link>
-      <div className="cc-news-card__body">
-        <span className="cc-news-card__meta">
-          <span className="cc-news-card__meta-item cc-news-card__meta-item--flag cc-news-card__meta-item--topic">
+      <div className="cc-image-card__body">
+        <span className="cc-image-card__meta">
+          <span className="cc-image-card__meta-item cc-image-card__meta-item--flag cc-image-card__meta-item--topic">
             {topic}
           </span>
           <span
-            className="cc-news-card__meta-item cc-news-card__meta-item--author"
+            className="cc-image-card__meta-item cc-image-card__meta-item--author"
             itemProp="author"
           >
             {author}
           </span>
         </span>
-        <TitleElement className="cc-news-card__title" itemProp="name">
-          <Link className="cc-news-card__link" to={url}>
+        <TitleElement className="cc-image-card__title" itemProp="name">
+          <Link className="cc-image-card__link" to={url}>
             {title}
           </Link>
         </TitleElement>
         <time
-          className="cc-news-card__date"
+          className="cc-image-card__date"
           dateTime={date}
           itemProp="datePublished"
         >
