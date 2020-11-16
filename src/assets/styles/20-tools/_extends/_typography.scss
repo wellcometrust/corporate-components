@@ -14,7 +14,7 @@
   &:hover {
     color: var(--link-colour-hover);
   }
-  
+
   &:active {
     color: var(--link-colour-active);
   }
@@ -24,10 +24,26 @@
     outline-color: var(--link-colour-focus-outline);
     outline-offset: calc(0.5 * var(--space-unit));
   }
-  
+
   [disabled],
   &:not([href]) {
     color: var(--link-colour-disabled);
+  }
+}
+
+%anchor-reverse {
+  text-decoration: none;
+
+  @include hocus {
+    text-decoration: underline;
+  }
+}
+
+%anchor-inherit {
+  color: inherit;
+
+  @include hocus {
+    color: inherit;
   }
 }
 

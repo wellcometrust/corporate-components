@@ -2,21 +2,25 @@ import React, { useState } from 'react';
 
 type ImageElementProps = {
   alt?: string;
+  height?: string;
   itemProp?: string;
   role?: string;
   // TODO #6478: establish method for setting lazy loading based on latest spec
   sizes?: string;
   src: string;
   srcSet?: string;
+  width?: string;
 };
 
 export const ImageElement = ({
   alt = '',
+  height,
   itemProp,
   role,
   sizes,
   src,
-  srcSet
+  srcSet,
+  width
 }: ImageElementProps) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -33,6 +37,7 @@ export const ImageElement = ({
   return (
     <img
       alt={alt}
+      height={height}
       itemProp={itemProp}
       onError={onError}
       onLoad={onLoad}
@@ -40,6 +45,7 @@ export const ImageElement = ({
       sizes={sizes}
       src={src}
       srcSet={srcSet}
+      width={width}
     />
   );
 };

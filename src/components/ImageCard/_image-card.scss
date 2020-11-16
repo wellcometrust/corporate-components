@@ -1,0 +1,115 @@
+// ----------------------------------
+// UI Components
+// Listing: ImageCard
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-image-card {
+  @include mq($until: md) {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  @include mq(md) {
+    padding-bottom: var(--space-unit);
+  }
+}
+
+.cc-image-card__figure {
+  display: block;
+  flex-basis: 33.33%;
+  flex-shrink: 0;
+
+  @include mq(md) {
+    margin-bottom: calc(2 * var(--space-unit));
+  }
+}
+
+.cc-image-card__image {
+  @extend %img-responsive;
+
+  margin: 0;
+}
+
+.cc-image-card__body {
+  flex-grow: 1;
+  padding-left: var(--space-unit);
+
+  @include mq(sm) {
+    padding-left: calc(2 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    padding-left: 0;
+  }
+}
+
+.cc-image-card__meta {
+  display: block;
+  line-height: 1;
+  margin-bottom: calc(0.5 * var(--space-unit));
+
+  @include mq(sm) {
+    margin-bottom: calc(1.5 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    margin-bottom: calc(2 * var(--space-unit));
+  }
+}
+
+.cc-image-card__meta-item {
+  margin-right: var(--space-xs);
+}
+
+.cc-image-card__meta-item--topic {
+  color: var(--colour-grey-60);
+  font-size: var(--body-xs);
+  text-transform: uppercase;
+}
+
+.cc-image-card__meta-item--author {
+  font-size: var(--body-md);
+}
+
+.cc-image-card__meta-item--flag {
+  &:after {
+    color: var(--colour-amber-30);
+    content: '/';
+    margin-left: var(--space-xs);
+  }
+}
+
+.cc-image-card__title {
+  @extend %heading-large;
+
+  font-weight: normal;
+
+  @include mq($until: sm) {
+    margin-bottom: calc(0.5 * var(--space-unit));
+  }
+}
+
+.cc-image-card__link {
+  @extend %anchor-inherit;
+  @include animated-underline;
+
+  /**
+   * Imitate the hover state when a user hovers over the image of
+   * card.
+   */
+  .cc-image-card__figure:hover + .cc-image-card__body &,
+  .cc-image-card__figure:focus + .cc-image-card__body & {
+    background-size: 100% 2px;
+    text-decoration: none;
+    transition-timing-function: var(--transition-timing-function-in);
+  }
+}
+
+.cc-image-card__date {
+  display: block;
+  font-size: var(--body-xs);
+  text-transform: uppercase;
+}
