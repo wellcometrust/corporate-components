@@ -8,6 +8,7 @@ import { parseHtml } from 'utils/parse-html';
 import RichText from 'RichText';
 
 type ResultItemProps = {
+  children?: React.ReactNode;
   className?: string;
   description?: string;
   href: string;
@@ -27,6 +28,7 @@ type ResultItemProps = {
 };
 
 export const ResultsItem = ({
+  children,
   className,
   description,
   fileMeta,
@@ -97,6 +99,9 @@ export const ResultsItem = ({
         <RichText className="cc-result-item__description">
           {description}
         </RichText>
+      )}
+      {children && (
+        <div className="cc-result-item__description">{children}</div>
       )}
     </article>
   );
