@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, text } from '@storybook/addon-knobs';
 
-import NewsCard from './NewsCard';
+import ImageCard from './ImageCard';
 
-const NewsCardExample = () => {
+const ImageCardExample = () => {
   const author = text('Author', 'Jeremy Farrar');
 
   const date = text('Date', '03/08/1991');
@@ -20,7 +20,7 @@ const NewsCardExample = () => {
   const url = text('URL', '/news/all');
 
   return (
-    <NewsCard
+    <ImageCard
       author={author}
       date={date}
       imageAlt={imageAlt}
@@ -33,6 +33,6 @@ const NewsCardExample = () => {
   );
 };
 
-const stories = storiesOf('Components|NewsCard', module);
+const stories = storiesOf('Components|ImageCard', module);
 
-stories.add('NewsCard', NewsCardExample);
+stories.add('ImageCard', ImageCardExample);

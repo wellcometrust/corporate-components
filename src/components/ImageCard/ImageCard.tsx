@@ -5,7 +5,7 @@ import { ImageElement } from 'Image';
 import FormattedDate from 'FormattedDate';
 import Link from 'Link';
 
-type NewsCardProps = {
+type ImageCardProps = {
   author: string;
   className?: string;
   date: string;
@@ -21,7 +21,7 @@ type NewsCardProps = {
   url: string;
 };
 
-export const NewsCard = ({
+export const ImageCard = ({
   author,
   className,
   date,
@@ -35,7 +35,7 @@ export const NewsCard = ({
   titleAs = 'h3',
   topic,
   url
-}: NewsCardProps) => {
+}: ImageCardProps) => {
   const TitleElement = titleAs;
   const classNames = cx('cc-news-card', {
     [className]: className
@@ -89,4 +89,4 @@ export const NewsCard = ({
   );
 };
 
-export default NewsCard;
+export default ImageCard;
