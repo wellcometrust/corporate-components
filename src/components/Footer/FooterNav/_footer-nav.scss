@@ -63,7 +63,7 @@
 
 .footer-nav__menu-list-link {
   @extend %color-inherit;
-  @include animated-underline;
+  @include animated-underline($use-deprecated: true);
   display: inline-block;
   font-size: var(--body-md);
   margin-bottom: var(--space-xs);

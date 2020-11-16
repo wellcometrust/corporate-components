@@ -55,3 +55,11 @@
   color: var(--text-colour);
   font-size: var(--body-md);
 }
+
+.cc-result-item__list {
+  @extend %list-clean;
+}
+
+.cc-result-item__institution {
+  color: var(--colour-grey-70);
+}
