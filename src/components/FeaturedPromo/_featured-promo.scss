@@ -1,0 +1,110 @@
+// ----------------------------------
+// UI Components
+// FeaturedPromo
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-featured-promo {
+  @include mq(sm) {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.cc-featured-promo__figure {
+  display: block;
+
+  @include mq(sm) {
+    flex-basis: calc((100% / 12) * 5); // 5/12ths
+    flex-shrink: 0;
+    margin-right: calc(2.5 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    flex-basis: 50%;
+    margin-right: calc(5 * var(--space-unit));
+  }
+
+  @include mq(lg) {
+    margin-right: calc(6 * var(--space-unit));
+  }
+}
+
+.cc-featured-promo__image {
+  @extend %img-responsive;
+
+  margin: 0;
+}
+
+.cc-featured-promo__body {
+  padding-bottom: calc(2 * var(--space-unit));
+  padding-top: calc(2 * var(--space-unit));
+
+  @include mq($until: sm) {
+    background-color: var(--colour-amber-05);
+    padding-left: calc(2 * var(--space-unit));
+    padding-right: calc(2 * var(--space-unit));
+  }
+}
+
+.cc-featured-promo__meta {
+  display: block;
+  line-height: 1;
+  margin-bottom: calc(2 * var(--space-unit));
+
+  @include mq(sm) {
+    margin-bottom: calc(1.5 * var(--space-unit));
+  }
+
+  @include mq(md) {
+    margin-bottom: calc(3 * var(--space-unit));
+  }
+}
+
+.cc-featured-promo__meta-item {
+  margin-right: var(--space-unit);
+}
+
+.cc-featured-promo__meta-item--topic {
+  color: var(--colour-grey-60);
+  font-size: var(--body-xs);
+  text-transform: uppercase;
+}
+
+.cc-featured-promo__meta-item--author {
+  font-size: var(--body-md);
+}
+
+.cc-featured-promo__meta-item--flag {
+  &:after {
+    color: var(--colour-amber-30);
+    content: '/';
+    margin-left: var(--space-unit);
+  }
+}
+
+.cc-featured-promo__title {
+  @extend %heading-base;
+  @extend %heading-large;
+  @include heading-fancy;
+
+  margin-bottom: calc(2 * var(--space-unit));
+}
+
+.cc-featured-promo__link {
+  @extend %anchor-inherit;
+  @include animated-underline;
+
+  /**
+   * Imitate the hover state when a user hovers over the image of
+   * card.
+   */
+  .cc-featured-promo__figure:hover + .cc-featured-promo__body &,
+  .cc-featured-promo__figure:focus + .cc-featured-promo__body & {
+    background-size: 100% 2px;
+    text-decoration: none;
+    transition-timing-function: var(--transition-timing-function-in);
+  }
+}
