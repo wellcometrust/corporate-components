@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ImageElement } from 'Image';
 import Button from 'Button';
+import Icon from 'Icon';
 import Link from 'Link';
 import RichText from 'RichText';
 import TagList, { TagProps } from 'TagList/TagList';
@@ -70,13 +71,15 @@ export const FullWidthPromo = ({
           </RichText>
         )}
         <Button
-          className="cc-fw-promo__link"
-          icon="arrowLong"
-          iconPlacementSwitch
+          className="cc-fw-promo__link cc-cta-link"
           href={href}
-          variant="link"
+          icon="chevronRight"
+          iconPlacementSwitch
+          variant="unstyled"
         >
+          {/* <span className="cc-fw-promo__link-text">{linkText}</span> */}
           {linkText}
+          {/* <Icon name="chevronRight" /> */}
         </Button>
         {topics && (
           <div className="cc-page-header-compact__topics">
