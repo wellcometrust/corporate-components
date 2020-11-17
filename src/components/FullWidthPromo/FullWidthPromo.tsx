@@ -73,13 +73,11 @@ export const FullWidthPromo = ({
         <Button
           className="cc-fw-promo__link cc-cta-link"
           href={href}
-          icon="chevronRight"
+          icon="arrowLong"
           iconPlacementSwitch
           variant="unstyled"
         >
-          {/* <span className="cc-fw-promo__link-text">{linkText}</span> */}
           {linkText}
-          {/* <Icon name="chevronRight" /> */}
         </Button>
         {topics && (
           <div className="cc-page-header-compact__topics">
