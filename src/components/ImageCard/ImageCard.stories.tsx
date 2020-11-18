@@ -5,7 +5,10 @@ import { select, text } from '@storybook/addon-knobs';
 import ImageCard from './ImageCard';
 
 const ImageCardExample = () => {
-  const author = text('Author', 'Jeremy Farrar');
+  const authors = text(
+    'authors',
+    'Christiane Hertz-Fowler, Georgia Walton, Chonnettia Jones'
+  );
 
   const date = text('Date', '03/08/1991');
 
@@ -21,7 +24,10 @@ const ImageCardExample = () => {
 
   return (
     <ImageCard
-      author={author}
+      authors={authors
+        .trim()
+        .split(',')
+        .map(a => a.trim())}
       date={date}
       imageAlt={imageAlt}
       imageSrc={imageSrc}
