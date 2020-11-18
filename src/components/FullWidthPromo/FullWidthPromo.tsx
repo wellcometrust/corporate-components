@@ -2,7 +2,6 @@ import React from 'react';
 
 import { ImageElement } from 'Image';
 import Button from 'Button';
-import Icon from 'Icon';
 import Link from 'Link';
 import RichText from 'RichText';
 import TagList, { TagProps } from 'TagList/TagList';
