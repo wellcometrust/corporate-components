@@ -13,8 +13,11 @@
 
 .cc-fw-promo__image {
   @extend %img-cover;
-  height: calc(220vw / 320 * 100);
   margin: 0;
+  
+  @include mq($until: sm) {
+    height: calc(220vw / 320 * 100);
+  }
 
   @include mq(sm) {
     bottom: 0;
@@ -22,7 +25,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    z-index: -1;
+    z-index: 0;
   }
 }
 
@@ -32,6 +35,8 @@
 
   @include mq(sm) {
     padding: calc(9 * var(--space-unit)) 0;
+    position: relative;
+    z-index: 1;
   }
 }
 
