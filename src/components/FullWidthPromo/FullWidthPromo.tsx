@@ -14,10 +14,12 @@ type FullWidthPromoProps = {
   imageAlt?: string;
   imageCaption?: string;
   imageCredit?: string;
+  imageHeight?: string;
   imageLicence?: string;
   imageSizes?: string;
   imageSrc?: string;
   imageSrcSet?: string;
+  imageWidth?: string;
   linkText: string;
   metaLabel?: string;
   title: string;
@@ -29,18 +31,32 @@ export const FullWidthPromo = ({
   description,
   href,
   imageAlt,
+  imageHeight,
   imageSizes,
   imageSrc,
   imageSrcSet,
+  imageWidth,
   linkText,
   metaLabel,
   title,
   topics
 }: FullWidthPromoProps) => (
-  <div className="cc-fw-promo">
+  <article
+    className="cc-fw-promo"
+    itemScope
+    itemType="https://schema.org/Article"
+  >
     {(!!imageSrc || (imageSrcSet && imageSizes)) && (
       <figure className="cc-fw-promo__image">
-        <ImageElement src={imageSrc} srcSet={imageSrcSet} alt={imageAlt} />
+        <ImageElement
+          alt={imageAlt}
+          height={imageHeight}
+          itemProp="image"
+          sizes={imageSizes}
+          src={imageSrc}
+          srcSet={imageSrcSet}
+          width={imageWidth}
+        />
       </figure>
     )}
     <div className="cc-fw-promo__container grid">
@@ -52,7 +68,11 @@ export const FullWidthPromo = ({
               <dl className="cc-fw-promo__authors">
                 <dt className="cc-fw-promo__authors-label">Author</dt>
                 {authors?.map(author => (
-                  <dd key={author} className="cc-fw-promo__author">
+                  <dd
+                    key={author}
+                    className="cc-fw-promo__author"
+                    itemProp="author"
+                  >
                     {author}
                   </dd>
                 ))}
@@ -60,13 +80,13 @@ export const FullWidthPromo = ({
             )}
           </div>
         )}
-        <h3 className="cc-fw-promo__title">
+        <h3 className="cc-fw-promo__title" itemProp="name">
           <Link to={href} className="cc-fw-promo__title-link">
             {title}
           </Link>
         </h3>
         {description && (
-          <RichText className="cc-fw-promo__description">
+          <RichText className="cc-fw-promo__description" itemProp="abstract">
             {description}
           </RichText>
         )}
@@ -86,7 +106,7 @@ export const FullWidthPromo = ({
         )}
       </div>
     </div>
-  </div>
+  </article>
 );
 
 export default FullWidthPromo;
