@@ -6,7 +6,7 @@ import FormattedDate from 'FormattedDate';
 import Link from 'Link';
 
 type ImageCardProps = {
-  author: string;
+  authors: string[];
   className?: string;
   date: string;
   imageAlt: string;
@@ -22,7 +22,7 @@ type ImageCardProps = {
 };
 
 export const ImageCard = ({
-  author,
+  authors,
   className,
   date,
   imageAlt,
@@ -62,15 +62,23 @@ export const ImageCard = ({
       </Link>
       <div className="cc-image-card__body">
         <span className="cc-image-card__meta">
-          <span className="cc-image-card__meta-item cc-image-card__meta-item--flag cc-image-card__meta-item--topic">
+          <span className="cc-image-card__meta-item cc-image-card__meta-item--type cc-image-card__meta-item--flag">
             {topic}
           </span>
-          <span
-            className="cc-image-card__meta-item cc-image-card__meta-item--author"
-            itemProp="author"
-          >
-            {author}
-          </span>
+          {authors && (
+            <dl className="cc-image-card__meta-item cc-image-card__meta-item--author cc-image-card__authors">
+              <dt className="cc-image-card__authors-label">Author</dt>
+              {authors?.map(author => (
+                <dd
+                  key={author}
+                  className="cc-image-card__author"
+                  itemProp="author"
+                >
+                  {author}
+                </dd>
+              ))}
+            </dl>
+          )}
         </span>
         <TitleElement className="cc-image-card__title" itemProp="name">
           <Link className="cc-image-card__link" to={url}>
