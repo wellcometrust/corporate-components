@@ -15,7 +15,7 @@ const ImageCardExample = () => {
   const title = text('Title', 'My section');
   const titleAs = select('Title element', ['h2', 'h3', 'h4', 'h5', 'h6'], 'h3');
 
-  const topic = text('Topic', 'Climate Change');
+  const metaLabel = text('metaLabel', 'Meta');
 
   const url = text('URL', '/news/all');
 
@@ -25,9 +25,9 @@ const ImageCardExample = () => {
       date={date}
       imageAlt={imageAlt}
       imageSrc={imageSrc}
+      metaLabel={metaLabel}
       title={title}
       titleAs={titleAs}
-      topic={topic}
       url={url}
     />
   );

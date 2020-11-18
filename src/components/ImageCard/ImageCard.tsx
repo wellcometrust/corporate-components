@@ -17,7 +17,7 @@ type ImageCardProps = {
   imageWidth?: string;
   title: string;
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  topic: string;
+  metaLabel: string;
   url: string;
 };
 
@@ -33,7 +33,7 @@ export const ImageCard = ({
   imageWidth,
   title,
   titleAs = 'h3',
-  topic,
+  metaLabel,
   url
 }: ImageCardProps) => {
   const TitleElement = titleAs;
@@ -62,8 +62,8 @@ export const ImageCard = ({
       </Link>
       <div className="cc-image-card__body">
         <span className="cc-image-card__meta">
-          <span className="cc-image-card__meta-item cc-image-card__meta-item--flag cc-image-card__meta-item--topic">
-            {topic}
+          <span className="cc-image-card__meta-item cc-image-card__meta-item--flag cc-image-card__meta-item--label">
+            {metaLabel}
           </span>
           <span
             className="cc-image-card__meta-item cc-image-card__meta-item--author"
