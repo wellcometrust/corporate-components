@@ -6,7 +6,7 @@
 // 2019-11-11
 // ----------------------------------
 
-.cc-fw-promo {
+.cc-full-width-promo {
   --transition-timing-function-in: cubic-bezier(0.23, 1, 0.32, 1);
   --transition-timing-function-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
@@ -14,7 +14,7 @@
   position: relative;
 }
 
-.cc-fw-promo__image {
+.cc-full-width-promo__image {
   @extend %img-cover;
   margin: 0;
   
@@ -28,7 +28,7 @@
   }
 }
 
-.cc-fw-promo__container {
+.cc-full-width-promo__container {
   @include grid-container;
   padding-bottom: calc(7.5 * var(--space-unit));
   padding-top: calc(7.5 * var(--space-unit));
@@ -41,7 +41,7 @@
   }
 }
 
-.cc-fw-promo__content {
+.cc-full-width-promo__content {
   @include grid-column(1, 7);
   
   @include mq(sm) {
@@ -59,18 +59,18 @@
   }
 }
 
-.cc-fw-promo__title {
+.cc-full-width-promo__title {
   @extend %heading-display;
   @include heading-fancy($space-above: var(--space-lg));
   font-weight: normal;
 }
 
-.cc-fw-promo__title-link {
+.cc-full-width-promo__title-link {
   @extend %anchor-inherit;
   @include animated-underline;
 }
 
-.cc-fw-promo__meta {
+.cc-full-width-promo__meta {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -79,14 +79,14 @@
   padding-top: var(--space-unit);
 }
 
-.cc-fw-promo__type {
+.cc-full-width-promo__type {
   color: var(--colour-grey-60);
   font-size: var(--body-xs);
   margin: 0;
   text-transform: uppercase;
 }
 
-.cc-fw-promo__type + .cc-fw-promo__authors:before {
+.cc-full-width-promo__type + .cc-full-width-promo__authors:before {
   color: var(--colour-amber-30);
   content: '/';
   font-size: var(--body-xs);
@@ -94,31 +94,31 @@
   padding-right: var(--space-unit);
 }
 
-.cc-fw-promo__authors {
+.cc-full-width-promo__authors {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   margin: 0;
 }
 
-.cc-fw-promo__authors-label {
+.cc-full-width-promo__authors-label {
   @extend %visually-hidden;
 }
 
-.cc-fw-promo__author {
+.cc-full-width-promo__author {
   font-size: var(--body-md);
   margin: 0;
 
-  + .cc-fw-promo__author:before {
+  + .cc-full-width-promo__author:before {
     content: ', ';
   }
 }
 
-.cc-fw-promo__description {
+.cc-full-width-promo__description {
   margin-bottom: calc(5 * var(--space-unit));
 }
 
-.cc-fw-promo__link {
+.cc-full-width-promo__link {
   margin-bottom: calc(5 * var(--space-unit));
 }
 

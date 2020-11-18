@@ -41,12 +41,12 @@ export const FullWidthPromo = ({
   topics
 }: FullWidthPromoProps) => (
   <article
-    className="cc-fw-promo"
+    className="cc-full-width-promo"
     itemScope
     itemType="https://schema.org/Article"
   >
     {(!!imageSrc || (imageSrcSet && imageSizes)) && (
-      <figure className="cc-fw-promo__image">
+      <figure className="cc-full-width-promo__image">
         <ImageElement
           alt={imageAlt}
           height={imageHeight}
@@ -58,18 +58,20 @@ export const FullWidthPromo = ({
         />
       </figure>
     )}
-    <div className="cc-fw-promo__container grid">
-      <div className="cc-fw-promo__content">
+    <div className="cc-full-width-promo__container grid">
+      <div className="cc-full-width-promo__content">
         {(metaLabel || authors) && (
-          <div className="cc-fw-promo__meta">
-            {metaLabel && <p className="cc-fw-promo__type">{metaLabel}</p>}
+          <div className="cc-full-width-promo__meta">
+            {metaLabel && (
+              <p className="cc-full-width-promo__type">{metaLabel}</p>
+            )}
             {authors && (
-              <dl className="cc-fw-promo__authors">
-                <dt className="cc-fw-promo__authors-label">Author</dt>
+              <dl className="cc-full-width-promo__authors">
+                <dt className="cc-full-width-promo__authors-label">Author</dt>
                 {authors?.map(author => (
                   <dd
                     key={author}
-                    className="cc-fw-promo__author"
+                    className="cc-full-width-promo__author"
                     itemProp="author"
                   >
                     {author}
@@ -79,18 +81,21 @@ export const FullWidthPromo = ({
             )}
           </div>
         )}
-        <h3 className="cc-fw-promo__title" itemProp="name">
-          <Link to={href} className="cc-fw-promo__title-link">
+        <h3 className="cc-full-width-promo__title" itemProp="name">
+          <Link to={href} className="cc-full-width-promo__title-link">
             {title}
           </Link>
         </h3>
         {description && (
-          <RichText className="cc-fw-promo__description" itemProp="abstract">
+          <RichText
+            className="cc-full-width-promo__description"
+            itemProp="abstract"
+          >
             {description}
           </RichText>
         )}
         <Button
-          className="cc-fw-promo__link cc-cta-link"
+          className="cc-full-width-promo__link cc-cta-link"
           href={href}
           icon="arrowLong"
           iconPlacementSwitch

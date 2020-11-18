@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 
 import FullWidthPromo from './FullWidthPromo';
 
@@ -52,7 +52,6 @@ const FullWidthPromoExample = () => {
       description={description}
       href={href}
       imageSrc={imageSrc}
-      // imageSrcset={imageSrcset}
       linkText={linkText}
       metaLabel={metaLabel}
       title={title}
