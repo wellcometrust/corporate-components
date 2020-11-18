@@ -69,6 +69,15 @@ const MultipleImageCard = () => {
   return (
     <div
       style={{
+        /**
+         * todo: Render ImageCard with Listing
+         *
+         * This will mean we can render multiple ImageCard components
+         * by passing the data to the Listing component, and move the styles
+         * + DOM from here to be handled by that component + Sass (for the styles)
+         *
+         * @see {@link https://github.com/wellcometrust/corporate/issues/7750}
+         */
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'nowrap',
