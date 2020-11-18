@@ -107,7 +107,11 @@
 }
 
 .cc-fw-promo__description {
-  margin-bottom: calc(4 * var(--space-unit));
+  margin-bottom: calc(5 * var(--space-unit));
+}
+
+.cc-fw-promo__link {
+  margin-bottom: calc(5 * var(--space-unit));
 }
 
 .cc-cta-link {
@@ -117,7 +121,7 @@
   color: var(--colour-grey-80);
   display: inline-flex;
   line-height: 1.6;
-  margin: calc(5 * var(--space-unit)) calc(6 * var(--space-unit)) calc(5 * var(--space-unit)) 0;
+  margin-right: calc(6 * var(--space-unit));
   position: relative;
   text-decoration: none;
 
