@@ -2,6 +2,7 @@ import React, { MouseEvent as ReactMouseEvent, MouseEventHandler } from 'react';
 import cx from 'classnames';
 
 import Icon from 'Icon/Icon';
+import Link from 'Link';
 
 type ButtonProps = {
   autoFocus?: boolean;
@@ -35,7 +36,7 @@ export const Button = ({
   variant = 'primary'
 }: ButtonProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const Element: any = href ? 'a' : 'button';
+  const Element: any = href ? Link : 'button';
   const isUnstyled = variant !== 'unstyled';
   const classNames = cx({
     btn: isUnstyled,
@@ -48,7 +49,7 @@ export const Button = ({
       autoFocus={autoFocus}
       className={classNames}
       disabled={disabled}
-      href={href}
+      to={href}
       id={id}
       onClick={(e: ReactMouseEvent) => {
         if (onClick && !disabled) {
