@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "style": "dist/styles.css",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10.15.0",
+    "npm": ">=6.9.0"
+  },
   "files": [
     "package.json",
     "dist"
@@ -119,9 +123,9 @@
     "postcss": "^8.0.9",
     "postcss-calc": "^7.0.4",
     "prettier": "^1.18.2",
-    "react": "^16.12.0",
+    "react": "16.12.0",
     "react-docgen-typescript-loader": "^3.6.0",
-    "react-dom": "^16.12.0",
+    "react-dom": "16.12.0",
     "rollup": "^2.28.2",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
