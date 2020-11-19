@@ -19,7 +19,7 @@ type ListingProps = {
 // Specific style variations for card listings
 const variantMapping = {
   horizontal_card: 'cc-card-listing cc-card-listing--horizontal',
-  image_card: 'cc-card-listing',
+  image_card: 'cc-card-listing cc-card-listing--horizontal',
   link_list: 'cc-listing',
   text_list: 'cc-listing',
   vertical_card: 'cc-card-listing'
