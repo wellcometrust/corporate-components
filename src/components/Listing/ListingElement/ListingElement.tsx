@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Card from 'Card';
+import ImageCard from 'ImageCard';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
 import ResultsItem from 'ResultsItem/ResultsItem';
 
@@ -32,11 +33,17 @@ type ListingElementProps = {
     size: string;
   };
   type?: 'content' | 'file' | 'taxonomy_term';
-  variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
+  variant:
+    | 'image_card'
+    | 'horizontal_card'
+    | 'link_list'
+    | 'text_list'
+    | 'vertical_card';
 };
 
 const variantElement = {
   horizontal_card: Card,
+  image_card: ImageCard,
   link_list: ListingLink,
   text_list: ResultsItem,
   vertical_card: Card
@@ -68,14 +75,19 @@ export const ListingElement = ({
     <Element
       authors={authors}
       className={classNames}
+      date={meta.date}
       description={description}
       fileMeta={fileMeta}
       href={href}
       id={id}
       image={image}
+      imageAlt={image.alt}
+      imageSrc={image.src}
       meta={meta}
+      metaLabel={meta.type}
       title={title}
       type={type}
+      url={href}
       variant={variant}
     />
   );

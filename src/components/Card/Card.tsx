@@ -26,7 +26,12 @@ type CardProps = {
     type?: string | null;
   };
   title: string;
-  variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
+  variant:
+    | 'image_card'
+    | 'horizontal_card'
+    | 'link_list'
+    | 'text_list'
+    | 'vertical_card';
 };
 
 const cardImageSizesDefault =

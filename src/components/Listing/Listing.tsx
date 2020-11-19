@@ -8,12 +8,18 @@ type ListingProps = {
   as?: 'div' | 'ol' | 'ul';
   children: JSX.Element | JSX.Element[];
   className?: string;
-  variant?: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
+  variant?:
+    | 'image_card'
+    | 'horizontal_card'
+    | 'link_list'
+    | 'text_list'
+    | 'vertical_card';
 };
 
 // Specific style variations for card listings
 const variantMapping = {
   horizontal_card: 'cc-card-listing cc-card-listing--horizontal',
+  image_card: 'cc-card-listing',
   link_list: 'cc-listing',
   text_list: 'cc-listing',
   vertical_card: 'cc-card-listing'
