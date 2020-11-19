@@ -9,6 +9,7 @@ type ImageCardProps = {
   authors: string[];
   className?: string;
   date: string;
+  href: string;
   imageAlt: string;
   imageHeight?: string;
   imageSizes?: string;
@@ -18,13 +19,13 @@ type ImageCardProps = {
   title: string;
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   metaLabel: string;
-  url: string;
 };
 
 export const ImageCard = ({
   authors,
   className,
   date,
+  href,
   imageAlt,
   imageHeight,
   imageSizes,
@@ -33,8 +34,7 @@ export const ImageCard = ({
   imageWidth,
   title,
   titleAs = 'h3',
-  metaLabel,
-  url
+  metaLabel
 }: ImageCardProps) => {
   const TitleElement = titleAs;
   const classNames = cx('cc-image-card', {
@@ -47,7 +47,7 @@ export const ImageCard = ({
       itemScope
       itemType="https://schema.org/Article"
     >
-      <Link className="cc-image-card__figure" to={url}>
+      <Link className="cc-image-card__figure" to={href}>
         <figure className="cc-image-card__image">
           <ImageElement
             alt={imageAlt}
@@ -81,7 +81,7 @@ export const ImageCard = ({
           )}
         </span>
         <TitleElement className="cc-image-card__title" itemProp="name">
-          <Link className="cc-image-card__link" to={url}>
+          <Link className="cc-image-card__link" to={href}>
             {title}
           </Link>
         </TitleElement>

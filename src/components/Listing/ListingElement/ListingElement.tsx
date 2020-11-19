@@ -87,7 +87,6 @@ export const ListingElement = ({
       metaLabel={meta.type}
       title={title}
       type={type}
-      url={href}
       variant={variant}
     />
   );
