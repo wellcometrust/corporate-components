@@ -12,15 +12,11 @@ type ListingElementProps = {
   description?: string;
   href: string;
   id?: string;
-  image?: {
-    alt?: string;
-    src?: string;
-    // sources?: {
-    //   thumbnail_lo?: string;
-    //   thumbnail?: string;
-    //   thumbnail_hi?: string;
-    // };
-  };
+  imageAlt: string;
+  imageHeight?: string;
+  imageSrc: string;
+  imageSrcSet?: string;
+  imageWidth?: string;
   meta?: {
     date?: string;
     lastUpdated?: string;
@@ -56,7 +52,11 @@ export const ListingElement = ({
   href,
   fileMeta,
   id,
-  image,
+  imageAlt,
+  imageHeight,
+  imageSrc,
+  imageSrcSet,
+  imageWidth,
   meta,
   title,
   type,
@@ -80,9 +80,11 @@ export const ListingElement = ({
       fileMeta={fileMeta}
       href={href}
       id={id}
-      image={image}
-      imageAlt={image.alt}
-      imageSrc={image.src}
+      imageAlt={imageAlt}
+      imageHeight={imageHeight}
+      imageSrc={imageSrc}
+      imageSrcSet={imageSrcSet}
+      imageWidth={imageWidth}
       meta={meta}
       metaLabel={meta.type}
       title={title}

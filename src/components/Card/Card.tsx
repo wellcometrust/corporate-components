@@ -10,15 +10,11 @@ type CardProps = {
   description?: string;
   href: string;
   id?: string;
-  image?: {
-    alt?: string;
-    src?: string;
-    // sources?: {
-    //   thumbnail_lo?: string;
-    //   thumbnail?: string;
-    //   thumbnail_hi?: string;
-    // };
-  };
+  imageAlt: string;
+  imageHeight?: string;
+  imageSrc: string;
+  imageSrcSet?: string;
+  imageWidth?: string;
   meta?: {
     date?: string;
     lastUpdated?: string;
@@ -43,7 +39,11 @@ export const Card = ({
   description,
   href,
   id,
-  image,
+  imageAlt,
+  imageHeight,
+  imageSrc,
+  imageSrcSet,
+  imageWidth,
   meta,
   title,
   variant
@@ -55,23 +55,16 @@ export const Card = ({
   const isHorizontal = variant === 'horizontal_card';
   const isVertical = variant === 'vertical_card';
 
-  const src = image?.src;
-
-  // TODO: handle responsive image sources
-  // const srcSet = `
-  //     ${image?.sources?.thumbnail_lo} 300w,
-  //     ${image?.sources?.thumbnail} 600w,
-  //     ${image?.sources?.thumbnail_hi} 900w
-  //   `;
-
   return (
     <article className={classNames} id={id}>
       <div className="cc-card__image">
         <ImageElement
-          alt={image?.alt}
-          // sizes={srcSet && cardImageSizesDefault}
-          src={src}
-          // srcSet={srcSet}
+          alt={imageAlt}
+          height={imageHeight}
+          sizes={cardImageSizesDefault}
+          src={imageSrc}
+          srcSet={imageSrcSet}
+          width={imageWidth}
         />
       </div>
       <div className="cc-card__content">

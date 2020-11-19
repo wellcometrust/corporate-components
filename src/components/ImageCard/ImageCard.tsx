@@ -28,7 +28,6 @@ export const ImageCard = ({
   href,
   imageAlt,
   imageHeight,
-  imageSizes,
   imageSrc,
   imageSrcSet,
   imageWidth,
@@ -53,7 +52,6 @@ export const ImageCard = ({
             alt={imageAlt}
             height={imageHeight}
             itemProp="image"
-            sizes={imageSizes}
             src={imageSrc}
             srcSet={imageSrcSet}
             width={imageWidth}
