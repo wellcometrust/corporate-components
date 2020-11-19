@@ -47,11 +47,12 @@ const CardExample = () => {
     <Card
       authors={['Eliza Manningham-Buller', 'Jeremy Farrar']}
       className={isVertical ? 'cc-card--vertical' : 'cc-card--horizontal'}
+      date={meta.date}
       description={description}
       href={href}
       imageAlt={image.alt}
       imageSrc={image.src}
-      meta={meta}
+      metaLabel={meta.type}
       title={title}
       variant="horizontal_card"
     />

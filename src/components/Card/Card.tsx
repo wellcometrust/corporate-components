@@ -7,6 +7,7 @@ import ImageElement from 'Image/ImageElement';
 type CardProps = {
   authors?: string[];
   className?: string;
+  date?: string;
   description?: string;
   href: string;
   id?: string;
@@ -15,12 +16,7 @@ type CardProps = {
   imageSrc: string;
   imageSrcSet?: string;
   imageWidth?: string;
-  meta?: {
-    date?: string;
-    lastUpdated?: string;
-    hasType?: boolean;
-    type?: string | null;
-  };
+  metaLabel?: string;
   title: string;
   variant:
     | 'image_card'
@@ -36,6 +32,7 @@ const cardImageSizesDefault =
 export const Card = ({
   authors,
   className,
+  date,
   description,
   href,
   id,
@@ -44,7 +41,7 @@ export const Card = ({
   imageSrc,
   imageSrcSet,
   imageWidth,
-  meta,
+  metaLabel,
   title,
   variant
 }: CardProps) => {
@@ -68,15 +65,15 @@ export const Card = ({
         />
       </div>
       <div className="cc-card__content">
-        {isHorizontal && meta?.type && (
-          <p className="cc-card__type">{meta?.type}</p>
+        {isHorizontal && metaLabel && (
+          <p className="cc-card__type">{metaLabel}</p>
         )}
         <h3 className="cc-card__title">
           <a href={href} className="cc-card__link" target="_self">
             {title}
           </a>
         </h3>
-        {isHorizontal && (authors || meta?.date) && (
+        {isHorizontal && (authors || date) && (
           <div className="cc-card__meta">
             {isHorizontal && authors && (
               <dl className="cc-card__authors">
@@ -88,9 +85,9 @@ export const Card = ({
                 ))}
               </dl>
             )}
-            {isHorizontal && meta?.date && (
+            {isHorizontal && date && (
               <time className="cc-card__date">
-                <FormattedDate dateString={meta?.date} />
+                <FormattedDate dateString={date} />
               </time>
             )}
           </div>

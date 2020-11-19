@@ -9,6 +9,7 @@ import ResultsItem from 'ResultsItem/ResultsItem';
 type ListingElementProps = {
   authors?: string[];
   className?: string;
+  date?: string;
   description?: string;
   href: string;
   id?: string;
@@ -23,6 +24,7 @@ type ListingElementProps = {
     hasType?: boolean;
     type?: string | null;
   };
+  metaLabel?: string;
   title: string;
   fileMeta?: {
     type: string;
@@ -48,6 +50,7 @@ const variantElement = {
 export const ListingElement = ({
   authors,
   className,
+  date,
   description,
   href,
   fileMeta,
@@ -58,6 +61,7 @@ export const ListingElement = ({
   imageSrcSet,
   imageWidth,
   meta,
+  metaLabel,
   title,
   type,
   variant
@@ -75,7 +79,7 @@ export const ListingElement = ({
     <Element
       authors={authors}
       className={classNames}
-      date={meta.date}
+      date={date}
       description={description}
       fileMeta={fileMeta}
       href={href}
@@ -86,7 +90,7 @@ export const ListingElement = ({
       imageSrcSet={imageSrcSet}
       imageWidth={imageWidth}
       meta={meta}
-      metaLabel={meta.type}
+      metaLabel={metaLabel}
       title={title}
       type={type}
       variant={variant}
