@@ -18,10 +18,10 @@
   display: block;
   left: 0;
   position: absolute;
-  top: calc(-1 * var(--header-height));
+  top: calc(-1 * (var(--header-height) + var(--secondary-nav-height)));
   visibility: hidden;
   
   @include mq(sm) {
-    top: calc(-1 * var(--header-height-sm));
+    top: calc(-1 * (var(--header-height-sm) + var(--secondary-nav-height)));
   }
 }
