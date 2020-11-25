@@ -6,7 +6,7 @@ import RichText from 'RichText';
 import Link from 'Link';
 
 type FeaturedPromoProps = {
-  author: string;
+  authors?: string[];
   className?: string;
   description?: string;
   imageAlt: string;
@@ -15,26 +15,25 @@ type FeaturedPromoProps = {
   imageSrc: string;
   imageSrcSet?: string;
   imageWidth?: string;
+  metaLabel?: string;
   title: string;
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  topic: string;
-  url: string;
+  href: string;
 };
 
 export const FeaturedPromo = ({
-  author,
+  authors,
   className,
   description,
+  href,
   imageAlt,
   imageHeight,
-  imageSizes,
   imageSrc,
   imageSrcSet,
   imageWidth,
+  metaLabel,
   title,
-  titleAs = 'h3',
-  topic,
-  url
+  titleAs = 'h3'
 }: FeaturedPromoProps) => {
   const TitleElement = titleAs;
   const classNames = cx('cc-featured-promo', {
@@ -47,13 +46,12 @@ export const FeaturedPromo = ({
       itemScope
       itemType="https://schema.org/Article"
     >
-      <Link className="cc-featured-promo__figure" to={url}>
+      <Link className="cc-featured-promo__figure" to={href}>
         <figure className="cc-featured-promo__image">
           <ImageElement
             alt={imageAlt}
             height={imageHeight}
             itemProp="image"
-            sizes={imageSizes}
             src={imageSrc}
             srcSet={imageSrcSet}
             width={imageWidth}
@@ -62,18 +60,28 @@ export const FeaturedPromo = ({
       </Link>
       <div className="cc-featured-promo__body">
         <span className="cc-featured-promo__meta">
-          <span className="cc-featured-promo__meta-item cc-featured-promo__meta-item--flag cc-featured-promo__meta-item--topic">
-            {topic}
-          </span>
-          <span
-            className="cc-featured-promo__meta-item cc-featured-promo__meta-item--author"
-            itemProp="author"
-          >
-            {author}
-          </span>
+          {metaLabel && (
+            <span className="cc-featured-promo__meta-item cc-featured-promo__meta-item--flag cc-featured-promo__meta-item--label">
+              {metaLabel}
+            </span>
+          )}
+          {authors?.length && (
+            <dl className="cc-featured-promo__meta-item cc-featured-promo__meta-item--author cc-featured-promo__authors">
+              <dt className="cc-featured-promo__authors-label">Author</dt>
+              {authors?.map(author => (
+                <dd
+                  key={author}
+                  className="cc-featured-promo__author"
+                  itemProp="author"
+                >
+                  {author}
+                </dd>
+              ))}
+            </dl>
+          )}
         </span>
         <TitleElement className="cc-featured-promo__title" itemProp="name">
-          <Link className="cc-featured-promo__link" to={url}>
+          <Link className="cc-featured-promo__link" to={href}>
             {title}
           </Link>
         </TitleElement>

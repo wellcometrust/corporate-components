@@ -15,8 +15,7 @@ type FullWidthPromoProps = {
   imageCredit?: string;
   imageHeight?: string;
   imageLicence?: string;
-  imageSizes?: string;
-  imageSrc?: string;
+  imageSrc: string;
   imageSrcSet?: string;
   imageWidth?: string;
   linkText: string;
@@ -31,7 +30,6 @@ export const FullWidthPromo = ({
   href,
   imageAlt,
   imageHeight,
-  imageSizes,
   imageSrc,
   imageSrcSet,
   imageWidth,
@@ -45,19 +43,16 @@ export const FullWidthPromo = ({
     itemScope
     itemType="https://schema.org/Article"
   >
-    {(!!imageSrc || (imageSrcSet && imageSizes)) && (
-      <figure className="cc-full-width-promo__image">
-        <ImageElement
-          alt={imageAlt}
-          height={imageHeight}
-          itemProp="image"
-          sizes={imageSizes}
-          src={imageSrc}
-          srcSet={imageSrcSet}
-          width={imageWidth}
-        />
-      </figure>
-    )}
+    <figure className="cc-full-width-promo__image">
+      <ImageElement
+        alt={imageAlt}
+        height={imageHeight}
+        itemProp="image"
+        src={imageSrc}
+        srcSet={imageSrcSet}
+        width={imageWidth}
+      />
+    </figure>
     <div className="cc-full-width-promo__container grid">
       <div className="cc-full-width-promo__content">
         {(metaLabel || authors) && (
@@ -65,7 +60,7 @@ export const FullWidthPromo = ({
             {metaLabel && (
               <p className="cc-full-width-promo__type">{metaLabel}</p>
             )}
-            {authors && (
+            {authors?.length && (
               <dl className="cc-full-width-promo__authors">
                 <dt className="cc-full-width-promo__authors-label">Author</dt>
                 {authors?.map(author => (
