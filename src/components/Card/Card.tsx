@@ -21,7 +21,9 @@ type CardProps = {
   variant:
     | 'image_card'
     | 'horizontal_card'
+    | 'link_card_cta_link'
     | 'link_list'
+    | 'mid_page_card'
     | 'text_list'
     | 'vertical_card';
 };
@@ -50,7 +52,7 @@ export const Card = ({
   });
 
   const isHorizontal = variant === 'horizontal_card';
-  const isVertical = variant === 'vertical_card';
+  const isVertical = variant === 'vertical_card' || variant === 'mid_page_card';
 
   return (
     <article className={classNames} id={id}>

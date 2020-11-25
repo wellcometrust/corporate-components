@@ -34,7 +34,9 @@ type ListingElementProps = {
   variant:
     | 'image_card'
     | 'horizontal_card'
+    | 'link_card_cta_link'
     | 'link_list'
+    | 'mid_page_card'
     | 'text_list'
     | 'vertical_card';
 };
@@ -42,7 +44,15 @@ type ListingElementProps = {
 const variantElement = {
   horizontal_card: Card,
   image_card: ImageCard,
+
+  /**
+   * todo: Build + integrate Image card with CTA link component
+   *
+   * @see {@link https://github.com/wellcometrust/corporate/issues/7771}
+   */
+  link_card_cta_link: ImageCard,
   link_list: ListingLink,
+  mid_page_card: Card,
   text_list: ResultsItem,
   vertical_card: Card
 };
@@ -68,7 +78,8 @@ export const ListingElement = ({
 }: ListingElementProps) => {
   const classNames = cx({
     'cc-card--horizontal': variant === 'horizontal_card',
-    'cc-card--vertical': variant === 'vertical_card',
+    'cc-card--vertical':
+      variant === 'vertical_card' || variant === 'mid_page_card',
     [`${className}`]: className
   });
 

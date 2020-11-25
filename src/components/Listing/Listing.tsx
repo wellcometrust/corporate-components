@@ -9,9 +9,11 @@ type ListingProps = {
   children: JSX.Element | JSX.Element[];
   className?: string;
   variant?:
-    | 'image_card'
     | 'horizontal_card'
+    | 'image_card'
+    | 'link_card_cta_link'
     | 'link_list'
+    | 'mid_page_card'
     | 'text_list'
     | 'vertical_card';
 };
@@ -20,7 +22,9 @@ type ListingProps = {
 const variantMapping = {
   horizontal_card: 'cc-card-listing cc-card-listing--horizontal',
   image_card: 'cc-card-listing cc-card-listing--horizontal',
+  link_card_cta_link: 'cc-card-listing cc-card-listing--horizontal',
   link_list: 'cc-listing',
+  mid_page_card: 'cc-card-listing',
   text_list: 'cc-listing',
   vertical_card: 'cc-card-listing'
 };
