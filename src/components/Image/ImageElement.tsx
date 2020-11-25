@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 type ImageElementProps = {
   alt?: string;
-  className?: string;
   height?: string;
   itemProp?: string;
   role?: string;
@@ -15,7 +14,6 @@ type ImageElementProps = {
 
 export const ImageElement = ({
   alt = '',
-  className,
   height,
   itemProp,
   role,
@@ -39,7 +37,6 @@ export const ImageElement = ({
   return (
     <img
       alt={alt}
-      className={className}
       height={height}
       itemProp={itemProp}
       onError={onError}
