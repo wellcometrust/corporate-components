@@ -7,26 +7,25 @@ import ImageElement from 'Image/ImageElement';
 type CardProps = {
   authors?: string[];
   className?: string;
+  date?: string;
   description?: string;
   href: string;
   id?: string;
-  image?: {
-    alt?: string;
-    src?: string;
-    // sources?: {
-    //   thumbnail_lo?: string;
-    //   thumbnail?: string;
-    //   thumbnail_hi?: string;
-    // };
-  };
-  meta?: {
-    date?: string;
-    lastUpdated?: string;
-    hasType?: boolean;
-    type?: string | null;
-  };
+  imageAlt: string;
+  imageHeight?: string;
+  imageSrc: string;
+  imageSrcSet?: string;
+  imageWidth?: string;
+  metaLabel?: string;
   title: string;
-  variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
+  variant:
+    | 'image_card'
+    | 'horizontal_card'
+    | 'link_card_cta_link'
+    | 'link_list'
+    | 'mid_page_card'
+    | 'text_list'
+    | 'vertical_card';
 };
 
 const cardImageSizesDefault =
@@ -35,11 +34,16 @@ const cardImageSizesDefault =
 export const Card = ({
   authors,
   className,
+  date,
   description,
   href,
   id,
-  image,
-  meta,
+  imageAlt,
+  imageHeight,
+  imageSrc,
+  imageSrcSet,
+  imageWidth,
+  metaLabel,
   title,
   variant
 }: CardProps) => {
@@ -48,37 +52,30 @@ export const Card = ({
   });
 
   const isHorizontal = variant === 'horizontal_card';
-  const isVertical = variant === 'vertical_card';
-
-  const src = image?.src;
-
-  // TODO: handle responsive image sources
-  // const srcSet = `
-  //     ${image?.sources?.thumbnail_lo} 300w,
-  //     ${image?.sources?.thumbnail} 600w,
-  //     ${image?.sources?.thumbnail_hi} 900w
-  //   `;
+  const isVertical = variant === 'vertical_card' || variant === 'mid_page_card';
 
   return (
     <article className={classNames} id={id}>
       <div className="cc-card__image">
         <ImageElement
-          alt={image?.alt}
-          // sizes={srcSet && cardImageSizesDefault}
-          src={src}
-          // srcSet={srcSet}
+          alt={imageAlt}
+          height={imageHeight}
+          sizes={cardImageSizesDefault}
+          src={imageSrc}
+          srcSet={imageSrcSet}
+          width={imageWidth}
         />
       </div>
       <div className="cc-card__content">
-        {isHorizontal && meta?.type && (
-          <p className="cc-card__type">{meta?.type}</p>
+        {isHorizontal && metaLabel && (
+          <p className="cc-card__type">{metaLabel}</p>
         )}
         <h3 className="cc-card__title">
           <a href={href} className="cc-card__link" target="_self">
             {title}
           </a>
         </h3>
-        {isHorizontal && (authors || meta?.date) && (
+        {isHorizontal && (authors || date) && (
           <div className="cc-card__meta">
             {isHorizontal && authors && (
               <dl className="cc-card__authors">
@@ -90,9 +87,9 @@ export const Card = ({
                 ))}
               </dl>
             )}
-            {isHorizontal && meta?.date && (
+            {isHorizontal && date && (
               <time className="cc-card__date">
-                <FormattedDate dateString={meta?.date} />
+                <FormattedDate dateString={date} />
               </time>
             )}
           </div>

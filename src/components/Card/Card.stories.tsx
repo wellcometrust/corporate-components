@@ -35,13 +35,6 @@ const CardExample = () => {
   const image = {
     alt: text('alt', 'Image alt text', imageGroupID),
     src: text('src', 'https://placehold.it/600x342', imageGroupID)
-
-    // TODO: handle responsive image sources
-    // sources: {
-    //   thumbnail_lo: text('thumbnail_lo', 'https://placehold.it/300x171', imageGroupID),
-    //   thumbnail: text('thumbnail', 'https://placehold.it/600x342', imageGroupID),
-    //   thumbnail_hi: text('thumbnail_hi', 'https://placehold.it/900x513', imageGroupID)
-    // }
   };
 
   // Meta props
@@ -54,10 +47,12 @@ const CardExample = () => {
     <Card
       authors={['Eliza Manningham-Buller', 'Jeremy Farrar']}
       className={isVertical ? 'cc-card--vertical' : 'cc-card--horizontal'}
+      date={meta.date}
       description={description}
       href={href}
-      image={image}
-      meta={meta}
+      imageAlt={image.alt}
+      imageSrc={image.src}
+      metaLabel={meta.type}
       title={title}
       variant="horizontal_card"
     />

@@ -2,42 +2,57 @@ import React from 'react';
 import cx from 'classnames';
 
 import Card from 'Card';
+import ImageCard from 'ImageCard';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
 import ResultsItem from 'ResultsItem/ResultsItem';
 
 type ListingElementProps = {
   authors?: string[];
   className?: string;
+  date?: string;
   description?: string;
   href: string;
   id?: string;
-  image?: {
-    alt?: string;
-    src?: string;
-    // sources?: {
-    //   thumbnail_lo?: string;
-    //   thumbnail?: string;
-    //   thumbnail_hi?: string;
-    // };
-  };
+  imageAlt: string;
+  imageHeight?: string;
+  imageSrc: string;
+  imageSrcSet?: string;
+  imageWidth?: string;
   meta?: {
     date?: string;
     lastUpdated?: string;
     hasType?: boolean;
     type?: string | null;
   };
+  metaLabel?: string;
   title: string;
   fileMeta?: {
     type: string;
     size: string;
   };
   type?: 'content' | 'file' | 'taxonomy_term';
-  variant: 'horizontal_card' | 'link_list' | 'text_list' | 'vertical_card';
+  variant:
+    | 'image_card'
+    | 'horizontal_card'
+    | 'link_card_cta_link'
+    | 'link_list'
+    | 'mid_page_card'
+    | 'text_list'
+    | 'vertical_card';
 };
 
 const variantElement = {
   horizontal_card: Card,
+  image_card: ImageCard,
+
+  /**
+   * todo: Build + integrate Image card with CTA link component
+   *
+   * @see {@link https://github.com/wellcometrust/corporate/issues/7771}
+   */
+  link_card_cta_link: ImageCard,
   link_list: ListingLink,
+  mid_page_card: Card,
   text_list: ResultsItem,
   vertical_card: Card
 };
@@ -45,19 +60,26 @@ const variantElement = {
 export const ListingElement = ({
   authors,
   className,
+  date,
   description,
   href,
   fileMeta,
   id,
-  image,
+  imageAlt,
+  imageHeight,
+  imageSrc,
+  imageSrcSet,
+  imageWidth,
   meta,
+  metaLabel,
   title,
   type,
   variant
 }: ListingElementProps) => {
   const classNames = cx({
     'cc-card--horizontal': variant === 'horizontal_card',
-    'cc-card--vertical': variant === 'vertical_card',
+    'cc-card--vertical':
+      variant === 'vertical_card' || variant === 'mid_page_card',
     [`${className}`]: className
   });
 
@@ -68,12 +90,18 @@ export const ListingElement = ({
     <Element
       authors={authors}
       className={classNames}
+      date={date}
       description={description}
       fileMeta={fileMeta}
       href={href}
       id={id}
-      image={image}
+      imageAlt={imageAlt}
+      imageHeight={imageHeight}
+      imageSrc={imageSrc}
+      imageSrcSet={imageSrcSet}
+      imageWidth={imageWidth}
       meta={meta}
+      metaLabel={metaLabel}
       title={title}
       type={type}
       variant={variant}
