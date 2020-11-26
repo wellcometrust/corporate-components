@@ -28,7 +28,7 @@ export const ImageCard = ({
   href,
   imageAlt,
   imageHeight,
-  imageSizes = '(min-width: 1500px) 400px, (min-width: 1024px) calc(30vw - 48px),    (min-width: 768px) calc(30vw - 40px), 90vw',
+  imageSizes = '(min-width: 1500px) 400px, (min-width: 1024px) calc(30vw - 48px), (min-width: 768px) calc(30vw - 40px), 90vw',
   imageSrc,
   imageSrcSet,
   imageWidth,
