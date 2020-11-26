@@ -9,6 +9,7 @@ type FeaturedPromoProps = {
   authors?: string[];
   className?: string;
   description?: string;
+  href: string;
   imageAlt: string;
   imageHeight?: string;
   imageSizes?: string;
@@ -18,7 +19,6 @@ type FeaturedPromoProps = {
   metaLabel?: string;
   title: string;
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  href: string;
 };
 
 export const FeaturedPromo = ({
