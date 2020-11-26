@@ -48,6 +48,7 @@ export const FullWidthPromo = ({
         alt={imageAlt}
         height={imageHeight}
         itemProp="image"
+        sizes="100vw"
         src={imageSrc}
         srcSet={imageSrcSet}
         width={imageWidth}

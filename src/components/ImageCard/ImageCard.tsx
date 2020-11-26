@@ -52,6 +52,12 @@ export const ImageCard = ({
             alt={imageAlt}
             height={imageHeight}
             itemProp="image"
+            sizes="
+              (min-width: 1500px) 400px,
+              (min-width: 1024px) calc(30vw - 48px),
+              (min-width: 768px) calc(30vw - 40px),
+              90vw
+            "
             src={imageSrc}
             srcSet={imageSrcSet}
             width={imageWidth}
