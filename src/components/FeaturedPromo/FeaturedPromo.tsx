@@ -28,6 +28,7 @@ export const FeaturedPromo = ({
   href,
   imageAlt,
   imageHeight,
+  imageSizes = '(min-width: 1500px) 672px, (min-width: 1024px) 45vw, (min-width: 768px) 37.5vw, 90vw',
   imageSrc,
   imageSrcSet,
   imageWidth,
@@ -52,12 +53,7 @@ export const FeaturedPromo = ({
             alt={imageAlt}
             height={imageHeight}
             itemProp="image"
-            sizes="
-              (min-width: 1500px) 672px,
-              (min-width: 1024px) 45vw,
-              (min-width: 768px) 37.5vw,
-              90vw
-            "
+            sizes={imageSizes}
             src={imageSrc}
             srcSet={imageSrcSet}
             width={imageWidth}
