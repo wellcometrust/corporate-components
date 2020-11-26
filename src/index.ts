@@ -9,6 +9,7 @@ export { Contact } from 'Contact/Contact';
 export { CookieMessage } from 'CookieMessage/CookieMessage';
 export { default as DateInput } from 'DateInput';
 export { Modal } from 'Modal/Modal';
+export { default as FeaturedPromo } from 'FeaturedPromo';
 export { FileDownload } from 'FileDownload/FileDownload';
 export { Footer } from 'Footer/Footer';
 export { FormattedDate } from 'FormattedDate/FormattedDate';

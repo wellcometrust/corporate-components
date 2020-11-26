@@ -7,7 +7,7 @@ import { parseHtml } from 'utils/parse-html';
 import FeaturedPromo from './FeaturedPromo';
 
 const FeaturedPromoExample = () => {
-  const author = text('Author', 'Jeremy Farrar');
+  const authors = text('authors', 'Author One, Author Two');
 
   const imageAlt = text('Image alt text', 'Alternative image text');
   const imageSrc = text('Image path', `https://via.placeholder.com/300`);
@@ -20,26 +20,29 @@ const FeaturedPromoExample = () => {
     `<p>Nulla non Lorem in fugiat dolore aliquip ad irure reprehenderit reprehenderit proident.</p>`
   );
 
-  const topic = text('Topic', 'Climate Change');
+  const metaLabel = text('metaLabel', 'Climate Change');
 
-  const url = text('URL', '/news/all');
+  const href = text('href', '/news/all');
 
   return (
     <FeaturedPromo
-      author={author}
+      authors={authors
+        .trim()
+        .split(',')
+        .map(a => a.trim())}
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
       description={parseHtml(description)}
+      href={href}
       imageAlt={imageAlt}
       imageSrc={`${imageSrc}?text=${imageAlt}`}
+      metaLabel={metaLabel}
       title={title}
       titleAs={titleAs}
-      topic={topic}
-      url={url}
     />
   );
 };
 
-const stories = storiesOf('Components|FeaturedPromo', module);
+const stories = storiesOf('FeaturedPromo', module);
 
 stories.add('FeaturedPromo', FeaturedPromoExample);
