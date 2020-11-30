@@ -15,6 +15,7 @@ type FullWidthPromoProps = {
   imageCredit?: string;
   imageHeight?: string;
   imageLicence?: string;
+  imageSizes?: string;
   imageSrc: string;
   imageSrcSet?: string;
   imageWidth?: string;
@@ -30,6 +31,7 @@ export const FullWidthPromo = ({
   href,
   imageAlt,
   imageHeight,
+  imageSizes = '100vw',
   imageSrc,
   imageSrcSet,
   imageWidth,
@@ -48,6 +50,7 @@ export const FullWidthPromo = ({
         alt={imageAlt}
         height={imageHeight}
         itemProp="image"
+        sizes={imageSizes}
         src={imageSrc}
         srcSet={imageSrcSet}
         width={imageWidth}
