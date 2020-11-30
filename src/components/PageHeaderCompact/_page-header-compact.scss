@@ -122,19 +122,14 @@
 
 .cc-page-header-compact__tray {
   align-items: center;
+  border-bottom: 1px solid var(--colour-grey-05);
+  border-top: 1px solid var(--colour-grey-05);
   color: var(--colour-grey-60);
   display: flex;
   font-size: var(--body-md);
   justify-content: space-between;
-
-  @include mq(sm) {
-    padding-bottom: calc(2 * var(--space-unit));
-    /**
-     * Adds some extra distance between the tray and siblings, without
-     * wanting to confuse the generic spacing on .cc-page-header__section
-     */
-    padding-top: calc(2 * var(--space-unit));
-  }
+  padding-bottom: calc(2 * var(--space-unit));
+  padding-top: calc(2 * var(--space-unit));
 }
 
 /**
