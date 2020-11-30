@@ -141,6 +141,7 @@ export const NewsletterForm = ({
           className={classNames}
           method="POST"
           onSubmit={handleSubmit}
+          data-type={type}
         >
           {type === 'research' && (
             <NewsletterFormResearchDropDown
