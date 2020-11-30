@@ -18,7 +18,7 @@ type FullWidthPromoProps = {
   imageSrc: string;
   imageSrcSet?: string;
   imageWidth?: string;
-  linkText: string;
+  linkText?: string;
   metaLabel?: string;
   title: string;
   topics: TagProps[];
@@ -89,15 +89,17 @@ export const FullWidthPromo = ({
             {description}
           </RichText>
         )}
-        <Button
-          className="cc-full-width-promo__link cc-cta-link"
-          href={href}
-          icon="arrowLong"
-          iconPlacementSwitch
-          variant="unstyled"
-        >
-          {linkText}
-        </Button>
+        {!!linkText?.trim().length && (
+          <Button
+            className="cc-full-width-promo__link cc-cta-link"
+            href={href}
+            icon="arrowLong"
+            iconPlacementSwitch
+            variant="unstyled"
+          >
+            {linkText}
+          </Button>
+        )}
         {topics && (
           <div className="cc-page-header-compact__topics">
             <TagList tags={topics} />
