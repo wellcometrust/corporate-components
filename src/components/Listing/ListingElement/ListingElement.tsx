@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Card from 'Card';
 import ImageCard from 'ImageCard';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
-import ResultsItem from 'ResultsItem/ResultsItem';
+import TextCard from 'TextCard';
 
 type ListingElementProps = {
   authors?: string[];
@@ -53,7 +53,7 @@ const variantElement = {
   link_card_cta_link: ImageCard,
   link_list: ListingLink,
   mid_page_card: Card,
-  text_list: ResultsItem,
+  text_list: TextCard,
   vertical_card: Card
 };
 

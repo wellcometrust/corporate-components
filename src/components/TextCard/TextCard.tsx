@@ -7,7 +7,7 @@ import FormattedDate from 'FormattedDate';
 import { parseHtml } from 'utils/parse-html';
 import RichText from 'RichText';
 
-type ResultItemProps = {
+type TextCardProps = {
   children?: React.ReactNode;
   className?: string;
   description?: string;
@@ -27,7 +27,7 @@ type ResultItemProps = {
   type?: 'content' | 'file' | 'taxonomy_term';
 };
 
-export const ResultsItem = ({
+export const TextCard = ({
   children,
   className,
   description,
@@ -37,15 +37,15 @@ export const ResultsItem = ({
   meta,
   title,
   type
-}: ResultItemProps) => {
-  const classNames = cx('cc-result-item', {
+}: TextCardProps) => {
+  const classNames = cx('cc-text-card', {
     [`${className}`]: className
   });
 
   return (
     <article className={classNames} id={id}>
       {meta && (meta.type || meta.date) && (
-        <div className="cc-result-item__meta">
+        <div className="cc-text-card__meta">
           {/* `meta.type` temporarily removed as types for search results are not correctly displayed
           Type label and date logic for cards has been moved to the app side
           therefore `itemType` prop has been permanently removed
@@ -59,36 +59,36 @@ export const ResultsItem = ({
           )} */}
           {/* hasType is a flag to decide if we want to show a type */}
           {meta.hasType && (
-            <span className="cc-result-item__meta-type">
+            <span className="cc-text-card__meta-type">
               {meta.type}
               &nbsp;
             </span>
           )}
           {meta.date && (
-            <span className="cc-result-item__meta-date">
+            <span className="cc-text-card__meta-date">
               <FormattedDate dateString={meta.date} />
               &nbsp;
             </span>
           )}
           {meta.lastUpdated && (
-            <span className="cc-result-item__meta-last-updated">
+            <span className="cc-text-card__meta-last-updated">
               Updated <FormattedDate dateString={meta.lastUpdated} />
             </span>
           )}
         </div>
       )}
-      <h3 className="cc-result-item__title">
+      <h3 className="cc-text-card__title">
         {type === 'file' ? (
           parseHtml(title)
         ) : (
-          <a href={href} className="cc-result-item__link">
+          <a href={href} className="cc-text-card__link">
             {parseHtml(title)}
           </a>
         )}
       </h3>
       {type === 'file' && (
         <FileDownload
-          className="cc-result-item__file-meta"
+          className="cc-text-card__file-meta"
           href={href}
           name={title}
           size={fileMeta.size}
@@ -96,15 +96,11 @@ export const ResultsItem = ({
         />
       )}
       {description && (
-        <RichText className="cc-result-item__description">
-          {description}
-        </RichText>
+        <RichText className="cc-text-card__description">{description}</RichText>
       )}
-      {children && (
-        <div className="cc-result-item__description">{children}</div>
-      )}
+      {children && <div className="cc-text-card__description">{children}</div>}
     </article>
   );
 };
 
-export default ResultsItem;
+export default TextCard;

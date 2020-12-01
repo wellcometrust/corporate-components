@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 
-import ResultsItem from './ResultsItem';
+import TextCard from './TextCard';
 
-const ResultItemExample = () => {
+const TextCardExample = () => {
   const generalGroupID = 'General';
   const fileMetaGroupID = 'File Meta';
   const metaGroupID = 'Meta';
@@ -33,7 +33,7 @@ const ResultItemExample = () => {
   };
 
   return (
-    <ResultsItem
+    <TextCard
       description={content}
       href={href}
       fileMeta={fileMeta}
@@ -44,6 +44,6 @@ const ResultItemExample = () => {
   );
 };
 
-const stories = storiesOf('Components|ResultItem', module);
+const stories = storiesOf('TextCard', module);
 
-stories.add('ResultItem', ResultItemExample);
+stories.add('TextCard', TextCardExample);
