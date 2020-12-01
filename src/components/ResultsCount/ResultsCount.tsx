@@ -15,7 +15,7 @@ export const ResultsCount = ({
   sortedBy
 }: ResultsCountProps) => {
   const classNames = cx('cc-results-count', {
-    [`${className}`]: className
+    [className]: className
   });
 
   return (

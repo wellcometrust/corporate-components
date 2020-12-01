@@ -42,7 +42,7 @@ export { PageHeader } from 'PageHeader/PageHeader';
 export { default as PageHeaderCompact } from 'PageHeaderCompact';
 export { default as Pagination } from 'Pagination';
 export { default as RadioInput } from 'RadioInput';
-export { ResultsCount } from 'ResultsCount/ResultsCount';
+export { default as ResultsCount } from 'ResultsCount';
 export { ResultsItem } from 'ResultsItem/ResultsItem';
 export { default as RichText } from 'RichText';
 export { RouterLinkWrapper } from 'RouterLinkWrapper/RouterLinkWrapper';

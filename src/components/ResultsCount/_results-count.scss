@@ -13,6 +13,7 @@
   padding-top: var(--space-lg);
 
   @include mq(sm) {
+    align-items: center;
     display: flex;
   }
 }
