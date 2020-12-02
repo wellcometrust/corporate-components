@@ -11,6 +11,8 @@ type ResultItemProps = {
   children?: React.ReactNode;
   className?: string;
   description?: string;
+  gaFileType?: string;
+  gaReportType?: string;
   href: string;
   id?: string;
   meta?: {
@@ -31,6 +33,8 @@ export const ResultsItem = ({
   children,
   className,
   description,
+  gaFileType,
+  gaReportType,
   fileMeta,
   href,
   id,
@@ -89,6 +93,9 @@ export const ResultsItem = ({
       {type === 'file' && (
         <FileDownload
           className="cc-result-item__file-meta"
+          // todo: #7814
+          gaFileType={gaFileType}
+          gaReportType={gaReportType}
           href={href}
           name={title}
           size={fileMeta.size}
