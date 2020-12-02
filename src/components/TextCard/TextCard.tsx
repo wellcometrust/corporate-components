@@ -10,31 +10,31 @@ import RichText from 'RichText';
 type TextCardProps = {
   children?: React.ReactNode;
   className?: string;
+  date?: string;
+  dateUpdated?: string;
   description?: string;
+  fileSize?: string;
+  fileType?: string;
+  hasMetaLabel?: boolean;
   href: string;
   id?: string;
-  meta?: {
-    date?: string;
-    lastUpdated?: string;
-    hasType?: boolean;
-    type?: string | null;
-  };
+  metaLabel?: string;
   title: string;
-  fileMeta?: {
-    type: string;
-    size: string;
-  };
   type?: 'content' | 'file' | 'taxonomy_term';
 };
 
 export const TextCard = ({
   children,
   className,
+  date,
+  dateUpdated,
   description,
-  fileMeta,
+  fileSize,
+  fileType,
+  hasMetaLabel,
   href,
   id,
-  meta,
+  metaLabel,
   title,
   type
 }: TextCardProps) => {
@@ -44,35 +44,35 @@ export const TextCard = ({
 
   return (
     <article className={classNames} id={id}>
-      {meta && (meta.type || meta.date) && (
+      {(metaLabel || date) && (
         <div className="cc-text-card__meta">
-          {/* `meta.type` temporarily removed as types for search results are not correctly displayed
+          {/* `metaLabel` temporarily removed as types for search results are not correctly displayed
           Type label and date logic for cards has been moved to the app side
           therefore `itemType` prop has been permanently removed
           TODO: To be revisited for both search results AND text listings
           https://github.com/wellcometrust/corporate/issues/6730 */}
-          {/* {meta.type && !['taxonomy_term'].includes(itemType) && (
-            <span className="result-item__meta-type">
-              {meta.type}
+          {/* {metaLabel && !['taxonomy_term'].includes(itemType) && (
+            <span className="cc-text-card__meta-label">
+              {metaLabel}
               &nbsp;
             </span>
           )} */}
-          {/* hasType is a flag to decide if we want to show a type */}
-          {meta.hasType && (
-            <span className="cc-text-card__meta-type">
-              {meta.type}
+          {/* hasMetaLabel is a flag to decide if we want to show a type */}
+          {hasMetaLabel && (
+            <span className="cc-text-card__meta-label">
+              {metaLabel}
               &nbsp;
             </span>
           )}
-          {meta.date && (
-            <span className="cc-text-card__meta-date">
-              <FormattedDate dateString={meta.date} />
+          {date && (
+            <span className="cc-text-card__date">
+              <FormattedDate dateString={date} />
               &nbsp;
             </span>
           )}
-          {meta.lastUpdated && (
-            <span className="cc-text-card__meta-last-updated">
-              Updated <FormattedDate dateString={meta.lastUpdated} />
+          {dateUpdated && (
+            <span className="cc-text-card__date-updated">
+              Updated <FormattedDate dateString={dateUpdated} />
             </span>
           )}
         </div>
@@ -91,8 +91,8 @@ export const TextCard = ({
           className="cc-text-card__file-meta"
           href={href}
           name={title}
-          size={fileMeta.size}
-          type={fileMeta.type}
+          size={fileSize}
+          type={fileType}
         />
       )}
       {description && (

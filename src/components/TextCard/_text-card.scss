@@ -27,8 +27,8 @@
   margin-bottom: var(--space-xs);
 }
 
-.cc-text-card__meta-date,
-.cc-text-card__meta-last-updated {
+.cc-text-card__date,
+.cc-text-card__date-updated {
   color: var(--text-colour);
 
   @include mq($until: xs) {
@@ -36,7 +36,7 @@
   }
 }
 
-.cc-text-card__meta-last-updated {
+.cc-text-card__date-updated {
   @include mq(xs) {
     float: right;
   }
