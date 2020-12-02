@@ -6,18 +6,17 @@ import Link from 'Link';
 
 type ListingLinkProps = {
   className?: string;
-  fileMeta?: {
-    type: string;
-    size: string;
-  };
+  fileSize?: string;
+  fileType?: string;
   href: string;
-  title: string;
   iconVariant?: 'chevron' | 'download';
+  title: string;
 };
 
 export const ListingLink = ({
   className,
-  fileMeta,
+  fileSize,
+  fileType,
   href,
   title,
   iconVariant = 'chevron'
@@ -34,11 +33,11 @@ export const ListingLink = ({
     <li className={classNames}>
       <Link className="cc-listing__link" to={href}>
         {title}
-        {fileMeta?.type && fileMeta?.size && (
+        {fileType && fileSize && (
           <>
             {' '}
             <span className="cc-listing__link-meta">
-              {fileMeta.type} {fileMeta.size}
+              {fileType} {fileSize}
             </span>
           </>
         )}
