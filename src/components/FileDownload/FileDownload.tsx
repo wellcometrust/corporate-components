@@ -3,8 +3,8 @@ import cx from 'classnames';
 
 type FileDownloadProps = {
   className?: string;
-  gaFileType?: string;
-  gaReportType?: string;
+  documentSubType?: string;
+  documentType?: string;
   href: string;
   label?: string;
   name?: string;
@@ -14,8 +14,8 @@ type FileDownloadProps = {
 
 export const FileDownload = ({
   className,
-  gaFileType,
-  gaReportType,
+  documentSubType,
+  documentType,
   href,
   label = 'Download',
   name,
@@ -31,8 +31,8 @@ export const FileDownload = ({
       <a
         className="cc-file-download__link"
         // todo: #7814
-        data-file-type={gaFileType}
-        data-report-type={gaReportType}
+        data-file-type={documentType}
+        data-report-type={documentSubType}
         download
         href={href}
         rel="noopener noreferrer"

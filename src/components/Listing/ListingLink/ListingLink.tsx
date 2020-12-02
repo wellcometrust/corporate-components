@@ -10,8 +10,8 @@ type ListingLinkProps = {
     type: string;
     size: string;
   };
-  gaFileType?: string;
-  gaReportType?: string;
+  documentSubType?: string;
+  documentType?: string;
   href: string;
   title: string;
   iconVariant?: 'chevron' | 'download';
@@ -20,8 +20,8 @@ type ListingLinkProps = {
 export const ListingLink = ({
   className,
   fileMeta,
-  gaFileType,
-  gaReportType,
+  documentSubType,
+  documentType,
   href,
   title,
   iconVariant = 'chevron'
@@ -39,8 +39,8 @@ export const ListingLink = ({
       <Link
         className="cc-listing__link"
         // todo: #7814
-        data-file-type={gaFileType}
-        data-report-type={gaReportType}
+        data-file-type={documentType}
+        data-report-type={documentSubType}
         to={href}
       >
         {title}
