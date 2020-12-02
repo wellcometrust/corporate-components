@@ -69,7 +69,7 @@ export const Contact = ({
       )}
       {institution && (
         <p className="cc-contact__institution" itemProp="worksFor">
-          {institutionCountry && institutionCountry !== 'GB'
+          {institutionCountry
             ? `${institution}, ${institutionCountry}`
             : institution}
         </p>
