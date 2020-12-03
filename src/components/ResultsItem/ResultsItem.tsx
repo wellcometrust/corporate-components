@@ -11,6 +11,8 @@ type ResultItemProps = {
   children?: React.ReactNode;
   className?: string;
   description?: string;
+  documentSubType?: string;
+  documentType?: string;
   href: string;
   id?: string;
   meta?: {
@@ -31,6 +33,8 @@ export const ResultsItem = ({
   children,
   className,
   description,
+  documentSubType,
+  documentType,
   fileMeta,
   href,
   id,
@@ -89,6 +93,8 @@ export const ResultsItem = ({
       {type === 'file' && (
         <FileDownload
           className="cc-result-item__file-meta"
+          documentType={documentType}
+          documentSubType={documentSubType}
           href={href}
           name={title}
           size={fileMeta.size}

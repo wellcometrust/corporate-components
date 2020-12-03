@@ -10,6 +10,8 @@ type ListingLinkProps = {
     type: string;
     size: string;
   };
+  documentSubType?: string;
+  documentType?: string;
   href: string;
   title: string;
   iconVariant?: 'chevron' | 'download';
@@ -18,6 +20,8 @@ type ListingLinkProps = {
 export const ListingLink = ({
   className,
   fileMeta,
+  documentSubType,
+  documentType,
   href,
   title,
   iconVariant = 'chevron'
@@ -32,7 +36,13 @@ export const ListingLink = ({
 
   return (
     <li className={classNames}>
-      <Link className="cc-listing__link" to={href}>
+      <Link
+        className="cc-listing__link"
+        // todo: #7814
+        data-file-type={documentType}
+        data-report-type={documentSubType}
+        to={href}
+      >
         {title}
         {fileMeta?.type && fileMeta?.size && (
           <>

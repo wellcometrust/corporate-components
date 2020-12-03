@@ -3,15 +3,19 @@ import cx from 'classnames';
 
 type FileDownloadProps = {
   className?: string;
+  documentSubType?: string;
+  documentType?: string;
   href: string;
   label?: string;
   name?: string;
   size?: string;
-  type?: string;
+  type: string;
 };
 
 export const FileDownload = ({
   className,
+  documentSubType,
+  documentType,
   href,
   label = 'Download',
   name,
@@ -26,6 +30,9 @@ export const FileDownload = ({
     <div className={classNames}>
       <a
         className="cc-file-download__link"
+        // todo: #7814
+        data-file-type={documentType}
+        data-report-type={documentSubType}
         download
         href={href}
         rel="noopener noreferrer"
