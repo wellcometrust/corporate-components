@@ -13,11 +13,17 @@ type TimelineMilestoneProps = {
 
 type TimelineProps = {
   className?: string;
+  description?: string;
   milestones: TimelineMilestoneProps[];
   title?: string;
 };
 
-export const Timeline = ({ className, milestones, title }: TimelineProps) => {
+export const Timeline = ({
+  className,
+  description,
+  milestones,
+  title
+}: TimelineProps) => {
   const classNames = cx('cc-timeline', {
     [className]: className
   });
@@ -25,6 +31,9 @@ export const Timeline = ({ className, milestones, title }: TimelineProps) => {
   return (
     <div className={classNames}>
       {title && <h3 className="cc-timeline__title">{title}</h3>}
+      {description && (
+        <RichText className="cc-timeline__description">{description}</RichText>
+      )}
       <ol className="cc-timeline__list">
         {milestones.map((item, index) => (
           <li
