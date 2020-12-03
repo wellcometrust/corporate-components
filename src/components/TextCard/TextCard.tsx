@@ -13,6 +13,8 @@ type TextCardProps = {
   date?: string;
   dateUpdated?: string;
   description?: string;
+  documentSubType?: string;
+  documentType?: string;
   fileSize?: string;
   fileType?: string;
   hasMetaLabel?: boolean;
@@ -29,6 +31,8 @@ export const TextCard = ({
   date,
   dateUpdated,
   description,
+  documentSubType,
+  documentType,
   fileSize,
   fileType,
   hasMetaLabel,
@@ -89,6 +93,8 @@ export const TextCard = ({
       {type === 'file' && (
         <FileDownload
           className="cc-text-card__file-meta"
+          documentSubType={documentSubType}
+          documentType={documentType}
           href={href}
           name={title}
           size={fileSize}

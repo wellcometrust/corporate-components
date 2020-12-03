@@ -6,6 +6,8 @@ import Link from 'Link';
 
 type ListingLinkProps = {
   className?: string;
+  documentSubType?: string;
+  documentType?: string;
   fileSize?: string;
   fileType?: string;
   href: string;
@@ -15,6 +17,8 @@ type ListingLinkProps = {
 
 export const ListingLink = ({
   className,
+  documentSubType,
+  documentType,
   fileSize,
   fileType,
   href,
@@ -31,7 +35,13 @@ export const ListingLink = ({
 
   return (
     <li className={classNames}>
-      <Link className="cc-listing__link" to={href}>
+      <Link
+        className="cc-listing__link"
+        // todo: #7814
+        data-file-type={documentType}
+        data-report-type={documentSubType}
+        to={href}
+      >
         {title}
         {fileType && fileSize && (
           <>

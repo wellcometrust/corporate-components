@@ -33,8 +33,9 @@
 }
 
 .cc-featured-promo__image {
-  @extend %img-responsive;
+  @extend %img-cover;
 
+  height: 100%;
   margin: 0;
 }
 

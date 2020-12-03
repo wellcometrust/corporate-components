@@ -7,6 +7,9 @@ type LinkProps = {
   className?: string;
   to: string;
   children: React.ReactNode;
+
+  // allows the Link to accept spread props (we should aim to remove this)
+  [key: string]: string | React.ReactNode;
 };
 
 /**
