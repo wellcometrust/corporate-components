@@ -4,13 +4,16 @@ import cx from 'classnames';
 import Card from 'Card';
 import ImageCard from 'ImageCard';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
-import ResultsItem from 'ResultsItem/ResultsItem';
+import TextCard from 'TextCard';
 
 type ListingElementProps = {
   authors?: string[];
   className?: string;
   date?: string;
+  dateUpdated?: string;
   description?: string;
+  fileSize: string;
+  fileType: string;
   href: string;
   id?: string;
   imageAlt: string;
@@ -18,18 +21,9 @@ type ListingElementProps = {
   imageSrc: string;
   imageSrcSet?: string;
   imageWidth?: string;
-  meta?: {
-    date?: string;
-    lastUpdated?: string;
-    hasType?: boolean;
-    type?: string | null;
-  };
+  hasMetaLabel?: boolean;
   metaLabel?: string;
   title: string;
-  fileMeta?: {
-    type: string;
-    size: string;
-  };
   type?: 'content' | 'file' | 'taxonomy_term';
   variant:
     | 'image_card'
@@ -53,7 +47,7 @@ const variantElement = {
   link_card_cta_link: ImageCard,
   link_list: ListingLink,
   mid_page_card: Card,
-  text_list: ResultsItem,
+  text_list: TextCard,
   vertical_card: Card
 };
 
@@ -61,16 +55,18 @@ export const ListingElement = ({
   authors,
   className,
   date,
+  dateUpdated,
   description,
+  fileSize,
+  fileType,
+  hasMetaLabel,
   href,
-  fileMeta,
   id,
   imageAlt,
   imageHeight,
   imageSrc,
   imageSrcSet,
   imageWidth,
-  meta,
   metaLabel,
   title,
   type,
@@ -91,8 +87,10 @@ export const ListingElement = ({
       authors={authors}
       className={classNames}
       date={date}
+      dateUpdated={dateUpdated}
       description={description}
-      fileMeta={fileMeta}
+      fileSize={fileSize}
+      fileType={fileType}
       href={href}
       id={id}
       imageAlt={imageAlt}
@@ -100,7 +98,7 @@ export const ListingElement = ({
       imageSrc={imageSrc}
       imageSrcSet={imageSrcSet}
       imageWidth={imageWidth}
-      meta={meta}
+      hasMetaLabel={hasMetaLabel}
       metaLabel={metaLabel}
       title={title}
       type={type}

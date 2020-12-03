@@ -7,8 +7,10 @@ import Readme from './ListingLink.md';
 
 const links = [
   {
+    fileSize: '3MB',
+    fileType: 'PDF',
     text: 'Link title lorem ipsum dolor amet sit',
-    href: '/internal-link-1'
+    href: '/my-file.pdf'
   },
   {
     text: 'Link (external) title lorem ipsum dolor amet sit',
@@ -23,8 +25,14 @@ const links = [
 
 const LinkListExample = () => (
   <Listing as="ul">
-    {links.map(({ href, text }) => (
-      <ListingLink key={`listing-item-${href}`} href={href} title={text} />
+    {links.map(({ fileSize, fileType, href, text }) => (
+      <ListingLink
+        key={`listing-item-${href}`}
+        fileSize={fileSize}
+        fileType={fileType}
+        href={href}
+        title={text}
+      />
     ))}
   </Listing>
 );
