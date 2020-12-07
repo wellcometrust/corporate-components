@@ -6,24 +6,22 @@
 // 2019-11-11
 // ----------------------------------
 
-.cc-media {
-  @include grid-container;
-  margin-bottom: 0;
-  margin-top: 0;
+// .cc-media
+
+.cc-media__element {
+  @include mq($from: sm, $until: md) {
+    padding-left: calc(100% / 12);
+    padding-right: calc(100% / 12);
+  }
 }
 
-.cc-media__image,
-.cc-media__video {
-  @include grid-column(1, 7);
+.cc-media__element--image,
+.cc-media__element--video {
   width: 100%;
+}
 
-  @include mq(sm) {
-    @include grid-column(2, 12);
-  }
-
-  @include mq(md) {
-    @include grid-column(4, 10);
-  }
+.cc-media__element--image {
+  @extend %img-responsive;
 }
 
 .cc-media__caption {
@@ -39,14 +37,7 @@
 }
 
 .cc-media--wide__caption {
-  @include grid-column(1, 7);
-  
-  @include mq(sm) {
-    @include grid-column(2, 12);
-  }
-  
   @include mq(md) {
-    @include grid-column(10, 13);
     margin-top: 0;
   }
 }
