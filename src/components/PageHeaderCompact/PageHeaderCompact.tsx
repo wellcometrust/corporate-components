@@ -62,7 +62,9 @@ export const PageHeaderCompact = ({
             </RichText>
           )}
           {imageCredit && (
-            <RichText className="cc-media__credit">{imageCredit}</RichText>
+            <RichText className="cc-media__credit">
+              {`Credit: ${imageCredit}`}
+            </RichText>
           )}
           {imageLicence && (
             <RichText className="cc-media__license">{imageLicence}</RichText>
