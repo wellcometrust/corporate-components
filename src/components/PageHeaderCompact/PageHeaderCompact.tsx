@@ -36,7 +36,7 @@ export const PageHeaderCompact = ({
   imageCaption,
   imageCredit,
   imageLicence,
-  imageSizes,
+  imageSizes = '(min-width: 1494px) 648px, (min-width: 1024px) 45vw, (min-width: 768px) 90vw, 100vw',
   imageSrc,
   imageSrcSet,
   metaLabel,
@@ -52,9 +52,14 @@ export const PageHeaderCompact = ({
         <RichText>{standfirst}</RichText>
       </div>
     </div>
-    {(!!imageSrc || (imageSrcSet && imageSizes)) && (
+    {(!!imageSrc || (imageSrcSet && imageSizes?.trim().length)) && (
       <figure className="cc-page-header-compact__image cc-page-header-compact__section cc-page-header-compact__section--main">
-        <ImageElement src={imageSrc} srcSet={imageSrcSet} alt={imageAlt} />
+        <ImageElement
+          alt={imageAlt}
+          sizes={imageSizes}
+          src={imageSrc}
+          srcSet={imageSrcSet}
+        />
         <figcaption className="cc-media__caption">
           {imageCaption && (
             <RichText className="cc-media__caption-detail">
