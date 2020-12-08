@@ -22,7 +22,7 @@ const Media = ({
   type
 }: MediaProps) => {
   const classNames = cx('cc-media', {
-    [`${className}`]: className
+    [className]: className
   });
 
   return (
