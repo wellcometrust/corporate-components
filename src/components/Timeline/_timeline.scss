@@ -16,6 +16,10 @@
   text-align: center;
 }
 
+.cc-timeline__description {
+  margin-bottom: var(--space-lg);
+}
+
 .cc-timeline__list {
   border-bottom: 1px solid var(--colour-grey-10);
   border-top: 1px solid var(--colour-grey-10);
