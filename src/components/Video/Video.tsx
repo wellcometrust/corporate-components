@@ -42,7 +42,6 @@ export const Video = ({
       className={className}
       credit={credit}
       licence={licence}
-      type="video"
     >
       <div className="widescreen-container">
         <iframe

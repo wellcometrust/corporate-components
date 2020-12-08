@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import MediaCaption from './MediaCaption';
@@ -9,7 +9,6 @@ type MediaProps = {
   className?: string;
   credit?: string;
   licence?: string;
-  type: 'image' | 'video';
 };
 
 const Media = ({
@@ -17,18 +16,15 @@ const Media = ({
   children,
   className,
   credit,
-  licence,
-  type
+  licence
 }: MediaProps) => {
-  const parentClassNames = cx('cc-media grid', {
-    [`${className}`]: className
+  const classNames = cx('cc-media', {
+    [className]: className
   });
-  const child = Children.only(children);
-  const childClassNames = cx(`cc-media__${type}`, child.props.className);
 
   return (
-    <figure className={parentClassNames}>
-      {cloneElement(child, { className: childClassNames })}
+    <figure className={classNames}>
+      <div className="cc-media__element">{children}</div>
       <MediaCaption
         caption={caption}
         className="cc-media--wide__caption"
