@@ -9,7 +9,6 @@ type MediaProps = {
   className?: string;
   credit?: string;
   licence?: string;
-  type: 'image' | 'video';
 };
 
 const Media = ({
@@ -17,8 +16,7 @@ const Media = ({
   children,
   className,
   credit,
-  licence,
-  type
+  licence
 }: MediaProps) => {
   const classNames = cx('cc-media', {
     [className]: className
@@ -26,9 +24,7 @@ const Media = ({
 
   return (
     <figure className={classNames}>
-      <div className={`cc-media__element cc-media__element--${type}`}>
-        {children}
-      </div>
+      <div className="cc-media__element">{children}</div>
       <MediaCaption
         caption={caption}
         className="cc-media--wide__caption"

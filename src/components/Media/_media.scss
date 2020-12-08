@@ -15,6 +15,7 @@
 }
 
 .cc-media__element {
+  @extend %img-responsive;
   @include grid-column(1, 7);
 
   @include mq(sm) {
@@ -24,10 +25,6 @@
   @include mq(md) {
     @include grid-column(4, 10);
   }
-}
-
-.cc-media__element--image {
-  @extend %img-responsive;
 }
 
 .cc-media__caption {
