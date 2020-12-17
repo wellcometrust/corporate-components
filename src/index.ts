@@ -23,6 +23,7 @@ export { Grid, GridCell } from 'Grid/Grid';
 export { Hamburger } from 'Hamburger/Hamburger';
 export { Header } from 'Header/Header';
 export { Icon } from 'Icon/Icon';
+export { default as Iframe } from 'Iframe';
 export { Image } from 'Image/Image';
 export { ImageBanner } from 'ImageBanner/ImageBanner';
 export { InfoBox } from 'InfoBox/InfoBox';
