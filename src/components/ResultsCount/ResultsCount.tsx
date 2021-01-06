@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 type ResultsCountProps = {
   className?: string;
-  currentCount: number;
+  currentCount: string;
   resultsCount: number;
   sortedBy: string;
 };
