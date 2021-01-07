@@ -7,7 +7,9 @@ describe('<Contact />', () => {
   const output = shallow(
     <Contact
       email="s.pritchard@wellcome.org"
-      institution="Stuart's Institute"
+      institutions={[
+        { name: "Stuart's Institute", country: ' United Kingdom' }
+      ]}
       name="Stuart Pritchard"
       contactRole="<p>EU and Public Affairs Manager</p>"
       tel=""
