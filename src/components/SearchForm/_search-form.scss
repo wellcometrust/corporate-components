@@ -49,6 +49,7 @@
 }
 
 .search-form__btn {
+  cursor: pointer;
   padding-bottom: calc(2 * var(--space-unit));
   padding-left: calc(1.5 * var(--space-unit));
   padding-right: calc(3.125 * var(--space-unit));
