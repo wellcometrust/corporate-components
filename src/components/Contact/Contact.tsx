@@ -71,9 +71,9 @@ export const Contact = ({
         </RichText>
       )}
       {institutions &&
-        institutions.map(e => (
+        institutions.map(({ country, name: institutionName }) => (
           <p className="cc-contact__institution" itemProp="worksFor">
-            {e.country ? `${e.name}, ${e.country}` : e.name}
+            {country ? `${institutionName}, ${country}` : institutionName}
           </p>
         ))}
       {teamUrl && (
