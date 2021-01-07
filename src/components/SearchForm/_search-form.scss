@@ -55,12 +55,4 @@
   padding-top: calc(2 * var(--space-unit));
   position: absolute;
   right: 0;
-
-  .btn__icon--right {
-    margin: 0;
-  }
-
-  .btn__text {
-    @extend %visually-hidden;
-  }
 }

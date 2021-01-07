@@ -11,11 +11,13 @@ type ButtonProps = {
   disabled?: boolean;
   href?: string | null;
   icon?: string;
+  iconClassName?: string;
   iconPlacementSwitch?: boolean;
   id?: string;
   onClick?: MouseEventHandler;
   role?: string;
   tabIndex?: number;
+  textClassName?: string;
   type?: string;
   variant?: 'primary' | 'secondary' | 'ghost' | 'link' | 'unstyled';
 };
@@ -27,11 +29,13 @@ export const Button = ({
   disabled,
   href,
   icon,
+  iconClassName,
   iconPlacementSwitch,
   id,
   onClick,
   role,
   tabIndex,
+  textClassName,
   type = 'button',
   variant = 'primary'
 }: ButtonProps) => {
@@ -42,6 +46,14 @@ export const Button = ({
     btn: isUnstyled,
     [`btn--${variant}`]: isUnstyled,
     [`${className}`]: className
+  });
+  const iconClassNames = cx('btn__icon', {
+    'btn__icon--left': !iconPlacementSwitch,
+    'btn__icon--right': iconPlacementSwitch,
+    [iconClassName]: iconClassName
+  });
+  const textClassNames = cx('btn__text', {
+    [textClassName]: textClassName
   });
 
   return (
@@ -61,11 +73,11 @@ export const Button = ({
       type={!href ? type : null}
     >
       {icon && !iconPlacementSwitch && (
-        <Icon name={icon} className="btn__icon btn__icon--left" />
+        <Icon name={icon} className={iconClassNames} />
       )}
-      <span className="btn__text">{children}</span>
+      <span className={textClassNames}>{children}</span>
       {icon && iconPlacementSwitch && (
-        <Icon name={icon} className="btn__icon btn__icon--right" />
+        <Icon name={icon} className={iconClassNames} />
       )}
     </Element>
   );
