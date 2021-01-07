@@ -13,6 +13,10 @@
   position: relative;
 }
 
+.search-form--sidebar {
+  display: block;
+}
+
 .search-form__input {
   @extend %text-input-reset;
   border: 1px solid var(--colour-grey-10);
@@ -42,4 +46,14 @@
 .search-form__btn-submit .icon {
   color: var(--colour-white);
   margin-right: 0;
+}
+
+.search-form__btn {
+  cursor: pointer;
+  padding-bottom: calc(2 * var(--space-unit));
+  padding-left: calc(1.5 * var(--space-unit));
+  padding-right: calc(3.125 * var(--space-unit));
+  padding-top: calc(2 * var(--space-unit));
+  position: absolute;
+  right: 0;
 }
