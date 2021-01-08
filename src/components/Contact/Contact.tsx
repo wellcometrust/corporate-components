@@ -11,6 +11,11 @@ type ContactImageSourceProps = {
   image_full_mobile_hi?: string;
 };
 
+type InstitutionProps = {
+  name?: string;
+  country?: string;
+};
+
 type ContactProps = {
   className?: string;
   contactFormLink?: {
@@ -19,8 +24,7 @@ type ContactProps = {
   };
   email?: string;
   imageSources?: ContactImageSourceProps;
-  institution?: string;
-  institutionCountry?: string;
+  institutions?: InstitutionProps[];
   contactRole?: string;
   name?: string;
   teamTitle?: string;
@@ -33,8 +37,7 @@ export const Contact = ({
   contactFormLink,
   email,
   imageSources,
-  institution,
-  institutionCountry,
+  institutions,
   contactRole,
   name,
   teamTitle,
@@ -67,13 +70,12 @@ export const Contact = ({
           {contactRole}
         </RichText>
       )}
-      {institution && (
-        <p className="cc-contact__institution" itemProp="worksFor">
-          {institutionCountry
-            ? `${institution}, ${institutionCountry}`
-            : institution}
-        </p>
-      )}
+      {institutions &&
+        institutions.map(({ country, name: institutionName }) => (
+          <p className="cc-contact__institution" itemProp="worksFor">
+            {country ? `${institutionName}, ${country}` : institutionName}
+          </p>
+        ))}
       {teamUrl && (
         <p className="cc-contact__item">
           <Icon name="shareLink" className="cc-contact__link-icon" />
