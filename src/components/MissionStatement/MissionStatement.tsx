@@ -1,7 +1,7 @@
 import React from 'react';
 
 import RichText from 'RichText';
-import Link from 'Link';
+import Button from 'Button';
 
 type MissionStatementProps = {
   href?: string;
@@ -27,9 +27,15 @@ export const MissionStatement = ({
       </TitleElement>
       <RichText className="cc-mission-statement__text">{text}</RichText>
       {href && linkText && (
-        <Link className="cc-mission-statement__link" to={href}>
+        <Button
+          className="cc-mission-statement__link"
+          href={href}
+          icon="arrowLong"
+          iconPlacementSwitch
+          variant="link"
+        >
           {linkText}
-        </Link>
+        </Button>
       )}
     </div>
   );
