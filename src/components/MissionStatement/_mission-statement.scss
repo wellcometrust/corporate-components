@@ -1,0 +1,36 @@
+// ----------------------------------
+// UI Components
+// Mission Statement
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+// .cc-mission-statement {}
+
+.cc-mission-statement__title {
+  font-size: calc(24/16 * var(--text-base-size));
+  letter-spacing: calc(24/16 * var(--text-base-size) / 200); // 1/200th of font-size
+}
+
+.cc-mission-statement__text {
+  --font-size: calc(18/16 * var(--text-base-size));
+
+  font-size: var(--font-size);
+  letter-spacing: calc(var(--font-size) / 200); // 1/200th of font-size
+  line-height: 1.8;
+  margin-bottom: calc(4 * var(--space-unit));
+
+  @include mq(sm) {
+    --font-size: calc(24/16 * var(--text-base-size));
+  }
+
+  // wyswiyg content
+  a {
+    @extend %anchor-inherit;
+  }
+}
+
+.cc-mission-statement__link {
+  @extend %anchor-inherit;
+}

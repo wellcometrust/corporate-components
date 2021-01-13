@@ -33,6 +33,7 @@ export { default as Link } from 'Link';
 export { Listing, ListingElement, ListingLink } from 'Listing/Listing';
 export { Logo } from 'Logo/Logo';
 export { Main } from 'Main/Main';
+export { default as MissionStatement } from 'MissionStatement';
 export { NavItem } from 'Nav/NavItem';
 export { NavLinks } from 'Nav/NavLinks';
 export { default as ImageCard } from 'ImageCard';
