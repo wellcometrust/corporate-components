@@ -44,7 +44,7 @@ export const TextCard = ({
   titleAs = 'h3',
   type
 }: TextCardProps) => {
-  const Element = titleAs;
+  const TitleElement = titleAs;
   const classNames = cx('cc-text-card', {
     [`${className}`]: className
   });
@@ -84,7 +84,7 @@ export const TextCard = ({
           )}
         </div>
       )}
-      <Element className="cc-text-card__title">
+      <TitleElement className="cc-text-card__title">
         {type === 'file' ? (
           parseHtml(title)
         ) : (
@@ -92,7 +92,7 @@ export const TextCard = ({
             {parseHtml(title)}
           </a>
         )}
-      </Element>
+      </TitleElement>
       {type === 'file' && (
         <FileDownload
           className="cc-text-card__file-meta"
