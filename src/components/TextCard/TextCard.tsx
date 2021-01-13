@@ -22,6 +22,7 @@ type TextCardProps = {
   id?: string;
   metaLabel?: string;
   title: string;
+  titleAs?: 'h2' | 'h3';
   type?: 'content' | 'file' | 'taxonomy_term';
 };
 
@@ -40,8 +41,10 @@ export const TextCard = ({
   id,
   metaLabel,
   title,
+  titleAs = 'h3',
   type
 }: TextCardProps) => {
+  const Element = titleAs;
   const classNames = cx('cc-text-card', {
     [`${className}`]: className
   });
@@ -81,7 +84,7 @@ export const TextCard = ({
           )}
         </div>
       )}
-      <h3 className="cc-text-card__title">
+      <Element className="cc-text-card__title">
         {type === 'file' ? (
           parseHtml(title)
         ) : (
@@ -89,7 +92,7 @@ export const TextCard = ({
             {parseHtml(title)}
           </a>
         )}
-      </h3>
+      </Element>
       {type === 'file' && (
         <FileDownload
           className="cc-text-card__file-meta"
