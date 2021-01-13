@@ -33,8 +33,46 @@
   @include mq(sm) {
     @include grid-column(2, 12);
   }
-
+  
   @include mq(md) {
     @include grid-column(1, 13);
+    position: relative;
+  }
+}
+
+
+// sticky
+
+.cc-section__title {
+  @include mq(md) {
+    z-index: var(--z-medium);
+  }
+}
+
+// for various reasons, "wide" content has to appear above sticky content
+// such as the in-page nav
+.u-scaffold-grid-item--wide > * {
+  @include mq(md) {
+    position: relative;
+    z-index: var(--z-medium);
+  }
+}
+
+:root {
+  --hack-safari-transparent: rgba(255, 255, 255, 0.01);
+}
+
+// linear gradient applied to give a fading out appearance to sticky content layered behind it
+.u-scaffold-grid-item--wide:after {
+  @include mq(md) {
+    background: linear-gradient(180deg, var(--hack-safari-transparent) 0, var(--colour-white) 10%, var(--colour-white) 90%, var(--hack-safari-transparent) 100%);
+    bottom: -100px;
+    content: '';
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: -100px;
+    z-index: var(--z-low);
   }
 }
