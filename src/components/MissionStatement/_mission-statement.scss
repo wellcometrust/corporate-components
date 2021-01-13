@@ -11,6 +11,16 @@
 .cc-mission-statement__title {
   font-size: calc(24/16 * var(--text-base-size));
   letter-spacing: calc(24/16 * var(--text-base-size) / 200); // 1/200th of font-size
+  margin-bottom: var(--space-lg);
+
+  &:after {
+    background-color: var(--colour-orange-30);
+    content: '';
+    display: block;
+    height: rem(3);
+    margin-top: var(--space-lg);
+    width: rem(30);
+  }
 }
 
 .cc-mission-statement__text {
