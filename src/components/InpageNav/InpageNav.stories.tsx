@@ -30,7 +30,7 @@ const InpageNavExample = () => {
   return <InpageNav isMinimal={isMinimal} links={links} />;
 };
 
-const stories = storiesOf('Components|Page header', module);
+const stories = storiesOf('In-page navigation', module);
 
 stories.add('InpageNav', InpageNavExample, {
   readme: { sidebar: Readme }
