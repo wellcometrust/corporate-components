@@ -1,13 +1,11 @@
 // ----------------------------------
 // UI Settings
+// Sticky elements
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
-@import 'a11y';
-@import 'external-link-indicator';
-@import 'loading';
-@import 'colour';
-@import 'scaffolding';
-@import 'sticky';
+.u-sticky-fade {
+  @include sticky-fade;
+}
