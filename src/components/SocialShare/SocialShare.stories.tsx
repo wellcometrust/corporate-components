@@ -17,7 +17,7 @@ const SocialShareExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Page header', module);
+const stories = storiesOf('Page header', module);
 
 stories.add('SocialShare', SocialShareExample, {
   readme: { sidebar: Readme }

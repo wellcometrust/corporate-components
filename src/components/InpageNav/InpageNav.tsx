@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
+import Grid from 'Grid';
 
 type InpageNavProps = {
   isMinimal?: boolean;
@@ -26,24 +27,26 @@ export const InpageNav = ({ isMinimal, links }: InpageNavProps) => {
   );
 
   return (
-    <div className="cc-inpage-nav">
-      {isMinimal ? (
-        <Accordion>
-          <AccordionItem
-            title="On this page"
-            titleAs="strong"
-            variant="chevron"
-          >
+    <Grid className="cc-inpage-nav-container">
+      <div className="cc-inpage-nav">
+        {isMinimal ? (
+          <Accordion>
+            <AccordionItem
+              title="On this page"
+              titleAs="strong"
+              variant="chevron"
+            >
+              {navLinks}
+            </AccordionItem>
+          </Accordion>
+        ) : (
+          <>
+            <strong className="cc-inpage-nav__title">On this page</strong>
             {navLinks}
-          </AccordionItem>
-        </Accordion>
-      ) : (
-        <>
-          <strong className="cc-inpage-nav__title">On this page</strong>
-          {navLinks}
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </Grid>
   );
 };
 

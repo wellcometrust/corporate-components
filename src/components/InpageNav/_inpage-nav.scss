@@ -6,7 +6,20 @@
 // 2019-11-11
 // ----------------------------------
 
+.cc-inpage-nav-container {
+  margin-bottom: var(--space-xl);
+
+  @include mq(md) {
+    height: 0;
+    margin-bottom: 0;
+    pointer-events: none;
+    position: sticky;
+    top: calc(var(--header-height-sm) + var(--secondary-nav-height));
+  }
+}
+
 .cc-inpage-nav {
+  @include grid-column(1, 7);
   font-size: var(--body-md);
   letter-spacing: var(--body-letter-spacing);
   line-height: var(--body-line-height-sm);
@@ -16,12 +29,13 @@
     padding-top: calc(2 * var(--space-unit));
   }
 
+  @include mq(sm) {
+    @include grid-column(1, 13);
+  }
+
   @include mq(md) {
-    // positioning required to prevent inpage nav from increasing the gap between standfirst and following page content
-    // TODO: moving forward, may need to add this conditionally only when colour banding is not applied
-    left: 0;
-    position: absolute;
-    top: 0;
+    @include grid-column(1, 4);
+    pointer-events: all;
   }
 }
 
