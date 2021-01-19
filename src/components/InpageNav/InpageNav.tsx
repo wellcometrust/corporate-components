@@ -11,23 +11,22 @@ type InpageNavProps = {
 };
 
 type InpageNavItemProps = {
-  isActive?: boolean;
-  id?: string;
+  id: string;
   title?: string;
 };
 
 export const InpageNav = ({ activeLink, isMinimal, links }: InpageNavProps) => {
   const [active, setActive] = useState<string>('');
-  
+
   useEffect(() => {
     setActive(prevState => activeLink !== prevState && activeLink);
 
-    return () => {}
+    return () => {};
   }, [activeLink]);
-  
+
   const navLinks = (
     <ul className="cc-inpage-nav__list">
-      {links.map(({ id, title, ...props }) => {
+      {links.map(({ id, title }) => {
         const linkClassNames = cx('cc-inpage-nav__link', {
           'is-active': id === active
         });
@@ -38,7 +37,7 @@ export const InpageNav = ({ activeLink, isMinimal, links }: InpageNavProps) => {
               {title}
             </a>
           </li>
-        )
+        );
       })}
     </ul>
   );
