@@ -20,7 +20,7 @@ export const ResultsCount = ({
 
   return (
     <div className={classNames}>
-      <p>
+      <p className="cc-results-count__result">
         Showing{' '}
         <strong>
           {currentCount} results of {resultsCount}
