@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import cx from 'classnames';
 
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
@@ -16,19 +16,11 @@ type InpageNavItemProps = {
 };
 
 export const InpageNav = ({ activeLink, isMinimal, links }: InpageNavProps) => {
-  const [active, setActive] = useState<string>('');
-
-  useEffect(() => {
-    setActive(prevState => activeLink !== prevState && activeLink);
-
-    return () => {};
-  }, [activeLink]);
-
   const navLinks = (
     <ul className="cc-inpage-nav__list">
       {links.map(({ id, title }) => {
         const linkClassNames = cx('cc-inpage-nav__link', {
-          'is-active': id === active
+          'is-active': id === activeLink
         });
 
         return (
