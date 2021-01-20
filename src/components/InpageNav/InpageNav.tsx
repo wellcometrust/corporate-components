@@ -1,28 +1,40 @@
 import React from 'react';
+import cx from 'classnames';
 
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import Grid from 'Grid';
 
 type InpageNavProps = {
+  activeLinkId?: string;
   isMinimal?: boolean;
   links?: InpageNavItemProps[];
 };
 
 type InpageNavItemProps = {
+  id: string;
   title?: string;
-  id?: string;
 };
 
-export const InpageNav = ({ isMinimal, links }: InpageNavProps) => {
+export const InpageNav = ({
+  activeLinkId,
+  isMinimal,
+  links
+}: InpageNavProps) => {
   const navLinks = (
     <ul className="cc-inpage-nav__list">
-      {links.map(({ title, id, ...props }) => (
-        <li key={`anchor-link-${id}`} className="cc-inpage-nav__item">
-          <a className="cc-inpage-nav__link" href={`#${id}`}>
-            {title}
-          </a>
-        </li>
-      ))}
+      {links.map(({ id, title }) => {
+        const linkClassNames = cx('cc-inpage-nav__link', {
+          'is-active': id === activeLinkId
+        });
+
+        return (
+          <li key={`anchor-link-${id}`} className="cc-inpage-nav__item">
+            <a className={linkClassNames} href={`#${id}`}>
+              {title}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 
