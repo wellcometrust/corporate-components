@@ -60,21 +60,23 @@ export const PageHeaderCompact = ({
           src={imageSrc}
           srcSet={imageSrcSet}
         />
-        <figcaption className="cc-media__caption">
-          {imageCaption && (
-            <RichText className="cc-media__caption-detail">
-              {imageCaption}
-            </RichText>
-          )}
-          {imageCredit && (
-            <RichText className="cc-media__credit">
-              {`Credit: ${imageCredit}`}
-            </RichText>
-          )}
-          {imageLicence && (
-            <RichText className="cc-media__license">{imageLicence}</RichText>
-          )}
-        </figcaption>
+        {(imageCaption || imageCredit || imageLicence) && (
+          <figcaption className="cc-media__caption">
+            {imageCaption && (
+              <RichText className="cc-media__caption-detail">
+                {imageCaption}
+              </RichText>
+            )}
+            {imageCredit && (
+              <RichText className="cc-media__credit">
+                {`Credit: ${imageCredit}`}
+              </RichText>
+            )}
+            {imageLicence && (
+              <RichText className="cc-media__license">{imageLicence}</RichText>
+            )}
+          </figcaption>
+        )}
       </figure>
     )}
     <div className="cc-page-header-compact__aside cc-page-header-compact__section cc-page-header-compact__section--sidebar">
