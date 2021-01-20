@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import cx from 'classnames';
 
 type SectionProps = {
@@ -19,7 +19,7 @@ export const Section = forwardRef(
       type = 'section',
       ...otherProps
     }: SectionProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: Ref<HTMLDivElement>
   ) => {
     const Element = type;
     const classNames = cx('section', {
