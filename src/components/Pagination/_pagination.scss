@@ -72,7 +72,7 @@
 
 .cc-pagination__prev-icon,
 .cc-pagination__next-icon {
-  height: 8px;
+  height: calc(1 * var(--space-unit));
   margin-top: 1px;
 }
 
