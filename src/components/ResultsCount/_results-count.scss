@@ -18,7 +18,18 @@
   }
 }
 
+.cc-results-count__result {
+  margin-top: 0;
+
+  @include mq(sm) {
+    margin-bottom: 0;
+  }
+}
+
 .cc-results-count__sort {
+  margin-bottom: 0;
+  margin-top: 0;
+
   @include mq(sm) {
     margin-left: auto;
   }
