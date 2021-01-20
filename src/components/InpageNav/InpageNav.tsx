@@ -5,7 +5,7 @@ import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import Grid from 'Grid';
 
 type InpageNavProps = {
-  activeLink?: string;
+  activeLinkId?: string;
   isMinimal?: boolean;
   links?: InpageNavItemProps[];
 };
@@ -15,12 +15,16 @@ type InpageNavItemProps = {
   title?: string;
 };
 
-export const InpageNav = ({ activeLink, isMinimal, links }: InpageNavProps) => {
+export const InpageNav = ({
+  activeLinkId,
+  isMinimal,
+  links
+}: InpageNavProps) => {
   const navLinks = (
     <ul className="cc-inpage-nav__list">
       {links.map(({ id, title }) => {
         const linkClassNames = cx('cc-inpage-nav__link', {
-          'is-active': id === activeLink
+          'is-active': id === activeLinkId
         });
 
         return (
