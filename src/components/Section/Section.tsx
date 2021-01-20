@@ -4,7 +4,6 @@ import cx from 'classnames';
 type SectionProps = {
   children: React.ReactNode;
   className?: string;
-  dataType?: string;
   hasAlternateStyle?: boolean;
   id?: string;
   type?: 'div' | 'section';
@@ -15,10 +14,10 @@ export const Section = forwardRef(
     {
       children,
       className,
-      dataType,
       hasAlternateStyle,
       id,
-      type = 'section'
+      type = 'section',
+      ...otherProps
     }: SectionProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
@@ -29,7 +28,7 @@ export const Section = forwardRef(
     });
 
     return (
-      <Element className={classNames} id={id} data-type={dataType} ref={ref}>
+      <Element className={classNames} id={id} ref={ref} {...otherProps}>
         {children}
       </Element>
     );
