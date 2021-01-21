@@ -47,7 +47,7 @@ export const Button = forwardRef(
       variant = 'primary',
       ...props
     }: ButtonProps,
-    ref: Ref<HTMLDivElement>
+    ref: Ref<HTMLButtonElement>
   ) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const Element: any = href ? Link : 'button';
