@@ -56,13 +56,16 @@ export const Timeline = ({
         ...milestone,
         date: parseISO(milestone.date)
       }))
+      // Filter for dates in the past
+      .filter(milestone => isPast(milestone.date))
       // use getTime b/c Typescript
-      .sort((a, b) => a.date.getTime() - b.date.getTime())
+      .sort((a, b) => b.date.getTime() - a.date.getTime())
       /**
        * Returns first item in array which has a date in the past
        * with optional chaining to return statusLabel if present.
        */
       .find(milestone => isPast(milestone.date));
+
     return currentMilestone?.statusLabel ?? null;
   };
 
