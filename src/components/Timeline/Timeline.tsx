@@ -84,7 +84,7 @@ export const Timeline = ({
       const newStatusLabel = getCurrentStatusLabel();
       return newStatusLabel || initialStatusLabel;
     });
-  }, [milestones]);
+  }, []);
 
   return (
     <div className={classNames}>
