@@ -97,7 +97,7 @@ export const Timeline = ({
               key={`${index}-${item.date}-${item.title}`}
               className="cc-timeline__item"
             >
-              <div className="cc-timeline__item-date">{item.date}</div>
+              <div className="cc-timeline__item-date">{item.dateLabel}</div>
               {item.linkHref && item.linkText && (
                 <a className="cc-timeline__item-link" href={item.linkHref}>
                   {item.linkText}
