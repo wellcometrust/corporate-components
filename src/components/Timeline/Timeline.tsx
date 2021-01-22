@@ -75,7 +75,7 @@ export const Timeline = ({
    * component is statically rendered.
    */
   useEffect(() => {
-    setStatusLabel(prevStatusLabel => {
+    setStatusLabel(() => {
       const newStatusLabel = getCurrentStatusLabel();
       return newStatusLabel || initialStatusLabel;
     });
