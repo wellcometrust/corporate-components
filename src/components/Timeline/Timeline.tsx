@@ -41,29 +41,31 @@ export const Timeline = ({
    * - most recent milestone (milestone.date)
    * - which has a statusLabel (milestone.statusLabel)
    *
-   * @returns {string} statusLabel
+   * @returns {string}
    */
   const getCurrentStatusLabel = () => {
     const currentMilestone = milestones
+
+      // check the date value is a valid Date
       .filter(
         milestone =>
           milestone.statusLabel &&
-          // check the date value is a valid Date
           typeof parseISO(milestone.date).getTime === 'function'
       )
+
       // convert date string to Date object (for Array.sort)
       .map(milestone => ({
         ...milestone,
         date: parseISO(milestone.date)
       }))
+
       // Filter for dates in the past
       .filter(milestone => isPast(milestone.date))
-      // use getTime b/c Typescript
+
+      // sort descending by date (most recent first), use getTime b/c Typescript
       .sort((a, b) => b.date.getTime() - a.date.getTime())
-      /**
-       * Returns first item in array which has a date in the past
-       * with optional chaining to return statusLabel if present.
-       */
+
+      // Find first match which is in the past
       .find(milestone => isPast(milestone.date));
 
     return currentMilestone?.statusLabel ?? null;
