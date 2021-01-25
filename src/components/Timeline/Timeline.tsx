@@ -36,6 +36,8 @@ type TimelineProps = {
 /**
  * Timeline component
  *
+ * @constructor
+ *
  * @param {string} className
  * @param {string} description
  * @param {string} initialStatusLabel
