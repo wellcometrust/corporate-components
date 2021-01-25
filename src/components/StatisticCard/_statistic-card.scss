@@ -1,0 +1,307 @@
+// ----------------------------------
+// UI Components
+// Card
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+// .cc-card {
+//     background: var(--colour-white);
+//     margin-bottom: var(--space-lg);
+//     position: relative;
+  
+//     @include mq(sm) {
+//       display: flex;
+  
+//       .cc-card__image,
+//       .cc-card__content {
+//         width: 50%;
+//       }
+//     }
+  
+//     @include mq($until: md) {
+//       &:last-child {
+//         margin-bottom: 0;
+//       }
+//     }
+  
+//     @include mq(md) {
+//       &:not(.cc-card--horizontal):last-child {
+//         margin-bottom: 0;
+//       }
+//     }
+//   }
+  
+//   // .cc-card--placeholder is to be used on cards which should not
+//   // be fully styled up as such e.g. promos
+//   .cc-card--placeholder {
+//     position: relative;
+//   }
+  
+
+  
+//   .cc-card__content {
+//     align-items: stretch;
+//     display: flex;
+//     flex-flow: column nowrap;
+//     flex-grow: 1;
+//     justify-content: flex-start;
+//     padding: calc(2 * var(--space-unit));
+//   }
+  
+//   .cc-card__type {
+//     margin-bottom: var(--space-sm);
+//     margin-top: 0;
+//   }
+  
+//   .cc-card__title {
+//     @extend %heading-base;
+//     @extend %heading-large;
+//     @include heading-fancy;
+  
+//     margin-bottom: calc(2 * var(--space-unit));
+//   }
+  
+//   .cc-card__link {
+//     @extend %list-item-link;
+//     display: block;
+  
+//     &:before {
+//       bottom: 0;
+//       content: '';
+//       left: 0;
+//       position: absolute;
+//       right: 0;
+//       top: 0;
+//       z-index: 1;
+//     }
+//   }
+  
+//   .cc-card__link:before {
+//     box-shadow: 0 2px 6px 0 rgba($colour-grey-60, 0.3);
+//     transition: box-shadow 0.2s;
+//   }
+  
+//   .cc-card__link:active,
+//   .cc-card__link:focus,
+//   .cc-card__link:hover {
+//     &:before {
+//       box-shadow: 0 0 2px 0 rgba($colour-grey-60, 0.3);
+//     }
+//   }
+
+  
+
+  
+.cc-statistic-card__description p {
+  margin: 0;
+}
+
+//   // ----------------------------------
+// // UI Components
+// // FeaturedPromo
+// // ----------------------------------
+// // Design System 1.0 Alpha
+// // 2019-11-11
+// // ----------------------------------
+
+// .cc-featured-promo {
+//     @include mq(sm) {
+//       display: flex;
+//       flex-wrap: nowrap;
+//     }
+//   }
+  
+//   .cc-featured-promo__figure {
+//     display: block;
+  
+//     @include mq(sm) {
+//       flex-basis: calc((100% / 12) * 5); // 5/12ths
+//       flex-shrink: 0;
+//       margin-right: calc(2.5 * var(--space-unit));
+//     }
+  
+//     @include mq(md) {
+//       flex-basis: 50%;
+//       margin-right: calc(5 * var(--space-unit));
+//     }
+  
+//     @include mq(lg) {
+//       margin-right: calc(6 * var(--space-unit));
+//     }
+//   }
+  
+//   .cc-featured-promo__image {
+//     @extend %img-cover;
+  
+//     height: 100%;
+//     margin: 0;
+//   }
+  
+//   .cc-featured-promo__body {
+//     padding-bottom: calc(2 * var(--space-unit));
+//     padding-top: calc(2 * var(--space-unit));
+  
+//     @include mq($until: sm) {
+//       background-color: var(--colour-amber-05);
+//       padding-left: calc(2 * var(--space-unit));
+//       padding-right: calc(2 * var(--space-unit));
+//     }
+//   }
+  
+//   .cc-featured-promo__meta {
+//     align-items: center;
+//     display: flex;
+//     flex-wrap: wrap;
+//     margin-bottom: calc(2 * var(--space-unit));
+  
+//     @include mq(sm) {
+//       margin-bottom: calc(1.5 * var(--space-unit));
+//     }
+  
+//     @include mq(md) {
+//       margin-bottom: calc(3 * var(--space-unit));
+//     }
+//   }
+  
+//   .cc-featured-promo__meta-item {
+//     margin-right: var(--space-unit);
+//   }
+  
+//   .cc-featured-promo__meta-item--label {
+//     color: var(--colour-grey-60);
+//     font-size: var(--body-xs);
+//     text-transform: uppercase;
+//   }
+  
+//   .cc-featured-promo__meta-item--flag {
+//     &:after {
+//       color: var(--colour-amber-30);
+//       content: '/';
+//       margin-left: var(--space-xs);
+//     }
+//   }
+  
+//   .cc-featured-promo__title {
+//     @extend %heading-base;
+//     @extend %heading-large;
+//     @include heading-fancy;
+  
+//     margin-bottom: calc(2 * var(--space-unit));
+//   }
+  
+//   .cc-featured-promo__link {
+//     @extend %anchor-inherit;
+//     @include animated-underline;
+  
+//     /**
+//      * Imitate the hover state when a user hovers over the image of
+//      * card.
+//      */
+//     .cc-featured-promo__figure:hover + .cc-featured-promo__body &,
+//     .cc-featured-promo__figure:focus + .cc-featured-promo__body & {
+//       background-size: 100% 2px;
+//       text-decoration: none;
+//       transition-timing-function: var(--transition-timing-function-in);
+//     }
+//   }
+
+
+// ----------------------------------
+// UI Components
+// FeaturedPromo
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-statistic-card__description {
+  padding-bottom: calc(2 * var(--space-unit));
+  padding-top: calc(2 * var(--space-unit));
+  
+  @include mq($until: sm) {
+    background-color: var(--colour-amber-05);
+    padding-left: calc(2 * var(--space-unit));
+    padding-right: calc(2 * var(--space-unit));
+  }
+}
+  
+.cc-featured-promo__meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: calc(2 * var(--space-unit));
+  
+  @include mq(sm) {
+    margin-bottom: calc(1.5 * var(--space-unit));
+  }
+  
+  @include mq(md) {
+    margin-bottom: calc(3 * var(--space-unit));
+  }
+}
+  
+.cc-featured-promo__meta-item {
+  margin-right: var(--space-unit);
+}
+  
+.cc-featured-promo__meta-item--label {
+  color: var(--colour-grey-60);
+  font-size: var(--body-xs);
+  text-transform: uppercase;
+}
+  
+.cc-featured-promo__meta-item--flag {
+  &:after {
+    color: var(--colour-amber-30);
+    content: '/';
+    margin-left: var(--space-xs);
+  }
+}
+  
+.cc-featured-promo__authors {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--body-md);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+  
+.cc-featured-promo__authors-label {
+  @extend %visually-hidden;
+}
+  
+.cc-featured-promo__author {
+  margin-left: 0;
+  
+  &:not(:last-child):after {
+    content: ', ';
+    white-space: pre;
+  }
+}
+  
+.cc-statistic-card__title {
+  @extend %heading-base;
+  @extend %heading-large;
+  @include heading-fancy;
+  
+  margin-bottom: calc(2 * var(--space-unit));
+}
+  
+.cc-statistic-card__link {
+  @extend %anchor-inherit;
+  @include animated-underline;
+  
+  /**
+     * Imitate the hover state when a user hovers over the image of
+     * card.
+     */
+  .cc-featured-promo__figure:hover + .cc-featured-promo__body &,
+  .cc-featured-promo__figure:focus + .cc-featured-promo__body & {
+    background-size: 100% 2px;
+    text-decoration: none;
+    transition-timing-function: var(--transition-timing-function-in);
+  }
+}
