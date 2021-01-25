@@ -1,12 +1,23 @@
+/**
+ * @file The Timeline component renders a piece of UI which is used
+ * to visually display a list of events in (usally) chronological
+ * order, e.g. applications process, historical events etc.
+ *
+ * Our Timeline component also calculates a "current status" which
+ * renders a specific piece of UI within the Timeline component
+ * displaying to users which of the `milestones` are currently active:
+ * "Where we currently are in the timeline of events".
+ */
+
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
-import { isPast, parseISO } from 'date-fns';
+import { isPast } from 'date-fns';
 
 import RichText from 'RichText';
 
 type TimelineMilestoneProps = {
   body?: string;
-  date: string;
+  date: string; // UTC date strings
   dateLabel: string;
   linkHref?: string;
   linkText?: string;
@@ -22,6 +33,23 @@ type TimelineProps = {
   title?: string;
 };
 
+/**
+ * Timeline component
+ *
+ * @param {string} className
+ * @param {string} description
+ * @param {string} initialStatusLabel
+ * @param {object[]} milestones[]
+ * @param {string} milestones[].body
+ * @param {string} milestones[].date UTC formatted date string
+ * @param {string} milestones[].dateLabel Human-readable date
+ * @param {string} milestones[].linkHref
+ * @param {string} milestones[].linkText
+ * @param {string} milestones[].statusLabel String describing status of the Timeline when this milestone is the most recent
+ * @param {string} milestones[].title
+ * @param {string} title
+ *
+ */
 export const Timeline = ({
   className,
   description,
@@ -50,13 +78,13 @@ export const Timeline = ({
       .filter(
         milestone =>
           milestone.statusLabel &&
-          typeof parseISO(milestone.date).getTime === 'function'
+          typeof new Date(milestone.date).getTime === 'function'
       )
 
       // convert date string to Date object (for Array.sort)
       .map(milestone => ({
         ...milestone,
-        date: parseISO(milestone.date)
+        date: new Date(milestone.date)
       }))
 
       // Filter for dates in the past
