@@ -41,7 +41,7 @@ export const StatisticCard = ({
       )}
       {linkTitle && (
         <Link className="cc-statistic-card__link" to={href}>
-          {linkTitle}
+          {linkTitle} &#10230;
         </Link>
       )}
     </article>
