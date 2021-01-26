@@ -23,7 +23,7 @@ export const getYoutubeEmbedUrl = (src: string) => {
     '?wmode=opaque&modestbranding=1&rel=0&showinfo=0&color=white&autohide=1';
 
   return match !== null
-    ? `//www.youtube.com/embed/${match[2]}${embedOptions}`
+    ? `//www.youtube-nocookie.com/embed/${match[2]}${embedOptions}`
     : null;
 };
 
