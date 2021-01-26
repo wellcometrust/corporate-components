@@ -93,7 +93,28 @@
   transform: rotate(-90deg);
 }
 
-.cc-accordion__button--plus svg {
+.cc-accordion__button--plus[aria-expanded='false'] svg {
   transform: rotate(-45deg);
   transition: transform var(--transition-duration-fast) ease;
+}
+
+.cc-accordion--nested {
+  margin-left: calc(2 * var(--space-unit));
+  margin-top: calc(2 * var(--space-unit));
+
+  & + & {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  .cc-accordion__button--plus {
+    font-weight: normal;
+  }
+
+  .cc-accordion__button--plus[aria-expanded='true'] {
+    font-weight: bold;
+  }
 }
