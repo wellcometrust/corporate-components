@@ -27,7 +27,6 @@ type ContactProps = {
   institutions?: InstitutionProps[];
   contactRole?: string;
   name?: string;
-  nested?: boolean;
   teamTitle?: string;
   teamUrl?: string;
   tel?: string;
@@ -41,13 +40,11 @@ export const Contact = ({
   institutions,
   contactRole,
   name,
-  nested,
   teamTitle,
   teamUrl,
   tel
 }: ContactProps) => {
   const classNames = cx('cc-contact', {
-    'cc-contact--nested': nested,
     [className]: className
   });
 
