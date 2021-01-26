@@ -50,6 +50,7 @@ export { SearchForm } from 'SearchForm/SearchForm';
 export { SearchPane } from 'SearchPane/SearchPane';
 export { Section } from 'Section/Section';
 export { SectionTitle } from 'SectionTitle/SectionTitle';
+export { StatisticCard } from 'StatisticCard/StatisticCard';
 export { default as SiteAlert } from 'SiteAlert';
 export { default as SidebarFilter } from 'SidebarFilter';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
