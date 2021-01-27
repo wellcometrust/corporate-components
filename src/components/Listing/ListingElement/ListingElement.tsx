@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Card from 'Card';
 import ImageCard from 'ImageCard';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
+import StatisticCard from 'StatisticCard';
 import TextCard from 'TextCard';
 
 type ListingElementProps = {
@@ -22,6 +23,7 @@ type ListingElementProps = {
   imageSrcSet?: string;
   imageWidth?: string;
   hasMetaLabel?: boolean;
+  linkTitle?: string;
   metaLabel?: string;
   title: string;
   type?: 'content' | 'file' | 'taxonomy_term';
@@ -31,6 +33,7 @@ type ListingElementProps = {
     | 'link_card_cta_link'
     | 'link_list'
     | 'mid_page_card'
+    | 'statistic_card'
     | 'text_list'
     | 'vertical_card';
 };
@@ -47,6 +50,7 @@ const variantElement = {
   link_card_cta_link: ImageCard,
   link_list: ListingLink,
   mid_page_card: Card,
+  statistic_card: StatisticCard,
   text_list: TextCard,
   vertical_card: Card
 };
@@ -67,6 +71,7 @@ export const ListingElement = ({
   imageSrc,
   imageSrcSet,
   imageWidth,
+  linkTitle,
   metaLabel,
   title,
   type,
@@ -98,6 +103,7 @@ export const ListingElement = ({
       imageSrc={imageSrc}
       imageSrcSet={imageSrcSet}
       imageWidth={imageWidth}
+      linkTitle={linkTitle}
       hasMetaLabel={hasMetaLabel}
       metaLabel={metaLabel}
       title={title}

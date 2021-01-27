@@ -3,7 +3,6 @@ import cx from 'classnames';
 
 import ListingElement from './ListingElement';
 import ListingLink from './ListingLink';
-import StatisticCard from '../StatisticCard/StatisticCard';
 
 type ListingProps = {
   as?: 'div' | 'ol' | 'ul';
@@ -15,9 +14,9 @@ type ListingProps = {
     | 'link_card_cta_link'
     | 'link_list'
     | 'mid_page_card'
+    | 'statistic_card'
     | 'text_list'
-    | 'vertical_card'
-    | 'statistic_card';
+    | 'vertical_card';
 };
 
 // Specific style variations for card listings
@@ -27,9 +26,9 @@ const variantMapping = {
   link_card_cta_link: 'cc-card-listing cc-card-listing--horizontal',
   link_list: 'cc-listing',
   mid_page_card: 'cc-card-listing',
+  statistic_card: 'cc-card-listing cc-card-listing--horizontal',
   text_list: 'cc-listing',
-  vertical_card: 'cc-card-listing',
-  statistic_card: 'cc-card-statistic'
+  vertical_card: 'cc-card-listing'
 };
 
 export const Listing = ({
@@ -56,4 +55,4 @@ export const Listing = ({
 };
 
 export default Listing;
-export { ListingElement, ListingLink, StatisticCard };
+export { ListingElement, ListingLink };
