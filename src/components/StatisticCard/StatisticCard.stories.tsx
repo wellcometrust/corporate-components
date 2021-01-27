@@ -65,7 +65,7 @@ const MultipleStatisticCard = () => {
   }));
 
   return (
-    <Listing variant="image_card">
+    <Listing variant="statistic_card">
       {[...Array(cardCount).keys()].map(i => (
         <StatisticCard
           title={knobs[i].title}
