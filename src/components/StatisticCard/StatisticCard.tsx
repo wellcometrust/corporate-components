@@ -2,7 +2,6 @@ import React from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
-import Link from 'Link';
 import RichText from 'RichText';
 
 type StatisticCardProps = {
@@ -42,7 +41,7 @@ export const StatisticCard = ({
       )}
       {linkTitle && (
         <Button
-          className="cc-full-width-promo__link cc-cta-link"
+          className="cc-cta-link"
           href={href}
           icon="arrowLong"
           iconPlacementSwitch
