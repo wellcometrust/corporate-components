@@ -124,10 +124,29 @@
     border: 0;
   }
 
-  // Hovered/Focused checkbox
-  .cc-sidebar-filter__checkbox-input:not(:disabled) ~ &:hover:before,
+  // Hovered checkbox
+  .cc-sidebar-filter__checkbox-input:not(:disabled) ~ &:hover:before {
+    border-color: var(--colour-grey-80);
+  }
+
+  /**
+   * @see focus-visible: https://css-tricks.com/focus-visible-and-backwards-compatibility/
+   */
+  // Focused checkbox
   .cc-sidebar-filter__checkbox-input:not(:disabled):focus ~ &:before {
-    border-color: var(--colour-blue-60);
+    box-shadow: 0 0 0 2px var(--colour-blue-30);
+  }
+
+  .cc-sidebar-filter__checkbox-input:not(:disabled):focus:not(:focus-visible) ~ &:before {
+    /**
+    * undo all the above focused styles
+    * if the input has focus but the browser wouldn't normally show default focus styles
+    */
+    box-shadow: none;
+  }
+
+  .cc-sidebar-filter__checkbox-input:not(:disabled):focus-visible ~ &:before {
+    box-shadow: 0 0 0 2px var(--colour-blue-30);
   }
 
   // Default checkbox
