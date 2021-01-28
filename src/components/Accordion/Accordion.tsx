@@ -14,7 +14,7 @@ export const Accordion = ({
   children,
   className,
   hasBorders,
-  isNested = false
+  isNested
 }: AccordionProps) => {
   const [active, setActive] = useState(-1);
   const classNames = cx('cc-accordion', {
