@@ -25,6 +25,7 @@ type ContactProps = {
   email?: string;
   imageSources?: ContactImageSourceProps;
   institutions?: InstitutionProps[];
+  isNested?: boolean;
   contactRole?: string;
   name?: string;
   teamTitle?: string;
@@ -38,6 +39,7 @@ export const Contact = ({
   email,
   imageSources,
   institutions,
+  isNested,
   contactRole,
   name,
   teamTitle,
@@ -45,7 +47,8 @@ export const Contact = ({
   tel
 }: ContactProps) => {
   const classNames = cx('cc-contact', {
-    [`${className}`]: className
+    'cc-contact--nested': isNested,
+    [className]: className
   });
 
   return (
@@ -70,12 +73,15 @@ export const Contact = ({
           {contactRole}
         </RichText>
       )}
-      {institutions &&
-        institutions.map(({ country, name: institutionName }) => (
-          <p className="cc-contact__institution" itemProp="worksFor">
-            {country ? `${institutionName}, ${country}` : institutionName}
-          </p>
-        ))}
+      {institutions?.map(({ country, name: institutionName }) => (
+        <p
+          className="cc-contact__institution"
+          itemProp="worksFor"
+          key={institutionName}
+        >
+          {country ? `${institutionName}, ${country}` : institutionName}
+        </p>
+      ))}
       {teamUrl && (
         <p className="cc-contact__item">
           <Icon name="shareLink" className="cc-contact__link-icon" />

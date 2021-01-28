@@ -15,6 +15,12 @@
   padding: var(--space-lg) 0;
 }
 
+.cc-contact--nested {
+  border: 0;
+  padding-bottom: var(--space-sm);
+  padding-top: 0;
+}
+
 .cc-contact__image {
   @extend %img-responsive;
   float: left;
@@ -38,6 +44,10 @@
   align-items: center;
   display: flex;
   margin: 0 0 var(--space-sm);
+
+  .cc-contact--nested & {
+    margin-bottom: calc(2 * var(--space-sm));
+  }
 
   &:last-child {
     margin-bottom: 0;

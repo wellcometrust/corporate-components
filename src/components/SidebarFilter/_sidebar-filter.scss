@@ -130,9 +130,15 @@
     border-color: var(--colour-blue-60);
   }
 
+  // Default checkbox
+  .cc-sidebar-filter__checkbox-input ~ &:before {
+    border-color: var(--colour-grey-40);
+  }
+
   // Disabled checkbox
   .cc-sidebar-filter__checkbox-input:disabled ~ &:before {
-    border-color: var(--colour-grey-20);
+    background-color: var(--colour-white);
+    border: 1px solid var(--colour-grey-20);
   }
 
   .cc-sidebar-filter__checkbox-input:disabled ~ & {

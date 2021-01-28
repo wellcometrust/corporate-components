@@ -7,16 +7,19 @@ type AccordionProps = {
   children?: JSX.Element | JSX.Element[];
   className?: string;
   hasBorders?: boolean;
+  isNested?: boolean;
 };
 
 export const Accordion = ({
   children,
   className,
-  hasBorders
+  hasBorders,
+  isNested
 }: AccordionProps) => {
   const [active, setActive] = useState(-1);
   const classNames = cx('cc-accordion', {
     'cc-accordion--has-borders': hasBorders,
+    'cc-accordion--nested': isNested,
     [`${className}`]: className
   });
 
