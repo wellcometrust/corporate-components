@@ -6,6 +6,9 @@ import Grid from 'Grid';
 
 type InpageNavProps = {
   activeLinkId?: string;
+  backToTopHref?: string;
+  backToTopText?: string;
+  hasBackToTop?: boolean;
   isMinimal?: boolean;
   links?: InpageNavItemProps[];
 };
@@ -17,6 +20,9 @@ type InpageNavItemProps = {
 
 export const InpageNav = ({
   activeLinkId,
+  backToTopHref = '#top',
+  backToTopText = 'Back to top',
+  hasBackToTop = true,
   isMinimal,
   links
 }: InpageNavProps) => {
@@ -35,6 +41,13 @@ export const InpageNav = ({
           </li>
         );
       })}
+      {hasBackToTop && (
+        <li className="cc-inpage-nav__item cc-inpage-nav__item--top">
+          <a className="cc-inpage-nav__link" href={backToTopHref}>
+            {backToTopText}
+          </a>
+        </li>
+      )}
     </ul>
   );
 

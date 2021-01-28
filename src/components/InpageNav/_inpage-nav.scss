@@ -76,3 +76,9 @@
     padding-left: var(--space-unit);
   }
 }
+
+.cc-inpage-nav__item--top {
+  @include mq($until: md) {
+    display: none;
+  }
+}
