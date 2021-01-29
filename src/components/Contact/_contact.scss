@@ -23,6 +23,12 @@
   * + & {
     margin-top: calc(2 * var(--space-sm));
   }
+
+  .cc-contact__name,
+  .cc-contact__institution,
+  .cc-contact__item {
+    margin-bottom: calc(2 * var(--space-sm));
+  }
 }
 
 .cc-contact__image {
@@ -48,10 +54,6 @@
   align-items: center;
   display: flex;
   margin: 0 0 var(--space-sm);
-
-  .cc-contact--nested & {
-    margin-bottom: calc(2 * var(--space-sm));
-  }
 
   &:last-child {
     margin-bottom: 0;
