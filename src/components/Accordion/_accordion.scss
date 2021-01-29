@@ -29,6 +29,11 @@
 
 .cc-accordion__content {
   padding: var(--space-unit) 0;
+
+  .cc-rich-text + *,
+  .cc-accordion + * {
+    margin-top: calc(2 * var(--space-sm));
+  }
 }
 
 .cc-accordion__button {
