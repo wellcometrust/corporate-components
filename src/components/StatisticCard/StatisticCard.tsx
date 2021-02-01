@@ -8,7 +8,7 @@ type StatisticCardProps = {
   className?: string;
   description?: string;
   href?: string;
-  linkTitle?: string;
+  linkText?: string;
   title?: string;
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
@@ -17,7 +17,7 @@ export const StatisticCard = ({
   className,
   description,
   href,
-  linkTitle,
+  linkText,
   title,
   titleAs = 'h3'
 }: StatisticCardProps) => {
@@ -39,7 +39,7 @@ export const StatisticCard = ({
           {description}
         </RichText>
       )}
-      {linkTitle && (
+      {linkText && (
         <Button
           className="cc-cta-link"
           href={href}
@@ -47,7 +47,7 @@ export const StatisticCard = ({
           iconPlacementSwitch
           variant="unstyled"
         >
-          {linkTitle}
+          {linkText}
         </Button>
       )}
     </article>

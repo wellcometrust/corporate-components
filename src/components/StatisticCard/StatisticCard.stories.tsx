@@ -24,14 +24,14 @@ const SingleStatisticCard = () => {
     'Our response to COVID-19 will help define the 21st century',
     generalGroupID
   );
-  const linkTitle = text('linkTitle', 'Optional text link', generalGroupID);
+  const linkText = text('linkText', 'Optional text link', generalGroupID);
 
   return (
     <StatisticCard
       description={description}
       href={href}
       title={title}
-      linkTitle={linkTitle}
+      linkText={linkText}
     />
   );
 };
@@ -61,7 +61,7 @@ const MultipleStatisticCard = () => {
       'The true impact of the COVID-19 pandemic will be felt beyond its immediate effects. Jeremy Farrar explains why the choices leaders make now will help define the 21st century.',
       `Card ${i + 1}`
     ),
-    linkTitle: text('linkTitle', 'Optional text link', `Card ${i + 1}`)
+    linkText: text('linkText', 'Optional text link', `Card ${i + 1}`)
   }));
 
   return (
@@ -70,7 +70,7 @@ const MultipleStatisticCard = () => {
         <StatisticCard
           title={knobs[i].title}
           titleAs={knobs[i].titleAs}
-          linkTitle={knobs[i].linkTitle}
+          linkText={knobs[i].linkText}
           href={knobs[i].href}
           description={knobs[i].description}
         />

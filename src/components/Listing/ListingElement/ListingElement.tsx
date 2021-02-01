@@ -23,7 +23,7 @@ type ListingElementProps = {
   imageSrcSet?: string;
   imageWidth?: string;
   hasMetaLabel?: boolean;
-  linkTitle?: string;
+  linkText?: string;
   metaLabel?: string;
   title: string;
   type?: 'content' | 'file' | 'taxonomy_term';
@@ -71,7 +71,7 @@ export const ListingElement = ({
   imageSrc,
   imageSrcSet,
   imageWidth,
-  linkTitle,
+  linkText,
   metaLabel,
   title,
   type,
@@ -103,7 +103,7 @@ export const ListingElement = ({
       imageSrc={imageSrc}
       imageSrcSet={imageSrcSet}
       imageWidth={imageWidth}
-      linkTitle={linkTitle}
+      linkText={linkText}
       hasMetaLabel={hasMetaLabel}
       metaLabel={metaLabel}
       title={title}
