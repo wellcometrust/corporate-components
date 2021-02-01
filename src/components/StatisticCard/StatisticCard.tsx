@@ -39,7 +39,7 @@ export const StatisticCard = ({
           {description}
         </RichText>
       )}
-      {linkText && (
+      {href && linkText && (
         <Button
           className="cc-cta-link"
           href={href}
