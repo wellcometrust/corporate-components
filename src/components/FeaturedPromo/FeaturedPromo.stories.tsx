@@ -26,10 +26,14 @@ const FeaturedPromoExample = () => {
 
   return (
     <FeaturedPromo
-      authors={authors
-        .trim()
-        .split(',')
-        .map(a => a.trim())}
+      authors={
+        authors.trim().length
+          ? authors
+              .trim()
+              .split(',')
+              .map(a => a.trim())
+          : []
+      }
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
       description={parseHtml(description)}

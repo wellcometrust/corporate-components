@@ -68,7 +68,7 @@ export const ImageCard = ({
                 {metaLabel}
               </span>
             )}
-            {authors?.length && (
+            {authors?.length > 0 && (
               <dl className="cc-image-card__meta-item cc-image-card__meta-item--author cc-image-card__authors">
                 <dt className="cc-image-card__authors-label">Author</dt>
                 {authors?.map(author => (

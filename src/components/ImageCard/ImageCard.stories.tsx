@@ -26,10 +26,14 @@ const SingleImageCard = () => {
 
   return (
     <ImageCard
-      authors={authors
-        .trim()
-        .split(',')
-        .map(a => a.trim())}
+      authors={
+        authors.trim().length
+          ? authors
+              .trim()
+              .split(',')
+              .map(a => a.trim())
+          : []
+      }
       date={date}
       href={href}
       imageAlt={imageAlt}

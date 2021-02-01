@@ -63,7 +63,7 @@ export const FullWidthPromo = ({
             {metaLabel && (
               <p className="cc-full-width-promo__type">{metaLabel}</p>
             )}
-            {authors?.length && (
+            {authors?.length > 0 && (
               <dl className="cc-full-width-promo__authors">
                 <dt className="cc-full-width-promo__authors-label">Author</dt>
                 {authors?.map(author => (
@@ -92,7 +92,7 @@ export const FullWidthPromo = ({
             {description}
           </RichText>
         )}
-        {!!linkText?.trim().length && (
+        {linkText?.trim().length > 0 && (
           <Button
             className="cc-full-width-promo__link cc-cta-link"
             href={href}
