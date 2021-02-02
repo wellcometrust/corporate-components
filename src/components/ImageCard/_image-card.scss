@@ -40,8 +40,18 @@
 
 .cc-image-card__image {
   @extend %img-responsive;
-
+  @extend %img-cover;
   margin: 0;
+
+  // ensure all card images have the same aspect ratio to enforce the same height
+  @include mq(md) {
+    padding-bottom: 66.67%;
+    position: relative;
+
+    > img {
+      position: absolute;
+    }
+  }
 }
 
 .cc-image-card__body {
