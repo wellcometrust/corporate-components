@@ -31,13 +31,13 @@
   &:after {
     @include mq(md) {
       background: linear-gradient(180deg, var(--hack-safari-transparent-white) 0, var(--colour-white) 10%, var(--colour-white) 90%, var(--hack-safari-transparent-white) 100%);
-      bottom: -100px;
+      bottom: -80px;
       content: '';
       left: 0;
       pointer-events: none;
       position: absolute;
       right: 0;
-      top: -100px;
+      top: -80px;
       z-index: var(--z-low);
     }
   }
