@@ -84,14 +84,13 @@
   font-size: var(--body-xs);
   margin: 0;
   text-transform: uppercase;
-}
 
-.cc-full-width-promo__type + .cc-full-width-promo__authors:before {
-  color: var(--colour-amber-30);
-  content: '/';
-  font-size: var(--body-xs);
-  padding-left: var(--space-unit);
-  padding-right: var(--space-unit);
+  &:after {
+    color: var(--colour-amber-30);
+    content: '/';
+    padding-left: var(--space-unit);
+    padding-right: var(--space-unit);
+  }
 }
 
 .cc-full-width-promo__authors {
