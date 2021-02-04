@@ -7,25 +7,20 @@
 // ----------------------------------
 
 .cc-image-card {
-  margin-bottom: var(--space-lg);
+  // margin-bottom: var(--space-lg);
 
-  @include mq($until: md) {
-    display: flex;
-    flex-wrap: nowrap;
-  }
+  // @include mq(md) {
+  //   flex-basis: calc(33.33% - #{$grid-gutter-md});
+  //   flex-grow: 0;
+  //   flex-shrink: 0;
+  //   margin: $grid-gutter-md / 2;
+  //   padding-bottom: var(--space-unit);
+  // }
 
-  @include mq(md) {
-    flex-basis: calc(33.33% - #{$grid-gutter-md});
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: $grid-gutter-md / 2;
-    padding-bottom: var(--space-unit);
-  }
-
-  @include mq(xl) {
-    flex-basis: calc(33.33% - #{$grid-gutter-xl});
-    margin: $grid-gutter-xl / 2;
-  }
+  // @include mq(xl) {
+  //   flex-basis: calc(33.33% - #{$grid-gutter-xl});
+  //   margin: $grid-gutter-xl / 2;
+  // }
 }
 
 .cc-image-card__figure {
@@ -33,9 +28,9 @@
   flex-basis: 33.33%;
   flex-shrink: 0;
 
-  @include mq(md) {
-    margin-bottom: calc(2 * var(--space-unit));
-  }
+  // @include mq(md) {
+  //   margin-bottom: calc(2 * var(--space-unit));
+  // }
 }
 
 .cc-image-card__image {
@@ -60,10 +55,6 @@
 
   @include mq(sm) {
     padding-left: calc(2 * var(--space-unit));
-  }
-
-  @include mq(md) {
-    padding-left: 0;
   }
 }
 
@@ -156,4 +147,46 @@
   display: block;
   font-size: var(--body-xs);
   text-transform: uppercase;
+}
+
+
+// VARIANTS
+.cc-image-card--standard {
+  margin-bottom: var(--space-lg);
+
+  @include mq($until: md) {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  @include mq(md) {
+    flex-basis: calc(33.33% - #{$grid-gutter-md});
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: $grid-gutter-md / 2;
+    padding-bottom: var(--space-unit);
+  }
+
+  @include mq(xl) {
+    flex-basis: calc(33.33% - #{$grid-gutter-xl});
+    margin: $grid-gutter-xl / 2;
+  }
+
+  .cc-image-card__figure {
+    @include mq(md) {
+      margin-bottom: calc(2 * var(--space-unit));
+    }
+  }
+
+  .cc-image-card__body {
+    @include mq(md) {
+      padding-left: 0;
+    }
+  }
+}
+
+.cc-image-card--listing {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: calc(5 * var(--space-unit));
 }
