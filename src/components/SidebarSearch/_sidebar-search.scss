@@ -11,6 +11,10 @@
   position: relative;
 }
 
+.cc-sidebar-search__label {
+  font-weight: bold;
+}
+
 .cc-sidebar-search__input {
   @extend %text-input-base;
   border-color: var(--colour-grey-30);

@@ -11,12 +11,11 @@ type SidebarFilterProps = {
     value: string;
   }[];
   allowForceReset?: boolean;
-  children?: JSX.Element | JSX.Element[];
+  children?: JSX.Element;
   className?: string;
   onChange: (value: string) => void;
   onClear: () => void;
   onTagRemove: (value: string) => void;
-  searchComponent?: React.ReactNode;
   tags: {
     name: string;
     items: {
@@ -31,13 +30,12 @@ type SidebarFilterProps = {
 export const SidebarFilter = ({
   activeTags = [],
   allowForceReset,
+  children,
   className,
   onChange,
   onClear,
   onTagRemove,
-  searchComponent,
-  tags,
-  children
+  tags
 }: SidebarFilterProps) => {
   const classNames = cx('cc-sidebar-filter', {
     [className]: className
@@ -73,44 +71,42 @@ export const SidebarFilter = ({
           ))}
         </div>
       )}
-      {/* {searchComponent} */}
       {children}
-      <div>ewelina</div>
-      {/* <div className="cc-sidebar-filter__body"> */}
-      {/*  {tags.map(({ name, items }) => ( */}
-      {/*    <Accordion key={name} hasBorders> */}
-      {/*      <AccordionItem title={name}> */}
-      {/*        <ul className="cc-sidebar-filter__list"> */}
-      {/*          {items.map(item => ( */}
-      {/*            <li className="cc-sidebar-filter__list-item" key={item.value}> */}
-      {/*              /!* #7382 todo: add Checkbox component *!/ */}
-      {/*              <span className="cc-sidebar-filter__checkbox"> */}
-      {/*                <input */}
-      {/*                  checked={item.isActive} */}
-      {/*                  className="cc-sidebar-filter__checkbox-input" */}
-      {/*                  disabled={item.isDisabled} */}
-      {/*                  id={item.label} */}
-      {/*                  type="checkbox" */}
-      {/*                  onChange={() => onChange(item.value)} */}
-      {/*                /> */}
-      {/*                <label */}
-      {/*                  className="cc-sidebar-filter__checkbox-label" */}
-      {/*                  htmlFor={item.label} */}
-      {/*                > */}
-      {/*                  {item.label} */}
-      {/*                </label> */}
-      {/*                <Icon */}
-      {/*                  className="cc-sidebar-filter__checkbox-icon" */}
-      {/*                  name="checkmark" */}
-      {/*                /> */}
-      {/*              </span> */}
-      {/*            </li> */}
-      {/*          ))} */}
-      {/*        </ul> */}
-      {/*      </AccordionItem> */}
-      {/*    </Accordion> */}
-      {/*  ))} */}
-      {/* </div> */}
+      <div className="cc-sidebar-filter__body">
+        {tags.map(({ name, items }) => (
+          <Accordion key={name} hasBorders>
+            <AccordionItem title={name}>
+              <ul className="cc-sidebar-filter__list">
+                {items.map(item => (
+                  <li className="cc-sidebar-filter__list-item" key={item.value}>
+                    {/* #7382 todo: add Checkbox component */}
+                    <span className="cc-sidebar-filter__checkbox">
+                      <input
+                        checked={item.isActive}
+                        className="cc-sidebar-filter__checkbox-input"
+                        disabled={item.isDisabled}
+                        id={item.label}
+                        type="checkbox"
+                        onChange={() => onChange(item.value)}
+                      />
+                      <label
+                        className="cc-sidebar-filter__checkbox-label"
+                        htmlFor={item.label}
+                      >
+                        {item.label}
+                      </label>
+                      <Icon
+                        className="cc-sidebar-filter__checkbox-icon"
+                        name="checkmark"
+                      />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </AccordionItem>
+          </Accordion>
+        ))}
+      </div>
     </div>
   );
 };
