@@ -11,17 +11,19 @@ type SidebarSearchProps = {
   onClick: () => void;
   onKeyDown: () => void;
   onKeyUp: () => void;
+  placeholder?: string;
   value: string;
 };
 
 export const SidebarSearch = ({
   className,
   id,
-  label,
+  label = 'Search by keyword',
   onChange,
   onClick,
   onKeyDown,
   onKeyUp,
+  placeholder,
   value
 }: SidebarSearchProps) => {
   const classNames = cx('cc-sidebar-search', {
@@ -31,7 +33,7 @@ export const SidebarSearch = ({
   return (
     <div className={classNames}>
       <label htmlFor={`search-${id}`} className="cc-sidebar-search__label">
-        {label || 'Search by keyword'}
+        {label}
       </label>
       <input
         className="cc-sidebar-search__input"
@@ -39,7 +41,7 @@ export const SidebarSearch = ({
         onChange={onChange}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
-        placeholder="e.g. fellowship"
+        placeholder={placeholder}
         value={value}
         id={`search-${id}`}
       />
