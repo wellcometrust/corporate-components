@@ -42,10 +42,15 @@ export const SidebarFilter = ({
   return (
     <div className={classNames}>
       <header className="cc-sidebar-filter__header">
-        <h2 className="cc-sidebar-filter__header-title">Filter results:</h2>
+        <h2 className="cc-sidebar-filter__header-title">Refine results</h2>
         <span className="cc-sidebar-filter__header-meta">
           {activeTags.length || allowForceReset ? (
-            <Button type="button" onClick={onClear} variant="link">
+            <Button
+              className="cc-sidebar-filter__btn-clear"
+              onClick={onClear}
+              type="button"
+              variant="link"
+            >
               Clear all
             </Button>
           ) : (

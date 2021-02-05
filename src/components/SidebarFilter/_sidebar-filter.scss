@@ -2,20 +2,27 @@
 
 .cc-sidebar-filter__header {
   align-items: center;
+  border-top: 1px solid var(--colour-grey-10);
   display: flex;
+  height: calc(8.75 * var(--space-unit));
   justify-content: space-between;
-  padding-bottom: var(--space-lg);
 }
 
 .cc-sidebar-filter__header-title {
-  flex-shrink: auto;
-  font-size: var(--heading-sm);
+  flex-shrink: 1;
+  font-size: var(--body-lg);
+  line-height: var(--body-line-height-sm);
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .cc-sidebar-filter__header-meta {
   color: var(--colour-grey-30);
+  font-size: var(--body-md);
+}
+
+.cc-sidebar-filter__btn-clear {
+  font-size: var(--body-md);
 }
 
 .cc-sidebar-filter__tags-list {
