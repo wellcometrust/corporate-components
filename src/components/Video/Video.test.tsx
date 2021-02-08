@@ -11,7 +11,7 @@ describe('getYoutubeEmbedUrl', () => {
 
   it('returns a correctly formatted YouTube embed code', () => {
     expect(outputValid).toBe(
-      '//www.youtube.com/embed/Ha63EJhGoBw?wmode=opaque&modestbranding=1&rel=0&showinfo=0&color=white&autohide=1'
+      '//www.youtube-nocookie.com/embed/Ha63EJhGoBw?wmode=opaque&modestbranding=1&rel=0&showinfo=0&color=white&autohide=1'
     );
   });
 
