@@ -6,31 +6,12 @@
 // 2019-11-11
 // ----------------------------------
 
-.cc-image-card {
-  // margin-bottom: var(--space-lg);
-
-  // @include mq(md) {
-  //   flex-basis: calc(33.33% - #{$grid-gutter-md});
-  //   flex-grow: 0;
-  //   flex-shrink: 0;
-  //   margin: $grid-gutter-md / 2;
-  //   padding-bottom: var(--space-unit);
-  // }
-
-  // @include mq(xl) {
-  //   flex-basis: calc(33.33% - #{$grid-gutter-xl});
-  //   margin: $grid-gutter-xl / 2;
-  // }
-}
+// .cc-image-card {}
 
 .cc-image-card__figure {
   display: block;
   flex-basis: 33.33%;
   flex-shrink: 0;
-
-  // @include mq(md) {
-  //   margin-bottom: calc(2 * var(--space-unit));
-  // }
 }
 
 .cc-image-card__image {
@@ -151,6 +132,8 @@
 
 
 // VARIANTS
+// standard - begins in a horizontal format and switches to a vertical format
+// at wider screen widths for better display in a grid
 .cc-image-card--standard {
   margin-bottom: var(--space-lg);
 
@@ -185,6 +168,7 @@
   }
 }
 
+// listing - remains horizontal throughout for better display in a listing
 .cc-image-card--listing {
   display: flex;
   flex-wrap: nowrap;
