@@ -11,6 +11,7 @@ type SidebarFilterProps = {
     value: string;
   }[];
   allowForceReset?: boolean;
+  children?: JSX.Element;
   className?: string;
   onChange: (value: string) => void;
   onClear: () => void;
@@ -29,6 +30,7 @@ type SidebarFilterProps = {
 export const SidebarFilter = ({
   activeTags = [],
   allowForceReset,
+  children,
   className,
   onChange,
   onClear,
@@ -60,6 +62,7 @@ export const SidebarFilter = ({
               className="cc-sidebar-filter__tags-list-item"
               icon="close"
               iconPlacementSwitch
+              key={value}
               onClick={() => onTagRemove(value)}
               type="button"
             >
@@ -68,6 +71,7 @@ export const SidebarFilter = ({
           ))}
         </div>
       )}
+      {children}
       <div className="cc-sidebar-filter__body">
         {tags.map(({ name, items }) => (
           <Accordion key={name} hasBorders>
