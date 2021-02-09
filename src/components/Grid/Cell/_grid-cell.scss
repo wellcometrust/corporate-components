@@ -75,3 +75,10 @@
     @include grid-column(10, 13);
   }
 }
+
+// custom column widths
+.grid__cell--4-to-12 {
+  @include mq(md) {
+    @include grid-column(4, 13);
+  }
+}
