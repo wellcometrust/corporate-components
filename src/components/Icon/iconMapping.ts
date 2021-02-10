@@ -1,5 +1,6 @@
 import arrow from './components/Arrow';
 import arrowLong from './components/ArrowLong';
+import arrowReverse from './components/ArrowReverse';
 import checkmark from './components/Checkmark';
 import chevron from './components/Chevron';
 import chevronDown from './components/ChevronDown';
@@ -31,6 +32,7 @@ import youTube from './components/YouTube';
 export default new Map([
   ['arrow', arrow],
   ['arrowLong', arrowLong],
+  ['arrowReverse', arrowReverse],
   ['checkmark', checkmark],
   ['chevron', chevron],
   ['chevronDown', chevronDown],
