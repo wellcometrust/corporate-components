@@ -38,10 +38,7 @@ export const ResultsCount = ({
           {currentCount} results of {resultsCount}
         </strong>
       </p>
-      {sortedBy && (
-        <p className="cc-results-count__sort">Sorted by {sortedBy}</p>
-      )}
-      {options && (
+      {options ? (
         <div className="cc-results-count__sort">
           <Label
             className="cc-results-count__label"
@@ -61,6 +58,8 @@ export const ResultsCount = ({
             ))}
           </select>
         </div>
+      ) : (
+        <p className="cc-results-count__sort">Sorted by {sortedBy}</p>
       )}
     </div>
   );
