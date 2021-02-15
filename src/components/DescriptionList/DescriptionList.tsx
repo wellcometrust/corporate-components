@@ -14,7 +14,7 @@ type DescriptionListProps = {
   id: string;
 };
 
-export const DescriptionList = ({ items, id }: DescriptionListProps) => (
+export const DescriptionList = ({ items }: DescriptionListProps) => (
   <div className="cc-description-list">
     <dl>
       {items
