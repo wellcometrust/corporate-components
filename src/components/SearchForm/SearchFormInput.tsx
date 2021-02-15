@@ -22,7 +22,7 @@ export const SearchFormInput = ({
   return (
     <input
       className={classNames}
-      name={id}
+      name="search"
       type="search"
       placeholder="Search wellcome.org"
       onChange={handleChange}
