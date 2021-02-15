@@ -1,12 +1,8 @@
-.cc-description-list {
-
-}
-
 .cc-description-list__title {
   display: block;
+  float: left;
   font-size: var(--body-lg);
   font-weight: bold;
-  float:left;
 
   margin: 0 var(--space-sm)  0 0;
 }
@@ -27,12 +23,12 @@
     display: inline;
   }
 
-  span::after {
-    display: inline;
+  span:after {
     content: ', ';
+    display: inline;
   }
 
-  span:last-child::after {
+  span:last-child:after {
     content: '';
   }
 }
