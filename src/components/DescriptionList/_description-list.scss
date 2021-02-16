@@ -10,25 +10,4 @@
 .cc-description-list__definition {
   display: block;
   margin: 0 0 var(--space-sm) 0;
-
-  a {
-    @extend %anchor-base;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  span {
-    display: inline;
-  }
-
-  span:after {
-    content: ', ';
-    display: inline;
-  }
-
-  span:last-child:after {
-    content: '';
-  }
 }
