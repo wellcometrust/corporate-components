@@ -11,14 +11,13 @@ export type DescriptionProps = {
 
 type DescriptionListProps = {
   items: DescriptionProps[];
-  id: string;
 };
 
 export const DescriptionList = ({ items }: DescriptionListProps) => (
   <div className="cc-description-list">
     <dl>
       {items
-        .filter(({ markup }) => markup !== null)
+        .filter(({ markup }) => markup !== '')
         .map(({ title, markup }) => (
           <Fragment key={title}>
             <dt className="cc-description-list__title">{title}</dt>
