@@ -31,6 +31,21 @@
   margin-top: 0;
 
   @include mq(sm) {
+    align-items: center;
+    display: flex;
     margin-left: auto;
+  }
+}
+
+.cc-results-count__label {
+  @include mq(sm) {
+    margin-bottom: 0;
+    margin-right: calc(0.75 * var(--space-unit));
+  }
+}
+
+.cc-results-count__select {
+  @include mq(sm) {
+    width: 238px;
   }
 }
