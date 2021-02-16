@@ -144,13 +144,11 @@
     "typescript": "^3.7.4"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run lint:js",
-      "git add"
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint:js"
     ],
     "src/**/*.{scss,css}": [
-      "npm run lint:style",
-      "git add"
+      "npm run lint:style"
     ]
   },
   "husky": {
