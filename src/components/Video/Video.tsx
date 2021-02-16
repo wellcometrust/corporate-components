@@ -7,6 +7,7 @@ type VideoProps = {
   caption?: string;
   credit?: string;
   className?: string;
+  id: string;
   licence?: string;
   src: string;
 };
@@ -32,6 +33,7 @@ export const Video = ({
   caption,
   credit,
   className,
+  id,
   licence,
   src
 }: VideoProps) => {
@@ -44,17 +46,17 @@ export const Video = ({
       credit={credit}
       licence={licence}
     >
-      <div className="cc-video">
+      <div className="cc-video" id={id}>
         <div className="cc-video__inner">
           <iframe
             allowFullScreen
             className="cc-video__iframe"
             src={embedSrc}
             title={caption}
-            aria-describedby="youtube-consent"
+            aria-describedby={`${id}-consent`}
           />
         </div>
-        <p className="cc-video__caption" id="youtube-consent">
+        <p className="cc-video__caption" id={`${id}-consent`}>
           Pressing play on the video above will set a third-party cookie. Please
           read our{' '}
           <Link to="/about-us/governance/privacy-and-terms#cookies">
