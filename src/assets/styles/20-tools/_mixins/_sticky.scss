@@ -21,7 +21,7 @@
  *
  */
 
-@mixin sticky-fade {
+@mixin sticky-fade($top: -80px, $bottom: 0) {
   @include mq(md) {
     position: relative;
   }
@@ -31,13 +31,13 @@
   &:after {
     @include mq(md) {
       background: linear-gradient(180deg, var(--hack-safari-transparent-white) 0, var(--colour-white) 10%, var(--colour-white) 90%, var(--hack-safari-transparent-white) 100%);
-      bottom: -80px;
+      bottom: $bottom;
       content: '';
       left: 0;
       pointer-events: none;
       position: absolute;
       right: 0;
-      top: -80px;
+      top: $top;
       z-index: 0;
     }
   }
