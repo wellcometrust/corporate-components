@@ -1,0 +1,78 @@
+import React, { forwardRef } from 'react';
+import cx from 'classnames';
+
+import Icon from 'Icon';
+import Label from 'Label';
+
+type CheckboxProps = {
+  checked?: boolean;
+  className?: string;
+  describedBy?: string;
+  disabled?: boolean;
+  id: string;
+  isInvalid?: boolean;
+  isRequired?: boolean;
+  label?: string;
+  name?: string;
+  onChange?: () => void;
+  value?: string;
+};
+
+export const Checkbox = forwardRef(
+  (
+    {
+      checked,
+      className,
+      describedBy,
+      disabled,
+      id,
+      isInvalid,
+      isRequired,
+      label,
+      name,
+      onChange,
+      value
+    }: CheckboxProps,
+    ref: React.Ref<HTMLInputElement>
+  ) => {
+    const classNames = cx('cc-checkbox', {
+      'cc-checkbox--is-invalid': isInvalid,
+      [className]: className
+    });
+
+    return label ? (
+      <div className={classNames}>
+        <input
+          aria-describedby={describedBy}
+          checked={checked}
+          className="cc-checkbox__input-element"
+          disabled={disabled}
+          id={id}
+          onChange={onChange}
+          name={name}
+          ref={ref}
+          required={isRequired}
+          type="checkbox"
+          value={value}
+        />
+        <Label text={label} htmlFor={id} className="cc-checkbox__label" />
+        <Icon className="cc-checkbox__icon" name="checkmark" />
+      </div>
+    ) : (
+      <input
+        aria-describedby={describedBy}
+        className={className ? cx({ [className]: className }) : null}
+        checked={checked}
+        id={id}
+        onChange={onChange}
+        name={name}
+        ref={ref}
+        required={isRequired}
+        type="checkbox"
+        value={value}
+      />
+    );
+  }
+);
+
+export default Checkbox;
