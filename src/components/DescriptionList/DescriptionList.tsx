@@ -1,18 +1,32 @@
+/**
+ * @file DescriptionList component to display a definition list
+ * of terms and their associated data.
+ */
 import React, { Fragment } from 'react';
 
 import { parseHtml } from 'utils/parse-html';
 
-export type DescriptionProps = {
-  title: string;
-  markup: string;
-  url: string;
-  name: string;
-};
-
 type DescriptionListProps = {
-  items: DescriptionProps[];
+  items: {
+    markup: string;
+    name: string;
+    title: string;
+    url: string;
+  }[];
 };
 
+/**
+ * DescriptionList component renders a definition list (<dl>)
+ * of terms (<dt>) and their associated data (<dd>)
+ *
+ * @param {object[]} items
+ * @param {string} items.markup HTML string
+ * @param {string} items.name
+ * @param {string} items.title
+ * @param {string} items.url
+ *
+ * @returns {HTMLElement}
+ */
 export const DescriptionList = ({ items }: DescriptionListProps) => (
   <div className="cc-description-list">
     <dl>
