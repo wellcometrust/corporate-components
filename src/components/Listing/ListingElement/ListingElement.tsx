@@ -6,6 +6,7 @@ import ImageCard from 'ImageCard';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
 import StatisticCard from 'StatisticCard';
 import TextCard from 'TextCard';
+import ImageCardWithCTA from 'ImageCardWithCTA';
 
 type ListingElementProps = {
   authors?: string[];
@@ -47,7 +48,7 @@ const variantElement = {
    *
    * @see {@link https://github.com/wellcometrust/corporate/issues/7771}
    */
-  link_card_cta_link: ImageCard,
+  link_card_cta_link: ImageCardWithCTA,
   link_list: ListingLink,
   mid_page_card: Card,
   statistic_card: StatisticCard,
@@ -75,7 +76,8 @@ export const ListingElement = ({
   metaLabel,
   title,
   type,
-  variant
+  variant,
+  ...otherProps
 }: ListingElementProps) => {
   const classNames = cx({
     'cc-card--horizontal': variant === 'horizontal_card',
@@ -109,6 +111,7 @@ export const ListingElement = ({
       title={title}
       type={type}
       variant={variant}
+      {...otherProps}
     />
   );
 };
