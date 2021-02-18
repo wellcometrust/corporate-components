@@ -7,7 +7,7 @@
 // ----------------------------------
 
 // Hide the <input /> element
-.cc-checkbox__input-element {
+.cc-checkbox__input {
   @extend %visually-hidden;
 }
 
@@ -46,13 +46,13 @@
   }
 
   // Checked checkbox
-  .cc-checkbox__input-element:checked ~ &:before {
+  .cc-checkbox__input:checked ~ &:before {
     background-color: var(--colour-blue-60);
     border: 0;
   }
 
   // Hovered checkbox
-  .cc-checkbox__input-element:not(:disabled) ~ &:hover:before {
+  .cc-checkbox__input:not(:disabled) ~ &:hover:before {
     border-color: var(--colour-grey-80);
   }
 
@@ -60,34 +60,34 @@
    * @see focus-visible: https://css-tricks.com/focus-visible-and-backwards-compatibility/
    */
   // Focused checkbox
-  .cc-checkbox__input-element:not(:disabled):focus ~ &:before {
+  .cc-checkbox__input:not(:disabled):focus ~ &:before {
     box-shadow: 0 0 0 2px var(--colour-blue-30);
   }
 
   /**
    * Browsers will ignore the entire block when using a pseudo-class they don’t understand/support
    */
-  .cc-checkbox__input-element:not(:disabled):focus:not(:focus-visible) ~ &:before {
+  .cc-checkbox__input:not(:disabled):focus:not(:focus-visible) ~ &:before {
     // undo all the above focused styles
     box-shadow: none;
   }
 
-  .cc-checkbox__input-element:not(:disabled):focus-visible ~ &:before {
+  .cc-checkbox__input:not(:disabled):focus-visible ~ &:before {
     box-shadow: 0 0 0 2px var(--colour-blue-30);
   }
 
   // Default checkbox
-  .cc-checkbox__input-element ~ &:before {
+  .cc-checkbox__input ~ &:before {
     border-color: var(--colour-grey-40);
   }
 
   // Disabled checkbox
-  .cc-checkbox__input-element:disabled ~ &:before {
+  .cc-checkbox__input:disabled ~ &:before {
     background-color: var(--colour-white);
     border: 1px solid var(--colour-grey-20);
   }
 
-  .cc-checkbox__input-element:disabled ~ & {
+  .cc-checkbox__input:disabled ~ & {
     color: var(--colour-grey-30);
   }
 }
@@ -100,7 +100,7 @@
   top: 0.34rem;
   width: 0.56rem;
 
-  .cc-checkbox__input-element:not(:checked) ~ & {
+  .cc-checkbox__input:not(:checked) ~ & {
     @extend %visually-hidden;
   }
 }

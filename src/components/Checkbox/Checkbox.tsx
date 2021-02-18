@@ -12,7 +12,7 @@ type CheckboxProps = {
   id: string;
   isInvalid?: boolean;
   isRequired?: boolean;
-  label?: string;
+  label: string;
   name?: string;
   onChange?: () => void;
   value?: string;
@@ -40,12 +40,12 @@ export const Checkbox = forwardRef(
       [className]: className
     });
 
-    return label ? (
+    return (
       <div className={classNames}>
         <input
           aria-describedby={describedBy}
           checked={checked}
-          className="cc-checkbox__input-element"
+          className="cc-checkbox__input"
           disabled={disabled}
           id={id}
           onChange={onChange}
@@ -58,19 +58,6 @@ export const Checkbox = forwardRef(
         <Label text={label} htmlFor={id} className="cc-checkbox__label" />
         <Icon className="cc-checkbox__icon" name="checkmark" />
       </div>
-    ) : (
-      <input
-        aria-describedby={describedBy}
-        className={className ? cx({ [className]: className }) : null}
-        checked={checked}
-        id={id}
-        onChange={onChange}
-        name={name}
-        ref={ref}
-        required={isRequired}
-        type="checkbox"
-        value={value}
-      />
     );
   }
 );
