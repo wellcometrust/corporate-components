@@ -3,10 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { select, text } from '@storybook/addon-knobs';
 
 import Listing from 'Listing';
-import StatisticCard from './StatisticCard';
-import Readme from './StatisticCard.md';
+import FactCardWithHyperlink from './FactCardWithHyperlink';
+import Readme from './FactCardWithHyperlink.md';
 
-const SingleStatisticCard = () => {
+const SingleFactCardWithHyperlink = () => {
   const generalGroupID = 'General';
 
   const description = text(
@@ -27,7 +27,7 @@ const SingleStatisticCard = () => {
   const linkText = text('linkText', 'Optional text link', generalGroupID);
 
   return (
-    <StatisticCard
+    <FactCardWithHyperlink
       description={description}
       href={href}
       title={title}
@@ -36,7 +36,7 @@ const SingleStatisticCard = () => {
   );
 };
 
-const MultipleStatisticCard = () => {
+const MultipleFactCardWithHyperlink = () => {
   const cardCount = select('How many ImageCards?', [2, 3], 3, 'General');
 
   const knobs = [...Array(cardCount).keys()].map(i => ({
@@ -65,9 +65,9 @@ const MultipleStatisticCard = () => {
   }));
 
   return (
-    <Listing variant="statistic_card">
+    <Listing variant="fact_card_with_hyperlink">
       {[...Array(cardCount).keys()].map(i => (
-        <StatisticCard
+        <FactCardWithHyperlink
           title={knobs[i].title}
           titleAs={knobs[i].titleAs}
           linkText={knobs[i].linkText}
@@ -79,7 +79,7 @@ const MultipleStatisticCard = () => {
   );
 };
 
-const stories = storiesOf('StatisticCard', module);
+const stories = storiesOf('FactCardWithHyperlink', module);
 
-stories.add('SingleStatisticCard', SingleStatisticCard);
-stories.add('MultipleStatisticCard', MultipleStatisticCard);
+stories.add('SingleFactCardWithHyperlink', SingleFactCardWithHyperlink);
+stories.add('MultipleFactCardWithHyperlink', MultipleFactCardWithHyperlink);
