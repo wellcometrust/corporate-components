@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Card from 'Card';
 import ImageCard from 'ImageCard';
 import { ListingLink } from 'Listing/ListingLink/ListingLink';
-import StatisticCard from 'StatisticCard';
+import FactCardWithHyperlink from 'FactCardWithHyperlink';
 import TextCard from 'TextCard';
 import ImageCardWithCTA from 'ImageCardWithCTA';
 
@@ -34,7 +34,7 @@ type ListingElementProps = {
     | 'link_card_cta_link'
     | 'link_list'
     | 'mid_page_card'
-    | 'statistic_card'
+    | 'fact_card_with_hyperlink'
     | 'text_list'
     | 'vertical_card';
 };
@@ -51,7 +51,7 @@ const variantElement = {
   link_card_cta_link: ImageCardWithCTA,
   link_list: ListingLink,
   mid_page_card: Card,
-  statistic_card: StatisticCard,
+  fact_card_with_hyperlink: FactCardWithHyperlink,
   text_list: TextCard,
   vertical_card: Card
 };

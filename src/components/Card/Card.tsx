@@ -24,7 +24,7 @@ type CardProps = {
     | 'link_card_cta_link'
     | 'link_list'
     | 'mid_page_card'
-    | 'statistic_card'
+    | 'fact_card_with_hyperlink'
     | 'text_list'
     | 'vertical_card';
 };
