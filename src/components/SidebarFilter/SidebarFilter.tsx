@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
+import Checkbox from 'Checkbox';
 import Icon from 'Icon';
 
 type SidebarFilterProps = {
@@ -84,27 +85,13 @@ export const SidebarFilter = ({
               <ul className="cc-sidebar-filter__list">
                 {items.map(item => (
                   <li className="cc-sidebar-filter__list-item" key={item.value}>
-                    {/* #7382 todo: add Checkbox component */}
-                    <span className="cc-sidebar-filter__checkbox">
-                      <input
-                        checked={item.isActive}
-                        className="cc-sidebar-filter__checkbox-input"
-                        disabled={item.isDisabled}
-                        id={item.label}
-                        type="checkbox"
-                        onChange={() => onChange(item.value)}
-                      />
-                      <label
-                        className="cc-sidebar-filter__checkbox-label"
-                        htmlFor={item.label}
-                      >
-                        {item.label}
-                      </label>
-                      <Icon
-                        className="cc-sidebar-filter__checkbox-icon"
-                        name="checkmark"
-                      />
-                    </span>
+                    <Checkbox
+                      checked={item.isActive}
+                      disabled={item.isDisabled}
+                      id={item.label}
+                      label={item.label}
+                      onChange={() => onChange(item.value)}
+                    />
                   </li>
                 ))}
               </ul>

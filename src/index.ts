@@ -5,6 +5,7 @@ export { ActiveLink } from 'Nav/ActiveLink';
 export { Accordion, AccordionItem } from 'Accordion/Accordion';
 export { default as Author } from 'Author';
 export { Button } from 'Button/Button';
+export { default as Checkbox } from 'Checkbox';
 export { Contact } from 'Contact/Contact';
 export { CookieMessage } from 'CookieMessage/CookieMessage';
 export { default as DateInput } from 'DateInput';
