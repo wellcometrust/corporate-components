@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Button from 'Button';
 import RichText from 'RichText';
 
-type FactCardWithHyperlinkProps = {
+type FactCardProps = {
   className?: string;
   description?: string;
   href?: string;
@@ -13,14 +13,14 @@ type FactCardWithHyperlinkProps = {
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-export const FactCardWithHyperlinkProps = ({
+export const FactCardProps = ({
   className,
   description,
   href,
   linkText,
   title,
   titleAs = 'h3'
-}: FactCardWithHyperlinkProps) => {
+}: FactCardProps) => {
   const TitleElement = titleAs;
   const classNames = cx('cc-fact-card', {
     [className]: className
@@ -32,10 +32,7 @@ export const FactCardWithHyperlinkProps = ({
         {title}
       </TitleElement>
       {description && (
-        <RichText
-          className="cc-fact-card__description"
-          itemProp="abstract"
-        >
+        <RichText className="cc-fact-card__description" itemProp="abstract">
           {description}
         </RichText>
       )}
@@ -54,4 +51,4 @@ export const FactCardWithHyperlinkProps = ({
   );
 };
 
-export default FactCardWithHyperlinkProps;
+export default FactCardProps;

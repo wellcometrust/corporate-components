@@ -9,7 +9,7 @@ export { Contact } from 'Contact/Contact';
 export { CookieMessage } from 'CookieMessage/CookieMessage';
 export { default as DateInput } from 'DateInput';
 export { default as DescriptionList } from 'DescriptionList';
-export { default as FactCardWithHyperlink } from 'FactCardWithHyperlink';
+export { default as FactCard } from 'FactCard';
 export { default as FeaturedPromo } from 'FeaturedPromo';
 export { FileDownload } from 'FileDownload/FileDownload';
 export { Footer } from 'Footer/Footer';
