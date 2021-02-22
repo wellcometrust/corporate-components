@@ -42,14 +42,11 @@ export const ListingLink = ({
         data-report-type={documentSubType}
         to={href}
       >
-        {title}
+        <span className="cc-listing__link-text">{title}</span>
         {fileType && fileSize && (
-          <>
-            {' '}
-            <span className="cc-listing__link-meta">
-              {fileType} {fileSize}
-            </span>
-          </>
+          <span className="cc-listing__link-meta">
+            {fileType} {fileSize}
+          </span>
         )}
         <Icon name={iconVariant} className={iconClassNames} />
       </Link>
