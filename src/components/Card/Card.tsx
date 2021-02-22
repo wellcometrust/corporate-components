@@ -19,12 +19,12 @@ type CardProps = {
   metaLabel?: string;
   title: string;
   variant:
+    | 'fact_card'
     | 'image_card'
     | 'horizontal_card'
     | 'link_card_cta_link'
     | 'link_list'
     | 'mid_page_card'
-    | 'fact_card_with_hyperlink'
     | 'text_list'
     | 'vertical_card';
 };
