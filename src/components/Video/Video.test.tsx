@@ -22,7 +22,12 @@ describe('getYoutubeEmbedUrl', () => {
 
 describe('<Video />', () => {
   const output = shallow(
-    <Video src="video" caption="Video caption" credit="Video credit" />
+    <Video
+      caption="Video caption"
+      credit="Video credit"
+      id="video"
+      src="video"
+    />
   );
 
   it('renders the component', () => {

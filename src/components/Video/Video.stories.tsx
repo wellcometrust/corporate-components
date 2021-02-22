@@ -13,7 +13,14 @@ const VideoExample = () => {
     'https://www.youtube.com/watch?v=Ha63EJhGoBw&feature=youtu.be'
   );
 
-  return <Video caption={CaptionText} credit={CreditText} src={VideoSource} />;
+  return (
+    <Video
+      caption={CaptionText}
+      credit={CreditText}
+      id="video"
+      src={VideoSource}
+    />
+  );
 };
 
 const stories = storiesOf('Components|Video', module);
