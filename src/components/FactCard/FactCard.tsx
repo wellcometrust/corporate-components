@@ -13,7 +13,7 @@ type FactCardProps = {
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-export const FactCardProps = ({
+export const FactCard = ({
   className,
   description,
   href,
@@ -51,4 +51,4 @@ export const FactCardProps = ({
   );
 };
 
-export default FactCardProps;
+export default FactCard;
