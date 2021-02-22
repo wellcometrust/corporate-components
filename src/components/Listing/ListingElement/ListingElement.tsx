@@ -48,10 +48,10 @@ const variantElement = {
    *
    * @see {@link https://github.com/wellcometrust/corporate/issues/7771}
    */
+  fact_card: FactCard,
   link_card_cta_link: ImageCardWithCTA,
   link_list: ListingLink,
   mid_page_card: Card,
-  fact_card: FactCard,
   text_list: TextCard,
   vertical_card: Card
 };
