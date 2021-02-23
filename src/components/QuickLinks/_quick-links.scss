@@ -1,0 +1,26 @@
+// ----------------------------------
+// UI Components
+// QuickLinks
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.c-quick-links {
+  @include list-clean;
+}
+
+// .c-quick-links__item {}
+
+.c-quick-links__item-link {
+  color: inherit;
+  display: block;
+  padding-top: calc(1.5 * var(--space-unit));
+  padding-bottom: calc(1.5 * var(--space-unit));
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

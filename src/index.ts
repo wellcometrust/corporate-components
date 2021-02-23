@@ -42,6 +42,7 @@ export { default as ImageCard } from 'ImageCard';
 export { default as ImageCardWithCTA } from 'ImageCardWithCTA';
 export { NewsletterSignup } from 'NewsletterSignup/NewsletterSignup';
 export { NewsletterForm } from 'NewsletterForm/NewsletterForm';
+export { default as QuickLinks } from 'QuickLinks';
 export { Quote } from 'Quote/Quote';
 export { PageHeader } from 'PageHeader/PageHeader';
 export { default as PageHeaderCompact } from 'PageHeaderCompact';
