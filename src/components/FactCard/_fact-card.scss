@@ -1,4 +1,4 @@
-.cc-statistic-card {
+.cc-fact-card {
   margin-bottom: calc(4 * var(--space-unit));
 
   @include mq(md) {
@@ -15,7 +15,7 @@
   }
 }
 
-.cc-statistic-card__description {
+.cc-fact-card__description {
   flex-grow: 1;
   margin-bottom: calc(2 * var(--space-unit));
 
@@ -24,7 +24,7 @@
   }
 }
 
-.cc-statistic-card__title {
+.cc-fact-card__title {
   @extend %heading-base;
   @extend %heading-large;
   @include heading-fancy;
