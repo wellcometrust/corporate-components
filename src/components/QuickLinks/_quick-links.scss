@@ -15,8 +15,8 @@
 .c-quick-links__item-link {
   color: inherit;
   display: block;
-  padding-top: calc(1.5 * var(--space-unit));
   padding-bottom: calc(1.5 * var(--space-unit));
+  padding-top: calc(1.5 * var(--space-unit));
   text-decoration: none;
 
   &:hover,
