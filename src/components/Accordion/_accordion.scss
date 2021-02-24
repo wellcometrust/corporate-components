@@ -30,6 +30,10 @@
 .cc-accordion__content {
   padding: var(--space-unit) 0;
 
+  h3 {
+    font-size: var(--heading-sm);
+  }
+
   .cc-accordion + *,
   .cc-rich-text + * {
     margin-top: calc(2 * var(--space-sm));
@@ -125,6 +129,7 @@
   }
 
   .cc-accordion__button--plus {
+    font-size: var(--heading-xs);
     font-weight: normal;
   }
 
