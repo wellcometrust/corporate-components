@@ -18,13 +18,10 @@ type InstitutionProps = {
 
 type ContactProps = {
   className?: string;
-  contactFormLink?: {
-    text?: string;
-    url: string;
-  };
   email?: string;
   imageSources?: ContactImageSourceProps;
   institutions?: InstitutionProps[];
+  isNested?: boolean;
   contactRole?: string;
   name?: string;
   teamTitle?: string;
@@ -34,10 +31,10 @@ type ContactProps = {
 
 export const Contact = ({
   className,
-  contactFormLink,
   email,
   imageSources,
   institutions,
+  isNested,
   contactRole,
   name,
   teamTitle,
@@ -45,7 +42,8 @@ export const Contact = ({
   tel
 }: ContactProps) => {
   const classNames = cx('cc-contact', {
-    [`${className}`]: className
+    'cc-contact--nested': isNested,
+    [className]: className
   });
 
   return (
@@ -70,12 +68,15 @@ export const Contact = ({
           {contactRole}
         </RichText>
       )}
-      {institutions &&
-        institutions.map(({ country, name: institutionName }) => (
-          <p className="cc-contact__institution" itemProp="worksFor">
-            {country ? `${institutionName}, ${country}` : institutionName}
-          </p>
-        ))}
+      {institutions?.map(({ country, name: institutionName }) => (
+        <p
+          className="cc-contact__institution"
+          itemProp="worksFor"
+          key={institutionName}
+        >
+          {country ? `${institutionName}, ${country}` : institutionName}
+        </p>
+      ))}
       {teamUrl && (
         <p className="cc-contact__item">
           <Icon name="shareLink" className="cc-contact__link-icon" />
@@ -89,14 +90,6 @@ export const Contact = ({
           <Icon name="email" className="cc-contact__link-icon" />
           <a href={`mailto:${email}`} className="cc-contact__link">
             {email}
-          </a>
-        </p>
-      )}
-      {contactFormLink && (
-        <p className="cc-contact__item">
-          <Icon name="email" className="cc-contact__link-icon" />
-          <a href={`${contactFormLink.url}`} className="cc-contact__link">
-            {contactFormLink.text || 'Send a message'}
           </a>
         </p>
       )}

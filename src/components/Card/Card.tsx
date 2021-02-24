@@ -19,6 +19,7 @@ type CardProps = {
   metaLabel?: string;
   title: string;
   variant:
+    | 'fact_card'
     | 'image_card'
     | 'horizontal_card'
     | 'link_card_cta_link'

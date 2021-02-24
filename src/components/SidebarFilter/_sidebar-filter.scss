@@ -2,20 +2,27 @@
 
 .cc-sidebar-filter__header {
   align-items: center;
+  border-top: 1px solid var(--colour-grey-10);
   display: flex;
+  height: calc(8.75 * var(--space-unit));
   justify-content: space-between;
-  padding-bottom: var(--space-lg);
 }
 
 .cc-sidebar-filter__header-title {
-  flex-shrink: auto;
-  font-size: var(--heading-sm);
+  flex-shrink: 1;
+  font-size: var(--body-lg);
+  line-height: var(--body-line-height-sm);
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .cc-sidebar-filter__header-meta {
   color: var(--colour-grey-30);
+  font-size: var(--body-md);
+}
+
+.cc-sidebar-filter__btn-clear {
+  font-size: var(--body-md);
 }
 
 .cc-sidebar-filter__tags-list {
@@ -59,83 +66,5 @@
   @include hocus {
     background-color: var(--colour-blue-05);
     color: var(--colour-blue-60);
-  }
-}
-
-/**
- * #7382 todo: add Checkbox component
- */
-
-.cc-sidebar-filter__checkbox {
-  display: block;
-  position: relative;
-}
-
-.cc-sidebar-filter__checkbox-input {
-  @extend %visually-hidden;
-}
-
-.cc-sidebar-filter__checkbox-icon {
-  color: var(--colour-white);
-  left: 0.227rem;
-  pointer-events: none;
-  position: absolute;
-  top: 0.34rem;
-  width: 0.56rem;
-
-  .cc-sidebar-filter__checkbox-input:not(:checked) ~ & {
-    @extend %visually-hidden;
-  }
-}
-
-.cc-sidebar-filter__checkbox-label {
-  --checkbox-width: calc(2 * var(--space-unit));
-  --checkbox-inner-width: calc(0.75 * var(--space-unit));
-
-  cursor: pointer;
-  display: inline-block;
-  padding-left: calc(var(--checkbox-width) + var(--space-md));
-  position: relative;
-
-  &:before {
-    background-color: var(--colour-white);
-    border: 1px solid var(--colour-grey-20);
-    border-radius: 2px;
-    content: '';
-    height: var(--checkbox-width);
-    left: 0;
-    position: absolute;
-    top: 0.37rem;
-    width: var(--checkbox-width);
-  }
-
-  &:after {
-    box-shadow: inset 0 0 0 0;
-    height: var(--checkbox-inner-width);
-    left: calc((var(--checkbox-width) - var(--checkbox-inner-width)) / 2);
-    opacity: 0;
-    transition: opacity 0.2s, transform 0.2s;
-    width: var(--checkbox-inner-width);
-  }
-
-  // Checked checkbox
-  .cc-sidebar-filter__checkbox-input:checked ~ &:before {
-    background-color: var(--colour-blue-60);
-    border: 0;
-  }
-
-  // Hovered/Focused checkbox
-  .cc-sidebar-filter__checkbox-input:not(:disabled) ~ &:hover:before,
-  .cc-sidebar-filter__checkbox-input:not(:disabled):focus ~ &:before {
-    border-color: var(--colour-blue-60);
-  }
-
-  // Disabled checkbox
-  .cc-sidebar-filter__checkbox-input:disabled ~ &:before {
-    border-color: var(--colour-grey-20);
-  }
-
-  .cc-sidebar-filter__checkbox-input:disabled ~ & {
-    color: var(--colour-grey-30);
   }
 }

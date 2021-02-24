@@ -11,6 +11,8 @@
   color: var(--colour-white);
   padding-bottom: var(--space-xl);
   padding-top: var(--space-xl);
+  position: relative;
+  z-index: var(--z-low);
 
   // WYSIWYG content styles
   a {

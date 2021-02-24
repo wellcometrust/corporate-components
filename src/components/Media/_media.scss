@@ -84,23 +84,3 @@
     display: inline;
   }
 }
-
-.widescreen-container {
-  position: relative;
-  width: 100%;
-
-  &:after {
-    content: '';
-    display: block;
-    padding-top: percentage(9/16);
-  }
-}
-
-.widescreen-media {
-  border: 0;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}

@@ -35,8 +35,6 @@ export const FileDownload = ({
         data-report-type={documentSubType}
         download
         href={href}
-        rel="noopener noreferrer"
-        target="_blank"
       >
         {label}
         <span className="u-visually-hidden">{` ${name}`}</span>

@@ -9,6 +9,8 @@
 .footer {
   background: var(--X-colour-dark-blue);
   color: var(--colour-white);
+  position: relative;
+  z-index: var(--z-low);
 }
 
 .footer__container {

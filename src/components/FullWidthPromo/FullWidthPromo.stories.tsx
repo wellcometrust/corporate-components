@@ -45,10 +45,14 @@ const FullWidthPromoExample = () => {
 
   return (
     <FullWidthPromo
-      authors={authors
-        .trim()
-        .split(',')
-        .map(a => a.trim())}
+      authors={
+        authors.trim().length
+          ? authors
+              .trim()
+              .split(',')
+              .map(a => a.trim())
+          : []
+      }
       description={description}
       href={href}
       imageSrc={imageSrc}

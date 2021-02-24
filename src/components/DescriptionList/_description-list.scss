@@ -1,0 +1,13 @@
+.cc-description-list__title {
+  display: block;
+  float: left;
+  font-size: var(--body-lg);
+  font-weight: bold;
+
+  margin: 0 var(--space-sm) 0 0;
+}
+
+.cc-description-list__definition {
+  display: block;
+  margin: 0 0 var(--space-sm) 0;
+}

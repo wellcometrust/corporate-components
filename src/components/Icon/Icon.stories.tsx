@@ -12,6 +12,8 @@ storiesOf('Components|Icon', module).add(
       <Icon name="arrow" />
       <p>ArrowLong</p>
       <Icon name="arrowLong" />
+      <p>ArrowReverse</p>
+      <Icon name="arrowReverse" />
       <p>Checkmark</p>
       <Icon name="checkmark" />
       <p>Chevron</p>

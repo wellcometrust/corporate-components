@@ -1,0 +1,51 @@
+// ----------------------------------
+// UI Tools
+// Mixins - Sticky elements
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+/**
+ * sticky-fade
+ *
+ * applies overlay styles and fading edges for (typically wider) content
+ * which has to overlay sticky page components
+ *
+ * Usage:
+ *
+ * .u-scaffold-grid-item--wide {
+ *   @include sticky-fade;
+ *   ...
+ * }
+ *
+ */
+
+@mixin sticky-fade($top: -80px, $bottom: 0) {
+  @include mq(md) {
+    position: relative;
+  }
+
+  // linear gradient applied to give a fading out appearance
+  // to sticky content layered behind it
+  &:after {
+    @include mq(md) {
+      background: linear-gradient(180deg, var(--hack-safari-transparent-white) 0, var(--colour-white) 10%, var(--colour-white) 90%, var(--hack-safari-transparent-white) 100%);
+      bottom: $bottom;
+      content: '';
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: $top;
+      z-index: 0;
+    }
+  }
+
+  > * {
+    @include mq(md) {
+      position: relative;
+      z-index: var(--z-medium);
+    }
+  }
+}

@@ -16,9 +16,10 @@ type ImageCardProps = {
   imageSrc: string;
   imageSrcSet?: string;
   imageWidth?: string;
+  layoutVariant?: 'listing';
+  metaLabel?: string;
   title: string;
   titleAs?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  metaLabel?: string;
 };
 
 export const ImageCard = ({
@@ -32,12 +33,15 @@ export const ImageCard = ({
   imageSrc,
   imageSrcSet,
   imageWidth,
+  layoutVariant,
+  metaLabel,
   title,
-  titleAs = 'h3',
-  metaLabel
+  titleAs = 'h3'
 }: ImageCardProps) => {
   const TitleElement = titleAs;
   const classNames = cx('cc-image-card', {
+    [`cc-image-card--${layoutVariant}`]: layoutVariant,
+    'cc-image-card--standard': !layoutVariant,
     [className]: className
   });
 
@@ -68,7 +72,7 @@ export const ImageCard = ({
                 {metaLabel}
               </span>
             )}
-            {authors?.length && (
+            {authors?.length > 0 && (
               <dl className="cc-image-card__meta-item cc-image-card__meta-item--author cc-image-card__authors">
                 <dt className="cc-image-card__authors-label">Author</dt>
                 {authors?.map(author => (

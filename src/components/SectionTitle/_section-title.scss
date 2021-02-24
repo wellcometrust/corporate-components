@@ -12,6 +12,10 @@
   @include heading-divider;
   position: relative;
   text-align: center;
+
+  @include mq(md) {
+    z-index: var(--z-medium);
+  }
 }
 
 .cc-section__title-anchor {

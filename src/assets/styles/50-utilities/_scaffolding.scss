@@ -30,6 +30,8 @@
 }
 
 .u-scaffold-grid-item--wide {
+  @include sticky-fade;
+
   @include mq(sm) {
     @include grid-column(2, 12);
   }

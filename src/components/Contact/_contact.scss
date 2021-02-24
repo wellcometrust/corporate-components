@@ -15,6 +15,18 @@
   padding: var(--space-lg) 0;
 }
 
+.cc-contact--nested {
+  border: 0;
+  padding-bottom: var(--space-sm);
+  padding-top: 0;
+
+  .cc-contact__name,
+  .cc-contact__institution,
+  .cc-contact__item {
+    margin-bottom: calc(2 * var(--space-sm));
+  }
+}
+
 .cc-contact__image {
   @extend %img-responsive;
   float: left;

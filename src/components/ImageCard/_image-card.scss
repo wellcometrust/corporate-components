@@ -6,42 +6,28 @@
 // 2019-11-11
 // ----------------------------------
 
-.cc-image-card {
-  margin-bottom: var(--space-lg);
-
-  @include mq($until: md) {
-    display: flex;
-    flex-wrap: nowrap;
-  }
-
-  @include mq(md) {
-    flex-basis: calc(33.33% - #{$grid-gutter-md});
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: $grid-gutter-md / 2;
-    padding-bottom: var(--space-unit);
-  }
-
-  @include mq(xl) {
-    flex-basis: calc(33.33% - #{$grid-gutter-xl});
-    margin: $grid-gutter-xl / 2;
-  }
-}
+// .cc-image-card {}
 
 .cc-image-card__figure {
   display: block;
   flex-basis: 33.33%;
   flex-shrink: 0;
-
-  @include mq(md) {
-    margin-bottom: calc(2 * var(--space-unit));
-  }
 }
 
 .cc-image-card__image {
   @extend %img-responsive;
-
+  @extend %img-cover;
   margin: 0;
+
+  // ensure all card images have the same aspect ratio to enforce the same height
+  @include mq(md) {
+    padding-bottom: 66.67%;
+    position: relative;
+
+    > img {
+      position: absolute;
+    }
+  }
 }
 
 .cc-image-card__body {
@@ -50,10 +36,6 @@
 
   @include mq(sm) {
     padding-left: calc(2 * var(--space-unit));
-  }
-
-  @include mq(md) {
-    padding-left: 0;
   }
 }
 
@@ -146,4 +128,53 @@
   display: block;
   font-size: var(--body-xs);
   text-transform: uppercase;
+}
+
+
+// VARIANTS
+// standard - begins in a horizontal format and switches to a vertical format
+// at wider screen widths for better display in a grid
+.cc-image-card--standard {
+  margin-bottom: var(--space-lg);
+
+  @include mq($until: md) {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  @include mq(md) {
+    flex-basis: calc(33.33% - #{$grid-gutter-md});
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: $grid-gutter-md / 2;
+    padding-bottom: var(--space-unit);
+  }
+
+  @include mq(xl) {
+    flex-basis: calc(33.33% - #{$grid-gutter-xl});
+    margin: $grid-gutter-xl / 2;
+  }
+
+  .cc-image-card__figure {
+    @include mq(md) {
+      margin-bottom: calc(2 * var(--space-unit));
+    }
+  }
+
+  .cc-image-card__body {
+    @include mq(md) {
+      padding-left: 0;
+    }
+  }
+}
+
+// listing - remains horizontal throughout for better display in a listing
+.cc-image-card--listing {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: calc(5 * var(--space-unit));
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

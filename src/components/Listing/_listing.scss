@@ -39,10 +39,13 @@
   text-decoration: none;
 }
 
+.cc-listing__link-text {
+  margin-right: var(--space-unit);
+}
+
 .cc-listing__link-meta {
   color: var(--text-colour);
   font-size: var(--body-xs);
-  margin-left: calc(2 * var(--space-unit));
 }
 
 .cc-listing__link-icon {

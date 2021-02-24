@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import ImageBanner from 'ImageBanner';
-import InpageNav from 'InpageNav';
 import SocialShare from 'SocialShare';
 import PageHeader from './PageHeader';
 
@@ -20,7 +19,6 @@ const PageHeaderExample = () => {
 
   // toggle page furniture
   const showImage = boolean('Show image', true, imageID);
-  const showInpageNav = boolean('Show inpage nav', true, generalID);
   const showSocialShare = boolean('Show social share', true, generalID);
 
   const background = select(
@@ -69,10 +67,6 @@ const PageHeaderExample = () => {
     }
   ];
 
-  const inpageNav = showInpageNav && (
-    <InpageNav isMinimal={isMobile} links={sectionLinks} />
-  );
-
   const socialShare = showSocialShare && (
     <SocialShare
       body="Wellcome Trust share text ..."
@@ -107,13 +101,11 @@ const PageHeaderExample = () => {
         share={socialShare}
         standfirst={standfirst}
         title={title}
-      >
-        {inpageNav}
-      </PageHeader>
+      />
     </ViewportContextProvider>
   );
 };
 
-const stories = storiesOf('Components|Page header', module);
+const stories = storiesOf('Page header', module);
 
 stories.add('PageHeader', PageHeaderExample);

@@ -67,7 +67,7 @@ export const FeaturedPromo = ({
               {metaLabel}
             </span>
           )}
-          {authors?.length && (
+          {authors?.length > 0 && (
             <dl className="cc-featured-promo__meta-item cc-featured-promo__meta-item--author cc-featured-promo__authors">
               <dt className="cc-featured-promo__authors-label">Author</dt>
               {authors?.map(author => (

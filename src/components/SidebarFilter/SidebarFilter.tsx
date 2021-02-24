@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
+import Checkbox from 'Checkbox';
 import Icon from 'Icon';
 
 type SidebarFilterProps = {
@@ -11,6 +12,7 @@ type SidebarFilterProps = {
     value: string;
   }[];
   allowForceReset?: boolean;
+  children?: JSX.Element;
   className?: string;
   onChange: (value: string) => void;
   onClear: () => void;
@@ -29,6 +31,7 @@ type SidebarFilterProps = {
 export const SidebarFilter = ({
   activeTags = [],
   allowForceReset,
+  children,
   className,
   onChange,
   onClear,
@@ -42,10 +45,15 @@ export const SidebarFilter = ({
   return (
     <div className={classNames}>
       <header className="cc-sidebar-filter__header">
-        <h2 className="cc-sidebar-filter__header-title">Filter results:</h2>
+        <h2 className="cc-sidebar-filter__header-title">Refine results</h2>
         <span className="cc-sidebar-filter__header-meta">
           {activeTags.length || allowForceReset ? (
-            <Button type="button" onClick={onClear} variant="link">
+            <Button
+              className="cc-sidebar-filter__btn-clear"
+              onClick={onClear}
+              type="button"
+              variant="link"
+            >
               Clear all
             </Button>
           ) : (
@@ -60,6 +68,7 @@ export const SidebarFilter = ({
               className="cc-sidebar-filter__tags-list-item"
               icon="close"
               iconPlacementSwitch
+              key={value}
               onClick={() => onTagRemove(value)}
               type="button"
             >
@@ -68,6 +77,7 @@ export const SidebarFilter = ({
           ))}
         </div>
       )}
+      {children}
       <div className="cc-sidebar-filter__body">
         {tags.map(({ name, items }) => (
           <Accordion key={name} hasBorders>
@@ -75,27 +85,13 @@ export const SidebarFilter = ({
               <ul className="cc-sidebar-filter__list">
                 {items.map(item => (
                   <li className="cc-sidebar-filter__list-item" key={item.value}>
-                    {/* #7382 todo: add Checkbox component */}
-                    <span className="cc-sidebar-filter__checkbox">
-                      <input
-                        checked={item.isActive}
-                        className="cc-sidebar-filter__checkbox-input"
-                        disabled={item.isDisabled}
-                        id={item.label}
-                        type="checkbox"
-                        onChange={() => onChange(item.value)}
-                      />
-                      <label
-                        className="cc-sidebar-filter__checkbox-label"
-                        htmlFor={item.label}
-                      >
-                        {item.label}
-                      </label>
-                      <Icon
-                        className="cc-sidebar-filter__checkbox-icon"
-                        name="checkmark"
-                      />
-                    </span>
+                    <Checkbox
+                      checked={item.isActive}
+                      disabled={item.isDisabled}
+                      id={item.label}
+                      label={item.label}
+                      onChange={() => onChange(item.value)}
+                    />
                   </li>
                 ))}
               </ul>
