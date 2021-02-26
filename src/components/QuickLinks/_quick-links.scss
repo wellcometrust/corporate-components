@@ -19,8 +19,7 @@
   padding-top: calc(1.5 * var(--space-unit));
   text-decoration: none;
 
-  &:hover,
-  &:focus {
+  @include hocus {
     text-decoration: underline;
   }
 }
