@@ -23,7 +23,7 @@ type TextCardProps = {
   metaLabel?: string;
   title: string;
   titleAs?: 'h2' | 'h3';
-  type?: 'content' | 'file' | 'taxonomy_term';
+  type?: 'content' | 'file' | 'job_card' | 'taxonomy_term';
 };
 
 export const TextCard = ({
@@ -51,7 +51,7 @@ export const TextCard = ({
 
   return (
     <article className={classNames} id={id}>
-      {(metaLabel || date) && (
+      {(metaLabel || date) && type !== 'job_card' && (
         <div className="cc-text-card__meta">
           {/* `metaLabel` temporarily removed as types for search results are not correctly displayed
           Type label and date logic for cards has been moved to the app side
@@ -108,6 +108,15 @@ export const TextCard = ({
         <RichText className="cc-text-card__description">{description}</RichText>
       )}
       {children && <div className="cc-text-card__description">{children}</div>}
+      {date && type === 'job_card' && (
+        <p className="cc-text-card__closing-date">
+          Closing date:
+          <span>
+            <FormattedDate dateString={date} />
+            &nbsp;
+          </span>
+        </p>
+      )}
     </article>
   );
 };
