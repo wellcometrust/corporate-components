@@ -112,8 +112,8 @@ export const TextCard = ({
         <p className="cc-text-card__closing-date">
           Closing date:
           <span>
-            <FormattedDate dateString={date} />
             &nbsp;
+            <FormattedDate dateString={date} />
           </span>
         </p>
       )}
