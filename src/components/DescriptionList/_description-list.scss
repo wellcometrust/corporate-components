@@ -9,5 +9,9 @@
 
 .cc-description-list__definition {
   display: block;
-  margin: 0 0 var(--space-sm) 0;
+  margin: 0 0 var(--space-md) 0;
+}
+
+.cc-description-list__definition-inner {
+  display: inline;
 }
