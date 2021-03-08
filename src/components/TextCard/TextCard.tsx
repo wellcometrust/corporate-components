@@ -84,15 +84,17 @@ export const TextCard = ({
           )}
         </div>
       )}
-      <TitleElement className="cc-text-card__title">
-        {type === 'file' ? (
-          parseHtml(title)
-        ) : (
-          <a href={href} className="cc-text-card__link">
-            {parseHtml(title)}
-          </a>
-        )}
-      </TitleElement>
+      {title && (
+        <TitleElement className="cc-text-card__title">
+          {type === 'file' ? (
+            parseHtml(title)
+          ) : (
+            <a href={href} className="cc-text-card__link">
+              {parseHtml(title)}
+            </a>
+          )}
+        </TitleElement>
+      )}
       {type === 'file' && (
         <FileDownload
           className="cc-text-card__file-meta"
