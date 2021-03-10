@@ -6,7 +6,7 @@ type ResultsCountProps = {
   className?: string;
   currentCount: string;
   id?: string;
-  onChange?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   options?: {
     label: string;
     value: string;
