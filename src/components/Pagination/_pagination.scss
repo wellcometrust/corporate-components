@@ -103,7 +103,7 @@
 
 // Previous and Next link placement for mobile
 
-.cc-pagination:before {
+.cc-pagination__list:before {
   @include mq($until: xs) {
     content: '';
 
