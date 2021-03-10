@@ -1,7 +1,7 @@
 import React from 'react';
 
+import CTALink from 'CTALink';
 import { ImageElement } from 'Image';
-import Button from 'Button';
 import Link from 'Link';
 import RichText from 'RichText';
 import TagList, { TagProps } from 'TagList/TagList';
@@ -93,15 +93,11 @@ export const FullWidthPromo = ({
           </RichText>
         )}
         {linkText?.trim().length > 0 && (
-          <Button
-            className="cc-full-width-promo__link cc-cta-link"
+          <CTALink
+            className="cc-full-width-promo__link"
             href={href}
-            icon="arrowLong"
-            iconPlacementSwitch
-            variant="unstyled"
-          >
-            {linkText}
-          </Button>
+            text={linkText}
+          />
         )}
         {topics && (
           <div className="cc-page-header-compact__topics">
