@@ -40,6 +40,7 @@ export const Accordion = ({
       active: index === active,
       index,
       isEmpty,
+      isNested,
 
       // passes an onClick handler to the child to allow it to set the itself as the active item
       onClick: () => selectItem(index)

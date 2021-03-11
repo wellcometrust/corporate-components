@@ -8,6 +8,7 @@ export type AccordionItemProps = {
   children?: React.ReactNode;
   index?: number;
   isEmpty?: boolean;
+  isNested?: boolean;
   onClick?: MouseEventHandler;
   title: string;
   titleActive?: string;
@@ -20,6 +21,7 @@ export const AccordionItem = ({
   children,
   index,
   isEmpty,
+  isNested,
   onClick,
   title,
   titleActive,
@@ -29,6 +31,9 @@ export const AccordionItem = ({
   const content = useRef(null);
   const classNames = cx('cc-accordion-item', {
     'cc-accordion-item--active': active
+  });
+  const titleClassNames = cx('cc-accordion-item__title', {
+    [`cc-accordion-item__title--nested`]: isNested
   });
   const buttonClassNames = cx('cc-accordion__button', {
     [`cc-accordion__button--${variant}`]: variant
@@ -41,13 +46,13 @@ export const AccordionItem = ({
     <>
       {isEmpty ? (
         <div className={classNames}>
-          <TitleElement className="cc-accordion-item__title">
+          <TitleElement className={titleClassNames}>
             <span className={buttonClassNames}>{title}</span>
           </TitleElement>
         </div>
       ) : (
         <div className={classNames}>
-          <TitleElement className="cc-accordion-item__title">
+          <TitleElement className={titleClassNames}>
             <Button
               aria-expanded={active}
               className={buttonClassNames}
