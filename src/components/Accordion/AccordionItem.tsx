@@ -32,11 +32,11 @@ export const AccordionItem = ({
   const classNames = cx('cc-accordion-item', {
     'cc-accordion-item--active': active
   });
-  const titleClassNames = cx('cc-accordion-item__title', {
-    [`cc-accordion-item__title--nested`]: isNested
-  });
   const buttonClassNames = cx('cc-accordion__button', {
     [`cc-accordion__button--${variant}`]: variant
+  });
+  const textClassNames = cx({
+    'cc-accordion-button__text--nested': isNested
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,13 +46,15 @@ export const AccordionItem = ({
     <>
       {isEmpty ? (
         <div className={classNames}>
-          <TitleElement className={titleClassNames}>
-            <span className={buttonClassNames}>{title}</span>
+          <TitleElement className="cc-accordion-item__title">
+            <div className={buttonClassNames}>
+              <span className={textClassNames}>{title}</span>
+            </div>
           </TitleElement>
         </div>
       ) : (
         <div className={classNames}>
-          <TitleElement className={titleClassNames}>
+          <TitleElement className="cc-accordion-item__title">
             <Button
               aria-expanded={active}
               className={buttonClassNames}
@@ -60,6 +62,7 @@ export const AccordionItem = ({
               iconPlacementSwitch
               id={`accordion-button-${index}`}
               onClick={onClick}
+              textClassName={textClassNames}
               variant="unstyled"
             >
               {active && titleActive ? titleActive : title}

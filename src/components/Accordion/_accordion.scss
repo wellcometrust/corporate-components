@@ -145,19 +145,18 @@
   }
 }
 
-.cc-accordion-item__title--nested {
+.cc-accordion-button__text--nested {
   padding-left: calc(2 * var(--space-unit));
   position: relative;
 
   &:before {
-    background-color: var(--colour-black);
+    background-color: var(--colour-grey-80);
     content: '';
-    display: block;
-    height: calc(0.75 * var(--space-unit));
+    height: calc(1 * var(--space-unit));
     left: 0;
     position: absolute;
-    top: 19px;
-    width: calc(0.75 * var(--space-unit));
+    top: calc(0.75 * var(--space-unit));
+    width: calc(1 * var(--space-unit));
   }
 }
 
