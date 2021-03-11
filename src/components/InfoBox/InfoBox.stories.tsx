@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 
 import Contact from 'Contact';
 import Listing from 'Listing';
@@ -10,10 +10,11 @@ import InfoBox from './InfoBox';
 import Readme from './InfoBox.md';
 
 const InfoBoxExample = () => {
-  const titleText = text('title', 'Info box title');
+  const titleText = text('Title', 'Info box title');
+  const variant = select('Variant', ['primary', 'secondary'], 'secondary');
 
   return (
-    <InfoBox>
+    <InfoBox variant={variant}>
       <Text title={titleText} variant="text-snippet">
         {`<p>This new funding should be directed to a global response for:</p>
         <h2>Heading 2</h2>

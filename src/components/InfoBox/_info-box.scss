@@ -7,7 +7,7 @@
 // ----------------------------------
 
 .cc-info-box {
-  background: var(--colour-cyan-05);
+  background-color: var(--colour-cyan-05);
   color: var(--colour-grey-80);
   margin-bottom: var(--space-xl);
   padding: calc(4 * var(--space-unit));
@@ -15,5 +15,9 @@
   > :last-child {
     margin-bottom: 0;
   }
+}
+
+.cc-info-box--primary {
+  border: 1px solid var(--colour-blue-30);
 }
 
