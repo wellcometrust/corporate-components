@@ -2,7 +2,6 @@
  * @file CTA Link component; wrapper for Button component with updated styles
  * and which should only be used when HTML element should be an <a> tag.
  */
-
 import React from 'react';
 import cx from 'classnames';
 
