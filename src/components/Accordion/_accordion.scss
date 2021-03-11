@@ -137,3 +137,9 @@
     font-weight: bold;
   }
 }
+
+.cc-accordion--empty {
+  .cc-accordion__button--plus {
+    cursor: default;
+  }
+}

@@ -7,6 +7,7 @@ export type AccordionItemProps = {
   active?: boolean;
   children?: React.ReactNode;
   index?: number;
+  isEmpty?: boolean;
   onClick?: MouseEventHandler;
   title: string;
   titleActive?: string;
@@ -18,6 +19,7 @@ export const AccordionItem = ({
   active = false,
   children,
   index,
+  isEmpty,
   onClick,
   title,
   titleActive,
@@ -36,30 +38,40 @@ export const AccordionItem = ({
   const TitleElement: any = titleAs || 'h3';
 
   return (
-    <div className={classNames}>
-      <TitleElement className="cc-accordion-item__title">
-        <Button
-          aria-expanded={active}
-          className={buttonClassNames}
-          icon={variant === 'chevron' ? 'chevronRight' : 'closeSmall'}
-          iconPlacementSwitch
-          id={`accordion-button-${index}`}
-          onClick={onClick}
-          variant="unstyled"
-        >
-          {active && titleActive ? titleActive : title}
-        </Button>
-      </TitleElement>
+    <>
+      {isEmpty ? (
+        <div className={classNames}>
+          <TitleElement className="cc-accordion-item__title">
+            <span className={buttonClassNames}>{title}</span>
+          </TitleElement>
+        </div>
+      ) : (
+        <div className={classNames}>
+          <TitleElement className="cc-accordion-item__title">
+            <Button
+              aria-expanded={active}
+              className={buttonClassNames}
+              icon={variant === 'chevron' ? 'chevronRight' : 'closeSmall'}
+              iconPlacementSwitch
+              id={`accordion-button-${index}`}
+              onClick={onClick}
+              variant="unstyled"
+            >
+              {active && titleActive ? titleActive : title}
+            </Button>
+          </TitleElement>
 
-      <div
-        aria-labelledby={`accordion-button-${index}`}
-        className="cc-accordion__content"
-        hidden={!active}
-        ref={content}
-      >
-        {children}
-      </div>
-    </div>
+          <div
+            aria-labelledby={`accordion-button-${index}`}
+            className="cc-accordion__content"
+            hidden={!active}
+            ref={content}
+          >
+            {children}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
