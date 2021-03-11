@@ -1,0 +1,53 @@
+// ----------------------------------
+// UI Components
+// CTA Link
+// ----------------------------------
+// Design System 1.0 Alpha
+// 2019-11-11
+// ----------------------------------
+
+.cc-cta-link {
+  @extend %anchor-inherit;
+  @include animated-underline(1px);
+
+  align-items: center;
+  color: var(--colour-grey-80);
+  display: inline-flex;
+  line-height: 1.6;
+  margin-right: calc(6 * var(--space-unit));
+  position: relative;
+  text-decoration: none;
+
+  @include hocus {
+    .btn__icon {
+      transform: translate(var(--space-unit), -50%);
+      transition-timing-function: var(--transition-timing-function-in);
+      width: calc(2.5 * var(--space-unit));
+    }
+  }
+
+  &:after {
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: calc(-6 * var(--space-unit));
+    top: 0;
+  }
+
+  .btn__icon {
+    height: 7px;
+    justify-content: flex-end;
+    overflow: hidden;
+    position: absolute;
+    right: calc(-5 * var(--space-unit));
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: all var(--transition-duration) var(--transition-timing-function-out);
+    width: calc(3.75 * var(--space-unit));
+  }
+
+  .btn__icon svg {
+    min-width: calc(3.75 * var(--space-unit));
+  }
+}
