@@ -24,8 +24,8 @@ export const Accordion = ({
   const classNames = cx('cc-accordion', {
     'cc-accordion--has-borders': hasBorders,
     'cc-accordion--empty': isEmpty,
-    'cc-accordion--nested': isNested,
     'cc-accordion--filter': variant === 'filter',
+    'cc-accordion--nested': isNested,
     [className]: className
   });
 
