@@ -137,3 +137,30 @@
     font-weight: bold;
   }
 }
+
+// Accordion variant: filter
+.cc-accordion--filter {
+  .cc-accordion__button {
+    font-size: var(--body-md);
+  }
+
+  .cc-accordion__button .icon {
+    color: var(--colour-black);
+  }
+
+  .cc-sidebar-filter__checkbox {
+    font-size: var(--body-md);
+  }
+
+  .cc-checkbox__label {
+    padding-bottom: var(--space-md);
+  }
+
+  .cc-checkbox__label:before {
+    top: 0.27rem;
+  }
+
+  .cc-checkbox__icon {
+    top: 0.24rem;
+  }
+}

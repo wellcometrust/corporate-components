@@ -1,15 +1,5 @@
 // .cc-sidebar-filter {}
 
-.cc-sidebar-filter__body {
-  .cc-accordion__button {
-    font-size: var(--body-md);
-  }
-
-  .cc-accordion__button .icon {
-    color: var(--colour-black);
-  }
-}
-
 .cc-sidebar-filter__header {
   align-items: center;
   border-top: 1px solid var(--colour-grey-10);
@@ -41,9 +31,11 @@
 }
 
 .cc-sidebar-filter__tags-list-item {
+  --body-sm: calc(12/16 * var(--text-base-size));
+
   background-color: var(--colour-blue-05);
   color: var(--colour-blue-60);
-  font-size: calc(12/16 * var(--text-base-size)); // we don't have this size in _typography.scss
+  font-size: var(--body-sm);
   justify-content: space-between;
   margin-bottom: var(--space-md);
   text-align: left;
@@ -73,22 +65,6 @@
 
 .cc-sidebar-filter__list-item {
   margin-bottom: var(--space-sm);
-}
-
-.cc-sidebar-filter__checkbox {
-  font-size: var(--body-md);
-
-  .cc-checkbox__label {
-    padding-bottom: var(--space-md);
-  }
-
-  .cc-checkbox__label:before {
-    top: 0.27rem;
-  }
-
-  .cc-checkbox__icon {
-    top: 0.24rem;
-  }
 }
 
 .cc-sidebar-filter__tag {
