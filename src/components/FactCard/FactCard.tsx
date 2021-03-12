@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Button from 'Button';
+import CTALink from 'CTALink';
 import RichText from 'RichText';
 
 type FactCardProps = {
@@ -36,17 +36,7 @@ export const FactCard = ({
           {description}
         </RichText>
       )}
-      {href && linkText && (
-        <Button
-          className="cc-cta-link"
-          href={href}
-          icon="arrowLong"
-          iconPlacementSwitch
-          variant="unstyled"
-        >
-          {linkText}
-        </Button>
-      )}
+      {href && linkText && <CTALink href={href} text={linkText} />}
     </article>
   );
 };

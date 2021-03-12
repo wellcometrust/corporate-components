@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Button from 'Button';
+import CTALink from 'CTALink';
 import { ImageElement } from 'Image';
 import Link from 'Link';
 import RichText from 'RichText';
@@ -73,17 +73,7 @@ export const ImageCardWithCTA = ({
             {description}
           </RichText>
         )}
-        {href && linkText && (
-          <Button
-            className="cc-cta-link"
-            href={href}
-            icon="arrowLong"
-            iconPlacementSwitch
-            variant="unstyled"
-          >
-            {linkText}
-          </Button>
-        )}
+        {href && linkText && <CTALink href={href} text={linkText} />}
       </div>
     </article>
   );

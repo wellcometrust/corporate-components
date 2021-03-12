@@ -10,19 +10,21 @@
   border-top: 1px solid var(--colour-grey-10);
   font-size: var(--body-md);
   padding-bottom: var(--space-lg);
-  padding-top: var(--space-lg);
 
   @include mq(sm) {
     align-items: center;
     display: flex;
+    padding-bottom: 0;
   }
 }
 
 .cc-results-count__result {
   margin-top: 0;
+  padding-top: var(--space-lg);
 
   @include mq(sm) {
     margin-bottom: 0;
+    padding-bottom: var(--space-lg);
   }
 }
 
@@ -45,6 +47,8 @@
 }
 
 .cc-results-count__select {
+  padding-left: calc(1.5 * var(--space-unit));
+
   @include mq(sm) {
     width: 238px;
   }

@@ -10,6 +10,8 @@ storiesOf('Components|Icon', module).add(
     <div>
       <p>Arrow</p>
       <Icon name="arrow" />
+      <p>ArrowMedium</p>
+      <Icon name="arrowMedium" />
       <p>ArrowLong</p>
       <Icon name="arrowLong" />
       <p>ArrowReverse</p>
@@ -30,6 +32,8 @@ storiesOf('Components|Icon', module).add(
       <Icon name="closeBold" />
       <p>Close (cross in circle)</p>
       <Icon name="closeCircle" />
+      <p>Close small</p>
+      <Icon name="closeSmall" />
       <p>Cookie</p>
       <Icon name="cookie" />
       <p>Download</p>
@@ -50,6 +54,8 @@ storiesOf('Components|Icon', module).add(
       <Icon name="message" />
       <p>Phone</p>
       <Icon name="phone" />
+      <p>Plus</p>
+      <Icon name="plus" />
       <p>Search</p>
       <Icon name="search" />
       <p>Share link</p>

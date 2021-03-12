@@ -31,8 +31,11 @@
 }
 
 .cc-sidebar-filter__tags-list-item {
+  --body-sm: calc(12/16 * var(--text-base-size));
+
   background-color: var(--colour-blue-05);
   color: var(--colour-blue-60);
+  font-size: var(--body-sm);
   justify-content: space-between;
   margin-bottom: var(--space-md);
   text-align: left;
@@ -41,6 +44,11 @@
   @include hocus {
     background-color: var(--colour-blue-05);
     color: var(--colour-blue-60);
+  }
+
+  .btn__icon {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 }
 
@@ -66,5 +74,21 @@
   @include hocus {
     background-color: var(--colour-blue-05);
     color: var(--colour-blue-60);
+  }
+}
+
+.cc-sidebar-filter__checkbox {
+  font-size: var(--body-md);
+
+  .cc-checkbox__label {
+    padding-bottom: var(--space-md);
+  }
+
+  .cc-checkbox__label:before {
+    top: 0.27rem;
+  }
+
+  .cc-checkbox__icon {
+    top: 0.24rem;
   }
 }

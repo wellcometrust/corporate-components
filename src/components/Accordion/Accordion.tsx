@@ -9,6 +9,7 @@ type AccordionProps = {
   hasBorders?: boolean;
   isEmpty?: boolean;
   isNested?: boolean;
+  variant?: 'standard' | 'filter';
 };
 
 export const Accordion = ({
@@ -16,14 +17,16 @@ export const Accordion = ({
   className,
   hasBorders,
   isEmpty,
-  isNested
+  isNested,
+  variant = 'standard'
 }: AccordionProps) => {
   const [active, setActive] = useState(-1);
   const classNames = cx('cc-accordion', {
     'cc-accordion--has-borders': hasBorders,
     'cc-accordion--empty': isEmpty,
     'cc-accordion--nested': isNested,
-    [`${className}`]: className
+    'cc-accordion--filter': variant === 'filter',
+    [className]: className
   });
 
   // Selects the given item and deselects if it has been clicked again by setting `active` to -1

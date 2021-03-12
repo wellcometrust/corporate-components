@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Button from 'Button';
+import Label from 'Label';
 
 type SidebarSearchProps = {
   className?: string;
@@ -32,9 +33,11 @@ export const SidebarSearch = ({
 
   return (
     <div className={classNames}>
-      <label htmlFor={`search-${id}`} className="cc-sidebar-search__label">
-        {label}
-      </label>
+      <Label
+        className="cc-sidebar-search__label"
+        htmlFor={`search-${id}`}
+        text={label}
+      />
       <input
         className="cc-sidebar-search__input"
         name={`search-${id}`}
