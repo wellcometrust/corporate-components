@@ -4,7 +4,6 @@ import cx from 'classnames';
 import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import Checkbox from 'Checkbox';
-import Icon from 'Icon';
 
 type SidebarFilterProps = {
   activeTags: {
@@ -66,7 +65,7 @@ export const SidebarFilter = ({
           {activeTags.map(({ label, value }) => (
             <Button
               className="cc-sidebar-filter__tags-list-item"
-              icon="close"
+              icon="closeSmall"
               iconPlacementSwitch
               key={value}
               onClick={() => onTagRemove(value)}
@@ -80,13 +79,14 @@ export const SidebarFilter = ({
       {children}
       <div className="cc-sidebar-filter__body">
         {tags.map(({ name, items }) => (
-          <Accordion key={name} hasBorders>
+          <Accordion key={name} hasBorders variant="filter">
             <AccordionItem title={name}>
               <ul className="cc-sidebar-filter__list">
                 {items.map(item => (
                   <li className="cc-sidebar-filter__list-item" key={item.value}>
                     <Checkbox
                       checked={item.isActive}
+                      className="cc-sidebar-filter__checkbox"
                       disabled={item.isDisabled}
                       id={item.label}
                       label={item.label}

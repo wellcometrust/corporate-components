@@ -137,3 +137,14 @@
     font-weight: bold;
   }
 }
+
+// Accordion variant: filter
+.cc-accordion--filter {
+  .cc-accordion__button {
+    font-size: var(--body-md);
+  }
+
+  .cc-accordion__button .icon {
+    color: var(--colour-black);
+  }
+}

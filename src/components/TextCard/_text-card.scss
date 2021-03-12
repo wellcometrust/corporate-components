@@ -21,6 +21,10 @@
   margin-top: 0;
 }
 
+.cc-text-card__description + .cc-text-card__description {
+  margin-top: var(--space-sm);
+}
+
 .cc-text-card__meta {
   font-size: var(--body-md);
   line-height: 1.57143;

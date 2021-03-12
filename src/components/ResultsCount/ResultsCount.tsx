@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import cx from 'classnames';
 import Label from '../Label';
 
@@ -6,7 +6,7 @@ type ResultsCountProps = {
   className?: string;
   currentCount: string;
   id?: string;
-  onChange?: () => void;
+  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
   options?: {
     label: string;
     value: string;

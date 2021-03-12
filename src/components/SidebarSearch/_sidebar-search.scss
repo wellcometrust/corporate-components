@@ -13,12 +13,15 @@
 
 .cc-sidebar-search__label {
   font-weight: bold;
+
+  .cc-sidebar-filter & {
+    font-size: var(--body-md);
+  }
 }
 
 .cc-sidebar-search__input {
   @extend %text-input-base;
   border-color: var(--colour-grey-30);
-  font-size: inherit;
   height: calc(6.75 * var(--space-unit));
 }
 
