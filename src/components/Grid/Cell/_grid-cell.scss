@@ -76,13 +76,6 @@
   }
 }
 
-// custom column widths
-.grid__cell--4-to-12 {
-  @include mq(md) {
-    @include grid-column(4, 13);
-  }
-}
-
 /**
  * Creates a suite of grid selectors to provide granular
  * control over the exact columns a grid cell should
