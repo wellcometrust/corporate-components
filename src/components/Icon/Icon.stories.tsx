@@ -10,6 +10,8 @@ storiesOf('Components|Icon', module).add(
     <div>
       <p>Arrow</p>
       <Icon name="arrow" />
+      <p>ArrowMedium</p>
+      <Icon name="arrowMedium" />
       <p>ArrowLong</p>
       <Icon name="arrowLong" />
       <p>ArrowReverse</p>

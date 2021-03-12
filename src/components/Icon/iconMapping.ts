@@ -1,4 +1,5 @@
 import arrow from './components/Arrow';
+import arrowMedium from './components/ArrowMedium';
 import arrowLong from './components/ArrowLong';
 import arrowReverse from './components/ArrowReverse';
 import checkmark from './components/Checkmark';
@@ -31,6 +32,7 @@ import youTube from './components/YouTube';
 // Map is used here instead of an object to ensure there is no type mismatch thrown by TypeScript
 export default new Map([
   ['arrow', arrow],
+  ['arrowMedium', arrowMedium],
   ['arrowLong', arrowLong],
   ['arrowReverse', arrowReverse],
   ['checkmark', checkmark],
