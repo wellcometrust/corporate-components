@@ -40,3 +40,9 @@
     @include grid-column(1, 13);
   }
 }
+
+.u-scaffold-grid-item--extended {
+  @include mq(md) {
+    @include grid-column(4, 13);
+  }
+}
