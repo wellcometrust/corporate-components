@@ -76,9 +76,31 @@
   }
 }
 
-// custom column widths
-.grid__cell--4-to-12 {
-  @include mq(md) {
-    @include grid-column(4, 13);
+/**
+ * Creates a suite of grid selectors to provide granular
+ * control over the exact columns a grid cell should
+ * span, e.g.
+ *
+ * .grid__cell--1-to-2 {
+ *   grid-column-start: 1;
+ *   grid-column-end: 2;
+ * }
+ *
+ * .grid__cell--7-to-13 {
+ *   grid-column-start: 6;
+ *   grid-column-end: 13;
+ * }
+ */
+$columns: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+
+@each $column-start in $columns {
+  @each $column-end in $columns {
+    @if $column-end > $column-start {
+      .grid__cell--#{$column-start}-to-#{$column-end} {
+        @include mq(md) {
+          @include grid-column($column-start, $column-end);
+        }
+      }
+    }
   }
 }
