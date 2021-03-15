@@ -3,8 +3,7 @@
  * of terms and their associated data.
  */
 import React, { Fragment } from 'react';
-
-import { parseHtml } from 'utils/parse-html';
+import RichText from 'RichText';
 
 type DescriptionListProps = {
   items: {
@@ -36,7 +35,9 @@ export const DescriptionList = ({ items }: DescriptionListProps) => (
           <Fragment key={title}>
             <dt className="cc-description-list__title">{title}</dt>
             <dd className="cc-description-list__definition">
-              {parseHtml(markup)}
+              <RichText className="cc-description-list__definition-inner">
+                {markup}
+              </RichText>
             </dd>
           </Fragment>
         ))}
