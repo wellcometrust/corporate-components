@@ -7,6 +7,7 @@ type AccordionProps = {
   children?: JSX.Element | JSX.Element[];
   className?: string;
   hasBorders?: boolean;
+  isEmpty?: boolean;
   isNested?: boolean;
   variant?: 'standard' | 'filter';
 };
@@ -15,14 +16,16 @@ export const Accordion = ({
   children,
   className,
   hasBorders,
+  isEmpty,
   isNested,
   variant = 'standard'
 }: AccordionProps) => {
   const [active, setActive] = useState(-1);
   const classNames = cx('cc-accordion', {
     'cc-accordion--has-borders': hasBorders,
-    'cc-accordion--nested': isNested,
+    'cc-accordion--empty': isEmpty,
     'cc-accordion--filter': variant === 'filter',
+    'cc-accordion--nested': isNested,
     [className]: className
   });
 
@@ -39,6 +42,8 @@ export const Accordion = ({
       // sets the active item in the accordion
       active: index === active,
       index,
+      isEmpty,
+      isNested,
 
       // passes an onClick handler to the child to allow it to set the itself as the active item
       onClick: () => selectItem(index)
