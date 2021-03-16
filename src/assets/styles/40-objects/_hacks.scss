@@ -9,14 +9,17 @@
 
 /* stylelint-disable-next-line selector-class-pattern */
 ._u-scaffold-grid-item {
-  @include grid-column(1, 7);
+  grid-column-end: 7;
+  grid-column-start: 1;
   width: 100%;
 
   @include mq(sm) {
-    @include grid-column(1, 13);
+    grid-column-end: 13;
+    grid-column-start: 1;
   }
 
   @include mq(md) {
-    @include grid-column(4, 10);
+    grid-column-end: 10;
+    grid-column-start: 4;
   }
 }
