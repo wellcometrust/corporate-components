@@ -1,3 +1,7 @@
+/**
+ * @deprecated in favour of CloseMedium.tsx - to be removed with Header.tsx
+ */
+
 import React from 'react';
 
 import { IconSVGProps } from '../Icon';

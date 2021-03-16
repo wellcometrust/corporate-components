@@ -1,3 +1,7 @@
+/**
+ * @file Close icon - Will replace current close icon Close.tsx when Header is removed
+ */
+
 import React from 'react';
 
 import { IconSVGProps } from '../Icon';
