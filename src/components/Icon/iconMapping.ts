@@ -9,6 +9,7 @@ import chevronRight from './components/ChevronRight';
 import chevronUp from './components/ChevronUp';
 import chevronThin from './components/ChevronThin';
 import close from './components/Close';
+import closeMedium from './components/CloseMedium';
 import closeSmall from './components/CloseSmall';
 import closeBold from './components/CloseBold';
 import closeCircle from './components/CloseCircle';
@@ -42,6 +43,7 @@ export default new Map([
   ['chevronUp', chevronUp],
   ['chevronThin', chevronThin],
   ['close', close],
+  ['closeMedium', closeMedium],
   ['closeSmall', closeSmall],
   ['closeBold', closeBold],
   ['closeCircle', closeCircle],

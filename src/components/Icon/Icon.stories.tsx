@@ -32,6 +32,8 @@ storiesOf('Components|Icon', module).add(
       <Icon name="closeBold" />
       <p>Close (cross in circle)</p>
       <Icon name="closeCircle" />
+      <p>Close medium</p>
+      <Icon name="closeMedium" />
       <p>Close small</p>
       <Icon name="closeSmall" />
       <p>Cookie</p>
