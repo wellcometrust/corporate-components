@@ -36,7 +36,7 @@ const InpageNavExample = () => {
       {sections.map(({ id, title }) => (
         <Section key={id}>
           <Grid>
-            <div className="u-scaffold-grid-item">
+            <div className="o-scaffold-grid-item">
               <SectionTitle id={id} title={title} />
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
