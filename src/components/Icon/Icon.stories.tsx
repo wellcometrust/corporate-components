@@ -20,20 +20,14 @@ storiesOf('Components|Icon', module).add(
       <Icon name="checkmark" />
       <p>Chevron</p>
       <Icon name="chevron" />
-      <p>Chevron down</p>
-      <Icon name="chevronDown" />
-      <p>Chevron right</p>
-      <Icon name="chevronRight" />
-      <p>Chevron up</p>
-      <Icon name="chevronUp" />
       <p>Close</p>
       <Icon name="close" />
+      <p>Close medium</p>
+      <Icon name="closeMedium" />
       <p>Close bold</p>
       <Icon name="closeBold" />
       <p>Close (cross in circle)</p>
       <Icon name="closeCircle" />
-      <p>Close small</p>
-      <Icon name="closeSmall" />
       <p>Cookie</p>
       <Icon name="cookie" />
       <p>Download</p>
@@ -46,10 +40,10 @@ storiesOf('Components|Icon', module).add(
       <Icon name="exclamationMark" />
       <p>Facebook button for share or follow</p>
       <Icon name="facebook" />
-      <p>LinkedIn button for share or follow</p>
-      <Icon name="linkedin" />
       <p>Info</p>
       <Icon name="info" />
+      <p>LinkedIn button for share or follow</p>
+      <Icon name="linkedin" />
       <p>Message</p>
       <Icon name="message" />
       <p>Phone</p>

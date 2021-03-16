@@ -4,12 +4,9 @@ import arrowLong from './components/ArrowLong';
 import arrowReverse from './components/ArrowReverse';
 import checkmark from './components/Checkmark';
 import chevron from './components/Chevron';
-import chevronDown from './components/ChevronDown';
-import chevronRight from './components/ChevronRight';
-import chevronUp from './components/ChevronUp';
 import chevronThin from './components/ChevronThin';
 import close from './components/Close';
-import closeSmall from './components/CloseSmall';
+import closeMedium from './components/CloseMedium';
 import closeBold from './components/CloseBold';
 import closeCircle from './components/CloseCircle';
 import cookie from './components/Cookie';
@@ -37,12 +34,9 @@ export default new Map([
   ['arrowReverse', arrowReverse],
   ['checkmark', checkmark],
   ['chevron', chevron],
-  ['chevronDown', chevronDown],
-  ['chevronRight', chevronRight],
-  ['chevronUp', chevronUp],
   ['chevronThin', chevronThin],
   ['close', close],
-  ['closeSmall', closeSmall],
+  ['closeMedium', closeMedium],
   ['closeBold', closeBold],
   ['closeCircle', closeCircle],
   ['cookie', cookie],

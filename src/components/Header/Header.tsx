@@ -1,3 +1,9 @@
+/**
+ * @deprecated Header and all child components which are not used elsewhere
+ * will be superseded and removed from this codebase when no longer being
+ * used by wellcome.org
+ */
+
 import React, {
   useContext,
   useEffect,
