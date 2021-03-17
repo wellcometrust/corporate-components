@@ -65,7 +65,7 @@ export const SidebarFilter = ({
           {activeTags.map(({ label, value }) => (
             <Button
               className="cc-sidebar-filter__tags-list-item"
-              icon="closeSmall"
+              icon="closeBold"
               iconPlacementSwitch
               key={value}
               onClick={() => onTagRemove(value)}
