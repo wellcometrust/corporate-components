@@ -76,7 +76,7 @@
 
 .cc-page-header__main {
   @include grid-column(1, 7);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 
   @include mq(sm) {
     @include grid-column(1, 13);

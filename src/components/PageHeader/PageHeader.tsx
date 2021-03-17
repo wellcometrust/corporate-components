@@ -51,37 +51,41 @@ export const PageHeader = ({
             <div className="cc-page-header__main">
               <PageTitle meta={meta} metaLabel={metaLabel} title={title} />
             </div>
-            <div className="cc-page-header__tools">
-              {/* TODO: Add breadcrumb here
+            {(datePublished || dateUpdated || share) && (
+              <div className="cc-page-header__tools">
+                {/* TODO: Add breadcrumb here
             <div className="cc-page-header__breadcrumb">Breadcrumb</div> */}
-              {(datePublished || dateUpdated) && (
-                <dl className="cc-page-header__dates">
-                  {datePublished && (
-                    <>
-                      <dt className="cc-page-header__date-label">Published</dt>
-                      <dd className="cc-page-header__date">
-                        <time>
-                          <FormattedDate dateString={datePublished} />
-                        </time>
-                      </dd>
-                    </>
-                  )}
-                  {dateUpdated && (
-                    <>
-                      <dt className="cc-page-header__date-label">
-                        Last updated
-                      </dt>
-                      <dd className="cc-page-header__date">
-                        <time>
-                          <FormattedDate dateString={dateUpdated} />
-                        </time>
-                      </dd>
-                    </>
-                  )}
-                </dl>
-              )}
-              <div className="cc-page-header__share">{share}</div>
-            </div>
+                {(datePublished || dateUpdated) && (
+                  <dl className="cc-page-header__dates">
+                    {datePublished && (
+                      <>
+                        <dt className="cc-page-header__date-label">
+                          Published
+                        </dt>
+                        <dd className="cc-page-header__date">
+                          <time>
+                            <FormattedDate dateString={datePublished} />
+                          </time>
+                        </dd>
+                      </>
+                    )}
+                    {dateUpdated && (
+                      <>
+                        <dt className="cc-page-header__date-label">
+                          Last updated
+                        </dt>
+                        <dd className="cc-page-header__date">
+                          <time>
+                            <FormattedDate dateString={dateUpdated} />
+                          </time>
+                        </dd>
+                      </>
+                    )}
+                  </dl>
+                )}
+                {share && <div className="cc-page-header__share">{share}</div>}
+              </div>
+            )}
           </Grid>
         </div>
         {imageLocation === 'bottom' && imageElement}
