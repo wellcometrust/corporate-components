@@ -50,9 +50,9 @@
   color: inherit;
 
   .btn__icon {
-    height: 1.5rem;
+    height: 0.5rem;
     position: relative;
-    width: 1.5rem;
+    width: 0.5rem;
   }
 
   .btn__icon--right {
@@ -106,8 +106,8 @@
   }
 }
 
-.cc-accordion__button--chevron svg {
-  transform: rotate(-90deg);
+.cc-accordion__button--chevron[aria-expanded='true'] svg {
+  transform: rotate(90deg);
 }
 
 .cc-accordion__button--plus[aria-expanded='false'] svg {

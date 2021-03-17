@@ -58,7 +58,7 @@ export const AccordionItem = ({
             <Button
               aria-expanded={active}
               className={buttonClassNames}
-              icon={variant === 'chevron' ? 'chevronRight' : 'closeSmall'}
+              icon={variant === 'chevron' ? 'chevron' : 'closeBold'}
               iconPlacementSwitch
               id={`accordion-button-${index}`}
               onClick={onClick}
