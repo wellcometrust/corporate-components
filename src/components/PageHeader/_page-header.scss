@@ -73,14 +73,13 @@
   }
 }
 
-
 .cc-page-header__main {
   @include grid-column(1, 7);
-  
+
   @include mq(sm) {
     @include grid-column(1, 13);
   }
-  
+
   @include mq(md) {
     @include grid-column(4, 10);
   }
