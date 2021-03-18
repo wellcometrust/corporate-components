@@ -37,18 +37,23 @@ export const PageHeader = ({
   standfirst,
   title
 }: PageHeaderProps) => {
-  const classNames = cx('cc-page-header', {
-    [`cc-page-header--${background}`]: background,
-    [`${className}`]: className
-  });
+  const classNames = {
+    header: cx('cc-page-header', {
+      [`cc-page-header--${background}`]: background,
+      [`${className}`]: className
+    }),
+    headerMain: cx('cc-page-header__main', {
+      'cc-page-header__main--title-only': !(standfirst || children)
+    })
+  };
 
   return (
     !hideHeaderContent && (
-      <div className={classNames}>
+      <div className={classNames.header}>
         {imageLocation === 'top' && imageElement}
         <div className="cc-page-header__container">
           <Grid>
-            <div className="cc-page-header__main">
+            <div className={classNames.headerMain}>
               <PageTitle meta={meta} metaLabel={metaLabel} title={title} />
             </div>
             {(datePublished || dateUpdated || share) && (
@@ -89,14 +94,16 @@ export const PageHeader = ({
           </Grid>
         </div>
         {imageLocation === 'bottom' && imageElement}
-        <Grid>
-          {standfirst && (
-            <div className="cc-page-header__standfirst">
-              <RichText>{standfirst}</RichText>
-            </div>
-          )}
-          {children && <div className="cc-page-header__misc">{children}</div>}
-        </Grid>
+        {(standfirst || children) && (
+          <Grid>
+            {standfirst && (
+              <div className="cc-page-header__standfirst">
+                <RichText>{standfirst}</RichText>
+              </div>
+            )}
+            {children && <div className="cc-page-header__misc">{children}</div>}
+          </Grid>
+        )}
       </div>
     )
   );
