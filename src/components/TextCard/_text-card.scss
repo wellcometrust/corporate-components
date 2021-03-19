@@ -32,12 +32,12 @@
 }
 
 .cc-text-card__closing-date {
-  color: var(--text-colour);
+  color: var(--meta-text-colour);
 }
 
 .cc-text-card__date,
 .cc-text-card__date-updated {
-  color: var(--text-colour);
+  color: var(--meta-text-colour);
 
   @include mq($until: xs) {
     display: block;
@@ -60,7 +60,7 @@
 }
 
 .cc-text-card__file-meta-size {
-  color: var(--text-colour);
+  color: var(--meta-text-colour);
   font-size: var(--body-md);
 }
 

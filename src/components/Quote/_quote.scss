@@ -56,14 +56,14 @@
   a {
     @extend %anchor-base;
   }
-  
+
   > :last-child {
     margin-bottom: 0;
   }
 }
 
 .cc-quote__cite {
-  color: var(--text-colour);
+  color: var(--meta-text-colour);
   display: block;
   font-style: normal;
   margin-top: calc(-4 * var(--space-unit));

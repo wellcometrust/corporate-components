@@ -93,7 +93,7 @@
 }
 
 .cc-timeline__item-date {
-  color: var(--text-colour);
+  color: var(--meta-text-colour);
   flex-grow: 0;
   flex-shrink: 0;
   font-size: var(--body-md);
@@ -124,7 +124,7 @@
 }
 
 .cc-timeline__item-body {
-  color: var(--text-colour);
+  color: var(--meta-text-colour);
   font-size: var(--body-md);
 
   p {

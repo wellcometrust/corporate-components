@@ -113,7 +113,7 @@
 
 .search-pane__btn-close {
   @extend %btn-nav-base;
-  color: var(--text-colour);
+  color: var(--meta-text-colour);
   padding-left: calc(2 * var(--space-unit));
   padding-right: calc(2 * var(--space-unit));
 
