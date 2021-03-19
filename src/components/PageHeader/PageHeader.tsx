@@ -37,62 +37,73 @@ export const PageHeader = ({
   standfirst,
   title
 }: PageHeaderProps) => {
-  const classNames = cx('cc-page-header', {
-    [`cc-page-header--${background}`]: background,
-    [`${className}`]: className
-  });
+  const classNames = {
+    header: cx('cc-page-header', {
+      [`cc-page-header--${background}`]: background,
+      [`${className}`]: className
+    }),
+    headerMain: cx('cc-page-header__main', {
+      'cc-page-header__main--title-only': !(standfirst || children)
+    })
+  };
 
   return (
     !hideHeaderContent && (
-      <div className={classNames}>
+      <div className={classNames.header}>
         {imageLocation === 'top' && imageElement}
         <div className="cc-page-header__container">
           <Grid>
-            <div className="cc-page-header__main">
+            <div className={classNames.headerMain}>
               <PageTitle meta={meta} metaLabel={metaLabel} title={title} />
             </div>
-            <div className="cc-page-header__tools">
-              {/* TODO: Add breadcrumb here
+            {(datePublished || dateUpdated || share) && (
+              <div className="cc-page-header__tools">
+                {/* TODO: Add breadcrumb here
             <div className="cc-page-header__breadcrumb">Breadcrumb</div> */}
-              {(datePublished || dateUpdated) && (
-                <dl className="cc-page-header__dates">
-                  {datePublished && (
-                    <>
-                      <dt className="cc-page-header__date-label">Published</dt>
-                      <dd className="cc-page-header__date">
-                        <time>
-                          <FormattedDate dateString={datePublished} />
-                        </time>
-                      </dd>
-                    </>
-                  )}
-                  {dateUpdated && (
-                    <>
-                      <dt className="cc-page-header__date-label">
-                        Last updated
-                      </dt>
-                      <dd className="cc-page-header__date">
-                        <time>
-                          <FormattedDate dateString={dateUpdated} />
-                        </time>
-                      </dd>
-                    </>
-                  )}
-                </dl>
-              )}
-              <div className="cc-page-header__share">{share}</div>
-            </div>
+                {(datePublished || dateUpdated) && (
+                  <dl className="cc-page-header__dates">
+                    {datePublished && (
+                      <>
+                        <dt className="cc-page-header__date-label">
+                          Published
+                        </dt>
+                        <dd className="cc-page-header__date">
+                          <time>
+                            <FormattedDate dateString={datePublished} />
+                          </time>
+                        </dd>
+                      </>
+                    )}
+                    {dateUpdated && (
+                      <>
+                        <dt className="cc-page-header__date-label">
+                          Last updated
+                        </dt>
+                        <dd className="cc-page-header__date">
+                          <time>
+                            <FormattedDate dateString={dateUpdated} />
+                          </time>
+                        </dd>
+                      </>
+                    )}
+                  </dl>
+                )}
+                {share && <div className="cc-page-header__share">{share}</div>}
+              </div>
+            )}
           </Grid>
         </div>
         {imageLocation === 'bottom' && imageElement}
-        <Grid>
-          {standfirst && (
-            <div className="cc-page-header__standfirst">
-              <RichText>{standfirst}</RichText>
-            </div>
-          )}
-          {children && <div className="cc-page-header__misc">{children}</div>}
-        </Grid>
+        {(standfirst || children) && (
+          <Grid>
+            {standfirst && (
+              <div className="cc-page-header__standfirst">
+                <RichText>{standfirst}</RichText>
+              </div>
+            )}
+            {children && <div className="cc-page-header__misc">{children}</div>}
+          </Grid>
+        )}
       </div>
     )
   );

@@ -73,10 +73,8 @@
   }
 }
 
-
 .cc-page-header__main {
   @include grid-column(1, 7);
-  margin-bottom: var(--space-xl);
 
   @include mq(sm) {
     @include grid-column(1, 13);
@@ -85,6 +83,10 @@
   @include mq(md) {
     @include grid-column(4, 10);
   }
+}
+
+.cc-page-header__main--title-only {
+  margin-bottom: var(--space-lg);
 }
 
 .cc-page-header__tools {
