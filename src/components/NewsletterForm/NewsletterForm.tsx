@@ -1,3 +1,9 @@
+/**
+ * @deprecated NewsletterForm and all non-generic child components are to be
+ * moved to corporate-react
+ *
+ * @see {@link https://github.com/wellcometrust/corporate/issues/8353}
+ */
 import React, { useState } from 'react';
 import cx from 'classnames';
 
