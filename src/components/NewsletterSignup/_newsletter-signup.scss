@@ -12,6 +12,12 @@
   padding-bottom: var(--space-xl);
   padding-top: var(--space-xl);
   position: relative;
+
+  /**
+   * Inpage nav fix
+   * forces position: sticky elements in safari to respect z-index
+   */
+  transform: translate3d(0, 0, 0);
   z-index: var(--z-low);
 
   // WYSIWYG content styles

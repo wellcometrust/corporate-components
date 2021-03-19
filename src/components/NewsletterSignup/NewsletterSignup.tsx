@@ -1,3 +1,8 @@
+/**
+ * @deprecated NewsletterSignup is to be moved to corporate-react
+ *
+ * @see {@link https://github.com/wellcometrust/corporate/issues/8353}
+ */
 import React from 'react';
 
 import Grid, { GridCell } from 'Grid';

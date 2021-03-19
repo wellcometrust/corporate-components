@@ -1,3 +1,9 @@
+/**
+ * @deprecated Footer and all non-generic child components are to be moved
+ * to corporate-react
+ *
+ * @see {@link https://github.com/wellcometrust/corporate/issues/8352}
+ */
 import React from 'react';
 
 import FooterSocial from './FooterSocial/FooterSocial';

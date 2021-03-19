@@ -10,6 +10,12 @@
   background: var(--X-colour-dark-blue);
   color: var(--colour-white);
   position: relative;
+
+  /**
+   * Inpage nav fix
+   * forces position: sticky elements in safari to respect z-index
+   */
+  transform: translate3d(0, 0, 0);
   z-index: var(--z-low);
 }
 
