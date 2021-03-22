@@ -15,6 +15,11 @@
   padding: var(--space-lg) 0;
 }
 
+// ensure space is added between a contact and the next item
+.cc-contact + :not(.cc-contact) {
+  margin-top: var(--space-unit);
+}
+
 .cc-contact--nested {
   border: 0;
   padding-bottom: var(--space-sm);
