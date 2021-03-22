@@ -4,6 +4,7 @@ import cx from 'classnames';
 type DateInputProps = {
   className?: string;
   describedBy?: string;
+  disabled?: boolean;
   id: string;
   isInvalid?: boolean;
   isRequired?: boolean;
@@ -12,7 +13,15 @@ type DateInputProps = {
 
 export const DateInput = forwardRef(
   (
-    { className, describedBy, id, isInvalid, isRequired, name }: DateInputProps,
+    {
+      className,
+      describedBy,
+      disabled,
+      id,
+      isInvalid,
+      isRequired,
+      name
+    }: DateInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
     const classNames = cx('cc-date-input', {
@@ -24,6 +33,7 @@ export const DateInput = forwardRef(
       <input
         aria-describedby={describedBy}
         className={classNames}
+        disabled={disabled}
         id={id}
         name={name}
         ref={ref}

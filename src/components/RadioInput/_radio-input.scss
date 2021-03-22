@@ -51,9 +51,19 @@
   }
 
   // Hovered/Focused Radio
-  &:hover:before,
-  .cc-radio-input__input-element:focus ~ &:before {
+  &:not(:disabled):hover:before,
+  .cc-radio-input__input-element:not(:disabled):focus ~ &:before {
     border-color: var(--colour-blue-60);
+  }
+
+  // Disabled
+  .cc-radio-input__input-element:disabled ~ &:before {
+    background-color: var(--colour-grey-05);
+    border: 1px solid var(--colour-grey-20);
+  }
+
+  .cc-radio-input__input-element:disabled ~ & {
+    color: var(--colour-grey-30);
   }
 }
 

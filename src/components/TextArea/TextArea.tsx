@@ -4,6 +4,7 @@ import cx from 'classnames';
 type TextAreaProps = {
   className?: string;
   describedBy?: string;
+  disabled?: boolean;
   id: string;
   isInvalid?: boolean;
   isRequired?: boolean;
@@ -12,7 +13,15 @@ type TextAreaProps = {
 
 export const TextArea = forwardRef(
   (
-    { className, describedBy, id, isInvalid, isRequired, name }: TextAreaProps,
+    {
+      className,
+      describedBy,
+      disabled,
+      id,
+      isInvalid,
+      isRequired,
+      name
+    }: TextAreaProps,
     ref: React.Ref<HTMLTextAreaElement>
   ) => {
     const classNames = cx('cc-textarea', {
@@ -24,6 +33,7 @@ export const TextArea = forwardRef(
       <textarea
         aria-describedby={describedBy}
         className={classNames}
+        disabled={disabled}
         id={id}
         name={name}
         ref={ref}
