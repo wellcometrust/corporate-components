@@ -19,6 +19,7 @@ export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { default as FormField } from 'FormField';
 export { default as FormFieldError } from 'FormFieldError';
 export { default as FormFieldHint } from 'FormFieldHint';
+export { default as FormFieldset } from 'FormFieldset';
 export { default as FormSelect } from 'FormSelect';
 export { default as FullWidthPromo } from 'FullWidthPromo';
 export { Gallery, GalleryMedia } from 'Gallery/Gallery';

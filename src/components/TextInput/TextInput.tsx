@@ -33,6 +33,7 @@ export const TextInput = forwardRef(
     return (
       <input
         aria-describedby={describedBy}
+        aria-invalid={isInvalid}
         className={classNames}
         id={id}
         name={name}

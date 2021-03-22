@@ -23,6 +23,7 @@ export const DateInput = forwardRef(
     return (
       <input
         aria-describedby={describedBy}
+        aria-invalid={isInvalid}
         className={classNames}
         id={id}
         name={name}

@@ -23,6 +23,7 @@ export const TextArea = forwardRef(
     return (
       <textarea
         aria-describedby={describedBy}
+        aria-invalid={isInvalid}
         className={classNames}
         id={id}
         name={name}
