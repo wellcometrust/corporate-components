@@ -109,6 +109,10 @@
   }
 }
 
+.cc-text-snippet > :last-child {
+  margin-bottom: 0;
+}
+
 .cc-rich-text-snippet {
   @extend %body-large;
   line-height: var(--body-line-height-sm);
