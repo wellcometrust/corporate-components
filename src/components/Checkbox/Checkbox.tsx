@@ -11,10 +11,10 @@ type CheckboxProps = {
   disabled?: boolean;
   id: string;
   isInvalid?: boolean;
-  isRequired?: boolean;
   label: string;
   name?: string;
   onChange?: () => void;
+  required?: boolean;
   value?: string;
 };
 
@@ -27,10 +27,10 @@ export const Checkbox = forwardRef(
       disabled,
       id,
       isInvalid,
-      isRequired,
       label,
       name,
       onChange,
+      required,
       value
     }: CheckboxProps,
     ref: React.Ref<HTMLInputElement>
@@ -51,7 +51,7 @@ export const Checkbox = forwardRef(
           onChange={onChange}
           name={name}
           ref={ref}
-          required={isRequired}
+          required={required}
           type="checkbox"
           value={value}
         />

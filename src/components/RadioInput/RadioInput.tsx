@@ -8,9 +8,9 @@ type RadioInputProps = {
   describedBy?: string;
   id: string;
   isInvalid?: boolean;
-  isRequired?: boolean;
   label?: string;
   name: string;
+  required?: boolean;
   value: string;
 };
 
@@ -21,9 +21,9 @@ export const RadioInput = forwardRef(
       describedBy,
       id,
       isInvalid,
-      isRequired,
       label,
       name,
+      required,
       value
     }: RadioInputProps,
     ref: React.Ref<HTMLInputElement>
@@ -41,7 +41,7 @@ export const RadioInput = forwardRef(
           id={id}
           name={name}
           ref={ref}
-          required={isRequired}
+          required={required}
           type="radio"
           value={value}
         />
@@ -54,7 +54,7 @@ export const RadioInput = forwardRef(
         id={id}
         name={name}
         ref={ref}
-        required={isRequired}
+        required={required}
         type="radio"
         value={value}
       />

@@ -6,13 +6,13 @@ type DateInputProps = {
   describedBy?: string;
   id: string;
   isInvalid?: boolean;
-  isRequired?: boolean;
   name: string;
+  required?: boolean;
 };
 
 export const DateInput = forwardRef(
   (
-    { className, describedBy, id, isInvalid, isRequired, name }: DateInputProps,
+    { className, describedBy, id, isInvalid, name, required }: DateInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
     const classNames = cx('cc-date-input', {
@@ -28,7 +28,7 @@ export const DateInput = forwardRef(
         id={id}
         name={name}
         ref={ref}
-        required={isRequired}
+        required={required}
         type="date"
       />
     );

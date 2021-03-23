@@ -5,9 +5,9 @@ type FormSelectProps = {
   className?: string;
   defaultText?: string;
   id: string;
-  isRequired?: boolean;
   name: string;
   options: string[];
+  required?: boolean;
 };
 
 export const FormSelect = forwardRef(
@@ -16,9 +16,9 @@ export const FormSelect = forwardRef(
       className,
       defaultText = 'Please select',
       id,
-      isRequired,
       name,
-      options
+      options,
+      required
     }: FormSelectProps,
     ref: React.Ref<HTMLSelectElement>
   ) => {
@@ -33,7 +33,7 @@ export const FormSelect = forwardRef(
         id={id}
         name={name}
         ref={ref}
-        required={isRequired}
+        required={required}
       >
         <option disabled value="">
           {defaultText}
