@@ -103,10 +103,6 @@
   td {
     font-size: var(--body-md);
   }
-
-  > :last-child {
-    margin-bottom: 0;
-  }
 }
 
 .cc-rich-text-snippet {
@@ -121,10 +117,6 @@
   ul {
     @extend %list-base;
     margin-bottom: calc(2 * var(--space-unit));
-  }
-
-  > :last-child {
-    margin-bottom: 0;
   }
 }
 
@@ -144,4 +136,11 @@
 .cc-rich-text__table-wrap {
   overflow-x: auto;
   width: 100%;
+}
+
+// remove any bottom margins
+.cc-text-snippet > :last-child,
+.cc-rich-text > :last-child,
+.cc-rich-text-snippet > :last-child {
+  margin-bottom: 0;
 }
