@@ -156,9 +156,9 @@ export const GalleryLightBox = ({
                     </div>
                     <Button
                       className={infoPaneClassNames.toggle}
-                      disabled={isMobile}
                       icon="chevronThin"
                       iconPlacementSwitch
+                      isDisabled={isMobile}
                       onClick={toggleInfoPane}
                       role="button"
                       variant="unstyled"

@@ -18,7 +18,7 @@ export const NewsletterFormSubmit = ({
   <NewsletterFormItem type="submit">
     <Button
       className="newsletter-form__btn-submit"
-      disabled={disabled}
+      isDisabled={disabled}
       onClick={handleClick}
       type="submit"
     >

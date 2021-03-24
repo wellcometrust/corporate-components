@@ -51,10 +51,10 @@ const ButtonExample = () => {
 
   return (
     <Button
-      disabled={disabled}
       href={href}
       icon={icon}
       iconPlacementSwitch={iconPlacementSwitch}
+      isDisabled={disabled}
       variant={variant}
     >
       {buttonText}
