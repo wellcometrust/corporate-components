@@ -4,8 +4,8 @@ import cx from 'classnames';
 type TextInputProps = {
   className?: string;
   describedBy?: string;
-  disabled?: boolean;
   id: string;
+  isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
   name: string;
@@ -17,8 +17,8 @@ export const TextInput = forwardRef(
     {
       className,
       describedBy,
-      disabled,
       id,
+      isDisabled,
       isInvalid,
       isRequired,
       name,
@@ -36,7 +36,7 @@ export const TextInput = forwardRef(
       <input
         aria-describedby={describedBy}
         className={classNames}
-        disabled={disabled}
+        disabled={isDisabled}
         id={id}
         name={name}
         ref={ref}

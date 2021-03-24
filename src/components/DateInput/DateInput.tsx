@@ -4,8 +4,8 @@ import cx from 'classnames';
 type DateInputProps = {
   className?: string;
   describedBy?: string;
-  disabled?: boolean;
   id: string;
+  isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
   name: string;
@@ -16,8 +16,8 @@ export const DateInput = forwardRef(
     {
       className,
       describedBy,
-      disabled,
       id,
+      isDisabled,
       isInvalid,
       isRequired,
       name
@@ -33,7 +33,7 @@ export const DateInput = forwardRef(
       <input
         aria-describedby={describedBy}
         className={classNames}
-        disabled={disabled}
+        disabled={isDisabled}
         id={id}
         name={name}
         ref={ref}

@@ -15,7 +15,7 @@ export const FormLabel = ({
   text
 }: LabelProps) => {
   const classNames = cx('cc-label', {
-    'cc-label--disabled': isDisabled,
+    'is-disabled': isDisabled,
     [className]: className
   });
 

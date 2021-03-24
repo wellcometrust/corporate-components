@@ -4,8 +4,8 @@ import cx from 'classnames';
 type TextAreaProps = {
   className?: string;
   describedBy?: string;
-  disabled?: boolean;
   id: string;
+  isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
   name: string;
@@ -16,8 +16,8 @@ export const TextArea = forwardRef(
     {
       className,
       describedBy,
-      disabled,
       id,
+      isDisabled,
       isInvalid,
       isRequired,
       name
@@ -33,7 +33,7 @@ export const TextArea = forwardRef(
       <textarea
         aria-describedby={describedBy}
         className={classNames}
-        disabled={disabled}
+        disabled={isDisabled}
         id={id}
         name={name}
         ref={ref}

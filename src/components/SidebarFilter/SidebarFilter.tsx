@@ -87,8 +87,8 @@ export const SidebarFilter = ({
                     <Checkbox
                       checked={item.isActive}
                       className="cc-sidebar-filter__checkbox"
-                      disabled={item.isDisabled}
                       id={item.label}
+                      isDisabled={item.isDisabled}
                       label={item.label}
                       onChange={() => onChange(item.value)}
                     />
