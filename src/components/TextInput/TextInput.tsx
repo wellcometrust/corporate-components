@@ -5,6 +5,7 @@ type TextInputProps = {
   className?: string;
   describedBy?: string;
   id: string;
+  isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
   name: string;
@@ -17,6 +18,7 @@ export const TextInput = forwardRef(
       className,
       describedBy,
       id,
+      isDisabled,
       isInvalid,
       isRequired,
       name,
@@ -35,6 +37,7 @@ export const TextInput = forwardRef(
         aria-describedby={describedBy}
         aria-invalid={isInvalid}
         className={classNames}
+        disabled={isDisabled}
         id={id}
         name={name}
         ref={ref}

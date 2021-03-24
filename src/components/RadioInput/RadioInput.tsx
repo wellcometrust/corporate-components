@@ -7,6 +7,7 @@ type RadioInputProps = {
   className?: string;
   describedBy?: string;
   id: string;
+  isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
   label?: string;
@@ -20,6 +21,7 @@ export const RadioInput = forwardRef(
       className,
       describedBy,
       id,
+      isDisabled,
       isInvalid,
       isRequired,
       label,
@@ -38,6 +40,7 @@ export const RadioInput = forwardRef(
         <input
           aria-describedby={describedBy}
           className="cc-radio-input__input-element"
+          disabled={isDisabled}
           id={id}
           name={name}
           ref={ref}

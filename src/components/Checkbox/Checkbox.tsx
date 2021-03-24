@@ -8,8 +8,8 @@ type CheckboxProps = {
   checked?: boolean;
   className?: string;
   describedBy?: string;
-  disabled?: boolean;
   id: string;
+  isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
   label: string;
@@ -24,8 +24,8 @@ export const Checkbox = forwardRef(
       checked,
       className,
       describedBy,
-      disabled,
       id,
+      isDisabled,
       isInvalid,
       isRequired,
       label,
@@ -46,7 +46,7 @@ export const Checkbox = forwardRef(
           aria-describedby={describedBy}
           checked={checked}
           className="cc-checkbox__input"
-          disabled={disabled}
+          disabled={isDisabled}
           id={id}
           onChange={onChange}
           name={name}

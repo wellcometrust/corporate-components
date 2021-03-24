@@ -83,7 +83,7 @@
 
   // Disabled checkbox
   .cc-checkbox__input:disabled ~ &:before {
-    background-color: var(--colour-white);
+    background-color: var(--colour-grey-05);
     border: 1px solid var(--colour-grey-20);
   }
 
