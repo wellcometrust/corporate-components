@@ -74,7 +74,7 @@ export const Button = forwardRef(
         to={href}
         id={id}
         onClick={(e: ReactMouseEvent) => {
-          if (onClick && !isDisabled) {
+          if (typeof onClick === 'function' && !isDisabled) {
             onClick(e);
           }
         }}
