@@ -13,12 +13,12 @@ type ButtonProps = {
   autoFocus?: boolean;
   className?: string;
   children: React.ReactNode;
-  disabled?: boolean;
   href?: string | null;
   icon?: string;
   iconClassName?: string;
   iconPlacementSwitch?: boolean;
   id?: string;
+  isDisabled?: boolean;
   onClick?: MouseEventHandler;
   role?: string;
   tabIndex?: number;
@@ -33,12 +33,12 @@ export const Button = forwardRef(
       autoFocus = false,
       children,
       className,
-      disabled,
       href,
       icon,
       iconClassName,
       iconPlacementSwitch,
       id,
+      isDisabled,
       onClick,
       role,
       tabIndex,
@@ -70,11 +70,11 @@ export const Button = forwardRef(
       <Element
         autoFocus={autoFocus}
         className={classNames}
-        disabled={disabled}
+        disabled={isDisabled}
         to={href}
         id={id}
         onClick={(e: ReactMouseEvent) => {
-          if (onClick && !disabled) {
+          if (typeof onClick === 'function' && !isDisabled) {
             onClick(e);
           }
         }}

@@ -85,7 +85,7 @@ export const SearchPane = () => {
       <Button
         variant="unstyled"
         className={classNames.overlay}
-        disabled={!isSearchActive}
+        isDisabled={!isSearchActive}
         onClick={closeAll}
         tabIndex={searchTabIndex}
       >
