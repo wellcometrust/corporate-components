@@ -9,6 +9,7 @@ type DateInputProps = {
   isInvalid?: boolean;
   isRequired?: boolean;
   name: string;
+  pattern?: string;
 };
 
 export const DateInput = forwardRef(
@@ -20,7 +21,8 @@ export const DateInput = forwardRef(
       isDisabled,
       isInvalid,
       isRequired,
-      name
+      name,
+      pattern
     }: DateInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
@@ -37,6 +39,7 @@ export const DateInput = forwardRef(
         disabled={isDisabled}
         id={id}
         name={name}
+        pattern={pattern}
         ref={ref}
         required={isRequired}
         type="date"

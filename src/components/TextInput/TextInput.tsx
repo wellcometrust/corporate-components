@@ -9,6 +9,7 @@ type TextInputProps = {
   isInvalid?: boolean;
   isRequired?: boolean;
   name: string;
+  pattern?: string;
   type: 'text' | 'email' | 'tel';
 };
 
@@ -22,6 +23,7 @@ export const TextInput = forwardRef(
       isInvalid,
       isRequired,
       name,
+      pattern,
       type = 'text'
     }: TextInputProps,
     ref: React.Ref<HTMLInputElement>
@@ -40,6 +42,7 @@ export const TextInput = forwardRef(
         disabled={isDisabled}
         id={id}
         name={name}
+        pattern={pattern}
         ref={ref}
         required={isRequired}
         type={type}
