@@ -16,18 +16,19 @@ export const FormFieldset = ({
   legend,
   legendClassName
 }: FormFieldProps) => {
-  const classNames = cx('cc-form-fieldset', {
-    [className]: className
-  });
-
-  const legendClassNames = cx('cc-form-legend', {
-    'is-disabled': isDisabled,
-    [legendClassName]: legendClassName
-  });
+  const classNames = {
+    fieldset: cx('cc-form-fieldset', {
+      [className]: className
+    }),
+    legend: cx('cc-form-legend', {
+      'is-disabled': isDisabled,
+      [legendClassName]: legendClassName
+    })
+  };
 
   return (
-    <fieldset className={classNames}>
-      <legend className={legendClassNames}>{legend}</legend>
+    <fieldset className={classNames.fieldset}>
+      <legend className={classNames.legend}>{legend}</legend>
       {children}
     </fieldset>
   );
