@@ -17,3 +17,7 @@
   display: block;
   margin-bottom: var(--space-xs);
 }
+
+.cc-form-legend.is-disabled {
+  color: var(--colour-grey-60);
+}
