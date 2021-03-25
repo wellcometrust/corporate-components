@@ -5,6 +5,7 @@ type TextInputProps = {
   className?: string;
   describedBy?: string;
   id: string;
+  inputMode?: 'numeric' | 'decimal';
   isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
@@ -19,6 +20,7 @@ export const TextInput = forwardRef(
       className,
       describedBy,
       id,
+      inputMode,
       isDisabled,
       isInvalid,
       isRequired,
@@ -41,6 +43,7 @@ export const TextInput = forwardRef(
         className={classNames}
         disabled={isDisabled}
         id={id}
+        inputMode={inputMode}
         name={name}
         pattern={pattern}
         ref={ref}
