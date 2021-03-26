@@ -4,21 +4,31 @@ import cx from 'classnames';
 type FormFieldProps = {
   children: JSX.Element[] | JSX.Element;
   className?: string;
+  isDisabled?: boolean;
   legend: string;
+  legendClassName?: string;
 };
 
 export const FormFieldset = ({
   children,
   className,
-  legend
+  isDisabled,
+  legend,
+  legendClassName
 }: FormFieldProps) => {
-  const classNames = cx('cc-form-fieldset', {
-    [className]: className
-  });
+  const classNames = {
+    fieldset: cx('cc-form-fieldset', {
+      [className]: className
+    }),
+    legend: cx('cc-form-legend', {
+      'is-disabled': isDisabled,
+      [legendClassName]: legendClassName
+    })
+  };
 
   return (
-    <fieldset className={classNames}>
-      <legend className="cc-form-legend">{legend}</legend>
+    <fieldset className={classNames.fieldset}>
+      <legend className={classNames.legend}>{legend}</legend>
       {children}
     </fieldset>
   );
