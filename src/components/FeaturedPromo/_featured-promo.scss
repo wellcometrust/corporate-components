@@ -113,6 +113,13 @@
   margin-bottom: calc(2 * var(--space-unit));
 }
 
+.cc-featured-promo__date {
+  display: block;
+  font-size: var(--body-xs);
+  margin-bottom: calc(2 * var(--space-unit));
+  text-transform: uppercase;
+}
+
 .cc-featured-promo__link {
   @extend %anchor-inherit;
   @include animated-underline;
