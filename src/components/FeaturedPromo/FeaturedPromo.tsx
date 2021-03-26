@@ -1,13 +1,15 @@
 import React from 'react';
 import cx from 'classnames';
 
+import FormattedDate from 'FormattedDate';
 import { ImageElement } from 'Image';
-import RichText from 'RichText';
 import Link from 'Link';
+import RichText from 'RichText';
 
 type FeaturedPromoProps = {
   authors?: string[];
   className?: string;
+  date?: string;
   description?: string;
   href: string;
   imageAlt: string;
@@ -24,6 +26,7 @@ type FeaturedPromoProps = {
 export const FeaturedPromo = ({
   authors,
   className,
+  date,
   description,
   href,
   imageAlt,
@@ -87,6 +90,15 @@ export const FeaturedPromo = ({
             {title}
           </Link>
         </TitleElement>
+        {date && (
+          <time
+            className="cc-featured-promo__date"
+            dateTime={date}
+            itemProp="datePublished"
+          >
+            <FormattedDate dateString={date} />
+          </time>
+        )}
         {description && (
           <RichText
             className="cc-featured-promo__description"
