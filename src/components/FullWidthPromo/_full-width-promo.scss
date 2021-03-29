@@ -30,8 +30,8 @@
 
 .cc-full-width-promo__container {
   @include grid-container;
-  padding-bottom: calc(7.5 * var(--space-unit));
-  padding-top: calc(7.5 * var(--space-unit));
+  padding-bottom: calc(2 * var(--space-unit));
+  padding-top: calc(2 * var(--space-unit));
 
   @include mq(sm) {
     padding-bottom: calc(9 * var(--space-unit));
@@ -63,6 +63,7 @@
   @extend %heading-display;
   @include heading-fancy($space-above: var(--space-lg));
   font-weight: normal;
+  margin-top: 0;
 }
 
 .cc-full-width-promo__title-link {
@@ -75,7 +76,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: calc(2 * var(--space-unit));
-  padding-bottom: var(--space-unit);
   padding-top: var(--space-unit);
 }
 

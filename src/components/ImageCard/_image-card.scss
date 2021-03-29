@@ -102,6 +102,7 @@
   @extend %heading-large;
 
   font-weight: normal;
+  margin-top: 0;
 
   @include mq($until: sm) {
     margin-bottom: calc(0.5 * var(--space-unit));
@@ -129,7 +130,6 @@
   font-size: var(--body-xs);
   text-transform: uppercase;
 }
-
 
 // VARIANTS
 // standard - begins in a horizontal format and switches to a vertical format

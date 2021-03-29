@@ -55,14 +55,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: calc(2 * var(--space-unit));
-
-  @include mq(sm) {
-    margin-bottom: calc(1.5 * var(--space-unit));
-  }
-
-  @include mq(md) {
-    margin-bottom: calc(3 * var(--space-unit));
-  }
 }
 
 .cc-featured-promo__meta-item {
@@ -122,7 +114,11 @@
 
 .cc-featured-promo__link {
   @extend %anchor-inherit;
+  @extend %heading-large;
   @include animated-underline;
+
+  font-weight: normal;
+  line-height: 1.7;
 
   /**
    * Imitate the hover state when a user hovers over the image of

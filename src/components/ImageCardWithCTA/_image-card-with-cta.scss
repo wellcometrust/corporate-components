@@ -5,12 +5,12 @@
 
 .cc-image-card-with-cta {
   margin-bottom: var(--space-lg);
-  
+
   @include mq($until: md) {
     display: flex;
     flex-wrap: nowrap;
   }
-  
+
   @include mq(md) {
     flex-basis: calc(33.33% - #{$grid-gutter-md});
     flex-grow: 0;
@@ -18,52 +18,52 @@
     margin: $grid-gutter-md / 2;
     padding-bottom: var(--space-unit);
   }
-  
+
   @include mq(xl) {
     flex-basis: calc(33.33% - #{$grid-gutter-xl});
     margin: $grid-gutter-xl / 2;
   }
 }
-  
+
 .cc-image-card-with-cta__figure {
   display: block;
   flex-basis: 33.33%;
   flex-shrink: 0;
-  
+
   @include mq(md) {
     margin-bottom: calc(2 * var(--space-unit));
   }
 }
-  
+
 .cc-image-card-with-cta__image {
   @extend %img-responsive;
   @extend %img-cover;
   margin: 0;
-  
+
   // ensure all card images have the same aspect ratio to enforce the same height
   @include mq(md) {
     padding-bottom: 66.67%;
     position: relative;
-  
+
     > img {
       position: absolute;
     }
   }
 }
-  
+
 .cc-image-card-with-cta__body {
   flex-grow: 1;
   padding-left: var(--space-unit);
-  
+
   @include mq(sm) {
     padding-left: calc(2 * var(--space-unit));
   }
-  
+
   @include mq(md) {
     padding-left: 0;
   }
 }
-  
+
 .cc-image-card-with-cta__title {
   letter-spacing: 0;
 }
@@ -74,23 +74,27 @@
   @include heading-fancy;
 
   font-weight: normal;
-  
+
   letter-spacing: 0;
   margin-bottom: calc(2 * var(--space-unit));
 
   @include mq($until: sm) {
     margin-bottom: calc(0.5 * var(--space-unit));
   }
+
+  &:after {
+    margin-top: var(--space-unit);
+  }
 }
-  
+
 .cc-image-card-with-cta__link {
   @extend %anchor-inherit;
   @include animated-underline;
-  
+
   /**
-     * Imitate the hover state when a user hovers over the image of
-     * card.
-     */
+   * Imitate the hover state when a user hovers over the image of
+   * card.
+   */
   .cc-image-card-with-cta__figure:hover + .cc-image-card-with-cta__body &,
   .cc-image-card-with-cta__figure:focus + .cc-image-card-with-cta__body & {
     background-size: 100% 2px;
@@ -98,11 +102,11 @@
     transition-timing-function: var(--transition-timing-function-in);
   }
 }
-  
+
 .cc-image-card-with-cta__description {
   flex-grow: 1;
   margin-bottom: calc(2 * var(--space-unit));
-  
+
   @include mq(md) {
     padding-left: 0;
   }
