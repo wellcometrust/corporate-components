@@ -5,7 +5,7 @@ type TextInputProps = {
   className?: string;
   describedBy?: string;
   id: string;
-  inputMode?: 'numeric' | 'decimal';
+  inputMode?: 'numeric';
   isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
