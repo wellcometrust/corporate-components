@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders button 1`] = `
+<div>
+  <button
+    class="btn btn--primary"
+    type="button"
+  >
+    <span
+      class="btn__text"
+    >
+      Some button
+    </span>
+  </button>
+</div>
+`;
