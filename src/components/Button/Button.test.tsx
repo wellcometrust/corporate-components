@@ -27,7 +27,7 @@ describe('<Button />', () => {
     user.click(btn);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
-  it('can specify href and therefore change base component from button to anchor', () => {
+  it('can specify href and therefore change base component from button to link', () => {
     setup({ href: 'http://google.com' });
 
     const btn = screen.getByRole('link', { name: /Some button/ });
