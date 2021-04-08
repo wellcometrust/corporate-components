@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-type VisuallyHiddenProps = {
-  children: JSX.Element | JSX.Element[];
+type VisuallyHiddenProps = (
+  | HTMLAttributes<HTMLDivElement>
+  | HTMLAttributes<HTMLSpanElement>
+) & {
+  children: JSX.Element | JSX.Element[] | HTMLElement;
   wrapperAs?: 'span' | 'div';
 };
 
