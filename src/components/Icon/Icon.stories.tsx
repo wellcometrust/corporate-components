@@ -58,6 +58,8 @@ storiesOf('Components|Icon', module).add(
       <Icon name="tag" />
       <p>Twitter button for share or follow</p>
       <Icon name="twitter" />
+      <p>Upload button for file inputs</p>
+      <Icon name="upload" />
       <p>YouTube button for share or follow</p>
       <Icon name="youTube" />
     </div>
