@@ -1,54 +1,90 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import cx from 'classnames';
+
+import Icon from 'Icon/Icon';
 
 type FileInputProps = {
   accept?: string[];
   className?: string;
+  children: React.ReactNode;
   describedBy?: string;
+  icon?: string;
+  iconClassName?: string;
+  iconPlacementSwitch?: boolean;
   id: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
   isRequired?: boolean;
+  multiple?: boolean;
   name: string;
-  pattern?: string;
+  tabIndex?: number;
+  textClassName?: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'unstyled';
 };
 
 export const FileInput = forwardRef(
   (
     {
       accept,
+      children,
       className,
       describedBy,
+      icon,
+      iconClassName,
+      iconPlacementSwitch,
       id,
       isDisabled,
-      isInvalid,
       isRequired,
+      multiple,
       name,
-      pattern
+      tabIndex,
+      textClassName,
+      variant = 'secondary'
     }: FileInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
-    const classNames = cx('cc-file-input', {
-      'cc-file-input--is-invalid': isInvalid,
-      [className]: className
+    const isUnstyled = variant !== 'unstyled';
+    const classNames = cx({
+      btn: isUnstyled,
+      [`btn--${variant}`]: isUnstyled,
+      'btn--file-input': isUnstyled,
+      [`${className}`]: className
+    });
+    const iconClassNames = cx('btn__icon', {
+      'btn__icon--left': !iconPlacementSwitch,
+      'btn__icon--right': iconPlacementSwitch,
+      [iconClassName]: iconClassName
+    });
+    const textClassNames = cx('btn__text', {
+      [textClassName]: textClassName
     });
 
-    const acceptTypes = accept.join(', ');
+    const acceptTypes = accept ? accept.join(', ') : '';
 
     return (
-      <input
-        accept={acceptTypes}
-        aria-describedby={describedBy}
-        aria-invalid={isInvalid}
-        className={classNames}
-        disabled={isDisabled}
-        id={id}
-        name={name}
-        pattern={pattern}
-        ref={ref}
-        required={isRequired}
-        type="file"
-      />
+      <>
+        <input
+          accept={acceptTypes}
+          aria-describedby={describedBy}
+          className="cc-file-input"
+          disabled={isDisabled}
+          id={id}
+          multiple={multiple}
+          name={name}
+          ref={ref}
+          required={isRequired}
+          type="file"
+        />
+        <label className={classNames} htmlFor={name} tabIndex={tabIndex}>
+          {icon && !iconPlacementSwitch && (
+            <Icon name={icon} className={iconClassNames} />
+          )}
+          <span className={textClassNames}>{children}</span>
+          {icon && iconPlacementSwitch && (
+            <Icon name={icon} className={iconClassNames} />
+          )}
+        </label>
+      </>
     );
   }
 );

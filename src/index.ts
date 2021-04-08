@@ -14,6 +14,7 @@ export { default as DescriptionList } from 'DescriptionList';
 export { default as FactCard } from 'FactCard';
 export { default as FeaturedPromo } from 'FeaturedPromo';
 export { FileDownload } from 'FileDownload/FileDownload';
+export { default as FileInput } from 'FileInput';
 export { Footer } from 'Footer/Footer';
 export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { default as FormField } from 'FormField';

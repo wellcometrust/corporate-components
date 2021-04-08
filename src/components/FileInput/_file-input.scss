@@ -1,11 +1,33 @@
 // ----------------------------------
 // UI Components
-// TextInput
+// FileInput
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
 .cc-file-input {
-  @extend %text-input-base;
+  opacity: 0;
+  height: 0.1px;
+  position: absolute;
+  width: 0.1px;
+
+  &:focus + .btn--file-input:after {
+    border-color: var(--link-colour-focus-outline);
+    border-radius: calc(0.5 * var(--space-unit));
+    border-style: solid;
+    border-width: 2px;
+    bottom: calc(-1 * var(--space-unit));
+    content: '';
+    display: block;
+    left: calc(-1 * var(--space-unit));
+    position: absolute;
+    right: calc(-1 * var(--space-unit));
+    top: calc(-1 * var(--space-unit));
+  }
+}
+
+.btn--file-input {
+  margin-bottom: var(--space-sm);
+  position: relative;
 }
