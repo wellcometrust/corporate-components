@@ -67,15 +67,11 @@ export const FileInput = forwardRef(
 
     return (
       <>
-        <label className={classNames} htmlFor={name} tabIndex={tabIndex}>
-          {icon && !iconPlacementSwitch && !isUnstyled && (
-            <Icon name={icon} className={iconClassNames} />
-          )}
-          <span className={textClassNames}>{children}</span>
-          {icon && iconPlacementSwitch && !isUnstyled && (
-            <Icon name={icon} className={iconClassNames} />
-          )}
-        </label>
+        {isUnstyled && (
+          <label className={classNames} htmlFor={name} tabIndex={tabIndex}>
+            <span className={textClassNames}>{children}</span>
+          </label>
+        )}
         <input
           accept={acceptTypes}
           aria-describedby={describedBy}
@@ -88,6 +84,17 @@ export const FileInput = forwardRef(
           required={isRequired}
           type="file"
         />
+        {!isUnstyled && (
+          <label className={classNames} htmlFor={name} tabIndex={tabIndex}>
+            {icon && !iconPlacementSwitch && (
+              <Icon name={icon} className={iconClassNames} />
+            )}
+            <span className={textClassNames}>{children}</span>
+            {icon && iconPlacementSwitch && (
+              <Icon name={icon} className={iconClassNames} />
+            )}
+          </label>
+        )}
       </>
     );
   }
