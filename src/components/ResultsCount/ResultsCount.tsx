@@ -32,7 +32,7 @@ export const ResultsCount = ({
 
   return (
     <div className={classNames}>
-      <p className="cc-results-count__result">
+      <p className="cc-results-count__result" aria-live="polite" role="alert">
         Showing{' '}
         <strong>
           {currentCount} results of {resultsCount}
