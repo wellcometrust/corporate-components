@@ -1,11 +1,22 @@
 import React from 'react';
 
 type VisuallyHiddenProps = {
-  text: string;
+  children: JSX.Element | JSX.Element[];
+  wrapperAs?: 'span' | 'div';
 };
 
-export const VisuallyHidden = ({ text }: VisuallyHiddenProps) => {
-  return <span className="u-visually-hidden">{text}&nbsp;</span>;
+export const VisuallyHidden = ({
+  children,
+  wrapperAs = 'span',
+  ...props
+}: VisuallyHiddenProps) => {
+  const WrapperElement = wrapperAs;
+
+  return (
+    <WrapperElement className="u-visually-hidden" {...props}>
+      {children}
+    </WrapperElement>
+  );
 };
 
 export default VisuallyHidden;
