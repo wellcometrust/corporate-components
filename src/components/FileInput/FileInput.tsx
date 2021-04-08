@@ -43,12 +43,16 @@ export const FileInput = forwardRef(
     }: FileInputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
-    const isUnstyled = variant !== 'unstyled';
+    const isUnstyled = variant === 'unstyled';
     const classNames = cx({
-      btn: isUnstyled,
-      [`btn--${variant}`]: isUnstyled,
-      'btn--file-input': isUnstyled,
+      btn: !isUnstyled,
+      [`btn--${variant}`]: !isUnstyled,
+      'btn--file-input': !isUnstyled,
+      'cc-label': isUnstyled,
       [`${className}`]: className
+    });
+    const inputClassNames = cx({
+      'cc-file-input': !isUnstyled
     });
     const iconClassNames = cx('btn__icon', {
       'btn__icon--left': !iconPlacementSwitch,
@@ -63,10 +67,25 @@ export const FileInput = forwardRef(
 
     return (
       <>
+        {isUnstyled ? (
+          <label className={classNames} htmlFor={name} tabIndex={tabIndex}>
+            <span className={textClassNames}>{children}</span>
+          </label>
+        ) : (
+          <label className={classNames} htmlFor={name} tabIndex={tabIndex}>
+            {icon && !iconPlacementSwitch && (
+              <Icon name={icon} className={iconClassNames} />
+            )}
+            <span className={textClassNames}>{children}</span>
+            {icon && iconPlacementSwitch && (
+              <Icon name={icon} className={iconClassNames} />
+            )}
+          </label>
+        )}
         <input
           accept={acceptTypes}
           aria-describedby={describedBy}
-          className="cc-file-input"
+          className={inputClassNames}
           disabled={isDisabled}
           id={id}
           multiple={multiple}
@@ -75,15 +94,6 @@ export const FileInput = forwardRef(
           required={isRequired}
           type="file"
         />
-        <label className={classNames} htmlFor={name} tabIndex={tabIndex}>
-          {icon && !iconPlacementSwitch && (
-            <Icon name={icon} className={iconClassNames} />
-          )}
-          <span className={textClassNames}>{children}</span>
-          {icon && iconPlacementSwitch && (
-            <Icon name={icon} className={iconClassNames} />
-          )}
-        </label>
       </>
     );
   }
