@@ -17,6 +17,7 @@ type FileInputProps = {
   isRequired?: boolean;
   multiple?: boolean;
   name: string;
+  handleChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   tabIndex?: number;
   textClassName?: string;
   variant?: 'primary' | 'secondary' | 'ghost' | 'unstyled';
@@ -37,6 +38,7 @@ export const FileInput = forwardRef(
       isRequired,
       multiple,
       name,
+      handleChange,
       tabIndex,
       textClassName,
       variant = 'secondary'
@@ -80,6 +82,7 @@ export const FileInput = forwardRef(
           id={id}
           multiple={multiple}
           name={name}
+          onChange={handleChange}
           ref={ref}
           required={isRequired}
           type="file"
