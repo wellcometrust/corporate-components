@@ -34,6 +34,10 @@
     font-size: var(--heading-sm);
   }
 
+  h4 {
+    color: var(--colour-grey-70);
+  }
+
   .cc-accordion + *,
   .cc-rich-text + * {
     margin-top: calc(2 * var(--space-sm));
