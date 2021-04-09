@@ -24,6 +24,7 @@ import search from './components/Search';
 import shareLink from './components/ShareLink';
 import tag from './components/Tag';
 import twitter from './components/Twitter';
+import upload from './components/Upload';
 import youTube from './components/YouTube';
 
 // Map is used here instead of an object to ensure there is no type mismatch thrown by TypeScript
@@ -54,5 +55,6 @@ export default new Map([
   ['shareLink', shareLink],
   ['tag', tag],
   ['twitter', twitter],
+  ['upload', upload],
   ['youTube', youTube]
 ]);
