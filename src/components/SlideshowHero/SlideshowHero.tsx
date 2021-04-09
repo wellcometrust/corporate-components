@@ -6,6 +6,7 @@ import Button from 'Button';
 import Grid from 'Grid';
 import Picture from 'Picture';
 import MediaCaption from 'Media/MediaCaption';
+import VisuallyHidden from 'VisuallyHidden';
 
 type SlideshowHeroProps = {
   animationDuration?: number;
@@ -109,7 +110,9 @@ export const SlideshowHero = ({
                 tabIndex={-1}
                 variant="unstyled"
               >
-                <span className="u-visually-hidden">{skipLinkText}</span>
+                <VisuallyHidden>
+                  <>{skipLinkText}</>
+                </VisuallyHidden>
               </Button>
             )}
           </div>

@@ -1,6 +1,8 @@
 import React, { MouseEventHandler } from 'react';
 import classnames from 'classnames';
 
+import VisuallyHidden from 'VisuallyHidden';
+
 type HamburgerProps = {
   ariaControls?: string;
   ariaExpanded?: boolean;
@@ -39,7 +41,9 @@ export const Hamburger = ({
 
       <span className="icon-menu" aria-hidden="true">
         <span className="icon-menu__detail">
-          <span className="u-visually-hidden">Menu icon</span>
+          <VisuallyHidden>
+            <>Menu icon</>
+          </VisuallyHidden>
         </span>
       </span>
     </button>

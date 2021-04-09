@@ -2,6 +2,7 @@ import React, { forwardRef, useContext } from 'react';
 
 import Button from 'Button/Button';
 import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
+import VisuallyHidden from 'VisuallyHidden';
 
 export const SearchPaneForm = forwardRef(
   (props, ref: React.Ref<HTMLInputElement>) => {
@@ -16,7 +17,9 @@ export const SearchPaneForm = forwardRef(
         method="GET"
       >
         <label className="search-pane__form-label" htmlFor="search">
-          <span className="u-visually-hidden">Search</span>
+          <VisuallyHidden>
+            <>Search</>
+          </VisuallyHidden>
           <input
             className="search-pane__form-input"
             name="search"

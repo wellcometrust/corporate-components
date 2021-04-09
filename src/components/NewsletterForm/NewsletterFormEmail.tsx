@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
+import VisuallyHidden from 'VisuallyHidden';
 import NewsletterFormItem from './NewsletterFormItem';
 
 type NewsletterFormEmailProps = {
@@ -40,9 +41,9 @@ export const NewsletterFormEmail = ({
       />
       {hasError && (
         <div className="newsletter-form__item-error">
-          <span className="u-visually-hidden">
-            Error on the &quot;Your email address&quot; field
-          </span>
+          <VisuallyHidden>
+            <>Error on the &quot;Your email address&quot; field</>
+          </VisuallyHidden>
           <span className="newsletter-form__item-error-text">
             Please provide a valid email address.
           </span>

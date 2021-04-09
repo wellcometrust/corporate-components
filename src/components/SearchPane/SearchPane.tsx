@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import cx from 'classnames';
 
 import Button from 'Button/Button';
+import VisuallyHidden from 'VisuallyHidden';
 
 import NavContext from 'NavContext/NavContext';
 import SearchPaneContext from 'SearchPaneContext/SearchPaneContext';
@@ -89,7 +90,9 @@ export const SearchPane = () => {
         onClick={closeAll}
         tabIndex={searchTabIndex}
       >
-        <span className="u-visually-hidden">Hide Search</span>
+        <VisuallyHidden>
+          <>Hide Search</>
+        </VisuallyHidden>
       </Button>
     </div>
   );
