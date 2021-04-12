@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import Checkbox from 'Checkbox';
+import SkipLink from 'SkipLink';
 
 type SidebarFilterProps = {
   activeTags: {
@@ -16,6 +17,7 @@ type SidebarFilterProps = {
   onChange: (value: string) => void;
   onClear: () => void;
   onTagRemove: (value: string) => void;
+  skipLink: string;
   tags: {
     name: string;
     items: {
@@ -35,6 +37,7 @@ export const SidebarFilter = ({
   onChange,
   onClear,
   onTagRemove,
+  skipLink,
   tags
 }: SidebarFilterProps) => {
   const classNames = cx('cc-sidebar-filter', {
@@ -43,6 +46,7 @@ export const SidebarFilter = ({
 
   return (
     <div className={classNames}>
+      {skipLink && <SkipLink href={skipLink} skipLinkText="Skip to results" />}
       <header className="cc-sidebar-filter__header">
         <h2 className="cc-sidebar-filter__header-title">Refine results</h2>
         <span className="cc-sidebar-filter__header-meta">
