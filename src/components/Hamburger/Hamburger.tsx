@@ -41,9 +41,7 @@ export const Hamburger = ({
 
       <span className="icon-menu" aria-hidden="true">
         <span className="icon-menu__detail">
-          <VisuallyHidden>
-            <>Menu icon</>
-          </VisuallyHidden>
+          <VisuallyHidden>Menu icon</VisuallyHidden>
         </span>
       </span>
     </button>

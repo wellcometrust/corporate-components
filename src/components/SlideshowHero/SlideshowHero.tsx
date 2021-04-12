@@ -110,9 +110,7 @@ export const SlideshowHero = ({
                 tabIndex={-1}
                 variant="unstyled"
               >
-                <VisuallyHidden>
-                  <>{skipLinkText}</>
-                </VisuallyHidden>
+                <VisuallyHidden>{skipLinkText}</VisuallyHidden>
               </Button>
             )}
           </div>

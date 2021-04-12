@@ -21,10 +21,7 @@ export const PaginationButtonNext = () => (
 
 export const PaginationButtonBreak = () => (
   <>
-    <VisuallyHidden>
-      <>go to the next page group&nbsp;</>
-    </VisuallyHidden>
-    …
+    <VisuallyHidden>go to the next page group&nbsp;</VisuallyHidden>…
   </>
 );
 

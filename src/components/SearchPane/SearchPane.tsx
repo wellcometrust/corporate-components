@@ -90,9 +90,7 @@ export const SearchPane = () => {
         onClick={closeAll}
         tabIndex={searchTabIndex}
       >
-        <VisuallyHidden>
-          <>Hide Search</>
-        </VisuallyHidden>
+        <VisuallyHidden>Hide Search</VisuallyHidden>
       </Button>
     </div>
   );

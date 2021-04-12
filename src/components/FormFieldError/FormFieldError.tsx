@@ -31,17 +31,13 @@ export const FormFieldError = ({
       <Icon className="cc-form-field-error__icon" name="exclamationMark" />
       {typeof errors === 'string' && (
         <p className="cc-form-field-error__text">
-          <VisuallyHidden>
-            <>Error: </>
-          </VisuallyHidden>
+          <VisuallyHidden>Error:&nbsp;</VisuallyHidden>
           {errors}
         </p>
       )}
       {typeof errors === 'object' && Object.entries(errors).length === 1 && (
         <p className="cc-form-field-error__text">
-          <VisuallyHidden>
-            <>Error: </>
-          </VisuallyHidden>
+          <VisuallyHidden>Error:&nbsp;</VisuallyHidden>
           {Object.values(errors)[0]}
         </p>
       )}
@@ -52,9 +48,7 @@ export const FormFieldError = ({
               key={`${id}-error-text-${type}`}
               className="cc-form-field-error__list-item"
             >
-              <VisuallyHidden>
-                <>Error: </>
-              </VisuallyHidden>
+              <VisuallyHidden>Error:&nbsp;</VisuallyHidden>
               {message}
             </li>
           ))}

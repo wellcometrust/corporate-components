@@ -17,9 +17,7 @@ export const SearchPaneForm = forwardRef(
         method="GET"
       >
         <label className="search-pane__form-label" htmlFor="search">
-          <VisuallyHidden>
-            <>Search</>
-          </VisuallyHidden>
+          <VisuallyHidden>Search</VisuallyHidden>
           <input
             className="search-pane__form-input"
             name="search"

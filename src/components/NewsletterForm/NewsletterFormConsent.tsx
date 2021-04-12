@@ -39,10 +39,7 @@ export const NewsletterFormConsent = ({
       {hasError && (
         <div className="newsletter-form__item-error">
           <VisuallyHidden>
-            <>
-              Error on the &quot;I agree to receive this newsletter.&quot;
-              field.
-            </>
+            Error on the &quot;I agree to receive this newsletter.&quot; field.
           </VisuallyHidden>
           <span className="newsletter-form__item-error-text">
             Please check this box to agree to our terms and conditions.

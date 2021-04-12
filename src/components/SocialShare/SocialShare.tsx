@@ -54,9 +54,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <VisuallyHidden>
-              <>Share on Facebook</>
-            </VisuallyHidden>
+            <VisuallyHidden>Share on Facebook</VisuallyHidden>
             <Icon name="facebook" className="cc-social-share__icon" />
           </a>
         </li>
@@ -67,9 +65,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <VisuallyHidden>
-              <>Tweet</>
-            </VisuallyHidden>
+            <VisuallyHidden>Tweet</VisuallyHidden>
             <Icon name="twitter" className="cc-social-share__icon" />
           </a>
         </li>
@@ -80,9 +76,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <VisuallyHidden>
-              <>Share on LinkedIn</>
-            </VisuallyHidden>
+            <VisuallyHidden>Share on LinkedIn</VisuallyHidden>
             <Icon name="linkedin" className="cc-social-share__icon" />
           </a>
         </li>
@@ -93,9 +87,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <VisuallyHidden>
-              <>Email</>
-            </VisuallyHidden>
+            <VisuallyHidden>Email</VisuallyHidden>
             <Icon name="email" className="cc-social-share__icon" />
           </a>
         </li>
@@ -103,9 +95,7 @@ export const SocialShare = ({
           <li className="cc-social-share__item">
             <CopyToClipboard text={url} onCopy={handleShareLink}>
               <Button className="cc-social-share__link" variant="unstyled">
-                <VisuallyHidden>
-                  <>Share a link</>
-                </VisuallyHidden>
+                <VisuallyHidden>Share a link</VisuallyHidden>
                 <Icon name="shareLink" className="cc-social-share__icon" />
               </Button>
             </CopyToClipboard>

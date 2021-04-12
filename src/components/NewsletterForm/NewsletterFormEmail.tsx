@@ -42,7 +42,7 @@ export const NewsletterFormEmail = ({
       {hasError && (
         <div className="newsletter-form__item-error">
           <VisuallyHidden>
-            <>Error on the &quot;Your email address&quot; field</>
+            Error on the &quot;Your email address&quot; field
           </VisuallyHidden>
           <span className="newsletter-form__item-error-text">
             Please provide a valid email address.

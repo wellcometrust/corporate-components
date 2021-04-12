@@ -24,10 +24,7 @@ export const SearchPaneControls = () => {
         onClick={closeAll}
         tabIndex={searchTabIndex}
       >
-        Close{' '}
-        <VisuallyHidden>
-          <>search</>
-        </VisuallyHidden>
+        Close <VisuallyHidden>search</VisuallyHidden>
       </Button>
       <Button
         variant="unstyled"
