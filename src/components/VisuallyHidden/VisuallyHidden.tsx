@@ -4,7 +4,7 @@ type VisuallyHiddenProps = (
   | HTMLAttributes<HTMLDivElement>
   | HTMLAttributes<HTMLSpanElement>
 ) & {
-  children: JSX.Element | JSX.Element[] | HTMLElement;
+  children: JSX.Element | JSX.Element[] | HTMLElement | string;
   wrapperAs?: 'span' | 'div';
 };
 
