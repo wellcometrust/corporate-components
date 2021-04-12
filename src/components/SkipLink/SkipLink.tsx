@@ -14,13 +14,18 @@ export const SkipLink = ({
   isNarrow,
   skipLinkText
 }: SkipLinkProps) => {
-  const classNames = cx('cc-skip-link__link', {
-    'cc-skip-link__link--narrow': isNarrow,
-    [className]: className
-  });
+  const classNames = {
+    wrapper: cx('cc-skip-link', {
+      [className]: className
+    }),
+    link: cx('cc-skip-link__link', {
+      'cc-skip-link__link--narrow': isNarrow
+    })
+  };
+
   return (
-    <div className="cc-skip-link">
-      <a className={classNames} href={href}>
+    <div className={classNames.wrapper}>
+      <a className={classNames.link} href={href}>
         {skipLinkText}
       </a>
     </div>

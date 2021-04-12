@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import SkipLink from 'SkipLink';
+import Readme from './SkipLink.md';
 
 const SkipLinkExample = () => {
   const skipLinkText = text('text', 'Skip to main content');
@@ -22,4 +23,6 @@ const SkipLinkExample = () => {
 
 const stories = storiesOf('SkipLink', module);
 
-stories.add('SkipLink', SkipLinkExample);
+stories.add('SkipLink', SkipLinkExample, {
+  readme: { sidebar: Readme }
+});
