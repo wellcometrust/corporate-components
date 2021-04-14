@@ -2,8 +2,10 @@ import React, { forwardRef } from 'react';
 import cx from 'classnames';
 
 type TextInputProps = {
+  autoComplete?: string;
   className?: string;
   describedBy?: string;
+  hasSpellCheck?: boolean;
   id: string;
   inputMode?: 'numeric';
   isDisabled?: boolean;
@@ -17,8 +19,10 @@ type TextInputProps = {
 export const TextInput = forwardRef(
   (
     {
+      autoComplete,
       className,
       describedBy,
+      hasSpellCheck,
       id,
       inputMode,
       isDisabled,
@@ -40,6 +44,7 @@ export const TextInput = forwardRef(
       <input
         aria-describedby={describedBy}
         aria-invalid={isInvalid}
+        autoComplete={autoComplete}
         className={classNames}
         disabled={isDisabled}
         id={id}
@@ -48,6 +53,7 @@ export const TextInput = forwardRef(
         pattern={pattern}
         ref={ref}
         required={isRequired}
+        spellCheck={hasSpellCheck}
         type={type}
       />
     );
