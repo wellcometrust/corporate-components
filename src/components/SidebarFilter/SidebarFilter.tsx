@@ -5,6 +5,7 @@ import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import Checkbox from 'Checkbox';
 import SkipLink from 'SkipLink';
+import VisuallyHidden from 'VisuallyHidden';
 
 type SidebarFilterProps = {
   activeTags: {
@@ -75,6 +76,7 @@ export const SidebarFilter = ({
               onClick={() => onTagRemove(value)}
               type="button"
             >
+              <VisuallyHidden>{`Remove filter `}</VisuallyHidden>
               {label}
             </Button>
           ))}

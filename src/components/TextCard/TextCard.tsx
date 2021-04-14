@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import FileDownload from 'FileDownload';
 import FormattedDate from 'FormattedDate';
+import { format, isValid } from 'date-fns';
 
 import { parseHtml } from 'utils/parse-html';
 import RichText from 'RichText';
@@ -24,6 +25,15 @@ type TextCardProps = {
   title: string;
   titleAs?: 'h2' | 'h3';
   type?: 'content' | 'file' | 'job_card' | 'taxonomy_term';
+};
+
+const getJobClosingDate = (date: string) => {
+  const dateObject = new Date(date);
+  dateObject.setDate(dateObject.getDate() - 1);
+
+  return isValid(dateObject)
+    ? `${format(dateObject, 'd MMMM yyyy')} 23:59`
+    : null;
 };
 
 export const TextCard = ({
@@ -48,6 +58,8 @@ export const TextCard = ({
   const classNames = cx('cc-text-card', {
     [`${className}`]: className
   });
+
+  const jobClosingDate = getJobClosingDate(date);
 
   return (
     <article className={classNames} id={id}>
@@ -110,12 +122,12 @@ export const TextCard = ({
         <RichText className="cc-text-card__description">{description}</RichText>
       )}
       {children && <div className="cc-text-card__description">{children}</div>}
-      {date && type === 'job_card' && (
+      {jobClosingDate && type === 'job_card' && (
         <p className="cc-text-card__closing-date">
           Closing date:
           <span>
             &nbsp;
-            <FormattedDate dateString={date} />
+            {jobClosingDate}
           </span>
         </p>
       )}
