@@ -72,7 +72,7 @@ export const SidebarFilter = ({
               onClick={() => onTagRemove(value)}
               type="button"
             >
-              <VisuallyHidden>Remove filter&nbsp;</VisuallyHidden>
+              <VisuallyHidden>{`Remove filter `}</VisuallyHidden>
               {label}
             </Button>
           ))}
