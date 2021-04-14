@@ -4,29 +4,29 @@ import cx from 'classnames';
 type SkipLinkProps = {
   className?: string;
   href: string;
-  isNarrow?: boolean;
-  skipLinkText: string;
+  position?: 'static' | 'float';
+  text: string;
 };
 
 export const SkipLink = ({
   className,
   href,
-  isNarrow,
-  skipLinkText
+  position = 'static',
+  text
 }: SkipLinkProps) => {
   const classNames = {
     wrapper: cx('cc-skip-link', {
       [className]: className
     }),
     link: cx('cc-skip-link__link', {
-      'cc-skip-link__link--narrow': isNarrow
+      'cc-skip-link__link--float': position === 'float'
     })
   };
 
   return (
     <div className={classNames.wrapper}>
       <a className={classNames.link} href={href}>
-        {skipLinkText}
+        {text}
       </a>
     </div>
   );

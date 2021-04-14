@@ -47,7 +47,7 @@ export const SidebarFilter = ({
 
   return (
     <div className={classNames}>
-      {skipLink && <SkipLink href={skipLink} skipLinkText="Skip to results" />}
+      <SkipLink href={skipLink} text="Skip to results" />
       <header className="cc-sidebar-filter__header">
         <h2 className="cc-sidebar-filter__header-title">Refine results</h2>
         <span className="cc-sidebar-filter__header-meta">

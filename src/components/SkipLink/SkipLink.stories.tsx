@@ -1,13 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, text } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 
 import SkipLink from 'SkipLink';
 import Readme from './SkipLink.md';
 
 const SkipLinkExample = () => {
   const skipLinkText = text('text', 'Skip to main content');
-  const isNarrow = boolean('isNarrow', true);
+  const position = select('position', ['float', 'static'], 'static');
 
   return (
     <>
@@ -16,7 +16,7 @@ const SkipLinkExample = () => {
         this example and press tab.
       </p>
 
-      <SkipLink href="#" isNarrow={isNarrow} skipLinkText={skipLinkText} />
+      <SkipLink href="#" position={position} text={skipLinkText} />
     </>
   );
 };
