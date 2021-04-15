@@ -18,7 +18,7 @@ type SidebarFilterProps = {
   onChange: (value: string) => void;
   onClear: () => void;
   onTagRemove: (value: string) => void;
-  skipLink: string;
+  skipLinkHref: string;
   tags: {
     name: string;
     items: {
@@ -38,7 +38,7 @@ export const SidebarFilter = ({
   onChange,
   onClear,
   onTagRemove,
-  skipLink,
+  skipLinkHref,
   tags
 }: SidebarFilterProps) => {
   const classNames = cx('cc-sidebar-filter', {
@@ -47,7 +47,7 @@ export const SidebarFilter = ({
 
   return (
     <div className={classNames}>
-      <SkipLink href={skipLink} text="Skip to results" />
+      <SkipLink href={skipLinkHref} text="Skip to results" />
       <header className="cc-sidebar-filter__header">
         <h2 className="cc-sidebar-filter__header-title">Refine results</h2>
         <span className="cc-sidebar-filter__header-meta">
