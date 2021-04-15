@@ -14,6 +14,7 @@ export { default as DescriptionList } from 'DescriptionList';
 export { default as FactCard } from 'FactCard';
 export { default as FeaturedPromo } from 'FeaturedPromo';
 export { FileDownload } from 'FileDownload/FileDownload';
+export { default as FileInput } from 'FileInput';
 export { Footer } from 'Footer/Footer';
 export { FormattedDate } from 'FormattedDate/FormattedDate';
 export { default as FormField } from 'FormField';
@@ -58,6 +59,7 @@ export { SearchPane } from 'SearchPane/SearchPane';
 export { Section } from 'Section/Section';
 export { SectionTitle } from 'SectionTitle/SectionTitle';
 export { default as SiteAlert } from 'SiteAlert';
+export { default as SkipLink } from 'SkipLink';
 export { default as SidebarFilter } from 'SidebarFilter';
 export { default as SidebarSearch } from 'SidebarSearch';
 export { SlideshowHero } from 'SlideshowHero/SlideshowHero';
@@ -70,6 +72,7 @@ export { default as TextCard } from 'TextCard';
 export { default as TextInput } from 'TextInput';
 export { default as Timeline } from 'Timeline';
 export { Video } from 'Video/Video';
+export { default as VisuallyHidden } from 'VisuallyHidden';
 export { WellcomeCollectionBanner } from 'WellcomeCollectionBanner/WellcomeCollectionBanner';
 
 // context components

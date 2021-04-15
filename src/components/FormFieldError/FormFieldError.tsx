@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import Icon from 'Icon';
+import VisuallyHidden from 'VisuallyHidden';
 
 type FormFieldErrorProps = {
   className?: string;
@@ -29,10 +30,20 @@ export const FormFieldError = ({
     <span className={classNames} id={id}>
       <Icon className="cc-form-field-error__icon" name="exclamationMark" />
       {typeof errors === 'string' && (
-        <p className="cc-form-field-error__text">{errors}</p>
+        <p className="cc-form-field-error__text">
+          <VisuallyHidden>
+            <>Error: </>
+          </VisuallyHidden>
+          {errors}
+        </p>
       )}
       {typeof errors === 'object' && Object.entries(errors).length === 1 && (
-        <p className="cc-form-field-error__text">{Object.values(errors)[0]}</p>
+        <p className="cc-form-field-error__text">
+          <VisuallyHidden>
+            <>Error: </>
+          </VisuallyHidden>
+          {Object.values(errors)[0]}
+        </p>
       )}
       {typeof errors === 'object' && Object.entries(errors).length > 1 && (
         <ul className="cc-form-field-error__list">
@@ -41,6 +52,9 @@ export const FormFieldError = ({
               key={`${id}-error-text-${type}`}
               className="cc-form-field-error__list-item"
             >
+              <VisuallyHidden>
+                <>Error: </>
+              </VisuallyHidden>
               {message}
             </li>
           ))}
