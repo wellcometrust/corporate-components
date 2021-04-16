@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
+import VisuallyHidden from 'VisuallyHidden';
 import NewsletterFormItem from './NewsletterFormItem';
 
 type NewsletterFormConsentProps = {
@@ -37,9 +38,9 @@ export const NewsletterFormConsent = ({
       </label>
       {hasError && (
         <div className="newsletter-form__item-error">
-          <span className="u-visually-hidden">
+          <VisuallyHidden>
             Error on the &quot;I agree to receive this newsletter.&quot; field.
-          </span>
+          </VisuallyHidden>
           <span className="newsletter-form__item-error-text">
             Please check this box to agree to our terms and conditions.
           </span>

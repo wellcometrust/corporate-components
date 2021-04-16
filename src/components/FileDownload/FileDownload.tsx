@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 
+import VisuallyHidden from 'VisuallyHidden';
+
 type FileDownloadProps = {
   className?: string;
   documentSubType?: string;
@@ -37,7 +39,7 @@ export const FileDownload = ({
         href={href}
       >
         {label}
-        <span className="u-visually-hidden">{` ${name}`}</span>
+        <VisuallyHidden>{` ${name}`}</VisuallyHidden>
       </a>
       <span className="cc-file-download__meta">
         &nbsp;

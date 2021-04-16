@@ -4,6 +4,7 @@ import htmlToText from 'html-to-text';
 
 import Button from 'Button';
 import Icon from 'Icon';
+import VisuallyHidden from 'VisuallyHidden';
 
 type SocialShareProps = {
   body: string;
@@ -53,7 +54,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="u-visually-hidden">Share on Facebook</span>
+            <VisuallyHidden>Share on Facebook</VisuallyHidden>
             <Icon name="facebook" className="cc-social-share__icon" />
           </a>
         </li>
@@ -64,7 +65,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="u-visually-hidden">Tweet</span>
+            <VisuallyHidden>Tweet</VisuallyHidden>
             <Icon name="twitter" className="cc-social-share__icon" />
           </a>
         </li>
@@ -75,7 +76,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="u-visually-hidden">Share on LinkedIn</span>
+            <VisuallyHidden>Share on LinkedIn</VisuallyHidden>
             <Icon name="linkedin" className="cc-social-share__icon" />
           </a>
         </li>
@@ -86,7 +87,7 @@ export const SocialShare = ({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="u-visually-hidden">Email</span>
+            <VisuallyHidden>Email</VisuallyHidden>
             <Icon name="email" className="cc-social-share__icon" />
           </a>
         </li>
@@ -94,7 +95,7 @@ export const SocialShare = ({
           <li className="cc-social-share__item">
             <CopyToClipboard text={url} onCopy={handleShareLink}>
               <Button className="cc-social-share__link" variant="unstyled">
-                <span className="u-visually-hidden">Share a link</span>
+                <VisuallyHidden>Share a link</VisuallyHidden>
                 <Icon name="shareLink" className="cc-social-share__icon" />
               </Button>
             </CopyToClipboard>

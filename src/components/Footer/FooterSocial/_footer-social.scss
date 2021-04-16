@@ -45,10 +45,3 @@
     width: 100%;
   }
 }
-
-.footer-social-item__assistive-text {
-  // For users tabbing through document
-  .footer-social-item:not(:focus) & {
-    @include visually-hidden;
-  }
-}

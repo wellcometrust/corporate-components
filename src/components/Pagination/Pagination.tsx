@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import cx from 'classnames';
 
 import Icon from 'Icon';
+import VisuallyHidden from 'VisuallyHidden';
 
 export const PaginationButtonPrevious = () => (
   <>
@@ -20,7 +21,7 @@ export const PaginationButtonNext = () => (
 
 export const PaginationButtonBreak = () => (
   <>
-    <span className="u-visually-hidden">go to the next page group&nbsp;</span>…
+    <VisuallyHidden>go to the next page group&nbsp;</VisuallyHidden>…
   </>
 );
 

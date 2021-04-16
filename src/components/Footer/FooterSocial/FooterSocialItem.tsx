@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Icon from 'Icon/Icon';
+import VisuallyHidden from 'VisuallyHidden';
 
 type FooterSocialItemProps = {
   text: string;
@@ -19,10 +20,9 @@ export const FooterSocialItem = ({ text, url }: FooterSocialItemProps) => {
         className="footer-social-item__icon"
         name={text.charAt(0).toLowerCase() + text.slice(1)}
       />
-      <span className="u-visually-hidden">Wellcome on {text}</span>
-      <span className="footer-social-item__assistive-text">
-        &nbsp;(opens in a new tab)
-      </span>
+      <VisuallyHidden>
+        <>Wellcome on {text} (opens in a new tab)</>
+      </VisuallyHidden>
     </a>
   );
 };

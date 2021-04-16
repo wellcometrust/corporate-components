@@ -25,6 +25,7 @@ import Logo from 'Logo/Logo';
 import NavLinks from 'Nav/NavLinks';
 import SearchPane from 'SearchPane/SearchPane';
 import { RouterLinkWrapper as Link } from 'RouterLinkWrapper/RouterLinkWrapper';
+import VisuallyHidden from 'VisuallyHidden';
 
 import navLinkData from 'data/default-site-links.json';
 import logoData from 'Logo/constants';
@@ -147,7 +148,8 @@ export const Header = ({ banner }: HeaderProps) => {
                   onClick={() => toggleNav(false)}
                 >
                   <Icon name="close" />
-                  Close<span className="u-visually-hidden"> menu</span>
+                  Close
+                  <VisuallyHidden> menu</VisuallyHidden>
                 </button>
                 <a
                   aria-controls="search-pane"
@@ -177,7 +179,7 @@ export const Header = ({ banner }: HeaderProps) => {
               role="button"
               tabIndex={-1}
             >
-              <span className="u-visually-hidden">Close search and menu</span>
+              <VisuallyHidden>Close search and menu</VisuallyHidden>
             </div>
           </>
         </div>
