@@ -149,7 +149,7 @@ export const Header = ({ banner }: HeaderProps) => {
                 >
                   <Icon name="close" />
                   Close
-                  <VisuallyHidden>&nbsp;menu</VisuallyHidden>
+                  <VisuallyHidden> menu</VisuallyHidden>
                 </button>
                 <a
                   aria-controls="search-pane"
