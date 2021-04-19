@@ -1,11 +1,21 @@
 import React, { forwardRef } from 'react';
 import cx from 'classnames';
 
+/**
+ * The spellcheck attribute is an enumerated one and not a Boolean.
+ * This means that the explicit usage of one of the values true or false is mandatory.
+ * When the spellcheck attribute is not included, the default value depends on the element and browser.
+ *
+ * We are following the gov.uk pattern to add spellcheck="false" on name and email fields.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck
+ * @see https://design-system.service.gov.uk/patterns/names/
+ */
+
 type TextInputProps = {
   autoComplete?: string;
   className?: string;
   describedBy?: string;
-  hasSpellCheck?: boolean;
   id: string;
   inputMode?: 'numeric';
   isDisabled?: boolean;
@@ -13,6 +23,7 @@ type TextInputProps = {
   isRequired?: boolean;
   name: string;
   pattern?: string;
+  spellCheck?: 'true' | 'false';
   type: 'text' | 'email' | 'tel';
 };
 
@@ -22,7 +33,6 @@ export const TextInput = forwardRef(
       autoComplete,
       className,
       describedBy,
-      hasSpellCheck,
       id,
       inputMode,
       isDisabled,
@@ -30,6 +40,7 @@ export const TextInput = forwardRef(
       isRequired,
       name,
       pattern,
+      spellCheck,
       type = 'text'
     }: TextInputProps,
     ref: React.Ref<HTMLInputElement>
@@ -53,7 +64,7 @@ export const TextInput = forwardRef(
         pattern={pattern}
         ref={ref}
         required={isRequired}
-        spellCheck={hasSpellCheck}
+        spellCheck={spellCheck}
         type={type}
       />
     );
