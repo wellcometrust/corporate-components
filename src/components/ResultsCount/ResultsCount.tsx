@@ -1,6 +1,8 @@
 import React, { ChangeEvent } from 'react';
 import cx from 'classnames';
-import Label from '../Label';
+
+import Label from 'Label';
+import VisuallyHidden from 'VisuallyHidden';
 
 type ResultsCountProps = {
   className?: string;
@@ -30,16 +32,22 @@ export const ResultsCount = ({
     [className]: className
   });
 
+  const accessibleText = /-/.test(currentCount)
+    ? currentCount.replace('-', ' to ')
+    : currentCount;
+
   return (
     <div className={classNames}>
       <p
-        className="cc-results-count__result"
         aria-atomic="true"
         aria-live="polite"
+        className="cc-results-count__result"
       >
         Showing{' '}
         <strong>
-          {currentCount} results of {resultsCount}
+          <VisuallyHidden>{accessibleText}</VisuallyHidden>
+          <span aria-hidden="true">{currentCount}</span> results of{' '}
+          {resultsCount}
         </strong>
       </p>
       {options ? (
