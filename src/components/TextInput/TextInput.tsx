@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 /**
  * The spellcheck attribute is an enumerated one and not a Boolean.
- * This means that the explicit usage of one of the values true or false is mandatory.
+ * This means that only one of the string values 'true' or 'false' may be used.
  * When the spellcheck attribute is not included, the default value depends on the element and browser.
  *
  * We are following the gov.uk pattern to add spellcheck="false" on name and email fields.
