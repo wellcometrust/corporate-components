@@ -9,7 +9,7 @@
 .cc-results-count {
   border-top: 1px solid var(--colour-grey-10);
   font-size: var(--body-md);
-  padding-bottom: var(--space-lg);
+  padding-bottom: calc(3 * var(--space-unit));
 
   @include mq(sm) {
     align-items: center;
@@ -19,12 +19,13 @@
 }
 
 .cc-results-count__result {
+  margin-bottom: calc(3 * var(--space-unit));
   margin-top: 0;
-  padding-top: var(--space-lg);
+  padding-top: calc(3 * var(--space-unit));
 
   @include mq(sm) {
     margin-bottom: 0;
-    padding-bottom: var(--space-lg);
+    padding-bottom: calc(3 * var(--space-unit));
   }
 }
 
