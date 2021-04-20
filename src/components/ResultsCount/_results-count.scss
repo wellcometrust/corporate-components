@@ -19,6 +19,7 @@
 }
 
 .cc-results-count__result {
+  margin-bottom: calc(3 * var(--space-unit));
   margin-top: 0;
   padding-top: calc(3 * var(--space-unit));
 
