@@ -33,7 +33,7 @@
 .cc-listing__link {
   @extend %anchor-base;
   display: block;
-  line-height: var(--body-line-height-sm);
+  line-height: var(--body-line-height);
   padding: var(--space-unit) calc(5 * var(--space-unit)) var(--space-unit) 0;
   position: relative;
   text-decoration: none;

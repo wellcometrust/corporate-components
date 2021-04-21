@@ -22,7 +22,7 @@
   @include grid-column(1, 7);
   font-size: var(--body-md);
   letter-spacing: var(--body-letter-spacing);
-  line-height: var(--body-line-height-sm);
+  line-height: var(--body-line-height);
 
   @include mq($until: md) {
     border-top: 1px solid var(--colour-grey-10);

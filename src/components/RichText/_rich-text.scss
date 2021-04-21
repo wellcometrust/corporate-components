@@ -55,7 +55,7 @@
   table {
     border-collapse: collapse;
     caption-side: top;
-    line-height: var(--body-line-height-sm);
+    line-height: var(--body-line-height);
     margin-bottom: calc(4 * var(--space-unit));
     width: 100%;
   }
@@ -107,7 +107,7 @@
 
 .cc-rich-text-snippet {
   @extend %body-large;
-  line-height: var(--body-line-height-sm);
+  line-height: var(--body-line-height);
 
   p {
     @extend %body-regular;

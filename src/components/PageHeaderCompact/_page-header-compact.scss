@@ -71,7 +71,7 @@
      */
     margin-top: calc(var(--body-md) +
     (2 * var(--space-unit)) +
-    (var(--body-line-height-md) * var(--body-md) * 0.5));
+    (var(--body-line-height) * var(--body-md) * 0.5));
   }
 }
 
