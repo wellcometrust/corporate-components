@@ -84,6 +84,7 @@
 %heading-super {
   font-size: var(--heading-xxl);
   letter-spacing: var(--heading-letter-spacing);
+  margin-bottom: var(--space-xl);
 }
 
 // equivalent to <h1>
@@ -102,7 +103,7 @@
 // equivalent to <h3>
 %heading-large {
   font-size: var(--heading-md);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 // equivalent to <h4>
