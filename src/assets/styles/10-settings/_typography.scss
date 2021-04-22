@@ -26,7 +26,7 @@
   --body-md: calc(14/16 * var(--text-base-size));     // Small
   --body-sm: calc(13/16 * var(--text-base-size));     // Smaller
   --body-xs: calc(11/16 * var(--text-base-size));     // Smallest
-  --body-xxs: calc(10/16 * var(--text-base-size));    // 
+  --body-xxs: calc(10/16 * var(--text-base-size));    //
 
   // font size responsive headings
   --heading-xxl: calc(28/16 * var(--text-base-size)); // Super
@@ -41,8 +41,9 @@
   --heading-line-height: var(--body-line-height);
 
   // letter spacing
-  --body-letter-spacing: 0.03125rem;
-  --heading-letter-spacing: -0.014em;
+  --body-letter-spacing: 0.4px;
+  --heading-letter-spacing-bold: -0.5px;
+  --heading-letter-spacing: 0.2px;
 
   @include mq(sm) {
     --heading-xxl: calc(32/16 * var(--text-base-size));
