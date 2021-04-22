@@ -89,7 +89,7 @@ export const NewsletterForm = ({
       dropdown
     );
 
-    if (response?.status === 200) {
+    if (response?.code === 200) {
       handleSuccess();
     } else {
       handleError();
