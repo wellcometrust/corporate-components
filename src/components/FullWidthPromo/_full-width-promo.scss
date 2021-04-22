@@ -61,7 +61,7 @@
 
 .cc-full-width-promo__title {
   @extend %heading-display;
-  @include heading-fancy($space-above: var(--space-lg));
+  @include heading-fancy;
   font-weight: normal;
   margin-top: 0;
 }

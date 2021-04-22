@@ -65,26 +65,12 @@
 }
 
 .cc-image-card-with-cta__title {
-  letter-spacing: 0;
-}
-
-.cc-image-card-with-cta__title {
   @extend %heading-base;
   @extend %heading-large;
   @include heading-fancy;
 
   font-weight: normal;
-
   letter-spacing: 0;
-  margin-bottom: calc(2 * var(--space-unit));
-
-  @include mq($until: sm) {
-    margin-bottom: calc(0.5 * var(--space-unit));
-  }
-
-  &:after {
-    margin-top: var(--space-unit);
-  }
 }
 
 .cc-image-card-with-cta__link {
