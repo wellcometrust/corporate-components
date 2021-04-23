@@ -8,7 +8,7 @@
 
 .cc-results-count {
   border-top: 1px solid var(--colour-grey-10);
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   padding-bottom: calc(3 * var(--space-unit));
 
   @include mq(sm) {

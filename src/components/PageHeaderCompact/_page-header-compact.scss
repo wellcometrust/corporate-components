@@ -69,9 +69,9 @@
      * .cc-page-title__meta margin-bottom +
      * .cc-page-title__meta line-height * font-size * 0.5
      */
-    margin-top: calc(var(--body-md) +
+    margin-top: calc(var(--body-sm) +
     (2 * var(--space-unit)) +
-    (var(--body-line-height) * var(--body-md) * 0.5));
+    (var(--body-line-height) * var(--body-sm) * 0.5));
   }
 }
 
@@ -126,7 +126,7 @@
   border-top: 1px solid var(--colour-grey-05);
   color: var(--colour-grey-60);
   display: flex;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   justify-content: space-between;
   padding-bottom: calc(2 * var(--space-unit));
   padding-top: calc(2 * var(--space-unit));
