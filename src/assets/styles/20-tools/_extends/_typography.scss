@@ -83,14 +83,14 @@
 // equivalent to a theoretical <h0>
 %heading-super {
   font-size: var(--heading-xxl);
-  letter-spacing: var(--heading-letter-spacing-bold);
+  letter-spacing: var(--heading-bold-letter-spacing);
   margin-bottom: var(--space-xl);
 }
 
 // equivalent to <h1>
 %heading-hero {
   font-size: var(--heading-xl);
-  letter-spacing: var(--heading-letter-spacing-bold);
+  letter-spacing: var(--heading-bold-letter-spacing);
   margin-bottom: var(--space-lg);
 }
 
