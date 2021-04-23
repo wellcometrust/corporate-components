@@ -42,8 +42,8 @@
 
   // letter spacing
   --body-letter-spacing: 0.4px;
-  --heading-bold-letter-spacing: -0.5px;
-  --heading-letter-spacing: 0.2px;
+  --heading-main-letter-spacing: -0.5px;
+  --heading-base-letter-spacing: 0.2px;
 
   @include mq(sm) {
     --heading-xl: calc(32/16 * var(--text-base-size));
