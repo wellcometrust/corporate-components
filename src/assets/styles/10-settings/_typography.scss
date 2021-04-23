@@ -26,17 +26,14 @@
   --body-md: var(--text-base-size);                   // Small
   --body-sm: calc(14/16 * var(--text-base-size));     // Smaller
   --body-xs: calc(12/16 * var(--text-base-size));     // Smallest
-  /**
-   * We don't have this size in design system
-   */
-  --body-xxs: calc(10/16 * var(--text-base-size));
+  --body-xxs: calc(10/16 * var(--text-base-size));    // We don't have this size in the design system
 
   // font size responsive headings
-  --heading-xxl: calc(28/16 * var(--text-base-size)); // Super
+  --heading-xxl: calc(32/16 * var(--text-base-size)); // Super
   --heading-xl: calc(24/16 * var(--text-base-size));  // Hero
   --heading-lg: calc(22/16 * var(--text-base-size));  // Display
-  --heading-md: calc(16/16 * var(--text-base-size));  // Large
-  --heading-sm: calc(15/16 * var(--text-base-size));  // Regular
+  --heading-md: calc(18/16 * var(--text-base-size));  // Large
+  --heading-sm: calc(16/16 * var(--text-base-size));  // Regular
   --heading-xs: calc(14/16 * var(--text-base-size));  // Small
 
   // line height
@@ -48,16 +45,12 @@
   --heading-letter-spacing: -0.014em;
 
   @include mq(sm) {
-    --heading-xxl: calc(32/16 * var(--text-base-size));
-    --heading-xl: calc(28/16 * var(--text-base-size));
-    --heading-md: calc(18/16 * var(--text-base-size));
+    --heading-xl: calc(32/16 * var(--text-base-size));
+    --heading-lg: calc(24/16 * var(--text-base-size));
+    --heading-md: calc(20/16 * var(--text-base-size));
   }
 
   @include mq(md) {
     --heading-xxl: calc(40/16 * var(--text-base-size));
-    --heading-xl: calc(32/16 * var(--text-base-size));
-    --heading-lg: calc(24/16 * var(--text-base-size));
-    --heading-md: calc(20/16 * var(--text-base-size));
-    --heading-sm: calc(16/16 * var(--text-base-size));
   }
 }

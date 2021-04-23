@@ -61,7 +61,7 @@
 @mixin heading-fancy(
   $color: var(--colour-amber-30),
   $height: calc(0.5 * var(--space-unit)),
-  $space-above: calc(2 * var(--space-unit)),
+  $space-above: var(--space-md),
   $width: calc(4 * var(--space-unit))
 ) {
   &:after {
