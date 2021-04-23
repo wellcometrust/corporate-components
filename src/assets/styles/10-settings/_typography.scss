@@ -21,11 +21,11 @@
   --text-base-size-px: 16;
 
   // font size - non-responsive body text
-  --body-xl: calc(24/16 * var(--text-base-size));     // Large
-  --body-lg: calc(20/16 * var(--text-base-size));     // Regular
-  --body-md: var(--text-base-size);                   // Small
-  --body-sm: calc(14/16 * var(--text-base-size));     // Smaller
-  --body-xs: calc(12/16 * var(--text-base-size));     // Smallest
+  --body-xl: calc(24/16 * var(--text-base-size));     // Extra Large
+  --body-lg: calc(20/16 * var(--text-base-size));     // Large
+  --body-md: var(--text-base-size);                   // Regular
+  --body-sm: calc(14/16 * var(--text-base-size));     // Small
+  --body-xs: calc(12/16 * var(--text-base-size));     // Smaller
   --body-xxs: calc(10/16 * var(--text-base-size));    // We don't have this size in the design system
 
   // font size responsive headings
