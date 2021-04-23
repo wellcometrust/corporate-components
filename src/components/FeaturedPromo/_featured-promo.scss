@@ -118,7 +118,7 @@
   @include animated-underline;
 
   font-weight: normal;
-  line-height: 1.7;
+  line-height: var(--body-line-height);
 
   /**
    * Imitate the hover state when a user hovers over the image of

@@ -13,7 +13,7 @@
   align-items: center;
   color: var(--colour-grey-80);
   display: inline-flex;
-  line-height: 1.6;
+  line-height: var(--body-line-height);
   margin-right: calc(6 * var(--space-unit));
   position: relative;
   text-decoration: none;
