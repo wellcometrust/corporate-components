@@ -83,13 +83,13 @@ export const NewsletterForm = ({
 
     const response = await fetchNewsletterResponse(
       // TODO: #6023 - move to .env
-      'https://wellcome.org/newsletter-signup',
+      'https://cms.wellcome.org/api/newsletter/signup',
       email,
       type,
       dropdown
     );
 
-    if (response?.status === 200) {
+    if (response?.code === 200) {
       handleSuccess();
     } else {
       handleError();
