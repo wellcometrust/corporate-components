@@ -56,8 +56,12 @@ storiesOf('Components|Icon', module).add(
       <Icon name="shareLink" />
       <p>Tag</p>
       <Icon name="tag" />
+      <p>Tick</p>
+      <Icon name="tick" />
       <p>Twitter button for share or follow</p>
       <Icon name="twitter" />
+      <p>Update</p>
+      <Icon name="update" />
       <p>Upload button for file inputs</p>
       <Icon name="upload" />
       <p>YouTube button for share or follow</p>
