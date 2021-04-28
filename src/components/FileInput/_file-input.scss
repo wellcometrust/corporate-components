@@ -27,7 +27,36 @@
   }
 }
 
+.cc-file-input[disabled] {
+  + .btn {
+    color: var(--link-colour-disabled);
+    cursor: not-allowed;
+
+    @include hocus {
+      color: var(--link-colour-disabled);
+    }
+  }
+
+  + .btn--primary {
+    background-color: var(--colour-grey-20);
+  }
+
+  + .btn--secondary {
+    background-color: var(--colour-grey-20);
+    border-color: var(--link-colour-disabled);
+  }
+
+  + .btn--ghost {
+    border-color: var(--link-colour-disabled);
+  }
+}
+
 .btn--file-input {
   margin-bottom: var(--space-sm);
   position: relative;
 }
+
+.cc-file-input__text.is-disabled {
+  color: var(--colour-grey-60);
+}
+
