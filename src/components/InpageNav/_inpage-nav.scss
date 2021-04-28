@@ -20,7 +20,7 @@
 
 .cc-inpage-nav {
   @include grid-column(1, 7);
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   letter-spacing: var(--body-letter-spacing);
   line-height: var(--body-line-height);
 

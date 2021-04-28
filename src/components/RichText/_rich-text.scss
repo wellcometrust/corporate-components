@@ -101,7 +101,7 @@
   }
 
   td {
-    font-size: var(--body-md);
+    font-size: var(--body-sm);
   }
 }
 
@@ -127,7 +127,7 @@
 .cc-rich-text-snippet h5,
 .cc-rich-text-snippet h6 {
   @extend %heading-base;
-  font-size: var(--body-lg);
+  font-size: var(--body-md);
   font-weight: bold;
   letter-spacing: normal;
   margin-bottom: var(--space-unit);
