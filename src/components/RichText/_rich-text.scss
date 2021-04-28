@@ -16,8 +16,7 @@
   h2 {
     @extend %heading-base;
     @extend %heading-display;
-    @include heading-divider;
-    text-align: center;
+    @include heading-fancy;
   }
 
   h3 {
