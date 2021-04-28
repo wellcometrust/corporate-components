@@ -24,9 +24,10 @@
   --body-xl: calc(20/16 * var(--text-base-size));     // Large
   --body-lg: var(--text-base-size);                   // Regular
   --body-md: calc(14/16 * var(--text-base-size));     // Small
-  --body-sm: calc(13/16 * var(--text-base-size));     // Smaller
+  --body-sm: calc(13/16 * var(--text-base-size));     //
 
 
+  --body-xs: calc(12/16 * var(--text-base-size));      // Smaller
   --body-xxs: calc(11/16 * var(--text-base-size));     //
   --body-xxxs: calc(10/16 * var(--text-base-size));    //
 

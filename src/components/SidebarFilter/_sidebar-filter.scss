@@ -31,11 +31,9 @@
 }
 
 .cc-sidebar-filter__tags-list-item {
-  --body-sm: calc(12/16 * var(--text-base-size));
-
   background-color: var(--colour-blue-05);
   color: var(--colour-blue-60);
-  font-size: var(--body-sm);
+  font-size: var(--body-xs);
   justify-content: space-between;
   margin-bottom: var(--space-md);
   text-align: left;
