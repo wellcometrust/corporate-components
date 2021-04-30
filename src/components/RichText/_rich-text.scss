@@ -22,20 +22,17 @@
   h3 {
     @extend %heading-base;
     @extend %heading-large;
-    letter-spacing: 0;
   }
 
   h4 {
     @extend %heading-base;
     @extend %heading-regular;
-    letter-spacing: 0;
   }
 
   h5,
   h6 {
     @extend %heading-base;
     @extend %heading-small;
-    letter-spacing: 0;
   }
 
   p {

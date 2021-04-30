@@ -9,10 +9,9 @@
 // .cc-timeline {}
 
 .cc-timeline__title {
+  @extend %heading-base;
+  @extend %heading-large;
   @include heading-fancy;
-  font-size: var(--heading-md);
-  letter-spacing: 0;
-  margin-bottom: calc(4 * var(--space-unit));
 }
 
 .cc-timeline__description {
