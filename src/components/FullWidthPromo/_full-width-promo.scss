@@ -81,7 +81,7 @@
 
 .cc-full-width-promo__type {
   color: var(--colour-grey-60);
-  font-size: var(--body-xs);
+  font-size: var(--body-xxs);
   margin: 0;
   text-transform: uppercase;
 
@@ -105,7 +105,7 @@
 }
 
 .cc-full-width-promo__author {
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   margin: 0;
 
   + .cc-full-width-promo__author:before {

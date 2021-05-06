@@ -20,7 +20,7 @@
 
 .cc-inpage-nav {
   @include grid-column(1, 7);
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   letter-spacing: var(--body-letter-spacing);
   line-height: var(--body-line-height);
 
@@ -41,7 +41,7 @@
 
 .cc-inpage-nav__title {
   display: block;
-  font-size: var(--body-xxs);
+  font-size: var(--body-xxxs);
   font-weight: 500;
   line-height: 2.4;
   margin-bottom: var(--space-unit);
@@ -61,15 +61,15 @@
   text-decoration: none;
   transition: ease var(--transition-duration-fast);
   transition-property: border, color, padding;
-  
+
   @include hocus {
     color: var(--colour-blue-70);
   }
-  
+
   &:active {
     color: var(--colour-blue-50);
   }
-  
+
   &.is-active {
     border-left-color: var(--colour-blue-60);
     color: var(--colour-grey-80);

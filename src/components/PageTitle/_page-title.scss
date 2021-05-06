@@ -9,16 +9,15 @@
 .cc-page-title {
   @extend %heading-base;
   @extend %heading-hero;
-  @include heading-divider;
+  @include heading-fancy;
 
   font-family: var(--font-secondary);
-  text-align: center;
 }
 
 .cc-page-title__meta {
   color: var(--meta-text-colour);
   display: block;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   margin-bottom: calc(2 * var(--space-unit));
   text-align: center;
 }

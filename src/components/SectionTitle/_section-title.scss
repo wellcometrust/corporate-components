@@ -9,9 +9,8 @@
 .cc-section__title {
   @extend %heading-base;
   @extend %heading-display;
-  @include heading-divider;
+  @include heading-fancy;
   position: relative;
-  text-align: center;
 
   @include mq(md) {
     z-index: var(--z-medium);
@@ -24,7 +23,7 @@
   position: absolute;
   top: calc(-1 * (var(--header-height) + var(--secondary-nav-height)));
   visibility: hidden;
-  
+
   @include mq(sm) {
     top: calc(-1 * (var(--header-height-sm) + var(--secondary-nav-height)));
   }

@@ -22,7 +22,7 @@
   cursor: pointer;
   display: block;
   padding: calc(1.5 * var(--space-unit));
-  
+
   @include hocus {
     .cc-social-share__icon {
       border-color: var(--colour-grey-80);
@@ -56,7 +56,7 @@
   border: 1px solid var(--colour-grey-40);
   color: var(--colour-white);
   display: block;
-  font-size: var(--body-sm);
+  font-size: var(--body-xs);
   left: calc(1.5 * var(--space-unit));
   padding: var(--space-unit);
   pointer-events: none;

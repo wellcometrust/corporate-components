@@ -8,7 +8,7 @@
 // ----------------------------------
 
 .footer-nav {
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
 }
 
 .footer-nav__grid {
@@ -66,7 +66,7 @@
   @include animated-underline($height: calc(0.125 * var(--space-unit)));
 
   display: inline-block;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
   text-decoration: none;

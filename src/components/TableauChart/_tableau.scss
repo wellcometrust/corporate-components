@@ -15,7 +15,7 @@
     position: relative;
     width: 100%;
   }
-  
+
   .tableauViz {
     display: none;
     min-height: 627px;
@@ -28,11 +28,11 @@
 // awaiting data for toggling extra wide
 // .cc-tableau__chart {
 //   @include grid-column(1, 7);
-  
+
 //   @include mq(sm) {
 //     @include grid-column(1, 13);
 //   }
-  
+
 //   @include mq(md) {
 //     @include grid-column(4, 10);
 //   }
@@ -49,7 +49,7 @@
 }
 
 .cc-tableau__title {
-  font-size: var(--body-lg);
+  font-size: var(--body-md);
   font-weight: bold;
   margin-bottom: var(--space-sm);
   margin-top: 0;
