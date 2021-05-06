@@ -101,8 +101,6 @@
   @extend %heading-base;
   @extend %heading-large;
   @include heading-fancy;
-
-  margin-bottom: calc(2 * var(--space-unit));
 }
 
 .cc-featured-promo__date {

@@ -30,16 +30,6 @@
 .cc-accordion__content {
   padding: var(--space-unit) 0;
 
-  h3 {
-    font-size: var(--heading-sm);
-  }
-
-  h4,
-  h5,
-  h6 {
-    color: var(--colour-grey-70);
-  }
-
   .cc-accordion + *,
   .cc-rich-text + * {
     margin-top: calc(2 * var(--space-sm));
