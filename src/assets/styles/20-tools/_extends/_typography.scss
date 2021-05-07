@@ -97,6 +97,7 @@
 // equivalent to <h2>
 %heading-display {
   font-size: var(--heading-lg);
+  font-weight: var(--heading-font-weight);
   letter-spacing: var(--heading-minor-letter-spacing);
   margin-bottom: var(--space-lg);
 }
@@ -104,6 +105,7 @@
 // equivalent to <h3>
 %heading-large {
   font-size: var(--heading-md);
+  font-weight: var(--heading-font-weight);
   letter-spacing: var(--heading-minor-letter-spacing);
   margin-bottom: var(--space-lg);
 }
@@ -111,6 +113,7 @@
 // equivalent to <h4>
 %heading-regular {
   font-size: var(--heading-sm);
+  font-weight: var(--heading-font-weight);
   letter-spacing: var(--heading-minor-letter-spacing);
   margin-bottom: var(--space-md);
 }
@@ -118,6 +121,7 @@
 // equivalent to <h5>
 %heading-small {
   font-size: var(--heading-xs);
+  font-weight: var(--heading-font-weight);
   letter-spacing: var(--heading-minor-letter-spacing);
   margin-bottom: var(--space-md);
 }
