@@ -42,7 +42,7 @@
 .cc-inpage-nav__title {
   display: block;
   font-size: var(--body-xxxs);
-  font-weight: 500;
+  font-weight: var(--heading-font-weight);
   line-height: 2.4;
   margin-bottom: var(--space-unit);
   text-transform: uppercase;

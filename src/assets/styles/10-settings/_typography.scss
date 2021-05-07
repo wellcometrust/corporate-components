@@ -47,7 +47,7 @@
   --heading-minor-letter-spacing: 0.2px;
 
   // font weight
-  --font-weight: 500;
+  --heading-font-weight: 500;
 
   @include mq(sm) {
     --heading-xl: calc(32/16 * var(--text-base-size));
