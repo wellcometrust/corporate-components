@@ -64,7 +64,7 @@
 
 .cc-image-card__meta-item--label {
   color: var(--colour-grey-60);
-  font-size: var(--body-xs);
+  font-size: var(--body-xxs);
   text-transform: uppercase;
 }
 
@@ -80,7 +80,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -102,10 +102,11 @@
   @extend %heading-large;
 
   font-weight: normal;
+  margin-bottom: var(--space-unit);
   margin-top: 0;
 
-  @include mq($until: sm) {
-    margin-bottom: calc(0.5 * var(--space-unit));
+  @include mq(sm) {
+    margin-bottom: calc(2 * var(--space-unit));
   }
 }
 
@@ -127,7 +128,7 @@
 
 .cc-image-card__date {
   display: block;
-  font-size: var(--body-xs);
+  font-size: var(--body-xxs);
   text-transform: uppercase;
 }
 

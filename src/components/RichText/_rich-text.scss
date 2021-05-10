@@ -16,27 +16,23 @@
   h2 {
     @extend %heading-base;
     @extend %heading-display;
-    @include heading-divider;
-    text-align: center;
+    @include heading-fancy;
   }
 
   h3 {
     @extend %heading-base;
     @extend %heading-large;
-    letter-spacing: 0;
   }
 
   h4 {
     @extend %heading-base;
     @extend %heading-regular;
-    letter-spacing: 0;
   }
 
   h5,
   h6 {
     @extend %heading-base;
     @extend %heading-small;
-    letter-spacing: 0;
   }
 
   p {
@@ -55,7 +51,7 @@
   table {
     border-collapse: collapse;
     caption-side: top;
-    line-height: var(--body-line-height-sm);
+    line-height: var(--body-line-height);
     margin-bottom: calc(4 * var(--space-unit));
     width: 100%;
   }
@@ -63,7 +59,7 @@
   caption {
     border-left: 1px solid var(--colour-grey-70);
     font-family: var(--font-tertiary);
-    font-size: var(--body-xs);
+    font-size: var(--body-xxs);
     font-weight: bold;
     margin-bottom: calc(2 * var(--space-unit));
     padding: calc(0.25 * var(--space-unit)) 0 calc(0.25 * var(--space-unit)) calc(2 * var(--space-unit));
@@ -91,8 +87,8 @@
   }
 
   th {
-    font-size: var(--body-xxs);
-    font-weight: 500;
+    font-size: var(--body-xxxs);
+    font-weight: var(--heading-font-weight);
     text-transform: uppercase;
   }
 
@@ -101,13 +97,13 @@
   }
 
   td {
-    font-size: var(--body-md);
+    font-size: var(--body-sm);
   }
 }
 
 .cc-rich-text-snippet {
   @extend %body-large;
-  line-height: var(--body-line-height-sm);
+  line-height: var(--body-line-height);
 
   p {
     @extend %body-regular;
@@ -127,7 +123,7 @@
 .cc-rich-text-snippet h5,
 .cc-rich-text-snippet h6 {
   @extend %heading-base;
-  font-size: var(--body-lg);
+  font-size: var(--body-md);
   font-weight: bold;
   letter-spacing: normal;
   margin-bottom: var(--space-unit);

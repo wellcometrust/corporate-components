@@ -10,19 +10,19 @@
 
 .cc-sidebar-filter__header-title {
   flex-shrink: 1;
-  font-size: var(--body-lg);
-  line-height: var(--body-line-height-sm);
+  font-size: var(--body-md);
+  line-height: var(--body-line-height);
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .cc-sidebar-filter__header-meta {
   color: var(--colour-grey-30);
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
 }
 
 .cc-sidebar-filter__btn-clear {
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
 }
 
 .cc-sidebar-filter__tags-list {
@@ -31,11 +31,9 @@
 }
 
 .cc-sidebar-filter__tags-list-item {
-  --body-sm: calc(12/16 * var(--text-base-size));
-
   background-color: var(--colour-blue-05);
   color: var(--colour-blue-60);
-  font-size: var(--body-sm);
+  font-size: var(--body-xs);
   justify-content: space-between;
   margin-bottom: var(--space-md);
   text-align: left;
@@ -78,7 +76,7 @@
 }
 
 .cc-sidebar-filter__checkbox {
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
 
   .cc-checkbox__label {
     padding-bottom: var(--space-md);

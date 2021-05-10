@@ -19,7 +19,7 @@
 
 %top-padding {
   padding-top: calc(6 * var(--space-unit));
-  
+
   @include mq(sm) {
     padding-top: calc(12 * var(--space-unit));
   }
@@ -198,7 +198,7 @@
 .cc-gallery-lightbox__info-pane {
   @extend %bottom-padding;
   grid-area: info;
-    
+
   @include mq(md) {
     overflow-y: auto;
   }
@@ -238,7 +238,7 @@
 /**
  * Start child component styles; these are the 'smaller' components
  * which make up the individual elements within each slide.
- * 
+ *
  * Component | Grid area
  * --------- | ---------
  * Actions   | actions
@@ -309,7 +309,7 @@
 .cc-gallery-lightbox__meta {
   border-left: 1px solid var(--colour-white);
   font-family: var(--font-tertiary);
-  font-size: var(--body-xs);
+  font-size: var(--body-xxs);
   -webkit-font-smoothing: auto;
   margin-bottom: calc(2 * var(--space-unit));
   padding-left: var(--space-md);
@@ -362,14 +362,14 @@
   @extend %btn-size-standard;
   align-items: center;
   display: inline-flex;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   margin-left: var(--space-md);
 }
 
 .cc-gallery-lightbox__nav {
   align-items: center;
   display: flex;
-  
+
   @include mq($until: md) {
     margin-left: calc(-1.75 * var(--space-unit));
   }
@@ -426,14 +426,14 @@
  * Image
  */
 
-.cc-gallery-lightbox__image {  
+.cc-gallery-lightbox__image {
 
   // Setting / overriding pure-react-carousel styles
   .carousel__image {
     background-position: 50% 50% !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
-    
+
     bottom: 0;
     display: block;
     left: 0;
@@ -441,7 +441,7 @@
     right: 0;
     top: 0;
   }
-  
+
   .carousel__image:not(.carousel__zoom-image-overlay) {
     @include mq(sm) {
       background-position: 50% 0 !important;

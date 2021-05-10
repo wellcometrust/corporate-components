@@ -25,7 +25,7 @@
   width: 100%;
 
   @include mq(md) {
-    font-size: var(--body-md);
+    font-size: var(--body-sm);
   }
 
   &::placeholder {

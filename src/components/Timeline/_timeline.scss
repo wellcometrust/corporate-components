@@ -9,11 +9,8 @@
 // .cc-timeline {}
 
 .cc-timeline__title {
-  @include heading-divider;
-  font-size: var(--heading-md);
-  letter-spacing: 0;
-  margin-bottom: calc(4 * var(--space-unit));
-  text-align: center;
+  @extend %heading-base;
+  @extend %heading-large;
 }
 
 .cc-timeline__description {
@@ -23,7 +20,7 @@
 .cc-timeline__status {
   background-color: var(--colour-cyan-05);
   float: right;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   font-weight: bold;
   line-height: 2.14;
   padding-bottom: calc(0.5 * var(--space-unit));
@@ -96,7 +93,7 @@
   color: var(--meta-text-colour);
   flex-grow: 0;
   flex-shrink: 0;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   line-height: calc(24/14);
 
   @include mq(sm) {
@@ -125,7 +122,7 @@
 
 .cc-timeline__item-body {
   color: var(--meta-text-colour);
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
 
   p {
     margin: 0;

@@ -71,7 +71,7 @@
   background-image: none;
   border-radius: calc(0.25 * var(--space-unit));
   color: var(--X-colour-error-red);
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   margin-top: var(--space-md);
   padding-bottom: var(--space-xs);
   padding-left: var(--space-sm);
@@ -96,7 +96,7 @@
 /* Labels */
 
 .newsletter-form__item-label {
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   line-height: rem(20.53); // #6171 refactor footer styles
   margin-bottom: var(--space-xs);
 }
@@ -127,11 +127,11 @@
 
 .newsletter-form__btn-submit {
   width: 100%;
-  
+
   @include mq(sm) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-  }  
+  }
 }
 
 /* Response Messages */

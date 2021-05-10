@@ -63,7 +63,7 @@
 
 .cc-featured-promo__meta-item--label {
   color: var(--colour-grey-60);
-  font-size: var(--body-xs);
+  font-size: var(--body-xxs);
   text-transform: uppercase;
 }
 
@@ -79,7 +79,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  font-size: var(--body-md);
+  font-size: var(--body-sm);
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -101,13 +101,11 @@
   @extend %heading-base;
   @extend %heading-large;
   @include heading-fancy;
-
-  margin-bottom: calc(2 * var(--space-unit));
 }
 
 .cc-featured-promo__date {
   display: block;
-  font-size: var(--body-xs);
+  font-size: var(--body-xxs);
   margin-bottom: calc(2 * var(--space-unit));
   text-transform: uppercase;
 }
@@ -118,7 +116,7 @@
   @include animated-underline;
 
   font-weight: normal;
-  line-height: 1.7;
+  line-height: var(--body-line-height);
 
   /**
    * Imitate the hover state when a user hovers over the image of

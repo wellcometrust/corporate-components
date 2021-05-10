@@ -95,7 +95,7 @@
 .slideshow-hero__standfirst {
   // D7 override
   @extend %body-large;
-  line-height: var(--body-line-height-sm);
+  line-height: var(--body-line-height);
 }
 
 .slideshow-hero__btn-skip {

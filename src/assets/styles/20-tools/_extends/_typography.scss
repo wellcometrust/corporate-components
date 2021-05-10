@@ -83,37 +83,46 @@
 // equivalent to a theoretical <h0>
 %heading-super {
   font-size: var(--heading-xxl);
-  letter-spacing: var(--heading-letter-spacing);
+  letter-spacing: var(--heading-major-letter-spacing);
+  margin-bottom: var(--space-xl);
 }
 
 // equivalent to <h1>
 %heading-hero {
   font-size: var(--heading-xl);
-  letter-spacing: var(--heading-letter-spacing);
+  letter-spacing: var(--heading-major-letter-spacing);
   margin-bottom: var(--space-lg);
 }
 
 // equivalent to <h2>
 %heading-display {
   font-size: var(--heading-lg);
+  font-weight: var(--heading-font-weight);
+  letter-spacing: var(--heading-minor-letter-spacing);
   margin-bottom: var(--space-lg);
 }
 
 // equivalent to <h3>
 %heading-large {
   font-size: var(--heading-md);
-  margin-bottom: var(--space-md);
+  font-weight: var(--heading-font-weight);
+  letter-spacing: var(--heading-minor-letter-spacing);
+  margin-bottom: var(--space-lg);
 }
 
 // equivalent to <h4>
 %heading-regular {
   font-size: var(--heading-sm);
+  font-weight: var(--heading-font-weight);
+  letter-spacing: var(--heading-minor-letter-spacing);
   margin-bottom: var(--space-md);
 }
 
 // equivalent to <h5>
 %heading-small {
   font-size: var(--heading-xs);
+  font-weight: var(--heading-font-weight);
+  letter-spacing: var(--heading-minor-letter-spacing);
   margin-bottom: var(--space-md);
 }
 
