@@ -17,7 +17,7 @@ module.exports = function(api) {
     ],
     /**
      * Add these options to silence the Storybook build warnings about different loose mode configuration
-     * @see https://github.com/babel/babel/issues/11622
+     * @see {@link https://github.com/babel/babel/issues/11622}
      */
     ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
     ['@babel/plugin-proposal-private-methods', { loose: true }],
