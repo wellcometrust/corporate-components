@@ -248,6 +248,7 @@
             // stylelint-disable-next-line property-no-vendor-prefix
             -ms-grid-row: $j;
           }
+          // stylelint-disable-next-line order/order
           $counter: $counter + 1;
         }
       }
@@ -275,6 +276,7 @@
             // stylelint-disable-next-line property-no-vendor-prefix
             -ms-grid-row: $i;
           }
+          // stylelint-disable-next-line order/order
           $counter: $counter + 1;
         }
       }
