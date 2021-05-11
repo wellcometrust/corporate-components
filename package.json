@@ -24,6 +24,7 @@
     "lint": "npm run lint:style && npm run lint:js",
     "lint:js": "eslint --fix ./src --ext .js,.jsx,.ts,.tsx && echo 'JS linting complete'",
     "lint:style": "stylelint --fix '**/*.scss' && echo 'Style linting complete'",
+    "preinstall": "npx npm-force-resolutions",
     "prepublishOnly": "npm run type-check & npm run lint && npm run test && npm run build",
     "storybook": "start-storybook -c ./config/storybook -p 6006",
     "storybook:build": "build-storybook -c ./config/storybook",
@@ -141,6 +142,9 @@
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "typescript": "^3.7.4"
+  },
+  "resolutions": {
+    "remark-parse": "^9.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
