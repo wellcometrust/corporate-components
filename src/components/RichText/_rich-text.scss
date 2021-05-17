@@ -48,6 +48,11 @@
     margin-bottom: calc(2 * var(--space-unit));
   }
 
+  a {
+    @include animated-double-underline;
+    font-weight: 500;
+  }
+
   table {
     border-collapse: collapse;
     caption-side: top;
@@ -107,6 +112,11 @@
 
   p {
     @extend %body-regular;
+  }
+
+  a {
+    @include animated-double-underline;
+    font-weight: 500;
   }
 
   ol,

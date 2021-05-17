@@ -49,6 +49,93 @@
 }
 
 /**
+ * Generates a style where a horizontal line displays
+ * beneath an element and changes to another colour on hover with a transition.
+ *
+ * @param {Int} $height - height of the "underline"
+ * @param {string} $underline-colour - colour of the "underline"
+ * @param {string} $animated-colour - colour of the "underline" on hover
+ */
+@mixin animated-double-underline($height: 3px, $underline-colour: var(--colour-grey-80), $animated-colour: var(--colour-amber-30)) {
+  --transition-duration: 0.3s;
+  --transition-timing-function-in: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-timing-function-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  background-image: linear-gradient($animated-colour, $animated-colour);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0 $height;
+  border-bottom: 1px solid $underline-colour;
+  padding-bottom: 3px;
+
+  text-decoration: none;
+  transition: var(--transition-duration) var(--transition-timing-function-out);
+  transition-property: background-size, border-bottom-color;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-size: 100% $height;
+    border-bottom-color: transparent;
+    transition-timing-function: var(--transition-timing-function-in);
+  }
+}
+
+/**
+ * Generates a style where a horizontal line displays
+ * beneath an element and changes to another colour on hover with a transition.
+ * The styles are added to the child of an anchor (default is span)
+ *
+ * Usage:
+ * For HTML <a class="cc-cta-link" href=''><span class="btn__text">Text</span></a>
+ *
+ * .cc-cta-link {
+ *   @include animated-link($selector: ".btn__text");
+ * }
+ *
+ * @param {Int} $height - height of the "underline"
+ * @param {string} $underline-colour - colour of the "underline"
+ * @param {string} $animated-colour - colour of the "underline" on hover
+ * @param {string} $selector - selector to apply anchor styles
+ */
+@mixin animated-link($height: 3px, $underline-colour: var(--colour-grey-80), $animated-colour: var(--colour-amber-30), $selector: 'span') {
+  --transition-duration: 0.3s;
+  --transition-timing-function-in: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-timing-function-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  text-decoration: none;
+
+  > #{$selector} {
+    background-image: linear-gradient($animated-colour, $animated-colour);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: 0 $height;
+
+    border-bottom: 1px solid $underline-colour;
+    padding-bottom: 2px;
+
+    transition: var(--transition-duration) var(--transition-timing-function-out);
+    transition-property: background-size, border-bottom-color;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover {
+    > #{$selector} {
+      background-size: 100% $height;
+      border-bottom-color: transparent;
+      transition-timing-function: var(--transition-timing-function-in);
+    }
+  }
+}
+
+/**
  * "Fancy" heading style; adds an :after element containing
  * a block of colour of varying widths/height/spacing above
  * dependent on parameters passed.

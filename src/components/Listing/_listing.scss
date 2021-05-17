@@ -21,20 +21,20 @@
 
 .cc-listing {
   @extend %list-clean;
-  border-bottom: 1px solid var(--colour-grey-10);
   width: 100%;
 }
 
 .cc-listing__item {
-  border-top: 1px solid var(--colour-grey-10);
   display: block;
 }
 
 .cc-listing__link {
   @extend %anchor-base;
+  @include animated-link($selector: '.cc-listing__link-text');
+
   display: block;
   line-height: var(--body-line-height);
-  padding: var(--space-unit) calc(5 * var(--space-unit)) var(--space-unit) 0;
+  padding: calc(2 * var(--space-unit)) calc(5 * var(--space-unit)) calc(2 * var(--space-unit)) 0;
   position: relative;
   text-decoration: none;
 }
@@ -53,8 +53,10 @@
   margin-left: auto;
   position: absolute;
   right: var(--space-unit);
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  //top: 50%;
+  //transform: translateY(-50%);
+  transform: translateY(20px);
   width: 0.375em;
 }
 

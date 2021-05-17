@@ -73,7 +73,7 @@ export const Card = ({
         )}
         <h3 className="cc-card__title">
           <a href={href} className="cc-card__link" target="_self">
-            {title}
+            <span>{title}</span>
           </a>
         </h3>
         {isHorizontal && (authors || date) && (

@@ -8,10 +8,9 @@
 
 .cc-cta-link {
   @extend %anchor-inherit;
-  @include animated-underline(1px);
+  @include animated-link($selector: '.btn__text');
 
   align-items: center;
-  color: var(--colour-grey-80);
   display: inline-flex;
   line-height: var(--body-line-height);
   margin-right: calc(6 * var(--space-unit));

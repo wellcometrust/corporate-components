@@ -1,5 +1,6 @@
 .cc-file-download__link {
   @extend %anchor-base;
+  @include animated-link;
   margin-right: var(--space-xs);
 }
 

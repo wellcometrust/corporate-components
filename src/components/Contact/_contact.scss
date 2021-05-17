@@ -62,8 +62,8 @@
 }
 
 .cc-contact__link {
-  @extend %anchor-base;
-  text-decoration: none;
+  //@extend %anchor-base;
+  @include animated-double-underline;
 }
 
 .cc-contact__link-icon {

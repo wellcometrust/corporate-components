@@ -38,11 +38,20 @@
 .cc-pagination__prev-link,
 .cc-pagination__link {
   align-items: center;
+  color: var(--colour-blue-60);
   cursor: pointer;
   display: flex;
   font-size: var(--body-sm);
   padding: var(--space-unit);
   text-decoration: none;
+
+  @include hocus {
+    color: var(--colour-blue-70);
+  }
+
+  &:active {
+    color: var(--colour-blue-50);
+  }
 }
 
 .cc-pagination__next,

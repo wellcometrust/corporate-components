@@ -106,6 +106,7 @@
 
 .cc-card__link {
   @extend %list-item-link;
+  @include animated-link;
   display: block;
 
   &:before {

@@ -100,7 +100,7 @@
 .cc-featured-promo__title {
   @extend %heading-base;
   @extend %heading-large;
-  @include heading-fancy;
+  @include heading-fancy($space-above: var(--space-lg));
 }
 
 .cc-featured-promo__date {
@@ -113,7 +113,7 @@
 .cc-featured-promo__link {
   @extend %anchor-inherit;
   @extend %heading-large;
-  @include animated-underline;
+  @include animated-double-underline;
 
   font-weight: normal;
   line-height: var(--body-line-height);
@@ -124,7 +124,8 @@
    */
   .cc-featured-promo__figure:hover + .cc-featured-promo__body &,
   .cc-featured-promo__figure:focus + .cc-featured-promo__body & {
-    background-size: 100% 2px;
+    background-size: 100% 3px;
+    border-bottom-color: transparent;
     text-decoration: none;
     transition-timing-function: var(--transition-timing-function-in);
   }

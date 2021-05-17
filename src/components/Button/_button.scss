@@ -83,7 +83,7 @@
 }
 
 .btn--ghost {
-  background-color: var(--colour-white);
+  background-color: transparent;
 
   &:hover {
     background-color: var(--colour-amber-20);
@@ -91,7 +91,7 @@
 
   &:focus,
   &[disabled] {
-    background-color: var(--colour-white);
+    background-color: transparent;
   }
 
   &:active {
@@ -99,7 +99,7 @@
   }
 
   .btn__text {
-    border-bottom: 1px solid var(--colour-blue-80);
+    border-bottom: 1px solid var(--colour-grey-80);
     transition: ease 0.4s;
     transition-property: border-bottom-color;
   }
