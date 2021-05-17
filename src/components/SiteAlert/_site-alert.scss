@@ -93,3 +93,8 @@
     width: calc(1.5 * var(--space-unit));
   }
 }
+
+.site-alert__text {
+  width: 100%;
+  text-align: center;
+}
