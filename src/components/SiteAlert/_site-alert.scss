@@ -73,6 +73,9 @@
 
 .site-alert__text {
   @extend %margin-0;
+
+  text-align: center;
+  width: 100%;
 }
 
 .site-alert__btn-close {
@@ -92,9 +95,4 @@
     margin-left: var(--space-unit);
     width: calc(1.5 * var(--space-unit));
   }
-}
-
-.site-alert__text {
-  width: 100%;
-  text-align: center;
 }
