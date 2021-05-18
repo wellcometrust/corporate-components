@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Icon from 'Icon/Icon';
 
 type SiteAlertProps = {
+  className?: string;
   handleDismiss?: () => void;
   isActive: boolean;
   text: string;
@@ -11,12 +12,14 @@ type SiteAlertProps = {
 };
 
 export const SiteAlert = ({
+  className,
   handleDismiss,
   isActive,
   text,
   url
 }: SiteAlertProps) => {
   const classNames = cx('site-alert', {
+    [className]: className,
     'is-active': isActive
   });
 
@@ -37,15 +40,17 @@ export const SiteAlert = ({
         ) : (
           <p className="site-alert__text">{text}</p>
         )}
-        <button
-          className="site-alert__btn-close"
-          onClick={handleDismiss}
-          type="button"
-          tabIndex={tabIndex}
-        >
-          Close
-          <Icon name="closeBold" />
-        </button>
+        {typeof handleDismiss === 'function' && (
+          <button
+            className="site-alert__btn-close"
+            onClick={handleDismiss}
+            type="button"
+            tabIndex={tabIndex}
+          >
+            Close
+            <Icon name="closeBold" />
+          </button>
+        )}
       </div>
     </div>
   );
