@@ -73,6 +73,9 @@
 
 .site-alert__text {
   @extend %margin-0;
+
+  text-align: center;
+  width: 100%;
 }
 
 .site-alert__btn-close {
