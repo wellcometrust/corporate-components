@@ -33,7 +33,7 @@
 }
 
 .cookie-message__text-link {
-  color: var(--colour-black);
+  @include animated-link;
 }
 
 .cookie-message__buttons {
