@@ -10,12 +10,15 @@
   @extend %anchor-inherit;
   @include animated-link($selector: '.btn__text');
 
-  align-items: center;
-  display: inline-flex;
+  display: block;
   line-height: var(--body-line-height);
   margin-right: calc(6 * var(--space-unit));
   position: relative;
-  text-decoration: none;
+
+  @include mq(xs) {
+    align-items: center;
+    display: inline-flex;
+  }
 
   @include hocus {
     .btn__icon {

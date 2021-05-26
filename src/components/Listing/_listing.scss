@@ -53,10 +53,7 @@
   margin-left: auto;
   position: absolute;
   right: var(--space-unit);
-  top: 0;
-  //top: 50%;
-  //transform: translateY(-50%);
-  transform: translateY(20px);
+  top: calc(2.5 * var(--space-unit)); // 20px
   width: 0.5em;
 }
 
