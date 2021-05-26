@@ -62,7 +62,6 @@
 }
 
 .cc-contact__link {
-  //@extend %anchor-base;
   @include animated-link;
 }
 
