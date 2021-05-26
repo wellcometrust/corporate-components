@@ -57,18 +57,6 @@
   }
 }
 
-.btn--link {
-  color: var(--link-colour);
-
-  &:hover {
-    color: var(--link-colour-hover);
-  }
-
-  &:active {
-    color: var(--link-colour-active);
-  }
-}
-
 .btn--secondary {
   background-color: var(--colour-amber-20);
 
@@ -109,6 +97,10 @@
   &[disabled] .btn__text {
     border-bottom-color: transparent;
   }
+}
+
+.btn--link {
+  @include animated-link($selector: '.btn__text');
 }
 
 .btn__icon--left {
