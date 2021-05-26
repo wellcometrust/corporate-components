@@ -54,16 +54,16 @@
  * i.e. hover-underline adds styles to a title after the image was hovered
  */
 @mixin default-underline($height: 3px, $underline-colour: var(--colour-grey-80)) {
-  --transition-duration: 0.35s;
+  --transition-duration-link: 0.3s;
   --transition-timing-function: ease-in-out;
 
   background-image: linear-gradient($underline-colour, $underline-colour), linear-gradient(transparent, transparent);
   background-position: left calc(100% - #{$height});
   background-repeat: no-repeat;
   background-size: 100% 1px, 0 $height;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 
-  transition: var(--transition-duration) var(--transition-timing-function);
+  transition: var(--transition-duration-link) var(--transition-timing-function);
   transition-property: background-size;
 }
 
@@ -99,8 +99,6 @@
   $underline-colour: var(--colour-grey-80),
   $selector: null
 ) {
-  --transition-duration: 0.35s;
-  --transition-timing-function: ease-in-out;
 
   text-decoration: none;
 
