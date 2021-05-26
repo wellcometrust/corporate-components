@@ -113,7 +113,7 @@
 .cc-featured-promo__link {
   @extend %anchor-inherit;
   @extend %heading-large;
-  @include animated-double-underline;
+  @include animated-link;
 
   font-weight: normal;
   line-height: var(--body-line-height);
@@ -124,9 +124,8 @@
    */
   .cc-featured-promo__figure:hover + .cc-featured-promo__body &,
   .cc-featured-promo__figure:focus + .cc-featured-promo__body & {
-    background-size: 100% 3px;
-    border-bottom-color: transparent;
-    text-decoration: none;
-    transition-timing-function: var(--transition-timing-function-in);
+    background-image: linear-gradient(transparent, transparent), linear-gradient(var(--colour-amber-30), var(--colour-amber-30));
+    background-position: left calc(100% - 1px);
+    background-size: 0 1px, 100% 3px;
   }
 }

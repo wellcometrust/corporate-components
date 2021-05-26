@@ -12,8 +12,7 @@
 }
 
 .cc-text-card__link {
-  //@extend %list-item-link;
-  @include animated-double-underline;
+  @include animated-link;
 }
 
 .cc-text-card__description,
@@ -23,7 +22,7 @@
 }
 
 .cc-text-card__description a {
-  @include animated-double-underline;
+  @include animated-link;
 }
 
 .cc-text-card__description + .cc-text-card__description {

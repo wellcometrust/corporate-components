@@ -75,7 +75,7 @@
 
 .cc-image-card-with-cta__link {
   @extend %anchor-inherit;
-  @include animated-double-underline;
+  @include animated-link;
 
   /**
    * Imitate the hover state when a user hovers over the image of
@@ -83,10 +83,9 @@
    */
   .cc-image-card-with-cta__figure:hover + .cc-image-card-with-cta__body &,
   .cc-image-card-with-cta__figure:focus + .cc-image-card-with-cta__body & {
-    background-size: 100% 3px;
-    border-bottom-color: transparent;
-    text-decoration: none;
-    transition-timing-function: var(--transition-timing-function-in);
+    background-image: linear-gradient(transparent, transparent), linear-gradient(var(--colour-amber-30), var(--colour-amber-30));
+    background-position: left calc(100% - 1px);
+    background-size: 0 1px, 100% 3px;
   }
 }
 

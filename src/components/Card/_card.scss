@@ -106,7 +106,7 @@
 
 .cc-card__link {
   @extend %list-item-link;
-  @include animated-link;
+  @include animated-link($selector: 'span');
   display: block;
 
   &:before {

@@ -48,46 +48,20 @@
   }
 }
 
-/**
- * Generates a style where a horizontal line displays
- * beneath an element and changes to another colour on hover with a transition.
- *
- * @param {Int} $height - height of the "underline"
- * @param {string} $underline-colour - colour of the "underline"
- * @param {string} $animated-colour - colour of the "underline" on hover
- */
-@mixin animated-double-underline($height: 3px, $underline-colour: var(--colour-grey-80), $animated-colour: var(--colour-amber-30)) {
-  --transition-duration: 0.3s;
-  --transition-timing-function-in: cubic-bezier(0.23, 1, 0.32, 1);
-  --transition-timing-function-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-
-  background-image: linear-gradient($animated-colour, $animated-colour);
-  background-position: left bottom;
+@mixin default-underline($height: 3px, $underline-colour: var(--colour-grey-80)) {
+  background-image: linear-gradient($underline-colour, $underline-colour), linear-gradient(transparent, transparent);
+  background-position: left calc(100% - #{$height});
   background-repeat: no-repeat;
-  background-size: 0 $height;
-  border-bottom: 1px solid $underline-colour;
-  padding-bottom: 3px;
+  background-size: 100% 1px, 0 $height;
+  padding-bottom: 5px;
 
-  text-decoration: none;
-  transition: var(--transition-duration) var(--transition-timing-function-out);
-  transition-property: background-size, border-bottom-color;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-
-  &:hover {
-    background-size: 100% $height;
-    border-bottom-color: transparent;
-    transition-timing-function: var(--transition-timing-function-in);
-  }
+  transition: var(--transition-duration) var(--transition-timing-function);
+  transition-property: background-size;
 }
 
 /**
  * Generates a style where a horizontal line displays
  * beneath an element and changes to another colour on hover with a transition.
- * The styles are added to the child of an anchor (default is span)
  *
  * Usage:
  * For HTML <a class="cc-cta-link" href=''><span class="btn__text">Text</span></a>
@@ -95,42 +69,52 @@
  * .cc-cta-link {
  *   @include animated-link($selector: ".btn__text");
  * }
+ * or
+ * a {
+ *  @include animated-link;
+ * }
  *
- * @param {Int} $height - height of the "underline"
- * @param {string} $underline-colour - colour of the "underline"
- * @param {string} $animated-colour - colour of the "underline" on hover
+ * @param {Int} $height - height of the "underline" on hover
+ * @param {string} $hover-colour - colour of the "underline" on hover
+ * @param {string} $underline-colour - colour of the "underline" (default state)
  * @param {string} $selector - selector to apply anchor styles
  */
-@mixin animated-link($height: 3px, $underline-colour: var(--colour-grey-80), $animated-colour: var(--colour-amber-30), $selector: 'span') {
-  --transition-duration: 0.3s;
-  --transition-timing-function-in: cubic-bezier(0.23, 1, 0.32, 1);
-  --transition-timing-function-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+@mixin animated-link(
+  $height: 3px,
+  $hover-colour: var(--colour-amber-30),
+  $underline-colour: var(--colour-grey-80),
+  $selector: null
+) {
+  --transition-duration: 0.35s;
+  --transition-timing-function: ease-in-out;
 
   text-decoration: none;
-
-  > #{$selector} {
-    background-image: linear-gradient($animated-colour, $animated-colour);
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    background-size: 0 $height;
-
-    border-bottom: 1px solid $underline-colour;
-    padding-bottom: 2px;
-
-    transition: var(--transition-duration) var(--transition-timing-function-out);
-    transition-property: background-size, border-bottom-color;
-  }
 
   &:hover,
   &:focus {
     text-decoration: none;
   }
 
-  &:hover {
+  @if ($selector) {
+
     > #{$selector} {
-      background-size: 100% $height;
-      border-bottom-color: transparent;
-      transition-timing-function: var(--transition-timing-function-in);
+      @include default-underline($height, $underline-colour);
+    }
+
+    &:hover {
+      > #{$selector} {
+        background-image: linear-gradient(transparent, transparent), linear-gradient($hover-colour, $hover-colour);
+        background-position: left calc(100% - 1px);
+        background-size: 0 1px, 100% $height;
+      }
+    }
+  } @else {
+    @include default-underline($height, $underline-colour);
+
+    &:hover {
+      background-image: linear-gradient(transparent, transparent), linear-gradient($hover-colour, $hover-colour);
+      background-position: left calc(100% - 1px);
+      background-size: 0 1px, 100% $height;
     }
   }
 }

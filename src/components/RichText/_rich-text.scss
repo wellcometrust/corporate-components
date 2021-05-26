@@ -49,7 +49,7 @@
   }
 
   a {
-    @include animated-double-underline;
+    @include animated-link;
     font-weight: 500;
   }
 
@@ -115,7 +115,7 @@
   }
 
   a {
-    @include animated-double-underline;
+    @include animated-link;
     font-weight: 500;
   }
 

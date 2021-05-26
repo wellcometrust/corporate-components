@@ -63,7 +63,7 @@
 
 .cc-contact__link {
   //@extend %anchor-base;
-  @include animated-double-underline;
+  @include animated-link;
 }
 
 .cc-contact__link-icon {

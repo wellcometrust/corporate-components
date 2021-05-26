@@ -68,7 +68,7 @@
 
 .cc-full-width-promo__title-link {
   @extend %anchor-inherit;
-  @include animated-double-underline;
+  @include animated-link;
 }
 
 .cc-full-width-promo__meta {
