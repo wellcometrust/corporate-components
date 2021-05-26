@@ -111,11 +111,11 @@
 
   @if ($selector) {
 
-    > #{$selector} {
+    #{$selector} {
       @include default-underline($height, $underline-colour);
     }
 
-    &:hover > #{$selector} {
+    &:hover #{$selector} {
       @include hover-underline($height, $hover-colour);
     }
   }

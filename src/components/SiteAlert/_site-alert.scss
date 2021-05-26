@@ -47,6 +47,7 @@
 }
 
 .site-alert__link {
+  @include animated-link($hover-colour: var(--colour-grey-80), $selector: '.site-alert__link-text');
   align-items: center;
   color: var(--colour-grey-80);
   display: flex;
@@ -62,13 +63,6 @@
       margin-left: calc(2 * var(--space-unit));
     }
   }
-}
-
-.site-alert__link.site-alert__link:active,
-.site-alert__link.site-alert__link:focus,
-.site-alert__link.site-alert__link:hover {
-  color: var(--colour-grey-80);
-  text-decoration: none;
 }
 
 .site-alert__text {

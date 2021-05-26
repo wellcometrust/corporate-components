@@ -34,7 +34,7 @@ export const SiteAlert = ({
             className="site-alert__link no-external-marker"
             tabIndex={tabIndex}
           >
-            {text}
+            <span className="site-alert__link-text">{text}</span>
             <Icon name="arrow" />
           </a>
         ) : (

@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { boolean } from '@storybook/addon-knobs';
 
 import SiteAlert from './SiteAlert';
 
