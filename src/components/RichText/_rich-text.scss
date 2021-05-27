@@ -9,8 +9,6 @@
 .cc-rich-text {
   // ensure extra long words are wrapped to prevent overlap or horizontal scroll
   overflow-wrap: break-word;
-  // ensure wide table data can be seen using horizontal scroll
-  overflow-x: auto;
   word-wrap: break-word;
 
   h2 {

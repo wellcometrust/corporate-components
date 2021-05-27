@@ -99,6 +99,7 @@
   $underline-colour: var(--colour-grey-80),
   $selector: null
 ) {
+  @extend %anchor-base;
 
   text-decoration: none;
 
