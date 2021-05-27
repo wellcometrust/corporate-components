@@ -1,12 +1,11 @@
 // ----------------------------------
 // UI Settings
+// Links
 // ----------------------------------
 // Design System 1.0 Alpha
 // 2019-11-11
 // ----------------------------------
 
-@import 'a11y';
-@import 'external-link-indicator';
-@import 'links';
-@import 'loading';
-@import 'colour';
+.u-animated-link {
+  @include animated-link;
+}
