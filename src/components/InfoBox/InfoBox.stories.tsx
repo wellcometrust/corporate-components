@@ -40,10 +40,8 @@ const InfoBoxExample = () => {
           priority for G20 countries, philanthropy and the private sector.
         </p>`}
       </Text>
-      <Listing>
-        <Contact name="John Smith" />
-        <Contact name="Bertie Basset" />
-      </Listing>
+      <Contact name="John Smith" />
+      <Contact name="Bertie Basset" />
       <Listing>
         <ListingLink href="#1" title="Link 1 text" />
         <ListingLink href="#2" title="Link 2 text" />
