@@ -37,7 +37,7 @@ export const Listing = ({
   className,
   variant = 'link_list'
 }: ListingProps) => {
-  const Element = as;
+  const Element = variant === 'link_list' ? 'ul' : as;
   const classNames = cx(variantMapping[variant], {
     [`${className}`]: className
   });
