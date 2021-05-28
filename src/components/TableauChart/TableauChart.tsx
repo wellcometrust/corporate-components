@@ -54,7 +54,7 @@ export const TableauChart = ({
 
   return (
     <div className={classNames}>
-      <h4 className="cc-tableau__title">{title}</h4>
+      {title && <h4 className="cc-tableau__title">{title}</h4>}
       {isClient && (
         <div
           className="cc-tableau__chart"
