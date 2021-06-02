@@ -38,7 +38,7 @@ export const FileDownload = ({
         download
         href={href}
       >
-        <span>{label}</span>
+        {label}
         <VisuallyHidden>{` ${name}`}</VisuallyHidden>
       </a>
       <span className="cc-file-download__meta">
