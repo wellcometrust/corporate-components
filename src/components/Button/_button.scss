@@ -24,7 +24,7 @@
 
 .btn--primary,
 .btn--secondary,
-.btn--ghost {
+.btn--tertiary {
   @extend %btn-size-standard;
 
   color: var(--colour-grey-80);
@@ -70,7 +70,7 @@
   }
 }
 
-.btn--ghost {
+.btn--tertiary {
   background-color: transparent;
 
   &:hover {
