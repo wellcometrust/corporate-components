@@ -81,7 +81,7 @@
  * For HTML <a class="cc-cta-link" href=''><span class="btn__text">Text</span></a>
  *
  * .cc-cta-link {
- *   @include animated-link($selector: ".btn__text");
+ *   @include animated-link($child-selector: ".btn__text");
  * }
  * or
  * a {
@@ -91,13 +91,13 @@
  * @param {Int} $height - height of the "underline" on hover
  * @param {string} $hover-colour - colour of the "underline" on hover
  * @param {string} $underline-colour - colour of the "underline" (default state)
- * @param {string} $selector - selector to apply anchor styles
+ * @param {string} $child-selector - selector to apply anchor styles
  */
 @mixin animated-link(
   $height: 3px,
   $hover-colour: var(--colour-amber-30),
   $underline-colour: var(--colour-grey-80),
-  $selector: null
+  $child-selector: null
 ) {
   @extend %anchor-base;
 
@@ -108,13 +108,13 @@
     text-decoration: none;
   }
 
-  @if ($selector) {
+  @if ($child-selector) {
 
-    #{$selector} {
+    #{$child-selector} {
       @include default-underline($height, $underline-colour);
     }
 
-    &:hover #{$selector} {
+    &:hover #{$child-selector} {
       @include hover-underline($height, $hover-colour);
     }
   }

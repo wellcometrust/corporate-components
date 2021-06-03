@@ -47,7 +47,7 @@
 }
 
 .site-alert__link {
-  @include animated-link($hover-colour: var(--colour-grey-80), $selector: '.site-alert__link-text');
+  @include animated-link($hover-colour: var(--colour-grey-80), $child-selector: '.site-alert__link-text');
   align-items: center;
   color: var(--colour-grey-80);
   display: flex;

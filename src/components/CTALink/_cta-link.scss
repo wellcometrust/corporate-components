@@ -8,7 +8,7 @@
 
 .cc-cta-link {
   @extend %anchor-inherit;
-  @include animated-link($selector: '.btn__text');
+  @include animated-link($child-selector: '.btn__text');
 
   display: block;
   line-height: var(--body-line-height);

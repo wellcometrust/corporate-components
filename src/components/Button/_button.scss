@@ -100,7 +100,7 @@
 }
 
 .btn--link {
-  @include animated-link($selector: '.btn__text');
+  @include animated-link($child-selector: '.btn__text');
 }
 
 .btn__icon--left {

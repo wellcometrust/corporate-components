@@ -53,7 +53,7 @@
 }
 
 .cc-inpage-nav__link {
-  @include animated-link($selector: 'span');
+  @include animated-link($child-selector: 'span');
 
   border-left: 4px solid transparent;
   display: block;

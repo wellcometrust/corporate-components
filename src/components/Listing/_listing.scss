@@ -30,7 +30,7 @@
 
 .cc-listing__link {
   @extend %anchor-base;
-  @include animated-link($selector: '.cc-listing__link-text');
+  @include animated-link($child-selector: '.cc-listing__link-text');
 
   display: block;
   line-height: var(--body-line-height);
