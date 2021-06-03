@@ -74,7 +74,7 @@
   background-color: transparent;
 
   &:hover {
-    background-color: var(--colour-amber-20);
+    background-color: var(--colour-amber-05);
   }
 
   &:focus,
@@ -85,18 +85,18 @@
   &:active {
     background-color: var(--colour-amber-10);
   }
+}
 
-  .btn__text {
-    border-bottom: 1px solid var(--colour-grey-80);
-    transition: ease 0.4s;
-    transition-property: border-bottom-color;
-  }
+.btn--tertiary .btn__text {
+  border-bottom: 1px solid var(--colour-grey-80);
+  transition: ease 0.4s;
+  transition-property: border-bottom-color;
+}
 
-  &:hover .btn__text,
-  &:active .btn__text,
-  &[disabled] .btn__text {
-    border-bottom-color: transparent;
-  }
+.btn--tertiary:hover .btn__text,
+.btn--tertiary:active .btn__text,
+.btn--tertiary[disabled] .btn__text {
+  border-bottom-color: transparent;
 }
 
 .btn--link {
