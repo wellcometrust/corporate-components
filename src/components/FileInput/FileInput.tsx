@@ -20,7 +20,7 @@ type FileInputProps = {
   handleChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   tabIndex?: number;
   textClassName?: string;
-  variant?: 'primary' | 'secondary' | 'ghost' | 'unstyled';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'unstyled';
 };
 
 export const FileInput = forwardRef(

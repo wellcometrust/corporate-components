@@ -24,7 +24,7 @@ type ButtonProps = {
   tabIndex?: number;
   textClassName?: string;
   type?: string;
-  variant?: 'primary' | 'secondary' | 'ghost' | 'link' | 'unstyled';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'link' | 'unstyled';
 };
 
 export const Button = forwardRef(
