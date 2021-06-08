@@ -139,8 +139,10 @@
   margin-bottom: 0;
 }
 
-.cc-rich-text a,
-.cc-rich-text-snippet a {
+/* stylelint-disable selector-no-qualifying-type */
+.cc-rich-text a[href],
+.cc-rich-text-snippet a[href] {
   @include animated-link;
   font-weight: 500;
 }
+/* stylelint-enable selector-no-qualifying-type */
