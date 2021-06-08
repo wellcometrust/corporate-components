@@ -46,11 +46,6 @@
     margin-bottom: calc(2 * var(--space-unit));
   }
 
-  a {
-    @include animated-link;
-    font-weight: 500;
-  }
-
   table {
     border-collapse: collapse;
     caption-side: top;
@@ -112,11 +107,6 @@
     @extend %body-regular;
   }
 
-  a {
-    @include animated-link;
-    font-weight: 500;
-  }
-
   ol,
   ul {
     @extend %list-base;
@@ -147,4 +137,10 @@
 .cc-rich-text > :last-child,
 .cc-rich-text-snippet > :last-child {
   margin-bottom: 0;
+}
+
+.cc-rich-text a,
+.cc-rich-text-snippet a {
+  @include animated-link;
+  font-weight: 500;
 }
