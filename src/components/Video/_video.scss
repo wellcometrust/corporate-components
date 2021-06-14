@@ -29,4 +29,8 @@
 .cc-video__caption {
   font-size: var(--body-xs);
   margin-bottom: 0;
+
+  a {
+    @include animated-link;
+  }
 }

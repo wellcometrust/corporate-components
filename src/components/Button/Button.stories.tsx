@@ -45,7 +45,7 @@ const ButtonExample = () => {
   const iconPlacementSwitch = boolean('iconPlacementSwitch', false);
   const variant = select(
     'variant',
-    ['primary', 'secondary', 'ghost', 'link', 'unstyled'],
+    ['primary', 'secondary', 'tertiary', 'link', 'unstyled'],
     'primary'
   );
 

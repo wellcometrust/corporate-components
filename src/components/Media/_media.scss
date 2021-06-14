@@ -37,6 +37,10 @@
   line-height: var(--body-line-height);
   margin-top: calc(2 * var(--space-unit));
   padding: calc(0.25 * var(--space-unit)) 0 calc(0.25 * var(--space-unit)) calc(2 * var(--space-unit));
+
+  a {
+    @include animated-link;
+  }
 }
 
 .cc-media--wide__caption {

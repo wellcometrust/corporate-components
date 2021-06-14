@@ -36,7 +36,7 @@ export const InpageNav = ({
         return (
           <li key={`anchor-link-${id}`} className="cc-inpage-nav__item">
             <a className={linkClassNames} href={`#${id}`}>
-              {title}
+              <span>{title}</span>
             </a>
           </li>
         );
@@ -44,7 +44,7 @@ export const InpageNav = ({
       {hasBackToTop && (
         <li className="cc-inpage-nav__item cc-inpage-nav__item--top">
           <a className="cc-inpage-nav__link" href={backToTopHref}>
-            {backToTopText}
+            <span>{backToTopText}</span>
           </a>
         </li>
       )}

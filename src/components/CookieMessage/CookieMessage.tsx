@@ -36,7 +36,7 @@ export const CookieMessage = ({
         <Button
           className="cookie-message__button"
           href="/cookies/config"
-          variant="ghost"
+          variant="tertiary"
         >
           Manage preferences
         </Button>

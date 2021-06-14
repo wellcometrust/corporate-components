@@ -15,10 +15,10 @@
   cursor: pointer;
   display: flex;
   letter-spacing: var(--body-letter-spacing);
-  line-height: 1;
+  line-height: var(--body-line-height);
   padding: 0;
   text-decoration: none;
-  
+
   &:hover {
     text-decoration: none;
   }

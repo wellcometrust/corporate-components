@@ -26,12 +26,10 @@
     color: var(--colour-white);
   }
 
+  a:hover,
   a:focus,
-  a:hover {
-    color: var(--colour-blue-40);
+  a:active {
+    color: var(--colour-white);
   }
 
-  a:active {
-    color: var(--colour-blue-20);
-  }
 }

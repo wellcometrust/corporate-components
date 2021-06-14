@@ -67,7 +67,7 @@
 .cc-image-card-with-cta__title {
   @extend %heading-base;
   @extend %heading-large;
-  @include heading-fancy;
+  @include heading-fancy($space-above: var(--space-lg));
 
   font-weight: normal;
   letter-spacing: 0;
@@ -75,7 +75,7 @@
 
 .cc-image-card-with-cta__link {
   @extend %anchor-inherit;
-  @include animated-underline;
+  @include animated-link;
 
   /**
    * Imitate the hover state when a user hovers over the image of
@@ -83,9 +83,7 @@
    */
   .cc-image-card-with-cta__figure:hover + .cc-image-card-with-cta__body &,
   .cc-image-card-with-cta__figure:focus + .cc-image-card-with-cta__body & {
-    background-size: 100% 2px;
-    text-decoration: none;
-    transition-timing-function: var(--transition-timing-function-in);
+    @include hover-underline;
   }
 }
 

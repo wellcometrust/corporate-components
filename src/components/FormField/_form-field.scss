@@ -8,4 +8,9 @@
 
 .cc-form-field {
   margin-bottom: var(--space-lg);
+
+  a {
+    @include animated-link;
+    font-weight: 500;
+  }
 }

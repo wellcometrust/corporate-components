@@ -12,7 +12,7 @@ type ModalProps = {
     href?: string;
     text?: string;
     type: 'agree' | 'cancel' | 'link';
-    variant: 'link' | 'primary' | 'secondary' | 'ghost' | 'unstyled';
+    variant: 'link' | 'primary' | 'secondary' | 'tertiary' | 'unstyled';
   }[];
   className?: string;
   onAccept: () => void;
