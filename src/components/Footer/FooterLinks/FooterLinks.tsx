@@ -12,11 +12,11 @@ type FooterLinksItemProps = {
 };
 
 export const FooterLinks = ({ links }: FooterLinksProps) => (
-  <div className="footer-links">
+  <div className="cc-footer-links">
     {links.map(({ text, href, ...props }) => (
       <Link
         key={`footer-links-item-${href}`}
-        className="footer-links__item"
+        className="cc-footer-links__item"
         to={href}
         {...props}
       >

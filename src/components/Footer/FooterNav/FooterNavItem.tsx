@@ -19,25 +19,25 @@ export const FooterNavItem = ({
   links,
   children
 }: FooterNavItemProps) => (
-  <li className="footer-nav__grid-item footer-nav__menu">
+  <li className="cc-footer-nav__grid-item cc-footer-nav__menu">
     {heading.href ? (
       <Link
-        className="footer-nav__menu-title footer-nav__menu-title--link"
+        className="cc-footer-nav__menu-title cc-footer-nav__menu-title--link"
         to={heading.href}
       >
         {heading.text}
       </Link>
     ) : (
-      <span className="footer-nav__menu-title">{heading.text}</span>
+      <span className="cc-footer-nav__menu-title">{heading.text}</span>
     )}
     {links && (
-      <ul className="footer-nav__menu-list">
+      <ul className="cc-footer-nav__menu-list">
         {links.map(({ text, href }) => (
           <li
             key={`footer-menu-item-${href}`}
-            className="footer-nav__menu-list-item"
+            className="cc-footer-nav__menu-list-item"
           >
-            <Link to={href} className="footer-nav__menu-list-link">
+            <Link to={href} className="cc-footer-nav__menu-list-link">
               {text}
             </Link>
           </li>

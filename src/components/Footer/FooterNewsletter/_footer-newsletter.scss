@@ -7,29 +7,42 @@
 // 2019-11-11
 // ----------------------------------
 
-.footer-newsletter__intro {
-  display: inline-block;
-  line-height: rem(21); // #6171 refactor footer styles
-  margin-bottom: var(--space-xs);
-  margin-top: var(--space-xs);
-  text-decoration: none;
+.cc-footer-newsletter {
+  margin-bottom: 32px;
 }
 
-.footer-newsletter__form {
-  margin-top: rem(14); // #6171 refactor footer styles
+.cc-footer-newsletter__title {
+  @extend %heading-base;
+  @extend %heading-display;
+  @include heading-fancy;
+}
 
+.cc-footer-newsletter__grid {
+  @include mq(md){
+    display: flex;
+  }
+}
+
+.cc-footer-newsletter__intro {
+  display: inline-block;
+  font-size: var(--body-lg);
+  line-height: var(--body-line-height);
+}
+
+.cc-footer-newsletter__form {
   @include mq(md) {
-    max-width: 50%;
+    display: flex;
   }
 
   a {
-    color: var(--colour-white);
+    @include animated-link;
+
+    display: inline-block;
+    padding-bottom: 0;
   }
 
-  a:hover,
-  a:focus,
-  a:active {
-    color: var(--colour-white);
+  label {
+    font-size: var(--body-md);
+    font-weight: normal;
   }
-
 }

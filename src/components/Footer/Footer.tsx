@@ -6,6 +6,9 @@
  */
 import React from 'react';
 
+import Link from 'Link';
+import Logo from 'Logo';
+import constants from 'Logo/constants';
 import FooterSocial from './FooterSocial/FooterSocial';
 import FooterLinks from './FooterLinks/FooterLinks';
 import FooterNav from './FooterNav/FooterNav';
@@ -17,14 +20,28 @@ type FooterProps = {
 };
 
 export const Footer = ({ links, navigation, socialLinks }: FooterProps) => (
-  <footer className="footer o-app">
-    <div className="footer__container">
-      <h3 className="footer__mission-statement">
+  <footer className="cc-footer o-app">
+    <div className="cc-footer__container">
+      <h3 className="cc-footer__mission-statement">
         Science to solve the urgent health challenges facing everyone
       </h3>
       {navigation && <FooterNav sections={navigation} />}
-      {socialLinks && <FooterSocial links={socialLinks} />}
-      {links && <FooterLinks links={links} />}
+      <div className="cc-footer__meta u-pos-rel">
+        <Link to="/">
+          <Logo
+            className="c-footer__logo"
+            title="Wellcome"
+            data={constants.medium}
+          />
+        </Link>
+        {links && <FooterLinks links={links} />}
+        {socialLinks && <FooterSocial links={socialLinks} />}
+        <div>
+          <Link className="cc-footer__top-link" to="#top" id="link-back-to-top">
+            Back to top
+          </Link>
+        </div>
+      </div>
     </div>
   </footer>
 );

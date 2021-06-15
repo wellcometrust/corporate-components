@@ -8,7 +8,7 @@ type FooterSocialProps = {
 
 export const FooterSocial = ({ links }: FooterSocialProps) => {
   return (
-    <div className="footer-social">
+    <div className="cc-footer-social">
       {links.map(({ text, href }) => (
         <FooterSocialItem
           key={`footer-social-link-${href}`}

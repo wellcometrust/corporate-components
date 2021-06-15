@@ -12,12 +12,12 @@ export const FooterSocialItem = ({ text, url }: FooterSocialItemProps) => {
   return (
     <a
       href={url}
-      className="footer-social-item"
+      className="cc-footer-social-item"
       rel="noopener noreferrer"
       target="_blank"
     >
       <Icon
-        className="footer-social-item__icon"
+        className="cc-footer-social-item__icon"
         name={text.charAt(0).toLowerCase() + text.slice(1)}
       />
       <VisuallyHidden>

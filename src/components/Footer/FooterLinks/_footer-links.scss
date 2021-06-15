@@ -7,23 +7,27 @@
 // 2019-11-11
 // ----------------------------------
 
-.footer-links {
+.cc-footer-links {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  margin-left: calc(-1 * var(--space-unit));
   padding: calc(2 * var(--space-sm)) 0;
+
+  @include mq(sm) {
+    margin: 0;
+  }
 }
 
-.footer-links__item {
+.cc-footer-links__item {
   @extend %color-inherit;
-  @include animated-underline($height: calc(0.125 * var(--space-unit)));
+  @include animated-link;
 
   display: inline-block;
-  font-size: calc(0.875 * var(--text-base-size));
+  font-size: var(--body-xs);
   margin: 0 var(--space-unit);
+  padding-bottom: 0;
   position: relative;
-  text-decoration: none;
 
   &:after {
     content: '|';

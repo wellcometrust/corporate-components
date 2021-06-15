@@ -7,36 +7,30 @@
 // 2019-11-11
 // ----------------------------------
 
-.footer-social {
+.cc-footer-social {
   display: flex;
-  justify-content: center;
-  margin-bottom: var(--space-xl);
-  margin-top: var(--space-lg);
-  transform: translateX(-(var(--space-md)));
-
-  @include mq(sm) {
-    margin-top: var(--space-xl);
-  }
+  //transform: translateX(-(var(--space-md)));
 }
 
-.footer-social-item {
+.cc-footer-social-item {
   background-size: calc(7 * var(--space-xs));
-  border: 1px solid rgba(255, 255, 255, 0.2); // #6171 refactor footer styles
+  border: 1px solid var(--colour-grey-80);
   border-radius: 50%;
-  color: var(--colour-white);
+  color: var(--colour-grey-80);
   display: block;
   height: calc(7 * var(--space-xs) + 2px); // plus border-width
-  margin: calc(2 * var(--space-xs));
-  transition: border ease var(--transition-duration);
+  margin: var(--space-xs);
+  transition: ease var(--transition-duration);
+  transition-property: border-color, color;
   width: calc(7 * var(--space-xs) + 2px); // plus border-width
 
   @include hocus {
-    border-color: var(--colour-white);
-    color: var(--colour-white);
+    border-color: var(--colour-amber-30);
+    color: var(--colour-amber-30);
   }
 }
 
-.footer-social-item__icon {
+.cc-footer-social-item__icon {
   height: 100%;
   width: 100%;
 

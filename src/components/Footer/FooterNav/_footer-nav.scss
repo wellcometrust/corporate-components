@@ -7,11 +7,11 @@
 // 2019-11-11
 // ----------------------------------
 
-.footer-nav {
+.cc-footer-nav {
   font-size: var(--body-sm);
 }
 
-.footer-nav__grid {
+.cc-footer-nav__grid {
   @extend %list-clean;
 
   @include mq(sm) {
@@ -22,7 +22,7 @@
   }
 }
 
-.footer-nav__grid-item {
+.cc-footer-nav__grid-item {
   margin-bottom: var(--space-lg);
 
   @include mq(sm) {
@@ -41,33 +41,26 @@
   }
 }
 
-.footer-nav__menu-title {
-  --transition-duration: 0.3s;
-
+.cc-footer-nav__menu-title {
   @extend %color-inherit;
-  border-bottom: calc(0.125 * var(--space-unit)) solid rgba(255, 255, 255, 0.2);
-  display: block;
-  font-weight: bold;
-  margin-bottom: var(--space-xs);
-  margin-top: var(--space-xs);
-  padding-bottom: var(--space-sm);
-  padding-top: var(--space-sm);
-  text-decoration: none;
-  transition: opacity var(--transition-duration), border-color var(--transition-duration);
+  @include animated-link;
+
+  display: inline-block;
+  font-size: var(--body-md);
+  margin-bottom: var(--space-lg);
 }
 
-.footer-nav__menu-list {
+.cc-footer-nav__menu-list {
   @extend %list-clean;
   line-height: var(--heading-line-height);
 }
 
-.footer-nav__menu-list-link {
+.cc-footer-nav__menu-list-link {
   @extend %color-inherit;
-  @include animated-underline($height: calc(0.125 * var(--space-unit)));
+  @include animated-link;
 
   display: inline-block;
   font-size: var(--body-sm);
   margin-bottom: var(--space-xs);
   margin-top: var(--space-xs);
-  text-decoration: none;
 }

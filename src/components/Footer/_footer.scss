@@ -6,9 +6,9 @@
 // 2019-11-11
 // ----------------------------------
 
-.footer {
-  background: var(--X-colour-dark-blue);
-  color: var(--colour-white);
+.cc-footer {
+  background-color: var(--colour-amber-10);
+  color: var(--body-text-colour);
   position: relative;
 
   /**
@@ -19,20 +19,55 @@
   z-index: var(--z-low);
 }
 
-.footer__container {
+.cc-footer__container {
   @extend %container;
 }
 
-.footer__mission-statement {
-  @extend %margin-0;
+.cc-footer__mission-statement {
+  @extend %heading-base;
+  @extend %heading-hero;
+  @include heading-fancy;
+
   font-family: var(--font-secondary);
-  font-size: rem(18);
-  line-height: rem(27);
+  margin-bottom: 0;
   padding-bottom: var(--space-xl);
   padding-top: var(--space-xl);
-  text-align: center;
 
   @include mq(md) {
-    font-size: rem(20);
+    max-width: 55%;
+  }
+}
+
+.cc-footer__meta {
+  border-top: 1px solid var(--colour-amber-20);
+  padding-bottom: 32px;
+  padding-top: 18px;
+
+  @include mq(sm) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 18px;
+  }
+}
+
+.c-footer__logo.logo {
+  fill: var(--colour-grey-80);
+  height: 50px;
+  position: static;
+}
+
+.cc-footer__top-link {
+  @include animated-link;
+
+  display: inline-block;
+  font-size: var(--body-xs);
+  padding-bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 36px;
+
+  @include mq(sm) {
+    position: static;
   }
 }
