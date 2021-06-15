@@ -26,7 +26,7 @@ export const Footer = ({ links, navigation, socialLinks }: FooterProps) => (
         Science to solve the urgent health challenges facing everyone
       </h2>
       {navigation && <FooterNav sections={navigation} />}
-      <div className="cc-footer__meta u-pos-rel">
+      <div className="cc-footer__meta">
         <Link to="/">
           <Logo
             className="cc-footer__logo"

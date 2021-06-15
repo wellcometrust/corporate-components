@@ -11,10 +11,6 @@
 .newsletter-form {
   display: flex;
   flex-wrap: wrap;
-
-  @include mq(sm) {
-    max-width: 80%;
-  }
 }
 
 /* Form Item */
