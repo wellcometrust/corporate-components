@@ -13,31 +13,21 @@
 
 .cc-footer-nav__grid {
   @extend %list-clean;
+  margin-bottom: var(--space-xl);
 
   @include mq(sm) {
     display: flex;
     flex-wrap: wrap;
-    // (negative) margin gutter hack
-    margin-left: calc(-1 * var(--space-lg));
   }
 }
 
 .cc-footer-nav__grid-item {
-  margin-bottom: var(--space-lg);
+  margin-bottom: calc(4 * var(--space-unit));
 
   @include mq(sm) {
-    // margin gutter hack
-    margin-left: var(--space-lg);
-    width: calc(25% - var(--space-lg));
-  }
-
-  &:last-child {
-    // expands :last-child to fill available space in row
-    flex-grow: 1;
-
-    @include mq(sm) {
-      margin-bottom: 0; // #6171 refactor footer styles
-    }
+    flex: 1 0 20%;
+    margin-bottom: 0;
+    padding-right: var(--space-lg);
   }
 }
 
@@ -55,12 +45,13 @@
   line-height: var(--heading-line-height);
 }
 
+.cc-footer-nav__menu-list-item {
+  margin-bottom: var(--space-md);
+}
+
 .cc-footer-nav__menu-list-link {
   @extend %color-inherit;
   @include animated-link;
 
-  display: inline-block;
   font-size: var(--body-sm);
-  margin-bottom: var(--space-xs);
-  margin-top: var(--space-xs);
 }

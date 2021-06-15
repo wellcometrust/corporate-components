@@ -9,7 +9,16 @@
 
 .cc-footer-social {
   display: flex;
-  //transform: translateX(-(var(--space-md)));
+  margin-left: calc(-1 * var(--space-xs));
+
+  @include mq(sm) {
+    margin-left: var(--space-lg);
+  }
+
+  @include mq(md) {
+    flex-grow: 4;
+    margin-left: 0;
+  }
 }
 
 .cc-footer-social-item {

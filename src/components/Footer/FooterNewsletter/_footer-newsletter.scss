@@ -8,7 +8,7 @@
 // ----------------------------------
 
 .cc-footer-newsletter {
-  margin-bottom: 32px;
+  margin-bottom: var(--space-lg);
 }
 
 .cc-footer-newsletter__title {
@@ -18,8 +18,20 @@
 }
 
 .cc-footer-newsletter__grid {
-  @include mq(md){
+  @include mq(md) {
     display: flex;
+  }
+}
+
+.cc-footer-newsletter__grid-item {
+  @include mq(md) {
+    width: 50%;
+  }
+
+  &:first-child {
+    @include mq(md) {
+      padding-right: 2rem;
+    }
   }
 }
 
@@ -27,6 +39,8 @@
   display: inline-block;
   font-size: var(--body-lg);
   line-height: var(--body-line-height);
+  margin-bottom: calc(3 * var(--space-unit));
+  margin-top: 0;
 }
 
 .cc-footer-newsletter__form {

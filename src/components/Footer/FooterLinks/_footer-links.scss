@@ -8,14 +8,20 @@
 // ----------------------------------
 
 .cc-footer-links {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-wrap: wrap;
   margin-left: calc(-1 * var(--space-unit));
   padding: calc(2 * var(--space-sm)) 0;
 
   @include mq(sm) {
-    margin: 0;
+    margin-left: calc(3 * var(--space-unit));
+    max-width: 50%;
+    padding: 0;
+  }
+
+  @include mq(md) {
+    flex-grow: 1;
+    max-width: 100%;
   }
 }
 

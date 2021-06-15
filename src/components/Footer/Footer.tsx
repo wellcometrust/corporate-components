@@ -22,21 +22,21 @@ type FooterProps = {
 export const Footer = ({ links, navigation, socialLinks }: FooterProps) => (
   <footer className="cc-footer o-app">
     <div className="cc-footer__container">
-      <h3 className="cc-footer__mission-statement">
+      <h2 className="cc-footer__mission-statement">
         Science to solve the urgent health challenges facing everyone
-      </h3>
+      </h2>
       {navigation && <FooterNav sections={navigation} />}
       <div className="cc-footer__meta u-pos-rel">
         <Link to="/">
           <Logo
-            className="c-footer__logo"
+            className="cc-footer__logo"
             title="Wellcome"
             data={constants.medium}
           />
         </Link>
         {links && <FooterLinks links={links} />}
         {socialLinks && <FooterSocial links={socialLinks} />}
-        <div>
+        <div className="cc-footer__top">
           <Link className="cc-footer__top-link" to="#top" id="link-back-to-top">
             Back to top
           </Link>

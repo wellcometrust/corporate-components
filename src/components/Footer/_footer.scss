@@ -40,21 +40,28 @@
 
 .cc-footer__meta {
   border-top: 1px solid var(--colour-amber-20);
-  padding-bottom: 32px;
-  padding-top: 18px;
+  padding-bottom: calc(4 * var(--space-unit));
+  padding-top: calc(3 * var(--space-unit));
 
   @include mq(sm) {
     align-items: center;
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 18px;
+    padding-bottom: calc(3 * var(--space-unit));
   }
 }
 
-.c-footer__logo.logo {
+.cc-footer__logo.logo {
   fill: var(--colour-grey-80);
-  height: 50px;
+  height: calc(6.25 * var(--space-unit));
   position: static;
+}
+
+.cc-footer__top {
+  @include mq(sm) {
+    align-self: center;
+    flex-grow: 1;
+    text-align: right;
+  }
 }
 
 .cc-footer__top-link {
@@ -65,7 +72,7 @@
   padding-bottom: 0;
   position: absolute;
   right: 0;
-  top: 36px;
+  top: 30px;
 
   @include mq(sm) {
     position: static;
