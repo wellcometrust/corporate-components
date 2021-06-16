@@ -28,11 +28,7 @@ export const Footer = ({ links, navigation, socialLinks }: FooterProps) => (
       {navigation && <FooterNav sections={navigation} />}
       <div className="cc-footer__meta">
         <Link to="/">
-          <Logo
-            className="cc-footer__logo"
-            title="Wellcome"
-            data={constants.medium}
-          />
+          <Logo className="cc-footer__logo" data={constants.medium} />
         </Link>
         {links && <FooterLinks links={links} />}
         {socialLinks && <FooterSocial links={socialLinks} />}
