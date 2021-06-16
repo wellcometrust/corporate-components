@@ -6,10 +6,10 @@ export const NewsletterFormFooter = () => (
   <NewsletterFormItem type="footer">
     <p>By clicking subscribe, you agree to receive this newsletter.</p>
     <p>
-      We use a third party provider, Dotmailer, to deliver our newsletters. For
+      We use a third party provider, Dotdigital, to deliver our newsletters. For
       information about how we handle your data, please read our{' '}
       <a
-        aria-label="We use a third party provider, Dotmailer, to deliver our newsletters. For information about how we handle your data, please read our privacy notice."
+        aria-label="We use a third party provider, Dotdigital, to deliver our newsletters. For information about how we handle your data, please read our privacy notice."
         className="newsletter-form__link"
         href="/about-us/governance/privacy-and-terms"
       >
