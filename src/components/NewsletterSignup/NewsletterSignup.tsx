@@ -39,7 +39,11 @@ export const NewsletterSignup = ({
             &nbsp;
           </span>
         </h3>
-        <NewsletterForm className="newsletter__form" type={type}>
+        <NewsletterForm
+          className="newsletter__form"
+          emailInputId="newsletter-signup"
+          type={type}
+        >
           <div className="newsletter-signup__intro">
             <RichText>{intro}</RichText>
           </div>

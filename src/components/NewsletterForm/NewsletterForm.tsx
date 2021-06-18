@@ -20,6 +20,7 @@ import NewsletterFormError from './NewsletterFormError';
 type NewsletterFormProps = {
   children?: React.ReactNode;
   className?: string;
+  emailInputId: string;
   type?: string;
   researchOption?: string;
 };
@@ -27,6 +28,7 @@ type NewsletterFormProps = {
 export const NewsletterForm = ({
   children,
   className,
+  emailInputId,
   researchOption,
   type
 }: NewsletterFormProps) => {
@@ -159,6 +161,7 @@ export const NewsletterForm = ({
             handleBlur={event => handleEmailBlur(event.currentTarget)}
             handleChange={event => handleEmailChange(event.currentTarget)}
             hasError={emailError}
+            id={emailInputId}
             value={email}
           />
           <NewsletterFormSubmit
