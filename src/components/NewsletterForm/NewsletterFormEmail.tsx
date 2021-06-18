@@ -8,6 +8,7 @@ type NewsletterFormEmailProps = {
   handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
   handleChange?: (event: React.FormEvent<HTMLInputElement>) => void;
   hasError?: boolean | null;
+  id: string;
   value?: string;
 };
 
@@ -15,6 +16,7 @@ export const NewsletterFormEmail = ({
   handleBlur,
   handleChange,
   hasError,
+  id,
   value
 }: NewsletterFormEmailProps) => {
   const classNames = cx('newsletter-form__input', {
@@ -25,24 +27,26 @@ export const NewsletterFormEmail = ({
     <NewsletterFormItem hasError={hasError} type="email">
       <label
         className="newsletter-form__item-label newsletter-form__item-label--email"
-        htmlFor="email"
+        htmlFor={id}
       >
         Your email address
       </label>
       <input
+        autoComplete="email"
         className={classNames}
-        id="email"
+        id={id}
         name="email"
         onBlur={handleBlur}
         onChange={handleChange}
         required
+        spellCheck="false"
         type="email"
         value={value}
       />
       {hasError && (
         <div className="newsletter-form__item-error">
           <VisuallyHidden>
-            Error on the &quot;Your email address&quot; field
+            Error on the &quot;Your email address&quot; field.
           </VisuallyHidden>
           <span className="newsletter-form__item-error-text">
             Please provide a valid email address.
