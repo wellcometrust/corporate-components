@@ -60,8 +60,7 @@ h6 {
 .is-search-active .pride-strip,
 .is-search-active .banner,
 .is-search-active .main,
-.is-search-active #main,
-.is-search-active .footer {
+.is-search-active #main {
   @include mq(md) {
     transform: translate3d(0, 64px, 0);
   }
