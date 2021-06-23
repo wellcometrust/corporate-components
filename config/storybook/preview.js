@@ -12,7 +12,7 @@ addDecorator(addReadme);
 addParameters({
   options: {
     theme: {
-      brandTitle: 'Wellcome Design System'
+      brandTitle: 'Wellcome.org component library'
     },
     panelPosition: 'right',
     sortStoriesByKind: true
