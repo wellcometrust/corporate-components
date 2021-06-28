@@ -4,6 +4,7 @@ import cx from 'classnames';
 import Button from 'Button';
 import Accordion, { AccordionItem } from 'Accordion/Accordion';
 import Checkbox from 'Checkbox';
+import FormFieldset from 'FormFieldset';
 import SkipLink from 'SkipLink';
 import VisuallyHidden from 'VisuallyHidden';
 
@@ -87,20 +88,29 @@ export const SidebarFilter = ({
         {tags.map(({ name, items }) => (
           <Accordion key={name} hasBorders variant="filter">
             <AccordionItem title={name}>
-              <ul className="cc-sidebar-filter__list">
-                {items.map(item => (
-                  <li className="cc-sidebar-filter__list-item" key={item.value}>
-                    <Checkbox
-                      checked={item.isActive}
-                      className="cc-sidebar-filter__checkbox"
-                      id={item.label}
-                      isDisabled={item.isDisabled}
-                      label={item.label}
-                      onChange={() => onChange(item.value)}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <FormFieldset
+                className="cc-sidebar-filter__list-wrapper"
+                legend={name}
+                legendClassName="u-visually-hidden"
+              >
+                <ul className="cc-sidebar-filter__list">
+                  {items.map(item => (
+                    <li
+                      className="cc-sidebar-filter__list-item"
+                      key={item.value}
+                    >
+                      <Checkbox
+                        checked={item.isActive}
+                        className="cc-sidebar-filter__checkbox"
+                        id={item.label}
+                        isDisabled={item.isDisabled}
+                        label={item.label}
+                        onChange={() => onChange(item.value)}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </FormFieldset>
             </AccordionItem>
           </Accordion>
         ))}
