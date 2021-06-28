@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from 'Button';
 import Icon from 'Icon';
+import VisuallyHidden from 'VisuallyHidden';
 
 type CookieMessageProps = {
   handleDismiss?: () => void;
@@ -14,7 +15,7 @@ export const CookieMessage = ({
 }: CookieMessageProps) => {
   return isActive ? (
     <div className="cookie-message">
-      <p className="cookie-message__heading">
+      <h2 className="cookie-message__heading">
         <Icon
           className="cookie-message__heading-icon"
           name="cookie"
@@ -22,7 +23,7 @@ export const CookieMessage = ({
           width="1.25rem"
         />
         Cookies
-      </p>
+      </h2>
       <p className="cookie-message__text">
         Wellcome uses cookies to improve your experience.{' '}
         <a
@@ -41,7 +42,7 @@ export const CookieMessage = ({
           Manage preferences
         </Button>
         <Button className="cookie-message__button" onClick={handleDismiss}>
-          Accept and close
+          Accept and close<VisuallyHidden> cookies banner</VisuallyHidden>
         </Button>
       </div>
     </div>
