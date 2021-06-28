@@ -134,7 +134,10 @@ export const NewsletterForm = ({
   return (
     // Show the success response if the submission has been sent
     responseSuccess ? (
-      <div className="newsletter-form__response-msg newsletter-form__response-msg--success">
+      <div
+        className="newsletter-form__response-msg newsletter-form__response-msg--success"
+        role="status"
+      >
         <p className="newsletter-form__response-msg-text">
           Thank you. If this is the first time you have subscribed to a
           newsletter from Wellcome, you will receive an email asking you to
