@@ -22,7 +22,7 @@ export const NewsletterFormResearchDropDown = ({
       <select
         id="edit-research-options"
         name="research_options"
-        className="form-select"
+        className="cc-select"
         value={value}
         onChange={handleChange}
       >

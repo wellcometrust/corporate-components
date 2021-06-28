@@ -11,6 +11,7 @@ type LogoProps = {
     path?: string;
   };
   fill?: string;
+  id?: string;
   title?: string;
 };
 
@@ -18,6 +19,7 @@ export const Logo = ({
   className,
   data: { viewBox, fillRule, path },
   fill,
+  id,
   title,
   ...otherProps
 }: LogoProps) => {
@@ -28,11 +30,11 @@ export const Logo = ({
       viewBox={viewBox}
       className={classNames}
       role="img"
-      aria-labelledby="logo-title"
+      aria-labelledby={id || null}
       preserveAspectRatio="xMinYMid"
       {...otherProps}
     >
-      {title && <title id="logo-title">{title}</title>}
+      {title && id && <title id={id}>{title}</title>}
       <path d={path} fill={fill} fillRule={fillRule} />
     </svg>
   );

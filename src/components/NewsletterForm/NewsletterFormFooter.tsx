@@ -9,7 +9,6 @@ export const NewsletterFormFooter = () => (
       We use a third party provider, Dotdigital, to deliver our newsletters. For
       information about how we handle your data, please read our{' '}
       <a
-        aria-label="We use a third party provider, Dotdigital, to deliver our newsletters. For information about how we handle your data, please read our privacy notice."
         className="newsletter-form__link"
         href="/about-us/governance/privacy-and-terms"
       >
