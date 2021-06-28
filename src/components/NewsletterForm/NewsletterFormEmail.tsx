@@ -44,7 +44,7 @@ export const NewsletterFormEmail = ({
         value={value}
       />
       {hasError && (
-        <div className="newsletter-form__item-error">
+        <div className="newsletter-form__item-error" role="status">
           <VisuallyHidden>
             Error on the &quot;Your email address&quot; field.
           </VisuallyHidden>
