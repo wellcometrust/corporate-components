@@ -56,6 +56,6 @@ const AccordionExample = () => {
   );
 };
 
-storiesOf('Components|Accordion', module).add('Accordion', AccordionExample, {
+storiesOf('Components/Accordion', module).add('Accordion', AccordionExample, {
   readme: { sidebar: Readme }
 });

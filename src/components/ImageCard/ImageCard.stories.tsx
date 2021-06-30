@@ -93,7 +93,7 @@ const MultipleImageCard = () => {
   );
 };
 
-const stories = storiesOf('ImageCard', module);
+const stories = storiesOf('Components/ImageCard', module);
 
 stories.add('Single', SingleImageCard);
 stories.add('Multiple', MultipleImageCard);

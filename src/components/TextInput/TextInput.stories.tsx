@@ -49,7 +49,7 @@ const TextInputFormFieldExample = () => {
   );
 };
 
-const stories = storiesOf('TextInput', module);
+const stories = storiesOf('Components/TextInput', module);
 
 stories.add('Simple', TextInputExample);
 stories.add('Form Field (with label)', TextInputFormFieldExample);

@@ -21,7 +21,7 @@ const SkipLinkExample = () => {
   );
 };
 
-const stories = storiesOf('SkipLink', module);
+const stories = storiesOf('Components/SkipLink', module);
 
 stories.add('SkipLink', SkipLinkExample, {
   readme: { sidebar: Readme }

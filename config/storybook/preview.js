@@ -15,6 +15,9 @@ addParameters({
       brandTitle: 'Wellcome.org Components'
     },
     panelPosition: 'right',
-    sortStoriesByKind: true
+    sortStoriesByKind: true,
+    storySort: {
+      order: ['Global', 'Components']
+    }
   }
 });

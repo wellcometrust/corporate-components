@@ -47,6 +47,6 @@ const FeaturedPromoExample = () => {
   );
 };
 
-const stories = storiesOf('FeaturedPromo', module);
+const stories = storiesOf('Components/FeaturedPromo', module);
 
 stories.add('FeaturedPromo', FeaturedPromoExample);

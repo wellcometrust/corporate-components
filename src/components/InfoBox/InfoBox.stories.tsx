@@ -51,7 +51,7 @@ const InfoBoxExample = () => {
   );
 };
 
-const stories = storiesOf('Components|InfoBox', module);
+const stories = storiesOf('Components/InfoBox', module);
 
 stories.add('InfoBox', InfoBoxExample, {
   readme: { sidebar: Readme }

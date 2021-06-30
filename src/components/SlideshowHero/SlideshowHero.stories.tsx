@@ -73,7 +73,7 @@ const SlideshowHeroExample = () => {
   );
 };
 
-const stories = storiesOf('Components|SlideshowHero', module);
+const stories = storiesOf('Components/SlideshowHero', module);
 
 stories.add('SlideshowHero', SlideshowHeroExample, {
   readme: { sidebar: Readme }

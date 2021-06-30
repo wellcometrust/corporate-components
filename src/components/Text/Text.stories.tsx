@@ -183,7 +183,7 @@ const TextExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Text', module);
+const stories = storiesOf('Components/Text', module);
 
 stories.add('Text', TextExample, {
   readme: { sidebar: Readme }

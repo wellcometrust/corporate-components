@@ -74,7 +74,7 @@ const TimelineExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Timeline', module);
+const stories = storiesOf('Components/Timeline', module);
 
 stories.add('Timeline', TimelineExample, {
   readme: { sidebar: Readme }

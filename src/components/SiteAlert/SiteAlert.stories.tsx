@@ -12,6 +12,6 @@ const SiteAlertExample = () => {
   return <SiteAlert isActive={isActive} text={textString} url={urlString} />;
 };
 
-const stories = storiesOf('Components|SiteAlert', module);
+const stories = storiesOf('Components/SiteAlert', module);
 
 stories.add('SiteAlert', SiteAlertExample);

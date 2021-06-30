@@ -79,7 +79,7 @@ const MultipleFactCard = () => {
   );
 };
 
-const stories = storiesOf('FactCard', module);
+const stories = storiesOf('Components/FactCard', module);
 
 stories.add('SingleFactCard', SingleFactCard);
 stories.add('MultipleFactCard', MultipleFactCard);

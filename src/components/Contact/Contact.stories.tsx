@@ -27,7 +27,7 @@ const ContactExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Contact', module);
+const stories = storiesOf('Components/Contact', module);
 
 stories.add('Contact', ContactExample, {
   readme: { sidebar: Readme }

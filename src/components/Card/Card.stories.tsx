@@ -59,7 +59,7 @@ const CardExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Listings', module);
+const stories = storiesOf('Components/Listings', module);
 
 stories.add('Card', CardExample, {
   readme: { sidebar: Readme }

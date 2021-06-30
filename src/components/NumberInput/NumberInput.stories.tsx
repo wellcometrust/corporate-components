@@ -42,7 +42,7 @@ const NumberInputExample = () => {
   );
 };
 
-const stories = storiesOf('NumberInput', module);
+const stories = storiesOf('Components/NumberInput', module);
 
 stories.add('NumberInput', NumberInputExample, {
   readme: { sidebar: Readme }

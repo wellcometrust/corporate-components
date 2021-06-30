@@ -36,7 +36,7 @@ const ResultsCountDropdownExample = () => {
   );
 };
 
-const stories = storiesOf('ResultsCount', module);
+const stories = storiesOf('Components/ResultsCount', module);
 
 stories.add('Simple', ResultsCountExample);
 stories.add('With dropdown', ResultsCountDropdownExample);

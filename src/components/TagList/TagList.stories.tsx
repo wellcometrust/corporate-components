@@ -26,6 +26,6 @@ const TagListExample = () => {
   return <TagList tags={tags} />;
 };
 
-const stories = storiesOf('Page header (articles)', module);
+const stories = storiesOf('Components/Page header (articles)', module);
 
 stories.add('TagList', TagListExample);

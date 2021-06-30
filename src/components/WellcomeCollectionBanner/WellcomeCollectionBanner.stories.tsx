@@ -10,6 +10,6 @@ const BannerExample = () => {
   return <WellcomeCollectionBanner isActive={isActive} />;
 };
 
-const stories = storiesOf('Components|WellcomeCollectionBanner', module);
+const stories = storiesOf('Components/WellcomeCollectionBanner', module);
 
 stories.add('WellcomeCollectionBanner', BannerExample);

@@ -8,7 +8,7 @@ const TableauChartExample = () => {
   return <TableauChart embed="" />;
 };
 
-const stories = storiesOf('Components|TableauChart', module);
+const stories = storiesOf('Components/TableauChart', module);
 
 stories.add('TableauChart', TableauChartExample, {
   readme: { sidebar: Readme }

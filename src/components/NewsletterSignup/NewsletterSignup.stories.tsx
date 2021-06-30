@@ -26,7 +26,7 @@ const NewsletterSignupExample = () => {
   );
 };
 
-const stories = storiesOf('Components|NewsletterSignup', module);
+const stories = storiesOf('Components/NewsletterSignup', module);
 
 stories.add('NewsletterSignup', NewsletterSignupExample, {
   readme: { sidebar: Readme }

@@ -10,6 +10,6 @@ const MessageExample = () => {
   return <CookieMessage isActive={isActive} />;
 };
 
-const stories = storiesOf('Components|CookieMessage', module);
+const stories = storiesOf('Components/CookieMessage', module);
 
 stories.add('CookieMessage', MessageExample);

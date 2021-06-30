@@ -37,7 +37,7 @@ const LinkListExample = () => (
   </Listing>
 );
 
-const stories = storiesOf('Components|Listings', module);
+const stories = storiesOf('Components/Listings', module);
 
 stories.add('Links List', LinkListExample, {
   readme: { sidebar: Readme }

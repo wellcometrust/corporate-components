@@ -25,7 +25,7 @@ const ImageBannerExample = () => {
   );
 };
 
-const stories = storiesOf('Page header', module);
+const stories = storiesOf('Components/Page header', module);
 
 stories.add('ImageBanner', ImageBannerExample, {
   readme: { sidebar: Readme }
