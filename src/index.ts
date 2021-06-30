@@ -28,7 +28,6 @@ export { default as Iframe } from 'Iframe';
 export { Image } from 'Image/Image';
 export { ImageBanner } from 'ImageBanner/ImageBanner';
 export { InfoBox } from 'InfoBox/InfoBox';
-export { InpageNav } from 'InpageNav/InpageNav';
 export { default as Label } from 'Label';
 export { default as Link } from 'Link';
 export { Listing, ListingElement, ListingLink } from 'Listing/Listing';
