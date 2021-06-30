@@ -14,7 +14,7 @@ const QuoteExample = () => {
   return <Quote cite={cite} text={quoteBody} />;
 };
 
-const stories = storiesOf('Components|Quote', module);
+const stories = storiesOf('Components/Quote', module);
 
 stories.add('Quote', QuoteExample, {
   readme: { sidebar: Readme }

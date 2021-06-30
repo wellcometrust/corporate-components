@@ -23,7 +23,7 @@ const VideoExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Video', module);
+const stories = storiesOf('Components/Video', module);
 
 stories.add('Video', VideoExample, {
   readme: { sidebar: Readme }

@@ -50,6 +50,6 @@ const TextCardExample = () => {
   );
 };
 
-const stories = storiesOf('TextCard', module);
+const stories = storiesOf('Components/TextCard', module);
 
 stories.add('TextCard', TextCardExample);

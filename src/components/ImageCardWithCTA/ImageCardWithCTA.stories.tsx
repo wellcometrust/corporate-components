@@ -76,7 +76,7 @@ const MultipleImageCardWithCTA = () => {
   );
 };
 
-const stories = storiesOf('ImageCardWithCTA', module);
+const stories = storiesOf('Components/ImageCardWithCTA', module);
 
 stories.add('Single', SingleImageCardWithCTA);
 stories.add('Multiple', MultipleImageCardWithCTA);

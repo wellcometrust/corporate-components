@@ -58,7 +58,7 @@ const GalleryExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Gallery', module);
+const stories = storiesOf('Components/Gallery', module);
 
 stories.add('Gallery', GalleryExample, {
   readme: { sidebar: Readme }

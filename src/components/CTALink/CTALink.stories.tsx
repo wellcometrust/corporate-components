@@ -11,6 +11,6 @@ const CTALinkExample = () => {
   return <CTALink href={href} text={linkText} />;
 };
 
-const stories = storiesOf('CTA Link', module);
+const stories = storiesOf('Components/CTA Link', module);
 
 stories.add('CTA Link', CTALinkExample);

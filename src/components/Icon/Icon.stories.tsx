@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import Icon from './Icon';
 import IconReadme from './Icon.md';
 
-storiesOf('Components|Icon', module).add(
+storiesOf('Global/Icons', module).add(
   'Icons',
   () => (
     <div>

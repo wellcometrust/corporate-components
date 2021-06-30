@@ -11,7 +11,7 @@ const SectionTitleExample = () => {
   return <SectionTitle title={sectionTitleText} />;
 };
 
-const stories = storiesOf('Components|SectionTitle', module);
+const stories = storiesOf('Components/SectionTitle', module);
 
 stories.add('SectionTitle', SectionTitleExample, {
   readme: { sidebar: Readme }

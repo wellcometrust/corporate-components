@@ -21,7 +21,7 @@ const ImageExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Image', module);
+const stories = storiesOf('Components/Image', module);
 
 stories.add('Image', ImageExample, {
   readme: { sidebar: Readme }

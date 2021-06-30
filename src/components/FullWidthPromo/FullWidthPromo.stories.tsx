@@ -64,6 +64,6 @@ const FullWidthPromoExample = () => {
   );
 };
 
-const stories = storiesOf('FullWidthPromo', module);
+const stories = storiesOf('Components/FullWidthPromo', module);
 
 stories.add('FullWidthPromo', FullWidthPromoExample);

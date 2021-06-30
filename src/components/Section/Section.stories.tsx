@@ -20,6 +20,6 @@ const SectionExample = () => {
   );
 };
 
-const stories = storiesOf('Components|Section', module);
+const stories = storiesOf('Components/Section', module);
 
 stories.add('Section', SectionExample, { readme: { sidebar: Readme } });
